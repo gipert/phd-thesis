@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# keep track of the last executed command
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+# echo an error message before exiting
+trap 'echo "\"${last_command}\" command failed with exit code $?."' EXIT
+
+git status
+
+echo -n "Commit and push? [y/n] "; read ans
+
+if [ "$ans" == "y" ]; then
+    git add .
+    git commit -m "[`hostname`] `date`"
+    git push origin master
+fi

@@ -1,0 +1,202 @@
+\usepackage{amssymb}     % packages called in main file, e.g. gstr-template.tex
+\usepackage{marvosym}    % symbols for EURO
+\usepackage{upgreek}     % for upright greek letters in units
+
+% units
+\newcommand{\ctsper}      {cts/(keV$\cdot$kg$\cdot$yr)}
+\newcommand{\ctsperee}    {cts/(keV$_{ee}\cdot$kg$\cdot$yr)}
+\newcommand{\ctsperrec}   {cts/(keV$_{rec}\cdot$kg$\cdot$yr)}
+\newcommand{\zctsper}     {{$10^{-2}$~cts/(keV$\cdot$kg$\cdot$yr)}}
+\newcommand{\tctsper}     {{$10^{-2}$~cts/(keV$\cdot$kg$\cdot$yr)}}
+\newcommand{\pIbi}        {{$10^{-2}$~cts/(keV$\cdot$kg$\cdot$yr)}}
+\newcommand{\dctsper}     {{$10^{-3}$~cts/(keV$\cdot$kg$\cdot$yr)}}
+\newcommand{\pIIbi}       {{$10^{-3}$~cts/(keV$\cdot$kg$\cdot$yr)}}
+\newcommand{\biperton}    {{1~cts/(keV$\cdot$t$\cdot$yr)}}
+\newcommand{\vctsper}     {{$10^{-4}$~cts/(keV$\cdot$kg$\cdot$yr)}}
+\newcommand{\ctsperx}     {$\frac{10^{-3}\rm cts}{\rm keV\cdot kg \cdot yr}$}
+\newcommand{\kgy}         {{kg$\cdot$yr}}
+\newcommand{\kgyr}        {{kg$\cdot$yr}}
+\newcommand{\kevkgyr}     {{keV$\cdot$kg$\cdot$yr}}
+\newcommand{\cum}         {{m$^3$}}
+\newcommand{\mubq}        {{$\upmu$Bq}}
+\newcommand{\mum}         {{$\upmu$m}}
+\newcommand{\mus}         {{$\upmu$s}}
+%\newcommand{\mubqperkg}   {{$\frac{\upmu\mathrm{Bq}}{\mathrm{kg}}$}}
+\newcommand{\mubqperkg}   {{${\upmu\mathrm{Bq}}/{\mathrm{kg}}$}}
+\newcommand{\baseT}[2]{\mbox{$#1{\cdot}10^{#2}$}}
+\newcommand{\baseTsolo}[1]{$10^{#1}$}
+%
+\newcommand{\C}           {$^\circ$C}
+\newcommand{\al}          {$\alpha$}
+\newcommand{\be}          {$\beta$}
+\newcommand{\ga}          {$\gamma$}
+\newcommand{\gam}         {$\gamma$}
+\newcommand{\gammas}      {$\gamma${s}}
+\newcommand{\gline}       {$\gamma$ line}
+\newcommand{\glines}      {$\gamma$ lines}
+\newcommand{\gray}        {$\gamma$ ray}
+\newcommand{\grays}       {$\gamma$ rays}
+\newcommand{\qbb}         {{$Q_{\beta\beta}$}}
+\newcommand{\upqbb}       {Q$_{\upbeta\upbeta}$}
+\newcommand{\Qbb}         {{$\text{Q}_{\beta\beta}$}}
+\newcommand{\thalfzero}   {${T^{0\nu}_{1/2}}$}
+\newcommand{\thalftwo}    {${T^{2\nu}_{1/2}}$}
+\newcommand{\thalfmajo}   {{${T^{0\nu \chi }_{1/2}}$}}
+\newcommand{\nmez}        {${\cal M}^{0\nu}$}
+\newcommand{\nmet}        {${\cal M}^{2\nu}$}
+\newcommand{\mbb}         {${\langle m_{\beta\beta}\rangle}$}
+% dbd
+\newcommand{\bbno}        {{$0\nu\beta\beta$}}
+\newcommand{\onbb}        {{$0\nu\beta\beta$}}
+\newcommand{\onbbchi}     {{$0\nu\beta\beta\chi$}}
+\newcommand{\nnbb}        {{$2\nu\beta\beta$}}
+\newcommand{\uponbb}      {{$0\upnu\upbeta\upbeta$}}
+\newcommand{\upnnbb}      {{$2\upnu\upbeta\upbeta$}}
+\newcommand{\twonu}       {{$2\nu\beta\beta$}}
+\newcommand{\onecec}      {{$0\nu\rm{ECEC}$}}
+\newcommand{\nnecec}      {{$2\nu\rm{ECEC}$}}
+\newcommand{\tlive}       {\mbox{$t_{live}$}}
+\newcommand{\flive}       {\mbox{$f_{live}$}}
+\newcommand{\fge}         {\mbox{$f_{Ge}$}}
+\newcommand{\fgesix}      {\mbox{$f_{76}$}}
+\newcommand{\fgesixi}     {\mbox{$f_{76,i}$}}
+\newcommand{\actmass}     {\mbox{$M_{act}$}}
+\newcommand{\ssmass}      {\mbox{$M_{76}$}}
+\newcommand{\factmass}    {\mbox{$f_{av}$}}
+\newcommand{\factmassi}   {\mbox{$f_{av,i}$}}
+\newcommand{\factvol}     {\mbox{$f_{av}$}}
+\newcommand{\factvoli}    {\mbox{$f_{av,i}$}}
+\newcommand{\subssix}     {\mbox{$_{76}$}}
+\newcommand{\subssixi}    {\mbox{$_{76,i}$}}
+\newcommand{\subav}       {\mbox{$_{av}$}}
+\newcommand{\subavi}      {\mbox{$_{av,i}$}}
+% for literature
+\newcommand{\etal}        {\textit{et al.}}
+\newcommand{\bulitem}     {\item[{\large$\bullet$}]}
+\newcommand{\prep}        {\textit{Preprint}}
+\newcommand{\NIM}         {Nucl.~Instr.~Meth.}
+\newcommand{\PRB}         {Phys.~Rev.~B}
+\newcommand{\mpik}        {\mbox{MPI-K}}
+\newcommand{\mpip}        {\mbox{MPI-P}}
+% experiments and equipment
+\newcommand{\gerda}       {\textsc{Gerda}}
+\newcommand{\G}           {{\mbox{\textsc{Gerda}}}}
+\newcommand{\GERDA}       {\mbox{\textsc{Gerda}}}
+\newcommand{\lngs}        {{\mbox{\textsc{Lngs}}}}
+\newcommand{\LNGS}        {{\mbox{\textsc{Lngs}}}}
+\newcommand{\WT}          {water tank}
+\newcommand{\lar}         {LAr}
+\newcommand{\geni}        {{\mbox{\textsc{Genius}}}}
+\newcommand{\gdl}         {\textsc{Gdl}}
+\newcommand{\gerdalarge}  {\textsc{Gerda-LArGe}}
+\newcommand{\bege}        {{\sc BEGe}}
+\newcommand{\phaseone}    {Phase~I}
+\newcommand{\phasetwo}    {Phase~II}
+\newcommand{\phasetwop}   {Phase~II$^+$}
+\newcommand{\gerdatwo}    {\gerda\ Phase~II}
+\newcommand{\LArGe}       {\textsc{LArGe}}
+\newcommand{\SUB}         {{\mbox{\text{SUB}}}}
+\newcommand{\Gerdella}    {{\mbox{\textsc{Gerdella}}}}
+\newcommand{\GeMPI}       {Ge\textsc{MPI}}
+\newcommand{\GEMPI}       {Ge\textsc{mpi}}
+\newcommand{\majorana}    {\textsc{Majorana}}
+\newcommand{\Majorana}    {{\mbox{\textsc{Majorana}}}}
+\newcommand{\MAJORANA}    {{\sc Majorana}}
+\newcommand{\eureca}      {{\sc Eureca}}
+\newcommand{\igex}        {\textsc{Igex}}
+\newcommand{\IGEX}        {{\mbox{\textsc{Igex}}}}
+\newcommand{\hdm}         {\textsc{HdM}}
+\newcommand{\HdM}         {\mbox{\textsc{HdM}}}
+\newcommand{\HDM}         {\mbox{\textsc{HdM}}}
+\newcommand{\BX}          {\mbox{\textsc{Borexino}}}
+\newcommand{\borex}       {\mbox{\textsc{Borexino}}}
+\newcommand{\borexino}       {\mbox{\textsc{Borexino}}}
+\newcommand{\EUROBALL}    {\textsc{Euroball}}
+\newcommand{\ICARUS}      {\textsc{Icarus}}
+\newcommand{\LENS}        {\textsc{Lens}}
+\newcommand{\STRAW}       {\textsc{Straw}}
+\newcommand{\Gallex}      {\textsc{Gallex}}
+\newcommand{\LVD}         {{\mbox{\textsc{Lvd}}}}
+\newcommand{\GNO}         {{\mbox{\textsc{Gno}}}}
+\newcommand{\KAMLAND}     {{\mbox{\textsc{KAMland}}}}
+\newcommand{\CUORI}       {{\mbox{\textsc{Cuoricino}}}}
+\newcommand{\CUORE}       {{\mbox{\textsc{Cuore}}}}
+\newcommand{\cuore}       {{\mbox{\textsc{Cuore}}}}
+\newcommand{\AGATA}       {{\mbox{\textsc{Agata}}}}
+\newcommand{\WMAP}        {{\mbox{\textsc{Wmap}}}}
+\newcommand{\NEMO}        {{\mbox{\textsc{Nemo}}}}
+\newcommand{\KATRIN}      {{\mbox{\textsc{Katrin}}}}
+\newcommand{\MOON}        {{\mbox{\textsc{Moon}}}}
+\newcommand{\EXO}         {{\mbox{\textsc{Exo}}}}
+\newcommand{\GEM}         {{\mbox{\textsc{Gem}}}}
+\newcommand{\CAMEO}       {{\mbox{\textsc{Cameo}}}}
+\newcommand{\COBRA}       {{\mbox{\textsc{Cobra}}}}
+\newcommand{\CRYOGENM}    {{\mbox{\textsc{Cryogenmash}}}}
+\newcommand{\xenon}       {{\mbox{\textsc{Xenon}}}}
+\newcommand{\Xenon}       {{\mbox{\textsc{Xenon}}}}
+\newcommand{\taiga}       {{\mbox{\textsc{Taiga}}}}
+% code
+\newcommand{\geant}       {\textsc{Geant4}}
+\newcommand{\GEANT}       {\textsc{\mbox{{Geant}}}}
+\newcommand{\rootv}       {\textsc{Root}}
+\newcommand{\CERN}        {{\mbox{\textsc{Cern}}}}
+\newcommand{\mage}        {\textsc{MaGe}}
+\newcommand{\gelatio}     {\textsc{Gelatio}}
+\newcommand{\mgdo}        {\mbox{MGDO}}
+\newcommand{\tier}        {\textsc{Tier}}
+% isotopes
+\newcommand{\gesix}       {{$^{76}$Ge}}
+\newcommand{\geseven}     {{$^{77}$Ge}}
+\newcommand{\gefour}      {{$^{74}$Ge}}
+\newcommand{\gethree}     {{$^{73}$Ge}}
+\newcommand{\gess}        {{$^{76}$Ge}}
+\newcommand{\gesf}        {{$^{74}$Ge}}
+\newcommand{\geenr}       {{$^{\rm enr}$Ge}}
+\newcommand{\genat}       {{$^{\rm nat}$Ge}}
+\newcommand{\gedep}       {{$^{\rm dep}$Ge}}
+\newcommand{\geox}        {{GeO$_2$}}
+\newcommand{\enrgecoax}   {{$^{\rm enr}$Ge-coax}}
+\newcommand{\nuc}[2]      {{$^{#2}$\rm #1}}
+
+\newcommand{\cosix}       {{$^{60}$Co}}
+\newcommand{\radzzs}      {{$^{226}$Ra}}
+\newcommand{\thzza}       {{$^{228}$Th}}
+\newcommand{\tlzna}       {{$^{208}$Tl}}
+\newcommand{\kvn}         {{$^{40}$K}}
+\newcommand{\kvz}         {{$^{42}$K}}
+\newcommand{\Am}          {$^{241}$Am}
+\newcommand{\Rn}          {$^{222}$Rn}
+\newcommand{\Ra}          {$^{226}$Ra}
+\newcommand{\Po}          {$^{210}$Po}
+\newcommand{\Ar}          {$^{39}$Ar}
+\newcommand{\Kr}          {$^{85}$Kr}
+\newcommand{\Xe}          {$^{133}$Xe}
+\newcommand{\Ba}          {$^{133}$Ba}
+\newcommand{\Bil}         {$^{212}$Bi}
+\newcommand{\Bih}         {$^{214}$Bi}
+\newcommand{\Yb}          {$^{176}$Yb}
+\newcommand{\Fe}          {$^{55}$Fe}
+\newcommand{\Th}          {$^{228}$Th}
+\newcommand{\Tl}          {$^{208}$Tl}
+\newcommand{\Ul}          {$^{235}$U}
+\newcommand{\Uh}          {$^{238}$U}
+\newcommand{\Be}          {$^7$Be}
+\newcommand{\YO}          {Yb$_2$O$_3$}
+\newcommand{\Co}          {$^{60}$Co}
+\newcommand{\Ac}          {$^{228}$Ac}
+\newcommand{\Pbl}         {$^{210}$Pb}
+\newcommand{\Pbh}         {$^{214}$Pb}
+\newcommand{\Pa}          {$^{234\text{m}}$Pa}
+
+\newcommand{\exposure}    {\mbox{$\cal E$}}
+\newcommand{\effqual}     {\mbox{$\varepsilon_{qcut}$}}
+\newcommand{\effpsd}      {\mbox{$\varepsilon_{psd}$}}
+\newcommand{\effres}      {\mbox{$\varepsilon_{res}$}}
+\newcommand{\efffep}      {\mbox{$\varepsilon_{fep}$}}
+\newcommand{\effquali}    {\mbox{$\varepsilon_{qcut,i}$}}
+\newcommand{\effpsdi}     {\mbox{$\varepsilon_{psd,i}$}}
+\newcommand{\effresi}     {\mbox{$\varepsilon_{res,i}$}}
+\newcommand{\efffepi}     {\mbox{$\varepsilon_{fep,i}$}}
+\newcommand{\effmuon}     {\mbox{$\varepsilon_\mu$}}
+\newcommand{\effmurej}    {\mbox{$\varepsilon_{rej}$}}
+\newcommand{\effmureji}   {\mbox{$\varepsilon_{rej,i}$}}
