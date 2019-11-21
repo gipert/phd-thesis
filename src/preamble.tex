@@ -1,7 +1,13 @@
-\documentclass{article}
+\documentclass[11pt,a4paper,twoside]{book}
+
+\input{aliases.tex}
+
+% font
+\usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{microtype}
+\usepackage{marginnote}\renewcommand*{\marginfont}{\scshape}
 
 % math
 \usepackage{amsmath}
@@ -10,7 +16,36 @@
 \renewcommand{\rho}{\varrho}
 \renewcommand{\phi}{\varphi}
 
+% graphics
 \usepackage{graphicx}
 \graphicspath{{img/}}
 
-\input{commands}
+% tables
+\usepackage{caption}\captionsetup[table]{position=top}
+
+% abstract environment
+\usepackage{fancyhdr}
+\pagestyle{empty}
+\newenvironment{abstract}{%
+  \cleardoublepage\null\vfill
+  \begin{center}\bfseries\abstractname\end{center}
+}{\vfill\null}
+
+% bibliography
+\usepackage[
+  sorting=ynt,
+  date=year,
+  url=false,
+  doi=true,
+  eprint=false
+]{biblatex}
+\addbibresource{bib/gerda-collab.bib}
+
+% other
+\usepackage{lipsum}
+%\usepackage{lineno}\linenumbers
+\usepackage[hidelinks]{hyperref} % must be loaded before cleveref
+\usepackage{cleveref}
+% \crefname{section}{\S}{\S\S}
+% \Crefname{section}{\S}{\S\S}
+% \crefformat{section}{\S#2#1#3}

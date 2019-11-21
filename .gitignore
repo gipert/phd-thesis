@@ -4,6 +4,7 @@
 *.bbl
 *.blg
 *.synctex.*
+/src/main.pdf
 
 *.DS_Store
 *.swp

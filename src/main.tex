@@ -1,8 +1,23 @@
 % arara: xelatex
 % arara: clean: { extensions: [ aux, log ] }
 
-\input{preamble}
+\input{preamble.tex}
+
+\title{Background and signal of the \gerda\ experiment}
+\author{Luigi Pertoldi}
 
 \begin{document}
-  Hello!
+
+  \maketitle
+
+  \begin{abstract}
+    \lipsum[1]
+  \end{abstract}
+  \tableofcontents
+
+  \setcounter{page}{1} % start numbering
+  \renewcommand{\thepage}{\scshape\roman{page}} % roman numerals for introduction
+  \include{chap1.tex}
+  \pagenumbering{arabic} % arabic numerals for the rest
+
 \end{document}
