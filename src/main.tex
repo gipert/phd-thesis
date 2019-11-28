@@ -1,5 +1,6 @@
-% arara: xelatex
-% arara: clean: { extensions: [ aux, log ] }
+% arara: prestep: { builddir: '.auxtex' }
+% arara: xelatex: { options: [ -output-directory=.auxtex ] }
+% arara: poststep: { builddir: '.auxtex' }
 
 \input{preamble.tex}
 

@@ -1,0 +1,17 @@
+!config
+identifier: prestep
+name: Prepare
+authors:
+- Luigi Pertoldi
+commands:
+- name: Creating build directories
+  command: >
+    @{
+        return getCommand('mkdir', '-p', builddir);
+    }
+arguments:
+    - identifier: builddir
+      flag: >
+          @{
+              return parameters.builddir;
+          }
