@@ -8,20 +8,29 @@
 \usepackage[T1]{fontenc}
 \usepackage{microtype}
 \usepackage{marginnote}\renewcommand*{\marginfont}{\scshape}
-\usepackage{ebgaramond}
+\usepackage[lining]{ebgaramond}
 
 % layout
 \usepackage{geometry}
+\usepackage{subfigure}
 \usepackage{multicol}
 \usepackage{titlesec}
-\titleformat{\chapter}[hang]{\Huge\bfseries}{}{0pt}{\Huge\bfseries}
+\titleformat{\chapter}[hang]{\Huge\swshape}{}{0pt}{\Huge\swshape}
+\usepackage[subfigure,titles]{tocloft}
+  \setlength{\cftsubsecindent}{1cm}
+  \renewcommand{\cftsecfont}{\large}
+  \renewcommand{\cftsubsecfont}{\swshape}
+  \renewcommand{\cftsecpagefont}{\scshape}
+\renewcommand{\labelitemi}{$\diamond$} % itemize bullets
 
 % math
+\usepackage[cmbraces,varg,libertine]{newtxmath}
+\usepackage{bm}\renewcommand{\mathbf}{\bm}
 \usepackage{amsmath}
-\renewcommand{\epsilon}{\varepsilon}
-\renewcommand{\theta}{\vartheta}
-\renewcommand{\rho}{\varrho}
-\renewcommand{\phi}{\varphi}
+  \renewcommand{\epsilon}{\varepsilon}
+  \renewcommand{\theta}{\vartheta}
+  \renewcommand{\rho}{\varrho}
+  \renewcommand{\phi}{\varphi}
 
 % graphics
 \usepackage{graphicx}
@@ -33,20 +42,19 @@
 
 % bibliography, references
 \usepackage[
-  sorting=ynt,
+  sorting=none,
   date=year,
-  url=false,
   doi=true,
-  eprint=false
+  eprint=true
 ]{biblatex}
-\addbibresource{bib/gerda-collab.bib}
+\addbibresource{bib/*.bib}
 
 % other
 \usepackage{lipsum}
 %\usepackage{lineno}\linenumbers
 \usepackage[hidelinks]{hyperref} % must be loaded before cleveref
 \usepackage{cleveref}
-\crefformat{chapter}{chap.~#2#1#3}
-\crefformat{section}{sec.~#2#1#3}
-\crefformat{subsection}{sec.~#2#1#3}
-\crefformat{equation}{eq.~(#2#1#3)}
+  \crefformat{chapter}{chap.~#2#1#3}
+  \crefformat{section}{sec.~#2#1#3}
+  \crefformat{subsection}{sec.~#2#1#3}
+  \crefformat{equation}{eq.~(#2#1#3)}

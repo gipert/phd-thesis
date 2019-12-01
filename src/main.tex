@@ -4,6 +4,7 @@
 % arara: poststep: { builddir: '.auxtex' }
 
 \input{tex/preamble}
+\includeonly{chap/chap2}
 
 \begin{document}
 
@@ -21,10 +22,12 @@
   \thispagestyle{empty}
   \clearpage
 
-  \include{intro}
-  \include{chap1}
-  \include{chap2}
-  \include{chap3}
+  \include{chap/intro}
+  \include{chap/chap1}
+  \include{chap/chap2}
+  \include{chap/chap3}
+
+  \printbibliography
 
   \appendix
   \listoftables

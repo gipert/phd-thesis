@@ -2,13 +2,17 @@
 \usepackage{marvosym}    % symbols for EURO
 \usepackage{upgreek}     % for upright greek letters in units
 
+\newcommand{\fillme}{\textcolor{red}{\texttt{fillme}}}
+\newcommand{\bkgfree}{\emph{background-free}}
+\newcommand{\gerdafinallimit}{\fillme~$10^{26}$~yr}
+
 % units
 \newcommand{\ctsper}      {cts/(keV$\cdot$kg$\cdot$yr)}
 \newcommand{\ctsperee}    {cts/(keV$_{ee}\cdot$kg$\cdot$yr)}
 \newcommand{\ctsperrec}   {cts/(keV$_{rec}\cdot$kg$\cdot$yr)}
 \newcommand{\zctsper}     {{$10^{-2}$~cts/(keV$\cdot$kg$\cdot$yr)}}
 \newcommand{\tctsper}     {{$10^{-2}$~cts/(keV$\cdot$kg$\cdot$yr)}}
-\newcommand{\pIbi}        {{$10^{-2}$~cts/(keV$\cdot$kg$\cdot$yr)}}
+\newcommand{\pIbi}        {{$1.2\cdot10^{-2}$~cts/(keV$\cdot$kg$\cdot$yr)}}
 \newcommand{\dctsper}     {{$10^{-3}$~cts/(keV$\cdot$kg$\cdot$yr)}}
 \newcommand{\pIIbi}       {{$10^{-3}$~cts/(keV$\cdot$kg$\cdot$yr)}}
 \newcommand{\biperton}    {{1~cts/(keV$\cdot$t$\cdot$yr)}}
@@ -23,8 +27,7 @@
 \newcommand{\mus}         {{$\upmu$s}}
 %\newcommand{\mubqperkg}   {{$\frac{\upmu\mathrm{Bq}}{\mathrm{kg}}$}}
 \newcommand{\mubqperkg}   {{${\upmu\mathrm{Bq}}/{\mathrm{kg}}$}}
-\newcommand{\baseT}[2]{\mbox{$#1{\cdot}10^{#2}$}}
-\newcommand{\baseTsolo}[1]{$10^{#1}$}
+\newcommand{\powtenyr}[1]{$10^{#1}$~yr}
 %
 \newcommand{\C}           {$^\circ$C}
 \newcommand{\al}          {$\alpha$}
