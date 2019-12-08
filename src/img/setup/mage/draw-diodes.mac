@@ -1,0 +1,29 @@
+# build gerda geometry
+/control/execute load-phaseII.mac
+
+/run/initialize
+
+/vis/viewer/set/autoRefresh false
+
+# open viewer. Other options: DAWNFILE, HepRep, HepRepXML, RayTracer, RaytracerX ...
+# /vis/open OGLIX 1850x1050
+/vis/open RayTracer 2000x3000
+/vis/scene/create
+
+# add here the volumes to draw
+/control/execute diodes.mac
+
+/vis/sceneHandler/attach
+
+# you can now customize your view, check the official docs
+# https://geant4.web.cern.ch/geant4/UserDocumentation/UsersGuides/ForApplicationDeveloper/html/ch08s04.html
+/vis/viewer/zoom 1.6
+/vis/viewer/set/lightsMove cam
+/vis/viewer/set/background white
+/vis/viewer/set/lineSegmentsPerCircle 200
+/vis/viewer/set/viewpointThetaPhi 300 90
+/vis/viewer/set/style surface
+
+/vis/viewer/flush
+
+# vim: foldmethod=marker

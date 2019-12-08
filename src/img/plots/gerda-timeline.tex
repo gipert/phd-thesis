@@ -1,0 +1,104 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+\pgfplotsset{compat=1.3}
+
+\newcommand{\expPhI}{21.6}
+\newcommand{\expNature}{10.8}
+\newcommand{\expPRL}{12.4}
+\newcommand{\expScience}{35.7}
+\newcommand{\expFinal}{40}
+
+\newcommand{\expCumPhI}{21.6}
+\pgfmathsetmacro{\expCumNature}{\expPhI+\expNature}
+\pgfmathsetmacro{\expCumPRL}{\expPhI+\expNature+\expPRL}
+\pgfmathsetmacro{\expCumScience}{\expPhI+\expNature+\expPRL+\expScience}
+\pgfmathsetmacro{\expCumFinal}{\expPhI+\expNature+\expPRL+\expScience+\expFinal}
+
+\tikzstyle{expbars} = [
+  ybar interval,
+  fill=blue!20,
+  fill opacity=0.8,
+  draw=none
+]
+
+\pgfplotsset{
+  scale only axis,
+  date coordinates in=x,
+  xticklabel=\year-\month,
+  xmin=2011-10-01, xmax=2020-02-01
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis y line*=right,
+      axis x line=none,
+      xlabel={Time},
+      ylabel={$\mathcal{E}$ (kg$\cdot$yr)},
+      ymin=0, ymax=130
+    ]
+      % phase I
+      \addplot[style=expbars] coordinates {
+        (2011-11-01, \expPhI)
+        (2013-05-01, \expNature)
+      };
+      % Nature
+      \addplot[style=expbars] coordinates {
+        (2015-12-01, \expNature)
+        (2016-06-01, \expPRL)
+      };
+      % PRL
+      \addplot[style=expbars] coordinates {
+        (2016-06-01, \expPRL)
+        (2017-04-01, \expScience)
+      };
+      % Science
+      \addplot[style=expbars] coordinates {
+        (2017-04-01, \expScience)
+        (2018-04-01, \expFinal)
+      };
+      % ???
+      \addplot[style=expbars] coordinates {
+        (2018-05-25, \expFinal)
+        (2019-12-01, 0)
+      };
+      \addplot[thick, draw=black, mark=none] coordinates {
+        (2011-11-01, 0)              % start phI
+        (2013-05-01, \expCumPhI)     % end phI
+        (2015-12-01, \expCumPhI)     % start phII
+        (2016-06-01, \expCumNature)  % Nature release
+        (2017-04-01, \expCumPRL)     % PRL release
+        (2018-04-01, \expCumScience) % Science release
+        (2018-05-25, \expCumScience) % Start PhII+
+        (2019-12-01, \expCumFinal)   % ???
+      }; \label{expgain}
+    \end{axis}
+
+    \begin{axis}[
+      axis y line*=left,
+      ymin=1, ymax=12,
+      xlabel={Time},
+      ylabel={$T^{0\nu}_{1/2}$ ($10^{25}$~yr)},
+      legend pos=north west
+    ]
+      \addlegendimage{/pgfplots/refstyle=expgain}\addlegendentry{Exposure gain}
+      % upper limits
+      \addplot coordinates {
+        (2013-05-01, 2.5)
+        (2016-06-01, 5.3)
+        (2017-04-01, 8.0)
+        (2018-04-01, 9.0)
+      }; \label{limits}
+      \addlegendentry{Upper limits}
+      % sensitivities
+      \addplot coordinates {
+        (2013-05-01, 2.4)
+        (2016-06-01, 4.0)
+        (2017-04-01, 5.8)
+        (2018-04-01, 11)
+      }; \label{sensitivities}
+      \addlegendentry{Sensitivity}
+    \end{axis}
+  \end{tikzpicture}
+\end{document}

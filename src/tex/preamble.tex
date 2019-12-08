@@ -1,21 +1,22 @@
 \documentclass[11pt,a4paper,twoside]{report}
 
-\input{tex/aliases}
-
 % font
 \usepackage[english]{babel}
 \usepackage{csquotes}
-\usepackage[T1]{fontenc}
+\usepackage[LGR,T1]{fontenc}
 \usepackage{microtype}
 \usepackage{marginnote}\renewcommand*{\marginfont}{\scshape}
 \usepackage[lining]{ebgaramond}
+% \usepackage{lettrine}
+% \newcommand{\initial}[2]{\lettrine[lines=3, depth=1, findent=2pt, nindent=0em]{\textin{#1}}{#2}}
 
 % layout
 \usepackage{geometry}
 \usepackage{subfigure}
 \usepackage{multicol}
 \usepackage{titlesec}
-\titleformat{\chapter}[hang]{\Huge\swshape}{}{0pt}{\Huge\swshape}
+\titleformat{\chapter}[hang]{}{}{0pt}{\Huge\swshape}
+\titleformat{\section}[hang]{\LARGE}{\thesection}{0.5em}{\LARGE\swshape}
 \usepackage[subfigure,titles]{tocloft}
   \setlength{\cftsubsecindent}{1cm}
   \renewcommand{\cftsecfont}{\large}
@@ -34,8 +35,9 @@
 
 % graphics
 \usepackage{graphicx}
+  \graphicspath{{img/}}
 \usepackage{xcolor}
-\graphicspath{{img/}}
+\usepackage{tikz}
 
 % tables
 \usepackage{caption}\captionsetup[table]{position=top}
@@ -45,7 +47,8 @@
   sorting=none,
   date=year,
   doi=true,
-  eprint=true
+  eprint=true,
+  isbn=false
 ]{biblatex}
 \addbibresource{bib/*.bib}
 
@@ -58,3 +61,5 @@
   \crefformat{section}{sec.~#2#1#3}
   \crefformat{subsection}{sec.~#2#1#3}
   \crefformat{equation}{eq.~(#2#1#3)}
+
+\input{tex/aliases}

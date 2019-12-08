@@ -1,0 +1,39 @@
+/vis/scene/add/volume MiniShroudPhase2Tub_0
+/vis/scene/add/volume MiniShroudPhase2Tub_1
+/vis/scene/add/volume MiniShroudPhase2Tub_2
+/vis/scene/add/volume MiniShroudPhase2Tub_3
+/vis/scene/add/volume MiniShroudPhase2Tub_4
+/vis/scene/add/volume MiniShroudPhase2Tub_5
+/vis/scene/add/volume MiniShroudPhase2Tub_6
+
+/vis/scene/add/volume MiniShroudPhase2Bottom_0
+/vis/scene/add/volume MiniShroudPhase2Bottom_1
+/vis/scene/add/volume MiniShroudPhase2Bottom_2
+/vis/scene/add/volume MiniShroudPhase2Bottom_3
+/vis/scene/add/volume MiniShroudPhase2Bottom_4
+/vis/scene/add/volume MiniShroudPhase2Bottom_5
+/vis/scene/add/volume MiniShroudPhase2Bottom_6
+
+/vis/scene/add/volume MiniShroudPhase2Top_0
+/vis/scene/add/volume MiniShroudPhase2Top_1
+/vis/scene/add/volume MiniShroudPhase2Top_2
+/vis/scene/add/volume MiniShroudPhase2Top_3
+/vis/scene/add/volume MiniShroudPhase2Top_4
+/vis/scene/add/volume MiniShroudPhase2Top_5
+/vis/scene/add/volume MiniShroudPhase2Top_6
+
+/vis/scene/add/volume MiniShroudPhase2TopGluedRing_0
+/vis/scene/add/volume MiniShroudPhase2TopGluedRing_1
+/vis/scene/add/volume MiniShroudPhase2TopGluedRing_2
+/vis/scene/add/volume MiniShroudPhase2TopGluedRing_3
+/vis/scene/add/volume MiniShroudPhase2TopGluedRing_4
+/vis/scene/add/volume MiniShroudPhase2TopGluedRing_5
+/vis/scene/add/volume MiniShroudPhase2TopGluedRing_6
+
+/vis/scene/add/volume MiniShroudPhase2BottomGluedRing_0
+/vis/scene/add/volume MiniShroudPhase2BottomGluedRing_1
+/vis/scene/add/volume MiniShroudPhase2BottomGluedRing_2
+/vis/scene/add/volume MiniShroudPhase2BottomGluedRing_3
+/vis/scene/add/volume MiniShroudPhase2BottomGluedRing_4
+/vis/scene/add/volume MiniShroudPhase2BottomGluedRing_5
+/vis/scene/add/volume MiniShroudPhase2BottomGluedRing_6

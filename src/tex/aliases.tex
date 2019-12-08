@@ -2,9 +2,20 @@
 \usepackage{marvosym}    % symbols for EURO
 \usepackage{upgreek}     % for upright greek letters in units
 
+\renewcommand{\b}{$\beta$}
+\newcommand{\g}{$\gamma$}
+\renewcommand{\a}{$\alpha$}
+
 \newcommand{\fillme}{\textcolor{red}{\texttt{fillme}}}
 \newcommand{\bkgfree}{\emph{background-free}}
 \newcommand{\gerdafinallimit}{\fillme~$10^{26}$~yr}
+\newcommand{\tetratex}{Tetratex\textsuperscript{\textregistered}}
+
+\newcommand{\m}[1]{\texttt{#1}}
+\newcommand{\GD}[1]{\m{GD#1}}
+\newcommand{\ANG}[1]{\m{ANG#1}}
+\newcommand{\GTF}[1]{\m{GTF#1}}
+\newcommand{\RG}[1]{\m{RG#1}}
 
 % units
 \newcommand{\ctsper}      {cts/(keV$\cdot$kg$\cdot$yr)}
@@ -29,7 +40,6 @@
 \newcommand{\mubqperkg}   {{${\upmu\mathrm{Bq}}/{\mathrm{kg}}$}}
 \newcommand{\powtenyr}[1]{$10^{#1}$~yr}
 %
-\newcommand{\C}           {$^\circ$C}
 \newcommand{\al}          {$\alpha$}
 \newcommand{\be}          {$\beta$}
 \newcommand{\ga}          {$\gamma$}
@@ -83,16 +93,10 @@
 \newcommand{\mpip}        {\mbox{MPI-P}}
 % experiments and equipment
 \newcommand{\gerda}       {\textsc{Gerda}}
-\newcommand{\G}           {{\mbox{\textsc{Gerda}}}}
-\newcommand{\GERDA}       {\mbox{\textsc{Gerda}}}
 \newcommand{\lngs}        {{\mbox{\textsc{Lngs}}}}
-\newcommand{\LNGS}        {{\mbox{\textsc{Lngs}}}}
-\newcommand{\WT}          {water tank}
-\newcommand{\lar}         {LAr}
 \newcommand{\geni}        {{\mbox{\textsc{Genius}}}}
 \newcommand{\gdl}         {\textsc{Gdl}}
 \newcommand{\gerdalarge}  {\textsc{Gerda-LArGe}}
-\newcommand{\bege}        {{\sc BEGe}}
 \newcommand{\phaseone}    {Phase~I}
 \newcommand{\phasetwo}    {Phase~II}
 \newcommand{\phasetwop}   {Phase~II$^+$}
@@ -103,17 +107,10 @@
 \newcommand{\GeMPI}       {Ge\textsc{MPI}}
 \newcommand{\GEMPI}       {Ge\textsc{mpi}}
 \newcommand{\majorana}    {\textsc{Majorana}}
-\newcommand{\Majorana}    {{\mbox{\textsc{Majorana}}}}
-\newcommand{\MAJORANA}    {{\sc Majorana}}
 \newcommand{\eureca}      {{\sc Eureca}}
 \newcommand{\igex}        {\textsc{Igex}}
-\newcommand{\IGEX}        {{\mbox{\textsc{Igex}}}}
 \newcommand{\hdm}         {\textsc{HdM}}
-\newcommand{\HdM}         {\mbox{\textsc{HdM}}}
-\newcommand{\HDM}         {\mbox{\textsc{HdM}}}
-\newcommand{\BX}          {\mbox{\textsc{Borexino}}}
-\newcommand{\borex}       {\mbox{\textsc{Borexino}}}
-\newcommand{\borexino}       {\mbox{\textsc{Borexino}}}
+\newcommand{\borexino}    {\textsc{Borexino}}
 \newcommand{\EUROBALL}    {\textsc{Euroball}}
 \newcommand{\ICARUS}      {\textsc{Icarus}}
 \newcommand{\LENS}        {\textsc{Lens}}

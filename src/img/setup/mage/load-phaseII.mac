@@ -1,0 +1,21 @@
+/MG/manager/mglog                                  routine
+/MG/manager/heprandomseed                          0
+
+/MG/processes/realm                                BBdecay
+/MG/processes/lowenergy                            true
+/MG/processes/useNoHadPhysics                      true
+
+/MG/geometry/detector                              GerdaArray
+/MG/geometry/database                              false
+
+/MG/geometry/lock/type                             PhaseII_DN500
+
+/MG/geometry/detector/geometryfile                 geometry.json
+/MG/geometry/detector/matrixfile                   matrix-PhaseII-dec15.json
+
+/MG/geometry/general/constructLArInstrumentation   true
+/MG/geometry/LArInst/ConstructSegmentedFiberShroud true
+
+/MG/geometry/general/constructMiniShroud           true
+
+/MG/geometry/cherenkov                             -1
