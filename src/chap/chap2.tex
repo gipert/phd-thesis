@@ -37,7 +37,7 @@ half-life of \gerdafinallimit. With that said, the ``\phasetwo'' period includes
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\textwidth]{placeholder.pdf}
+  \includegraphics{plots/gerda-timeline.pdf}
   \caption{%
     Evolution and milestones set by the \gerda\ experiment through its three experimental
     phases. The background index, the exposure gain, the neutrinoless double-beta decay
@@ -74,26 +74,16 @@ in \cref{fig:setup:artistview}.
 
 \begin{figure}
   \centering
-  \begin{tikzpicture}[fill=white]
-    \node at (0,0) {\includegraphics[height=7cm]{setup/gerda-artist.jpg}};
-    \node(e) at (3.5,3.3) [rectangle,draw,fill] {\textsc{muon veto}};
-    \draw[thick,red,->] (e.south) .. controls +(0,-1) and +(0,1) .. (2.3,2.4);
-    \node(a) at (1.6,-1.2) [rectangle,draw,fill] {LAr};
-    \node(b) at (3.2,1.6) [rectangle,draw,fill] {\gesix\ \textsc{detectors}};
-    \draw[thick,red,->] (b.south) .. controls +(0,0) and +(1,0) .. (1.9,-0.4);
-    \node(c) at (-1.5,1.6) [rectangle,draw,fill] {H$_2$O};
-    \draw[thick,red,->] (c.south) .. controls +(0,0) and +(-1,0) .. (0,-1);
-    \node(d) at (0,3) [rectangle,draw,fill] {Cu \textsc{shielding}};
-    \draw[thick,red,->] (d.south) .. controls +(0,0) and +(-1,0) .. (1,0);
-    \node at (-1.5,-3.15) [rectangle,draw,fill] {\small Laboratori Nazionali del Gran Sasso (LNGS)};
-  \end{tikzpicture}
+  \includegraphics[width=\textwidth]{setup/gerda-overview.pdf}
   \caption{%
-    Artist view of the \gerda\ experimental setup. The experiment, installed in hall A of
+    On the right: artist view of the \gerda\ experimental setup. On the left: a picture of
+    taken during the inauguration in November 2010. The experiment, installed in hall A of
     the Gran Sasso National Laboratories in Italy, deploys an array of germanium detectors
     enriched in \gesix\ bare in liquid argon, together with a liquid argon scintillation
     light veto system. The cryostat is submerged in a water tank to provide additional
-    shielding from external background sources. A muon veto plastic scintillating panel
-    system is installed on the top of the whole structure.
+    shielding from external background sources. A plastic scintillating panel system is
+    installed on the top of the whole structure as an active muon veto, together with the
+    water tank.
   }\label{fig:setup:artistview}
 \end{figure}
 
@@ -139,8 +129,8 @@ can be found in~\cite{Agostini2015e, Agostini2018a, Agostini2019}.
 \marginnote{Array}
 As already mentioned, the \gerda\ \phasetwo\ detectors are arranged into 7 strings, packed
 closely together as depicted in \cref{fig:setup:magevolumes}a. The detector holder unit
-consists of and intrinsically radio-pure silicon plate and vertical copper bars to connect
-the units between themselves within a string. See fig \fillme
+consists of an intrinsically radio-pure silicon plate and three vertical copper bars to
+connect the units between themselves within a string. See \cref{fig:setup:magevolumes}b.
 
 \marginnote{LAr veto}
 To improve the sensitivity on the \onbb\ half-life and enter the \bkgfree\ regime, an
