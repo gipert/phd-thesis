@@ -4,12 +4,14 @@
 *.out
 *.bbl
 *.blg
+*.xml
 *.synctex.*
 
 /src/main.pdf
 /src/img/setup/mage-volumes.pdf
 /src/img/plots/gerda-timeline.pdf
 /src/img/setup/gerda-overview.pdf
+/src/img/setup/pic-collage.pdf
 
 *.DS_Store
 *.swp

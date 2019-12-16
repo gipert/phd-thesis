@@ -1,0 +1,12 @@
+!config
+identifier: makeimg
+name: GNU Make
+authors:
+- Luigi Pertoldi
+commands:
+- name: Compiling LaTeX pictures under img/
+  command: >
+    @{
+        return getCommand('cd', 'img', '&&', 'make');
+    }
+arguments: []

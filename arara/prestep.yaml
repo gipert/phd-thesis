@@ -1,6 +1,6 @@
 !config
 identifier: prestep
-name: Prepare
+name: mkdir
 authors:
 - Luigi Pertoldi
 commands:
