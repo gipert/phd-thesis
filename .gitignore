@@ -12,6 +12,8 @@
 /src/img/plots/gerda-timeline.pdf
 /src/img/setup/gerda-overview.pdf
 /src/img/setup/pic-collage.pdf
+/src/img/gedet/*.pdf
+/src/img/gedet/*.png
 
 *.DS_Store
 *.swp

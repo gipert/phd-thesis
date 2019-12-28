@@ -62,7 +62,7 @@ experimental setup and the main analysis techniques given in the following will 
 to that time period. The chapter is structured as follows. In
 \cref{sec:gerda:setup} a general overview of the apparatus is given \fillme.
 
-\section{Overview of the experimental setup}\label{sec:gerda:setup}
+\section{Overview of the \phasetwo\ experimental setup}\label{sec:gerda:setup}
 
 The \gerda\ experiment is located in hall~A of the LNGS laboratories, at a depth of about
 3500~m water equivalent, to suppress cosmogenically-induced background
@@ -102,33 +102,48 @@ All \gerda\ HPGe detectors are made of high-purity p-type germanium, which is in
 used to pull crystals, typically fuse-shaped (see for example fig.~4.1a in
 \cite{Yonenaga2019}).  Crystals are then cut in slices, and each of them is further
 processed to obtain the final detector geometry. The electrodes for signal read-out and
-voltage biasing are then fabricated on the detector surface. The n+ contact, where the
+voltage biasing are then fabricated on the detector surface. The \nplus\ contact, where the
 external voltage is applied, `wraps around' the detector. It is obtained by deposition of
 a lithium layer on the surface, which diffuses below the surface until a depth of
 $\sim$1~mm during the subsequent thermal annealing cycles. The presence of lithium
 impurities effectively creates a region with decreased charge collection efficiency (CCE),
 or `dead-layer', even when biased at full-depletion voltages.  In this region, the CCE is
 zero at the surface and reaches its maximal value at the full charge collection depth
-(FCCD). The p+ electrode, where the signal is read out, is instead fabricated by boron
+(FCCD). The \pplus\ electrode, where the signal is read out, is instead fabricated by boron
 implantation, and the dead layer it produces is typically smaller, at the level of
 hundreds of microns. The two conductive surfaces are separated by an insulating region,
 which is typically produced by excavating a `groove'. In some cases such groove is
 passivated by deposition of a oxide \fillme\ layer.
 
+\marginnote{%
+  \includegraphics[width=13mm]{gedet/BEGe.png}\\
+  \includegraphics[width=13mm]{gedet/SemiCoax.png}%
+}
 The \gerda\ \phasetwo\ detectors can be classified according to two different geometry
 types: semi-coaxial and BEGe. In the semi-coaxial design, a bore-hole is excavated along
-the central axis to accomodate the p+ electrode. With such a configuration, relatively
-large detector masses can be achieved, of the order of 2--3~kg. The \ANG{} (5), \RG{} (2)
-and \GTF{} (3) detectors, inherited from the \hdm\ and \igex\ experiments and already used
-in \phaseone, are of the semi-coaxial type. Their total mass amounts to 23.2~kg of
-germanium.  For \phasetwo, 20~kg of enriched germanium was procured by the \gerda\
-collaboration for the production of 30 new diodes of the BEGe type. The Broad Energy
-Germanium detector design does not include a bore-hole, therefore the p+ contact is a
-small, dot-shaped surface at the center of one of the two detector sides. The absence of a
-bore-hole makes this kind of detectors harder to fully deplete, requiring lower impurity
-concentrations and smaller masses, generally lower than 1~kg. A detailed description of
-the characteristics of the BEGe detectors, from germanium procurement to diode production
-can be found in~\cite{Agostini2015e, Agostini2018a, Agostini2019}.
+the central axis to accomodate the \pplus\ electrode. With such a configuration,
+relatively large detector masses can be achieved, of the order of 2--3~kg. The \ANG{} (5),
+\RG{} (2) and \GTF{} (3) detectors, inherited from the \hdm\ and \igex\ experiments and
+already used in \phaseone, are of the semi-coaxial type. Their total mass amounts to
+23.2~kg of germanium, while the enrichment fractions are in the 85.5--88.3\% range. For
+\phasetwo, 20~kg of germanium enriched at 87.8\% was procured by the \gerda\ collaboration
+for the production of 30 new diodes of the BEGe type. The Broad Energy Germanium detector
+design does not include a bore-hole, therefore the \pplus\ contact is a small, dot-shaped
+surface at the center of one of the two detector sides. The absence of a bore-hole makes
+this kind of detectors harder to fully deplete, requiring lower impurity concentrations
+and smaller masses, generally lower than 1~kg. A detailed description of the
+characteristics of the BEGe detectors, from germanium procurement to diode production can
+be found in~\cite{Agostini2015e, Agostini2018a, Agostini2019}.
+
+\begin{figure}
+  \centering
+  \includegraphics[height=7cm]{gedet/phII-array.png}
+  \hspace{0.5cm}
+  \includegraphics[height=6cm]{gedet/phII-array-2D.pdf}
+  \caption{%
+    The \gerda\ \phasetwo\ detector array.
+  }\label{fig:setup:array}
+\end{figure}
 
 \marginnote{Array \\ instrumentation}
 As already mentioned, the \gerda\ \phasetwo\ detectors are arranged into 7 strings, packed
@@ -177,8 +192,20 @@ their holder plates.
 \end{figure}
 
 \marginnote{Data \\ acquisition}
-A FADC system records traces from germanium detectors, PMTs and SiPMs when an energy
-deposition greater than 100~keV occurs in at least one of the germanium detectors.
+A FADC system records traces from germanium detectors (40), PMTs (16) and SiPMs (15) of
+the LAr veto, PMTs and scintillating panels of the muon veto when an energy deposition
+greater than about 100~keV occurs in at least one of the germanium detectors\footnote{The
+exact threshold is detector- and run-dependent and varies between 20~keV and 200~keV.}.
+The energy deposition associated to each germanium detector signal is determined via a
+Zero Area Cusp (ZAC) filter which is optimized off-line for each detector and each
+calibration run~\cite{Agostini2015}. The \gerda\ calibrations are performed by lowering
+three \Th\ sources into LAr in the close vicinity of the array, at the same radial
+distance from the array central axis and evenly spaced. The LAr veto instrumentation is
+usually switched off because of the too high source activity \fillme. The calibration of
+the experimental setup is extensively described in ref.~[\fillme].
+
+Each event has to pass a series of quality cuts tailored to discard unphysical events,
+which is extensively described in [\fillme].
 
 \begin{figure}
   \centering

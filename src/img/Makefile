@@ -1,4 +1,4 @@
-DIRS = $(sort $(dir $(wildcard */*)))
+DIRS = $(sort $(dir $(wildcard */Makefile)))
 
 all: $(DIRS)
 
