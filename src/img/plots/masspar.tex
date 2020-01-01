@@ -1,0 +1,63 @@
+%! TEX program = xelatex
+\documentclass{standalone}
+\usepackage[lining]{ebgaramond}%[StylisticSet={7,9}]
+\usepackage[math-style=ISO, bold-style=ISO]{unicode-math}
+\setmathfont{Garamond-Math.otf}
+\usepackage{pgfplots}
+\usetikzlibrary{positioning}
+\tikzset{
+  every node/.style = {
+    circle,
+    inner sep = 2pt,
+    outer sep = 1pt,
+  }
+}
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}[
+          grid,
+          width=8cm, height = 8cm,
+          xmin=-4, xmax=4,
+          ymin=0, ymax=12,
+          samples=100,
+          ylabel={$M(A,Z)$},
+          xtick={-2,-1,0,1,2},
+          every axis y label/.style={at={(ticklabel cs: 0.5,-10)},rotate=90,anchor=south},
+          xticklabels={$Z-2$,$Z-1$,$Z$,$Z+1$,$Z+2$},
+          xticklabel style={rotate=90},
+          ytick=\empty,
+          yticklabels={,},
+          ]
+          % lower curve
+      \addplot[mark=none,
+          dashed, color=blue,
+          line width=1pt,
+          domain=-2.7:2.7
+          ] {x^2+1};
+        \node (z-2)[fill=blue] at (axis cs:-2,5) {};
+        \node (z)  [fill=blue] at (axis cs:0,1) {};
+        \node (z+2)[fill=blue] at (axis cs:2,5) {};
+      % upper curve
+      \addplot[mark=none,
+          dashed, color=red,
+          line width=1pt,
+          domain=-2.5:2.5
+          ] {x^2+5};
+        \node (z-1)[fill=red] at (axis cs:-1,6) {};
+        \node (z+1)[fill=red] at (axis cs:1,6) {};
+      % arrows
+      \draw [->, thick] (z-2) -- (z-1);
+      \node at (axis cs:-1.6,5.7) {$\beta^-$};
+      \draw [->, thick] (z-2) -- (z);
+      \node at (axis cs:-0.6,3.5) {$\beta^-\beta^-$};
+      \draw [->, thick] (z+2) -- (z+1);
+      \node at (axis cs:1.8,5.9) {$\beta^+$};
+      \draw [->, thick] (z+2) -- (z);
+      \node at (axis cs:0.8,3.5) {$\beta^+\beta^+$};
+      % text
+      \node at (axis cs:-3.1,9) {\color{blue}even-even};
+      \node at (axis cs:-1.5,11) {\color{red}odd-odd};
+      \node at (axis cs:3,0.5) {Even A};
+    \end{axis}
+  \end{tikzpicture}
+\end{document}

@@ -14,6 +14,10 @@
 /src/img/setup/pic-collage.pdf
 /src/img/gedet/*.pdf
 /src/img/gedet/*.png
+/src/img/plots/0nbbfey.pdf
+/src/img/plots/2nbbfey.pdf
+/src/img/plots/gesix-levels.pdf
+/src/img/plots/masspar.pdf
 
 *.DS_Store
 *.swp
