@@ -14,13 +14,15 @@
 \usepackage{subfigure}
 \usepackage{multicol}
 \usepackage{titlesec}
-\titleformat{\chapter}[hang]{}{}{0pt}{\Huge\swshape}
-\titleformat{\section}[hang]{\LARGE}{\thesection}{0.5em}{\LARGE\swshape}
+\titleformat{\chapter}[hang]{\ebgaramondOsF}{}{0pt}{\Huge\swshape}
+\titleformat{\section}[hang]{\ebgaramondOsF\LARGE}{\thesection}{0.5em}{\LARGE\swshape}
+% TOC
 \usepackage[subfigure,titles]{tocloft}
   \setlength{\cftsubsecindent}{1cm}
   \renewcommand{\cftchapfont}{\large\swshape}
-  % \renewcommand{\cftsecfont}{\normalshape}
-  % \renewcommand{\cftsecpagefont}{\scshape}
+  \renewcommand{\cftchappagefont}{\ebgaramondOsF}
+  \renewcommand{\cftsecpagefont}{\ebgaramondOsF}
+  \renewcommand{\cftsubsecpagefont}{\ebgaramondOsF}
 \renewcommand{\labelitemi}{$\diamond$} % itemize bullets
 
 % math
@@ -46,6 +48,7 @@
   sorting=none,
   date=year,
   doi=true,
+  url=false,
   eprint=true,
   isbn=false
 ]{biblatex}
