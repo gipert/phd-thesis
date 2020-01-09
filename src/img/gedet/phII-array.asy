@@ -25,6 +25,7 @@ from detector_db access *;
 settings.outformat = "png";
 settings.prc = false;
 settings.render = 4;
+settings.maxtile = (256,256);
 
 import three;
 currentprojection = orthographic((2,10,4));

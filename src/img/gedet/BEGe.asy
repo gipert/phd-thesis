@@ -23,6 +23,7 @@
 settings.outformat = "png";
 settings.prc = false;
 settings.render = 8;
+settings.maxtile = (256,256);
 
 from detector_db access *;
 

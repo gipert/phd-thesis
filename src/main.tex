@@ -24,7 +24,12 @@
   \thispagestyle{empty}
   \clearpage
 
+  % \renewcommand{\thechapter}{\scshape\roman{chapter}}
+  \pagenumbering{roman}
+  \setcounter{page}{1}
   \include{chap/intro}
+
+  \pagenumbering{arabic}
   \include{chap/chap1}
   \include{chap/chap2}
   \include{chap/chap3}

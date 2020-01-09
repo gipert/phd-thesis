@@ -7,18 +7,20 @@
 \newcommand\dy{0.5cm}
 \newcommand\ldx{7cm}
 \newcommand\lsx{2.5cm}
-\newcommand\hei{1.5cm}
-\newcommand\ange{0.3cm}
+\newcommand\hei{1.1cm}
+\newcommand\etoe{2cm}
+\newcommand\ange{0.6cm}
 \newcommand\lene{4cm}
 \begin{document}
 \LARGE
-\tikzfeynmanset{
-  every edge/.style = {line width = 1.5pt}
+ \tikzfeynmanset{
+   every edge/.style = {line width = 1.5pt},
 }
 \begin{tikzpicture}
   \begin{feynman}
     \vertex (b);
-    \vertex [below=\hei+1cm of b] (c);
+    \vertex [below=\hei+\etoe of b] (c);
+    \vertex [below right=0.5*\hei+0.5*\etoe and 0.5*\etoe of b, label=left:{\color{green!60!black}$\nu_M$}] (x);
     \vertex [below left=\hei and \hei of c] (d);
     \vertex [above left=\hei and \hei of b] (a);
     % spectator quarks vertices
@@ -30,10 +32,9 @@
     \vertex [left=\lsx of a] (i1) {$d$};
     \vertex [left=\lsx of d] (i2) {$d$};
     \vertex [right=\ldx of a] (f1) {$u$};
-    \vertex [above right=\ange and \lene of b] (f2) {\color{red}$e^-$};
-    \vertex [below right=\ange and \lene of b] (f13) {\color{green!60!black}$\overline\nu_e$};
-    \vertex [below right=\ange and \lene of c] (f3) {\color{red}$e^-$};
-    \vertex [above right=\ange and \lene of c] (f14) {\color{green!60!black}$\overline\nu_e$};
+    \vertex [right=\lene of b] (f2) {\color{red}$e^-$};
+    \vertex [right=\lene of c] (f3) {\color{red}$e^-$};
+    \vertex [right=\lene of x] (x1) {$\chi$};
     \vertex [right=\ldx of d] (f4) {$u$};
     % spactator quarks
     \vertex [right=\ldx of e] (f5) {$d$};
@@ -48,8 +49,9 @@
     \diagram* {
       (a) -- [boson, blue, edge label'=$W^-$] (b),
       (c) -- [boson, blue, edge label'=$W^-$] (d),
-      (f13) -- [fermion, green!60!black] (b),
-      (f14) -- [fermion, green!60!black] (c),
+      (b) -- [majorana, green!60!black] (x),
+      (x) -- [scalar] (x1),
+      (x) -- [majorana, green!60!black] (c),
       (i1) -- [fermion] (a),
       (i2) -- [fermion] (d),
       (a) -- [fermion,] (f1),

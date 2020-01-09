@@ -1,24 +1,25 @@
 \chapter{Double-beta decay}\label{chap:theory}
-\pagenumbering{arabic}
 
-In this chapter the theory of double-beta decay is briefly reviewed. Formulas
-for the differential decay rates associated to the two-neutrino and the
-neutrinoless mode are given.
+In this chapter the theory of double-beta decay is briefly reviewed, focusing
+on the core concepts and formulas which will be used in this work. Formulas for
+the differential double-beta decay rates associated to the two-neutrino mode,
+the neutrinoless mode as well as modes driven by new physics scenarios (Majoron
+emission, Lorentz symmetry violation) are given.
 
-\section{The two-neutrino double-beta decay}
+\section{Two-neutrino double-beta decay}
 
 The two-neutrino double-beta decay (\nnbb) processes, first suggested by
-M.~Goeppert-Mayer in 1935~\cite{GoeppertMayer1935}, can be schematically defined
-as:
+M.~Goeppert-Mayer in 1935~\cite{GoeppertMayer1935}, can be schematically
+represented as:
 \[
-  \begin{array}{lrl}
-    \mathcal{N}(A,Z)\longrightarrow \mathcal{N}(A,Z+2)+2e^-+2\bar{\nu}_e &
-      \qquad [2\nu\beta^-\beta^-] & \\
-    \mathcal{N}(A,Z)\longrightarrow \mathcal{N}(A,Z-2)+2e^++2\nu_e &
-      \qquad [2\nu\beta^+\beta^+] & ,\\
+  \begin{array}{llr}
+    2\nu\beta^-\beta^-: &
+      \mathcal{N}(A,Z) \longrightarrow \mathcal{N}(A,Z+2)+2e^-+2{\overline \nu}_e & \\
+    2\nu\beta^+\beta^+: &
+      \mathcal{N}(A,Z) \longrightarrow \mathcal{N}(A,Z-2)+2e^++2\nu_e &,
   \end{array}
 \]
-where \NAZ\ represents a nucleus with mass number $A$ and atomic number $Z$. A
+where \NAZ\ represents a nucleus with mass number $A$ and atomic number $Z$. The
 \nnbbm\ (\nnbbp) process consists of the simultaneous $\beta^-$ ($\beta^+$)
 decay of two neutrons (protons) in the same nucleus. The processes are
 generated at second-order in the perturbative expansion of weak interactions in
@@ -45,7 +46,7 @@ nucleus is negligible), which is given by
   Q_{\beta\beta} = M_i - M_f - 2m_e \;,
 \end{equation}
 where $M_i$ and $M_f$ are, respectively, the masses of the initial and final
-nuclei (i.e. the energy levels of their ground states; if the transition occurs
+nuclei (i.e.~the energy levels of their ground states; if the transition occurs
 into an excited energy level of the final nucleus, $M_f$ must be replaced with
 the appropriate energy).
 
@@ -109,10 +110,10 @@ understood considering that the decay $\mathcal{N}(A,Z) \rightarrow
 \mathcal{N}(A,Z-1)$ can occur in two ways:
 \[
   \begin{array}{lrl}
-    \mathcal{N}(A,Z) \rightarrow \mathcal{N}(A,Z-1) + e^+ + \nu_e &
-      \qquad [\beta^+] & \\
-    e^- + \mathcal{N}(A,Z) \rightarrow \mathcal{N}(A,Z-1) + \nu_e &
-      \qquad [\text{EC}] & . \\
+    \beta^+: &
+      \mathcal{N}(A,Z) \rightarrow \mathcal{N}(A,Z-1) + e^+ + \nu_e & \\
+    \text{EC}: &
+      e^- + \mathcal{N}(A,Z) \rightarrow \mathcal{N}(A,Z-1) + \nu_e &.
   \end{array}
 \]
 Since $Q_\text{EC} = Q_{\beta^+}+2m_e$, the electron-capture process (EC) can
@@ -129,26 +130,26 @@ for the same energy difference between the ground states of the intermediate
 and final nuclei, the energy difference between the ground states of the
 initial and final nucleus in a \nnbbp\ decay is at least $2m_e$ lower than in
 the case of a \nnbbm\ decay, leading to a correspondingly smaller Q-value. For
-these reasons, \nnbbp\ decay has been less studied than \nnbbm\ decay and in
-the following we will consider only \nnbbm\ decays (from now on we will simply
-refer to them with \nnbb). Let us only mention that $\mathcal{N}(A,Z)
+these reasons, the \nnbbp\ decay has been less studied than the \nnbbm\ decay
+and in the following we will consider only \nnbbm\ decays (from now on we will
+simply refer to them with \nnbb). Let us only mention that $\mathcal{N}(A,Z)
 \rightarrow \mathcal{N}(A,Z-2)$ transitions can occur not only through \nnbbp\
-processes, but also through the processes
+processes, but also through the processes \fillme\
 \[
   \begin{array}{lrl}
-    e^- + \mathcal{N}(A,Z) \rightarrow \mathcal{N}(A,Z-2) + e^+ + 2\nu_e &
-      \qquad [\text{EC}\beta^+] & \\
-    2e^- + \mathcal{N}(A,Z) \rightarrow \mathcal{N}(A,Z-2) + 2\nu_e &
-      \qquad [2\text{EC}2\nu] & . \\
+    \text{EC}\beta^+: &
+      e^- + \mathcal{N}(A,Z) \rightarrow \mathcal{N}(A,Z-2) + e^+ + 2\nu_e & \\
+    2\text{EC}2\nu: &
+      2e^- + \mathcal{N}(A,Z) \rightarrow \mathcal{N}(A,Z-2) + 2\nu_e &.
   \end{array}
 \]
 
 \marginnote{decay \\ rate}
-The rate of \nnbb\ can be calculated by invoking the recipe of the Fermi
-golden rule for simple $\beta$ decay. To a good approximation, the kinematic
-part (the phase space of the leptons emitted in the decay) and the nuclear part
-(the matrix element responsible for the transition probability between two
-nuclear states) can be factorized as
+The rate of \nnbb\ can be calculated by invoking the recipe of the Fermi golden
+rule for simple $\beta$ decay. To a good approximation, the decay width can be
+factorized as a kinematic part (the phase space of the leptons emitted in the
+decay) times a nuclear part (the matrix element responsible for the transition
+probability between two nuclear states):
 \begin{equation}
   \Gamma^{2\nu} = G^{2\nu}(Q_{\beta\beta},Z) |\mathcal{M}^{2\nu}|^2 \;,
 \end{equation}
@@ -165,10 +166,11 @@ respectively ($i=1,2$), the relevant matrix element is given by
                  [\bar{u}(p_2) \gamma^\nu (1-\gamma_5) v(q_2)] J_{\mu\nu} -
                  (p_1\leftrightarrow p_2) \;.
 \end{equation}
-The hadronic tensor $J_{\mu\nu}$ corresponds to the product of two nuclear
-currents written in the impulse approximation~\cite{Tomoda1991}. Including the
-implementation of the long-wave and closure approximation for the hadronic
-tensor~\cite{Tomoda1991}, we obtain
+(the last expression in brackets represents the first term with $p_1$ and $p_2$
+interchanged).  The hadronic tensor $J_{\mu\nu}$ corresponds to the product of
+two nuclear currents written in the impulse approximation~\cite{Tomoda1991}.
+Including the implementation of the long-wave and closure approximation for the
+hadronic tensor~\cite{Tomoda1991}, we obtain
 \begin{equation}
   \sum_\text{spin} |\mathcal{M}|^2 = 64 G^4_F |V_{ud}|^4 g^4_A (p_1 \cdot p_2)
                                      (q_1 \cdot q_2) |\mathcal{M}^{2\nu}|^2 \;,
@@ -176,7 +178,8 @@ tensor~\cite{Tomoda1991}, we obtain
 where the nuclear matrix element involves vector and axial couplings for Fermi
 and Gamow-Teller transitions in the form
 \begin{equation}
-  g^2_A\mathcal{M}^{2\nu} = g^2_V \mathcal{M}^{2\nu}_F - g^2_A \mathcal{M}^{2\nu}_{GT} \;.
+  g^2_A\mathcal{M}^{2\nu} = g^2_V \mathcal{M}^{2\nu}_F -
+                            g^2_A \mathcal{M}^{2\nu}_{GT} \;.
 \end{equation}
 
 General methods for phase-space factor calculations in double-beta decay have
@@ -203,7 +206,7 @@ daughter nucleus, respectively.
 In the Primakoff–Rosen approximation~\cite{Primakoff1959} for the
 non-relativistic Coulomb correction, the sum spectrum of the electrons energies
 can be analytically calculated. After a suitable change of integration
-variables, defining the sum of kinetic energies $K=T_1+T_2$ for the two
+variables and defining the sum of kinetic energies $K=T_1+T_2$ for the two
 electrons and integrating over the remaining variables, we obtain
 \begin{equation}\label{eq:nbb:stdmodel}
   \frac{\text{d}\Gamma}{\text{d}K} = \Lambda \cdot (K^5+10K^4+40K^3+60K^2+30K)
@@ -216,7 +219,7 @@ is given by
             |\mathcal{M}^{2\nu}|^2 \;,
 \end{equation}
 with $F_\text{PR}(Z) = 2\pi\alpha/Z(\-e^{-2\pi\alpha Z})$. The distribution for
-\gesix\ is plotted in \ref{fig:nbb:spectra}.
+\gesix\ is plotted in \cref{fig:nbb:spectra}.
 
 \begin{figure}
   \centering
@@ -228,14 +231,15 @@ with $F_\text{PR}(Z) = 2\pi\alpha/Z(\-e^{-2\pi\alpha Z})$. The distribution for
   }\label{fig:nbb:spectra}
 \end{figure}
 
-\section{The neutrinoless double-beta decay}
+\section{Neutrinoless double-beta decay}\label{sec:nbb:0nbb}
+
 The neutrinoless double-beta decay processes (\onbb) of the types
 \[
   \begin{array}{lrl}
-    \mathcal{N}(A,Z)\longrightarrow \mathcal{N}(A,Z+2)+2e^- &
-      \qquad [0\nu\beta^-\beta^-] & \\
-    \mathcal{N}(A,Z)\longrightarrow \mathcal{N}(A,Z-2)+2e^+ &
-      \qquad [0\nu\beta^+\beta^+] & , \\
+    0\nu\beta^-\beta^-: &
+      \mathcal{N}(A,Z) \longrightarrow \mathcal{N}(A,Z+2)+2e^- & \\
+    0\nu\beta^+\beta^+: &
+      \mathcal{N}(A,Z) \longrightarrow \mathcal{N}(A,Z-2)+2e^+ &,
   \end{array}
 \]
 which have been proposed by W.~H.~Furry in 1939~\cite{Furry1939}, are
@@ -264,7 +268,100 @@ the nature of neutrino mass and therefore of shedding light on the mechanism of
 the tiny (but non-zero) neutrino mass generation established by neutrino
 oscillation experiments.
 
-\section{The Lorentz violating two-neutrino double-beta decay}
+\section{Neutrinoless double-beta decay with Majoron emission}
+
+As mentioned in \cref{sec:nbb:0nbb}, the Majorana nature of the neutrino leads
+to the violation of the baryon-lepton number $U(1)_{B-L}$ by two units.
+Assuming the symmetry is global and its breaking occurs spontaneously, a
+massless Nambu-Goldstone boson, called the Majoron (denoted~$\chi$), must exist
+in the theory~\cite{Chikashige1981, Schechter1982, Gelmini1981, Georgi1981,
+Mohpatra2004}.  Models with massless Majorons have been studied extensively in
+the `80, where the Majoron is either a singlet~\cite{Chikashige1981} or part of
+a doublet or a triplet~\cite{Gelmini1981, Georgi1981}. However, the last two
+possibilities can be ruled out by measurements of the $Z_0$ invisible width at
+particle colliders, because of the coupling of the $Z_0$ to the
+Majoron~\cite{Berezhiani1992}. All the mentioned models predict neutrinoless
+double-beta decay with Majoron emission:
+\[
+  0\nu\beta\beta\chi:\quad
+    \mathcal{N}(A,Z) \longrightarrow \mathcal{N}(A,Z+2) + 2e^- + \chi
+\]
+the Feynman diagram is shown in \cref{fig:nbb:majfeydiag}, left. Since the
+coupling strength of the singlet `seesaw' Majoron is proportional to $m_\nu /
+\Lambda$, where $\Lambda$ is the lepton number breaking energy scale (i.e.~the
+heavy right-handed neutrino mass in the seesaw mechanism), obtaining observable
+decay rates for \onbbx\ and preserving existing bounds on neutrino masses would
+require a severe fine-tuning in the theory~\cite{Burgess1993, Burgess1994}.
+
+Another possibility for neutrinoless double-beta decay with Majoron emission
+arises in supersymmetric models with R-parity violation~\cite{Masiero1990,
+Mohpatra2004}, in which the emission of two Majorons is also
+allowed~\cite{Mohpatra1988}:
+\[
+  0\nu\beta\beta2\chi:\quad
+    \mathcal{N}(A,Z) \longrightarrow \mathcal{N}(A,Z+2) + 2e^- + 2\chi
+\]
+See \cref{fig:nbb:majfeydiag} (right) for the Feynman diagram of the process.
+
+To overcome the fine-tuning problem, many alternative models have been
+developed starting from the `90. In this class of models, the term `Majoron'
+refers more generically to a light or massless boson, not necessarily a
+Goldstone scalar boson, that couples to the neutrino. There are models which
+foresee Majorons carrying leptonic charge, thus assuring lepton number
+conservation and forbidding \onbb. For the case of Majorons with $L = −2$,
+\onbbx\ is expected~\cite{Burgess1993}, while $L = −1$ for the Majoron leads to
+\onbbxx~\cite{Burgess1994}. Other models make use of a vector Majoron which
+becomes the longitudinal component of a massive gauge boson emitted in
+double-beta decay~\cite{Carone1993}, which we will also refer to as `Majoron'
+in the latter. A decay process that involves the emission of two `Majorons' is
+also possible~\cite{Bamert1995}.
+
+In~\cite{Mohpatra2000}, the model of a `bulk' Majoron was proposed within
+models featuring extra dimensionalities (`brane-bulk' scenario for
+elementary-particle physics).
+
+For the sake of completeness, it has to be mentioned that in recent years
+models with massive Majorons (\cite{Blum2018} and references therein) have
+progressively gained popularity, being this kind of Majoron an appealing dark
+matter particle candidate. This hypothesis remains however largely untested
+from the experimental point of view, because of the additional level of
+complexity added to the double-beta event analysis.
+
+\begin{figure}
+  \centering%
+  \makebox[\textwidth]{%
+    \includegraphics[width=0.5\textwidth]{plots/0nbbxfey.pdf}%
+    \includegraphics[width=0.5\textwidth]{plots/0nbbxxfey.pdf}%
+  }
+  \caption{%
+    Feynman graphs for neutrinoless double-beta decay with single (right) and
+    double (left) Majoron emission. \fillme\ not sure about the two-Majoron diagram.
+  }\label{fig:nbb:majfeydiag}
+\end{figure}
+
+\marginnote{decay \\ rate}
+Independently of the model, the decay rate for double-beta decay with Majoron
+emission can be written as:
+\begin{align*}
+  \Gamma^{0\nu\chi}  &= g_\alpha^2 \cdot G_\alpha^{0\nu\chi}(Q_{\beta\beta}, Z)
+    \cdot |M_\alpha^{0\nu\chi}|^2 \\
+  \Gamma^{0\nu2\chi} &= g_\alpha^4 \cdot G_\alpha^{0\nu\chi}(Q_{\beta\beta}, Z)
+    \cdot |M_\alpha^{0\nu2\chi}|^2 \;,
+\end{align*}
+where $g_\alpha$ is the effective coupling constant and $\alpha$ denotes the
+model considered. The phase space factors can be parametrized as a
+function of \qbb\ the sum kinetic energy of the two electrons emitted in
+the decay $K$ and the spectral index $n$:
+\[
+  G_\alpha^{0\nu\chi(\chi)}(Q_{\beta\beta}, Z) \sim (Q_{\beta\beta} - K)^n \;.
+\]
+$n = 5$ corresponds to the standard \nnbb\ whereas \onbbx\ can have $n = 1, 2,
+3$ and \onbbxx\ can have $n = 3, 7$, depending on the model. As a
+consequence, the energy spectrum of the two emitted electrons allows to
+distinguish the different models. The energy spectra for all modes of the
+Majoron emitting double beta decay are shown in \cref{fig:nbb:spectra}.
+
+\section{Lorentz violating two-neutrino double-beta decay}
 
 Since the Standard Model of Particle Physics is known to provide a successful
 description of most physics at low energies, compared to the Planck scale
@@ -272,7 +369,7 @@ $m_p\sim10^{19}$~GeV, any signal of new physics must appear at low energies in
 the form of an effective quantum field theory containing the Standard Model.
 The general effective quantum field theory constructed from the latter and
 allowing for arbitrary coordinate-independent Lorentz violation is called the
-Standard Model Extension~\cite{SME1997,SME1998}. As an effective field theory
+Standard Model Extension~\cite{Colladay1997, Colladay1998}. As an effective field theory
 it provides a link to the Planck scale through operators of non-renormalizable
 dimension. The Lagrangian of the Standard Model Extension consists of the usual
 Standard Model Lagrangian supplemented by all possible terms that can be
@@ -281,7 +378,7 @@ symmetry. The additional terms have the form of Lorentz-violating operators
 coupled to vector coefficients, and they could arise in a variety of ways.
 
 All quantum field operators for Lorentz violation involved in the propagation
-of neutrinos have been classified and enumerated \cite{SMEneutrinos}. Most of
+of neutrinos have been classified and enumerated~\cite{Kostelecky2012}. Most of
 these can be studied using neutrino oscillations, which compare the way
 different neutrinos propagate and provide interferometric sensitivity to energy
 differences between them. Some effects cannot be detected by neutrino
@@ -293,7 +390,7 @@ However, four oscillation-free operators leave unaffected the neutrino group
 velocity and so cannot be detected in this way. Instead, they must be accessed
 through physical processes that involve neutrino phase-space properties, such
 as particle decays. These operators are rare examples of \textit{countershaded}
-Lorentz violations~\cite{SMEcountersh}: Relativity-violating effects that could
+Lorentz violations~\cite{Kostelecky2009}: Relativity-violating effects that could
 be enormous compared to ones suppressed by the ratio $m_W/m_P$ and that
 nonetheless could have escaped detection to date. These could provide an
 interesting path for building models with viable Lorentz violation obviating
@@ -324,20 +421,20 @@ encodes the Lorentz-violating modifications
   \delta\omega = -\sum_{jm} e^{im\omega_\oplus T_\oplus}
     \mathcal{N}_{jm}(a_\text{of}^{(3)})_{jm}
 \end{equation}
-arising from the modified anti-neutrino dispersion relation \cite{SMEneutrinos}
+arising from the modified anti-neutrino dispersion relation~\cite{Kostelecky2012}
 $\omega=|\mathbf{q}|+m_\nu^2/|\mathbf{q}|+\delta\omega$. The sidereal time
 $T_\oplus$ controls the harmonic variation of the anti-neutrino function in the
 laboratory produced by the Earth sidereal rotation at frequency
 $\omega_\oplus\simeq 2\pi/(23\text{h} 56\text{min})$. The factors
 $\mathcal{N}_{jm}$ contain information about the direction of propagation of
 the anti-neutrinos, expressed relative to the canonical sun-centered frame of
-reference~\cite{frameor1,frameor2}.
+reference~\cite{Bluhm2003, Kostelecky2002}.
 
 \marginnote{decay \\ rate}
 Following the same procedure as in the conventional two-neutrino double-beta
 decay, we integrate over all orientation, which implies that only isotropic
 effects are observable and hence that the residual spectrum depends only on
-$\aof\equiv(a_\text{of}^{(3)})_{00}/\sqrt{4\pi}$. After a suitable change of
+$\aof\equiv{(a_\text{of}^{(3)})}_{00}/\sqrt{4\pi}$. After a suitable change of
 integration variables and defining the sum of kinetic energies $K=T_1+T_2$ for
 the two electrons, we obtain the electron sum spectrum
 \begin{equation}\label{eq:nbb:totwidth}
@@ -356,15 +453,15 @@ where the first term is (\ref{eq:nbb:stdmodel}) and the second one contains all 
 new Lorentz-violating information. The two differential decay rates are
 depicted in Fig.~\ref{fig:nbb:spectra}.
 
-\subsection{Current limits on $\aof$}
+\marginnote{experimental \\ limits}
 Conservative constraints on the $(\mathring{a}^{(3)}_\text{of})_{00}$
 coefficient have been placed using published results from the Troitsk and Mainz
 experiments studying the endpoint of the tritium beta decay energy spectrum
 \cite{Diaz:2013saa}. An outside analysis of data from the two experiments gives
-$|(\mathring{a}^{(3)}_\text{of})_{00}|<2\cdot10^{-8}$ GeV for both of them.
+$|(\mathring{a}^{(3)}_\text{of})_{00}|<2\cdot10^{-8}$~GeV for both of them.
 Constraints on the values of $\aof$ have also been extracted from studies of
 threshold effects in pion and kaon decays \cite{SMEneutrinos}, yielding
-$\aof<1.9\cdot10^{-7}$ GeV as the best upper limit.
+$\aof<1.9\cdot10^{-7}$~GeV as the best upper limit.
 
 A constraint from double-beta decay studies has been posed by the EXO-200
 collaboration in ref.~\cite{exo200}. A profile Likelihood scan over the number
