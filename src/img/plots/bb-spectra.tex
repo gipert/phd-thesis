@@ -4,44 +4,26 @@
 \usepackage[math-style=ISO, bold-style=ISO]{unicode-math}
 \setmathfont{Garamond-Math.otf}
 \usepackage{pgfplots}
+\usepackage{pgfplotsthemetol}
 \begin{document}
   \begin{tikzpicture}
-    \begin{axis}[%mlineplot,
-                 width=10cm, height=6cm,
+    \begin{axis}[width=10cm, height=6cm,
                  xmin=0, xmax=2.2,
-                 ymin=0, ymax=1.5,
+                 ymin=0, ymax=1.3,
                  samples=200,
+                 % x label style={at={(axis description cs:0.5,0.05)}},
+                 % y label style={at={(axis description cs:0.1,0.5)}},
                  xlabel=Energy {[}MeV{]},
+                 ylabel={a.u.},
                  yticklabels={,,},
-                 %ylabel=a.u.,
                  grid = major]
-      % 0nbbx, n = 1
-      \addplot [mark=none, color=gray, line width=1pt, domain=0:2.039]
-        {x/0.511*(4-x/0.511)^1*((x/0.511)^4+10*(x/0.511)^3+40*(x/0.511)^2+60*(x/0.511)+30)/2748};
-        % \node at (axis cs:1.35,0.35) {\color{red}$2\nu\beta\beta$};
-      % 0nbbx, n = 2
-      \addplot [mark=none, color=gray, line width=1pt, domain=0:2.039]
-        {x/0.511*(4-x/0.511)^2*((x/0.511)^4+10*(x/0.511)^3+40*(x/0.511)^2+60*(x/0.511)+30)/3764};
-        % \node at (axis cs:1.35,0.35) {\color{red}$2\nu\beta\beta$};
-      % 0nbbx, n = 3
-      \addplot [mark=none, color=gray, line width=1pt, domain=0:2.039]
-        {x/0.511*(4-x/0.511)^3*((x/0.511)^4+10*(x/0.511)^3+40*(x/0.511)^2+60*(x/0.511)+30)/6731};
-        % \node at (axis cs:1.35,0.35) {\color{red}$2\nu\beta\beta$};
-      % 0nbbx, n = 7
-      \addplot [mark=none, color=gray, line width=1pt, domain=0:2.039]
-        {x/0.511*(4-x/0.511)^7*((x/0.511)^4+10*(x/0.511)^3+40*(x/0.511)^2+60*(x/0.511)+30)/235046};
-        % \node at (axis cs:1.35,0.35) {\color{red}$2\nu\beta\beta$};
-      % 2nbbLV
-      \addplot [mark=none, color=red, line width=1pt, domain=0:2.039]
-        {x/0.511*(4-x/0.511)^4*((x/0.511)^4+10*(x/0.511)^3+40*(x/0.511)^2+60*(x/0.511)+30)/14212};
-        \node at (axis cs:1,1.1) {\color{red}$2\nu\beta\beta_\text{LV}$};
       % 2nbb
-      \addplot [mark=none, color=blue, line width=1pt, domain=0:2.039]
+      \addplot [mark=none, color=TolLightRed, thick, domain=0:2.039]
         {x/0.511*(4-x/0.511)^5*((x/0.511)^4+10*(x/0.511)^3+40*(x/0.511)^2+60*(x/0.511)+30)/33597};
-        \node at (axis cs:0.3,0.5) {\color{blue}$2\nu\beta\beta$};
+        \node at (axis cs:1.25,0.7) {\color{TolLightRed}$2\nu\beta\beta$};
       % 0nbb
-      \draw[-latex,color=black!50!green, line width=1pt] (axis cs:2.039,0) -- (axis cs:2.039,1.25);
-        \node at (axis cs:2.04,1.35) {\color{black!60!green}$0\nu\beta\beta$};
+      \draw[-latex,color=TolLightGreen, thick] (axis cs:2.039,0) -- (axis cs:2.039,1.0);
+        \node at (axis cs:2.04,1.1) {\color{TolLightGreen}$0\nu\beta\beta$};
     \end{axis}
   \end{tikzpicture}
 \end{document}
