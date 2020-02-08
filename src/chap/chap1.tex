@@ -1,3 +1,5 @@
+%!TEX root = ../main.tex
+
 \chapter{Double-beta decay}\label{chap:theory}
 
 Studying the properties and interactions of neutrinos has been one of the most
@@ -32,13 +34,13 @@ From its definition it is also clear that neutrinoless double-beta decay
 violates lepton number conservation, an accidental symmetry in the Standard
 Model, by two units ($\Delta L = 2$). The existence of such a process beyond
 the Standard Model would therefore be crucial to support baryogenesis ideas,
-that try to explain why we live in matter-dominated universe.
+that try to explain why we live in matter-dominated Universe.
 
 In the following the theory of double-beta decay is briefly reviewed, focusing
 on the core concepts and formulas which will be used in this work. Formulas for
 the differential double-beta decay rates associated to the two-neutrino mode,
 the neutrinoless mode as well as modes driven by other new physics scenarios
-(Majoron emission, Lorentz symmetry violation) are given. \fillme
+(Majoron emission, Lorentz symmetry violation) are given. \fillme{fillme}
 
 \section{Two-neutrino double-beta decay}\label{sec:nbb:2nbb}
 
@@ -63,8 +65,8 @@ the Standard Model. The Feynman graph for \nnbbm\ is shown in
 \begin{figure}
   \centering%
   \makebox[\textwidth]{%
-    \includegraphics[width=0.5\textwidth]{plots/2nbbfey.pdf}%
-    \includegraphics[width=0.5\textwidth]{plots/0nbbfey.pdf}%
+    \includegraphics[width=0.5\textwidth]{plots/theory/2nbbfey.pdf}%
+    \includegraphics[width=0.5\textwidth]{plots/theory/0nbbfey.pdf}%
   }
   \caption{%
     Feynman graphs for two-neutrino (left) and neutrinoless (right) double-beta
@@ -103,8 +105,8 @@ $^{76}$As, and $^{76}$Se nuclei is considered.
 \begin{figure}
   \centering
   \makebox[\textwidth]{%
-    \includegraphics[width=0.5\textwidth]{plots/gesix-levels.pdf}%
-    \includegraphics[width=0.5\textwidth]{plots/masspar.pdf}%
+    \includegraphics[width=0.5\textwidth]{plots/theory/gesix-levels.pdf}%
+    \includegraphics[width=0.5\textwidth]{plots/theory/masspar.pdf}%
   }%
   \caption{%
     On the left: schematic illustration of the energy level structure of the
@@ -168,7 +170,7 @@ these reasons, the \nnbbp\ decay has been less studied than the \nnbbm\ decay
 and in the following we will consider only \nnbbm\ decays (from now on we will
 simply refer to them with \nnbb). Let us only mention that $\mathcal{N}(A,Z)
 \rightarrow \mathcal{N}(A,Z-2)$ transitions can occur not only through \nnbbp\
-processes, but also through the processes \fillme\
+processes, but also through the processes \fillme{fillme}
 \[
   \begin{array}{lrl}
     \text{EC}\beta^+: &
@@ -257,7 +259,7 @@ with $F_\text{PR}(Z) = 2\pi\alpha/Z(\-e^{-2\pi\alpha Z})$. The distribution for
 
 \begin{figure}
   \centering
-  \includegraphics{plots/bb-spectra.pdf}
+  \includegraphics{plots/theory/bb-spectra.pdf}
   \caption{%
     Two-electron energy spectra for the two-neutrino and the neutrinoless
     double-beta decay modes of \gesix. Analytic formulas, obtained with the
@@ -277,31 +279,197 @@ The neutrinoless double-beta decay processes (\onbb) of the types
       \mathcal{N}(A,Z) \longrightarrow \mathcal{N}(A,Z-2)+2e^+ &,
   \end{array}
 \]
-which have been proposed by W.~H.~Furry in 1939~\cite{Furry1939}, are
-forbidden in the minimal Standard Model, where the neutrinos are massless,
-because the conservation of the total lepton number is violated by two units.
-This process, however, if observed, would be of great importance for establishing
-the mechanism through which the neutrino acquires its mass.
+which have been proposed by W.~H.~Furry in 1939~\cite{Furry1939}, are forbidden
+in the minimal Standard Model, where the neutrinos are massless, because the
+conservation of the total lepton number is violated by two units.
+Interestingly, lepton number $L$ (as well as baryon number $B$) is only an
+accidentally conserved global symmetry in the Standard Model and its
+conservation in extended theories seems very unlikely. To support the idea that
+$L$ and $B$ conservation laws are nothing sacred and lack of a deep
+justification even in the Standard Model, one should note that they are only
+valid at the classical level\footnote{Chiral anomalies actually violate this
+conservation law. It can be shown that the currents associated with baryon
+and lepton number have non-vanishing divergences: $\partial^\mu J_\mu^{B,L} =
+c G_{\mu\nu} \widetilde{G}^{\mu\nu} \neq 0$, where $G_{\mu\nu}$ is the
+electroweak gauge field strength and $J_\mu^B = \sum \overline{q}_i \gamma_\mu
+q_i$, $J_\mu^L = \sum \overline{l}_i \gamma_\mu l_i$.}. In the effective field
+theory framework, one can easily realize that the (unique) lowest higher dimensional
+$d=5$ operator one can write down,
+\[
+  \mathcal{L}_\text{eff} = \frac{1}{2} \frac{h_{\alpha\beta}}{\Lambda}
+                           (\overline{L_\alpha^c}\widetilde{\Phi})
+                           (\widetilde{\Phi}^T L_\beta) + \text{h.c.} \;,
+\]
+often referred to as Weinberg operator~\cite{Weinberg1979}, immediately
+violates lepton number. Superscript $^c$ denotes the charge conjugation
+operation, $L_\alpha = (\nu_\alpha, \alpha)^T$ are the lepton doublets of
+flavor $\alpha = e, \mu, \tau$, $\Phi$ is the Higgs doublet and $\Lambda$
+denotes the energy scale of the complete theory. Therefore, it
+is possible to suspect that the validity of $B$ and $L$ conservation laws is
+just approximate or circumstantial, since it is related to the range of
+energies that we can explore in laboratories.
 
-There are two ways to characterize massive neutrinos: they could be particles
-of the `Dirac' (as all the other fundamental fermions) or the `Majorana' type.
-Such a distinction arises from different field representation choices of
-neutral fermions in Quantum Field Theory~\cite{Giunti2007}.  Majorana particles
-were first proposed by Ettore Majorana~\cite{Majorana1932}, which showed a
-peculiar consequence of such an alternative representation: in contrast to
-Dirac particles, Majorana particles and anti-particles are the same entity.
+Why searching for lepton violation is so important? Apart from the naturalness
+issue, the connection with baryon number in most Grand Unified Theories (GUTs),
+i.e.~gauge theories with a single gauge coupling at a certain high energy
+scale, might help solving the long-standing problem of explaining why we live
+in a matter-dominated Universe, often referred as the `baryogenesis problem',
+despite the equal importance of matter and anti-matter in the Standard Model.
+In 1967, Sakharov proposed a set of necessary conditions to generate the cosmic
+baryon asymmetry~\cite{Sakharov1991}. These conditions are satisfied in the
+Standard Model, but they don't generate the required amount of baryonic
+asymmetry observed by current experiments~\cite{citation needed}. One viable
+and attractive way to mach theoretical predictions to experimental data is
+assuming that lepton number violating processes had a major role in the early
+history of the Universe. This is referred as the leptogenesis mechanism, which
+was first proposed by Fukugita and Yanigada in 1986~\cite{Fukugita1986}. In
+this model (`unflavored' Leptogenesis) heavy particles present in many GUTs
+would have been produced during the Big Bang and then quickly decayed through
+$CP$-violating processes, producing a leptonic asymmetry. Note however that,
+since its first formulation, a large number of alternative theoretical
+possibilities for leptogenesis have been formulated~\cite{citation needed}. How
+can leptogenesis the convert to baryogenesis? As already mentioned, in GUTs
+quarks and leptons live together in multiplets, and hence both $B$ and $L$ are
+not expected to be conserved quantities. By the way, the combination $B−L$, which is
+conserved in the Standard Model both at the classical and quantum level (by sphaleron
+processes), often plays an important role in GUTs, and is broken at some stage.
+In the spirit of baryogenesis, one needs to require that
+baryon number is violated, and hence lepton number should be violated too. In
+this sense lepton violation should be treated on the same level as baryon
+number violation, and its observation would be far more fundamental than a
+simple measurement of neutrino properties, which is often quoted as the main
+goal of \onbb\ searches. Its implications are far beyond that.
+For the sake of completeness, it should be mentioned that the link between
+\onbb\ and the baryon asymmetry is not guaranteed, as mentioned
+here~\cite{Rodejohann2011}. The often-made and popular statement that \onbb\
+experiments probe the origin of matter in the Universe is not true in all cases.
+There might be scenarios in which new physics processes that allow for
+\onbb\ do not generate baryon asymmetry, yet the decay is very well possible.
 
-\onbb\ decays, in the standard interpretation, are
-possible if neutrinos are massive Majorana particles, with the Feynman diagram
-in \cref{fig:nbb:feydiag}, right. In this case, no neutrinos are emitted during
+Besides lepton number violation, \onbb, if observed, would be of great
+importance for establishing the mechanism through which the neutrino acquires
+its mass. As a starting point, it's interesting to note that the aforementioned
+Weinberg operator, upon electroweak symmetry breaking, leads to mass terms in
+the Lagrangian which are not of the usual `Dirac' type.
+\begin{equation}\label{eq:nbb:wein-sb}
+  \mathcal{L}_\text{eff} \longrightarrow \frac{1}{2} (m_\nu)_{\alpha\beta}
+                                         \overline{\nu_\alpha^c} \nu_\beta
+\end{equation}
+where $m_\nu = h v^2 / \Lambda$ is the Majorana neutrino mass matrix and $v =
+174$~GeV is the vacuum expectation value.  As a brief reminder, we recall that
+there are two ways to characterize massive fermions: they could be particles of
+the `Dirac' type (as all the other fundamental fermions) or the `Majorana'
+type.  Such a distinction arises from different representation choices of
+neutral fermionic fields in Quantum Field Theory~\cite{Giunti2007}.  Majorana
+particles were first proposed by Ettore Majorana~\cite{Majorana1932}, which
+showed a peculiar consequence of such an alternative representation: in
+contrast to Dirac particles, Majorana particles and anti-particles are the same
+entity. With the proper convention, in fact, $\nu_i^c = C\overline{\nu}^T_i = \nu_i$.
+ith the typical mass scale of $m_\nu \simeq 0.05$~eV, it follows that
+$\Lambda \simeq 10^{15}$~GeV, tantalizingly close to the GUT scale. This is why
+Majorana neutrinos are so popular: small neutrino masses probe higher energy
+scale physics. It has been shown that within the minimal standard electroweak
+model there are only three tree-level realizations of the Weinberg operator.
+One is the canonical type-I seesaw mechanism with right-handed neutrinos.
+Another approach is introducing a scalar Higgs triplet (type-II, or triplet
+seesaw), and the third one involves hypercharge-less fermion triplets (type-III
+seesaw).  In the simplest type-I mechanism, as an example, one introduces three
+Majorana neutrinos, which are Standard Model singlets, and therefore can be
+arbitrarily heavy with mass matrix $M_R$. Integrating out the heavy states
+gives a Majorana mass term for the light neutrinos which is suppressed by the
+mass of the heavy degrees of freedom. The Weinberg operator is realized with
+$\Lambda \simeq M_R$.
+
+Many Standard Model extensions predict neutrinoless double-beta decay, most
+often through the introduction of a $\Delta L = 2$ Majorana mass term (like the
+Weinberg operator) for standard or new neutrinos.  It should be noted, that via
+the black-box, or Schechter-Valle, theorem~\cite{Schechter1982}, all
+realizations of neutrinoless double-beta decay are connected to a Majorana
+neutrino mass. This nevertheless generates a tiny mass at the 4-loop level, too
+small to account for the mass scale as identified in oscillation experiments.
+Therefore, as discussed in~\cite{Rodejohann2011}, it is possible to classify
+the possible interpretations of \onbb\ into the `standard interpretation',
+in which the decay is mediated by light and massive Majorana neutrinos (the
+same that oscillate, see Feynman diagram in \cref{fig:nbb:feydiag}), and the
+`non-standard interpretations', in which the decay is mediated by some
+other lepton number violating physics. Most
+experimental searches focus on the standard interpretation, which is
+arguably the best motivated possibility for the decay. We will focus on this
+mechanism in the following.
+
+In the standard interpretation, searches for \onbb\ are searches for
+neutrino mass, complementing the other approaches to determine it. We recall that
+in the `3-Majorana neutrino paradigm' the neutrino mass matrix $m_\nu$ is diagonalized
+by the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) unitary mixing matrix $U$:
+\[
+  m_\nu = U \text{diag}(m_1, m_2, m_3) U^T \;,
+\]
+where $m_i$ are the (real and positive) masses of neutrino mass eigenstates.
+The PMNS matrix, in its standard parametrization, contains three mixing angles
+$\theta_{12}$, $\theta_{13}$ and $\theta_{23}$, one `Dirac' phase $\delta$ and
+two `Majorana' phases $\alpha$ and $\beta$. It is important to know that among
+the open problems in neutrino physics there is the `hierarchy problem',
+i.e.~whether $m_1 < m_2 < m_3$ (normal ordering) or $m_3 < m_1 < m_2$ (inverted
+ordering).  In the recent years the normal ordering (NO) hypothesis has
+progressively gained support against the inverted ordering (IO). At the time of
+writing, global fits of neutrino oscillation data favor the NO hypothesis over
+the IH by more than $3\sigma$~\cite{Esteban2019}.
+
+In the light neutrino exchange model, the \onbb\ decay width can be expressed as:
+\[
+  \Gamma^{0\nu} = G^{0\nu}(Q_{\beta\beta}, Z)
+                  |\mathcal{M}^{0\nu}|^2
+                  \langle{m_{\beta\beta}}\rangle^2 \;,
+\]
+where \mbb\ is the so-called `effective mass':
+\[
+  \langle m_{ee} \rangle = \left| \sum U_{ei}^2 m_i \right|
+                         = |c^2_{12} c^2_{13} m_1 + s^2_{12} c^2_{13} m_2 e^{i\alpha}
+                            + s^2_{13} m_3 e^{i\beta}| \;.
+\]
+where $c_{ij} \equiv \cos{\theta_{ij}}$ and $s_{ij} \equiv \sin{\theta_{ij}}$.
+The effective mass depends thus on 7 out of the 9 physical neutrino parameters.
+This is the observable connected with the neutrino mass tested by \onbb\
+experiments.  The neutrino mass can also be probed by cosmological
+observations~\cite{Gerbino2018} and direct kinematic (Kurie-plot) searches,
+such as the KATRIN~\cite{Aker2019} and ECHo~\cite{Gastaldo2018} experiments.
+The observables tested by these two methods are the sum of the neutrino masses
+and the `incoherent sum':
+\[
+  \Sigma = \sum m_i \quad \text{and} \quad m_\beta
+         = \sqrt{\sum |U_{ei}^2 m_i^2|} \;,
+\]
+respectively. While the direct kinematic searches provide the most
+model-independent approach to test the neutrino mass, they give the weakest
+limits; the projected $m_\beta$ sensitivity in the KATRIN experiment is 0.2~eV.
+Cosmology gives the strongest mass limits in the sum of the neutrino masses
+$\Sigma$, but they depend on the data sets and on the cosmological model. The
+current conservative limits on $\Sigma$ are about 0.3~eV~\cite{Aghanim2018}.
+
+Varying the neutrino oscillation parameters within their $3\sigma$ ranges it is
+possible to plot \mbb, $m_\beta$ and $\Sigma$ one against each other in
+\cref{fig:nbb:mass-obs}. In the NO hypothesis, \mbb\ can even vanish, while
+in the IH scenario there is a minimum value of about 0.013~eV. This value
+represents a physics goal for the current and upcoming \onbb\ experiments.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{plots/theory/nu-mass-observables.pdf}
+  \caption{%
+    The effective mass \mbb\ versus the kinematic neutrino mass observable
+    $m_\beta$, and the cosmological observable $\Sigma$. The neutrino
+    oscillation parameters are varied within their $3\sigma$ ranges. The blue
+    (red) area is for the normal (inverted) mass ordering. Taken
+    from~\cite{Dolinski2019}.
+  }\label{fig:nbb:mass-obs}
+\end{figure}
+
+In this case, no neutrinos are emitted during
 the process and the experimental signature is therefore a Dirac-delta function at \qbb\
 in the summed energy spectrum (\cref{fig:nbb:spectra}).  A nucleus which can
 decay through a \nnbb\ process could also decay through a \onbb\ process, albeit
 with a different lifetime ($\gtrsim 10^{25}$~yr). Also the other double-beta
-decay modes mentioned in \cref{sec:nbb:2nbb} have their neutrinoless analog. However, as
-reviewed in~\cite{Rodejohann2011}, it should be pointed out that there are many
-other well-motivated particle physics scenarios and frameworks that allow for
-\onbb, treated as negligible contributions in the standard interpretation.
+decay modes mentioned in \cref{sec:nbb:2nbb} have their neutrinoless analog.
 
 Considerable experimental efforts are being dedicated to the detection of
 \onbb, as such experiments represent the only practical way of establishing
@@ -369,12 +537,12 @@ complexity added to the double-beta event analysis.
 \begin{figure}
   \centering%
   \makebox[\textwidth]{%
-    \includegraphics[width=0.5\textwidth]{plots/0nbbxfey.pdf}%
-    \includegraphics[width=0.5\textwidth]{plots/0nbbxxfey.pdf}%
+    \includegraphics[width=0.5\textwidth]{plots/theory/0nbbxfey.pdf}%
+    \includegraphics[width=0.5\textwidth]{plots/theory/0nbbxxfey.pdf}%
   }
   \caption{%
     Feynman graphs for neutrinoless double-beta decay with single (right) and
-    double (left) Majoron emission. \fillme\ not sure about the two-Majoron diagram.
+    double (left) Majoron emission. \fillme{not sure about the two-Majoron diagram.}
   }\label{fig:nbb:majfeydiag}
 \end{figure}
 
@@ -403,7 +571,7 @@ spectra for all modes of the Majoron emitting double beta decay are shown in
 
 \begin{figure}
   \centering
-  \includegraphics{plots/majorons-spectra.pdf}
+  \includegraphics{plots/theory/majorons-spectra.pdf}
   \caption{%
     Two-electron energy spectra from different models (labeled by the spectral
     index $n$, see text) of double-beta decay of \gesix, including the standard

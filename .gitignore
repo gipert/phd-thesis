@@ -14,14 +14,14 @@
 /src/img/setup/pic-collage.pdf
 /src/img/gedet/*.pdf
 /src/img/gedet/*.png
-/src/img/plots/0nbbfey.pdf
-/src/img/plots/2nbbfey.pdf
-/src/img/plots/gesix-levels.pdf
-/src/img/plots/masspar.pdf
-/src/img/plots/bb-spectra.pdf
-/src/img/plots/0nbbxfey.pdf
-/src/img/plots/0nbbxxfey.pdf
-/src/img/plots/majorons-spectra.pdf
+/src/img/plots/theory/0nbbfey.pdf
+/src/img/plots/theory/2nbbfey.pdf
+/src/img/plots/theory/gesix-levels.pdf
+/src/img/plots/theory/masspar.pdf
+/src/img/plots/theory/bb-spectra.pdf
+/src/img/plots/theory/0nbbxfey.pdf
+/src/img/plots/theory/0nbbxxfey.pdf
+/src/img/plots/theory/majorons-spectra.pdf
 
 *.DS_Store
 *.swp
