@@ -170,7 +170,7 @@ these reasons, the \nnbbp\ decay has been less studied than the \nnbbm\ decay
 and in the following we will consider only \nnbbm\ decays (from now on we will
 simply refer to them with \nnbb). Let us only mention that $\mathcal{N}(A,Z)
 \rightarrow \mathcal{N}(A,Z-2)$ transitions can occur not only through \nnbbp\
-processes, but also through the processes \fillme{fillme}
+processes, but also through the processes \fillme{write more}
 \[
   \begin{array}{lrl}
     \text{EC}\beta^+: &
@@ -182,7 +182,7 @@ processes, but also through the processes \fillme{fillme}
 
 \marginnote{decay \\ rate}
 The rate of \nnbb\ can be calculated by invoking the recipe of the Fermi golden
-rule for simple $\beta$ decay. To a good approximation, the decay width can be
+rule for simple \b-decay. To a good approximation, the decay width can be
 factorized as a kinematic part (the phase space of the leptons emitted in the
 decay) times a nuclear part (the matrix element responsible for the transition
 probability between two nuclear states):
@@ -191,48 +191,28 @@ probability between two nuclear states):
 \]
 where $G^{2\nu}$ is obtained by integration over the phase space of four
 leptons emitted in the decay and can be calculated exactly. The nuclear matrix
-element $\mathcal{M}^{2\nu}$ deals with the nuclear structure of the transition
-and is much more difficult to evaluate.
+element (NME) $\mathcal{M}^{2\nu}$ deals with the nuclear structure of the
+transition and is notoriously much more difficult to evaluate.
 
-Denoting the 4-momentum of the two electrons and the two anti-neutrinos by
-$p^\alpha_i=(E_i,\mathbf{p}_i)$ and $q^\alpha_i=(\omega_i,\mathbf{q}_i)$,
-respectively ($i=1,2$), the relevant matrix element is given by
-\[
-  i\mathcal{M} = iG^2_F V^2_{ud} [\bar{u}(p_1) \gamma^\mu (1-\gamma_5) v(q_1)]
-                 [\bar{u}(p_2) \gamma^\nu (1-\gamma_5) v(q_2)] J_{\mu\nu} -
-                 (p_1\leftrightarrow p_2) \;.
-               \]
-(the last expression in brackets represents the first term with $p_1$ and $p_2$
-interchanged).  The hadronic tensor $J_{\mu\nu}$ corresponds to the product of
-two nuclear currents written in the impulse approximation~\cite{Tomoda1991}.
-Including the implementation of the long-wave and closure approximation for the
-hadronic tensor~\cite{Tomoda1991}, we obtain
-\[
-  \sum_\text{spin} |\mathcal{M}|^2 = 64 G^4_F |V_{ud}|^4 g^4_A (p_1 \cdot p_2)
-                                     (q_1 \cdot q_2) |\mathcal{M}^{2\nu}|^2 \;,
-\]
-where the nuclear matrix element involves vector and axial couplings for Fermi
-and Gamow-Teller transitions in the form
-\[
-  g^2_A\mathcal{M}^{2\nu} = g^2_V \mathcal{M}^{2\nu}_F -
-                            g^2_A \mathcal{M}^{2\nu}_{GT} \;.
-\]
-
+\marginnote{phase \\ space}
 General methods for phase-space factor calculations in double-beta decay have
 been developed~\cite{Doi1981,Doi1983,Tomoda1991}. The decay rate is given by
 integrating over all possible energies and angles of the leptons emitted in the
 decay. For the two-neutrino mode, these leptons are the two electrons and the
-two anti-neutrinos:
+two anti-neutrinos. Denoting the 4-momentum of the two electrons and the two
+anti-neutrinos by $p^\alpha_i = (E_i,\mathbf{p}_i)$ and $q^\alpha_i =
+(\omega_i,\mathbf{q}_i)$, respectively ($i=1,2$), the differential decay
+amplitude reads:
 \[
   \begin{split}
-    %G^{2\nu} \propto \int \text{d}^3p_1\text{d}^3p_2\text{d}^3q_1\text{d}^3q_2F(Z,E_1)F(Z,E_2)\delta(E_1+E_1+\omega_1+\omega_2-E_F+E_I)\;,
-    \text{d}\Gamma = \frac{1}{4} \int & \frac{\text{d}^3p_1}{(2\pi)^32E_1}
-                                        \frac{\text{d}^3p_2}{(2\pi)^32E_2}
-                                        \frac{\text{d}^3q_1}{(2\pi)^32\omega_1}
-                                        \frac{\text{d}^3q_2}{(2\pi)^32\omega_2} \\
-                                      & \times F(Z,E_1) F(Z,E_2) \sum |\mathcal{M}|^2 \\
-                                      & \times 2\pi\delta (E_1 + E_2 + \omega_1 +
-                                        \omega_2 - E_F + E_I) \;, \\
+    \text{d}\Gamma =
+      \frac{1}{4} \int & \frac{\text{d}^3p_1}{(2\pi)^32E_1}
+                         \frac{\text{d}^3p_2}{(2\pi)^32E_2}
+                         \frac{\text{d}^3q_1}{(2\pi)^32\omega_1}
+                         \frac{\text{d}^3q_2}{(2\pi)^32\omega_2} \\
+                       & \times F(Z,E_1) F(Z,E_2) \sum |\mathcal{M}|^2 \\
+                       & \times 2\pi\delta (E_1 + E_2 + \omega_1 +
+                         \omega_2 - E_F + E_I) \;, \\
   \end{split}
 \]
 where $F(Z,E)$ is the Fermi function that describes the Coulomb effect on the
@@ -256,6 +236,82 @@ is given by
 \]
 with $F_\text{PR}(Z) = 2\pi\alpha/Z(\-e^{-2\pi\alpha Z})$. The distribution for
 \gesix\ is plotted in \cref{fig:nbb:spectra}.
+
+\marginnote{nuclear \\ matrix \\ element}
+The relevant matrix element for \nnbb\ is given by
+\[
+  i\mathcal{M} = iG^2_F V^2_{ud}
+                 [\overline{e}(p_1) \gamma^\mu (1-\gamma_5) \nu(q_1)]
+                 [\overline{e}(p_2) \gamma^\nu (1-\gamma_5) \nu(q_2)]
+                 J_{\mu\nu} - (p_1\leftrightarrow p_2) \;,
+\]
+where the last expression in brackets represents the first term with $p_1$ and
+$p_2$ interchanged. The hadronic tensor $J_{\mu\nu}$ is the troublesome part,
+as it encodes all the details of the interaction with the atomic nucleus. While
+the Lagrangian for double-beta decay is written at the quark level, in fact,
+the atomic nucleus contains hadrons, therefore operators need to be run from
+their fundamental high scale down to the lower nuclear scale, and then matched
+to the hadronic operators build from the hadronic (effective) degrees of
+freedom. A problem is that the hadronic operators are often phenomenologically
+written in terms of the form factors when this transition is made. As an
+example, the nucleon matrix element $J^\mu = \langle{p}| \overline{u}
+\gamma^\mu (1-\gamma_5) d |{n}\rangle$, which is relevant for double-beta
+decay, can be expressed as:
+\[
+  \overline{u}(p) \left[
+    F_V(q^2)\gamma^\mu
+    - if_W(q^2)/(2m_p) \sigma^{\mu\nu} q_\nu
+    - F_A\gamma^\mu\gamma_5
+    + F_P(q^2)/(2m_p)\gamma_5q_\mu
+  \right] u(p')e^{iqx} \;,
+\]
+where $u(p)$ and $u(p')$ are the spinors for the initial and final-state
+neutron, $p'-p=q$ and the normalization factors $F_i(q^2=0)$ are the coupling
+constants. The $q^2$-dependence and the normalization of several form factors
+is, unfortunately, poorly known.  To go further, most authors then apply three
+approximations: \emph{a)} the impulse approximation for the nuclear current
+$J^\mu$, which sums over the individual free-nucleon matrix elements; \emph{b)}
+the non-relativistic expansion for the form factors; \emph{c)} the closure
+approximation, which averages on the energies of all the intermediate odd-odd
+nuclear states ($1^+$ for \nnbb) that must be considered when calculating the
+amplitude of a second-order process.  The unpolarized transition probability
+then reads:
+\[
+  \sum_\text{spin} |\mathcal{M}|^2 = 64 G^4_F |V_{ud}|^4 g^4_A (p_1 \cdot p_2)
+                                     (q_1 \cdot q_2) |\mathcal{M}^{2\nu}|^2 \;,
+\]
+where \nmet\ involves vector and axial couplings $g^2_V
+\equiv F_V(q^2=0)$ and $g^2_A \equiv F_A(q^2=0)$ for Fermi and Gamow-Teller
+transitions in the form
+\[
+  \mathcal{M}^{2\nu} = \mathcal{M}^{2\nu}_{GT} -
+                       \frac{g^2_V}{g^2_A} \mathcal{M}^{2\nu}_F \;.
+\]
+In particular, $\mathcal{M}_F$ depends on the integral over $q$ of $F_V(q^2)$
+whereas $\mathcal{M}_{GT}$ depends on the corresponding integrals over linear
+combinations of $F_{A,P,W}(q^2)$.
+
+The difficulty of NME calculations is to know the initial- and final-state
+nuclear wave functions, a many-body problem that has no exact solution. Several
+numerical approaches to the problem exist, the reader is referred
+to~\cite{Engel2017} and references therein for a complete review. Evaluation of
+the \nnbb\ NMEs presents a formidable challenge and could help improve the
+reliability of \nmez\ calculations, that present the same difficulties. \nnbb,
+in fact, gives only indirect information on \onbb, as the set of intermediate
+states considered in the calculations is different\footnote{In \onbb\ all
+intermediate states up to 100~MeV contribute; in contrast, \nnbb\ has only
+$1^+$ states (as two real neutrinos are emitted) with energies up to \qbb\ of
+a few MeV.}, but can be used to verify the accuracy of the various techniques.
+Under this perspective, the greatest advantage of the two-neutrino mode is that
+the calculations can be directly verified in an experiment by measuring the
+half-life of the process.
+
+\marginnote{quenching}
+With the Gamov-Teller matrix element $\mathcal{M}_{GT}$ the leading one, the
+nuclear matrix element is to a good approximation proportional to $g_A^2$, and
+\thalftwo\ is proportional to $g_a^{-4}$. Quenching denotes the reduction of
+$g_A$ that is necessary to reproduce the observable quantities of nuclear
+decays, particularly \b\ and \nnbb\ decays.
 
 \begin{figure}
   \centering
