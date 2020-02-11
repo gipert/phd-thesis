@@ -104,10 +104,8 @@ $^{76}$As, and $^{76}$Se nuclei is considered.
 
 \begin{figure}
   \centering
-  \makebox[\textwidth]{%
-    \includegraphics[width=0.5\textwidth]{plots/theory/gesix-levels.pdf}%
-    \includegraphics[width=0.5\textwidth]{plots/theory/masspar.pdf}%
-  }%
+  \includegraphics[width=0.5\textwidth]{plots/theory/gesix-levels.pdf}%
+  \includegraphics[width=0.5\textwidth]{plots/theory/masspar.pdf}%
   \caption{%
     On the left: schematic illustration of the energy level structure of the
     $2\nu\beta^-\beta^-$ decay of \gesix into $^{76}$Se. On the right: general
@@ -170,7 +168,7 @@ these reasons, the \nnbbp\ decay has been less studied than the \nnbbm\ decay
 and in the following we will consider only \nnbbm\ decays (from now on we will
 simply refer to them with \nnbb). Let us only mention that $\mathcal{N}(A,Z)
 \rightarrow \mathcal{N}(A,Z-2)$ transitions can occur not only through \nnbbp\
-processes, but also through the processes \fillme{write more}
+processes, but also through the processes
 \[
   \begin{array}{lrl}
     \text{EC}\beta^+: &
@@ -179,66 +177,29 @@ processes, but also through the processes \fillme{write more}
       2e^- + \mathcal{N}(A,Z) \rightarrow \mathcal{N}(A,Z-2) + 2\nu_e &.
   \end{array}
 \]
+\\
 
 \marginnote{decay \\ rate}
 The rate of \nnbb\ can be calculated by invoking the recipe of the Fermi golden
-rule for simple \b-decay. To a good approximation, the decay width can be
-factorized as a kinematic part (the phase space of the leptons emitted in the
-decay) times a nuclear part (the matrix element responsible for the transition
-probability between two nuclear states):
+rule for simple \b\ decay. To a good approximation, the decay rate can be
+factorized as a kinematic part, or phase space factor, times the matrix element
+describing the transition probability between the initial and final nuclear
+states:
 \[
-  \Gamma^{2\nu} = G^{2\nu}(Q_{\beta\beta},Z) |\mathcal{M}^{2\nu}|^2 \;,
+  \Gamma^{2\nu} = G^{2\nu}(Q_{\beta\beta},Z) |\mathcal{M}^{2\nu}|^2 \;.
 \]
-where $G^{2\nu}$ is obtained by integration over the phase space of four
-leptons emitted in the decay and can be calculated exactly. The nuclear matrix
-element (NME) $\mathcal{M}^{2\nu}$ deals with the nuclear structure of the
-transition and is notoriously much more difficult to evaluate.
+The phase space factor \psft\ is obtained by integration over the phase space
+of four leptons emitted in the decay and can be calculated to a high degree of
+accuracy~\cite{Kotila2012, Stoica2013}. Its value for \nnbb\ varies between
+$10^{-21}$ and $10^{-17}$~yr$^{-1}$ depending on the double-beta emitter.
+The nuclear matrix element (NME) \nmet\ deals with the nuclear structure of the
+transition and is notoriously much more difficult to evaluate. Its value for
+\nnbb\ depends on the isotope but is around $10^{-1}$~MeV.
 
-\marginnote{phase \\ space}
-General methods for phase-space factor calculations in double-beta decay have
-been developed~\cite{Doi1981,Doi1983,Tomoda1991}. The decay rate is given by
-integrating over all possible energies and angles of the leptons emitted in the
-decay. For the two-neutrino mode, these leptons are the two electrons and the
-two anti-neutrinos. Denoting the 4-momentum of the two electrons and the two
-anti-neutrinos by $p^\alpha_i = (E_i,\mathbf{p}_i)$ and $q^\alpha_i =
-(\omega_i,\mathbf{q}_i)$, respectively ($i=1,2$), the differential decay
-amplitude reads:
-\[
-  \begin{split}
-    \text{d}\Gamma =
-      \frac{1}{4} \int & \frac{\text{d}^3p_1}{(2\pi)^32E_1}
-                         \frac{\text{d}^3p_2}{(2\pi)^32E_2}
-                         \frac{\text{d}^3q_1}{(2\pi)^32\omega_1}
-                         \frac{\text{d}^3q_2}{(2\pi)^32\omega_2} \\
-                       & \times F(Z,E_1) F(Z,E_2) \sum |\mathcal{M}|^2 \\
-                       & \times 2\pi\delta (E_1 + E_2 + \omega_1 +
-                         \omega_2 - E_F + E_I) \;, \\
-  \end{split}
-\]
-where $F(Z,E)$ is the Fermi function that describes the Coulomb effect on the
-outgoing electrons and $E_I$, $E_F$ are the energies of the parent and the
-daughter nucleus, respectively.
-
-In the Primakoff–Rosen approximation~\cite{Primakoff1959} for the
-non-relativistic Coulomb correction, the sum spectrum of the electrons energies
-can be analytically calculated. After a suitable change of integration
-variables and defining the sum of kinetic energies $K=T_1+T_2$ for the two
-electrons and integrating over the remaining variables, we obtain
-\begin{equation}\label{eq:nbb:stdmodel}
-  \frac{\text{d}\Gamma}{\text{d}K} = \Lambda \cdot (K^5+10K^4+40K^3+60K^2+30K)
-                                     (Q_{\beta\beta}-K)^5 \;,
-\end{equation}
-where $K$ is written in units of the electron mass. The overall constant factor
-is given by
-\[
-  \Lambda = \frac{G_F^4g_A^4|V_{ud}|^4F^2_\text{PR}(Z)m_e^{11}}{7200\pi^7}
-            |\mathcal{M}^{2\nu}|^2 \;,
-\]
-with $F_\text{PR}(Z) = 2\pi\alpha/Z(\-e^{-2\pi\alpha Z})$. The distribution for
-\gesix\ is plotted in \cref{fig:nbb:spectra}.
-
-\marginnote{nuclear \\ matrix \\ element}
-The relevant matrix element for \nnbb\ is given by
+\marginnote{nuclear \\ matrix \\ elements}
+Denoting the 4-momentum of the two electrons and the two anti-neutrinos by
+$p^\alpha_i = (E_i,\mathbf{p}_i)$ and $q^\alpha_i = (\omega_i,\mathbf{q}_i)$,
+respectively ($i=1,2$), the relevant matrix element for \nnbb\ is given by
 \[
   i\mathcal{M} = iG^2_F V^2_{ud}
                  [\overline{e}(p_1) \gamma^\mu (1-\gamma_5) \nu(q_1)]
@@ -274,12 +235,12 @@ $J^\mu$, which sums over the individual free-nucleon matrix elements; \emph{b)}
 the non-relativistic expansion for the form factors; \emph{c)} the closure
 approximation, which averages on the energies of all the intermediate odd-odd
 nuclear states ($1^+$ for \nnbb) that must be considered when calculating the
-amplitude of a second-order process.  The unpolarized transition probability
+amplitude of a second-order process. The unpolarized transition probability
 then reads:
-\[
+\begin{equation}\label{eq:nbb:trans-prob}
   \sum_\text{spin} |\mathcal{M}|^2 = 64 G^4_F |V_{ud}|^4 g^4_A (p_1 \cdot p_2)
                                      (q_1 \cdot q_2) |\mathcal{M}^{2\nu}|^2 \;,
-\]
+\end{equation}
 where \nmet\ involves vector and axial couplings $g^2_V
 \equiv F_V(q^2=0)$ and $g^2_A \equiv F_A(q^2=0)$ for Fermi and Gamow-Teller
 transitions in the form
@@ -310,8 +271,64 @@ half-life of the process.
 With the Gamov-Teller matrix element $\mathcal{M}_{GT}$ the leading one, the
 nuclear matrix element is to a good approximation proportional to $g_A^2$, and
 \thalftwo\ is proportional to $g_a^{-4}$. Quenching denotes the reduction of
-$g_A$ that is necessary to reproduce the observable quantities of nuclear
-decays, particularly \b\ and \nnbb\ decays.
+$g_A$ with respect to its free nucleon value of 1.27 that is necessary to
+reproduce the observable quantities of nuclear decays, particularly \b\ and
+\nnbb\ decays, see~\cite{Suhonen2017} for a review.  Possible origins of
+quenching are nuclear-medium effects, many-body currents or the inherent
+shortcomings of the nuclear many-body models. The latter usually fix $g_A$
+first and then adjust the nuclear interaction to reproduce the measured \nnbb\
+rates. Another common approach is to take $g_A$ from Gamow-Teller \b\ decay and
+electron capture rates, assuming a common quenching for all weak processes. In
+this way, one can reproduce \nnbb\ rates and predict non-measured ones. A
+possibly important observation is that \b\ and \nnbb\ decays have energy scales
+of order MeV, i.e.~much smaller than the \onbb\ scale of order 100~MeV. Recent
+studies show that low-energy processes may require more quenching and thus,
+less or no quenching might be needed in \onbb\ decay (not more than 20--30\%).
+However, there is not yet consensus in the literature on this issue, and
+further studies are needed. The dependence of quenching on the nuclear
+calculations can be demonstrated by analyzing the \nnbb\ electron-energy
+spectra, which allows the extraction of the sub-leading higher-order
+contributions to the matrix elements~\cite{Gando2019}.
+
+\marginnote{energy \\ spectrum}
+Having found an expression for the transition probability in which the kinematic
+variables of the decay products are factored out (\cref{eq:nbb:trans-prob}), it
+is possible to proceed and calculate the decay rate, which is given by
+integrating over all possible energies and angles of the leptons emitted in the
+decay.  The differential decay amplitude reads:
+\[
+  \begin{split}
+    \text{d}\Gamma^{2\nu} =
+      \frac{1}{4} \int & \frac{\text{d}^3p_1}{(2\pi)^32E_1}
+                         \frac{\text{d}^3p_2}{(2\pi)^32E_2}
+                         \frac{\text{d}^3q_1}{(2\pi)^32\omega_1}
+                         \frac{\text{d}^3q_2}{(2\pi)^32\omega_2} \\
+                       & \times F(Z,E_1) F(Z,E_2) \sum |\mathcal{M}|^2 \\
+                       & \times 2\pi\delta (E_1 + E_2 + \omega_1 +
+                         \omega_2 - E_F + E_I) \;, \\
+  \end{split}
+\]
+where $F(Z,E)$ is the Fermi function that describes the Coulomb effect on the
+outgoing electrons and $E_I$, $E_F$ are the energies of the parent and the
+daughter nucleus, respectively.
+
+In the Primakoff–Rosen approximation~\cite{Primakoff1959} for the
+non-relativistic Coulomb correction, the sum spectrum of the electrons energies
+can be analytically calculated. After a suitable change of integration
+variables and defining the sum of kinetic energies $K=T_1+T_2$ for the two
+electrons and integrating over the remaining variables, we obtain
+\begin{equation}\label{eq:nbb:stdmodel}
+  \frac{\text{d}\Gamma^{2\nu}}{\text{d}K} =
+    \Lambda \cdot (K^5+10K^4+40K^3+60K^2+30K) (Q_{\beta\beta}-K)^5 \;,
+\end{equation}
+where $K$ is written in units of the electron mass. The overall constant factor
+is given by
+\[
+  \Lambda = \frac{G_F^4g_A^4|V_{ud}|^4F^2_\text{PR}(Z)m_e^{11}}{7200\pi^7}
+            |\mathcal{M}^{2\nu}|^2 \;,
+\]
+with $F_\text{PR}(Z) = 2\pi\alpha/Z(\-e^{-2\pi\alpha Z})$. The distribution for
+\gesix\ is plotted in \cref{fig:nbb:spectra}.
 
 \begin{figure}
   \centering
@@ -365,6 +382,7 @@ is possible to suspect that the validity of $B$ and $L$ conservation laws is
 just approximate or circumstantial, since it is related to the range of
 energies that we can explore in laboratories.
 
+\marginnote{lepton \\ violation}
 Why searching for lepton violation is so important? Apart from the naturalness
 issue, the connection with baryon number in most Grand Unified Theories (GUTs),
 i.e.~gauge theories with a single gauge coupling at a certain high energy
@@ -402,6 +420,7 @@ experiments probe the origin of matter in the Universe is not true in all cases.
 There might be scenarios in which new physics processes that allow for
 \onbb\ do not generate baryon asymmetry, yet the decay is very well possible.
 
+\marginnote{neutrino \\ mass}
 Besides lepton number violation, \onbb, if observed, would be of great
 importance for establishing the mechanism through which the neutrino acquires
 its mass. As a starting point, it's interesting to note that the aforementioned
@@ -507,6 +526,12 @@ possible to plot \mbb, $m_\beta$ and $\Sigma$ one against each other in
 \cref{fig:nbb:mass-obs}. In the NO hypothesis, \mbb\ can even vanish, while
 in the IH scenario there is a minimum value of about 0.013~eV. This value
 represents a physics goal for the current and upcoming \onbb\ experiments.
+As already mentioned, the current global fits of neutrino oscillation data
+favor the normal mass ordering hypothesis at $3\sigma$, and the preference
+has slowly strengthened over time, as one would expect if the hypothesis does
+reflect indeed the reality. This, however, does not strictly imply a small
+\mbb, as the smallest neutrino mass can be still sizable. Moreover, \onbb\
+would still probe lepton violation.
 
 \begin{figure}
   \centering
@@ -520,11 +545,12 @@ represents a physics goal for the current and upcoming \onbb\ experiments.
   }\label{fig:nbb:mass-obs}
 \end{figure}
 
+\marginnote{decay \\ rate}
 In this case, no neutrinos are emitted during
 the process and the experimental signature is therefore a Dirac-delta function at \qbb\
 in the summed energy spectrum (\cref{fig:nbb:spectra}).  A nucleus which can
 decay through a \nnbb\ process could also decay through a \onbb\ process, albeit
-with a different lifetime ($\gtrsim 10^{25}$~yr). Also the other double-beta
+with a different lifetime ($\gtrsim{10^{25}}$~yr). Also the other double-beta
 decay modes mentioned in \cref{sec:nbb:2nbb} have their neutrinoless analog.
 
 Considerable experimental efforts are being dedicated to the detection of
