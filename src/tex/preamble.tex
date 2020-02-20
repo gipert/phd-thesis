@@ -1,4 +1,4 @@
-%!TEX root = ../main.tex
+%! TEX root = ../main.tex
 
 \documentclass[11pt,a4paper,twoside]{report}
 
@@ -7,6 +7,7 @@
 \usepackage[LGR,T1]{fontenc}
 \usepackage{microtype}
 \usepackage{marginnote}\renewcommand*{\marginfont}{\scshape}
+\newcommand{\partitle}[1]{\leavevmode\marginnote{#1}}
 \usepackage[lining]{ebgaramond}
 % \usepackage{lettrine}
 % \newcommand{\initial}[2]{\lettrine[lines=3, depth=1, findent=2pt, nindent=0em]{\textin{#1}}{#2}}
@@ -18,7 +19,7 @@
 \usepackage{titlesec}
   \titleformat{\chapter}[hang]{\ebgaramondOsF}{}{0pt}{\Huge\swshape}
   \titleformat{\section}[hang]{\ebgaramondOsF\LARGE}{\thesection}{0.5em}{\LARGE\swshape}
-% \usepackage{parskip}
+\usepackage{parskip}
 % TOC
 \usepackage[subfigure,titles]{tocloft}
   \setlength{\cftsubsecindent}{1cm}
@@ -49,6 +50,7 @@
 % bibliography, references
 \usepackage[
   sorting=none,
+  maxnames=1,
   date=year,
   doi=true,
   url=false,
@@ -57,11 +59,63 @@
   style=numeric-comp
 ]{biblatex}
 \addbibresource{bib/*.bib}
+\renewbibmacro{in:}{}
+\AtEveryBibitem{%
+  \clearfield{title}
+  \clearfield{issue}
+}
+\DeclareFieldFormat{doi}{%
+   \mkbibacro{DOI}\addcolon\space%
+   \ifhyperref{\href{https://doi.org/#1}{\nolinkurl{#1}}}{\nolinkurl{#1}}
+ }
+\DeclareSourcemap{%
+ \maps[datatype=bibtex, overwrite=true]{%
+  \map{%
+    \step[fieldsource=Collaboration, final=true]
+    \step[fieldset=usera, origfieldval, final=true]
+  }
+ }
+}
+\renewbibmacro*{author}{%
+  \iffieldundef{usera}{%
+    \printnames{author}%
+  }{%
+    \printfield{usera}, \printnames{author}%
+  }%
+}%
+% the following fix makes biblatex use UrlFont also for primaryClass
+\makeatletter
+\DeclareFieldFormat{eprint:arxiv}{%
+  \textsc{arXiv}\addcolon\space%
+  \ifhyperref{%
+    \href{https://arxiv.org/\abx@arxivpath/#1}{%
+      \nolinkurl{#1}%
+      \iffieldundef{eprintclass}
+        {}
+        {\addspace\UrlFont\mkbibbrackets{\thefield{eprintclass}}}
+    }
+  }{%
+    \nolinkurl{#1}%
+    \iffieldundef{eprintclass}
+      {}
+      {\addspace\mkbibbrackets{\thefield{eprintclass}}}
+  }
+}
+\makeatother
 
 % other
 \usepackage{lipsum}
 %\usepackage{lineno}\linenumbers
-\usepackage[hidelinks]{hyperref} % must be loaded before cleveref
+\usepackage{hyperref}
+\definecolor{LinkColor}{HTML}{3973AC}
+\hypersetup{%
+  colorlinks = true,
+  allcolors = LinkColor,
+  linkcolor = black
+}
+% to tweak the URL font size
+\renewcommand*{\UrlFont}{\color{LinkColor}\ttfamily\small}
+
 \usepackage{cleveref}
   \crefformat{chapter}{chap.~#2#1#3}
   \crefformat{section}{sec.~#2#1#3}

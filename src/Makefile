@@ -4,11 +4,11 @@
 # Author: Luigi Pertoldi - luigi.pertoldi@pd.infn.it
 # Created: Sun 1 Dec 2019, flying to Seattle
 
+PROJ  = main
 LC    = latexmk
 LOGS  = .auxtex
-FLAGS = -pdfxe -pdfxelatex="xelatex -halt-on-error" \
-        -outdir=$(LOGS) -M -MP -MF $(LOGS)/$*.deps
-PROJ  = main
+FLAGS = -pdfxe -pdfxelatex="xelatex -halt-on-error" -bibtex \
+        -outdir=$(LOGS) -M -MP -MF $(LOGS)/$(PROJ).deps
 
 all : $(PROJ).pdf
 
@@ -29,4 +29,5 @@ cleanall : clean
 	cd img && make clean; cd ..
 
 .PHONY : FORCE_MAKE clean cleanall img mkdirs
--include $(LOGS)/*.deps
+
+-include $(LOGS)/$(PROJ).deps
