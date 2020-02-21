@@ -683,7 +683,7 @@ model considered. The phase space factors can be parametrized as a
 function of \qbb, the sum kinetic energy of the two electrons emitted in
 the decay $K$ and the spectral index $n$:
 \[
-  G_\alpha^{0\nu\chi(\chi)}(Q_{\beta\beta}, Z) \sim (Q_{\beta\beta} - K)^n \;.
+  G_\alpha^{0\nu\chi(\chi)}(Q_{\beta\beta}, Z) \sim {(Q_{\beta\beta} - K)}^n \;.
 \]
 $n = 5$ corresponds to the standard \nnbb\ (cfr.~\cref{eq:nbb:stdmodel})
 whereas \onbbx\ can have $n = 1, 2, 3$ and \onbbxx\ can have $n = 3, 7$,
@@ -830,6 +830,7 @@ topologies. Since \qbb\ is usually precisely known and the \onbb\ signature is
 a monoenergetic peak at \qbb, the signal search is performed in a narrow energy
 window defined by the energy resolution of the detector.
 
+\partitle{background \\ level}
 The number of signal counts in this Region Of Interest (ROI) depends linearly
 on the detector signal efficiency $\epsilon$, the active mass $M$, the
 measurement time $t$ and the isotopic fraction of the double-beta emitter $a$.
@@ -838,13 +839,13 @@ experiment. The sensitivity to the half-life \thalfzero\ then scales linearly
 with the number of candidate signal counts in the ROI, but the dependence is
 weaker if some of them are background counts. Two experimental regimes can be
 defined:
-\[
+\begin{equation}\label{eq:nbb:bkglevel}
   T^{0\nu}_{1/2} =
     \begin{cases}
       a M \epsilon t & \text{background-free} \\
       a \epsilon \sqrt{\frac{M t}{B \Delta{E}}} & \text{with background} \\
     \end{cases}
-\]
+\end{equation}
 where $B$ is the `background index', namely the number of background events
 normalized to the width of the ROI, source mass and measurement time. This
 expression shows clearly the advantage of a background-free experiment, as the
@@ -855,3 +856,19 @@ of the order of unity:
 \[
   M \cdot T \cdot B \cdot \Delta{E} \lesssim 1
 \]
+
+\partitle{isotope \\ choice}
+Not all the double-beta emitters that exist in Nature can be effectively
+employed to search for \onbb. As it can be clearly understood from
+\cref{eq:nbb:bkglevel}, an ideal isotope should have a high isotopic abundance
+$a$, should be available in large quantities $M$ as high-resolution $\Delta{E}$
+detectors under low background conditions $B$. Other relevant isotope features
+are a low \nnbb\ decay rate to mitigate the occurrence of background events in
+the ROI, and a high \qbb\ to avoid backgrounds from primordial radioisotopes
+which are naturally present in construction materials. Moreover, the detection
+efficiency $\epsilon$ can be drastically enhanced if the source material is
+integrated in the detector medium.  A good double-beta emitter should also be
+readily available in its natural form and have a high natural abundance, to
+reduce the cost of the experiment. If natural abundance is high enough, isotope
+enrichment might also be unnecessary, as demonstrated in the case of
+$^{130}$Te~\cite{Alduino2017}.

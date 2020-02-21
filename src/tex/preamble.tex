@@ -48,72 +48,20 @@
 \usepackage{caption}\captionsetup[table]{position=top}
 
 % bibliography, references
-\usepackage[
-  sorting=none,
-  maxnames=1,
-  date=year,
-  doi=true,
-  url=false,
-  eprint=true,
-  isbn=false,
-  style=numeric-comp
-]{biblatex}
-\addbibresource{bib/*.bib}
-\renewbibmacro{in:}{}
-\AtEveryBibitem{%
-  \clearfield{title}
-  \clearfield{issue}
-}
-\DeclareFieldFormat{doi}{%
-   \mkbibacro{DOI}\addcolon\space%
-   \ifhyperref{\href{https://doi.org/#1}{\nolinkurl{#1}}}{\nolinkurl{#1}}
- }
-\DeclareSourcemap{%
- \maps[datatype=bibtex, overwrite=true]{%
-  \map{%
-    \step[fieldsource=Collaboration, final=true]
-    \step[fieldset=usera, origfieldval, final=true]
-  }
- }
-}
-\renewbibmacro*{author}{%
-  \iffieldundef{usera}{%
-    \printnames{author}%
-  }{%
-    \printfield{usera}, \printnames{author}%
-  }%
-}%
-% the following fix makes biblatex use UrlFont also for primaryClass
-\makeatletter
-\DeclareFieldFormat{eprint:arxiv}{%
-  \textsc{arXiv}\addcolon\space%
-  \ifhyperref{%
-    \href{https://arxiv.org/\abx@arxivpath/#1}{%
-      \nolinkurl{#1}%
-      \iffieldundef{eprintclass}
-        {}
-        {\addspace\UrlFont\mkbibbrackets{\thefield{eprintclass}}}
-    }
-  }{%
-    \nolinkurl{#1}%
-    \iffieldundef{eprintclass}
-      {}
-      {\addspace\mkbibbrackets{\thefield{eprintclass}}}
-  }
-}
-\makeatother
+\input{tex/biblatex}
 
 % other
 \usepackage{lipsum}
 %\usepackage{lineno}\linenumbers
 \usepackage{hyperref}
 \definecolor{LinkColor}{HTML}{3973AC}
+% change link appearance
 \hypersetup{%
   colorlinks = true,
   allcolors = LinkColor,
   linkcolor = black
 }
-% to tweak the URL font size
+% change the URL font size
 \renewcommand*{\UrlFont}{\color{LinkColor}\ttfamily\small}
 
 \usepackage{cleveref}
