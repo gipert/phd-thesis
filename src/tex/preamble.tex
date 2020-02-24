@@ -13,6 +13,9 @@
 % \newcommand{\initial}[2]{\lettrine[lines=3, depth=1, findent=2pt, nindent=0em]{\textin{#1}}{#2}}
 
 % layout
+\usepackage{enumitem}
+  \renewcommand\descriptionlabel[1]{{\large\swshape #1.}}
+\usepackage{paralist}
 \usepackage{geometry}
 \usepackage{subfigure}
 \usepackage{multicol}
@@ -31,7 +34,7 @@
 
 % math
 \usepackage[math-style=ISO, bold-style=ISO]{unicode-math}
-\setmathfont{Garamond-Math.otf}[StylisticSet={7,9}]
+\setmathfont{Garamond-Math.otf}[StylisticSet={7,8}]
 \usepackage{amsmath}
   \renewcommand{\epsilon}{\varepsilon}
   \renewcommand{\theta}{\vartheta}
