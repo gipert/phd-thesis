@@ -40,7 +40,7 @@ In the following the theory of double-beta decay is briefly reviewed, focusing
 on the core concepts and formulas which will be used in this work. Formulas for
 the differential double-beta decay rates associated to the two-neutrino mode,
 the neutrinoless mode as well as modes driven by other new physics scenarios
-(Majoron emission, Lorentz symmetry violation) are given. \fillme{fillme}
+(Majoron emission, Lorentz symmetry violation) are given. \fillme{expand}
 
 \section{Two-neutrino double-beta decay}%
 \label{sec:nbb:2nbb}
@@ -603,6 +603,20 @@ In this case, no neutrinos are emitted during
 the process and the experimental signature is therefore a Dirac-delta function at \qbb\
 in the summed energy spectrum (\cref{fig:nbb:spectra}).
 
+\partitle{experimental \\ limits}
+The experimental program to search for \onbb\ decay is presented in \cref{sec:nbb:exp},
+here a compilation of the current experimental bounds is given in \cref{tab:nbb:0nbb-lim}.
+
+\begin{table}
+  \centering
+  \caption{%
+    Compilation of current most stringent 90\% C.L.~experimental bounds on
+    \thalfzero\ and \mbb\ from \gesix, $^{130}$Te and $^{136}$Xe experiments. A
+    value of $g_A \simeq 1.27$ is used.
+  }\label{tab:nbb:0nbb-lim}
+  \input{tab/theory/0nbb-limits.tex}
+\end{table}
+
 \section{Neutrinoless double-beta decay with Majoron emission}%
 \label{sec:nbb:0nbbx}
 
@@ -708,6 +722,16 @@ spectra for all modes of the Majoron emitting double beta decay are shown in
   }\label{fig:nbb:majorons-spectra}
 \end{figure}
 
+\partitle{experimental \\ limits}
+Here a compilation of the current experimental bounds is given in \cref{tab:nbb:0nbbx-lim}.
+
+\begin{table}
+  \centering
+  \caption{%
+  }\label{tab:nbb:0nbbx-lim}
+  \input{tab/theory/0nbbx-limits.tex}
+\end{table}
+
 \section{Lorentz-violating two-neutrino double-beta decay}%
 \label{sec:nbb:2nbbLV}
 
@@ -803,22 +827,25 @@ the new Lorentz-violating information. The two differential decay rates are
 depicted in \cref{fig:nbb:majorons-spectra}.
 
 \partitle{experimental \\ limits}
-\fillme{to be updated} Conservative constraints on the \aof\ coefficient have
+Conservative constraints on $|{(a_\text{of}^{(3)})}_{j0}|$ coefficients have
 been placed using published results from the Troitsk and Mainz experiments
 studying the endpoint of the tritium beta decay energy
-spectrum~\cite{Diaz:2013saa}. An outside analysis of data from the two
-experiments gives $|\aofooM| < 2 \cdot 10^{-8}$~GeV for both of them.
+spectrum~\cite{Diaz2013}. An outside analysis of data from the two experiments
+gives $|{(a_\text{of}^{(3)})}_{j0}| < 2 \cdot 10^{-8}$~GeV for both $j=0,1$.
 Constraints on the values of \aof\ have also been extracted from studies of
-threshold effects in pion and kaon decays~\cite{SMEneutrinos}, yielding $\aofM
-< 1.9 \cdot 10^{-7}$~GeV as the best upper limit.
+threshold effects in pion and kaon decays~\cite{Kostelecky2011}, yielding
+$\aofM < 1.9 \cdot 10^{-7}$~GeV as the best upper limit.  Since many
+double-beta experiments have now accumulated high-statistic \nnbb\ datasets,
+constraints on \aof\ has been recently posed. Published limits are summarized
+in \cref{tab:nbb:2nbblv-lim}.
 
-A constraint from double-beta decay studies has been posed by the EXO-200
-collaboration in ref.~\cite{exo200}. A profile Likelihood scan over the number
-of Lorentz-violating double beta decay integral counts added to the standard
-\nnbb\ spectrum is used to obtain a limit at the 90\% C.L, which is $\aofM <
-7.6 \cdot 10^{-6}$~GeV. This is the first search for this parameter that fully
-accounts for experimental backgrounds and detector-related systematic
-uncertainties.
+\begin{table}
+  \centering
+  \caption{%
+    Compilation of current experimental bounds at 90\% C.L.~on \aof.
+  }\label{tab:nbb:2nbblv-lim}
+  \input{tab/theory/2nbblv-limits.tex}
+\end{table}
 
 \section{Experimental aspects}%
 \label{sec:nbb:exp}
@@ -979,7 +1006,7 @@ double-beta point-like events.
     DARWIN~\cite{Aalbers2016} might also have the capability to search for
     \onbb\ decay.
 
-  \item[Scintillators] The main appeal of organic scintillators for \onbb
+  \item[Scintillators] The main appeal of organic scintillators for \onbb\
     searches is their mass scalability, despite their poor energy resolution.
     Another advantage of liquid target masses is the possibility to remove
     contaminants online. A notable experiment exploiting this detection
@@ -990,7 +1017,10 @@ double-beta point-like events.
     enriched xenon. In the longer term, the KamLAND-Zen collaboration plans to
     deploy over a tonne of enriched xenon and to reduce the \nnbb-decay
     background in the signal region of interest by improving the detector
-    resolution in the KamLAND2-Zen experiment. Also inorganic CaF$_2$
+    resolution in the KamLAND2-Zen experiment. Searching \onbb\ decay with
+    $^{130}$Te is the main goal of another liquid scintillator experiment,
+    SNO+~\cite{Andringa2015}, which is currently loading its target medium with
+    the source isotope~\cite{Paton2019}. Also inorganic CaF$_2$
     scintillators have been always receiving interest, because of the high
     $^{48}$Ca \qbb\ of 4.27~MeV. However, finding a cost effective process to
     enrich the isotope, whose natural abundance is only $\sim$0.2\%, is still a
