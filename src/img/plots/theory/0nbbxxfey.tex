@@ -13,52 +13,52 @@
 \newcommand\lene{4cm}
 \begin{document}
 \LARGE
- \tikzfeynmanset{
-   every edge/.style = {line width = 1.5pt},
+\tikzfeynmanset{%
+   every edge/.style={line width=1.5pt},
 }
 \begin{tikzpicture}
   \begin{feynman}
     \vertex (b);
-    \vertex [below=\hei+\etoe of b] (c);
-    \vertex [below right=0.33*\hei+0.33*\etoe and 0.33*\etoe of b] (x);
-    \vertex [below right=0.66*\hei+0.66*\etoe and 0.33*\etoe of b] (xx);
-    \vertex [below left=\hei and \hei of c] (d);
-    \vertex [above left=\hei and \hei of b] (a);
+    \vertex[below=\hei+\etoe of b] (c);
+    \vertex[below=0.33*\hei+0.33*\etoe of b] (x);
+    \vertex[below=0.66*\hei+0.66*\etoe of b] (xx);
+    \vertex[below left=\hei and \hei of c] (d);
+    \vertex[above left=\hei and \hei of b] (a);
     % spectator quarks vertices
-    \vertex [above=\dy of a] (e);
-    \vertex [above=\dy of e] (f);
-    \vertex [below=\dy of d] (g);
-    \vertex [below=\dy of g] (h);
+    \vertex[above=\dy of a] (e);
+    \vertex[above=\dy of e] (f);
+    \vertex[below=\dy of d] (g);
+    \vertex[below=\dy of g] (h);
     % external legs
-    \vertex [left=\lsx of a] (i1) {$d$};
-    \vertex [left=\lsx of d] (i2) {$d$};
-    \vertex [right=\ldx of a] (f1) {$u$};
-    \vertex [right=\lene of b] (f2) {\color{red}$e^-$};
-    \vertex [right=\lene of c] (f3) {\color{red}$e^-$};
-    \vertex [right=\lene of x] (x1) {$\chi$};
-    \vertex [right=\lene of xx] (xx1) {$\chi$};
-    \vertex [right=\ldx of d] (f4) {$u$};
-    % spactator quarks
-    \vertex [right=\ldx of e] (f5) {$d$};
-    \vertex [left=\lsx of e] (f6) {$d$};
-    \vertex [right=\ldx of f] (f7) {$u$};
-    \vertex [left=\lsx of f] (f8) {$u$};
-    \vertex [right=\ldx of g] (f9) {$d$};
-    \vertex [left=\lsx of g] (f10) {$d$};
-    \vertex [right=\ldx of h] (f11) {$u$};
-    \vertex [left=\lsx of h] (f12) {$u$};
+    \vertex[left=\lsx of a] (i1) {$d$};
+    \vertex[left=\lsx of d] (i2) {$d$};
+    \vertex[right=\ldx of a] (f1) {$u$};
+    \vertex[right=\lene of b] (f2) {\color{red}$e^-$};
+    \vertex[right=\lene of c] (f3) {\color{red}$e^-$};
+    \vertex[right=\lene of x] (x1) {$\upchi$};
+    \vertex[right=\lene of xx] (xx1) {$\upchi$};
+    \vertex[right=\ldx of d] (f4) {$u$};
+    % spectator quarks
+    \vertex[right=\ldx of e] (f5) {$d$};
+    \vertex[left=\lsx of e] (f6) {$d$};
+    \vertex[right=\ldx of f] (f7) {$u$};
+    \vertex[left=\lsx of f] (f8) {$u$};
+    \vertex[right=\ldx of g] (f9) {$d$};
+    \vertex[left=\lsx of g] (f10) {$d$};
+    \vertex[right=\ldx of h] (f11) {$u$};
+    \vertex[left=\lsx of h] (f12) {$u$};
 
-    \diagram* {
+    \diagram* {%
       (a) -- [boson, blue, edge label'=$W^-$] (b),
       (c) -- [boson, blue, edge label'=$W^-$] (d),
-      (b) -- [majorana, green!60!black] (x),
-      (x) -- [majorana, green!60!black, edge label'=\color{green!60!black}$\nu_M$] (xx),
-      (xx) -- [majorana, green!60!black] (c),
+      (b) -- [green!60!black] (x),
+      (x) -- [green!60!black, edge label'=$\upnu$] (xx),
+      (xx) -- [green!60!black] (c),
       (x) -- [scalar] (x1),
       (xx) -- [scalar] (xx1),
       (i1) -- [fermion] (a),
       (i2) -- [fermion] (d),
-      (a) -- [fermion,] (f1),
+      (a) -- [fermion] (f1),
       (b) -- [fermion, red] (f2),
       (c) -- [fermion, red] (f3),
       (d) -- [fermion] (f4),
@@ -71,7 +71,6 @@
       (g)   -- (f9),
       (f12) -- (h),
       (h)   -- (f11),
-
   };
   \end{feynman}
 \end{tikzpicture}

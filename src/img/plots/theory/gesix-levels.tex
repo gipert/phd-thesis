@@ -3,7 +3,6 @@
 \usepackage[lining]{ebgaramond}%[StylisticSet={7,9}]
 \usepackage[math-style=ISO, bold-style=ISO]{unicode-math}
 \setmathfont{Garamond-Math.otf}
-\usepackage[version=4]{mhchem}
 \usepackage{tikz}
 \usetikzlibrary{positioning,decorations.markings}
   \newcommand\len{3}
@@ -40,24 +39,24 @@
   % levels
   \draw [very thick] (a.mid) -- (b.mid)
     node [midway, above] {$0^+$}
-    node [rectangle, thin, draw, midway, below=0.5cm] {\ce{^{76}Ge}};
+    node [rectangle, thin, draw, midway, below=0.5cm] {$^{76}$Ge};
   \draw [very thick] (c.mid) -- (d.mid)
     node [midway, above] {$2^-$}
-    node [rectangle, thin, draw, midway, below=0.5cm] {\ce{^{76}As}};
+    node [rectangle, thin, draw, midway, below=0.5cm] {$^{76}$As};
   \draw [very thick] (i.mid) -- (j.mid)
     node [midway, above] {$1^+$};
   \draw [very thick] (k.mid) -- (l.mid);
   \draw [very thick] (m.mid) -- (n.mid)
     node [midway, above] {\ldots};
   \draw [very thick] (e.mid) -- (f.mid) node [midway, above] {$0^+$}
-    node [rectangle, thin, draw, midway, below=0.5cm] {\ce{^{76}Se}};
+    node [rectangle, thin, draw, midway, below=0.5cm] {$^{76}$Se};
   \draw [very thick] (g.mid) -- (h.mid)
     node [midway, above] {$2^+$};
   % connections
-  \draw [arrowline] (b.mid) -- (i.mid) node [midway, above left] {$\beta^+$};
-  \draw [arrowline] (b.mid) -- (e.mid) node [midway, below left] {$\beta^-\beta^-$};
-  \draw [arrowline] (b.mid) -- (g.mid) node [midway, above right] {$\beta^-\beta^-$};
-  \draw [arrowline] (j.mid) -- (e.mid) node [midway, above right] {$\beta^-$};
+  \draw [arrowline] (b.mid) -- (i.mid) node [midway, above left] {$\upbeta^+$};
+  \draw [arrowline] (b.mid) -- (e.mid) node [midway, below left] {$\upbeta^-\upbeta^-$};
+  \draw [arrowline] (b.mid) -- (g.mid) node [midway, above right] {$\upbeta^-\upbeta^-$};
+  \draw [arrowline] (j.mid) -- (e.mid) node [midway, above right] {$\upbeta^-$};
 
 \end{tikzpicture}
 \end{document}

@@ -683,7 +683,7 @@ complexity added to the double-beta event analysis.
   }
   \caption{%
     Feynman graphs for neutrinoless double-beta decay with single (right) and
-    double (left) Majoron emission. \fillme{not sure about the two-Majoron diagram.}
+    double (left) Majoron emission.
   }\label{fig:nbb:majfeydiag}
 \end{figure}
 
@@ -711,6 +711,16 @@ emitted electrons allows to distinguish the different models. The energy
 spectra for all modes of the Majoron emitting double beta decay are shown in
 \cref{fig:nbb:majorons-spectra}.
 
+\begin{table}
+  \centering
+  \caption{%
+    Compilation of up-to-date calculations of phase-space factors \psfmajo\
+    and nuclear matrix elements \nmemajo\ for various Majoron-emitting \onbb\
+    modes and isotopes.
+  }\label{tab:nbb:0nbbx-psf-nme}
+  \input{tab/theory/0nbbx-psf-nme.tex}
+\end{table}
+
 \begin{figure}
   \centering
   \includegraphics{plots/theory/majorons-spectra.pdf}
@@ -724,11 +734,17 @@ spectra for all modes of the Majoron emitting double beta decay are shown in
 \end{figure}
 
 \partitle{experimental \\ limits}
-Here a compilation of the current experimental bounds is given in \cref{tab:nbb:0nbbx-lim}.
+\fillme{expand} A compilation of the current experimental bounds is given in
+\cref{tab:nbb:0nbbx-lim}.
 
 \begin{table}
   \centering
   \caption{%
+    A compilation of the current limits on Majoron-emitting \onbb\ modes as set
+    by the \gerda, EXO-200, KamLAND-Zen and NEMO-3 experiments for different
+    isotopes. The most stringent limit on the coupling constant $g_\alpha$
+    is reported, as calculated from phase-space factors and nuclear matrix elements
+    reported in \cref{tab:nbb:0nbbx-psf-nme}.
   }\label{tab:nbb:0nbbx-lim}
   \input{tab/theory/0nbbx-limits.tex}
 \end{table}
@@ -932,7 +948,6 @@ the exposure of the active material to cosmic rays on the Earth's surface
 and rapidly deploying them underground.
 
 \partitle{experimental \\ approaches}
-\fillme{add sensitivity future experiments}
 Neutrinoless double-beta decay has a characteristic event topology with the
 emission of two $\sim$MeV electrons. Low-density-gas tracking detectors can in
 principle resolve the two electron tracks, leaving only the irreducible
@@ -965,7 +980,9 @@ double-beta point-like events.
     $\sim$2~MeV. The current generation of \gesix\ experiments is constituted
     by \gerda~\cite{Budjas2013} and \majoranademo~\cite{Abgrall2014}, whose
     collaborations are currently joining their efforts into the next-generation
-    LEGEND experimental program~\cite{Abgrall2017}.
+    LEGEND experimental program~\cite{Abgrall2017}. Its first phase, LEGEND-200,
+    is expected to start data taking in 2021 while its planned tonne-scale phase
+    LEGEND-1000, aims at $\thalfzeroM \sim 10^{28}$~yr sensitivity.
 
   \item[Bolometers] Bolometers are cryogenic calorimeters that operate at
     temperatures of $\sim$10~mK. An absorber is connected to the thermal bath
@@ -977,11 +994,13 @@ double-beta point-like events.
     intrinsically low crystal radioactivity and the high energy resolution. The
     challenge is to operate a large-scale detector at these ultra-low
     temperatures. Existing projects that exploit the bolometric technique are
-    CUORE~\cite{Arnaboldi2002, Artusa2014}, that takes advantage of the large natural
-    abundance of $^{130}$Te, CUPID~\cite{Wang2015}, which explores the
+    CUORE~\cite{Arnaboldi2002, Artusa2014}, that takes advantage of the large
+    natural abundance of $^{130}$Te, CUPID~\cite{Wang2015}, which explores the
     possibility to improve the background rejection in CUORE through active
     particle discrimination, and \textsc{AMoRE}, a $^{100}$Mo-based
-    experiment~\cite{Kim2015}.
+    experiment~\cite{Kim2015}. The ultimate sensitivity goal of the CUPID and
+    \textsc{AMoRE} tonne-scale program is $\thalfzeroM > 10^{27}$~yr and
+    $\thalfzeroM \sim 5 \cdot 10^{26}$~yr, respectively.
 
   \item[Time Projection Chambers] The time projection chamber (TPC) is an
     attractive detector technology for \onbb-decay searches because of a
@@ -1001,9 +1020,12 @@ double-beta point-like events.
     achievable at the few-mm level. Notable projects focusing on the
     liquid-xenon single-phase TPC technology to search for \onbb\ are
     EXO-200~\cite{Auger2012} and its proposed tonne-scale successor,
-    nEXO~\cite{Kharusi2018}. Planned high-pressure xenon gas-phase TPC projects
-    are NEXT~\cite{Lopez-March2017} and PandaX-III~\cite{Chen2016}. Two-phase
-    liquid-xenon detectors, popular for dark matter searches, such as
+    nEXO~\cite{Kharusi2018}, which aims at $\thalfzeroM \sim 10^{28}$~yr
+    sensitivity.  Planned high-pressure xenon gas-phase TPC projects are
+    NEXT~\cite{Lopez-March2017} (\thalfzero\ sensitivity goal $2.8 \cdot
+    10^{25}$~yr with NEXT-100) and PandaX-III~\cite{Chen2016} (\powtenyr{27}
+    sensitivity goal within its tonne-scale program). Two-phase liquid-xenon
+    detectors, popular for dark matter searches, such as
     LUX-ZEPLIN~\cite{Akerib2015}, XENON-nT~\cite{Aprile2017} and the future
     DARWIN~\cite{Aalbers2016} might also have the capability to search for
     \onbb\ decay.
@@ -1019,15 +1041,16 @@ double-beta point-like events.
     enriched xenon. In the longer term, the KamLAND-Zen collaboration plans to
     deploy over a tonne of enriched xenon and to reduce the \nnbb-decay
     background in the signal region of interest by improving the detector
-    resolution in the KamLAND2-Zen experiment. Searching \onbb\ decay with
+    resolution in the KamLAND2-Zen experiment and reaching a \thalfzero\
+    sensitivity of $\sim 2 \cdot 10^{27}$~yr. Searching \onbb\ decay with
     $^{130}$Te is the main goal of another liquid scintillator experiment,
     SNO+~\cite{Andringa2015}, which is currently loading its target medium with
-    the source isotope~\cite{Paton2019}. Also inorganic CaF$_2$
-    scintillators have been always receiving interest, because of the high
-    $^{48}$Ca \qbb\ of 4.27~MeV. However, finding a cost effective process to
-    enrich the isotope, whose natural abundance is only $\sim$0.2\%, is still a
-    challenge. The CANDLES series~\cite{Umehara2015} of \onbb\ searches at the
-    Kamioka Observatory is actively exploring this experimental approach.
+    the source isotope~\cite{Paton2019}. Also inorganic CaF$_2$ scintillators
+    have been always receiving interest, because of the high $^{48}$Ca \qbb\ of
+    4.27~MeV. However, finding a cost effective process to enrich the isotope,
+    whose natural abundance is only $\sim$0.2\%, is still a challenge. The
+    CANDLES series~\cite{Umehara2015} of \onbb\ searches at the Kamioka
+    Observatory is actively exploring this experimental approach.
 
   \item[Tracking Calorimeters] The SuperNEMO~\cite{Arnold2010} unique
     experimental programs, based on the technology demonstrated by
@@ -1044,5 +1067,6 @@ double-beta point-like events.
     condition. However, the low energy resolution does not permit to
     efficiently discriminate between \nnbb\ and \onbb\ events around \qbb, plus
     the detection efficiency is low (around 30\%) and the thin source foils are
-    difficult to scale up to large exposures.
+    difficult to scale up to large exposures. The sensitivity with $^{82}$Se
+    for a full SuperNEMO is projected to be $1.2 \cdot 10^{26}$~yr.
 \end{description}
