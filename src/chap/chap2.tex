@@ -56,7 +56,7 @@ The \phasetwop\ upgrade is partly also a test bench for the next-generation succ
 collaboration, formed in October 2016 from the \gerda\ and \majorana~\cite{Abgrall2014}
 (the latter experiment searching for \onbb\ with germanium detectors at the Sanford
 Underground Research Facility (SURF) in USA), pursues the goal of building a tonne-scale
-\gesix\ experiment and reaching the $\mathcal{O}(10^{28})$ sensitivity scale. The first
+\gesix\ experiment and reaching the $\mathcal{O}(10^{28})$~yr sensitivity scale. The first
 phase of the experiment, LEGEND-200, deploys 200~kg of germanium in the existing \gerda\
 infrastructure at LNGS and it is currently in commissioning phase.
 
@@ -95,7 +95,7 @@ from the outside.
   }\label{fig:setup:overview}
 \end{figure}
 
-\partitle{Detectors}
+\partitle{detectors}
 The \gerda\ \phasetwo\ array is organized in 7 vertical strings, holding 40 detectors in
 total. The detectors can be divided in three groups: the \bege\ detectors, the
 semi-coaxial \m{ANG} and \m{RG}, and the semi-coaxial \m{GTF} detectors. The
@@ -149,7 +149,7 @@ be found in~\cite{Agostini2015e, Agostini2018a, Agostini2019}.
   }\label{fig:setup:array}
 \end{figure}
 
-\partitle{Array \\ instrumentation}
+\partitle{array \\ instrumentation}
 As already mentioned, the \gerda\ \phasetwo\ detectors are arranged into 7 strings, packed
 closely together as depicted in \cref{fig:setup:magevolumes}a, to maximize the
 multi-detector event rejection efficiency. Since the main background sources in
@@ -185,7 +185,8 @@ mini-shrouds let the light propagate more efficiently to a close-by light collec
 surface. To match the fibers and PMTs spectral response many surfaces in the close vicinity
 of the array were coated with tetraphenil-butadiene (TPB), a wavelength shifting material.
 Coating has been applied on mini-shrouds, fiber-shroud, copper shroud, PMTs as well as
-their holder plates.
+their holder plates. The reader is referred to ref.~\cite{Agostini2018a} for the detailed
+LAr veto instrumentation technical specifications.
 
 \begin{figure}
   \includegraphics{setup/pic-collage.pdf}
@@ -195,21 +196,36 @@ their holder plates.
   }\label{fig:setup:pictures}
 \end{figure}
 
-\partitle{Data \\ acquisition}
+\partitle{calibration \\ system}
+The \gerda\ weekly calibrations are performed by lowering three \Th\ sources into LAr in
+the close vicinity of the array, at the same radial distance from the array central axis
+and evenly spaced. Each source, when lowered, just fits into the space between the
+cylinder of the LAr veto system and two neighboring outer strings of the detector array,
+thereby the sources enter the inner volume of the LAr veto system by three slots in the
+top PMT plate.  The three sources were produced for \phasetwo\ and
+characterized~\cite{Baudis2015}. The LAr veto instrumentation is usually switched off
+during calibration runs because of the too high source activity of $\mathcal{O}(10)$~kBq.
+However, less intense \Ra\ sources are also available and can be easily exchanged with the
+standard ones. Special calibration data has been acquired with these sources and the LAr
+light instrumentation turned on, to study the performance of the LAr veto system. The
+calibration of the experimental setup is extensively described in ref.~\fillme{[fillme]}.
+
+\partitle{data \\ acquisition}
 A FADC system records traces from germanium detectors (40), PMTs (16) and SiPMs (15) of
 the LAr veto, PMTs and scintillating panels of the muon veto when an energy deposition
 greater than about 100~keV occurs in at least one of the germanium detectors\footnote{The
-exact threshold is detector- and run-dependent and varies between 20~keV and 200~keV.}.
-The energy deposition associated to each germanium detector signal is determined via a
-Zero Area Cusp (ZAC) filter which is optimized off-line for each detector and each
-calibration run~\cite{Agostini2015}. The \gerda\ calibrations are performed by lowering
-three \Th\ sources into LAr in the close vicinity of the array, at the same radial
-distance from the array central axis and evenly spaced. The LAr veto instrumentation is
-usually switched off because of the too high source activity of $\mathcal{O}(1)$~kBq. The
-calibration of the experimental setup is extensively described in ref.~[\fillme{fillme}].
-
-Each event has to pass a series of quality cuts tailored to discard unphysical events,
-which is extensively described in [\fillme{fillme}].
+exact trigger threshold is detector- and run-dependent and varies between 20~keV and
+200~keV.}.  The energy deposition associated to each germanium detector signal is
+determined via a Zero Area Cusp (ZAC) filter which is optimized off-line for each detector
+and each calibration run~\cite{Agostini2015}.  Each event has to pass a series of quality
+cuts tailored to discard unphysical events. The reconstructed trigger positions are converted into time
+differences relative to the first trigger found in the germanium detector traces. Trigger
+positions and amplitudes are subsequently used together with hits from the SiPM to test
+the LAr veto condition.  The algorithms were implemented in the \gelatio\
+framework~\cite{Agostini2011} which is used to process \gerda\ data. Each event is
+characterized by the calibrated energy deposited in the Ge diode, a data quality flag, the
+classification as signal or background event from the pulse shape analysis, and veto flags
+from the muon veto and LAr veto systems.
 
 \begin{figure}
   \centering
@@ -235,7 +251,8 @@ Various background mitigation techniques are adopted, both at the data acquisiti
 (online) and the analysis level (offline) in \gerda\ to lower the background index to the
 `background-free' level of \pIIbi.
 
-\partitle{Muon veto}
+\partitle{muon veto}
+
 As already described in \cref{sec:gerda:setup}, the \gerda\ muon veto comprises of a water
 \v{C}erenkov veto and a scintillator veto.
 
