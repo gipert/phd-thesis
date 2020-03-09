@@ -25,7 +25,7 @@ exposure of 21.6~\kgyr\ and a background index in the region of interest of
 \pIbi~\cite{Agostini2016}.  Short after the upgrade works for \gerda\ \phasetwo\ started:
 a new event veto system based on the LAr scintillation light was installed along with an
 additional 20~kg of \bege-type detectors.  The newly designed veto system allowed for a
-significant reduction of the background index (BI) down to the \vctsper\ scale, allowing
+significant reduction of the background index (BI) down to the \powctsper{-4} scale, allowing
 \gerda\ to seamlessly run in \bkgfree\ conditions for its full second experimental phase
 and surpass the \powtenyr{26} sensitivity threshold in April 2018~\cite{Agostini2019a}.
 Data taking was then stopped again to permit a third hardware upgrade, during which
@@ -252,8 +252,26 @@ Various background mitigation techniques are adopted, both at the data acquisiti
 `background-free' level of \pIIbi.
 
 \partitle{muon veto}
+Muons may cause a substantial background to rare event searches like \gerda\ by generating
+counts at \qbb\ either through direct energy deposition in the detectors or through
+e.g.~decay radiation of spallation products. At LNGS the cosmic muon flux is reduced by a
+factor of ${\sim}10^6$ to a rate of ${\sim}3.4 \cdot 10^{−4}~\text{s}^{-1}\text{m}^{-2}$,
+which is sill sufficient to generate a non-negligible background of the order of
+\powctsper{-3}.  As already described in \cref{sec:gerda:setup}, a muon veto comprising of
+a water \v{C}erenkov veto and a scintillator veto was implemented in \gerda\ to reduce
+this background contribution. An event with energy deposition in germanium is flagged
+as muon-induced background if a coincidence a the muon veto signal occurs in a $\pm
+10$~\mus\ window around the germanium trigger. The efficiency of the muon veto system
+has been estimated to be of ${\sim}99$\%, leading to a residual background index of
+${\sim}$\powctsper{-5}~\cite{Freund2016}.
 
-As already described in \cref{sec:gerda:setup}, the \gerda\ muon veto comprises of a water
-\v{C}erenkov veto and a scintillator veto.
+\partitle{LAr veto}
+The primary role of liquid argon in \gerda\ is to keep the germanium detectors at a
+cryogenic operational temperature and provide a passive shielding medium against external
+backgrounds. Moreover, the LAr can be also employed as a detector medium in an active veto
+system, thanks to its scintillation properties. The production mechanism of the
+scintillation light in LAr is known since several decades and is deeply described in
+literature and its spectrum is today well known. The typical wavelength for the
+scintillation light from liquid argon is usually cited as $\lambda = 128$~nm.
 
 % vim: tw=90
