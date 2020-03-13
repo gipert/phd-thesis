@@ -42,8 +42,8 @@ following.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{plots/0nbb-ge76-history.jpg}
-  \includegraphics{plots/gerda-timeline.pdf}
+  \includegraphics{plots/0nbb-ge76-history.pdf}
+  \includegraphics{plots/gerda-history.pdf}
   \caption{%
     Evolution and milestones set by the \gerda\ experiment through its three experimental
     phases. The background index, the exposure gain, the neutrinoless double-beta decay
@@ -214,18 +214,19 @@ calibration of the experimental setup is extensively described in ref.~\fillme{[
 A FADC system records traces from germanium detectors (40), PMTs (16) and SiPMs (15) of
 the LAr veto, PMTs and scintillating panels of the muon veto when an energy deposition
 greater than about 100~keV occurs in at least one of the germanium detectors\footnote{The
-exact trigger threshold is detector- and run-dependent and varies between 20~keV and
+  exact trigger threshold is detector- and run-dependent and varies between 20~keV and
 200~keV.}.  The energy deposition associated to each germanium detector signal is
 determined via a Zero Area Cusp (ZAC) filter which is optimized off-line for each detector
-and each calibration run~\cite{Agostini2015}.  Each event has to pass a series of quality
-cuts tailored to discard unphysical events. The reconstructed trigger positions are converted into time
-differences relative to the first trigger found in the germanium detector traces. Trigger
-positions and amplitudes are subsequently used together with hits from the SiPM to test
-the LAr veto condition.  The algorithms were implemented in the \gelatio\
-framework~\cite{Agostini2011} which is used to process \gerda\ data. Each event is
-characterized by the calibrated energy deposited in the Ge diode, a data quality flag, the
-classification as signal or background event from the pulse shape analysis, and veto flags
-from the muon veto and LAr veto systems.
+and each calibration run~\cite{Agostini2015}. PMT and SiPM hits are reconstructed in the
+offline analysis following the procedure documented in~\cite{Agostini2018a}. Each event
+has to pass a series of quality cuts tailored to discard unphysical events. The
+reconstructed trigger positions are converted into time differences relative to the first
+trigger found in the germanium detector traces. Trigger positions and amplitudes are
+subsequently used together with hits from the SiPM to test the LAr veto condition. The
+algorithms were implemented in the \gelatio\ framework~\cite{Agostini2011} which is used
+to process \gerda\ data. Each event is characterized by the calibrated energy deposited in
+the Ge diode, a data quality flag, the classification as signal or background event from
+the pulse shape analysis, and veto flags from the muon veto and LAr veto systems.
 
 \begin{figure}
   \centering
@@ -260,7 +261,7 @@ which is sill sufficient to generate a non-negligible background of the order of
 \powctsper{-3}.  As already described in \cref{sec:gerda:setup}, a muon veto comprising of
 a water \v{C}erenkov veto and a scintillator veto was implemented in \gerda\ to reduce
 this background contribution. An event with energy deposition in germanium is flagged
-as muon-induced background if a coincidence a the muon veto signal occurs in a $\pm
+as muon-induced background if a coincidence with the muon veto signal occurs in a $\pm
 10$~\mus\ window around the germanium trigger. The efficiency of the muon veto system
 has been estimated to be of ${\sim}99$\%, leading to a residual background index of
 ${\sim}$\powctsper{-5}~\cite{Freund2016}.
@@ -278,17 +279,51 @@ called `excited dimers' or `excimers' in the literature. Their decay is accompan
 emission of scintillation light in the vacuum ultraviolet region, whose typical wavelength
 is usually cited as $\lambda = 128$~nm~\cite{Heindl2010}. The ratio between excitation and
 ionization is strongly dependent on the pressure and density of the argon as well as on
-the type of radiation itself. The dominant process in gaseous argon at normal pressure and
-room temperature is excitation, whereas ionization gets more important for argon in its
-liquid phase. In the case of excitation, the excited argon atom can directly form an
-excimer via the collision with neighboring argon atoms. The excimer itself is meta-stable
-and appears in two different states: the singlet and the triplet state~\cite{Jortner1965,
-McCusker1984}.  The decay of the triplet state is forbidden due to angular momentum
-conservation, while the decay of the singlet state is allowed. Consequently the lifetime
-of the triplet state is 1.59~\mus\ which is significantly higher than the 6~ns of the
-singlet state. The scintillation light yield (combined for both components) is roughly 40
-photons/keV, measured in ultra-pure LAr~\cite{Doke1998}. This value is dependent on
-different factors, like the presence of contaminants, the pressure and density of the
-argon as well as the ionization density of the incident particle.
+the type of radiation itself. In the case of excitation, the excited argon atom can
+directly form an excimer via the collision with neighboring argon atoms. The process is
+sketched in \cref{fig:setup:lar-scint}.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\linewidth]{lar-scint-mechanism.pdf}
+  \caption{%
+    Scintillation mechanism of liquid argon (or gaseous argon) via the decay of excited
+    dimers. The excited dimer can be either formed directly from an excited argon atom or
+    from an ionized atom which forms an ionized dimer before its recombination and the
+    following recombination in its molecular form. Drawing courtesy of Christoph
+    Wiesinger.
+  }\label{fig:setup:lar-scint}
+\end{figure}
+The excimer itself is meta-stable and appears in two different states: the singlet and the
+triplet state~\cite{Jortner1965, McCusker1984}.  The decay of the triplet state is
+forbidden due to angular momentum conservation, while the decay of the singlet state is
+allowed. Consequently the lifetime of the triplet state is 1.59~\mus\ which is
+significantly higher than the 6~ns of the singlet state. The scintillation light yield
+(combined for both components) is roughly 40 photons/keV, measured in ultra-pure
+LAr~\cite{Doke1988}. This value is dependent on different factors, like the presence of
+contaminants, the pressure and density of the argon as well as the ionization density of
+the incident particle~\cite{Doke1988}.
+
+The goal of the \gerda\ LAr veto is to reject those types of background events in the
+germanium detectors that simultaneously deposit energy in the surrounding LAr, and hence
+generate scintillation. These background types mainly include \g-ray background from Ra
+and Th decays in solid materials inside and around the detectors. But also other types of
+background can successfully be rejected, such as muons or decays from \Arh\ or \kvz. An event
+depositing energy in the germanium detectors is discarded as background if a coincidence
+with the LAr veto signal is found in the time window spanned by the germanium traces.
+Since the lifetime of the LAr triplet state significantly depends on the argon
+purity~\cite{Amsler2007}, it is possible to monitor the purity of LAr over time.
+\cref{fig:lar:triplet-lifetime} shows the lifetime values measured every month since
+the start of \phasetwo. \fillme{comment}.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{plots/lar-triplet-lifetime.png}
+  \caption{%
+    \fillme{to be updated} LAr triplet lifetime regularly measured during \phasetwo.
+  }\label{fig:lar:triplet-lifetime}
+\end{figure}
+The efficiency of the LAr veto cut can be estimated by evaluating the number of test
+pulses that are randomly flagged as background events. For \phasetwo\ this fraction has
+been evaluated to 97\%, corresponding to an efficiency for \onbb\ events of
+\fillme{fillme}.
 
 % vim: tw=90

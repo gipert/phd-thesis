@@ -5,7 +5,7 @@
 \setmathfont{Garamond-Math.otf}
 \usepackage{pgfplots}
 \usepgfplotslibrary{dateplot}
-\pgfplotsset{width=10cm, height=5cm, compat=1.3}
+\pgfplotsset{width=0.95\textwidth, height=7cm, scale only axis, compat=1.3}
 
 \newcommand{\expPhI}{21.6}
 \newcommand{\expNature}{10.8}
@@ -22,7 +22,7 @@
 \tikzstyle{expbars} = [
   ybar interval,
   fill=blue!20,
-  fill opacity=0.8,
+  fill opacity=0.9,
   draw=none
 ]
 
@@ -30,7 +30,7 @@
   scale only axis,
   date coordinates in=x,
   xticklabel=\year-\month,
-  xmin=2011-10-01, xmax=2020-02-01
+  xmin=2011-10-01, xmax=2020-02-01,
 }
 
 \begin{document}
@@ -38,9 +38,9 @@
     \begin{axis}[
       axis y line*=right,
       axis x line=none,
-      xlabel={Time},
-      ylabel={$\mathcal{E}$ (kg$\cdot$yr)},
-      ymin=0, ymax=130
+      ylabel={exposure (kg$\cdot$yr)},
+      ymin=0, ymax=130,
+      grid=major
     ]
       % phase I
       \addplot[style=expbars] coordinates {
@@ -67,7 +67,7 @@
         (2018-05-25, \expFinal)
         (2019-12-01, 0)
       };
-      \addplot[thick, draw=black, mark=none] coordinates {
+      \addplot[thick, draw=black, mark=none, dashed] coordinates {
         (2011-11-01, 0)              % start phI
         (2013-05-01, \expCumPhI)     % end phI
         (2015-12-01, \expCumPhI)     % start phII
@@ -81,28 +81,29 @@
 
     \begin{axis}[
       axis y line*=left,
-      ymin=1, ymax=12,
-      xlabel={Time},
-      ylabel={$T^{0\nu}_{1/2}$ ($10^{25}$~yr)},
+      ymin=0, ymax=13E25,
+      xticklabel style={rotate=45, anchor=east},
+      xlabel={}, %{Time},
+      ylabel={$T^{0\upnu}_{1/2}$ lower limit (yr)},
       legend pos=north west
     ]
-      \addlegendimage{/pgfplots/refstyle=expgain}\addlegendentry{Exposure gain}
+      \addlegendimage{/pgfplots/refstyle=expgain}\addlegendentry{exposure gain}
       % upper limits
-      \addplot coordinates {
-        (2013-05-01, 2.5)
-        (2016-06-01, 5.3)
-        (2017-04-01, 8.0)
-        (2018-04-01, 9.0)
+      \addplot+[thick] coordinates {
+        (2013-05-01, 2.5E25)
+        (2016-06-01, 5.3E25)
+        (2017-04-01, 8.0E25)
+        (2018-04-01, 9.0E25)
       }; \label{limits}
-      \addlegendentry{Upper limits}
+      \addlegendentry{lower limits}
       % sensitivities
-      \addplot coordinates {
-        (2013-05-01, 2.4)
-        (2016-06-01, 4.0)
-        (2017-04-01, 5.8)
-        (2018-04-01, 11)
+      \addplot+[thick, mark=triangle*] coordinates {
+        (2013-05-01, 2.4E25)
+        (2016-06-01, 4.0E25)
+        (2017-04-01, 5.8E25)
+        (2018-04-01, 11E25)
       }; \label{sensitivities}
-      \addlegendentry{Sensitivity}
+      \addlegendentry{sensitivity}
     \end{axis}
   \end{tikzpicture}
 \end{document}
