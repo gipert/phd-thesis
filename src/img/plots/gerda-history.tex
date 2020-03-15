@@ -26,6 +26,17 @@
   draw=none
 ]
 
+\tikzstyle{thalf} = [
+  thick,
+  mark size=3pt
+]
+
+\tikzstyle{publabel} = [
+  fill=white,
+  rotate=0,
+  anchor=east
+]
+
 \pgfplotsset{
   scale only axis,
   date coordinates in=x,
@@ -43,27 +54,27 @@
       grid=major
     ]
       % phase I
-      \addplot[style=expbars] coordinates {
+      \addplot[expbars] coordinates {
         (2011-11-01, \expPhI)
         (2013-05-01, \expNature)
       };
       % Nature
-      \addplot[style=expbars] coordinates {
+      \addplot[expbars] coordinates {
         (2015-12-01, \expNature)
         (2016-06-01, \expPRL)
       };
       % PRL
-      \addplot[style=expbars] coordinates {
+      \addplot[expbars] coordinates {
         (2016-06-01, \expPRL)
         (2017-04-01, \expScience)
       };
       % Science
-      \addplot[style=expbars] coordinates {
+      \addplot[expbars] coordinates {
         (2017-04-01, \expScience)
         (2018-04-01, \expFinal)
       };
       % ???
-      \addplot[style=expbars] coordinates {
+      \addplot[expbars] coordinates {
         (2018-05-25, \expFinal)
         (2019-12-01, 0)
       };
@@ -89,7 +100,7 @@
     ]
       \addlegendimage{/pgfplots/refstyle=expgain}\addlegendentry{exposure gain}
       % upper limits
-      \addplot+[thick] coordinates {
+      \addplot+[thalf] coordinates {
         (2013-05-01, 2.5E25)
         (2016-06-01, 5.3E25)
         (2017-04-01, 8.0E25)
@@ -97,13 +108,18 @@
       }; \label{limits}
       \addlegendentry{lower limits}
       % sensitivities
-      \addplot+[thick, mark=triangle*] coordinates {
+      \addplot+[thalf, mark=triangle*] coordinates {
         (2013-05-01, 2.4E25)
         (2016-06-01, 4.0E25)
         (2017-04-01, 5.8E25)
         (2018-04-01, 11E25)
       }; \label{sensitivities}
       \addlegendentry{sensitivity}
+
+      \node[publabel] at (axis cs:2013-05-01, 0.3E26) {\sc PRL 111};
+      \node[publabel] at (axis cs:2016-06-01, 0.6E26) {\sc Nature 544 47};
+      \node[publabel] at (axis cs:2017-04-01, 0.85E26) {\sc PRL 120 132503};
+      \node[publabel] at (axis cs:2018-04-01, 1.13E26) {\sc Science 365 1445};
     \end{axis}
   \end{tikzpicture}
 \end{document}
