@@ -252,7 +252,16 @@ the pulse shape analysis, and veto flags from the muon veto and LAr veto systems
   \centering
   \includegraphics[width=\textwidth]{gedet/gerda-events.png}
   \caption{%
-    Event types in \gerda.
+    Signal and background events in \gerda, working principles of the main background
+    reduction techniques. From left to right: \emph{signal-like events}: the point-like
+    topology in dense detectors of double-beta decays generate distinct single-detector
+    pulse shapes. \emph{granularity cut}: external, background \g{}s can deposit energy
+    in multiple detectors. \emph{pulse-shape discrimination}: insights on the event
+    topology can be obtained by analyzing its waveform. Single-site events, multi-site
+    events, \b{}s and \a{}s on the surface can be discriminated with offline algorithms
+    depending on the specific detector geometry. \emph{LAr veto}: background events that
+    deposit energy in germanium and LAr at the same time can be efficiently vetoed by
+    the \gerda\ LAr veto.
   }\label{fig:gerda:event-types}
 \end{figure}
 
@@ -333,5 +342,42 @@ The efficiency of the LAr veto cut can be estimated by evaluating the number of 
 pulses that are randomly flagged as background events. For \phasetwo\ this fraction has
 been evaluated to 97\%, corresponding to an efficiency for \onbb\ events of
 \fillme{fillme}.
+
+\partitle{pulse-shape \\ discrimination}
+The drift of charges created by a ionizing particle in a voltage-biased germanium
+detector, which determines the shape of recorded event waveform, depends on the electric
+field in the diode. The latter, in particular, depends on the geometry and on crystal
+parameters like the impurity concentration and its gradient. Therefore, analysis
+techniques can be developed to discriminate between various event types in germanium
+detectors. Distinguishing between single-site (SSE) and multi-site (MSE) events is of
+primary interest for \gerda, since \onbb\ decays pertain to the SSE class. The two
+electrons, in fact, deposit their energy in germanium within 1~mm$^3$ and can be therefore
+considered as point-like events. On the other hand, background events caused by
+e.g.~multiple Compton scattering of external \g\ rays are mostly of the multi-site type.
+Besides MSEs, surface events are another prominent source of background. Energetic \b\
+rays created at the \nplus\ electrode surface can penetrate the dead-layer and deposit
+energy in the active volume. In particular, the \b\ decay of \kvz, a daughter of \Arh\
+naturally present in LAr, is a dangerous background in the ROI because of its high
+Q-value. These \b\ decays at the \nplus\ surface can create `slow' pulses with incomplete
+charge collection because of the low electric field in the Li-diffused region. The \pplus\
+electrode and the insulating groove can be trespassed also by \a\ particles. The
+shallowness of the boron implantation of the \pplus\ (hundreds of nanometers) and the
+absence of any dead layer in the groove\footnote{The passivation layer, if present, is
+usually hundreds of nanometers thick and can be therefore penetrated by \a\ particles.}
+let external \b{}s and \a{}s deposit energy in the detector active volume. The intense
+electric field causes energy depositions in this region to generate pulses with short
+rise times. \a\ events on the \pplus\ electrode are mainly produced by \Po\ accumulated
+on its surface, most probably during detector handling. These 5.3~MeV \a\ particles may
+lose part of their energy before reaching the active volume and contribute to the
+background in the ROI. To mitigate all these background sources, pulse-shape
+discrimination (PSD) techniques were developed separately for \bege\ and \scoax\ detectors
+separately. For the first class a simple univariate cut was sufficient, while for the
+latter two techniques were worked out, one based on neural networks and one on the
+analysis of the rise time of the pulses.
+
+In order to avoid systematic effects calibration, training and evaluation of the PSD
+methods should be performed on pulses with energies close to these of the expected
+signal at \qbb. In practice, appropriate event sets are extracted from the weekly \Th\
+calibration spectra.
 
 % vim: tw=90
