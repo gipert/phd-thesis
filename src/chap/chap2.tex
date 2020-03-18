@@ -4,14 +4,18 @@
 
 The GERmanium Detector Array (\gerda) experiment has been proposed in
 2004~\cite{gerda-proposal} to search for neutrinoless double-beta decay with High-Purity
-Germanium detectors (HPGe) enriched in the \gesix\ double-beta emitter. The proposal lies in the
-path opened by the Heidelberg-Moscow (\hdm)~\cite{Klapdor2001} and
+Germanium detectors (HPGe) enriched in the \gesix\ double-beta emitter. The proposal lies
+in the path opened by the Heidelberg-Moscow (\hdm)~\cite{Klapdor2001} and
 \igex~\cite{Aalseth2002} experiments, aiming to develop the germanium technology towards
 large-scale, \bkgfree\ experimental conditions that could tackle the scale of
 $\mathcal{O}(10^{26})$~yr sensitivity on the neutrinoless double-beta decay half-life. The
-\gerda\ data taking officially ended in December 2019 after hitting the target total
-\bkgfree\ exposure of 100~\kgyr\ and establishing itself as the leading experiment in the
-field in terms of lowest background level ever achieved around \qbb~\cite{Agostini2019a}.
+history of the achievements in \thalfzero\ limit setting and background level with \gesix\
+is presented in \cref{img:exp:ge76-history}, top. On the bottom plot, a zoom in the
+\gerda\ data taking period showing the experimental progresses in terms of \thalfzero\
+sensitivity, lower limit and collected active exposure.  \gerda\ data taking officially
+ended in December 2019 after hitting the target total \bkgfree\ exposure of 100~\kgyr\ and
+establishing itself as the leading experiment in the field in terms of lowest background
+level ever achieved around \qbb~\cite{Agostini2019a}.
 
 \blocktitle{\gerda\ \\ phases}
 Since the start of the data taking in 2008 the experiment, located in hall~A of the Gran
@@ -39,22 +43,23 @@ December 2019 after collecting the total exposure of \fillme{fillme}~\kgyr\ and
 establishing the final \gerda\ upper limit on the neutrinoless double-beta decay half-life
 of \gerdafinallimit. With that said, the ``\phasetwo'' period includes \phasetwop\ in the
 following.
-
 \begin{figure}
   \centering
   \includegraphics{plots/0nbb-ge76-history.pdf}
   \includegraphics{plots/gerda-history.pdf}
   \caption{%
     Top: history of lower limits (68\% CL, 90\% CL since 1991) and background indices from
-    \gesix\ neutrinoless double-beta decay experiments, original design by Karl-Tasso
+    \gesix\ neutrinoless double-beta decay experiments, extracted from~\cite{Fiorini1967,
+    Bellotti1984, Caldwell1989, Reusser1991, Vasenko1989, Klapdor2001, Aalseth2002,
+    Klapdor2004, Alvis2019, gerda-final} and references therein. Original design by Karl-Tasso
     Kn\"opfle.  Numbers attached to single data points correspond to exposures in
     mol(\gesix)$\cdot$yr. Bottom: evolution and milestones set by the \gerda\ experiment
     through its three experimental phases. The exposure gain, the neutrinoless double-beta
     decay half-life sensitivities and upper limits are tracked over time. \fillme{to be
     updated}
-  }
+  }\label{img:exp:ge76-history}
 \end{figure}
-
+\newpar
 The \phasetwop\ upgrade is partly also a test bench for the next-generation successor of
 \gerda\ in the field of double-beta decay physics with \gesix, the LEGEND experiment. The
 collaboration, formed in October 2016 from the \gerda\ and \majorana~\cite{Abgrall2014}
@@ -63,11 +68,15 @@ Underground Research Facility (SURF) in USA), pursues the goal of building a ton
 \gesix\ experiment and reaching the $\mathcal{O}(10^{28})$~yr sensitivity scale. The first
 phase of the experiment, LEGEND-200, deploys 200~kg of germanium in the existing \gerda\
 infrastructure at LNGS and it is currently in commissioning phase.
-
+\newpar
 As the present thesis work focuses on \gerda\ \phasetwo\ data, the description of the
 experimental setup and the main analysis techniques given in the following will be limited
 to that time period. The chapter is structured as follows. In \cref{sec:gerda:setup} a
-general overview of the apparatus is given \fillme{expand}.
+general overview of the \gerda\ \phasetwo\ (and \phasetwop) apparatus is given. In
+\cref{sec:gerda:cuts} the working principles of the main background reduction techniques
+that allow \gerda\ to operate in the background-free regime are outlined. The application
+of these event-selection criteria to the \phasetwo\ data is then described in
+\cref{sec:gerda:ana}, and the final results are presented.
 
 \section{Overview of the Phase {\normalfont\textit{II}} experimental setup}%
 \label{sec:gerda:setup}
@@ -105,7 +114,7 @@ total. The detectors can be divided in three groups: the \bege\ detectors, the
 semi-coaxial \m{ANG} and \m{RG}, and the semi-coaxial \m{GTF} detectors. The
 detectors of the first two groups are made of germanium enriched in \gesix, the third
 group includes detectors with natural isotopic germanium abundance.
-
+\newpar
 All \gerda\ HPGe detectors are made of high-purity p-type germanium, which is initially
 used to pull crystals, typically fuse-shaped (see for example fig.~4.1a in
 \cite{Yonenaga2019}).  Crystals are then cut in slices, and each of them is further
@@ -218,12 +227,14 @@ calibration of the experimental setup is extensively described in ref.~\fillme{[
 A FADC system records traces from germanium detectors (40), PMTs (16) and SiPMs (15) of
 the LAr veto, PMTs and scintillating panels of the muon veto when an energy deposition
 greater than about 100~keV occurs in at least one of the germanium detectors\footnote{The
-  exact trigger threshold is detector- and run-dependent and varies between 20~keV and
+exact trigger threshold is detector- and run-dependent and varies between 20~keV and
 200~keV.}.  The energy deposition associated to each germanium detector signal is
 determined via a Zero Area Cusp (ZAC) filter which is optimized off-line for each detector
 and each calibration run~\cite{Agostini2015}. PMT and SiPM hits are reconstructed in the
 offline analysis following the procedure documented in~\cite{Agostini2018a}. Each event
-has to pass a series of quality cuts tailored to discard unphysical events. The
+has to pass a series of quality cuts tailored to discard unphysical events such as
+discharges, pile-up, overflowed events and other problematic traces with very high
+efficiency (estimated to $(99.902 \pm 0.002)$\% \fillme{how?}). The
 reconstructed trigger positions are converted into time differences relative to the first
 trigger found in the germanium detector traces. Trigger positions and amplitudes are
 subsequently used together with hits from the SiPM to test the LAr veto condition. The
@@ -323,7 +334,7 @@ significantly higher than the 6~ns of the singlet state. The scintillation light
 LAr~\cite{Doke1988}. This value is dependent on different factors, like the presence of
 contaminants, the pressure and density of the argon as well as the ionization density of
 the incident particle~\cite{Doke1988}.
-
+\newpar
 The goal of the \gerda\ LAr veto is to reject those types of background events in the
 germanium detectors that simultaneously deposit energy in the surrounding LAr, and hence
 generate scintillation. These background types mainly include \g-ray background from Ra
@@ -460,9 +471,12 @@ is the ratio between the energy of an event reconstructed with a short (4~\mus)
 integration time $E_\text{s}$ and the energy reconstructed with a long (20~\mus)
 integration time $E_\text{l}$. Ballistic deficit is observed to reduce this ratio,
 therefore the \deltae\ classifier is defined as $\delta{E} =
-[E_\text{s}/E_\text{l}]_\text{norm} - 1$, where the energy ratio is normalized to the
+{[E_\text{s}/E_\text{l}]}_\text{norm} - 1$, where the energy ratio is normalized to the
 values assumed by the \Th\ FEP events. The normalization is applied in a certain
 calibration validity period and for each detector separately. The cut value is defined as
 3 negative standard deviations away from the mean of the FEP \deltae\ distribution.
+
+\section{Data analysis}%
+\label{sec:gerda:ana}
 
 % vim: tw=90
