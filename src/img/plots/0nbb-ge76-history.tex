@@ -5,27 +5,15 @@
 \setmathfont{Garamond-Math.otf}
 \usepackage{pgfplots}
 \usetikzlibrary{shapes, positioning}
+\input{../../tex/paultolcolors}
 
 \pgfplotsset{
   width=0.95\textwidth,
   height=7cm,
   scale only axis,
-  xmin=1960, xmax=2021,
+  xmin=1960, xmax=2022,
   compat=1.16
 }
-
-\definecolor{TolMutIndigo}{HTML}{332288}
-\definecolor{TolMutCyan}  {HTML}{88CCEE}
-\definecolor{TolMutTeal}  {HTML}{44AA99}
-\definecolor{TolMutGreen} {HTML}{117733}
-\definecolor{TolMutOlive} {HTML}{999933}
-\definecolor{TolMutSand}  {HTML}{DDCC77}
-\definecolor{TolMutRose}  {HTML}{CC6677}
-\definecolor{TolMutWine}  {HTML}{882255}
-\definecolor{TolMutPurple}{HTML}{AA4499}
-
-\definecolor{TolVibOrange}{HTML}{EE7733}
-\definecolor{TolVibRed}   {HTML}{CC3311}
 
 \tikzstyle{BI} = [
   mark=*,
@@ -81,11 +69,19 @@
           (2000.43, 0.150)
           (2000.97, 0.042)
       };
+
+      % Majorana
+      \addplot[style=BI, TolVibCyan] coordinates {
+        (2018.33, 0.0016)
+        (2019.10, 0.0047)
+      };
+
       % GERDA
       \addplot[style=BI, TolVibRed] coordinates {
           (2012.09, 0.010308)
           (2015.75, 0.001041)
           (2017.42, 0.000922)
+          (2018.33, 0.000570)
       };
     \end{semilogyaxis}
 
@@ -202,17 +198,26 @@
       };
 
       % GERDA
-      \node[TolVibRed, fill=white] at (axis cs:2015, 2.0e+26) {\textsc{Gerda}};
       \addplot[style=Thalf, TolVibRed] coordinates {
         (2013.41, 2.5e+25)
         (2016.50, 5.3e+25)
         (2017.33, 8.0e+25)
-        % (2018.33, 9.0e+25)
+        (2018.33, 9.0e+25)
       };
-      \node[fill=white] (7) at (axis cs: 2013.41, 1e+24) {215};
+      \node[fill=white] (7) at (axis cs: 2013.41, 1e+27) {215};
       \draw (7) -- (axis cs: 2013.41, 2.5e+25);
-      \node[fill=white] (8) at (axis cs: 2017.33, 7e+24) {471};
-      \draw (8) -- (axis cs: 2017.33, 8.0e+25);
+      \node[fill=white] (8) at (axis cs: 2018.33, 1e+27) {?};
+      \draw (8) -- (axis cs: 2018.33, 8.0e+25);
+      \node[TolVibRed, fill=white] at (axis cs:2014, 2.0e+26) {\textsc{Gerda}};
+
+      % Majorana
+      \addplot[style=Thalf, TolVibCyan] coordinates {
+        (2018.33, 1.9e+25)
+        (2019.10, 2.7e+25)
+      };
+      \node[fill=white] (9) at (axis cs: 2019.10, 1e+24) {?};
+      \draw (9) -- (axis cs: 2019.10, 2.7e+25);
+      \node[TolVibCyan, fill=white] at (axis cs:2016.5, 5.0e+24) {\textsc{Majorana}};
     \end{semilogyaxis}
   \end{tikzpicture}
 \end{document}
