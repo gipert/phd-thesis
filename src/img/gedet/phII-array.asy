@@ -4,6 +4,13 @@ settings.outformat = "png";
 settings.prc = false;
 settings.render = 4;
 settings.maxtile = (256,256);
+settings.tex = "xelatex";
+
+// garamond font
+usepackage("ebgaramond", options="lining");
+usepackage("unicode-math", options="math-style=ISO, bold-style=ISO");
+texpreamble("\setmathfont{Garamond-Math.otf}");
+defaultpen(fontsize(16pt));
 
 import three;
 currentprojection = orthographic((2,10,4));
@@ -11,8 +18,10 @@ currentprojection = orthographic((2,10,4));
 void draw_label(string lab, real x, real y) {
     path3 l1 = (x,y,90) -- (x,y,170);
     draw(l1);
-    label(Label("\large\texttt{" + lab + "}", position=EndPoint), l1);
+    label(Label("\texttt{" + lab + "}", position=EndPoint), l1);
 }
+
+label(rotate(90)*("\Huge\textsc{Phase II}"), (170,0,-280));
 
 // string 1
 draw_label("S1", 110, 0);

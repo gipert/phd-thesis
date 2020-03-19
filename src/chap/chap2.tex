@@ -7,13 +7,13 @@ The GERmanium Detector Array (\gerda) experiment has been proposed in
 Germanium detectors (HPGe) enriched in the \gesix\ double-beta emitter. The proposal lies
 in the path opened by the Heidelberg-Moscow (\hdm)~\cite{Klapdor2001} and
 \igex~\cite{Aalseth2002} experiments, aiming to develop the germanium technology towards
-large-scale, \bkgfree\ experimental conditions that could tackle the scale of
+large-scale, background-free experimental conditions that could tackle the scale of
 $\mathcal{O}(10^{26})$~yr sensitivity on the neutrinoless double-beta decay half-life. The
 history of the achievements in \thalfzero\ limit setting and background level with \gesix\
 is presented in \cref{img:exp:ge76-history}, top. On the bottom plot, a zoom in the
 \gerda\ data taking period showing the experimental progresses in terms of \thalfzero\
 sensitivity, lower limit and collected active exposure.  \gerda\ data taking officially
-ended in December 2019 after hitting the target total \bkgfree\ exposure of 100~\kgyr\ and
+ended in December 2019 after hitting the target total background-free exposure of 100~\kgyr\ and
 establishing itself as the leading experiment in the field in terms of lowest background
 level ever achieved around \qbb~\cite{Agostini2019a}.
 
@@ -30,7 +30,7 @@ exposure of 21.6~\kgyr\ and a background index in the region of interest of
 a new event veto system based on the LAr scintillation light was installed along with an
 additional 20~kg of \bege-type detectors.  The newly designed veto system allowed for a
 significant reduction of the background index (BI) down to the \powctsper{-4} scale, allowing
-\gerda\ to seamlessly run in \bkgfree\ conditions for its full second experimental phase
+\gerda\ to seamlessly run in background-free conditions for its full second experimental phase
 and surpass the \powtenyr{26} sensitivity threshold in April 2018~\cite{Agostini2019a}.
 Data taking was then stopped again to permit a third hardware upgrade, during which
 another 9.6~kg of enriched germanium in the form of five inverted-coaxial geometry
@@ -111,9 +111,12 @@ from the outside.
 \blocktitle{detectors}
 The \gerda\ \phasetwo\ array is organized in 7 vertical strings, holding 40 detectors in
 total. The detectors can be divided in three groups: the \bege\ detectors, the
-semi-coaxial \m{ANG} and \m{RG}, and the semi-coaxial \m{GTF} detectors. The
-detectors of the first two groups are made of germanium enriched in \gesix, the third
-group includes detectors with natural isotopic germanium abundance.
+semi-coaxial \m{ANG} and \m{RG}, and the semi-coaxial \m{GTF} detectors. The detectors of
+the first two groups are made of germanium enriched in \gesix, the third group includes
+detectors with natural isotopic germanium abundance. During the upgrade works for
+\phasetwop\ in 2018 four enriched inverted-coaxial \IC{} detectors were introduced to
+replace the three \GTF{} detectors in the central string, for a total of 41 detectors
+deployed.
 \newpar
 All \gerda\ HPGe detectors are made of high-purity p-type germanium, which is initially
 used to pull crystals, typically fuse-shaped (see for example fig.~4.1a in
@@ -133,32 +136,45 @@ which is typically produced by excavating a `groove'. In some cases such groove 
 passivated by deposition of a germanium-oxide layer.
 
 \blocktitle{%
-  \includegraphics[width=13mm]{gedet/BEGe.png}\\
-  \includegraphics[width=13mm]{gedet/SemiCoax.png}%
+  \includegraphics[width=15mm]{gedet/BEGe.png}\\
+  \includegraphics[width=15mm]{gedet/SemiCoax.png}\\
+  \vspace{2mm} % tweak
+  \includegraphics[width=15mm]{gedet/InvCoax.png}%
 }
-The \gerda\ \phasetwo\ detectors can be classified according to two different geometry
-types: semi-coaxial and \bege. In the semi-coaxial design, a bore-hole is excavated along
-the central axis to accomodate the \pplus\ electrode. With such a configuration,
-relatively large detector masses can be achieved, of the order of 2--3~kg. The \ANG{} (5),
-\RG{} (2) and \GTF{} (3) detectors, inherited from the \hdm\ and \igex\ experiments and
-already used in \phaseone, are of the semi-coaxial type. Their total mass amounts to
-23.2~kg of germanium, while the enrichment fractions are in the 85.5--88.3\% range. For
-\phasetwo, 20~kg of germanium enriched at 87.8\% was procured by the \gerda\ collaboration
-for the production of 30 new diodes of the \bege\ type. The Broad Energy Germanium detector
-design does not include a bore-hole, therefore the \pplus\ contact is a small, dot-shaped
-surface at the center of one of the two detector sides. The absence of a bore-hole makes
-this kind of detectors harder to fully deplete, requiring lower impurity concentrations
-and smaller masses, generally lower than 1~kg. A detailed description of the
-characteristics of the \bege\ detectors, from germanium procurement to diode production can
-be found in~\cite{Agostini2015e, Agostini2018a, Agostini2019}.
+The \gerda\ \phasetwo\ detectors before the 2018 upgrade can be classified according to
+two different geometry types: semi-coaxial and \bege. In the semi-coaxial design, a
+bore-hole is excavated along the central axis to accomodate the \pplus\ electrode. With
+such a configuration, relatively large detector masses can be achieved, of the order of
+2--3~kg. The \ANG{} (5), \RG{} (2) and \GTF{} (3) detectors, inherited from the \hdm\ and
+\igex\ experiments and already used in \phaseone, are of the semi-coaxial type. Their
+total mass amounts to 23.2~kg of germanium, while the enrichment fractions are in the
+85.5--88.3\% range. For \phasetwo, 20~kg of germanium enriched at 87.8\% was procured by
+the \gerda\ collaboration for the production of 30 new diodes of the \bege\ type. The
+Broad Energy Germanium detector design does not include a bore-hole, therefore the \pplus\
+contact is a small, dot-shaped surface at the center of one of the two detector sides. The
+absence of a bore-hole makes this kind of detectors harder to fully deplete, requiring
+lower impurity concentrations and smaller masses, generally lower than 1~kg. A detailed
+description of the characteristics of the \bege\ detectors, from germanium procurement to
+diode production can be found in~\cite{Agostini2015e, Agostini2018a, Agostini2019}. For
+\phasetwop\ four new enriched \IC{} detectors of the inverted-coaxial type were fabricated
+and deployed in place of the natural \GTF{} detectors. This new inverted-coaxial geometry
+design includes a dot-shaped \pplus\ contact, to enable the \bege-like pulse-shape
+discrimination features, and a bore-hole of the other side, to make it possible to achieve
+large detector masses. Details about the production and characterization of the  four
+inverted-coaxial detectors deployed in \gerda\ \phasetwop\ can be found
+in~\cite{inverted-paper}.
 
 \begin{figure}
   \centering
   \includegraphics[height=7cm]{gedet/phII-array.png}
-  \hspace{0.5cm}
-  \includegraphics[height=6cm]{gedet/phII-array-2D.pdf}
+  \hspace{1cm}
+  \includegraphics[height=7cm]{gedet/phIIp-array.png}
   \caption{%
-    The \gerda\ \phasetwo\ detector array.
+    The \gerda\ \phasetwo\ detector array. On the left: setup from the start of Phase II
+    (December 2015). On the right: \phasetwop\ setup after the 2018 upgrade works. The
+    main difference between the two configurations is the presence of upside-down detectors
+    in the first configuration and the inverted-coaxial detectors in place of the natural
+    detectors in the central string in the \phasetwop\ configuration.
   }\label{fig:setup:array}
 \end{figure}
 
@@ -179,7 +195,7 @@ Pyralux\reg, the signal FFCs from 3 mils Cuflon\reg\ or Pyralux\reg. See
 \cref{fig:setup:magevolumes}b.
 
 \blocktitle{LAr veto}
-To improve the sensitivity on the \onbb\ half-life and operate in the \bkgfree\ regime, an
+To improve the sensitivity on the \onbb\ half-life and operate in the background-free regime, an
 additional active veto system to collect the LAr scintillation light produced by
 background events was designed and installed during the upgrade works for \phasetwo. A
 cylindrical hybrid design was chosen to detect the light information: a curtain made of
@@ -282,7 +298,7 @@ the pulse shape analysis, and veto flags from the muon veto and LAr veto systems
 
 Various background mitigation techniques are adopted, both at the data acquisition level
 (online) and the analysis level (offline) in \gerda\ to lower the background index to the
-`background-free' level of \pIIbi.
+background-free level of \pIIbi.
 
 \blocktitle{muon veto}
 Muons may cause a substantial background to rare event searches like \gerda\ by generating
@@ -451,7 +467,7 @@ vulnerable to the \a-induced events. The rise time is defined as the time the wa
 needs to reach from 10\% to 90\% of its amplitude. The RT-cut threshold is defined to
 maximize the \onbb\ survival fraction and to minimize the signal-to-noise ratio at the
 same time through the definition of a figure of merit defined as the product of the \nnbb\
-signal survival probability and the \a-events rejection probability. The \nnbb\ and
+signal survival square-probability and the \a-events rejection probability. The \nnbb\ and
 \a-event test samples are obtained from physics data by selecting data in the $[1.0,
 1.3]$~MeV and $>3.5$~MeV energy regions, respectively, after \annmse\ and LAr veto cuts.
 The \onbb-signal efficiency of the RT cut is assumed to be the same as for the \nnbb\

@@ -5,7 +5,7 @@
 
 LC    = asy
 FLAGS = -threads
-IMGS  = phII-array-2D.pdf phII-array.png BEGe.png \
+IMGS  = phII-array-2D.pdf phII-array.png phIIp-array.png BEGe.png \
         InvCoax.png SemiCoax.png gerda-events.png
 
 all : $(IMGS)
