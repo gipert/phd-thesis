@@ -1,11 +1,3 @@
-/vis/scene/add/volume FEPlate_Physical
-
-/vis/scene/add/volume CC3_Physical_0
-/vis/scene/add/volume CC3_Physical_1
-/vis/scene/add/volume CC3_Physical_2
-/vis/scene/add/volume CC3_Physical_3
-/vis/scene/add/volume CC3_Physical_4
-/vis/scene/add/volume CC3_Physical_5
 /vis/scene/add/volume HVCableAtHolder_Phase2_0
 /vis/scene/add/volume HVCableAtHolder_Phase2_1
 /vis/scene/add/volume HVCableAtHolder_Phase2_2
@@ -15,8 +7,8 @@
 /vis/scene/add/volume HVCableAtHolder_Phase2_6
 /vis/scene/add/volume HVCableAtHolder_Phase2_7
 /vis/scene/add/volume HVCableAtHolder_Phase2_8
-/vis/scene/add/volume HVCableAtHolder_Phase2_9
 /vis/scene/add/volume HVCableAtHolder_Phase2_10
+/vis/scene/add/volume HVCableAtHolder_Phase2_9
 /vis/scene/add/volume HVCableAtHolder_Phase2_11
 /vis/scene/add/volume HVCableAtHolder_Phase2_12
 /vis/scene/add/volume HVCableAtHolder_Phase2_13
@@ -46,6 +38,7 @@
 /vis/scene/add/volume HVCableAtHolder_Phase2_37
 /vis/scene/add/volume HVCableAtHolder_Phase2_38
 /vis/scene/add/volume HVCableAtHolder_Phase2_39
+/vis/scene/add/volume HVCableAtHolder_Phase2_40
 
 /vis/scene/add/volume HVCableFromHolderToElectronicsPlate_Phase2_0
 /vis/scene/add/volume HVCableFromHolderToElectronicsPlate_Phase2_1
@@ -56,8 +49,8 @@
 /vis/scene/add/volume HVCableFromHolderToElectronicsPlate_Phase2_6
 /vis/scene/add/volume HVCableFromHolderToElectronicsPlate_Phase2_7
 /vis/scene/add/volume HVCableFromHolderToElectronicsPlate_Phase2_8
-/vis/scene/add/volume HVCableFromHolderToElectronicsPlate_Phase2_9
 /vis/scene/add/volume HVCableFromHolderToElectronicsPlate_Phase2_10
+/vis/scene/add/volume HVCableFromHolderToElectronicsPlate_Phase2_9
 /vis/scene/add/volume HVCableFromHolderToElectronicsPlate_Phase2_11
 /vis/scene/add/volume HVCableFromHolderToElectronicsPlate_Phase2_12
 /vis/scene/add/volume HVCableFromHolderToElectronicsPlate_Phase2_13
@@ -87,6 +80,7 @@
 /vis/scene/add/volume HVCableFromHolderToElectronicsPlate_Phase2_37
 /vis/scene/add/volume HVCableFromHolderToElectronicsPlate_Phase2_38
 /vis/scene/add/volume HVCableFromHolderToElectronicsPlate_Phase2_39
+/vis/scene/add/volume HVCableFromHolderToElectronicsPlate_Phase2_40
 
 /vis/scene/add/volume SignalCableAtHolder_Phase2_0
 /vis/scene/add/volume SignalCableAtHolder_Phase2_1
@@ -97,8 +91,8 @@
 /vis/scene/add/volume SignalCableAtHolder_Phase2_6
 /vis/scene/add/volume SignalCableAtHolder_Phase2_7
 /vis/scene/add/volume SignalCableAtHolder_Phase2_8
-/vis/scene/add/volume SignalCableAtHolder_Phase2_9
 /vis/scene/add/volume SignalCableAtHolder_Phase2_10
+/vis/scene/add/volume SignalCableAtHolder_Phase2_9
 /vis/scene/add/volume SignalCableAtHolder_Phase2_11
 /vis/scene/add/volume SignalCableAtHolder_Phase2_12
 /vis/scene/add/volume SignalCableAtHolder_Phase2_13
@@ -128,6 +122,7 @@
 /vis/scene/add/volume SignalCableAtHolder_Phase2_37
 /vis/scene/add/volume SignalCableAtHolder_Phase2_38
 /vis/scene/add/volume SignalCableAtHolder_Phase2_39
+/vis/scene/add/volume SignalCableAtHolder_Phase2_40
 
 /vis/scene/add/volume SignalCableFromHolderToElectronicsPlate_Phase2_0
 /vis/scene/add/volume SignalCableFromHolderToElectronicsPlate_Phase2_1
@@ -138,8 +133,8 @@
 /vis/scene/add/volume SignalCableFromHolderToElectronicsPlate_Phase2_6
 /vis/scene/add/volume SignalCableFromHolderToElectronicsPlate_Phase2_7
 /vis/scene/add/volume SignalCableFromHolderToElectronicsPlate_Phase2_8
-/vis/scene/add/volume SignalCableFromHolderToElectronicsPlate_Phase2_9
 /vis/scene/add/volume SignalCableFromHolderToElectronicsPlate_Phase2_10
+/vis/scene/add/volume SignalCableFromHolderToElectronicsPlate_Phase2_9
 /vis/scene/add/volume SignalCableFromHolderToElectronicsPlate_Phase2_11
 /vis/scene/add/volume SignalCableFromHolderToElectronicsPlate_Phase2_12
 /vis/scene/add/volume SignalCableFromHolderToElectronicsPlate_Phase2_13
@@ -168,7 +163,7 @@
 /vis/scene/add/volume SignalCableFromHolderToElectronicsPlate_Phase2_36
 /vis/scene/add/volume SignalCableFromHolderToElectronicsPlate_Phase2_37
 /vis/scene/add/volume SignalCableFromHolderToElectronicsPlate_Phase2_38
-/vis/scene/add/volume SignalCableFromHolderToElectronicsPlate_Phase2_39
+/vis/scene/add/volume SignalCableFromHolderToElectronicsPlate_Phase2_40
 
 /vis/scene/add/volume HVConnectorPlate_Physical_0
 /vis/scene/add/volume HVConnectorPlate_Physical_1
@@ -176,3 +171,13 @@
 /vis/scene/add/volume HVConnectorPlate_Physical_3
 /vis/scene/add/volume HVConnectorPlate_Physical_4
 /vis/scene/add/volume HVConnectorPlate_Physical_5
+/vis/scene/add/volume HVConnectorPlate_Physical_6
+
+/vis/scene/add/volume CC3_Physical_0
+/vis/scene/add/volume CC3_Physical_1
+/vis/scene/add/volume CC3_Physical_2
+/vis/scene/add/volume CC3_Physical_3
+/vis/scene/add/volume CC3_Physical_4
+/vis/scene/add/volume CC3_Physical_5
+
+/vis/scene/add/volume FEPlate_Physical

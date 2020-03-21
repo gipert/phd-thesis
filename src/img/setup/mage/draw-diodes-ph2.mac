@@ -1,0 +1,19 @@
+/MG/geometry/detector GerdaArrayPhaseII
+
+/run/initialize
+
+/vis/viewer/set/autoRefresh false
+
+# /vis/open OGLIQt
+/vis/open RayTracer 2000x3000
+/vis/scene/create
+
+# add here the volumes to draw
+/control/execute diodes.mac
+
+/vis/sceneHandler/attach
+
+/vis/viewer/zoom 1.6
+/control/execute vis-settings.mac
+
+/vis/viewer/flush

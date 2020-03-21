@@ -1,45 +1,36 @@
-#!/bin/sh
+#!/bin/bash
 
 saved=`pwd`
+cpus=`nproc`
 
-cp -R . /tmp/mage-1 && cd /tmp/mage-1
-MaGe /tmp/mage-1/draw-array.mac > /dev/null 2>&1 \
-    && mv /tmp/mage-1/g4RayTracer.viewer-0_0000.jpeg $saved/full-array.jpeg \
-    && notify-send 'MaGe' 'full-array.jpeg file created' &
-cd $saved
+rm -rf /tmp/mage-*
 
-cp -R . /tmp/mage-2 && cd /tmp/mage-2
-MaGe /tmp/mage-2/draw-larveto.mac > /dev/null 2>&1 \
-    && mv /tmp/mage-2/g4RayTracer.viewer-0_0000.jpeg $saved/full-larveto.jpeg \
-    && notify-send 'MaGe' 'full-larveto.jpeg file created' &
-cd $saved
+counter=1
+for f in `ls draw-*.mac`; do
 
-cp -R . /tmp/mage-3 && cd /tmp/mage-3
-MaGe /tmp/mage-3/draw-array-mounting.mac > /dev/null 2>&1 \
-    && mv /tmp/mage-3/g4RayTracer.viewer-0_0000.jpeg $saved/array-mounting.jpeg \
-    && notify-send 'MaGe' 'array-mounting.jpeg file created' &
-cd $saved
+    outf="`echo $f | cut -f 1 -d '.'`.jpeg"
 
-cp -R . /tmp/mage-4 && cd /tmp/mage-4
-MaGe /tmp/mage-4/draw-diodes.mac > /dev/null 2>&1 \
-    && mv /tmp/mage-4/g4RayTracer.viewer-0_0000.jpeg $saved/diodes.jpeg \
-    && notify-send 'MaGe' 'diodes.jpeg file created' &
-cd $saved
+    if [[ ! -f "$outf" || "$f" -nt "$outf" ]]; then
+        id=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 7 | head -n 1`
+        tmpdir="/tmp/mage-$id"
+        mkdir $tmpdir
+        cp -R ./*.mac $tmpdir
+        cd $tmpdir
+        echo "INFO: queuing $f -> $outf"
+        MaGe $tmpdir/$f > /dev/null 2>&1 \
+            && cp $tmpdir/g4RayTracer.viewer-0_0000.jpeg $saved/$outf \
+            && notify-send 'MaGe' "$outf file created" &
+        cd $saved
 
-cp -R . /tmp/mage-5 && cd /tmp/mage-5
-MaGe /tmp/mage-5/draw-larveto-noshroud.mac > /dev/null 2>&1 \
-    && mv /tmp/mage-5/g4RayTracer.viewer-0_0000.jpeg $saved/larveto-noshroud.jpeg \
-    && notify-send 'MaGe' 'larinst-noshroud.jpeg file created' &
-cd $saved
-
-cp -R . /tmp/mage-6 && cd /tmp/mage-6
-MaGe /tmp/mage-6/draw-cables.mac > /dev/null 2>&1 \
-    && mv /tmp/mage-6/g4RayTracer.viewer-0_0000.jpeg $saved/cables.jpeg \
-    && notify-send 'MaGe' 'cables.jpeg file created' &
-cd $saved
-
-cp -R . /tmp/mage-7 && cd /tmp/mage-7
-MaGe /tmp/mage-7/draw-holders.mac > /dev/null 2>&1 \
-    && mv /tmp/mage-7/g4RayTracer.viewer-0_0000.jpeg $saved/holders.jpeg \
-    && notify-send 'MaGe' 'holders.jpeg file created' &
-cd $saved
+        if [[ $counter == $cpus ]]; then
+            echo "INFO: waiting for the following background jobs to end..."
+            jobs
+            for job in `jobs -rp`; do
+                wait $job
+            done
+            counter=1
+        else
+            let counter++
+        fi
+    fi
+done

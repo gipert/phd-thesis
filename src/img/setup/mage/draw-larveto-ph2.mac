@@ -1,0 +1,25 @@
+# build gerda geometry
+/MG/geometry/detector GerdaArrayPhaseII
+
+/run/initialize
+
+/vis/viewer/set/autoRefresh false
+
+# /vis/open OGLIQt
+/vis/open RayTracer 1000x3500
+# /vis/open DAWNFILE
+/vis/scene/create
+
+# add here the volumes to draw (commands stored in auxiliary files)
+/control/execute diodes.mac
+/control/execute cables.mac
+/control/execute holders.mac
+/control/execute ms.mac
+/control/execute larinst.mac
+
+/vis/sceneHandler/attach
+
+/vis/viewer/zoom 4
+/control/execute vis-settings.mac
+
+/vis/viewer/flush

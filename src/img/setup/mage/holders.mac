@@ -38,6 +38,7 @@
 /vis/scene/add/volume Holder_Plate_37
 /vis/scene/add/volume Holder_Plate_38
 /vis/scene/add/volume Holder_Plate_39
+/vis/scene/add/volume Holder_Plate_40
 
 /vis/scene/add/volume Holder_VerticalBar_0
 /vis/scene/add/volume Holder_VerticalBar_1
@@ -141,8 +142,31 @@
 /vis/scene/add/volume Holder_VerticalBar_99
 /vis/scene/add/volume Holder_VerticalBar_100
 /vis/scene/add/volume Holder_VerticalBar_101
-
+/vis/scene/add/volume Holder_VerticalBar_102
+/vis/scene/add/volume Holder_VerticalBar_103
+/vis/scene/add/volume Holder_VerticalBar_104
+/vis/scene/add/volume Holder_VerticalBar_105
+/vis/scene/add/volume Holder_VerticalBar_106
+/vis/scene/add/volume Holder_VerticalBar_107
+/vis/scene/add/volume Holder_VerticalBar_108
+/vis/scene/add/volume Holder_VerticalBar_109
+/vis/scene/add/volume Holder_VerticalBar_110
+/vis/scene/add/volume Holder_VerticalBar_111
+/vis/scene/add/volume Holder_VerticalBar_112
+/vis/scene/add/volume Holder_VerticalBar_113
+/vis/scene/add/volume Holder_VerticalBar_114
+/vis/scene/add/volume Holder_VerticalBar_115
+/vis/scene/add/volume Holder_VerticalBar_116
+/vis/scene/add/volume Holder_VerticalBar_117
+/vis/scene/add/volume Holder_VerticalBar_117
+/vis/scene/add/volume Holder_VerticalBar_118
+/vis/scene/add/volume Holder_VerticalBar_119
+/vis/scene/add/volume Holder_VerticalBar_120
+/vis/scene/add/volume Holder_VerticalBar_121
+/vis/scene/add/volume Holder_VerticalBar_122
+ 
 /vis/scene/add/volume Phase2HolderGreatStar_0
+/vis/scene/add/volume Phase2HolderStar_0
 /vis/scene/add/volume Phase2HolderStar_1
 /vis/scene/add/volume Phase2HolderStar_2
 /vis/scene/add/volume Phase2HolderStar_3

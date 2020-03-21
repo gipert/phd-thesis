@@ -1,9 +1,9 @@
 /vis/scene/add/volume CrystalDeadLayer_geometry11_1
 /vis/scene/add/volume CrystalDeadLayer_geometry11_2
 /vis/scene/add/volume CrystalDeadLayer_geometry11_3
-/vis/scene/add/volume CrystalDeadLayer_geometry11_4
-/vis/scene/add/volume CrystalDeadLayer_geometry11_5
-/vis/scene/add/volume CrystalDeadLayer_geometry11_6
+# /vis/scene/add/volume CrystalDeadLayer_geometry11_4
+# /vis/scene/add/volume CrystalDeadLayer_geometry11_5
+# /vis/scene/add/volume CrystalDeadLayer_geometry11_6
 /vis/scene/add/volume CrystalDeadLayer_geometry11_7
 /vis/scene/add/volume CrystalDeadLayer_geometry11_8
 /vis/scene/add/volume CrystalDeadLayer_geometry11_9
@@ -12,8 +12,8 @@
 /vis/scene/add/volume CrystalPassivation_geometry11_1
 /vis/scene/add/volume CrystalPassivation_geometry11_2
 /vis/scene/add/volume CrystalPassivation_geometry11_3
-/vis/scene/add/volume CrystalPassivation_geometry11_4
-/vis/scene/add/volume CrystalPassivation_geometry11_6
+# /vis/scene/add/volume CrystalPassivation_geometry11_4
+# /vis/scene/add/volume CrystalPassivation_geometry11_6
 /vis/scene/add/volume CrystalPassivation_geometry11_7
 /vis/scene/add/volume CrystalPassivation_geometry11_9
 

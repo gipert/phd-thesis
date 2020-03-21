@@ -1,0 +1,25 @@
+/MG/geometry/detector GerdaArrayPhaseIIPlus
+/MG/geometry/LArInst/SetFiberCoverage 0.5
+
+/run/initialize
+
+/vis/viewer/set/autoRefresh false
+
+# /vis/open OGLIQt
+/vis/open RayTracer 1000x3500
+/vis/scene/create
+
+/control/execute diodes-nostr5.mac
+/control/execute holders.mac
+/control/execute cables.mac
+/control/execute larinst-noshroud.mac
+
+/vis/scene/add/volume CableBand_Physical_0
+/vis/scene/add/volume CableBand_Physical_1
+
+/vis/sceneHandler/attach
+
+/vis/viewer/zoom 4
+/control/execute vis-settings.mac
+
+/vis/viewer/flush

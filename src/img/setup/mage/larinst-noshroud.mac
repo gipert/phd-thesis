@@ -116,37 +116,87 @@
 /vis/scene/add/volume LArInstr_FiberSegment_Physical_53
 /vis/scene/add/volume LArInstr_FiberSegment_Physical_54
 /vis/scene/add/volume LArInstr_FiberSegment_Physical_55
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_56
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_57
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_58
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_59
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_60
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_61
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_62
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_63
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_64
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_65
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_66
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_67
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_68
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_69
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_70
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_71
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_72
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_73
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_74
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_75
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_76
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_77
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_78
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_79
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_80
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_81
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_82
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_83
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_84
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_85
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_86
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_87
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_88
-/vis/scene/add/volume LArInstr_FiberSegment_Physical_89
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_56
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_57
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_58
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_59
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_60
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_61
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_62
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_63
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_64
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_65
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_66
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_67
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_68
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_69
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_70
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_71
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_72
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_73
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_74
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_75
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_76
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_77
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_78
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_79
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_80
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_81
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_82
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_83
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_84
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_85
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_86
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_87
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_88
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_89
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_90
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_91
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_92
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_93
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_94
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_95
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_96
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_97
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_98
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_99
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_100
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_101
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_102
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_103
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_104
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_105
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_106
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_107
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_108
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_109
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_110
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_111
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_112
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_113
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_114
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_115
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_116
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_117
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_118
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_119
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_120
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_121
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_122
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_123
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_124
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_125
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_126
+# /vis/scene/add/volume LArInstr_FiberSegment_Physical_127
+/vis/scene/add/volume LArInstr_FiberSegment_Physical_128
+/vis/scene/add/volume LArInstr_FiberSegment_Physical_129
+/vis/scene/add/volume LArInstr_FiberSegment_Physical_130
+/vis/scene/add/volume LArInstr_FiberSegment_Physical_131
+/vis/scene/add/volume LArInstr_FiberSegment_Physical_132
+/vis/scene/add/volume LArInstr_FiberSegment_Physical_133
+/vis/scene/add/volume LArInstr_FiberSegment_Physical_134
+
+/control/execute inner-fibers-core.mac
+
+/vis/scene/add/volume CableBand_Physical_0
+/vis/scene/add/volume CableBand_Physical_1

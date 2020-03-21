@@ -41,8 +41,8 @@ enclosing the central string, now constituted by inverted-coaxial detectors. Thi
 part of \phasetwo, which will be referred as \phasetwop\ in the following, ended in
 December 2019 after collecting the total exposure of \fillme{fillme}~\kgyr\ and
 establishing the final \gerda\ upper limit on the neutrinoless double-beta decay half-life
-of \gerdafinallimit. With that said, the ``\phasetwo'' period includes \phasetwop\ in the
-following.
+of \gerdafinallimit. When generally referring to the \phasetwo\ period, if not specified
+in the following, \phasetwop\ must be considered as implicitly included.
 \begin{figure}
   \centering
   \includegraphics{plots/0nbb-ge76-history.pdf}
@@ -174,13 +174,14 @@ in~\cite{inverted-paper}.
     (December 2015). On the right: \phasetwop\ setup after the 2018 upgrade works. The
     main difference between the two configurations is the presence of upside-down detectors
     in the first configuration and the inverted-coaxial detectors in place of the natural
-    detectors in the central string in the \phasetwop\ configuration.
+    detectors in the central string in the \phasetwop\ configuration. \fillme{different
+    colors for detector types}
   }\label{fig:setup:array}
 \end{figure}
 
 \blocktitle{array \\ instrumentation}
 As already mentioned, the \gerda\ \phasetwo\ detectors are arranged into 7 strings, packed
-closely together as depicted in \cref{fig:setup:magevolumes}a, to maximize the
+closely together as depicted in \cref{fig:setup:array}, to maximize the
 multi-detector event rejection efficiency. Since the main background sources in
 \phaseone\ were located close to the detectors, the design of the mounting and cabling
 system has been carefully chosen to minimize the mass. The detector holder unit consists
@@ -192,7 +193,7 @@ radioactivity preamplifiers called `CC3'~\cite{Riboldi2015}. The Ge readout elec
 connected to the JFET-PCB by a flexible flat cable. Two different cable types are adopted
 for the signal and HV contact: the HV cables are made from 10 mils Cuflon\reg, or 3 mils
 Pyralux\reg, the signal FFCs from 3 mils Cuflon\reg\ or Pyralux\reg. See
-\cref{fig:setup:magevolumes}b.
+\cref{fig:setup:magevolumes}a. \fillme{PhaseII+ changes?}
 
 \blocktitle{LAr veto}
 To improve the sensitivity on the \onbb\ half-life and operate in the background-free regime, an
@@ -201,12 +202,12 @@ background events was designed and installed during the upgrade works for \phase
 cylindrical hybrid design was chosen to detect the light information: a curtain made of
 light-guiding plastic fibers coupled to a ring of silicon photomultipliers (SiPMs) to
 surround the array and PMTs on the top (9) and on the bottom (7) (see
-\cref{fig:setup:magevolumes}f). To enhance the light collection efficiency two copper
-shrouds (visible in \cref{fig:setup:magevolumes}e) coated with a reflective Tetratex\reg\
+\cref{fig:setup:magevolumes}d). To enhance the light collection efficiency two copper
+shrouds (visible in \cref{fig:setup:magevolumes}d) coated with a reflective Tetratex\reg\
 layer were added between the fiber shroud and the PMT holder plates. The latter were
 coated with a reflective VM2000 layer. Another light collection improvement introduced by
 the \phasetwo\ upgrade is the installation of nylon (mini-)shrouds enclosing each detector
-string (\cref{fig:setup:magevolumes}d). The presence of these shrouds provides an
+string (\cref{fig:setup:magevolumes}b). The presence of these shrouds provides an
 essential mechanical barrier to reduce the background from \kvz\ ions naturally present in
 LAr, which undergo \b-decay and can mimic the \onbb\ signature at \qbb. Being made of
 transparent nylon material, in contrast to the ones from \phaseone\ made of copper, the
@@ -215,7 +216,15 @@ surface. To match the fibers and PMTs spectral response many surfaces in the clo
 of the array were coated with tetraphenil-butadiene (TPB), a wavelength shifting material.
 Coating has been applied on mini-shrouds, fiber-shroud, copper shroud, PMTs as well as
 their holder plates. The reader is referred to ref.~\cite{Agostini2018a} for the detailed
-LAr veto instrumentation technical specifications.
+LAr veto instrumentation technical specifications, as implemented for the first part of
+\phasetwo.
+\newpar
+The LAr veto system was upgraded in 2018 for \phasetwop\ to achieve a higher vetoing
+efficiency. The fiber shroud was exchanged and its fiber density increased by 50\%. A new
+fiber curtain was fabricated to wrap around the central string and enhance the detection
+probability in volumes close to the detectors (see \cref{fig:setup:pictures} and
+\cref{fig:setup:magevolumes}c). The light collected by the fibers is read out by two SiPM
+arrays at the top end.
 
 \begin{figure}
   \includegraphics{setup/pic-collage.pdf}
@@ -231,13 +240,14 @@ the close vicinity of the array, at the same radial distance from the array cent
 and evenly spaced. Each source, when lowered, just fits into the space between the
 cylinder of the LAr veto system and two neighboring outer strings of the detector array,
 thereby the sources enter the inner volume of the LAr veto system by three slots in the
-top PMT plate.  The three sources were produced for \phasetwo\ and
-characterized~\cite{Baudis2015}. The LAr veto instrumentation is usually switched off
-during calibration runs because of the too high source activity of $\mathcal{O}(10)$~kBq.
-However, less intense \Ra\ sources are also available and can be easily exchanged with the
-standard ones. Special calibration data has been acquired with these sources and the LAr
-light instrumentation turned on, to study the performance of the LAr veto system. The
-calibration of the experimental setup is extensively described in ref.~\fillme{[fillme]}.
+top PMT plate.  Three sources were produced and characterized for the first part of
+\phasetwo~\cite{Baudis2015} and then again for \phasetwop. The LAr veto instrumentation is
+usually switched off during calibration runs because of the too high source activity of
+$\mathcal{O}(10)$~kBq.  However, less intense \Ra\ sources are also available and can be
+easily exchanged with the standard ones. Special calibration data has been acquired with
+these sources and the LAr light instrumentation turned on, to study the performance of the
+LAr veto system. The calibration of the experimental setup is extensively described in
+ref.~\fillme{[fillme]}.
 
 \blocktitle{data \\ acquisition}
 A FADC system records traces from germanium detectors (40), PMTs (16) and SiPMs (15) of
@@ -263,16 +273,15 @@ the pulse shape analysis, and veto flags from the muon veto and LAr veto systems
   \centering
   \includegraphics[width=\textwidth]{setup/mage-volumes.pdf}
   \caption{%
-    Implementation of the \gerda\ array in \mage, visualized using the
-    \geant\ visualization drivers. From left to right: a) the \gerda\
-    detectors, b) the holder mounting, composed of silicon plates and
-    copper bars c) the high-voltage and signal flexible flat cables plus
-    the front-end electronics on top, d) the full array instrumentation,
-    including the transparent nylon mini-shrouds, e) the full LAr veto
-    system surrounding the array, including the fiber shroud (in green),
-    the Tetratex\reg-coated copper shrouds (above and below the fibers) and
-    the two PMT arrays, f) the LAr veto system without the copper
-    shrouds.%
+    Implementation of the \gerda\ array in \mage, visualized using the \geant\
+    visualization drivers. From left to right: \emph{a)} the \phasetwo\ holder mounting,
+    composed of silicon plates and copper bars, and the high-voltage and signal flex flat
+    cables.  Front-end electronics are on the top end, \emph{b)} the full \phasetwo\ array
+    instrumentation, including the transparent nylon mini-shrouds, \emph{c)} the full
+    \phasetwop\ array instrumentation, including the central fiber shroud (in green),
+    \emph{d)} the full \phasetwo\ LAr veto system, including the outer fiber shroud, the
+    Tetratex\reg-coated copper shrouds (above and below the fibers) and the two PMT
+    arrays, \emph{e)} the \phasetwop\ LAr veto system without the copper shrouds.
   }\label{fig:setup:magevolumes}
 \end{figure}
 
