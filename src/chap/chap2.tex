@@ -253,21 +253,20 @@ ref.~\fillme{[fillme]}.
 A FADC system records traces from germanium detectors (40), PMTs (16) and SiPMs (15) of
 the LAr veto, PMTs and scintillating panels of the muon veto when an energy deposition
 greater than about 100~keV occurs in at least one of the germanium detectors\footnote{The
-exact trigger threshold is detector- and run-dependent and varies between 20~keV and
+  exact trigger threshold is detector- and run-dependent and varies between 20~keV and
 200~keV.}.  The energy deposition associated to each germanium detector signal is
 determined via a Zero Area Cusp (ZAC) filter which is optimized off-line for each detector
 and each calibration run~\cite{Agostini2015}. PMT and SiPM hits are reconstructed in the
 offline analysis following the procedure documented in~\cite{Agostini2018a}. Each event
-has to pass a series of quality cuts tailored to discard unphysical events such as
-discharges, pile-up, overflowed events and other problematic traces with very high
-efficiency (estimated to $(99.902 \pm 0.002)$\% \fillme{how?}). The
-reconstructed trigger positions are converted into time differences relative to the first
-trigger found in the germanium detector traces. Trigger positions and amplitudes are
-subsequently used together with hits from the SiPM to test the LAr veto condition. The
-algorithms were implemented in the \gelatio\ framework~\cite{Agostini2011} which is used
-to process \gerda\ data. Each event is characterized by the calibrated energy deposited in
-the Ge diode, a data quality flag, the classification as signal or background event from
-the pulse shape analysis, and veto flags from the muon veto and LAr veto systems.
+has to pass a series of quality cuts tailored to discard unphysical events with very high
+efficiency (see \cref{sec:gerda:cuts}). The reconstructed trigger positions are converted
+into time differences relative to the first trigger found in the germanium detector
+traces. Trigger positions and amplitudes are subsequently used together with hits from the
+SiPM to test the LAr veto condition. The algorithms were implemented in the \gelatio\
+framework~\cite{Agostini2011} which is used to process \gerda\ data. Each event is
+characterized by the calibrated energy deposited in the Ge diode, a data quality flag, the
+classification as signal or background event from the pulse shape analysis, and veto flags
+from the muon veto and LAr veto systems.
 
 \begin{figure}
   \centering
@@ -378,11 +377,32 @@ the start of \phasetwo. \fillme{comment}.
     \fillme{to be updated} LAr triplet lifetime regularly measured during \phasetwo.
   }\label{fig:lar:triplet-lifetime}
 \end{figure}
-The efficiency of the LAr veto cut can be estimated by evaluating the number of test
-pulses that are randomly flagged as background events. For \phasetwo\ this fraction has
-been evaluated to 97\%, corresponding to an efficiency for \onbb\ events of
+The veto condition is realized when the signal in at least one channel (SiPM array or PMT)
+exceeds a certain threshold (around one photo-electron or less) within a certain time
+window around the germanium trigger (usually few microseconds). The \onbb-signal
+efficiency of the LAr veto cut can be estimated by evaluating the number of test pulses
+and baseline events that are randomly flagged as background events. This fraction has been
+evaluated to $(97.7 \pm 0.1)$\% and $(98.2 \pm 0.1)$\% for the first part of \phasetwo\
+and \phasetwop, respectively. Combining these two estimates for the whole \phasetwo\
+results in an efficiency for \onbb\ events of
 \[
   \epsilon_\onbbM^\text{LAr-veto} = \fillme{fillme} \;.
+\]
+
+\blocktitle{data \\ quality}
+Each event has to pass a series of quality cuts tailored to discard unphysical events such
+as discharges, pile-up, overflowed events and other problematic traces with very high
+efficiency. The \onbb-signal efficiency of the data quality cuts has been estimated by
+building an artificial signal-like data sample and applying the data quality cuts to it.
+The base for this data sample consists of special pure-baseline events without physical
+triggers, which are regularly recorded in \gerda. Since these events are artificially
+triggered, no signal is expected in any detector with high probability, and therefore they
+can be used to characterize the background noise at a given time during data taking. On
+top of these baseline events special averaged waveforms from \Th\ DEP events are added to
+baseline events (only one channel per event) to produce the signal-like sample. An
+estimation of the acceptance of these events is finally yields:
+\[
+  \epsilon_\onbbM^\text{QC} = (99.922 \pm 0.002)\% \;.
 \]
 
 \blocktitle{pulse-shape \\ discrimination}
@@ -440,9 +460,9 @@ detector. Energy and time stability corrections to \aoe\ are discussed in detail
 in~\cite{psd-paper}. As mentioned before, the \aoe\ cut values are determined employing
 representative data samples from \Th\ calibration runs.  The low cut position (rejection
 of MSEs and slow pulses) is adjusted to achieve a 90\% survival fraction of the
-double-escape peak (DEP), a SSE sample. The determination of threshold on the high \aoe\
-side (rejection of fast pulses) depends on the specific \phasetwo\ dataset and is
-documented in~\cite{psd-paper}. The survival fraction for the \onbb-decay signal has been
+double-escape peak (DEP), a SSE sample. The threshold on the high \aoe\
+side (rejection of fast pulses) has been fixed to 3 standard deviations away from the SSE
+band distribution. The survival fraction for the \onbb-decay signal has been
 calculated assuming that it is the same as for the DEP events. A full analysis of the
 statistical and systematic uncertainties yields:
 \[
@@ -455,8 +475,8 @@ location of the energy deposition and it induces different types of pulse shapes
 of this reason, a simple \aoe\ cut would not be as effective as for the \bege{}s, and
 therefore alternative methods have been worked out.
 \newpar
-The primary method to reject MSE, called here \annmse, is based on an TMVA-based
-artificial neural network\footnote{\url{https://root.cern/tmva}} implemented and requires
+The primary method to reject MSE, called here \annmse, consists in a TMVA-based
+artificial neural network\footnote{\url{https://root.cern/tmva}} and requires
 appropriate selection of input variables (from the rising part of the preamplifier charge
 pulse) and training on independent data samples. Several of these samples are available
 for training in calibration data (see \fillme{fillme}) and also in physics data (\kvz\
@@ -494,12 +514,14 @@ semi-coaxial detectors. Therefore an additional rejection criteria is applied ba
 energy reconstructed with different integration times. The figure of merit for such a cut
 is the ratio between the energy of an event reconstructed with a short (4~\mus)
 integration time $E_\text{s}$ and the energy reconstructed with a long (20~\mus)
-integration time $E_\text{l}$. Ballistic deficit is observed to reduce this ratio,
-therefore the \deltae\ classifier is defined as $\delta{E} =
-{[E_\text{s}/E_\text{l}]}_\text{norm} - 1$, where the energy ratio is normalized to the
-values assumed by the \Th\ FEP events. The normalization is applied in a certain
-calibration validity period and for each detector separately. The cut value is defined as
-3 negative standard deviations away from the mean of the FEP \deltae\ distribution.
+integration time $E_\text{l}$. The energy here is reconstructed using a gaussian-shaping
+filter, which has been the default \gerda\ energy reconstruction method for \phaseone.
+Ballistic deficit is observed to reduce this ratio, therefore the \deltae\ classifier is
+defined as $\delta{E} = {[E_\text{s}/E_\text{l}]}_\text{norm} - 1$, where the energy ratio
+is normalized to the values assumed by the \Th\ FEP events. The normalization is applied
+in a certain calibration validity period and for each detector separately. The cut value
+is defined as 3 negative standard deviations away from the mean of the FEP \deltae\
+distribution.
 
 \section{Data analysis}%
 \label{sec:gerda:ana}
