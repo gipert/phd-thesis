@@ -26,6 +26,7 @@
 \pgfplotsset{
   width=14cm, height=7cm,
   scale only axis,
+  y filter/.expression={y==0? nan : y}
 }
 
 \tikzstyle{lines} = [
@@ -48,13 +49,15 @@
       xticklabel style={rotate=45, anchor=north east},
       legend pos=north west]
 
-      \addplot+[lines] table[x=date, y=total] {wc.dat};
+      \addplot+[lines, TolVibBlue, mark options={TolVibBlue}] table[x=date, y=total] {wc.dat};
       \addlegendentry{total};
-      \addplot+[lines] table[x=date, y=chap] {wc.dat};
+      \addplot+[lines, TolVibTeal, mark options={TolVibTeal}] table[x=date, y=chap] {wc.dat};
       \addlegendentry{\texttt{chap/}};
-      \addplot+[lines] table[x=date, y=img] {wc.dat};
+      \addplot+[lines, TolVibOrange, mark options={TolVibOrange}] table[x=date, y=img] {wc.dat};
       \addlegendentry{\texttt{img/}};
-      \addplot+[lines] table[x=date, y=bib] {wc.dat};
+      \addplot+[lines, TolVibCyan, mark options={TolVibCyan}] table[x=date, y=tab] {wc.dat};
+      \addlegendentry{\texttt{tab/}};
+      \addplot+[lines, TolVibRed, mark options={TolVibRed}] table[x=date, y=bib] {wc.dat};
       \addlegendentry{\texttt{bib/}};
     \end{axis}
   \end{tikzpicture}

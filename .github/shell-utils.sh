@@ -1,9 +1,11 @@
 update_progress_plot() {
+    saved=`pwd`
     \cd `git rev-parse --show-toplevel`
     echo `compose_line` >> .github/wc.dat
-    \cd - > /dev/null
 
+    \cd .github
     xelatex -shell-escape progress.tex
+    \cd "${saved}"
 }
 
 generate_all() {
@@ -20,6 +22,7 @@ compose_line() {
          `cat $(find src      | grep -E '.*\.(bib|tex|asy|C)') | wc -w`, \
          `cat $(find src/chap | grep -E '.*\.(tex)')           | wc -w`, \
          `cat $(find src/img  | grep -E '.*\.(tex|asy|C)')     | wc -w`, \
+         `cat $(find src/tab  | grep -E '.*\.(tex)')           | wc -w`, \
          `cat $(find src/bib  | grep -E '.*\.(bib)')           | wc -w`
 }
 
