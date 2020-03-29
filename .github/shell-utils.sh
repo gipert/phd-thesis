@@ -1,5 +1,5 @@
 update_progress_plot() {
-    \cd ..
+    \cd `git rev-parse --show-toplevel`
     echo `compose_line` >> .github/wc.dat
     \cd - > /dev/null
 
@@ -7,7 +7,7 @@ update_progress_plot() {
 }
 
 generate_all() {
-    \cd ..
+    \cd `git rev-parse --show-toplevel`
     for commit in `git rev-list --all`; do
         rm .github/wc.dat
         echo `compose_line_from_commit $commit` >> .github/wc.dat

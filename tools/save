@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+\cd `git rev-parse --show-toplevel`
+source .github/shell-utils.sh
+update_progress_plot
+
 git status
 
 echo -n "Commit and push? [y/n] "; read ans
@@ -9,3 +13,5 @@ if [ "$ans" == "y" ]; then
     git commit -m "[`whoami`@`hostname`] `date`"
     git push origin master
 fi
+
+\cd - > /dev/null
