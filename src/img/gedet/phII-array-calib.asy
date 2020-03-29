@@ -13,18 +13,27 @@ texpreamble("\setmathfont{Garamond-Math.otf}");
 defaultpen(fontsize(16pt));
 
 import three;
-currentprojection = orthographic((2,10,4));
+currentprojection = orthographic((0,0,1), up=-Y);
 
-void draw_label(string lab, real x, real y) {
-    path3 l1 = (x,y,90) -- (x,y,170);
-    draw(l1);
-    label(Label("\texttt{" + lab + "}", position=EndPoint), l1);
-}
+// calibration source
+real cs_radius = 15;
+real cs_height = 20;
+real cs_pos_radius = 180;
+surface calib_source = surface(
+    path3((0,0) -- (cs_radius-0.5,0){right} .. {up}(cs_radius,0.5)
+          -- (cs_radius,cs_height-0.5){up} .. {left}(cs_radius-0.5,cs_height)
+          -- (0,cs_height), plane=YZplane),
+    c=O, axis=Z
+);
 
-label(rotate(90)*("\Huge\textsc{Phase II}"), (170,0,-280));
+material cs_material = material(
+    diffusepen=gray(0.7),
+    emissivepen=gray(0.2),
+    shininess=0.5
+);
 
 // string 1
-draw_label("1", 110, 0);
+label("\texttt{1}", (110,0,170));
 GD91A.draw(pos=(110,0,75.09));
 GD35B.draw(pos=(110,0,17.05));
 GD02B.draw(pos=(110,0,-38.17));
@@ -34,15 +43,19 @@ GD89B.draw(pos=(110,0,-210.57));
 GD02D.draw(pos=(110,0,-275.75), flip=true);
 GD91C.draw(pos=(110,0,-309.61));
 
+label("\texttt{S1}", (cs_pos_radius*cos(pi*1/6),cs_pos_radius*sin(pi*1/6),170));
+draw(shift(cs_pos_radius*cos(pi*1/6),cs_pos_radius*sin(pi*1/6),0) * calib_source,
+     surfacepen=cs_material);
+
 // string 2
-draw_label("2", 55, 95.26);
-ANG5.draw(pos=(55.00,95.26,29.00), 60, 300, hi_pplus=true);
+label("\texttt{2}", (55,95.26,170));
+ANG5.draw(pos=(55.00,95.26,29.00), 60, 300);
 RG1 .draw(pos=(55.00,95.26,-103.00));
 ANG3.draw(pos=(55.00,95.26,-240.00));
 
 // string 3
-draw_label("3", -55, 95.26);
-GD02A.draw(pos=(-55.00,95.26,67.44), flip=true, 240, 480, hi_pplus=true);
+label("\texttt{3}", (-55-17,95.26+17,170));
+GD02A.draw(pos=(-55.00,95.26,67.44), flip=true);
 GD32B.draw(pos=(-55.00,95.26,32.58));
 GD32A.draw(pos=(-55.00,95.26,-34.40));
 GD32C.draw(pos=(-55.00,95.26,-68.42));
@@ -51,8 +64,12 @@ GD61C.draw(pos=(-55.00,95.26,-178.78));
 GD76B.draw(pos=(-55.00,95.26,-241.72), flip=true);
 GD00C.draw(pos=(-55.00,95.26,-276.68));
 
+label("\texttt{S2}", (cs_pos_radius*cos(pi*5/6),cs_pos_radius*sin(pi*5/6),170));
+draw(shift(cs_pos_radius*cos(pi*5/6),cs_pos_radius*sin(pi*5/6),0) * calib_source,
+     surfacepen=cs_material);
+
 // string 4
-draw_label("4", -110, 0);
+label("\texttt{4}", (-110-17,0+17,170));
 GD35C.draw(pos=(-110.00,0.00,67.84), flip=true);
 GD76C.draw(pos=(-110.00,0.00,33.09));
 GD89D.draw(pos=(-110.00,0.00,-25.55));
@@ -63,13 +80,17 @@ GD91B.draw(pos=(-110.00,0.00,-245.87));
 GD61B.draw(pos=(-110.00,0.00,-299.39));
 
 // string 5
-draw_label("5", -55, -95.26);
+label("\texttt{5}", (-55,-95.26,170));
 RG2 .draw(pos=(-55.00,-95.26,-103.00));
 ANG4.draw(pos=(-55.00,-95.26,-236.50));
 ANG2.draw(pos=(-55.00,-95.26,30.00));
 
+label("\texttt{S3}", (cs_pos_radius*cos(pi*9/6),cs_pos_radius*sin(pi*9/6),170));
+draw(shift(cs_pos_radius*cos(pi*9/6),cs_pos_radius*sin(pi*9/6),0) * calib_source,
+     surfacepen=cs_material);
+
 // string 6
-draw_label("6", 55, -95.26);
+label("\texttt{6}", (55-17,-95.26+17,170));
 GD00A.draw(pos=(55.00,-95.26,67.30), flip=true);
 GD02C.draw(pos=(55.00,-95.26,32.80));
 GD79B.draw(pos=(55.00,-95.26,-22.48));
@@ -79,7 +100,7 @@ GD89A.draw(pos=(55.00,-95.26,-183.33));
 ANG1 .draw(pos=(55.00,-95.26,-253.00));
 
 // string 7
-draw_label("7", 0, 0);
+label("\texttt{7}", (0,0,170));
 GTF45 .draw(pos=(0.00,0.00,-189.00));
 GTF32 .draw(pos=(0.00,0.00,-89.50));
 GTF112.draw(pos=(0.00,0.00,26.50));

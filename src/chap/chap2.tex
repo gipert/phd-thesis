@@ -167,14 +167,17 @@ in~\cite{inverted-paper}.
 \begin{figure}
   \centering
   \includegraphics[height=7cm]{gedet/phII-array.png}
-  \hspace{1cm}
+  \hspace{0.5cm}
+  \includegraphics[width=4cm, trim=0 -4cm 0 0]{gedet/phII-array-calib.png}
+  \hspace{0.5cm}
   \includegraphics[height=7cm]{gedet/phIIp-array.png}
   \caption{%
     The \gerda\ \phasetwo\ detector array. On the left: setup from the start of Phase II
     (December 2015). On the right: \phasetwop\ setup after the 2018 upgrade works. The
     main difference between the two configurations is the presence of upside-down detectors
     in the first configuration and the inverted-coaxial detectors in place of the natural
-    detectors in the central string in the \phasetwop\ configuration. \fillme{different
+    detectors in the central string in the \phasetwop\ configuration. In the center: top
+    view of the \phasetwo\ array, with the three calibration sources. \fillme{different
     colors for detector types}
   }\label{fig:setup:array}
 \end{figure}
@@ -246,8 +249,8 @@ usually switched off during calibration runs because of the too high source acti
 $\mathcal{O}(10)$~kBq.  However, less intense \Ra\ sources are also available and can be
 easily exchanged with the standard ones. Special calibration data has been acquired with
 these sources and the LAr light instrumentation turned on, to study the performance of the
-LAr veto system. The calibration of the experimental setup is extensively described in
-ref.~\fillme{[fillme]}.
+LAr veto system. The calibration of the experimental setup is extensively described
+in~\cite{calib-paper}.
 
 \blocktitle{data \\ acquisition}
 A FADC system records traces from germanium detectors (40), PMTs (16) and SiPMs (15) of
@@ -306,7 +309,12 @@ from the muon veto and LAr veto systems.
 
 Various background mitigation techniques are adopted, both at the data acquisition level
 (online) and the analysis level (offline) in \gerda\ to lower the background index to the
-background-free level of \pIIbi.
+background-free level of \pIIbi. The techniques outlined in the following have been
+gradually developed and refined during several years of research and publications, and
+have been employed for the \phasetwo\ final (re-)analysis in~\cite{gerda-final}.
+Documentation about partial analyses of the \gerda\ \phasetwo\ data published
+in~\cite{Agostini2015a, Agostini2017, Agostini2018, Agostini2019a} can be found in those
+publications and references therein.
 
 \blocktitle{muon veto}
 Muons may cause a substantial background to rare event searches like \gerda\ by generating
@@ -363,18 +371,22 @@ The goal of the \gerda\ LAr veto is to reject those types of background events i
 germanium detectors that simultaneously deposit energy in the surrounding LAr, and hence
 generate scintillation. These background types mainly include \g-ray background from Ra
 and Th decays in solid materials inside and around the detectors. But also other types of
-background can successfully be rejected, such as muons or decays from \Arh\ or \kvz. An event
-depositing energy in the germanium detectors is discarded as background if a coincidence
-with the LAr veto signal is found in the time window spanned by the germanium traces.
-Since the lifetime of the LAr triplet state significantly depends on the argon
+background can successfully be rejected, such as muons or decays from \Arh\ or \kvz. An
+event depositing energy in the germanium detectors is discarded as background if a
+coincidence with the LAr veto signal is found in the time window spanned by the germanium
+traces.  Since the lifetime of the LAr triplet state significantly depends on the argon
 purity~\cite{Amsler2007}, it is possible to monitor the purity of LAr over time.
-\cref{fig:lar:triplet-lifetime} shows the lifetime values measured every month since
-the start of \phasetwo. \fillme{comment}.
+\cref{fig:lar:triplet-lifetime} shows the lifetime values measured about every month since
+the start of \phasetwo. The average measured lifetime dropped after the \phasetwop\
+upgrade works from $\sim$1~\mus\ to $\sim$0.9~\mus, as a probable consequence of
+maintenance works of the cryogenic system.
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\linewidth]{plots/lar-triplet-lifetime.png}
+  \includegraphics{plots/lar/lar-triplet.pdf}
   \caption{%
-    \fillme{to be updated} LAr triplet lifetime regularly measured during \phasetwo.
+    LAr triplet lifetime regularly measured during \phasetwo. The decrease of the LAr
+    purity in 2018 might be attributed to maintenance works of the cryogenic
+    infrastructure.
   }\label{fig:lar:triplet-lifetime}
 \end{figure}
 The veto condition is realized when the signal in at least one channel (SiPM array or PMT)
@@ -504,7 +516,7 @@ decays and hence estimated to $(84.3 \pm \stat{0.4} \pm \syst{1.0})$\%. The \ann
 RT-cut efficiency can be combined to obtain an overall survival fraction for the
 \onbb-decay events after the combined \annmse-RT cut:
 \[
-  \epsilon_\onbbM^\text{ANN-MSE-RT} = (64.6 \pm 3.9) \% \;.
+  \epsilon_\onbbM^\text{\annmse-RT} = (64.6 \pm 3.9) \% \;.
 \]
 
 \blocktitle{\deltae\ cut}
@@ -525,5 +537,108 @@ distribution.
 
 \section{Data analysis}%
 \label{sec:gerda:ana}
+
+The \phasetwo\ data is presented in this section together with the LAr veto and PSD data.
+The statistical analysis used to extract a lower limit for the \onbb\ half-life in \gesix\
+is finally presented, and the final results for the combined \gerda\ data are given.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{plots/0nbb-results/calib-desc.pdf}
+  \caption{%
+    A typical \Th\ calibration spectrum from \bege, semi-coaxial and inverted-coaxial
+    detectors, respectively. The peaks used for determination of the calibration and
+    resolution curves are highlighted. \fillme{superimpose the calibration curves to the
+    plot}
+  }\label{fig:gerda:calib-desc}
+\end{figure}
+
+\blocktitle{energy \\ scale and \\ resolution}
+As already emphasized in \cref{sec:nbb:exp}, a good energy resolution is a key ingredient
+to achieve a high \onbb-decay sensitivity. The main goal of the calibration analysis is
+therefore to define and maintain a stable energy scale over years of data taking.  It
+is necessary to identify the peak region (and reject all background events with
+different energy), combine data from different detectors over extended periods of time,
+and efficiently exploit the excellent energy resolution of germanium detectors.
+\newpar
+As already mentioned in \cref{sec:gerda:setup}, the germanium detectors are calibrated by
+exposing them to \Th\ sources with an activity of about 10~kBq. A typical calibration
+spectrum is shown in \cref{fig:gerda:calib-desc}. The pattern of \g\ lines in the spectrum
+can be exploited to identify certain \g\ lines and calibrate the energy scale of a
+detector with their known position in terms of energy.  Additionally, the resolution of a
+detector can be determined from the width of the \g\ lines. Once the positions and the
+widths of the \g\ lines in an energy spectrum is determined by modeling the peaks with a
+suitable analytical function, an function interpolation is performed to obtain the energy
+calibration and resolution at other energies. Once these two curves are determined for a
+given calibration, they are assumed to be valid until the next one. This validity is
+constantly monitored by evaluating the shift of the pulser event energy over time with
+respect to its value right after a calibration. Time periods in which in which a detector
+shows deviations from its calibration above a certain threshold are removed from the final
+analysis in order to meet the stringent requirements for the \onbb\ analysis in terms of
+uncertainties on the energy scale and resolution. Fluctuations below this threshold are
+taken into account when estimating the systematic contribution to the uncertainty on the
+energy resolution. The stability of the energy scale and resolution is also monitored on a
+per-calibration basis, and time periods for which detectors show a degraded performance
+are excluded from combined analysis data sets.  The calibration spectra that refer to
+these combined data sets are obtained by summing together the spectra from all the
+calibration runs of the relative time period weighted by their actual validity in time.
+Gaussian mixtures are usually not needed to model peaks in these combined spectra, as the
+variance of the single centroids and widths is usually small enough to enable the use of
+single gaussian distributions with effective parameters. The effective data set energy
+resolution is then determined by fitting the square root of a linear function to the
+reconstructed \g-line widths. The uncertainty on this effective resolution includes
+systematic contributions from the choice of the peak model, the resolution function and
+time stability of the experimental setup.  The resolution curves for \bege, semi-coaxial
+and inverted-coaxial \phasetwop\ data sets are reported in \cref{fig:gerda:calib-desc} as
+an example. The typical energy resolution at \qbb\ is \fillme{fillme} and the associated
+uncertainty is of the order of \fillme{fillme}. The calibrated energy spectrum of the
+\gerda\ \phasetwo\ data before cuts is shown in \cref{fig:gerda:spectrum-cuts}, empty
+histogram. \fillme{update this to final analysis, calibration paper?}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{plots/0nbb-results/spectrum-cuts.pdf}
+  \caption{%
+    Data from the enriched detectors is displayed in a combined spectrum after indicated
+    cuts. Main contributions to the spectra are labeled. The insets display the analysis
+    window for coaxial and \bege detectors separately, including the background rates
+    (solid blue lines). The dashed blue curves depict the 90\% C.L.~limit for a \onbb\
+    signal of \gerdafinallimit. \fillme{to be updated}
+  }\label{fig:gerda:spectrum-cuts}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.45\textwidth]{plots/0nbb-results/aoe-on-data.pdf}%
+  \includegraphics[width=0.45\textwidth]{plots/0nbb-results/ann-on-data.pdf}
+  \includegraphics[width=0.45\textwidth]{plots/0nbb-results/rt-on-data.pdf}
+  \caption{%
+    The three pulse shape discrimination techniques applied on the \gerda\ \phasetwo\
+    data. From left to right: the \aoe\ cut, the \annmse\ cut, the rise-time cut.
+    \fillme{to be updated}
+  }\label{fig:gerda:psd-on-data}
+\end{figure}
+
+\blocktitle{LAr veto and \\ PSD cuts on \\ data}
+The first cut applied to \phasetwo\ data (after the quality cuts) is the LAr veto cut.
+Event energy histograms before and after this event selection are shown in
+\cref{fig:gerda:spectrum-cuts}. The cut clearly suppresses background events from the \Th\
+and \Uh\ decay chains, as well as \kvz\ events. The \kvz\ FEP event reduction to 20\% and
+18\% in \phasetwo\ and \phasetwop\ data, respectively, demonstrates the effectiveness of
+the improved fiber instrumentation installed for \phasetwop. \kvn\ events, which are
+characterized by a single \g\ emission at 1461~keV and typically do not deposit energy in
+LAr, show a high survival fraction of about 98\%, but cannot enter the ROI at 2039~keV and
+are therefore of minor concern. \a\ events that dominate the energy spectrum at higher
+energies cannot be vetoed but the LAr instrumentation and still constitute a major
+background at \qbb.
+\newpar
+PSD data versus energy is showed in \cref{fig:gerda:psd-on-data} subdivided according to
+the PSD method. Data from \bege\ and inverted-coaxial detectors, for which the \aoe\ cut
+is used, is shown in the top-left plot. Data from semi-coaxial detectors, for which the
+\annmse\ and the rise-time cuts are implemented, is shown in the remaining plots. Colored
+data points correspond to events that survive the PSD cut.
+
+\blocktitle{the ROI}
+Events in the ROI are also completely cut because fuck it.
 
 % vim: tw=90
