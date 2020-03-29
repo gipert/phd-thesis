@@ -4,9 +4,24 @@
 \usepackage[math-style=ISO, bold-style=ISO]{unicode-math}
 \setmathfont{Garamond-Math.otf}
 \usepackage{pgfplots}
+\usetikzlibrary{backgrounds}
 \usepgfplotslibrary{dateplot}
 \pgfplotsset{compat=1.3}
 \input{../src/tex/paultolcolors}
+
+\definecolor{graphicbackground}{rgb}{1,1,1}
+\pgfkeys{/tikz/.cd,
+  background color/.initial=graphicbackground,
+  background color/.get=\backcol,
+  background color/.store in=\backcol,
+}
+\tikzset{background rectangle/.style={
+    fill=\backcol,
+  },
+  use background/.style={
+    show background rectangle
+  }
+}
 
 \pgfplotsset{
   width=14cm, height=7cm,
@@ -20,7 +35,7 @@
 ]
 
 \begin{document}
-  \begin{tikzpicture}
+  \begin{tikzpicture}[use background]
     \begin{axis}[
       title={\textsc{Progress Tracker}},
       ylabel={words},
