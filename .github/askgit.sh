@@ -3,8 +3,7 @@ update_progress_plot() {
     echo `compose_line` >> .github/wc.dat
     \cd - > /dev/null
 
-    xelatex -output-directory=.auxtex progress.tex
-    cp .auxtex/progress.pdf .
+    xelatex -shell-escape progress.tex
 }
 
 generate_all() {
