@@ -1,10 +1,7 @@
 %! TEX program = xelatex
-\documentclass{standalone}
-\usepackage[lining]{ebgaramond}%[StylisticSet={7,9}]
-\usepackage[math-style=ISO, bold-style=ISO]{unicode-math}
-\setmathfont{Garamond-Math.otf}
-\usepackage{pgfplots}
-\usepackage{pgfplotsthemetol}
+\input{../../../tex/standalone-def}
+\import{}{pgfplots-def}
+
 \begin{document}
   \begin{tikzpicture}
     \begin{axis}[width=10cm, height=6cm,
@@ -18,12 +15,12 @@
                  yticklabels={,,},
                  grid = major]
       % 2nbb
-      \addplot [mark=none, color=TolLightRed, thick, domain=0:2.039]
+      \addplot+[mark=none, thick, domain=0:2.039]
         {x/0.511*(4-x/0.511)^5*((x/0.511)^4+10*(x/0.511)^3+40*(x/0.511)^2+60*(x/0.511)+30)/33597};
-        \node at (axis cs:1.25,0.7) {\color{TolLightRed}$2\upnu\upbeta\upbeta$};
+        \node at (axis cs:1.25,0.7) {\color{TolVibRed}$2\upnu\upbeta\upbeta$};
       % 0nbb
-      \draw[-latex,color=TolLightGreen, thick] (axis cs:2.039,0) -- (axis cs:2.039,1.0);
-        \node at (axis cs:2.04,1.1) {\color{TolLightGreen}$0\upnu\upbeta\upbeta$};
+      \draw[-latex, thick, TolVibBlue] (axis cs:2.039,0) -- (axis cs:2.039,1.0);
+        \node at (axis cs:2.04,1.1) {\color{TolVibBlue}$0\upnu\upbeta\upbeta$};
     \end{axis}
   \end{tikzpicture}
 \end{document}

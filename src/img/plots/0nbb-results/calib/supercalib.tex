@@ -1,0 +1,131 @@
+%! TEX program = xelatex
+\input{../../../../tex/standalone-def}
+\import{}{pgfplots-def}
+\usepgfplotslibrary{groupplots}
+
+\pgfplotsset{
+  height=5.5cm,
+  xmin=400, xmax=3300,
+  % grid=major,
+  legend style={draw=none, cells={anchor=west}},
+  every axis plot post/.append style={every mark/.append style={rotate=180}}
+}
+
+\tikzstyle{histogram} = [
+  const plot,
+  no marks,
+  line width=0.7pt
+]
+
+\tikzstyle{fit} = [
+  no marks,
+  solid,
+  domain=400:2650,
+  line width=0.7pt
+]
+
+\tikzstyle{fitdash} = [
+  no marks,
+  dashed,
+  domain=2650:4000,
+  line width=0.7pt
+]
+
+\tikzstyle{points} = [
+  only marks,
+  mark=*,
+  % /pgfplots/error bars/.cd,
+  %   y dir=both,
+  %   y explicit,
+  %   error mark=none,
+]
+
+\tikzstyle{peaklab} = [
+  opacity=1,
+  rotate=90,
+  align=left,
+  scale=0.7
+]
+
+\tikzstyle{gridlike} = [black, opacity=0.2]
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}[
+      group style={group size=1 by 2,
+        xlabels at=edge bottom,
+        xticklabels at=edge bottom,
+        ylabels at=edge left,
+        vertical sep=2pt},
+      xtick={400,800,...,3200},
+      legend image post style={thick},
+    ]
+
+    \nextgroupplot[
+      ymin=1,
+      ymode=log,
+      ylabel={counts},
+      legend pos=south west,
+    ]
+
+    \draw[gridlike] (axis cs:1593,1) -- node[peaklab, above] {1593 keV DEP} (axis cs:1593,1E4);
+    \draw[gridlike] (axis cs:1621,1) -- node[peaklab, below] {1621 keV FEP} (axis cs:1621,1E4);
+    \draw[gridlike] (axis cs:2104,1) -- node[peaklab, above] {2104 keV SEP} (axis cs:2104,1E4);
+    \draw[gridlike] (axis cs:2615,1) -- node[peaklab, above] {2615 keV FEP} (axis cs:2615,2E3);
+
+    \addplot+[histogram] table [x=energy, y=cts] {EnrBEGe_2-spectrum.csv};
+    \addplot+[histogram] table [x=energy, y=cts] {EnrCoax_2-spectrum.csv};
+    \addplot+[histogram] table [x=energy, y=cts] {EnrInvCoax-spectrum.csv};
+
+    \addlegendentry{\small\textsc{BEGe}}
+    \addlegendentry{\small\textsc{SemiCoax}}
+    \addlegendentry{\small\textsc{InvCoax}}
+
+    \nextgroupplot[
+      ylabel={FWHM (keV)},
+      xlabel={energy (keV)},
+      scatter,
+      point meta=explicit symbolic,
+      scatter/classes={
+        ok={mark=*, mark size=1.3pt},
+        low={mark=o, mark size=1.3pt, fill=white},
+        doppler={mark=triangle, fill=white},
+        sum={mark=diamond, fill=white}
+      },
+      legend pos=north west,
+      legend columns=2,
+      legend image post style={black},
+    ]
+
+    \addplot+[points] table [x=energy, y=fwhm, y error=fwhmerr, meta=linetype] {EnrBEGe_2-points.csv};
+    \addplot+[points] table [x=energy, y=fwhm, y error=fwhmerr, meta=linetype] {EnrCoax_2-points.csv};
+    \addplot+[points] table [x=energy, y=fwhm, y error=fwhmerr, meta=linetype] {EnrInvCoax-points.csv};
+
+    \newcommand \begeres{2.35482*sqrt(0.36087132+0.00043591953*2039}
+    \newcommand\scoaxres{2.35482*sqrt(0.89925576+0.00197534190*2039}
+    \newcommand\icoaxres{2.35482*sqrt(0.27572647+0.00058963471*2039}
+
+    \node[scale=0.8] at (axis cs:2039,\scoaxres+0.8) {$Q_{\upbeta\upbeta}$};
+    \draw[gridlike] (axis cs:2039,0) -- (axis cs:2039,\scoaxres);
+    \draw[gridlike] (axis cs:2039,\begeres ) -- (axis cs:0, \begeres);
+    \draw[gridlike] (axis cs:2039,\scoaxres) -- (axis cs:0, \scoaxres);
+    \draw[gridlike] (axis cs:2039,\icoaxres) -- (axis cs:0, \icoaxres);
+
+    \addlegendentry{\small fit points}
+    \addlegendentry{\small low stat?}
+    \addlegendentry{\small Doppler broad.}
+    \addlegendentry{\small summ.~peaks}
+
+    \pgfplotsset{cycle list shift=-3}
+    \addplot+[fitdash] {2.35482*sqrt(0.36087132+0.00043591953*x)};
+    \addplot+[fitdash] {2.35482*sqrt(0.89925576+0.00197534190*x)};
+    \addplot+[fitdash] {2.35482*sqrt(0.27572647+0.00058963471*x)};
+
+    \pgfplotsset{cycle list shift=-6}
+    \addplot+[fit] {2.35482*sqrt(0.36087132+0.00043591953*x)};
+    \addplot+[fit] {2.35482*sqrt(0.89925576+0.00197534190*x)};
+    \addplot+[fit] {2.35482*sqrt(0.27572647+0.00058963471*x)};
+
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}

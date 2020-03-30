@@ -1,9 +1,6 @@
 %! TEX program = xelatex
-\documentclass{standalone}
-\usepackage[lining]{ebgaramond}%[StylisticSet={7,9}]
-\usepackage[math-style=ISO, bold-style=ISO]{unicode-math}
-\setmathfont{Garamond-Math.otf}
-\usepackage{pgfplots}
+\input{../../../tex/standalone-def}
+\import{}{pgfplots-def}
 \usetikzlibrary{positioning}
 \tikzset{
   every node/.style = {
@@ -29,22 +26,22 @@
           yticklabels={,},
           ]
           % lower curve
-      \addplot[mark=none,
-          dashed, color=blue,
+      \addplot+[mark=none,
+          dashed,
           line width=1pt,
           domain=-2.7:2.7
           ] {x^2+1};
-        \node (z-2)[fill=blue] at (axis cs:-2,5) {};
-        \node (z)  [fill=blue] at (axis cs:0,1) {};
-        \node (z+2)[fill=blue] at (axis cs:2,5) {};
+        \node (z-2)[fill=TolVibRed] at (axis cs:-2,5) {};
+        \node (z)  [fill=TolVibRed] at (axis cs:0,1) {};
+        \node (z+2)[fill=TolVibRed] at (axis cs:2,5) {};
       % upper curve
-      \addplot[mark=none,
-          dashed, color=red,
+      \addplot+[mark=none,
+          dashed,
           line width=1pt,
           domain=-2.5:2.5
           ] {x^2+5};
-        \node (z-1)[fill=red] at (axis cs:-1,6) {};
-        \node (z+1)[fill=red] at (axis cs:1,6) {};
+        \node (z-1)[fill=TolVibBlue] at (axis cs:-1,6) {};
+        \node (z+1)[fill=TolVibBlue] at (axis cs:1,6) {};
       % arrows
       \draw [->, thick] (z-2) -- (z-1);
       \node at (axis cs:-1.6,5.7) {$\beta^-$};
@@ -55,8 +52,8 @@
       \draw [->, thick] (z+2) -- (z);
       \node at (axis cs:0.8,3.5) {$\beta^+\beta^+$};
       % text
-      \node at (axis cs:-3.1,9) {\color{blue}even-even};
-      \node at (axis cs:-1.5,11) {\color{red}odd-odd};
+      \node at (axis cs:-3.1,9) {\color{TolVibRed}even-even};
+      \node at (axis cs:-1.5,11) {\color{TolVibBlue}odd-odd};
       \node at (axis cs:3,0.5) {Even A};
     \end{axis}
   \end{tikzpicture}

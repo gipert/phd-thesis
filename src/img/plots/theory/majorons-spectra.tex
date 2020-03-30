@@ -1,24 +1,7 @@
 %! TEX program = xelatex
-\documentclass{standalone}
-\usepackage[lining]{ebgaramond}%[StylisticSet={7,9}]
-\usepackage[math-style=ISO, bold-style=ISO]{unicode-math}
-\setmathfont{Garamond-Math.otf}
-\usepackage{pgfplots}
-\usepackage{pgfplotsthemetol}
-\pgfplotscreateplotcyclelist{tolcols list}{%
-  {TolDarkBlue   },
-  {TolLightBrown },
-  {TolLightGreen },
-  {TolDarkPink   },
-  {TolDarkPurple },
-  {TolDarkRed    },
-  {TolDarkBrown  },
-  {TolLightRed   },
-  {TolLightPink  },
-  {TolLightPurple},
-  {TolLightBlue  },
-  {TolDarkGreen  },
-}
+\input{../../../tex/standalone-def}
+\import{}{pgfplots-def}
+
 \begin{document}
   \begin{tikzpicture}
     \begin{axis}[width=10cm, height=6cm,
@@ -32,8 +15,7 @@
                  yticklabels={,,},
                  grid = major,
                  legend style={cells={anchor=west},legend pos=outer north east},
-                 every axis plot/.append style={mark=none, thick, domain=0:2.039},
-                 cycle list name=tolcols list]
+                 every axis plot/.append style={mark=none, thick, domain=0:2.039}]
 
       \addplot {x/0.511*(4-x/0.511)^1*((x/0.511)^4+10*(x/0.511)^3+40*(x/0.511)^2+60*(x/0.511)+30)/2748};
       \addplot {x/0.511*(4-x/0.511)^2*((x/0.511)^4+10*(x/0.511)^3+40*(x/0.511)^2+60*(x/0.511)+30)/3764};

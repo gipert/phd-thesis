@@ -1,0 +1,14 @@
+\documentclass[tikz, class=report]{standalone}
+\usepackage[lining]{ebgaramond}%[StylisticSet={7,9}]
+\usepackage[math-style=ISO, bold-style=ISO]{unicode-math}
+\setmathfont{Garamond-Math.otf}
+\usepackage{pgfplots}
+\usepackage{import}
+\makeatletter
+  \def\input@path{%
+    {../tex/}
+    {../../tex/}
+    {../../../tex/}
+    {../../../../tex/}
+  }
+\makeatother

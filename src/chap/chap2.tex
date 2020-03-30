@@ -257,7 +257,12 @@ A FADC system records traces from germanium detectors (40), PMTs (16) and SiPMs 
 the LAr veto, PMTs and scintillating panels of the muon veto when an energy deposition
 greater than about 100~keV occurs in at least one of the germanium detectors\footnote{The
   exact trigger threshold is detector- and run-dependent and varies between 20~keV and
-200~keV.}.  The energy deposition associated to each germanium detector signal is
+200~keV.}. Besides of real physical triggers, two special artificial events are recorded
+by the DAQ: test signals injected with a pulser in each germanium detector and baseline
+events with no physical trigger to study the electronic noise. These events are recorded
+at fixed time intervals during data taking.
+\newpar
+The energy deposition associated to each germanium detector signal is
 determined via a Zero Area Cusp (ZAC) filter which is optimized off-line for each detector
 and each calibration run~\cite{Agostini2015}. PMT and SiPM hits are reconstructed in the
 offline analysis following the procedure documented in~\cite{Agostini2018a}. Each event
@@ -544,12 +549,16 @@ is finally presented, and the final results for the combined \gerda\ data are gi
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{plots/0nbb-results/calib-desc.pdf}
+  \includegraphics{plots/0nbb-results/calib/supercalib.pdf}
   \caption{%
-    A typical \Th\ calibration spectrum from \bege, semi-coaxial and inverted-coaxial
-    detectors, respectively. The peaks used for determination of the calibration and
-    resolution curves are highlighted. \fillme{superimpose the calibration curves to the
-    plot}
+    Top panel: \Th\ calibration summed spectra of \bege, semi-coaxial and inverted-coaxial
+    detectors as used to determine the energy resolution curves. Three prominent \Tl\ high
+    energy peaks (full-energy, single-escape and double-escape) and the \Bil\
+    single-escape peak at 1621~keV are highlighted. Bottom panel: extracted peak widths
+    and fitted calibration curves. Points represented by empty markers are excluded from
+    the fit because of additional effects that contribute to the width. Triangles label
+    peaks broadened by the Doppler effect \fillme{ref?}, diamonds label summation peaks.
+    \fillme{fillme}
   }\label{fig:gerda:calib-desc}
 \end{figure}
 
