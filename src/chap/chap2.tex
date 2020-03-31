@@ -26,9 +26,9 @@ geometry type, shorthand for Broad Energy Germanium detectors) were deployed bar
 liquid argon (LAr) during \phaseone, following a suggestion by ref.~\cite{Heusser1995},
 for a total amount of 21.3~kg of germanium. \phaseone\ ended in June 2013 with a total
 exposure of 21.6~\kgyr\ and a background index in the region of interest of
-\pIbi~\cite{Agostini2016}.  Short after the upgrade works for \gerda\ \phasetwo\ started:
+\pIbi~\cite{Agostini2016}.  Shortly after that the upgrade works for \gerda\ \phasetwo\ started:
 a new event veto system based on the LAr scintillation light was installed along with an
-additional 20~kg of \bege-type detectors.  The newly designed veto system allowed for a
+additional 20~kg of \bege-type detectors.  The newly designed veto system set the stage for a
 significant reduction of the background index (BI) down to the \powctsper{-4} scale, allowing
 \gerda\ to seamlessly run in background-free conditions for its full second experimental phase
 and surpass the \powtenyr{26} sensitivity threshold in April 2018~\cite{Agostini2019a}.
@@ -37,7 +37,7 @@ another 9.6~kg of enriched germanium in the form of five inverted-coaxial geomet
 detectors was deployed\footnote{Note however that a semi-coaxial detector (\ANG{1}) and
 the natural \GTF{} detectors were removed.}. Moreover, the LAr veto system was exchanged
 with a more efficient one, thanks to the denser fiber curtain and the addition of a shroud
-enclosing the central string, now constituted by inverted-coaxial detectors. This last
+enclosing the central string, now consisting of inverted-coaxial detectors only. This last
 part of \phasetwo, which will be referred as \phasetwop\ in the following, ended in
 December 2019 after collecting the total exposure of \fillme{fillme}~\kgyr\ and
 establishing the final \gerda\ upper limit on the neutrinoless double-beta decay half-life
@@ -63,10 +63,10 @@ in the following, \phasetwop\ must be considered as implicitly included.
 The \phasetwop\ upgrade is partly also a test bench for the next-generation successor of
 \gerda\ in the field of double-beta decay physics with \gesix, the LEGEND experiment. The
 collaboration, formed in October 2016 from the \gerda\ and \majorana~\cite{Abgrall2014}
-(the latter experiment searching for \onbb\ with germanium detectors at the Sanford
+(the latter experiment is searching for \onbb\ with germanium detectors at the Sanford
 Underground Research Facility (SURF) in USA), pursues the goal of building a tonne-scale
 \gesix\ experiment and reaching the $\mathcal{O}(10^{28})$~yr sensitivity scale. The first
-phase of the experiment, LEGEND-200, deploys 200~kg of germanium in the existing \gerda\
+phase of the experiment, LEGEND-200, will deploy 200~kg of germanium in the existing \gerda\
 infrastructure at LNGS and it is currently in commissioning phase.
 \newpar
 As the present thesis work focuses on \gerda\ \phasetwo\ data, the description of the
@@ -75,8 +75,8 @@ to that time period. The chapter is structured as follows. In \cref{sec:gerda:se
 general overview of the \gerda\ \phasetwo\ (and \phasetwop) apparatus is given. In
 \cref{sec:gerda:cuts} the working principles of the main background reduction techniques
 that allow \gerda\ to operate in the background-free regime are outlined. The application
-of these event-selection criteria to the \phasetwo\ data is then described in
-\cref{sec:gerda:ana}, and the final results are presented.
+of these event-selection criteria to the \phasetwo\ data, the statistical analysis of the
+events at \qbb\ and the final results are presented in \cref{sec:gerda:ana}.
 
 \section{Overview of the Phase {\normalfont\textit{II}} experimental setup}%
 \label{sec:gerda:setup}
@@ -134,7 +134,7 @@ implantation, and the dead layer it produces is typically smaller, at the level 
 hundreds of microns. The two conductive surfaces are separated by an insulating region,
 which is typically produced by excavating a `groove'. In some cases such groove is
 passivated by deposition of a germanium-oxide layer.
-
+\newpar
 \blocktitle{%
   \includegraphics[width=15mm]{gedet/BEGe.png}\\
   \includegraphics[width=15mm]{gedet/SemiCoax.png}\\
@@ -260,7 +260,10 @@ greater than about 100~keV occurs in at least one of the germanium detectors\foo
 200~keV.}. Besides of real physical triggers, two special artificial events are recorded
 by the DAQ: test signals injected with a pulser in each germanium detector and baseline
 events with no physical trigger to study the electronic noise. These events are recorded
-at fixed time intervals during data taking.
+at fixed time intervals during data taking. Since the outset, \gerda\ has adopted a
+rigorous blind analysis strategy to ensure an unbiased search for \onbb\ decays. Events with
+a reconstructed energy of $\qbbM \pm 25$~keV are blinded (i.e., removed from
+the data stream) until the data selection is fixed.
 \newpar
 The energy deposition associated to each germanium detector signal is
 determined via a Zero Area Cusp (ZAC) filter which is optimized off-line for each detector
@@ -351,7 +354,7 @@ ionization is strongly dependent on the pressure and density of the argon as wel
 the type of radiation itself. In the case of excitation, the excited argon atom can
 directly form an excimer via the collision with neighboring argon atoms. The process is
 sketched in \cref{fig:setup:lar-scint}.
-\begin{figure}[h]
+\begin{figure}
   \centering
   \includegraphics[width=0.7\linewidth]{lar-scint-mechanism.pdf}
   \caption{%
@@ -405,6 +408,15 @@ results in an efficiency for \onbb\ events of
 \[
   \epsilon_\onbbM^\text{LAr-veto} = \fillme{fillme} \;.
 \]
+
+\blocktitle{granularity \\ cut}
+Since the topology of \onbb-decay events in germanium is, to a good approximation,
+point-like, all events in which energy is simultaneously deposited in more than one
+detector can be classified as background. In the offline analysis of a physical event, a
+trigger algorithm is applied over all the germanium traces to determine the presence of
+other signals besides the main trigger. This `offline' trigger threshold can be as low as
+the electronic noise and accounts for possible electronic crosstalk effects between
+channels.
 
 \blocktitle{data \\ quality}
 Each event has to pass a series of quality cuts tailored to discard unphysical events such
@@ -543,9 +555,10 @@ distribution.
 \section{Data analysis}%
 \label{sec:gerda:ana}
 
-The \phasetwo\ data is presented in this section together with the LAr veto and PSD data.
-The statistical analysis used to extract a lower limit for the \onbb\ half-life in \gesix\
-is finally presented, and the final results for the combined \gerda\ data are given.
+The \phasetwo\ single-detector data is presented in this section together with the LAr
+veto and PSD data.  The statistical analysis used to extract a lower limit for the \onbb\
+half-life in \gesix\ is finally presented, and the final results for the combined \gerda\
+data are given.
 
 \begin{figure}
   \centering
@@ -601,18 +614,18 @@ time stability of the experimental setup.  The resolution curves for \bege, semi
 and inverted-coaxial \phasetwop\ data sets are reported in \cref{fig:gerda:calib-desc} as
 an example. The typical energy resolution at \qbb\ is \fillme{fillme} and the associated
 uncertainty is of the order of \fillme{fillme}. The calibrated energy spectrum of the
-\gerda\ \phasetwo\ data before cuts is shown in \cref{fig:gerda:spectrum-cuts}, empty
-histogram. \fillme{update this to final analysis, calibration paper?}
+\gerda\ \phasetwo\ data after granularity cut is shown in \cref{fig:gerda:spectrum-cuts},
+empty histogram. \fillme{update this to final analysis, calibration paper?}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{plots/0nbb-results/spectrum-cuts.pdf}
   \caption{%
-    Data from the enriched detectors is displayed in a combined spectrum after indicated
-    cuts. Main contributions to the spectra are labeled. The insets display the analysis
-    window for coaxial and \bege detectors separately, including the background rates
-    (solid blue lines). The dashed blue curves depict the 90\% C.L.~limit for a \onbb\
-    signal of \gerdafinallimit. \fillme{to be updated}
+    Single-detector data from the enriched detectors is displayed in a combined spectrum
+    after indicated cuts. Main contributions to the spectra are labeled. The insets
+    display the analysis window for coaxial and \bege\ detectors separately, including the
+    background rates (solid blue lines). The dashed blue curves depict the 90\% C.L.~limit
+    for a \onbb\ signal of \gerdafinallimit. \fillme{to be updated}
   }\label{fig:gerda:spectrum-cuts}
 \end{figure}
 
@@ -624,22 +637,25 @@ histogram. \fillme{update this to final analysis, calibration paper?}
   \caption{%
     The three pulse shape discrimination techniques applied on the \gerda\ \phasetwo\
     data. From left to right: the \aoe\ cut, the \annmse\ cut, the rise-time cut.
-    \fillme{to be updated}
+    \fillme{to be updated with full data}
   }\label{fig:gerda:psd-on-data}
 \end{figure}
 
+\blocktitle{statistical \\ methods}
+\fillme{update to final decision}
+
 \blocktitle{LAr veto and \\ PSD cuts on \\ data}
-The first cut applied to \phasetwo\ data (after the quality cuts) is the LAr veto cut.
-Event energy histograms before and after this event selection are shown in
-\cref{fig:gerda:spectrum-cuts}. The cut clearly suppresses background events from the \Th\
-and \Uh\ decay chains, as well as \kvz\ events. The \kvz\ FEP event reduction to 20\% and
-18\% in \phasetwo\ and \phasetwop\ data, respectively, demonstrates the effectiveness of
-the improved fiber instrumentation installed for \phasetwop. \kvn\ events, which are
-characterized by a single \g\ emission at 1461~keV and typically do not deposit energy in
-LAr, show a high survival fraction of about 98\%, but cannot enter the ROI at 2039~keV and
-are therefore of minor concern. \a\ events that dominate the energy spectrum at higher
-energies cannot be vetoed but the LAr instrumentation and still constitute a major
-background at \qbb.
+The first cut applied to \phasetwo\ data (after the quality cuts and the multiplicity cut)
+is the LAr veto cut.  Event energy histograms before and after this event selection are
+shown in \cref{fig:gerda:spectrum-cuts}. The cut clearly suppresses background events from
+the \Th\ and \Uh\ decay chains, as well as \kvz\ events. The \kvz\ FEP event reduction to
+20\% and 18\% in \phasetwo\ and \phasetwop\ data, respectively, demonstrates the
+effectiveness of the improved fiber instrumentation installed for \phasetwop. \kvn\
+events, which are characterized by a single \g\ emission at 1461~keV and typically do not
+deposit energy in LAr, show a high survival fraction of about 98\%, but cannot enter the
+ROI at 2039~keV and are therefore of minor concern. \a\ events that dominate the energy
+spectrum at higher energies cannot be vetoed but the LAr instrumentation and still
+constitute a major background at \qbb.
 \newpar
 PSD data versus energy is showed in \cref{fig:gerda:psd-on-data} subdivided according to
 the PSD method. Data from \bege\ and inverted-coaxial detectors, for which the \aoe\ cut
@@ -647,7 +663,16 @@ is used, is shown in the top-left plot. Data from semi-coaxial detectors, for wh
 \annmse\ and the rise-time cuts are implemented, is shown in the remaining plots. Colored
 data points correspond to events that survive the PSD cut.
 
-\blocktitle{the ROI}
-Events in the ROI are also completely cut because fuck it.
+\blocktitle{unblinding \\ the ROI}
+The events in the background window that survive all cuts are displayed in
+\cref{fig:gerda:roi}. \fillme{background indices, should the definition go here?}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{plots/0nbb-results/roi-unblinded.pdf}
+  \caption{%
+    Events that survive all cuts in the background window. \fillme{to be updated}
+  }\label{fig:gerda:roi}
+\end{figure}
 
 % vim: tw=90
