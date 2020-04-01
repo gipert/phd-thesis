@@ -26,6 +26,8 @@
 /src/img/plots/lar/lar-triplet.pdf
 /src/img/plots/0nbb-results/calib/supercalib.pdf
 
+*.svg
+
 *.DS_Store
 *.swp
 *.swo

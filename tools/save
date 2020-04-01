@@ -10,7 +10,6 @@ git status
 echo -n "Commit and push? [y/n] "; read ans
 
 if [ "$ans" == "y" ]; then
-    git add .
     git commit -m "[`whoami`@`hostname`] `date`"
     git push origin master
 fi
