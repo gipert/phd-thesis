@@ -1,5 +1,16 @@
 \usepackage{pgfplots}
 \input{paultolcolors}
+
+\pgfplotscreateplotcyclelist{TolVibList}{%
+  {TolVibRed},
+  {TolVibBlue},
+  {TolVibTeal},
+  {TolVibCyan},
+  {TolVibOrange},
+  {TolVibMagenta},
+  {TolGray},
+}
+
 \pgfplotsset{
   compat=1.16,
   table/col sep=comma,

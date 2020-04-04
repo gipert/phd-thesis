@@ -3,6 +3,7 @@
 \cd `git rev-parse --show-toplevel`
 source .github/shell-utils.sh
 update_progress_plot
+xdg-open .github/progress.pdf &
 git add .github
 
 git status

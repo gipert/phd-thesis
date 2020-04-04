@@ -1,0 +1,186 @@
+%! TEX root = ../main.tex
+
+\chapter{Monte Carlo simulations and probability density functions}
+
+Background components that were identified in the energy spectra or in
+radio-purity screening measurements \cref{apdx:assay} are simulated
+using the \mage\ software~\cite{bBoswell2011} based on
+\geant~\cite{Agostinelli2002, Allison2006, Allison2016}.  The \gerda\
+\phasetwo\ detectors, their arrangement in seven strings as well as the
+LAr instrumentation are implemented into \mage. A graphic rendering of
+the relevant implemented hardware components is presented
+in~\cref{fig:setup:magevolumes}
+\newpar
+Simulations of radioactive contaminations
+in the following hardware components are performed: in the bulk and on
+the \pplus\ and \nplus\ surfaces of the germanium detectors, in the LAr,
+detector holder bars and plates, nylon mini-shrouds, LAr veto system
+(i.e.~the fiber shroud, SiPMs, copper shrouds and photomultipliers) and
+in the signal and high-voltage flexible flat cables. The primary
+spectrum of the two electrons emitted in the \nnbb\ decay is sampled
+according to the distribution given in reference~\cite{Tretyak1995}
+implemented in \textsc{Decay0}~\cite{Ponkratenko2000}. Note that the
+thickness of the detector assembly components are significantly smaller
+than the mean free path of the relevant simulated \g-particles in
+the given material, thus, no significant difference can be expected
+between the resulting spectra of bulk and surface contaminations. The
+detectors \nplus\ contact thicknesses are implemented according to the
+values reported in references~\cite{Agostini2013a, Agostini2019}.
+\newpar
+The \kvz\ decays (except for surface contaminations) are simulated
+homogeneously distributed in the relevant LAr volume. The following LAr
+volumes are chosen for the background model: the first is a cylinder
+centered on the detector array ($h=250$~cm, $r=100$~cm, simply referred
+to as ``homogeneous'' or abbreviated to ``hom.''~in the following)
+subsequently divided into the volume enclosed by the mini-shrouds and
+the remaining one (outside the mini-shrouds); the second is a cylinder
+($h=100$~cm, $r=25$~cm) positioned just above the array and the
+remaining seven are smaller cylinders ($h=20$~cm, $r=5$~cm), each one
+positioned just above each of the seven detector strings.
+\newpar
+On top of the \mage\ simulations a post-processing step is performed to
+compute the Probability Density Functions (PDFs) used to model the
+\gerda\ data in the statistical analysis. This includes folding in
+run-time dependent information, i.e.~the detector status in each physics
+run, the finite energy resolution and threshold of each detector. All
+PDFs presented in the following are computed using the run-time
+parameters of the data sets. A selection of the PDFs projected in energy
+space and normalized to the number of simulated primary decays, are
+displayed in~\autoref{fig:pdfs:gmodel}
+and~\autoref{fig:apdx:pdfs:gmodel}.
+
+% \begin{figure}[t]
+%   \centering
+%   \subfloat[%
+%     $\alpha$-decays from the \Ra\ decay sub-chain (\Ra, \Rn, $^{218}$Po
+%     and $^{214}$Po) on the detectors \pplus\ contact surface for
+%     different depths of the inactive contact layer. The isotope
+%     contamination is assumed to halve at each decay step, because of the
+%     recoil of the nuclei in LAr.\label{fig:pdfs:amodel:Ra}
+%   ]{\includegraphics[width=0.45\textwidth]{amodel-pdfs-U.pdf}}
+%     \hspace{10pt}
+%   \subfloat[%
+%     \Pbh\ and \Bih\ (\Uh\ chain) contaminations far from (fiber-shroud)
+%     and close to (mini-shrouds) the detector array. A variable binning
+%     is adopted for visualization purposes.\label{fig:pdfs:gmodel:U}%
+%   ]{\includegraphics[width=0.45\textwidth]{gmodel-pdfs-U.pdf}}
+%   \caption{%
+%     PDFs in the full energy domain. All PDFs are normalized to the
+%     number of simulated primary decays.
+%   }\label{fig:apdx:pdfs:gmodel}
+% \end{figure}
+
+% For the potassium tracking analysis PDFs binned in detector space are
+% used to model the data. The rotationally symmetric single-detector PDFs
+% for the \kvn\ and \kvz\ energy windows are shown in
+% \autoref{fig:pdfs:kmodel:K42} and \autoref{fig:apdx:pdfs:kmodel:K40}.
+% For two-detector events the same representation style as
+% in~\autoref{fig:kmodel:spc} is used: projections of the two-dimensional
+% histograms on their axis are summed, such that each two-detector event
+% enters the final histogram twice, in the two bins associated to the
+% respective detectors. They can be found in
+% \autoref{fig:apdx:pdfs:kmodel} together with the single-detector PDFs of
+% the rotationally asymmetric components. 
+
+% Common features can be noticed across the multitude of histogram shapes.
+% The event rate in single-detector data is generally higher in coaxial
+% detectors, due to their larger mass compared to BEGe detectors ---
+% maximal correlation between event rate and detector-by-detector exposure
+% can be found in the \twonu\ PDF in~\autoref{fig:pdfs:kmodel:K42}. This
+% feature is generally lost in the two-detector data: the coaxial
+% detectors larger volume allows to stop more efficiently
+% $\gamma$-particles that would otherwise escape and eventually deposit
+% energy in a second detector. Other similarities between different PDFs
+% can be attributed to detectors live-times, like in the case of
+% \texttt{GD91C}, which was inactive for a large fraction of the
+% \phasetwo\ exposure and thus generally registers a low number of counts.
+% The effects of asymmetrically distributed background contaminations are
+% easily recognizable in the shape of the PDFs.  Impurities located above
+% the detector array are mostly seen by the upper most detectors in each
+% string as can be seen for \kvn\ in the front-end electronics
+% in~\autoref{fig:apdx:pdfs:kmodel:K40} and
+% in~\autoref{fig:apdx:pdfs:kmodel:M2K40} and for \kvz\ above each
+% mini-shroud (see~\autoref{fig:apdx:pdfs:kmodel:K42sep} and
+% \autoref{fig:apdx:pdfs:kmodel:M2K40sep}). Rotationally asymmetric
+% components are mostly evident in a single string, see for example \kvn\
+% in single mini-shrouds in \autoref{fig:apdx:pdfs:kmodel:K40sep} and
+% \autoref{fig:apdx:pdfs:kmodel:M2K40sep}.
+
+% \begin{figure}[htp]
+%   \centering
+%   \subfloat[%
+%     \kvn\ in different setup locations and \twonu\ in Ge,
+%     \Mokvn\ data set.\label{fig:apdx:pdfs:kmodel:K40}%
+%   ]{\includegraphics[width=0.48\textwidth]{kmodel-pdfs-K40-long.pdf}}
+%   \hspace{5pt}
+%   \subfloat[%
+%     \kvn\ located close to each single mini-shroud, \Mokvn\
+%     data set.\label{fig:apdx:pdfs:kmodel:K40sep}%
+%   ]{\includegraphics[width=0.48\textwidth]{kmodel-pdfs-K40-sep-long.pdf}}
+%   \hspace{5pt}
+%   \subfloat[%
+%     \kvn\ in different setup locations, \Mtkvn\
+%     data set.\label{fig:apdx:pdfs:kmodel:M2K40}%
+%   ]{\includegraphics[width=0.48\textwidth]{kmodel-pdfs-K40-M2-long.pdf}}
+%   \hspace{5pt}
+%   \subfloat[%
+%     \kvn\ located close to each single mini-shroud, \Mtkvn\
+%     data set.\label{fig:apdx:pdfs:kmodel:M2K40sep}%
+%   ]{\includegraphics[width=0.48\textwidth]{kmodel-pdfs-K40-sep-M2-long.pdf}} \\
+%   \hspace{5pt}
+%   \subfloat[%
+%     \kvz\ in LAr above each single mini-shroud, \Mokvz\
+%     data set.\label{fig:apdx:pdfs:kmodel:K42sep}%
+%   ]{\includegraphics[width=0.48\textwidth]{kmodel-pdfs-K42-sep-long.pdf}}
+%   \hspace{5pt}
+%   \subfloat[%
+%     \kvz\ in different setup locations, \Mtkvz\
+%     data set.\label{fig:apdx:pdfs:kmodel:M2K42}%
+%   ]{\includegraphics[width=0.48\textwidth]{kmodel-pdfs-K42-M2-long.pdf}}
+%   \caption{%
+%     PDFs binned in detector space for the potassium tracking analysis. 
+%     All PDFs are normalized to the number of simulated primary decays.
+%   }\label{fig:apdx:pdfs:kmodel}
+% \end{figure}
+
+% All $\alpha$-decays in the \Ra\ to \Pbl\ sub-chain and from \Po\ are
+% simulated on the \pplus\ detector surface separately and for different
+% thicknesses of the \pplus\ electrode. The \Ra\ chain is simulated
+% together under the assumption that in each $\alpha$-decay half of the
+% contamination is lost due to the recoil of the nucleus into the LAr. The
+% resulting PDFs are displayed in~\autoref{fig:pdfs:amodel:Po} and
+% \autoref{fig:pdfs:amodel:Ra}. The spectra exhibit a peak like structure
+% with a pronounced low-energy tail.  The maximum is shifted with respect
+% to the full emission energy due to the thickness of the \pplus\ contact.
+% The low-energy tail is characteristic for $\alpha$-decays; the
+% $\alpha$-particle is susceptible to the change in the contact thickness
+% when penetrating the detector surface under an incident angle and loses
+% part of its energy before reaching the active detector volume.
+
+
+% \begin{table}[b]
+% \centering
+% \caption{%
+% Mass of materials which are deployed in the \gerda\ setup and their
+% respective mass in the MaGe MC implementation. Fiber shroud and SiPM
+% ring deployed masses include the support material and hence show a
+% larger discrepancy to the implemented mass. ($^\dagger$ \tetratex
+% -coated)} \label{apdx:tab:masses}
+% \begin{tabular}{lrr}
+% \toprule
+% \multirow{2}{*}{Part}         & deployed       & MC       \\
+%                               & mass [g]       & mass [g] \\
+% \midrule
+% detector holders              & 640            & 659      \\
+% flat cables (80~pc)           & 75.36          & 31       \\
+% front-end electronics (11~pc) & 190.5          & 51.96    \\
+% mini-shrouds                  & 196.7          & 175      \\
+% fiber shroud                  & 4298.4         & 1361     \\
+% SiPM ring                     & 74.4           & 3.4      \\
+% copper shrouds$^\dagger$      & 1686           & 1584     \\
+% \bottomrule
+% \end{tabular}
+% \label{tab:masses}
+% \end{table}
+
+% vim: tw=72 tabstop=2 expandtab shiftwidth=2

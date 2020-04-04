@@ -1,7 +1,14 @@
 %! TEX program = xelatex
 
 \input{tex/preamble}
-% \includeonly{chap/chap2}
+\includeonly{%
+  % chap/intro,
+  % chap/chap1,
+  % chap/chap2,
+  chap/chap3,
+  chap/apdx1,
+  chap/apdx2
+}
 
 \begin{document}
 
@@ -28,6 +35,10 @@
   \include{chap/chap1}
   \include{chap/chap2}
   \include{chap/chap3}
+
+  \appendix
+  \include{chap/apdx1}
+  \include{chap/apdx2}
 
   \printbibliography
 
