@@ -11,7 +11,7 @@ IMGS  = phII-array-2D.pdf phII-array.png phII-array-calib.png phIIp-array.png \
 all : $(IMGS)
 
 define build-rule
-  $(1).$(2) : $(1).asy ../../tex/gedetplots.asy
+  $(1).$(2) : $(1).asy lib/gedetplots.asy
 	@echo [$(shell pwd)] $(LC) $(FLAGS) $$<
 	@eval $(LC) $(FLAGS) $$<
 endef

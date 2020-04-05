@@ -20,7 +20,7 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
-from "../../tex/gedetplots" access BEGe, SemiCoax, InvCoax;
+from "lib/gedetplots" access BEGe, SemiCoax, InvCoax;
 
 BEGe GD79B = BEGe("GD79B", height=29.04, radius=38.42, groove_depth=2, groove_inner_r=7.5, groove_outer_r=10.5);
 BEGe GD35C = BEGe("GD35C", height=26.40, radius=37.40, groove_depth=2, groove_inner_r=7.5, groove_outer_r=10.5);

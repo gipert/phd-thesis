@@ -26,7 +26,7 @@ clean :
 	rm -rf $(PROJ).pdf $(LOGS)
 
 cleanall : clean
-	cd img && make clean; cd ..
+	+cd img && make clean; cd ..
 
 .PHONY : FORCE_MAKE clean cleanall img mkdirs
 

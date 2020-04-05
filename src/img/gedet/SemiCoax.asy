@@ -4,7 +4,7 @@ settings.render = 8;
 settings.maxtile = (256,256);
 settings.tex = "xelatex";
 
-from detector_db access *;
+from "lib/detector_db" access *;
 
 import three;
 currentprojection = orthographic((3,0,-1));

@@ -10,8 +10,8 @@ usepackage("unicode-math", options="math-style=ISO, bold-style=ISO");
 texpreamble("\setmathfont{Garamond-Math.otf}");
 defaultpen(fontsize(7pt));
 
-from "../../tex/tolcolors.asy" access *;
-from detector_db access *;
+from "lib/paultolcolors" access *;
+from "lib/detector_db" access *;
 import three;
 currentprojection = orthographic((5,0,1));
 

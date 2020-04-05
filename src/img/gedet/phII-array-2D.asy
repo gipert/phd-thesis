@@ -1,4 +1,4 @@
-from detector_db access *;
+from "lib/detector_db" access *;
 
 settings.outformat = "pdf";
 settings.prc = false;

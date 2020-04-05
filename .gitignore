@@ -25,6 +25,8 @@
 /src/img/plots/theory/majorons-spectra.pdf
 /src/img/plots/lar/lar-triplet.pdf
 /src/img/plots/0nbb-results/calib/supercalib.pdf
+/src/img/plots/bkg/raw/ph2/pdfs/macros/gerda-pdfs
+/src/img/plots/bkg/raw/ph2/pdfs/macros/bb-histos.root
 
 *.svg
 
