@@ -1,42 +1,42 @@
 \input{tex/paultolcolors}
-\newcommand{\rot}[1]{\begin{rotate}{50}#1\end{rotate}}
-\newcommand{\rcsg}{\rowcolor{TolLigMint}}
+\newcommand{\rcpg}{\rowcolor{TolPaleGray}}
 \newcommand{\rclb}{\rowcolor{TolLigBlue}}
-\newcommand{\ccsg}{\cellcolor{TolPaleGray}}
+\newcommand{\cclm}{\cellcolor{TolLigMint}}
+\newcommand{\ccpg}{\cellcolor{TolPaleGray}}
 \newcommand{\ccw}{\cellcolor{white}}
 
 \begin{tabular}{rllcccccc}
-  \rowcolor{white}
-  Part        & Material               & Method                    & {$^{228}$Ra (\mubq)}    & {\Ra\ (\mubq)}          & {\Th\ (\mubq)}           & {\Co\ (\mubq)}     & {\kvn\ (mBq)}     & {\Uh\ (mBq)}         \\
+  Part                  & Material              & Method         & {$^{228}$Ra (\mubq)}     & {\Ra\ (\mubq)}           & {\Th\ (\mubq)}           & {\Co\ (\mubq)} & {\kvn\ (mBq)}       & {\Uh\ (mBq)}             \\
   \midrule
-  \ccw holders& \ccw Si V IKZ          & \ccw $\gamma$ spec.       & $<250$                  & \ccw $<130$             & \ccw $<96$               & $<100$             & $2.75\pm0.58$     & $<6.2$               \\
-              & Si                     & NAA                       & -                       & \ccsg$<6.4\cdot10^{-5}$ & \ccsg $<6.4\cdot10^{-4}$ & -                  & -                 & -                    \\
-  cables      & Haefele 10mil          & $\gamma$ spec.            & $<230$                  & $210\pm60$              & $<150$                   & $60\pm30$          & $3.00\pm0.60$     & $<10$                \\
-              & Haefele 2mil           & $\gamma$ spec.            & $<320$                  & $780\pm170$             & $<380$                   & $<270$             & $3.5\pm1.7$       & $<35$                \\
-              & Tecnomec 3mil          & $\gamma$ spec.            & $<73$                   & $<49$                   & $<060$                   & $<10$              & $1.43\pm0.39$     & $<5.7$               \\
-              & Tecnomec 2mil          &                           & $<42$                   & $<29$                   & $<35$                    & $<6$               & $0.83\pm0.23$     & $<3.3$               \\
-  \rclb \ccw  & 4 above  \ccw          & \ccw                      & $<660$                  & $990\pm310$             & $<620$                   & $60\pm310$         & $8.7\pm3.0$       & $<54$                \\
-  front end   & \ccw CC3               & \ccw $\gamma$ spec.       & $760\pm380$             & $2670\pm380$            & $<1300$                  & $<300$             & $13.3\pm3.8$      & $<21$                \\
-  mini-       & coated                 & ICPMS                     & $10.8\pm3.2$            & -                       & $10.8\pm3.2$             & -                  & \ccsg$<0.11$      & $0.0201\pm0.0060$    \\
-  shroud      & glued                  & ICPMS                     & $7.2\pm2.2$             & -                       & $7.2\pm2.2$              & -                  & \ccsg$>1.7$       & $0.0214\pm0.0064$    \\
-              & 2 above                &                           & \ccsg$18\pm5$           & -                       & \ccsg$18\pm5$            & -                  & $>1.7$            & \ccsg$0.043\pm0.013$ \\
-  LAr veto    & fibers                 & ICPMS                     & $44\pm4$                & -                       & $44\pm4$                 & -                  & $0.350\pm0.070$   & $0.032\pm0.003$      \\
-              & copper supports        &                           & $130\pm130$             & $520\pm520$             & $130\pm130$              & -                  & -                 & -                    \\
-  \rcsg \ccw  & \ccw2 above            & \ccw                      & $180\pm140$             & $520\pm520$             & $180\pm140$              & \ccw -             & $0.350\pm0.070$   & $0.032\pm0.003$      \\
-              & SiPM                   & ICPMS                     & $<1.3$                  & $<3.9$                  & $<1.3$                   & -                  & -                 & -                    \\
-              & plastic opt. coupling  & $\gamma$ spec.            & -                       & $<6.1$                  & $4.8\pm0.08$             & -                  & $0.0960\pm0.0096$ & -                    \\
-              & Cuflon                 & $\gamma$ spec.            & -                       & $19.5\pm6$              & $12\pm0.5$               & -                  & $0.270\pm0.027$   & -                    \\
-              & pins                   & $\gamma$ spec.            & -                       & $141\pm28$              & $<55$                    & -                  & $2.07\pm0.20$     & -                    \\
-              & screws                 & $\gamma$ spec.            & -                       & $191\pm51$              & $<74$                    & -                  & $<1.5$            & -                    \\
-              & glue EP601             & $\gamma$ spec.            & $<6$                    & $<2.2$                  & $<6$                     & -                  & $<0.052$          & -                    \\
-  \rcsg \ccw  & \ccw 6 above           &  \ccw                     & $<7.3$                  & $351\pm97$              & $16.8\pm140$             & \ccw -             & $2.4\pm1.8$       & \ccw -               \\
-              & PMT top                & $\gamma$ spec.            & -                       & $<15\cdot10^3$          & $<18\cdot10^3$           & -                  & $<82$             & -                    \\
-              & PMT bottom             & $\gamma$ spec.            & -                       & $<12\cdot10^3$          & $<14\cdot10^3$           & -                  & $<64$             & -                    \\
-              & voltage dividers (VD)  & $\gamma$ spec.            & -                       & $<18\cdot10^3$          & $<8\cdot10^3$            & -                  & $<180$            & -                    \\
-  \rcsg \ccw  & \ccw PMT top + 9xVD    &  \ccw                     & \ccw -                  & $<26\cdot10^3$          & $<22\cdot10^3$           & \ccw -             & $<190$            & \ccw -               \\
-  \rcsg \ccw  & \ccw PMT bottom + 7xVD &  \ccw                     & \ccw -                  & $<20\cdot10^3$          & $<17\cdot10^3$           & \ccw -             & $<140$            & \ccw -               \\
-              & copper shrouds         & ICPMS                     & $62\pm6$                & $250\pm25$              & $62\pm6$                 & -                  & -                 & -                    \\
-              & tetratex               & $\gamma$ spec.            & -                       & $282\pm28$              & $132\pm13$               & -                  & $18.4\pm1.8$      & -                    \\
-  \rcsg \ccw  & \ccw 2 above           & \ccw                      & $62\pm6$                & $532\pm53$              & $194\pm19$               & \ccw -             & $18.4\pm1.8$      & \ccw -               \\
+  holders               & Si V IKZ              & \g\ spec.      & $<250$                   & $<130$                   & $<96$                    & \ccpg $<100$   & \ccpg $2.75\pm0.58$ & $<6.2$                   \\
+                        & Si                    & NAA            & \cclm $<6.4\cdot10^{-4}$ & \cclm $<6.4\cdot10^{-5}$ & \ccpg $<6.4\cdot10^{-4}$ & --             & --                  & \ccpg $<6.4\cdot10^{-8}$ \\
+  cables                & Haefele 10 mil        & \g\ spec.      & $<230$                   & $210\pm60$               & $<150$                   & $60\pm30$      & $3.00\pm0.60$       & $<10$                    \\
+                        & Haefele 2 mil         & \g\ spec.      & $<320$                   & $780\pm170$              & $<380$                   & $<270$         & $3.5\pm1.7$         & $<35$                    \\
+                        & Tecnomec 3 mil        & \g\ spec.      & $<73$                    & $<49$                    & $<60$                    & $<10$          & $1.43\pm0.39$       & $<5.7$                   \\
+                        & Tecnomec 2 mil        & \g\ spec.      & $<42$                    & $<29$                    & $<35$                    & $<6$           & $0.83\pm0.23$       & $<3.3$                   \\
+  \rclb\ccw             & \ccw \emph{4 above}   & \ccw           & $<660$                   & $990\pm310$              & $<620$                   & $60\pm310$     & $8.7\pm3.0$         & $<54$                    \\
+  \rcpg\ccw electronics & \ccw CC3              & \ccw \g\ spec. & $760\pm380$              & $2670\pm380$             & $<1300$                  & $<300$         & $13.3\pm3.8$        & $<21$                    \\
+  mini-shroud           & coated                & ICPMS          & $10.8\pm3.2$             & $20.1\pm6$               & $10.8\pm3.2$             & --             & \ccpg $<0.11$       & $0.0201\pm0.0060$        \\
+                        & glued                 & ICPMS          & $7.2\pm2.2$              & $21.4\pm6.4$             & $7.2\pm2.2$              & --             & \ccpg $>1.7$        & $0.0214\pm0.0064$        \\
+                        & \emph{2 above}        &                & \cclm $18\pm5$           & \cclm $43\pm13$          & \ccpg $18\pm5$           & --             & $>1.7$              & \ccpg $0.043\pm0.013$    \\
+  LAr veto              & BCF-91A fibers        & ICPMS          & $44\pm4$                 & $32\pm3$                 & $44\pm4$                 & --             & $0.350\pm0.070$     & $0.032\pm0.003$          \\
+                        & copper supports       &                & $130\pm130$              & $520\pm520$              & $130\pm130$              & --             & --                  & --                       \\
+                        & SAMI RG178 cables     & \g\ spec.      & --                       & $<340$                   & $<440$                   & --             & $2.49\pm0.49$       & --                       \\
+                        & \emph{3 above}        &                & \cclm $180\pm140$        & \cclm $520\pm870$        & \ccpg $180\pm560$        & --             & \ccpg $2.85\pm0.56$ & \ccpg $0.550\pm0.52$     \\
+                        & SiPM                  & ICPMS          & $<1.3$                   & $<3.9$                   & $<1.3$                   & --             & --                  & $<0.0039$                \\
+                        & plastic opt. coupling & \g\ spec.      & --                       & $<6.1$                   & $4.8\pm0.08$             & --             & $0.0960\pm0.0096$   & --                       \\
+                        & Cuflon                & \g\ spec.      & --                       & $19.5\pm6$               & $12\pm0.5$               & --             & $0.270\pm0.027$     & --                       \\
+                        & pins                  & \g\ spec.      & --                       & $141\pm28$               & $<55$                    & --             & $2.07\pm0.20$       & --                       \\
+                        & screws                & \g\ spec.      & --                       & $191\pm51$               & $<74$                    & --             & $<1.5$              & --                       \\
+                        & glue EP601            & \g\ spec.      & $<6$                     & $<2.2$                   & $<6$                     & --             & $<0.052$            & --                       \\
+  \rcpg\ccw             & \ccw \emph{6 above}   & \ccw           & $<7.3$                   & $351\pm97$               & $16.8\pm140$             & --             & $2.4\pm1.8$         & $<0.0039$                \\
+                        & PMT top               & \g\ spec.      & --                       & $<15\cdot10^3$           & $<18\cdot10^3$           & --             & $<82$               & --                       \\
+                        & PMT bottom            & \g\ spec.      & --                       & $<12\cdot10^3$           & $<14\cdot10^3$           & --             & $<64$               & --                       \\
+                        & voltage dividers (VD) & \g\ spec.      & --                       & $<18\cdot10^3$           & $<8\cdot10^3$            & --             & $<180$              & --                       \\
+                        & PMT bottom + 7xVD     &                & --                       & \ccpg $<20\cdot10^3$     & \ccpg $<17\cdot10^3$     & --             & \ccpg $<140$        & --                       \\
+                        & PMT top + 9xVD        &                & --                       & \ccpg $<26\cdot10^3$     & \ccpg $<22\cdot10^3$     & --             & \ccpg $<190$        & --                       \\
+                        & copper shrouds        & ICPMS          & $62\pm6$                 & $250\pm25$               & $62\pm6$                 & --             & --                  & $0.250\pm0.025$          \\
+                        & Tetratex\reg          & \g\ spec.      & --                       & $282\pm28$               & $132\pm13$               & --             & $18.4\pm1.8$        & --                       \\
+                        & \emph{2 above}        &                & \cclm $62\pm6$           & \cclm $532\pm53$         & \ccpg $194\pm19$         & --             & \ccpg $18.4\pm1.8$  & \ccpg $0.250\pm0.025$    \\
   \bottomrule
 \end{tabular}
