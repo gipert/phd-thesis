@@ -184,7 +184,7 @@ events, presumably originating from the detector groove, are reconstructed with 
 energy and lead to an additional, continuous spectral component. We find mainly \Po\ but
 also traces of isotopes from the \Ra\ decay chain.
 
-\blocktitle{Detector bulk \\ impurities}
+\blocktitle{detector \\ bulk \\ impurities}
 Cosmogenically produced long-lived isotopes can also be found in
 germanium~\cite{Meierhofer2009, Meierhofer2010, Meierhofer2012}. In particular, $^{68}$Ge
 and \Co\ can occur as detector intrinsic impurities with half-lives of 270.93(13)~d and
@@ -206,7 +206,7 @@ crystals as material of outstanding radio-purity.  Hence, we only consider the d
 \gesix\ via \nnbb\ as detector intrinsic background component while all other intrinsic
 impurities are considered to be negligible.
 
-\blocktitle{Other sources}
+\blocktitle{other \\ sources}
 As discussed in reference~\cite{Agostini2013a}, prompt cosmic muon induced background
 events are efficiently vetoed by the identification of \v{C}erenkov light emitted by muons
 when they pass the water tank. The expected BIs, due to the direct muon and neutron fluxes
@@ -271,5 +271,148 @@ presented analysis.
     All pdfs are normalized to the number of simulated primary decays.
   }\label{fig:bkg:raw:ph2:pdfs:gmodel}
 \end{figure}
+
+\section{Statistical Analysis}%
+\label{sec:bkg:raw:ph2:stat}
+
+The multivariate statistical analysis, which is used to model and disentangle the
+background in its components, runs on the three binned data sets \enrBEGeII, \enrCoaxII\
+and \enrGeII.The single-detector data sets \enrBEGeII\ and \enrCoaxII\ contain the
+reconstructed energy of all \Mone\ events whereas for the two-detector events the sum of
+the two reconstructed energies is put in the \enrGeII\ data set. Moreover, the count rate
+per detector is used for the two potassium \g\ lines.  The spatial event distribution is a
+collection of the number of events per detector for \Mone\ events and expressed in a
+matrix of pairs of detectors for all \Mtwo\ events.
+
+Assuming that the number of events in each bin follows the Poisson probability
+distribution $\text{Pois}(n;\nu)$, where $\nu$ is the expected mean and $n$ is the
+experimentally measured number of counts, the likelihood function for a binned data set
+reads $\prod_{i=1}^{N_\text{bins}} \text{Pois}(n_i;\nu_i)$. Here $\nu_i =
+\sum_{k=1}^{N_\text{com}} \nu_i^{(k)}$ is the expected number of events in the $i$-th bin,
+calculated as the sum of the contributions from each background component $k$;
+$\nu_i(\lambda_1, \ldots, \lambda_{N_\text{com}})$ is a function of the parameters of
+interests $\lambda_j$ (isotope activities, \nnbb\ half-life, etc.). The complete
+likelihood function adopted for the present analysis combines the three data sets
+\enrBEGeII, \enrCoaxII\ and \enrGeII:
+\begin{equation}\label{eq:bkg:raw:ph2:likelihood}
+  \mathcal{L}(\lambda_1, \ldots, \lambda_m \,|\, \text{data}) =
+    \prod_{d=1}^{N_\text{dat}}
+    \prod_{i=1}^{N_\text{bins}}
+    \text{Pois}(n_{d,i};\nu_{d,i})\;.
+\end{equation}
+
+The statistical inference is made within a Bayesian framework. Hence, to obtain posterior
+probabilities for the free parameters of interest $\lambda_j$, the likelihood defined in
+\cref{eq:bkg:raw:ph2:likelihood} is multiplied according to the Bayes theorem by a factor
+modeling the prior knowledge of each background component as presented in
+\cref{sec:bkg:raw:ph2:priors}. The computation is performed using a Markov Chain Monte
+Carlo (MCMC) and is implemented using the BAT software suite~\cite{Caldwell2008,
+Beaujean2018}. Posterior probability distributions of any observable that is not a free
+parameter of the likelihood function, like background index estimates, are obtained by
+sampling the desired parameter from the MCMC. A \pvalue\ estimate is provided as a
+goodness-of-fit measure by adopting the algorithm suggested in~\cite{Beaujean2011} for
+Poisson-distributed data.  It has to be kept in mind that this \pvalue\ estimate, however,
+is not as well suited for model comparison as is for instance a Bayes factor; e.g.~the
+number of free parameters is not taken into account while a Bayes factor always penalizes
+models that add extra complexity without being required by the data.
+
+\subsection{Analysis window and binning}
+
+The fit range and data bins are chosen such as to exploit as much information from
+spectral features as possible brought by data without introducing undesired bias. The
+chosen fit range in energy space for the single-detector data sets (\enrBEGeII\ and
+\enrCoaxII) starts from just above the end-point of the \Arl\ $\beta^-$-spectrum at
+565~keV and ends just above the \Po\ peak at 5260~keV, where the event rate drops to
+almost zero values. For the two-detector events (\enrGeII\ data set) the fit range starts
+at 520~keV and extends up to 3500~keV. Possible additional components outside of this
+range (e.g. \Arl) do neither add information to the background decomposition in the ROI
+around \qbb\ nor to the analysis of \nnbb\ decay. Furthermore, at energies lower than
+$\sim$100~keV the shape of the pdfs is dominated by uncertainties on the detector
+transition layer model, which describes the charge-carrier collection at the interface
+between the \nplus\ contact and the detector active volume. The exact nature of this
+transition region is different for each detector and prone to systematic
+uncertainties~\cite{Lehnert2016}.
+
+With an energy resolution which is typically 3--4~keV at \qbb\ (FWHM)~\cite{Agostini2018,
+Agostini2019a} and better at lower energies, a fixed bin size of 1~keV was chosen for all
+data sets. The only exceptions are the two \g\ lines from \kvn\ and \kvz\ each of which is
+combined in a single bin from 1455~keV to 1465~keV and from 1520~keV to 1530~keV,
+respectively. This is done in order to suppress any systematic uncertainties of the energy
+calibration and resolution model that affect the position and shape of the \g\
+lines~\cite{Agostini2019}.
+
+\subsection{Likelihood factorization}%
+\label{sec:bkg:raw:ph2:likelihoodfact}
+
+A feature of the selected data is that the likelihood in
+\cref{eq:bkg:raw:ph2:likelihood} can be factorized in uncorrelated parts which can be
+studied individually and in detail. In the following we shortly outline the parts of the
+data which were studied in depth based on the approach of factorizing the likelihood into
+uncorrelated parts. Finally, the results of these analyses are incorporated into a
+full-range fit. This procedure is equivalent to a simultaneous analysis of all data but
+increases the input knowledge for the fit and breaks down the computational complexity in
+smaller steps.
+
+\blocktitle{Potassium \\ tracking \\ analysis}
+As can be noted from \cref{fig:bkg:raw:ph2:pdfs:gmodel:K40} and
+\cref{fig:bkg:raw:ph2:gmodel:K42} the pdfs of \kvn\ and \kvz\ in energy are prone to
+degeneracies and hence parameter correlations. Their most prominent \g\ lines at 1461~and
+1525~keV, respectively, contain information on the spatial distribution while the
+two-detector events contain information about the angular distribution of Compton
+scattered events. Their combination is beneficial in order to pin down the potential
+location of the two potassium isotopes. In total the \texttt{M1} data contains 4472~cts in
+$1461\pm4$~keV and 6718~cts in $1525\pm4$~keV while the \texttt{M2} events contain 554~cts
+in $1461\pm6$~keV and 865~cts in $1525\pm6$~keV, respectively. An analysis of the number
+of events in the two potassium \g\ lines in each detector (and detector pair) is used to
+exploit mainly top-down and rotational asymmetries in the \kvn\ and \kvz\ distributions.
+The number of events in the two energy windows are summarized detector-by-detector; in the
+following we refer to this procedure as \textit{projection in detector space}. The
+treatment of the likelihood in \cref{eq:bkg:raw:ph2:likelihood} is outlined in detail in
+\cref{apdx:kmodel}.  The number of events in all other \g\ lines is too low in order to
+adopt a useful detector-wise analysis. The spatial analysis of \kvn\ and \kvz\ is
+incorporated in the full-range fit by directly employing the posterior parameter
+distributions as prior information.\footnote{By adopting this approach, a part of the data
+in the potassium \g\ lines region is analyzed twice: first in the potassium tracking
+analysis and then in the full-range fit. Nevertheless, considering that the two analyses
+exploit different data features (i.e.~count rate per detector and total count rate per
+energy) and the overlap between the two data set is minimal, the overall effect is
+negligible.}
+
+\blocktitle{\a\ events background analysis}
+The single-detector energy spectra above 3.5~MeV (the Q-value of \kvz\ \b\ decay) are
+strongly dominated by \a\ events. They are not present in two-detector data due to the
+short range of \a\ particles in LAr and germanium. Also, this component is not correlated
+to other backgrounds considered here because it peaks at energies well above the highest
+\g\ emission energies and \b\ decay Q-values. A careful study was carried out considering
+various \pplus\ contact thickness and event rates to reproduce the \Po\ peak. In order to
+reproduce \a\ events with degraded energy an empirical model is fit to the data. A linear
+function with free slope and offset and a cut-off below the maximum of the \Po\ peak fits
+the data well. The agreement of the \a\ background model with the data is demonstrated in
+\cref{apdx:amodel} and \cref{fig:apdx:alphafit} therein. Information from the detailed
+analysis of the high-energy \a\ region is incorporated in the full-range fit using a
+combined PDF that summarizes the \Po\ peak plus the \Ra\ decay chain and a linear floating
+component for degraded \a\ events.
+
+\subsection{Prior distributions}
+
+The following criteria are adopted to convert the prior information described in
+\cref{sec:bkg:raw:ph2:priors} into prior probability distributions on the parameters of
+interest\footnote{In Bayesian analysis the prior probability distribution describes all
+  knowledge about an unobserved quantity of ultimate interest before taking the data into
+account.}: if a measured value with uncertainty is available for a background
+contamination then a Gaussian distribution with a corresponding centroid and a $1\sigma$
+width is adopted. In presence of a 90\% C.L.~upper limit, instead, an exponential prior
+distribution is constructed with 90\% of its area covering parameter values from 0 up to
+the given 90\% C.L.~upper limit. A uniform prior distribution is assigned to components
+for which no measured value or upper limit is available. Ranges for uniform priors are
+initially taken very wide, in order to span a large portion of the allowed parameter
+space, then optimized to contain at least 99\% of the posterior distribution. As mentioned
+before, in addition to the information from screening measurements, prior distributions
+for \kvn\ and \kvz\ are constructed considering the posterior inference from their spatial
+distribution.\footnote{The Bayesian posterior distribution is the conditional probability
+  distribution of the unobserved quantities of ultimate interest, given the observed
+data.} Moreover, as \Bih\ is part of the \Ra\ decay chain, we constrain a \Bih\ component
+on the \pplus\ contact by a Gaussian prior extracted from the obtained \Ra\ activity based
+on the energy estimator in the high-energy \a\ region.
 
 % vim: tw=90
