@@ -23,13 +23,13 @@ published in~\cite{Agostini2019b} and is described in detail in this chapter.
 \label{sec:bkg:raw:data}
 
 \begin{table}[b]
-  \small
   \centering
   \caption{%
     Properties of the data sets considered in this analysis. Further
     details about the \gerda\ detectors can be found in past
     publications~\cite{Agostini2013a, Agostini2018a}.
   }\label{tab:bkg:raw:ph2:datasets}
+  \small
   \input{tab/bkg/raw/ph2/datasets.tex}
 \end{table}%
 \footnotetext[1]{%
@@ -390,7 +390,7 @@ function with free slope and offset and a cut-off below the maximum of the \Po\ 
 the data well. The agreement of the \a\ background model with the data is demonstrated in
 \cref{apdx:amodel} and \cref{fig:apdx:alphafit} therein. Information from the detailed
 analysis of the high-energy \a\ region is incorporated in the full-range fit using a
-combined PDF that summarizes the \Po\ peak plus the \Ra\ decay chain and a linear floating
+combined pdf that summarizes the \Po\ peak plus the \Ra\ decay chain and a linear floating
 component for degraded \a\ events.
 
 \subsection{Prior distributions}
@@ -398,7 +398,7 @@ component for degraded \a\ events.
 The following criteria are adopted to convert the prior information described in
 \cref{sec:bkg:raw:ph2:priors} into prior probability distributions on the parameters of
 interest\footnote{In Bayesian analysis the prior probability distribution describes all
-  knowledge about an unobserved quantity of ultimate interest before taking the data into
+knowledge about an unobserved quantity of ultimate interest before taking the data into
 account.}: if a measured value with uncertainty is available for a background
 contamination then a Gaussian distribution with a corresponding centroid and a $1\sigma$
 width is adopted. In presence of a 90\% C.L.~upper limit, instead, an exponential prior
@@ -410,9 +410,154 @@ space, then optimized to contain at least 99\% of the posterior distribution. As
 before, in addition to the information from screening measurements, prior distributions
 for \kvn\ and \kvz\ are constructed considering the posterior inference from their spatial
 distribution.\footnote{The Bayesian posterior distribution is the conditional probability
-  distribution of the unobserved quantities of ultimate interest, given the observed
+distribution of the unobserved quantities of ultimate interest, given the observed
 data.} Moreover, as \Bih\ is part of the \Ra\ decay chain, we constrain a \Bih\ component
 on the \pplus\ contact by a Gaussian prior extracted from the obtained \Ra\ activity based
 on the energy estimator in the high-energy \a\ region.
+
+\section{\texorpdfstring{\a\ events analysis}{alpha events analysis}}%
+\label{sec:bkg:raw:ph2:amodel}
+
+Above an energy of 3.5~MeV almost all registered events are due to \a-emitting isotopes.
+The respective part of the full likelihood can be approximately factorized and studied
+separately.  \a\ particles have a very short range in LAr as well as in germanium
+(continuous slowing down approximation, CSDA, range of 50~\mum\ and 20~\mum,
+respectively~\cite{Berger2017} and are able to reach a detector's active volume only
+through the very thin (of the order of 500~nm) \pplus\ contact surface. Therefore, the \a\
+emitter contamination is detector-specific and depends only on the \pplus\ surface
+contaminations. Therefore, we analyze the \enrBEGeII\ and \enrCoaxII\ detector data
+separately in energy space; the projection in detector space bares no correlation between
+detectors and hence contains no further useful information. The number of events in a
+single detector is not sufficient to further split the data on a detector-by-detector
+basis. The two data sets are uncorrelated and the statistical analysis can be carried out
+for each single-detector data set separately. In the two-detector data the \a\ component
+is not observed due to the short range of these particles.
+
+All contaminations found are constituents of the \Uh\ decay chain. The main surface
+contamination observed is \Po\ which occurs either as an incident contamination and decays
+in time with a half-life of $138.3763(17)$~days~\cite{Be2008} or is fed by a contamination
+with \Pbl\ with a stable rate in time. The spectral form is identical for both cases and
+can only be disentangled by analyzing the \a-event rate in time.
+
+Above the \Po\ peak very few events are observed. In the \enrBEGeII\ data set we find only
+four events with an energy larger than 5.3~MeV, while in the \enrCoaxII\ data set 22 such
+events are observed, 14 of which in a single detector \ANG{2}
+(see~\cref{tab:bkg:raw:ph2:amodel:rncts}). These events are due to \a\ decays from \Rn\
+and subsequent isotopes on the \pplus\ detector surfaces. \ANG{2} also shows a higher \Ra\
+(mother nucleus of \Rn) contamination which suggests dominantly a surface contamination
+with \Ra\ rather than \Rn\ dissolved in the LAr. In the latter case the decay chain would
+be broken as only the gaseous \Rn\ emanates from the construction materials into the LAr.
+Unfortunately, the number of counts is too low to distinguish the spectral shape above
+5.3~MeV and disentangle a surface contamination with \Ra\ from \Rn\ dissolved in LAr. A
+comparison between the counts observed above 5.3~Mev and the \Bih\ 609~keV \g\ line
+suggests that \a\ events due to a dissolved \Rn\ contamination would not produce
+observable counts in said energy region. Assuming that all \Bih\ observed comes from
+dissolved \Rn\ leads, in fact, to a specific activity smaller than 10~\mubq/kg. Hence, in
+the following, we will only consider a \pplus\ surface contamination with \Ra\ and all
+subsequent isotopes to which we refer as the \Ra\ decay chain. The \Po\ and \Ra\
+contaminations are not necessarily spatially correlated.
+\begin{table}
+  \centering
+  \caption{%
+    Observed number of counts with energy >5.3~MeV belonging to
+    the \Ra\ decay chain. Detectors with zero counts are not listed.
+  }\label{tab:bkg:raw:ph2:amodel:rncts}
+  \begin{tabular}{cccc}
+    \toprule
+    data set                    & detector & channel & \Ra\ chain [cts] \\
+    \midrule
+    \multirow{3}{*}{\enrBEGeII} & \GD{61C} & 16      & 1                \\
+                                & \GD{79B} & 32      & 1                \\
+                                & \GD{89A} & 35      & 2                \\
+    \midrule
+    \multirow{6}{*}{\enrCoaxII} & \ANG{1}  & 36      & 2                \\
+                                & \ANG{2}  & 27      & 14               \\
+                                & \ANG{3}  & 10      & 1                \\
+                                & \ANG{4}  & 29      & 1                \\
+                                & \ANG{5}  &  8      & 2                \\
+                                & \RG{1}   &  9      & 2                \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Due to the very short range of \a\ particles the energy spectrum of \a\ decays exhibits a
+line with a pronounced low-energy tail. The tail is formed when the decay occurs under an
+incident angle with respect to the contact and the \a\ particle loses part of its energy
+before reaching the detectors active volume. The maximum is shifted with respect to the
+full emission energy which is due to energy loss inside the electrode and depends on its
+minimal thickness. The detectors have slightly different contact thicknesses, also, the
+\pplus\ contact of a single detector may intrinsically be inhomogeneous.  Therefore, we
+model the \Po\ peak with a mixture of pdfs obtained from simulations with different
+contact thicknesses. Due to the low number of counts observed in the \Ra\ chain it is
+sufficient to model this component with only one pdf. Furthermore, the isotope
+contamination is assumed to halve at each decay step. A reduction effect of the subsequent
+\a\ decays in the \Rn\ chain had been observed in \phaseone\ and attributed to possible
+recoil off the surface into the LAr~\cite{Agostini2013}. We adopt this explanation in our
+model although we note that the number of events observed with an energy >5.3~MeV is not
+sufficient to confirm the previously observed reduction effect.  Further details about the
+construction of the pdfs are given in \cref{apdx:magepdfs}.
+
+Dedicated measurements~\cite{Agostini2013b} have shown that events originating in the
+contact separating groove are partly reconstructed with degraded energy. A
+simulation-based model of these energy-degraded events is not available yet. We
+approximate this component with an empirical linear distribution truncated below the
+maximum of the \Po\ peak. Such a component accommodates also eventual \a\ decays in the
+LAr in very close vicinity to the \pplus\ detector surface. However, the number of events
+found with an energy >5.3~MeV is too low to fully account for the linearly modeled
+distribution.
+
+The likelihood function for modeling the high-energy region dominated by \a\ decays runs
+only on single-detector data, namely \enrBEGeII\ and \enrCoaxII\ separately, in a range
+from 3.5~MeV to 5.25~MeV. Events with an energy higher than 5.25~MeV are put in a single
+overflow bin:
+\begin{equation}
+  \mathcal{L}_\alpha(\lambda_1,\ldots,\lambda_m\,|\,n) =
+  \prod_{i=1}^{N_\text{bins}} \text{Pois}(n_{i};\nu_{i})\;
+  \label{eq:bkg:raw:ph2:amodel:likelihood}
+\end{equation}
+A flat prior probability is assigned to each of the fit parameters $\lambda_i$. Both data
+sets are fit separately with a fixed bin size of 10~keV\footnote{The calibration curves
+are accurate on the sub-keV level up to the highest \g\ energy of about 2.6~MeV emitted
+by the \Th\ calibration sources. Although no major non-linearity effects were found the
+same accuracy cannot be guaranteed at 6~MeV. Deviations from linearity at this energy are
+within 10~keV, hence, we increase the bin size in the higher energy range.} as the \a\
+contamination is detector individual and the two single-detector data sets are
+uncorrelated in the respective energy window.
+
+The fit results are shown in \cref{fig:bkg:raw:ph2:amodel:resultsplot} and listed in
+\cref{tab:bkg:raw:ph2:amodel:results}. The \Po\ component is modeled with a combination of
+\pplus\ contact thicknesses from 400 to 600~nm for the \enrBEGeII\ data set and from 300
+to 700~nm for the \enrCoaxII\ data set in steps of 100~nm. Further \Po\ components are
+rejected by a Bayes factor analysis.  Impurities belonging to the \Ra\ chain are mostly
+located on \ANG{2} and thus a fit of the \enrCoaxII\ data set using a single \pplus\
+thickness describes this component well. For the \enrBEGeII\ data set we observe a very
+small number of counts for the \Ra\ chain, therefore, also in this case a single component
+is sufficient. We determine a best-fit value of 100~nm and 500~nm, respectively. The
+estimated \pvalue\ for \enrBEGeII\ is 0.2 whereas the \pvalue\ for \enrCoaxII\ is 0.3. The
+dominant spectral component below 4.5~MeV is due to degraded \a\ events which extends down
+to the ROI.
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/bkg/raw/ph2/results/amodel/amodel-enrBEGe.pdf}
+  \includegraphics{plots/bkg/raw/ph2/results/amodel/amodel-enrCoax.pdf}
+  \caption{%
+    Fit results of the \a\ events background analysis for \enrBEGeII\
+    (top) and \enrCoaxII\ (bottom). The last bin contains all events above
+    5250~keV.
+  }\label{fig:bkg:raw:ph2:amodel:resultsplot}
+\end{figure}
+
+\begin{table}
+\centering
+  \caption{%
+    Fit results of the \a\ events background analysis for the
+    \enrBEGeII\ and \enrCoaxII\ data sets. Values are given in counts in the
+    full pdf range from 40~keV to 8000~keV.
+  }\label{tab:bkg:raw:ph2:amodel:results}
+  \input{tab/bkg/raw/ph2/amodel-results.tex}
+\end{table}
+
+\fillme{mention to time alpha}
 
 % vim: tw=90

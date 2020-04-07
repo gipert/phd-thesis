@@ -28,8 +28,6 @@
 /src/img/plots/bkg/raw/ph2/pdfs/macros/gerda-pdfs
 /src/img/plots/bkg/raw/ph2/pdfs/macros/bb-histos.root
 
-*.svg
-
 *.DS_Store
 *.swp
 *.swo
