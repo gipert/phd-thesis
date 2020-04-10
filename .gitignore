@@ -27,6 +27,7 @@
 /src/img/plots/0nbb-results/calib/supercalib.pdf
 /src/img/plots/bkg/raw/ph2/pdfs/macros/gerda-pdfs
 /src/img/plots/bkg/raw/ph2/pdfs/macros/bb-histos.root
+/src/img/plots/bkg/raw/ph2/results/kmodel/kmodel-asym.pdf
 
 *.DS_Store
 *.swp

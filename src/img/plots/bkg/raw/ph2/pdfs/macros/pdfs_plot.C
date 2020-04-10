@@ -5,11 +5,9 @@
  *
  */
 
-#include "../../../../../../tools/paul_tol_colors.hpp"
-using namespace tolcols;
 #include "../../../../../../tools/bayesian_blocks.hpp"
 #include "../../../../../../tools/pdf_handling.hpp"
-#include "kmodel_common.hpp"
+#include "../../results/kmodel/kmodel_common.hpp"
 
 // color alpha
 double f_alpha = 0.05;

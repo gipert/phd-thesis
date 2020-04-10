@@ -1,0 +1,86 @@
+% K40
+% 0.000808404  0.000465  0.0012750
+% 0.0023519    0.001835  0.0025100
+% 6.31365e-11  0.000000  0.0002700
+% 0.00257891   0.002100  0.0030200
+% 0.000970951  0.000560  0.0011600
+% 0.00185941   0.001460  0.0023000
+% 0.00208543   0.001260  0.0024000
+%
+% K42
+% 0.000808404   0          0.00047
+% 0.0023519     0.00213    0.00363
+% 6.31365e-11   0.00106    0.00216
+% 0.00257891    0.0013275  0.0024075
+% 0.000970951   0.001375   0.002725
+% 0.00185941    0          0.00075
+% 0.00208543    0.00495    0.009825
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgfplotsthemetol}
+\begin{document}
+\newcommand{\sclAk}{370}
+\newcommand{\sclBk}{0.3}
+\newcommand{\shiftX}{8}
+\begin{tikzpicture}
+  \Large
+  % K40
+  % upper
+  \fill[fill=TolLightGreen] ( 0.0*\sclBk,-7.0*\sclBk) circle (0.0012750*\sclAk);
+  \fill[fill=TolLightGreen] ( 6.0*\sclBk,-3.5*\sclBk) circle (0.0025100*\sclAk);
+  \fill[fill=TolLightGreen] ( 6.0*\sclBk, 3.5*\sclBk) circle (0.0002700*\sclAk);
+  \fill[fill=TolLightGreen] ( 0.0*\sclBk, 7.0*\sclBk) circle (0.0030200*\sclAk);
+  \fill[fill=TolLightGreen] (-6.0*\sclBk, 3.5*\sclBk) circle (0.0011600*\sclAk);
+  \fill[fill=TolLightGreen] (-6.0*\sclBk,-3.5*\sclBk) circle (0.0023000*\sclAk);
+  \fill[fill=TolLightGreen] ( 0.0*\sclBk, 0.0*\sclBk) circle (0.0024000*\sclAk);
+
+  % lower
+  \fill[fill=white] ( 0.0*\sclBk,-7.0*\sclBk) circle (0.000465*\sclAk);
+  \fill[fill=white] ( 6.0*\sclBk,-3.5*\sclBk) circle (0.001835*\sclAk);
+  \fill[fill=white] ( 6.0*\sclBk, 3.5*\sclBk) circle (0.000000*\sclAk);
+  \fill[fill=white] ( 0.0*\sclBk, 7.0*\sclBk) circle (0.002100*\sclAk);
+  \fill[fill=white] (-6.0*\sclBk, 3.5*\sclBk) circle (0.000560*\sclAk);
+  \fill[fill=white] (-6.0*\sclBk,-3.5*\sclBk) circle (0.001460*\sclAk);
+  \fill[fill=white] ( 0.0*\sclBk, 0.0*\sclBk) circle (0.001260*\sclAk);
+
+  % lower
+  \node at ( 0.0*\sclBk+0.0,-7.0*\sclBk-0.9) {\texttt{S1}};
+  \node at ( 6.0*\sclBk+1.0,-3.5*\sclBk-1.0) {\texttt{S2}};
+  \node at ( 6.0*\sclBk+0.4, 3.5*\sclBk+0.4) {\texttt{S3}};
+  \node at ( 0.0*\sclBk+0.0, 7.0*\sclBk+1.6) {\texttt{S4}};
+  \node at (-6.0*\sclBk-0.6, 3.5*\sclBk+0.6) {\texttt{S5}};
+  \node at (-6.0*\sclBk-1.0,-3.5*\sclBk-1.0) {\texttt{S6}};
+  \node at ( 0.0*\sclBk+0.0, 0.0*\sclBk+0.0) {\texttt{S7}};
+
+  % K42
+  \newcommand{\sclAK}{200}
+  \newcommand{\sclBK}{0.4}
+  % upper
+  \fill[fill=TolLightBlue] ( 0.0*\sclBK+\shiftX,-7.0*\sclBK) circle (0.0004700*\sclAK);
+  \fill[fill=TolLightBlue] ( 6.0*\sclBK+\shiftX,-3.5*\sclBK) circle (0.0036300*\sclAK);
+  \fill[fill=TolLightBlue] ( 6.0*\sclBK+\shiftX, 3.5*\sclBK) circle (0.0021600*\sclAK);
+  \fill[fill=TolLightBlue] ( 0.0*\sclBK+\shiftX, 7.0*\sclBK) circle (0.0024075*\sclAK);
+  \fill[fill=TolLightBlue] (-6.0*\sclBK+\shiftX, 3.5*\sclBK) circle (0.0027250*\sclAK);
+  \fill[fill=TolLightBlue] (-6.0*\sclBK+\shiftX,-3.5*\sclBK) circle (0.0007500*\sclAK);
+  \fill[fill=TolLightBlue] ( 0.0*\sclBK+\shiftX, 0.0*\sclBK) circle (0.0098250*\sclAK);
+
+  % lower
+  \fill[fill=white] ( 0.0*\sclBK+\shiftX,-7.0*\sclBK) circle (0.0000000*\sclAK);
+  \fill[fill=white] ( 6.0*\sclBK+\shiftX,-3.5*\sclBK) circle (0.0021300*\sclAK);
+  \fill[fill=white] ( 6.0*\sclBK+\shiftX, 3.5*\sclBK) circle (0.0010600*\sclAK);
+  \fill[fill=white] ( 0.0*\sclBK+\shiftX, 7.0*\sclBK) circle (0.0013275*\sclAK);
+  \fill[fill=white] (-6.0*\sclBK+\shiftX, 3.5*\sclBK) circle (0.0013750*\sclAK);
+  \fill[fill=white] (-6.0*\sclBK+\shiftX,-3.5*\sclBK) circle (0.0000000*\sclAK);
+  \fill[fill=white] ( 0.0*\sclBK+\shiftX, 0.0*\sclBK) circle (0.0049500*\sclAK);
+
+  % lower
+  \node at ( 0.0*\sclBK+\shiftX+0.0,-7.0*\sclBK-0.6) {\texttt{S1}};
+  \node at ( 6.0*\sclBK+\shiftX+0.9,-3.5*\sclBK-0.9) {\texttt{S2}};
+  \node at ( 6.0*\sclBK+\shiftX+0.7, 3.5*\sclBK+0.7) {\texttt{S3}};
+  \node at ( 0.0*\sclBK+\shiftX+0.0, 7.0*\sclBK+0.9) {\texttt{S4}};
+  \node at (-6.0*\sclBK+\shiftX-0.7, 3.5*\sclBK+0.7) {\texttt{S5}};
+  \node at (-6.0*\sclBK+\shiftX-0.5,-3.5*\sclBK-0.5) {\texttt{S6}};
+  \node at ( 0.0*\sclBK+\shiftX+0.0, 0.0*\sclBK+0.0) {\texttt{S7}};
+\end{tikzpicture}
+\end{document}
