@@ -1,0 +1,90 @@
+\newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
+\newcolumntype{x}[1]{>{\centering\arraybackslash}p{#1}}
+\newcommand{\mrr}[2]{\multirow{#1}[1]{*}{#2}}
+\newcommand{\mrc}[2]{\multirowcell{#1}{#2}}
+
+\begin{tabular}{%
+  r
+  l
+  c
+  S[
+    table-format=4.2,
+    table-number-alignment=right,
+    table-text-alignment=right,
+    table-parse-only
+  ]
+  r@{ }l
+  S[
+    table-number-alignment=left,
+    table-text-alignment=left,
+    table-parse-only
+  ]
+  S[
+    table-format=5.0,
+    table-number-alignment=center,
+    table-text-alignment=center,
+    table-auto-round=true
+  ]@{ | }
+  l
+  S[
+    table-format=4.0,
+    table-number-alignment=center,
+    table-text-alignment=right,
+    table-auto-round
+    ]@{ | }
+  l
+  S[
+    table-format=4.0,
+    table-number-alignment=center,
+    table-text-alignment=center,
+    table-auto-round
+  ]
+}
+  \toprule
+  \mrr{3}{source}      & \mrr{3}{\m{[prior]} location}         & \mrr{3}{units}    & {\mrc{3}{global\\mode}} & \mc{2}{\mrc{3}{marg.~mode\\with 68\% CI}} & {\mrr{3}{screening}} & \mc{5}{model content in fit range | BI at \qbb}                                            \\
+                       &                                       &                   &                         &       &                                   &                      & \mc{5}{units: cts | $10^{-3}$\ctsper}                                                      \\
+  \cmidrule(lr){8-12}
+                       &                                       &                   &                         &       &                                   &                      & \mc{2}{\enrBEGeII}                     & \mc{2}{\enrCoaxII}                     & \enrGeII \\
+  \midrule
+  \mr{2}{\nnbb}        & \m{[f]} germanium                     & $10^{21}$yr       & 2.025                   & 2.030 & $[2.016, 2.044]$                  & {--}                 & 45272.0 & \mrc{2}{0}                   & 37866.7 & \mrc{2}{0}                   & {--}     \\
+                       & \m{[f]} $\delta^{2\nu}$ (Coax)        & cts               & 2890                    & 3200  & $[2600, 3600]$                    & {--}                 & {--}    &                              & 1962.2  &                              & {--}     \\
+  \midrule
+  \mr{3}{\Bil\ + \Tl}  & \m{[e]} flat cables                   & \mr{3}{$\upmu$Bq} & 384                     & 380   & $[355, 408]$                      & < 410                & 424.4   & \mrc{3}{3.52\\$[3.30,3.76]$} & 274.4   & \mrc{3}{2.21\\$[2.03,2.34]$} & 449.1    \\
+                       & \m{[g]} copper shrouds$^{\dagger}$    &                   & 194                     & 197   & $[175, 213]$                      & 194 \pm 19           & 2.9     &                              & 3.1     &                              & 1.4      \\
+                       & \m{[g]} mini-shrouds                  &                   & 18.7                    & 17.7  & $[13.8, 23.8]$                    & 18  \pm 5            & 20.6    &                              & 21.0    &                              & 24.3     \\
+  \midrule
+  \mr{6}{\Pbh\ + \Bih} & \m{[f]} \pplus\ (BEGe)                & \mr{6}{$\upmu$Bq} & 0.36                    & 0.35  & $[0.27, 0.53]$                    & {--}                 & 5.8     & \mrc{6}{2.63\\$[2.50,2.78]$} & 0.0     & \mrc{6}{3.16\\$[2.83,3.50]$} & 2.9      \\
+                       & \m{[f]} \pplus\ (Coax)                &                   & 1.053                   & 1.07  & $[0.91, 1.30]$                    & {--}                 & 0.0     &                              & 26.0    &                              & 5.4      \\
+                       & \m{[g]} flat cables                   &                   & 560                     & 552   & $[523, 594]$                      & 660 \pm 210          & 1193.5  &                              & 750.0   &                              & 923.2    \\
+                       & \m{[g]} copper shrouds$^{\dagger}$    &                   & 533                     & 535   & $[480, 585]$                      & 532 \pm 53           & 9.1     &                              & 9.9     &                              & 3.9      \\
+                       & \m{[g]} mini-shrouds                  &                   & 45                      & 47    & $[33, 59]$                        & 43  \pm 13           & 97.5    &                              & 95.8    &                              & 82.6     \\
+                       & \m{[g]} SiPM-ring                     &                   & 353                     & 345   & $[256, 450]$                      & 351 \pm 97           & 6.4     &                              & 4.9     &                              & 2.9      \\
+  \midrule
+  \mr{9}{\kvn}         & \m{[g]} flat cables                   & \mr{9}{mBq}       & 2.95                    & 2.9   & $[2.1, 4.1]$                      & 6  \pm 2             & 861.1   & \mrc{9}{0}                   & 530.0   & \mrc{9}{0}                   & 338.8    \\
+                       & \m{[g]} front-end electronics         &                   & 16.6                    & 16.0  & $[11.5, 20.3]$                    & 13 \pm 4             & 103.8   &                              & 79.3    &                              & 45.7     \\
+                       & \m{[g]} copper shrouds$^{\dagger}$    &                   & 18.4                    & 18.2  & $[16.6, 20.2]$                    & 18 \pm 2             & 41.5    &                              & 44.9    &                              & 17.3     \\
+                       & \m{[g]} fiber shroud                  &                   & 2.73                    & 2.83  & $[2.29, 3.39]$                    & 2.9 \pm 0.6          & 124.2   &                              & 116.2   &                              & 55.1     \\
+                       & \m{[g]} detector holders              &                   & 1.64                    & 1.75  & $[1.29, 2.07]$                    & 2.8 \pm 0.6          & 885.8   &                              & 468.1   &                              & 334.2    \\
+                       & \m{[g]} mini-shrouds                  &                   & 1.70                    & 1.69  & $[1.60, 1.80]$                    & 1.7 \pm 0.6          & 517.6   &                              & 474.9   &                              & 215.7    \\
+                       & \m{[g]} SiPM ring                     &                   & 1.95                    & 3.0   & $[1.1, 4.4]$                      & 2 \pm 2              & 4.7     &                              & 3.6     &                              & 2.1      \\
+                       & \m{[f]} far from the array            &                   & {--}                    & {--}  &                                   & {--}                 & 783.5   &                              & 847.0   &                              & 326.6    \\
+                       & \m{[f]} close to the array            &                   & {--}                    & {--}  &                                   & {--}                 & 3469.1  &                              & 3182.4  &                              & 1445.6   \\
+  \midrule
+  \mr{4}{\kvz}         & \m{[f]} \nplus\ (BEGe)                & \mr{2}{$\upmu$Bq} & 261.5                   & 295.0 & $[224.3, 324.7]$                  & {--}                 & 920.2   & \mrc{4}{5.69\\$[4.58,6.29]$} & {--}    & \mrc{4}{1.29\\$[1.15,1.40]$} & 162.4    \\
+                       & \m{[f]} \nplus\ (Coax)                &                   & 490.0                   & 415.0 & $[309.6, 506.0]$                  & {--}                 & {--}    &                              & 805.6   &                              & 162.4    \\
+                       & \m{[f]} LAr {--} above array          & \mr{2}{Bq}        & 0.451                   & 0.453 & $[0.437, 0.468]$                  & {--}                 & 5859.0  &                              & 4421.1  &                              & 2535.0   \\
+                       & \m{[f]} LAr {--} outside mini-shrouds &                   & 2.026                   & 2.027 & $[1.985, 2.068]$                  & {--}                 & 10225.0 &                              & 9691.0  &                              & 4543.8   \\
+  \midrule
+  \mr{3}{\Ac}          & \m{[g]} copper shrouds$^{\dagger}$    & \mr{4}{$\upmu$Bq} & 62.0                    & 62.5  & $[56.0, 67.9]$                    & 62 \pm 6             & 0.5     & \mrc{4}{0.36\\$[0.31,0.40]$} & 0.6     & \mrc{4}{0.33\\$[0.28,0.37]$} & 0.2      \\
+                       & \m{[e]} detector holders              &                   & 183                     & 182   & $[158, 208]$                      & < 250                & 541.1   &                              & 280.5   &                              & 347.0    \\
+                       & \m{[g]} mini-shrouds                  &                   & 18.0                    & 17.8  & $[12.9, 22.8]$                    & 18  \pm  5           & 28.0    &                              & 27.4    &                              & 19.5     \\
+  \Co                  & \m{[e]} flat cables                   &                   & 113                     & 114   & $[98, 130]$                       & < 250                & 381.7   &                              & 240.1   &                              & 332.8    \\
+  \midrule
+  \mr{4}{\a\ decays}   & \m{[f]} \Po\ + \Ra\ chain (BEGe)      & \mr{4}{cts}       & 1173                    & 1183  & $[1127, 1253]$                    & {--}                 & 561.0   & \mrc{4}{3.31\\$[3.12,3.78]$} & {--}    & \mrc{4}{4.76\\$[4.40,5.08]$} & {--}     \\
+                       & \m{[f]} \Po\ + \Ra\ chain (Coax)      &                   & 3320                    & 3300  & $[3200, 3400]$                    & {--}                 & {--}    &                              & 1584.6  &                              & {--}     \\
+                       & \m{[f]} energy-degraded (BEGe)        &                   & 595                     & 628   & $[583, 680]$                      & {--}                 & 587.4   &                              & {--}    &                              & {--}     \\
+                       & \m{[f]} energy-degraded (Coax)        &                   & 700                     & 698   & $[641, 747]$                      & {--}                 & {--}    &                              & 623.3   &                              & {--}     \\
+  \bottomrule%
+\end{tabular}%
+
+% vim: nowrap
