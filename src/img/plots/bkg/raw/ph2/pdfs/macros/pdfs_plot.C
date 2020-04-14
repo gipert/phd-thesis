@@ -440,13 +440,67 @@ void g_plot_U(bool bayes = false) {
 
 void g_plot_misc(bool bayes = false) {
 
-    TH1D *h0, *h1, *h2, *h3, *h4, *h5, *h6;
+    TH1D *h3, *h4, *h5, *h6;
+
+    auto set4 = get_pdf_set("minishroud", "ms_all", "Pa234m");
+    auto set5 = get_pdf_set("minishroud", "ms_all", "Ac228");
+
+    if (!bayes) {
+        auto& set4_M1 = set4.M1_enrBEGe;
+        set4_M1->Add(set4.M1_enrCoax);
+
+        auto& set5_M1 = set5.M1_enrBEGe;
+        set5_M1->Add(set5.M1_enrCoax);
+
+        h3 = set4_M1;             h3->Rebin(rebin);
+        h4 = set4.M2_enrE1plusE2; h4->Rebin(rebin);
+        h5 = set5_M1;             h5->Rebin(rebin);
+        h6 = set5.M2_enrE1plusE2; h6->Rebin(rebin);
+    }
+    else {
+        auto f = new TFile("bb-histos.root");
+        h3 = dynamic_cast<TH1D*>(f->Get("bb_minishroud_ms_all_Pa234m_M1"));
+        h4 = dynamic_cast<TH1D*>(f->Get("bb_minishroud_ms_all_Pa234m_M2"));
+        h5 = dynamic_cast<TH1D*>(f->Get("bb_minishroud_ms_all_Ac228_M1"));
+        h6 = dynamic_cast<TH1D*>(f->Get("bb_minishroud_ms_all_Ac228_M2"));
+    }
+
+    // props
+    h5->GetXaxis()->SetRangeUser(560, 2200);
+    h5->GetYaxis()->SetNdivisions(4);
+    h5->SetTitle(";energy [keV];probability / (decay keV)");
+
+    h3 -> SetLineColorAlpha(kTBriGreen,  1.0);
+    h4 -> SetLineColorAlpha(kTBriGreen,  0.5);
+    h5 -> SetLineColorAlpha(kTBriPurple, 1.0);
+    h6 -> SetLineColorAlpha(kTBriPurple, 0.5);
+
+    TLegend leg(0.1, 0.14, 0.45, 0.34);
+    leg.AddEntry(_big(h3), "^{234m}Pa - mini-shroud", "L");
+    leg.AddEntry(_big(h5), "^{228}Ac - mini-shroud",  "L");
+
+    // draw!
+    TCanvas c;
+    h5 -> Draw("HIST SAME");
+    h6 -> Draw("HIST SAME");
+    h3 -> Draw("HIST SAME");
+    h4 -> Draw("HIST SAME");
+    leg.Draw();
+
+    gPad->SetLogy();
+    c.SaveAs("../gmodel-pdfs-misc.pdf");
+
+    set4.file->Close();
+    set5.file->Close();
+}
+
+void g_plot_misc2(bool bayes = false) {
+
+    TH1D *h0, *h1, *h2, *h3, *h4;
 
     auto set1 = get_pdf_set("cables", "cables_all", "Co60");
     auto set2 = get_pdf_set("gedet", "intrinsic_bege", "2nbb");
     auto set3 = get_pdf_set("gedet", "intrinsic_coax", "2nbb");
-    auto set4 = get_pdf_set("minishroud", "ms_all", "Pa234m");
-    auto set5 = get_pdf_set("minishroud", "ms_all", "Ac228");
 
     if (!bayes) {
         auto& set1_M1 = set1.M1_enrBEGe;
@@ -457,29 +511,15 @@ void g_plot_misc(bool bayes = false) {
         set2_M1->Add(set3.M1_enrBEGe);
         set2_M1->Add(set3.M1_enrCoax);
 
-        auto& set4_M1 = set4.M1_enrBEGe;
-        set4_M1->Add(set4.M1_enrCoax);
-
-        auto& set5_M1 = set5.M1_enrBEGe;
-        set5_M1->Add(set5.M1_enrCoax);
-
         h0 = set1_M1;             h0->Rebin(rebin);
         h1 = set1.M2_enrE1plusE2; h1->Rebin(rebin);
         h2 = set2_M1;             h2->Rebin(rebin);
-        h3 = set4_M1;             h3->Rebin(rebin);
-        h4 = set4.M2_enrE1plusE2; h4->Rebin(rebin);
-        h5 = set5_M1;             h5->Rebin(rebin);
-        h6 = set5.M2_enrE1plusE2; h6->Rebin(rebin);
     }
     else {
         auto f = new TFile("bb-histos.root");
         h0 = dynamic_cast<TH1D*>(f->Get("bb_cables_cables_all_Co60_M1"));
         h1 = dynamic_cast<TH1D*>(f->Get("bb_cables_cables_all_Co60_M2"));
         h2 = dynamic_cast<TH1D*>(f->Get("bb_gedet_intrinsic_2nbb_M1"));
-        h3 = dynamic_cast<TH1D*>(f->Get("bb_minishroud_ms_all_Pa234m_M1"));
-        h4 = dynamic_cast<TH1D*>(f->Get("bb_minishroud_ms_all_Pa234m_M2"));
-        h5 = dynamic_cast<TH1D*>(f->Get("bb_minishroud_ms_all_Ac228_M1"));
-        h6 = dynamic_cast<TH1D*>(f->Get("bb_minishroud_ms_all_Ac228_M2"));
     }
 
     // props
@@ -490,36 +530,24 @@ void g_plot_misc(bool bayes = false) {
     h0 -> SetLineColorAlpha(kTBriBlue,   1.0);
     h1 -> SetLineColorAlpha(kTBriBlue,   0.5);
     h2 -> SetLineColorAlpha(kTBriRed,    1.0);
-    h3 -> SetLineColorAlpha(kTBriGreen,  1.0);
-    h4 -> SetLineColorAlpha(kTBriGreen,  0.5);
-    h5 -> SetLineColorAlpha(kTBriPurple, 1.0);
-    h6 -> SetLineColorAlpha(kTBriPurple, 0.5);
 
     TLegend leg(0.1, 0.14, 0.45, 0.34);
     leg.AddEntry(_big(h0), "^{60}Co - flat cables",        "L");
     leg.AddEntry(_big(h2), "2#nu#beta#beta",     "L");
-    leg.AddEntry(_big(h3), "^{234m}Pa - mini-shroud", "L");
-    leg.AddEntry(_big(h5), "^{228}Ac - mini-shroud",  "L");
 
     // draw!
     TCanvas c;
     h0 -> Draw("HIST");
-    h5 -> Draw("HIST SAME");
-    h6 -> Draw("HIST SAME");
     h1 -> Draw("HIST SAME");
     h2 -> Draw("HIST SAME");
-    h3 -> Draw("HIST SAME");
-    h4 -> Draw("HIST SAME");
     leg.Draw();
 
     gPad->SetLogy();
-    c.SaveAs("../gmodel-pdfs-misc.pdf");
+    c.SaveAs("../gmodel-pdfs-misc2.pdf");
 
     set1.file->Close();
     set2.file->Close();
     set3.file->Close();
-    set4.file->Close();
-    set5.file->Close();
 }
 
 void k_plot_K40() {
@@ -669,7 +697,7 @@ void k_plot_K40_sep() {
         i->SetLineWidth(lw);
     }
 
-    TLegend leg(0.35, 0.8, 0.7, 0.98);
+    TLegend leg(0.37, 0.8, 0.72, 0.98);
     leg.AddEntry(_big(h1), "^{40}K - close to S1", "L");
     leg.AddEntry(_big(h2), "^{40}K - close to S2", "L");
     leg.AddEntry(_big(h3), "^{40}K - close to S3", "L");
@@ -724,7 +752,7 @@ void k_plot_K42() {
 
     // props
     h0->GetXaxis()->SetRangeUser(0, 36); // no naturals!
-    h0->GetYaxis()->SetRangeUser(2E-09, 3E-03);
+    h0->GetYaxis()->SetRangeUser(2E-09, 5E-03);
     h0->SetTitle(";;probability / (decay ROI channel)");
     // set x-axis labels
     for (int b = 1; b <= h0->GetNbinsX(); ++b) {
@@ -753,7 +781,7 @@ void k_plot_K42() {
         i->SetLineWidth(lw);
     }
 
-    TLegend leg(0.35, 0.88, 0.7, 0.98);
+    TLegend leg(0.35, 0.85, 0.7, 0.97);
     // leg.AddEntry(_big(h1), "^{40}K - cables", "L");
     leg.AddEntry(_big(h0), "^{42}K - LAr hom.", "L");
     leg.AddEntry(_big(h1), "^{42}K - LAr above A.", "L");
@@ -763,8 +791,8 @@ void k_plot_K42() {
 
     // draw!
     TCanvas c("", "", 800, 1000);
-    c.GetPad(0)->SetBottomMargin(0.08);
-    c.GetPad(0)->SetLeftMargin(0.08);
+    c.GetPad(0)->SetBottomMargin(0.09);
+    c.GetPad(0)->SetLeftMargin(0.1);
     h0->Draw("HIST");
     h1->Draw("HIST SAME");
     h2->Draw("HIST SAME");
@@ -838,7 +866,8 @@ void k_plot_K42_sep() {
         i->SetLineWidth(lw);
     }
 
-    TLegend leg(0.11, 0.8, 0.51, 0.98);
+    TLegend leg(0.11, 0.85, 0.90, 0.98);
+    leg.SetNColumns(2);
     leg.AddEntry(_big(h0), "^{42}K - above S1", "L");
     leg.AddEntry(_big(h1), "^{42}K - above S2", "L");
     leg.AddEntry(_big(h2), "^{42}K - above S3", "L");
@@ -983,7 +1012,7 @@ void k_plot_K42_M2() {
 
     // props
     h0->GetXaxis()->SetRangeUser(0, 36); // no naturals!
-    h0->GetYaxis()->SetRangeUser(2E-09, 1E-03);
+    h0->GetYaxis()->SetRangeUser(2E-09, 2E-03);
     h0->SetTitle(";;probability / (decay ROI channel)");
     // set x-axis labels
     for (int b = 1; b <= h0->GetNbinsX(); ++b) {
@@ -1010,7 +1039,7 @@ void k_plot_K42_M2() {
         i->SetLineWidth(lw);
     }
 
-    TLegend leg(0.11, 0.88, 0.51, 0.98);
+    TLegend leg(0.11, 0.85, 0.51, 0.97);
     // leg.AddEntry(_big(h1), "^{40}K - cables", "L");
     leg.AddEntry(_big(h0), "^{42}K - LAr hom.", "L");
     leg.AddEntry(_big(h1), "^{42}K - LAr above A.", "L");
@@ -1066,7 +1095,7 @@ void k_plot_K40_sep_M2() {
 
     // props
     h0->GetXaxis()->SetRangeUser(0, 36); // no naturals!
-    h0->GetYaxis()->SetRangeUser(1.5E-07, 1E-03);
+    h0->GetYaxis()->SetRangeUser(1.5E-07, 7E-04);
     h0->SetTitle(";;probability / (decay ROI channel)");
     // set x-axis labels
     for (int b = 1; b <= h0->GetNbinsX(); ++b) {
@@ -1099,7 +1128,8 @@ void k_plot_K40_sep_M2() {
         i->SetLineWidth(lw);
     }
 
-    TLegend leg(0.11, 0.8, 0.51, 0.98);
+    TLegend leg(0.11, 0.85, 0.90, 0.98);
+    leg.SetNColumns(2);
     leg.AddEntry(_big(h1), "^{40}K - close to S1", "L");
     leg.AddEntry(_big(h2), "^{40}K - close to S2", "L");
     leg.AddEntry(_big(h3), "^{40}K - close to S3", "L");
@@ -1196,7 +1226,8 @@ void k_plot_K42_sep_M2() {
         i->SetLineWidth(lw);
     }
 
-    TLegend leg(0.11, 0.8, 0.51, 0.98);
+    TLegend leg(0.11, 0.85, 0.90, 0.98);
+    leg.SetNColumns(2);
     leg.AddEntry(_big(h0), "^{42}K - above S1", "L");
     leg.AddEntry(_big(h1), "^{42}K - above S2", "L");
     leg.AddEntry(_big(h2), "^{42}K - above S3", "L");
@@ -1247,24 +1278,25 @@ void pdfs_plot() {
     float f = 10;
     for (int i = 0; i < 11; ++i) new TColor(freec+i, (0+i*f)/255., (51+i*f)/255., (102+i*f)/255., "blue");
 
-    a_plot_Po210();
-    a_plot_U();
+    // a_plot_Po210();
+    // a_plot_U();
 
-    k_plot_K40();
-    k_plot_K42();
-    k_plot_K40_sep();
-    k_plot_K42_sep();
+    // k_plot_K40();
+    // k_plot_K42();
+    // k_plot_K40_sep();
+    // k_plot_K42_sep();
 
-    k_plot_K40_M2();
-    k_plot_K42_M2();
-    k_plot_K40_sep_M2();
+    // k_plot_K40_M2();
+    // k_plot_K42_M2();
+    // k_plot_K40_sep_M2();
     k_plot_K42_sep_M2();
 
-    g_plot_K40(use_bb);
-    g_plot_K42(use_bb);
-    g_plot_Th(use_bb);
-    g_plot_U(use_bb);
-    g_plot_misc(use_bb);
+    // g_plot_K40(use_bb);
+    // g_plot_K42(use_bb);
+    // g_plot_Th(use_bb);
+    // g_plot_U(use_bb);
+    // g_plot_misc(use_bb);
+    // g_plot_misc2(use_bb);
 
     std::cout << "All work completed." << std::endl;
 }

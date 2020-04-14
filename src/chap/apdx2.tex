@@ -50,27 +50,6 @@ space and normalized to the number of simulated primary decays, are
 displayed in \cref{fig:bkg:raw:ph2:pdfs:gmodel}
 and \cref{fig:bkg:raw:ph2:pdfs:gmodel2}.
 
-\begin{figure}
-  \centering
-  \subfloat[%
-    \a\ decays from the \Ra\ decay sub-chain (\Ra, \Rn, $^{218}$Po
-    and $^{214}$Po) on the detectors \pplus\ contact surface for
-    different depths of the inactive contact layer. The isotope
-    contamination is assumed to halve at each decay step, because of the
-    recoil of the nuclei in LAr.\label{fig:bkg:raw:ph2:pdfs:amodel:Ra}
-  ]{\includegraphics[width=0.45\textwidth]{plots/bkg/raw/ph2/pdfs/amodel-pdfs-U.pdf}}
-    \hspace{10pt}
-  \subfloat[%
-    \Pbh\ and \Bih\ (\Uh\ chain) contaminations far from (fiber-shroud)
-    and close to (mini-shrouds) the detector array. A variable binning
-    is adopted for visualization purposes.\label{fig:bkg:raw:ph2:pdfs:gmodel:U}%
-  ]{\includegraphics[width=0.45\textwidth]{plots/bkg/raw/ph2/pdfs/gmodel-pdfs-U.pdf}}
-  \caption{%
-    pdfs in the full energy domain. All pdfs are normalized to the
-    number of simulated primary decays.
-  }\label{fig:bkg:raw:ph2:pdfs:gmodel2}
-\end{figure}
-
 For the potassium tracking analysis pdfs binned in detector space are
 used to model the data. The rotationally symmetric single-detector pdfs
 for the \kvn\ and \kvz\ energy windows are shown in
@@ -112,36 +91,54 @@ in single mini-shrouds in \cref{fig:bkg:raw:ph2:pdfs:kmodel:K40sep} and
   \subfloat[%
     \kvn\ in different setup locations and \nnbb\ in Ge,
     \Mokvn\ data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:K40}%
-  ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K40-long.pdf}}
-  \hspace{5pt}
+  ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K40.pdf}}
+  \hfill
   \subfloat[%
     \kvn\ located close to each single mini-shroud, \Mokvn\
     data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:K40sep}%
-  ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K40-sep-long.pdf}}
-  \hspace{5pt}
+  ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K40-sep.pdf}}
+
   \subfloat[%
     \kvn\ in different setup locations, \Mtkvn\
     data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:M2K40}%
-  ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K40-M2-long.pdf}}
-  \hspace{5pt}
+  ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K40-M2.pdf}}
+  \hfill
   \subfloat[%
     \kvn\ located close to each single mini-shroud, \Mtkvn\
     data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:M2K40sep}%
-  ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K40-sep-M2-long.pdf}}
-  \hspace{5pt}
+  ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K40-sep-M2.pdf}}
+
+  \caption{%
+    pdfs binned in detector space for the \kvn\ tracking analysis. 
+    All pdfs are normalized to the number of simulated primary decays.
+  }\label{fig:bkg:raw:ph2:pdfs:kmodel:K40}
+\end{figure}
+
+\begin{figure}
+  \subfloat[%
+    \kvz\ in different setup locations and \nnbb\ in Ge,
+    \Mokvz\ data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:K42}%
+  ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K42.pdf}}
+  \hfill
   \subfloat[%
     \kvz\ in LAr above each single mini-shroud, \Mokvz\
     data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:K42sep}%
-  ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K42-sep-long.pdf}}
-  \hspace{5pt}
+  ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K42-sep.pdf}}
+
   \subfloat[%
     \kvz\ in different setup locations, \Mtkvz\
     data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:M2K42}%
-  ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K42-M2-long.pdf}}
+  ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K42-M2.pdf}}
+  \hfill
+  \subfloat[%
+    \kvz\ in different setup locations, \Mtkvz\
+    data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:M2K42sep}%
+  ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K42-sep-M2.pdf}}
+
   \caption{%
-    pdfs binned in detector space for the potassium tracking analysis. 
+    pdfs binned in detector space for the \kvz\ tracking analysis. 
     All pdfs are normalized to the number of simulated primary decays.
-  }\label{fig:bkg:raw:ph2:pdfs:kmodel}
+  }\label{fig:bkg:raw:ph2:pdfs:kmodel:K42}
 \end{figure}
 
 All \a\ decays in the \Ra\ to \Pbl\ sub-chain and from \Po\ are
