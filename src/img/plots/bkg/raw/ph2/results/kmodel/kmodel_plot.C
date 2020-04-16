@@ -222,7 +222,7 @@ void plot_histos(TH1D* data_raw,
     res_b3u->GetXaxis()->SetLabelOffset(0.015);
 
     // legend
-    TLegend * leg = new TLegend(0.35, 0.78, 0.65, 0.95,
+    TLegend * leg = new TLegend(0.38, 0.73, 0.73, 0.95,
                                 Form("%s - 60.2 kg#upointyr", datdict[ds].c_str()));
     leg->AddEntry(data, "Data", "P");
     auto tmp = dynamic_cast<TH1D*>(total->Clone());
@@ -252,7 +252,7 @@ void plot_histos(TH1D* data_raw,
     resPad->SetGridx();
 
     // GERDA watermark
-    auto gerdawtr = new TLatex(0.99, 0.88, "GERDA 19-09");
+    auto gerdawtr = new TLatex(0.99, 0.76, "GERDA 19-09");
     gerdawtr->SetNDC();
     gerdawtr->SetTextFont(43);
     gerdawtr->SetTextSizePixels(19);

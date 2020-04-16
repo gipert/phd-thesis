@@ -97,14 +97,14 @@ std::vector<std::string> det = {
 std::map<int,std::string> datdict = {
     {0, "#font[102]{M1-K40}"},
     {1, "#font[102]{M1-K42}"},
-    {2, "single-det Band 1"},
-    {3, "single-det Band 2"},
-    {4, "single-det Band 3"},
+    {2, "#font[102]{M1-SB1}"},
+    {3, "#font[102]{M1-SB2}"},
+    {4, "#font[102]{M1-SB3}"},
     {5, "#font[102]{M2-K40}"},
     {6, "#font[102]{M2-K42}"},
-    {7, "two-det Band 1"},
-    {8, "two-det Band 2"},
-    {9, "two-det Band 3"}
+    {7, "#font[102]{M2-SB1}"},
+    {8, "#font[102]{M2-SB2}"},
+    {9, "#font[102]{M2-SB3}"}
 };
 
 #endif
