@@ -41,32 +41,26 @@ window is large with respect to a possible miscalibration.} in the full data tak
 period. In this way we avoid bias due to selection or deselection of particularly
 contaminated detectors. Furthermore, we exclude the initial data-taking period between
 December 2015 to January 2016 from the following analysis because of detector
-instabilities after the \phasetwo\ upgrade works. The analyzed data span from
-25$^\text{th}$ January 2016 to 3$^\text{rd}$ April 2018 and are split into two data sets
-according to detector type, containing 27 \bege\ and 7 \scoax\ detectors. The fit results
-are shown in \autoref{fig:bkg:raw:timealpha:results} and listed in
-\cref{tab:bkg:raw:timealpha:results}. For the \bege\ data set we find that about half of the
-initial contamination decays exponentially while for the \scoax\ data set the ratio of $N$
-to $C$ is about 5 to 1. After several \Po\ half-lives we expect a stable rate of
-$\sim1~\alpha$/day in either data set.
+instabilities after the \phasetwo\ upgrade works. The analyzed data span from the end of
+January 2016 to the end of November 2019 and are split into five data sets according to
+detector type (\bege, \scoax\ and \icoax) and experimental phase (\phaseone\ and
+\phasetwop). The fit results are shown in \autoref{fig:bkg:raw:timealpha:results}. For the
+\bege\ data set we find that about half of the initial contamination decays exponentially
+while for the \scoax\ data set the ratio of $N$ to $C$ is about 5 to 1. After several \Po\
+half-lives we expect a stable rate of $\sim1~\alpha$/day in either data set.
+\fillme{comment}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\textwidth]{plots/bkg/raw/ph2/results/amodel/timealpha-enrBEGe.pdf}
-  \includegraphics[width=0.8\textwidth]{plots/bkg/raw/ph2/results/amodel/timealpha-enrCoax.pdf}
+  \includegraphics{plots/bkg/raw/ph2/results/amodel/amodel-timealpha.pdf}
   \caption{%
-    \a\ events time distribution in $[3500,5250]$~keV with a binning of 20~days for 27
-    \bege\ (top) and 7 \scoax\ (bottom) detectors.
+    \a\ events time distribution in the $[3500,5250]$~keV energy range during the whole
+    \phasetwo\ data taking. Each data point correspond to events cumulated in 20~days of
+    effective run time. Five data sets are considered: 27 \bege\ detectors in \phasetwo\ and
+    \phasetwop\ (top panel), 7 \scoax\ detectors in \phasetwo\ and \phasetwop, and 4
+    \icoax\ detectors in \phasetwop\ (bottom panel). An exponential model is fit to each
+    data set and the results are overlaid on the plot.
   }\label{fig:bkg:raw:timealpha:results}
 \end{figure}
-
-\begin{table}
-  \centering
-  \caption{%
-    Results of the \a\ events time distribution analysis in $[3500,5250]$~keV with a
-    binning of 20~days for 27 \bege\ and 7 \scoax\ detectors.
-  }\label{tab:bkg:raw:timealpha:results}
-  \input{tab/bkg/raw/ph2/amodel-time-results.tex}
-\end{table}
 
 % vim: tw=90
