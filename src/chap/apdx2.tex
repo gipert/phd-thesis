@@ -3,9 +3,11 @@
 \chapter{Monte Carlo simulations and probability density functions}%
 \label{apdx:magepdfs}
 
+\fillme{review this}
+
 Background components that were identified in the energy spectra or in
-radio-purity screening measurements \cref{assay} are simulated
-using the \mage\ software~\cite{Boswell2011} based on
+radio-purity screening measurements \cref{assay} are simulated using the
+\mage\ software~\cite{Boswell2011} based on
 \geant~\cite{Agostinelli2002, Allison2006, Allison2016}.  The \gerda\
 \phasetwo\ detectors, their arrangement in seven strings as well as the
 LAr instrumentation are implemented into \mage. A graphic rendering of
@@ -46,20 +48,19 @@ run-time dependent information, i.e.~the detector status in each physics
 run, the finite energy resolution and threshold of each detector. All
 pdfs presented in the following are computed using the run-time
 parameters of the data sets. A selection of the pdfs projected in energy
-space and normalized to the number of simulated primary decays, are
-displayed in \cref{fig:bkg:raw:ph2:pdfs:gmodel}
-and \cref{fig:bkg:raw:ph2:pdfs:gmodel2}.
+space and normalized to the number of simulated events, are
+displayed in \cref{fig:bkg:raw:ph2:pdfs:gmodel}. \fillme{explain better}
 
 For the potassium tracking analysis pdfs binned in detector space are
 used to model the data. The rotationally symmetric single-detector pdfs
 for the \kvn\ and \kvz\ energy windows are shown in
 \cref{fig:bkg:raw:ph2:pdfs:kmodel:K42} and
 \cref{fig:bkg:raw:ph2:pdfs:kmodel:K40}.  For two-detector events the
-same representation style as in~\cref{fig:kmodel:spc} is used:
+following representation style is used:
 projections of the two-dimensional histograms on their axis are summed,
 such that each two-detector event enters the final histogram twice, in
 the two bins associated to the respective detectors. They can be found
-in \cref{fig:bkg:raw:ph2:pdfs:kmodel} together with the single-detector
+in \cref{fig:bkg:raw:ph2:pdfs:kmodel:K40} together with the single-detector
 pdfs of the rotationally asymmetric components. 
 
 Common features can be noticed across the multitude of histogram shapes.
@@ -78,34 +79,34 @@ The effects of asymmetrically distributed background contaminations are
 easily recognizable in the shape of the pdfs.  Impurities located above
 the detector array are mostly seen by the upper most detectors in each
 string as can be seen for \kvn\ in the front-end electronics
-in~\cref{fig:bkg:raw:ph2:pdfs:kmodel:K40} and
-in~\cref{fig:bkg:raw:ph2:pdfs:kmodel:M2K40} and for \kvz\ above each
-mini-shroud (see~\cref{fig:bkg:raw:ph2:pdfs:kmodel:K42sep} and
-\cref{fig:bkg:raw:ph2:pdfs:kmodel:M2K40sep}). Rotationally asymmetric
+in~\cref{fig:bkg:raw:ph2:pdfs:kmodel:K40:M1} and
+in~\cref{fig:bkg:raw:ph2:pdfs:kmodel:K40:M2} and for \kvz\ above each
+mini-shroud (see~\cref{fig:bkg:raw:ph2:pdfs:kmodel:K42sep:M1} and
+\cref{fig:bkg:raw:ph2:pdfs:kmodel:K40sep:M2}). Rotationally asymmetric
 components are mostly evident in a single string, see for example \kvn\
-in single mini-shrouds in \cref{fig:bkg:raw:ph2:pdfs:kmodel:K40sep} and
-\cref{fig:bkg:raw:ph2:pdfs:kmodel:M2K40sep}.
+in single mini-shrouds in \cref{fig:bkg:raw:ph2:pdfs:kmodel:K40sep:M1} and
+\cref{fig:bkg:raw:ph2:pdfs:kmodel:K40sep:M2}.
 
 \begin{figure}
   \centering
   \subfloat[%
     \kvn\ in different setup locations and \nnbb\ in Ge,
-    \Mokvn\ data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:K40}%
+    \Mokvn\ data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:K40:M1}%
   ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K40.pdf}}
   \hfill
   \subfloat[%
     \kvn\ located close to each single mini-shroud, \Mokvn\
-    data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:K40sep}%
+    data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:K40sep:M1}%
   ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K40-sep.pdf}}
 
   \subfloat[%
     \kvn\ in different setup locations, \Mtkvn\
-    data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:M2K40}%
+    data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:K40:M2}%
   ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K40-M2.pdf}}
   \hfill
   \subfloat[%
     \kvn\ located close to each single mini-shroud, \Mtkvn\
-    data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:M2K40sep}%
+    data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:K40sep:M2}%
   ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K40-sep-M2.pdf}}
 
   \caption{%
@@ -117,22 +118,22 @@ in single mini-shrouds in \cref{fig:bkg:raw:ph2:pdfs:kmodel:K40sep} and
 \begin{figure}
   \subfloat[%
     \kvz\ in different setup locations and \nnbb\ in Ge,
-    \Mokvz\ data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:K42}%
+    \Mokvz\ data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:K42:M1}%
   ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K42.pdf}}
   \hfill
   \subfloat[%
     \kvz\ in LAr above each single mini-shroud, \Mokvz\
-    data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:K42sep}%
+    data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:K42sep:M1}%
   ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K42-sep.pdf}}
 
   \subfloat[%
     \kvz\ in different setup locations, \Mtkvz\
-    data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:M2K42}%
+    data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:K42:M2}%
   ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K42-M2.pdf}}
   \hfill
   \subfloat[%
     \kvz\ in different setup locations, \Mtkvz\
-    data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:M2K42sep}%
+    data set.\label{fig:bkg:raw:ph2:pdfs:kmodel:K42sep:M2}%
   ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K42-sep-M2.pdf}}
 
   \caption{%
@@ -154,30 +155,5 @@ the \pplus\ contact.  The low-energy tail is characteristic for \a\
 decays; the \a\ particle is susceptible to the change in the contact
 thickness when penetrating the detector surface under an incident angle
 and loses part of its energy before reaching the active detector volume.
-
-% \begin{table}[b]
-% \centering
-% \caption{%
-% Mass of materials which are deployed in the \gerda\ setup and their
-% respective mass in the MaGe MC implementation. Fiber shroud and SiPM
-% ring deployed masses include the support material and hence show a
-% larger discrepancy to the implemented mass. ($^\dagger$ \tetratex
-% -coated)} \label{tab:masses}
-% \begin{tabular}{lrr}
-% \toprule
-% \multirow{2}{*}{Part}         & deployed       & MC       \\
-%                               & mass [g]       & mass [g] \\
-% \midrule
-% detector holders              & 640            & 659      \\
-% flat cables (80~pc)           & 75.36          & 31       \\
-% front-end electronics (11~pc) & 190.5          & 51.96    \\
-% mini-shrouds                  & 196.7          & 175      \\
-% fiber shroud                  & 4298.4         & 1361     \\
-% SiPM ring                     & 74.4           & 3.4      \\
-% copper shrouds$^\dagger$      & 1686           & 1584     \\
-% \bottomrule
-% \end{tabular}
-% \label{tab:masses}
-% \end{table}
 
 % vim: tw=72 tabstop=2 expandtab shiftwidth=2

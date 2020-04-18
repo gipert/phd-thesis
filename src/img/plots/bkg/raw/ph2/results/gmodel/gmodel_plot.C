@@ -166,6 +166,7 @@ void plot_gmodel(int dataset = 0,
     res_b3u->GetYaxis()->SetRangeUser(-3.99, 3.99);
     res_b3u->SetTitle(";energy [keV];residuals");
     res_b3u->GetXaxis()->SetNdivisions(509);
+    res_b3u->GetXaxis()->SetTitleOffset(3);
     res_b3u->SetTickLength(0.02, "X");
     res_b3u->SetFillColor(kTLigOrange);
     res_b3l->SetFillColor(kTLigOrange);
@@ -206,6 +207,7 @@ void plot_gmodel(int dataset = 0,
     dataPad->SetBottomMargin(0.01);
     dataPad->SetLogy();
     resPad->SetTopMargin(0.01);
+    resPad->SetBottomMargin(0.35);
     resPad->SetTicks(1,1);
 //    resPad->SetGridx();
 

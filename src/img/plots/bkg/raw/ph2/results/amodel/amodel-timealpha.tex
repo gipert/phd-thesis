@@ -10,13 +10,13 @@
   date coordinates in=x,
   xticklabel=\year-\month,
   xmin=2015-12-15, xmax=2020-01-01,
-  legend style={draw=none},
   yticklabel style={
     /pgf/number format/fixed,
     /pgf/number format/precision=2,
     /pgf/number format/fixed zerofill,
   },
-  yticklabel={\ifdim\tick pt=0pt 0 \else\pgfmathprintnumber{\tick}\fi}
+  yticklabel={\ifdim\tick pt=0pt 0 \else\pgfmathprintnumber{\tick}\fi},
+  % grid=major
 }
 
 \tikzstyle{best} = [
@@ -46,7 +46,7 @@
 \begin{document}
   \begin{tikzpicture}
     \begin{groupplot}[
-      group style={group size=1 by 2,
+      group style={group size=1 by 3,
         xlabels at=edge bottom,
         xticklabels at=edge bottom,
         ylabels at=edge left,
@@ -73,10 +73,10 @@
       \addplot+[error, name path=D] table [x=time, y=low] {bege-fit-ph2p.csv};
       \addplot[error] fill between[of=C and D];
 
-      \node at (axis cs:2016-10-01,0.11) {%
+      \node[fill=white] at (axis cs:2016-11-15,0.117) {%
           \begin{tabular}{cl}
             \ref{bege-ph2}     & \textsc{BEGe} \\
-            \ref{bege-fit-ph2} & $C + N \exp\frac{-\log2 t}{T_{1/2}}$ \\
+            \ref{bege-fit-ph2} & $f(t) = C + N \exp\frac{-\log2 t}{T_{1/2}}$ \\
           \end{tabular}
         };
 
@@ -114,19 +114,10 @@
       \addplot+[error, name path=H] table [x=time, y=low] {scoax-fit-ph2p.csv};
       \addplot[error] fill between[of=G and H];
 
-      \addplot+[points, mark=triangle*] table [x=time, y=cts, y error=err] {amodel-timealpha-invCoax.csv};
-      \label{inv-ph2}
-
-      \addplot+[best] table [x=time, y=best] {icoax-fit-ph2p.csv};
-      \addplot+[error, name path=I] table [x=time, y=up] {icoax-fit-ph2p.csv};
-      \addplot+[error, name path=J] table [x=time, y=low] {icoax-fit-ph2p.csv};
-      \addplot[error] fill between[of=I and J];
-
-      \node at (axis cs:2016-12-01,1.1) {%
+      \node[fill=white] at (axis cs:2016-12-15,1.2) {%
           \begin{tabular}{cl}
             \ref{coax-ph2}     & \textsc{SemiCoax} \\
-            \ref{inv-ph2}      & \textsc{InvCoax} \\
-            \ref{coax-fit-ph2} & $C + N \exp\frac{-\log2 t}{T_{1/2}}$ \\
+            \ref{coax-fit-ph2} & $f(t) = C + N \exp\frac{-\log2 t}{T_{1/2}}$ \\
           \end{tabular}
         };
 
@@ -141,6 +132,31 @@
           \shortstack[l]{%
             $C       = (98.4 \pm 17.3) \cdot 10^{-3}$~day$^{-1}$ \\
             $N       = (362 \pm 47) \cdot 10^{-3}$~day$^{-1}$
+          }
+        };
+
+      \nextgroupplot[
+        % ylabel={corr.~event rate (cts/day)},
+      ]
+
+      \addplot+[points, mark=triangle*, mark size=1.4pt] table [x=time, y=cts, y error=err] {amodel-timealpha-invCoax.csv};
+      \label{inv-ph2}
+
+      \addplot+[best] table [x=time, y=best] {icoax-fit-ph2p.csv};
+      \addplot+[error, name path=I] table [x=time, y=up] {icoax-fit-ph2p.csv};
+      \addplot+[error, name path=J] table [x=time, y=low] {icoax-fit-ph2p.csv};
+      \addplot[error] fill between[of=I and J];
+
+      \node[fill=white] at (axis cs:2016-07-01,0.11) {%
+          \begin{tabular}{cl}
+            \ref{inv-ph2}      & \textsc{InvCoax} \\
+            \ref{coax-fit-ph2} & $f(t) = C$ \\
+          \end{tabular}
+        };
+
+      \node[scale=0.7] at (axis cs:2018-02-15,0.037) {%
+          \shortstack[l]{%
+            $C = (38 \pm 5) \cdot 10^{-3}$~day$^{-1}$
           }
         };
 

@@ -635,20 +635,18 @@ Data in two energy windows around the potassium \g\ lines is projected in detect
 space, such that, for single-detector data, each data point $n_i$ represents the total
 counts in detector $i$ in the respective window. For two-detector data the detector space
 is two-dimensional, and each data point $n_{ij}$ represents the number of events for which
-energy is deposited in detector $i$ and detector $j$.
-\newpar
-The events in the potassium lines (denoted with \m{K40} and \m{K42} in the following) are
-selected in a $\pm 3\sigma$ energy interval around the respective line, rounded up to an
-integer number of keV to match the specific energy windows in the energy distributions
-with 1~keV binning.  $\sigma$ is the energy resolution in the respective energy window.
-Additionally, three side-bands (\m{SB1}, \m{SB2} and \m{SB3} in the following) are used to
-estimate the continuum below and above the \g\ lines. Considering the further subdivision
-in single- (\m{M1-}) and two-detector (\m{M2-}) data, this leads to the definition of $5
-\times 2$ energy regions, summarized in~\cref{tab:bkg:raw:ph2:kmodel:regions-cts}. A
-visual representation of the selected windows can be found
-in~\cref{fig:bkg:raw:ph2:kmodel:regions}. Pdfs for \Bih\ on the flat cables and detector
-intrinsic \nnbb\ decays are used to estimate the background. Other components are expected
-to contribute less in the respective energy windows.
+energy is deposited in detector $i$ and detector $j$.  The events in the potassium lines
+(denoted with \m{K40} and \m{K42} in the following) are selected in a $\pm 3\sigma$ energy
+interval around the respective line, rounded up to an integer number of keV to match the
+specific energy windows in the energy distributions with 1~keV binning.  $\sigma$ is the
+energy resolution in the respective energy window.  Additionally, three side-bands
+(\m{SB1}, \m{SB2} and \m{SB3} in the following) are used to estimate the continuum below
+and above the \g\ lines. Considering the further subdivision in single- (\m{M1-}) and
+two-detector (\m{M2-}) data, this leads to the definition of $5 \times 2$ energy regions,
+summarized in~\cref{tab:bkg:raw:ph2:kmodel:regions-cts}. A visual representation of the
+selected windows can be found in~\cref{fig:bkg:raw:ph2:kmodel:regions}. Pdfs for \Bih\ on
+the flat cables and detector intrinsic \nnbb\ decays are used to estimate the background.
+Other components are expected to contribute less in the respective energy windows.
 
 \begin{table}
   \centering
@@ -722,31 +720,27 @@ only of background contributions that are expected from screening measurements o
 and known properties of \kvz.  The resulting model, however, gives a non-satisfactory
 description of data and the posterior distributions for the \kvn\ components are
 significantly shifted to higher values with respect to the prior distributions, indicating
-a surplus of \kvn.
-\newpar
-To find a better agreement with physics data while keeping the model as simple as
-possible, additional components using uniform priors are included one at a time in the
-fitting procedure, and the Bayes factor is calculated between the extended and the
-preliminary model. The model is iteratively updated by adding the component that results
-in the highest Bayes factor until no Bayes factor is larger than 10.
+a surplus of \kvn.  To find a better agreement with physics data while keeping the model
+as simple as possible, additional components using uniform priors are included one at a
+time in the fitting procedure, and the Bayes factor is calculated between the extended and
+the preliminary model. The model is iteratively updated by adding the component that
+results in the highest Bayes factor until no Bayes factor is larger than 10.
 \newpar
 In a first iteration a replica of the pdf of \kvn\ in the mini-shrouds is added obtaining
-a Bayes factor~$\gg$10. \kvn\ in the Tetratex\reg-coated copper shrouds is added in a second
-iteration with a Bayes factor of 11.  For \kvz\ the only additional component that results
-in a Bayes factor greater than 1 is \kvz\ on the \nplus\ detector contacts. Although the
-fit shows only a slight preference (Bayes factor of 2) the component is added to the model
-because of its importance in the full-range fit, where the energy region above the
-1525~keV \g\ line is also considered.
-\newpar
-The results of the base model are shown in \cref{tab:bkg:raw:ph2:kmodel:base:results} and
-a graphic representation showing the counts per detector in both potassium \g\ lines in
-\Mone\ and \Mtwo\ data can be found in \cref{fig:bkg:raw:ph2:kmodel:base:results}. The
-complete selection of plots is available in \cref{apdx:kmodelplots}.  The analysis yields
-a \pvalue\ of $\sim$0.07, indicating an acceptable description of the data. To further
-improve the model rotationally asymmetric fit components are needed. The base model is
-accurate enough to be used as input for the full-range fit, which is insensitive to any
-rotational inhomogeneity of the location of background sources, as spectra from different
-detectors are merged into a single data set.
+a Bayes factor~$\gg$10. \kvn\ in the Tetratex\reg-coated copper shrouds is added in a
+second iteration with a Bayes factor of 11.  For \kvz\ the only additional component that
+results in a Bayes factor greater than 1 is \kvz\ on the \nplus\ detector contacts.
+Although the fit shows only a slight preference (Bayes factor of 2) the component is added
+to the model because of its importance in the full-range fit, where the energy region
+above the 1525~keV \g\ line is also considered.  The results of the base model are shown
+in \cref{tab:bkg:raw:ph2:kmodel:base:results} and a graphic representation showing the
+counts per detector in both potassium \g\ lines in \Mone\ and \Mtwo\ data can be found in
+\cref{fig:bkg:raw:ph2:kmodel:base:results}. The complete selection of plots is available
+in \cref{apdx:kmodelplots}.  The analysis yields a \pvalue\ of $\sim$0.07, indicating an
+acceptable description of the data. To further improve the model rotationally asymmetric
+fit components are needed. The base model is accurate enough to be used as input for the
+full-range fit, which is insensitive to any rotational inhomogeneity of the location of
+background sources, as spectra from different detectors are merged into a single data set.
 
 \begin{figure}
   \centering
@@ -777,20 +771,19 @@ detectors are merged into a single data set.
 \end{table}
 
 \blocktitle{extended \\ model}
-The two components \emph{\kvn\ close to the array} and \emph{\kvz\ in LAr -- above the
-array} are split into 7 sub-components on a string-by-string basis (for the respective
-pdfs see \cref{apdx:magepdfs}). Furthermore, we consider a \kvn\ contamination on top
-of the central mini-shroud.
-\newpar
-The results of this extended analysis are listed in
+The two components \emph{\kvn\ close to the array} and \emph{\kvz\ in LAr above the array}
+are split into 7 sub-components on a string-by-string basis (for the respective pdfs see
+\cref{apdx:magepdfs}). Furthermore, we consider a \kvn\ contamination on top of the
+central mini-shroud.  The results of this extended analysis are listed in
 \cref{tab:bkg:raw:ph2:kmodel:extended:results}. The reader is referred to
 \cref{apdx:kmodelplots} for the graphical representation of the background decomposition.
-An elevated \kvz\ concentration is found above the central string while a lower
-concentration is observed above the adjacent strings \m{S1} and \m{S6} (string numbers
-follow the nomenclature used in \cref{fig:setup:array}). Due to the large number of
-components the fit yields a high anti-correlation between the \kvz\ concentration above
-the outer strings and \m{S7}. This results in a high uncertainty on the latter fit
-parameter.
+Per-string concentrations of \kvn\ and \kvz\ are visualized also in
+\cref{fig:bkg:raw:ph2:kmodel:extended:strings}.  An elevated \kvz\ concentration is found
+above the central string while a lower concentration is observed above the adjacent
+strings \m{S1} and \m{S6} (string numbers follow the nomenclature used in
+\cref{fig:setup:array}). Due to the large number of components the fit yields a high
+anti-correlation between the \kvz\ concentration above the outer strings and \m{S7}. This
+results in a high uncertainty on the latter fit parameter.
 \newpar
 The screening measurements do not account for all observed \kvn. In general ICP-MS
 screening of the mini-shrouds with respect to \kvn\ is difficult and yielded only a lower
@@ -801,9 +794,9 @@ and its exact location is hard to control. Hence, an asymmetric distribution is 
 The \kvn\ content of other close components like holders and cables might also be
 asymmetric. The asymmetric \kvn\ contamination is confirmed by the extended potassium
 tracking analysis. Also, an additional \kvn\ distribution on the top-lid of the central
-mini-shroud is preferred.  The surplus far \kvn\ component instead is possibly explained
+mini-shroud is preferred.  The surplus in the far \kvn\ component instead is possibly explained
 by setup parts omitted in the model like the PMTs and voltage-dividers of the LAr veto
-system. An upper limit of their \kvn\ content, $<330$~mBq, was estimated from material
+system. An upper limit of their \kvn\ content, <330~mBq, was estimated from material
 screening which is similar to the activity reconstructed for the far \kvn\ component. The
 location of the PMTs with respect to the detector array is very similar to the
 Tetratex\reg-coated copper-shrouds and their pdfs are, hence, degenerate.
@@ -826,24 +819,24 @@ Tetratex\reg-coated copper-shrouds and their pdfs are, hence, degenerate.
     on the top-lid) and \kvz\ (right) above the detector strings. The inner and outer
     radii of each circle are proportional to the edges of the smallest 68\% C.I. of the
     marginalized posterior distributions. The numerical values can be found in
-    \cref{tab:bkg:raw:ph2:kmodel:extended:results}. \fillme{reference in text}
+    \cref{tab:bkg:raw:ph2:kmodel:extended:results}.
   }\label{fig:bkg:raw:ph2:kmodel:extended:strings}
 \end{figure}
 
 \section{Full-range analysis}%
 \label{sec:bkg:raw:ph2:gmodel}
 
-As described in \cref{sec:bkg:raw:ph2:likelihoodfact} the \a-event background and
+As described in \cref{sec:bkg:raw:ph2:stat} the \a-event background and
 potassium \g\ lines are studied individually and the results are incorporated in the
-full-range fit as prior distributions.  The latter combines a simultaneous fit of the
+full-range fit as prior distributions.  The latter consists in a simultaneous fit of the
 \Mone\ and the \Mtwo\ data sets. For the final combination of parameters, outlined in this
-section, components with a posterior distribution peaked at zero were eliminated from the
+section, components with a posterior distribution peaked at zero were removed from the
 fit. The stability of the results with respect to the bin size and prior distributions was
 verified. Changing the prior distribution for fit parameters for which no screening
 measurement is available from a flat to an exponential one does not significantly impact
 the final posterior distributions. The compatibility of the final model, which includes 34
-free fit parameters, with data is supported by a \pvalue\ of $\sim$~0.3.
-
+fit parameters, with data is supported by a \pvalue\ of $\sim$~0.3.
+\newpar
 The estimated activities of individual components and other parameters of interest are
 listed in \cref{tab:bkg:raw:ph2:gmodel:results}. In particular, for each component we
 report the global and the marginalized mode of the posterior parameter distribution, along
@@ -853,9 +846,9 @@ parameters. The original type of prior distribution is marked with \m{[f]} for f
 \m{[g]} for Gaussian and \m{[e]} for exponential; the latter two are used if screening
 measurements are available. Subsequently, for all \kvn\ and \kvz\ components, the prior
 distribution is imported from the potassium tracking analysis and for \Pbh\ and \Bih\ on
-the p$^+$ contact from the reconstructed \Ra\ content from the \a\ events background
+the \pplus\ contact from the reconstructed \Ra\ content from the \a\ events background
 analysis.
-
+\newpar
 The spectral decomposition of all data sets is shown in
 \cref{fig:bkg:raw:ph2:gmodel:results}. For each data set the residual distribution as a
 multiple of the expected 1$\sigma$ fluctuation in each bin is displayed. We find for the
@@ -864,7 +857,7 @@ multiple of the expected 1$\sigma$ fluctuation in each bin is displayed. We find
 \enrGeII\ data set 70.0\%, 96.1\% and 99.7\%, respectively. Thus, in all three cases the
 residuals are normally distributed. No outliers with residuals larger than $3\sigma$ are
 found in a $\pm50$~keV window around \qbb\ and the bins exceeding $3\sigma$ do not
-correspond to any noted \g\ line.
+correspond to any known \g\ line.
 
 \begin{sidewaystable}
   \centering
@@ -899,6 +892,7 @@ correspond to any noted \g\ line.
   }\label{fig:bkg:raw:ph2:gmodel:results}
 \end{figure}
 
+\blocktitle{potassium}
 The \kvz\ distribution is optimized to best fit the data. In order to disentangle the
 \kvz\ \g\  and \b\ components, the volume inside and outside of the mini-shrouds is
 separated in the pdf construction. Inside the mini-shrouds a homogeneous distribution is
@@ -907,38 +901,39 @@ the fit model given here, a possible scenario is chosen where all \kvz\ is locat
 \nplus\ surfaces. However, we note that \kvz\ on the \pplus\ appears to partly substitute
 the energy-degraded \a\ component in the \enrCoaxII\ data set if introduced in the fit and
 predicts a higher total BI around \qbb. The extracted \kvz\ activity on the
-$^{\text{enr}}$Coax \pplus\ contact in this case is $22\pm4~\upmu$Bq corresponding to a
+\scoax\ \pplus\ contact in this case is $22\pm4$~\mubq\ corresponding to a
 contribution to the BI around \qbb\ of $(7\pm1)\cdot10^{-3}~$\ctsper. For the \enrBEGeII\
 data set the posterior distribution of a possible \kvz\ component on the \pplus\ contact
 is compatible with zero. Outside the mini-shrouds an inhomogeneous distribution of the
-\kvz\ decays explains the observations better. Detectors which are located at higher
+\kvz\ decays better explains the observations. Detectors which are located at higher
 positions in the strings show an excess of events in the \kvz\ 1525~keV \g\ line which is
 compatible with a surplus of \kvz\ located right above the detector array (see
 \cref{sec:bkg:raw:ph2:kmodel}). The full-range fit model contains a homogeneous \kvz\
-distribution \textit{outside the mini-shrouds} which is reconstructed with a specific
-activity of $186\pm39~\upmu$Bq/kg plus an additional distribution in the vicinity of the
-cables \textit{above the array}.
-
+distribution in \textit{LAr, outside the mini-shrouds} which is reconstructed with a specific
+activity of $186\pm39$~\mubq/kg plus an additional distribution in the vicinity of the
+cables (in \textit{LAr, above the array}).
+\newpar
 A large fraction of the contamination with \kvn\ in the setup cannot be accounted for by
 the screened hardware listed in \cref{tab:bkg:raw:ph2:gmodel:results}. We thus add a close
-($\sim1$~cm) and a far ($\sim50$~cm) \kvn\ component with respect to the detector array
+($\sim$1~cm) and a far ($\sim$50~cm) \kvn\ component with respect to the detector array
 which are in fact replica of the pdfs for the mini-shrouds and the Tetratex\reg-coated copper
 shrouds. These additional components absorb the excess indicated by the fit, the largest
 part of the reconstructed events in the spectra is attributed to impurities close to the
 array.
-
+\newpar
 The \kvn\ and \kvz\ distributions can be further split into smaller volumes and studied as
 an extension of the potassium tracking analysis (as described in
-\cref{sec:bkg:raw:ph2:kmodel}) \textit{projected in detector space}. The additional \kvn\
-component close to the array and the \kvz\ component above the array are split into 7
-sub-components on a string-by-string basis. The potassium concentration is in general
-found to be asymmetric among the detector strings. In particular, a more prominent \kvz\
-concentration is found above the central string. This is consistent with the electrostatic
-drift of \kvz\ ions induced by the electric field in the LAr which is generated by the
-unshielded high-voltage flat cables biased with about 4~kV. The \kvn\ and \kvz\ spatial
-analysis fitting the potassium \g\ lines \textit{projected in detector space} is presented
-in full detail in \cref{sec:bkg:raw:ph2:kmodel}.
+\cref{sec:bkg:raw:ph2:kmodel}) projected in detector space. The additional \kvn\ component
+close to the array and the \kvz\ component above the array are split into 7 sub-components
+on a string-by-string basis. The potassium concentration is in general found to be
+asymmetric among the detector strings. In particular, a more prominent \kvz\ concentration
+is found above the central string. This is consistent with the electrostatic drift of
+\kvz\ ions induced by the electric field in the LAr which is generated by the unshielded
+high-voltage flat cables biased with about 4~kV. The \kvn\ and \kvz\ spatial analysis
+fitting the potassium \g\ lines projected in detector space is presented in full detail in
+\cref{sec:bkg:raw:ph2:kmodel}.
 
+\blocktitle{\a\ events}
 The \a\ distribution is adjusted to best fit the data. The \Po\ peak at 5.2~MeV is found
 to be best described by a mixture of pdfs obtained assuming different \pplus\ contact
 thicknesses confirming results of the \phaseone\ background analysis~\cite{Agostini2013a}.
@@ -949,16 +944,7 @@ The compatibility of the degraded-energy \a\ component with \a\ events identifie
 was checked and is found consistent.  All details about the \a\ events analysis can be
 found in \cref{sec:bkg:raw:ph2:amodel}.
 
-Smaller contributions to the background model in the full energy range are attributed to
-\Pbh\ and \Bih\ from the \Uh\ decay chain, \Ac, \Bil\ and \Tl\ from the \Thh\ decay chains
-and \Co. With a total contribution in the fit range of $10^{-3}$~cts/keV for both the
-\enrBEGeII\ and \enrCoaxII\ data set \Pa\ gives negligible contribution to the spectra and
-is therefore dropped from the full-range fit model. The central values preferred in the
-full-range fit are driven by screening measurements and the spectral contributions are all
-fully accounted for by the listed hardware components. The only exception is \Pbh\ and
-\Bih\ where a minor contribution is added on the p$^+$ contact expected from the
-observation of \a\ events belonging to the \Ra\ decay chain.
-
+\blocktitle{\nnbb}
 Most counts in the fit range are attributed to the \nnbb\ decay of \gesix; in fact its
 continuous distribution dominates the spectrum up to almost 1.9~MeV. Here, we base the
 \nnbb\ half-life estimate on the \enrBEGeII\ data set only. An additional parameter,
@@ -972,6 +958,18 @@ Hence, the extracted \nnbb\ half-life, based on the \enrBEGeII\ data set and giv
 only with statistical uncertainties, amounts to $\thalftwoM = (2.03 \pm 0.02) \cdot
 10^{21}$~yr. A detailed discussion follows in \cref{sec:bkg:raw:ph2:discussion}.
 
+\blocktitle{other}
+Smaller contributions to the background model in the full energy range are attributed to
+\Pbh\ and \Bih\ from the \Uh\ decay chain, \Ac, \Bil\ and \Tl\ from the \Thh\ decay chains
+and \Co. With a total contribution in the fit range of $10^{-3}$~cts/keV for both the
+\enrBEGeII\ and \enrCoaxII\ data set \Pa\ gives negligible contribution to the spectra and
+is therefore dropped from the full-range fit model. The central values preferred in the
+full-range fit are driven by screening measurements and the spectral contributions are all
+fully accounted for by the listed hardware components. The only exception is \Pbh\ and
+\Bih\ where a minor contribution is added on the p$^+$ contact expected from the
+observation of \a\ events belonging to the \Ra\ decay chain.
+
+\blocktitle{background \\ at \qbb}
 The background model describes the individual contributions to the total BI around \qbb\
 prior active background suppression (see \cref{fig:bkg:raw:ph2:gmodel:results:roi}).
 The BI is defined as the number of counts over exposure and energy in the energy window
@@ -999,27 +997,27 @@ distributions are $\stat{16.04^{+0.78}_{-0.85}} \cdot 10^{-3}$~\ctsper\ for the
     window can be well approximated with a constant function. For color code see
     \cref{fig:bkg:raw:ph2:gmodel:results}.%
   }\label{fig:bkg:raw:ph2:gmodel:results:roi}
+
+  \includegraphics{plots/bkg/raw/ph2/results/gmodel/BI-bars.pdf}
+  \caption{%
+    Background decomposition in the BI analysis window around \qbb.
+  }\label{fig:bkg:raw:ph2:gmodel:results:roibars}
 \end{figure}
 
 \section{Discussion}%
 \label{sec:bkg:raw:ph2:discussion}
 
-In general, impurities close to the detector array contribute most to the background, far
-components give minor contributions. The posterior distribution and the screening
-measurements are in very good agreement and the spectral content of each source of
-background can be accounted for by the screened hardware components. Only in the case of
-\kvn\ a large part of the observed activity cannot be explained by the screened hardware
-and is fit with the additionally introduced components far and close to the detector
-array. The \kvz\ and \a\ event distributions cannot be constrained by screening
-measurements and are adjusted to best fit the data.
-
-The presented background model is not unambiguous in all components. As
-shown in \cref{fig:bkg:raw:ph2:pdfs:gmodel} several pdfs of the same source of
-background located in different structural components are very similar
-and thus prone to correlation. Most of them have been resolved by
-introducing prior distributions based on the screening measurements.
-However, a few anti-correlations persist which are listed in
-\cref{tab:bkg:raw:ph2:corr}.
+In general, the marginalized posterior distributions and the results of the material assay
+measurements are in very good agreement. The only exception is constituted by the \kvn\
+activity, which cannot be explained by the available prior information and is fit with the
+additionally introduced components far and close to the detector array. The \kvz\ and \a\
+event distributions, as already mentioned, cannot be constrained by screening measurements
+and are adjusted to best fit the data.  The background model is not completely free of
+parameter correlations. As shown in \cref{fig:bkg:raw:ph2:pdfs:gmodel} several pdfs of the
+same source of background located in different structural components are very similar and
+thus generate correlations. Most of them have been resolved by introducing prior
+distributions based on the screening measurements.  However, a few anti-correlations
+persist which are listed in \cref{tab:bkg:raw:ph2:corr}.
 
 \begin{table}
   \centering
@@ -1042,28 +1040,33 @@ However, a few anti-correlations persist which are listed in
   \end{tabular}
 \end{table}
 
-For what concerns \kvz\ in the LAr volume outside the mini-shrouds and thus more distant
-from the detector array, the adopted distribution is purely empirical. Our prior knowledge
-is limited by the fact that the \kvz\ ions undergo drift due to the electrical fields
+\blocktitle{\kvz}
+For what concerns \kvz\ in the LAr volume outside the mini-shrouds, the adoption of an
+additional pdf for \kvz\ above the detector array is purely motivated by the empirical
+observation of an excess of background events in the top detectors. The prior knowledge is
+indeed limited by the fact that the \kvz\ ions undergo drift due to the electrical fields
 surrounding the detectors and high-voltage cables. Also, due to thermal gradients they can
-be displaced by convection. Hence, their distribution inside the \gerda\ LAr is prone to
-systematic uncertainties. The presence of unshielded high-voltage cables above the
-detector array can explain the excess of \kvz\ found in this region. From the perspective
-of the full-range fit a more sophisticated modeling does not significantly modify the
-\kvz\ pdfs and hence the fit results. A potentially asymmetric \kvz\ distribution is,
-thus, not further followed in the main analysis. Nevertheless, some considerations can be
-found in~\cref{sec:bkg:raw:ph2:kmodel}. An explanation for \kvz\ on the \pplus\ contact being
-rejected for the \enrBEGeII\ data set but potentially present in the \enrCoaxII\ data can be
-the specific bore-hole geometry of the semi-coaxial detectors. \kvz\ produced inside the
-hole cannot easily escape and is trapped close to the \pplus\ contact.
+be displaced by convection. With that considered, the presence of unshielded high-voltage
+cables above the detector array can perhaps explain the excess of \kvz\ observed in this
+region. A more detailed investigation of the \kvz\ distribution in LAr is not pursued any
+further, as the full-range fit is inevitably not sensitive to such effects. A more
+sophisticated Monte Carlo model would in fact not significantly impact the \kvz\ pdfs
+shape. Nevertheless, some considerations are presented in the contest of the potassium
+tracking analysis, which is the only analysis presented here that could shed some light on
+the problem (see \cref{sec:bkg:raw:ph2:kmodel}). An explanation for \kvz\ on the \pplus\
+contact being rejected for the \enrBEGeII\ data set but potentially present in the
+\enrCoaxII\ data can be the specific bore-hole geometry of the semi-coaxial detectors.
+\kvz\ produced inside the hole cannot easily escape and is trapped close to the \pplus\
+contact.
 
+\blocktitle{background \\ window}
 For each source of background the contribution to the BI at \qbb\ prior to active
 background reduction is listed in \cref{tab:bkg:raw:ph2:gmodel:results}. The statistical
 uncertainties on the single contributions to the BI are generally of the order of 10\% or
 lower, with the exception of \kvz\ and energy-degraded \a\ events, for which the
 uncertainty is roughly doubled. The two contributions are affected by a higher uncertainty
 because they are not bound by screening measurements.
-
+\newpar
 The background event distribution in the \onbb\ analysis window can be well approximated
 with a constant function (see \cref{fig:bkg:raw:ph2:gmodel:results:roi}).  With this
 assumption, the BIs extracted from data are $16.4^{+1.7}_{-1.6} \cdot 10^{-3}$~\ctsper\
@@ -1084,6 +1087,7 @@ respect to \phaseone\ with the exception of background introduced by \a\ surface
 The most drastic improvement is notable for \kvz\ for which the BI contribution for the
 \bege\ detectors appears four times smaller than before the upgrade to \phasetwo.
 
+\blocktitle{\nnbb\ \\ systematics}
 As mentioned in \cref{sec:bkg:raw:ph2:gmodel}, the extracted \nnbb\ half-life estimate is
 based on the \enrBEGeII\ data set only. The additional parameter $\delta^{2\nu}$ mainly
 quantifies the systematic biases between the active volume determination methods of the
@@ -1103,7 +1107,7 @@ of the \enrBEGeII\ and \enrCoaxII\ data sets (1.8\% and 5\% respectively, see
 $1\sigma$.\footnote{The systematic bias between the active volume estimates for the \bege\
 and coaxial detector types is a sub-dominant contribution in the \onbb\ analysis with
 respect to e.g.~PSD uncertainties.}
-
+\newpar
 Various systematic effects have to be considered when estimating the uncertainty on the
 \nnbb\ half-life \thalftwo. Due to the fact that the aim of the paper is not a precise
 \nnbb\ half-life measurement, for most of them only a conservative evaluation is provided.

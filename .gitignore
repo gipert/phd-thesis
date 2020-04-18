@@ -29,6 +29,7 @@
 /src/img/plots/bkg/raw/ph2/pdfs/macros/bb-histos.root
 /src/img/plots/bkg/raw/ph2/results/kmodel/kmodel-asym.pdf
 /src/img/plots/bkg/raw/ph2/results/amodel/amodel-timealpha.pdf
+/src/img/plots/bkg/raw/ph2/results/gmodel/BI-bars.pdf
 
 *.DS_Store
 *.swp

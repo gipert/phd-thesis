@@ -1,0 +1,92 @@
+%!TEX root = ../main.tex
+
+\chapter{Bayesian blocks}%
+\label{apdx:bayesblocks}
+
+The Bayesian block representation is a non-parametric representation of data derived with
+a Bayesian statistical procedure. The idea has been introduced by Jeffrey D.~Scargle and
+applied in the context of astronomical time series analysis~\cite{Scargle1997,
+Scargle2012}. As a generic (non-parametric) way to present data, the algorithm can be
+efficiently employed to discover local structures in background data by exploiting the
+full information brought in by the data itself and imposing few preconditions as possible
+on signal and background shapes. As it will be shown later, the algorithm is also able to
+handle arbitrary sampling and dynamic ranges of data. But perhaps the most appealing characteristic of the
+algorithm is that it operates in a Bayesian framework and therefore works with posterior
+probabilities.
+
+\blocktitle{algorithm}
+The purpose of the Bayesian blocks algorithm is to construct a segmentation of a certain
+data interval into variable-sized blocks, each block containing consecutive data elements
+satisfying some well-defined criterion. Among all the possible segmentations, the
+\emph{optimal} segmentation is defined as the one that maximizes some quantification of
+this criterion. The latter is represented by a likelihood (or fitness) function, which
+acts on a block $k$ and depends exclusively on the data contained by the block. The
+fitness of the entire partition is then calculated as the product of each block fitness.
+The chosen fitness function will then depend on a certain set of parameters, in
+particular, the length spanned by the block (considering, for simplicity, one-dimensional
+data). Once the fitness function is defined, the algorithm will marginalize it with
+respect to all the other (nuisance) parameters, therefore obtaining the length of each
+single block, or the final data segmentation.
+\newpar
+There is a considerable freedom in choosing the fitness function, relying on the concept
+of \emph{sufficient statistics}. One of the simplest block model is perhaps the
+\emph{piecewise constant model}, i.e.~a constant representation of data within a block. In
+this example the fitness of a block depends on two parameters: the length and the height
+(nuisance parameter) of the block. The Cash statistics can be then employed to build the
+likelihood function. With a model $M(t, \theta)$ (the variable $t$ represents the data,
+which is often time in applications of the Bayesian blocks), the unbinned log-likelihood
+$\mathcal{L}$ reads:
+\[
+  \log \mathcal{L}(\theta) = \sum_n \log M(t_n, \theta) - \int M(t, \theta)dt
+\]
+which, considering the piecewise constant model $M(t, \lambda) = \lambda$, becomes for
+block $k$:
+\[
+  \log \mathcal{L}^{(k)}(\lambda) = N^{(k)} \log\lambda - \lambda T^{(k)} \;.
+\]
+When maximizing the expression with respect to the nuisance parameter $\lambda$ (the
+height of the block), it becomes
+\[
+  \log \mathcal{L}_\text{max}^{(k)} = N^{(k)}(\log N^{(k)} - \log T^{(k)}) + N^{(k)}
+\]
+The $N^{(k)}$ term sums up to $N$ so it can be dropped because it's independent of the
+partition:
+\[
+  \log \mathcal{L}_\text{max}^{(k)} = N^{(k)}(\log N^{(k)} - \log T^{(k)}) + \cancel{N^{(k)}} \;.
+\]
+The obtained fitness function has the appealing properties of being relatively simple and
+scale invariant. The fitness of the entire partition will then be the sum over the total
+number of blocks:
+\[
+  \log \mathcal{L} = \sum_k \log L^{(k)}_\text{max}
+\]
+
+The next essential item in Bayesian statistics is the prior distribution, which must be
+chosen for each model parameter, in this case the total number of blocks
+$N_\text{blocks}$. A uniform prior on the number of blocks looks unreasonable, as most of
+the times one looks for a data segmentation where $N_\text{blocks} \ll N$ rather
+than $N_\text{blocks} \approx N$. For example the \emph{geometric} prior:
+\[
+  P(N_\text{blocks}) =
+  \begin{cases}
+    P_0\gamma^{N_\text{blocks}} & 0 \le N_\text{blocks} \le N \\
+    0                           & \text{else}
+  \end{cases}
+\]
+has well-understood properties ($\gamma < 1$) and is simply implemented in the algorithm.
+The value of $\gamma$ affects the representation but note that, however, sharply defined
+structures are retained. Objective procedures can be used to select the desired value of
+$\gamma$, which express the trade-off between conservative and liberal positions in
+letting faint data features emerge in the partition. In general, running the algorithm
+with a few different values of $\gamma$ can be enough because the number of change-points
+in the partition is generally insensitive to a large range of reasonable values of the
+prior ``steepness'' parameter. This approach can be made rigorous by calibrating the prior
+as a function of the number of data points $N$ and the false-positive (type-I error) rate
+$p_0$ on pure-noise toy experiments, as suggested in~\cite{Scargle2012}. A calibration of
+this type performed there yields:
+\[
+  \log P(N, p_0) = \log(73.53 p_0 N^{-0.478}) - 4 \;.
+\]
+
+
+% vim: tw=90
