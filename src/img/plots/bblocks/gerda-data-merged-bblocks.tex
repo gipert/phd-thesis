@@ -1,0 +1,140 @@
+%! TEX program = xelatex
+\input{../../../tex/standalone-def}
+\import{}{pgfplots-def}
+\usepgfplotslibrary{groupplots}
+
+\pgfmathsetmacro\plotw{12.3cm}
+\pgfmathsetmacro\ploth{4cm}
+\pgfmathsetmacro\plotseph{6pt}
+\pgfmathsetmacro\plotsepv{14pt}
+
+\pgfplotsset{
+  scale only axis,
+  every axis/.style={%
+    legend style={draw=none},
+    height=\ploth, width=\plotw+\plotseph,
+  },
+  bblocks/.style={
+    TolVibRed,
+    const plot,
+    no marks,
+    line width=0.7pt,
+  },
+  fixedbins/.style={
+    TolVibBlue,
+    opacity=0.3,
+    const plot,
+    no marks,
+  }
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}[
+      group style={%
+        group size=2 by 4,
+        y descriptions at=all,
+        vertical sep=\plotsepv,
+        horizontal sep=\plotseph,
+      },
+      log origin=infty,
+      xmin=160, xmax=5400,
+    ]
+
+    %%% general %%%
+    \nextgroupplot[ymode=log, ymin=0.2, ylabel={$\text{d}N/\text{d}E$}]
+      \addlegendimage{empty legend}
+      \addplot+[fixedbins] table [x=lowedge, y=bincontent] {M1_enrAll-raw.csv};
+      \addplot+[bblocks] table [x=lowedge, y=bincontent] {bb-all-raw.csv};
+      \addlegendentry{\textsc{all Phase~II enriched}};
+      \addlegendentry{1 keV bins}
+      \addlegendentry{after granularity cut}
+
+    \nextgroupplot[group/empty plot]
+
+    %%% roi %%%
+    \nextgroupplot[ymode=log, ymin=0.2, xmin=1600, xmax=2700]
+      \addplot+[fixedbins] table [x=lowedge, y=bincontent] {M1_enrAll-raw.csv};
+      \addplot+[bblocks, line width=1pt] table [x=lowedge, y=bincontent] {bb-all-raw.csv};
+
+      \node at (axis cs:2570,15) {$^{208}$Tl};
+      \node at (axis cs:2435,10) {$^{214}$Bi};
+      \node at (axis cs:2190,23) {$^{214}$Bi};
+      \node at (axis cs:1720,27) {$^{214}$Bi};
+
+    \nextgroupplot[group/empty plot]
+
+    %%% K %%%
+    \nextgroupplot[
+      ymode=log,
+      width=0.5*\plotw,
+      xshift=-0.25*\plotw-0.5*\plotseph,
+      restrict x to domain=1400:1600,
+      xmin=1440, xmax=1550,
+      ymin=10,
+      legend style={at={(0.5,0.85)}, anchor=center}
+    ]
+
+      \addplot+[fixedbins] table [x=lowedge, y=bincontent] {M1_enrAll-raw-01keV.csv};
+      \addplot+[bblocks] table [x=lowedge, y=bincontent] {bb-all-raw.csv};
+
+      \addlegendentry{0.1 keV bins};
+
+      \node at (axis cs:1458,35) {$^{40}$K};
+      \node at (axis cs:1524,30) {$^{42}$K};
+
+    %%% Ar39 %%%
+    \nextgroupplot[
+      ymode=log,
+      width=0.5*\plotw,
+      xshift=-0.75*\plotw-1.5*\plotseph,
+      ylabel near ticks,
+      yticklabel pos=right,
+      xmax=700,
+      restrict x to domain=150:800,
+    ]
+
+      \addplot+[fixedbins] table [x=lowedge, y=bincontent] {M1_enrAll-raw.csv};
+      \addplot+[bblocks] table [x=lowedge, y=bincontent] {bb-all-raw.csv};
+
+      \node at (axis cs:348,2.2E3) {\small$^{85}$Kr};
+      \node[align=center] at (axis cs:511,7E2) {\footnotesize 511 keV};
+      \draw (axis cs:610,6E2) -- (axis cs:610,1E3) node[anchor=south, xshift=-5pt] {\small$^{208}$Tl};
+      \draw (axis cs:584,5E2) -- (axis cs:584,7E2) node[anchor=south, xshift=-5pt] {\small$^{214}$Bi};
+
+    %%% after lar %%%
+    \nextgroupplot[
+      ymode=log,
+      xlabel={energy (keV)},
+      width=0.5*\plotw,
+      xmin=570, xmax=2700,
+      ymin=0.2,
+      restrict x to domain=150:4300,
+    ]
+
+      \addplot+[fixedbins, forget plot] table [x=lowedge, y=bincontent] {M1_enrAll-lar.csv};
+      \addplot+[bblocks, TolBriBlue] table [x=lowedge, y=bincontent] {bb-all-lar.csv};
+
+      \addlegendentry{after LAr cut}
+
+      \node at (axis cs:1000,10) {$2\upnu\upbeta\upbeta$};
+
+    %%% after lar & psd
+    \nextgroupplot[
+      ymode=log,
+      width=0.5*\plotw,
+      xlabel={energy (keV)},
+      ylabel near ticks,
+      yticklabel pos=right,
+      xmin=1000, xmax=2700,
+      ymin=0.02,
+      restrict x to domain=900:2700,
+    ]
+
+      \addplot+[fixedbins={1}, forget plot] table [x=lowedge, y=bincontent] {M1_enrAll-lar_psd.csv};
+      \addplot+[bblocks, TolBriGreen] table [x=lowedge, y=bincontent] {bb-all-lar_psd.csv};
+
+      \addlegendentry{after LAr and PSD cut}
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}

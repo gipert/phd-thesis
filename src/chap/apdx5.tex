@@ -64,8 +64,9 @@ number of blocks:
 The next essential item in Bayesian statistics is the prior distribution, which must be
 chosen for each model parameter, in this case the total number of blocks
 $N_\text{blocks}$. A uniform prior on the number of blocks looks unreasonable, as most of
-the times one looks for a data segmentation where $N_\text{blocks} \ll N$ rather
-than $N_\text{blocks} \approx N$. For example the \emph{geometric} prior:
+the times one looks for a data segmentation where $N_\text{blocks} \ll N$, the total
+number of data points, rather than $N_\text{blocks} \approx N$. For example the
+\emph{geometric} prior:
 \[
   P(N_\text{blocks}) =
   \begin{cases}
@@ -97,8 +98,8 @@ data and to reveal shape features that could be hid by certain fixed-width binni
 Bayesian blocks to represent data in a statistical analysis could as instance avoid testing for
 systematics effects arising from the choice of the bin size. Compared to other
 optimal segmentation search rules (Knuth's rule, Scott's rule etc.), it has the feature of
-using variable-width blocks, and is therefore attractive when representing data that span
-many different orders of magnitude. An exhaustive comparison between this and similar
+using variable-width blocks, and is therefore attractive when representing not
+homogeneously distributed data. An exhaustive comparison between this and similar
 segmentation schemes is presented in~\cite{Pollack2017}. An example application of
 Bayesian blocks to $Z_0$ boson resonance data is reported here in
 \cref{fig:bayesblocks:dimuon}.
@@ -119,7 +120,7 @@ computer, when $N$ is big. The central point of implementing an algorithm to com
 Bayesian blocks is to follow a \emph{dynamic programming} approach, in the spirit of
 mathematical induction. In practice the data is first sorted in ascending order and the
 algorithm, starting from the first point, updates the optimal data partition at each added
-point using only the information from the previous ones. In this way, the algorithm
+point using only the information from the previous steps. In this way, the algorithm
 complexity is reduced from $\mathcal{O}(2^N)$ to $\mathcal{O}(N^2)$. A possible pseudo
 code for the main iteration is the following:
 \begin{lstlisting}
@@ -136,11 +137,35 @@ code for the main iteration is the following:
       push!(best, maximum(A))
   end
 \end{lstlisting}
-What the algorithm does when adding a given data point \m{k} is to add to the optimal
-\fillme{fillme}
+What the algorithm does when adding a given data point \m{k} is to check whether a new
+change-point should be added by considering a partition in which the last block contains
+data points from \m{r} to \m{k}, where 0 < \m{r} < \m{k}. The total fitness is calculated
+for all data points up to \m{k} by adding the fitness of the last block [\m{r}, \m{k}], to
+the best fitness calculated at step \m{r}. The maximum is saved (\m{last}), along with the
+fitness value (\m{best}). At the end of the iteration, the change-points can be
+reconstructed from the \m{last} array.
 
 \blocktitle{\gerda\ \\ data}
-Here's an application to \gerda\ data.
+The \gerda\ data, which has a highly non-homogeneous event rate, benefits from being
+represented with Bayesian blocks, rather than fixed-width bins which are used by default.
+The results of the application of the algorithm to event energy data are displayed in
+\cref{fig:bayesblocks:gerdadata}. Since the algorithm naturally assigns wider blocks to
+less-populated regions, one can see how the binning is finer in the left part of the
+spectrum, dominated by \Arl\ and \nnbb\ events, and it gets more coarse in the \a\
+event-dominated region. Even finer binning is used for the high-statistics \kvn\ and \kvz\
+lines. Bayesian blocks are also used to plot background model pdfs and calibration data,
+see e.g.~\cref{fig:bkg:raw:ph2:pdfs:gmodel,fig:gerda:calib-desc}.
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/bblocks/gerda-data-merged-bblocks.pdf}
+  \caption{%
+    Histograms of \gerda\ data with Bayesian blocks. Histograms binned with 0.1~keV-wide
+    bins are provided as input to the algorithm with the prior calibration parameter $p_0
+    = 0.05$. In the three first rows, data after granularity cut. In the last row, data
+    after LAr and PSD cut. \fillme{fill blinded region}
+  }\label{fig:bayesblocks:gerdadata}
+\end{figure}
 
 \section{Julia code}
 The implementation of a routine that computes change points in an array of data applying
@@ -149,12 +174,15 @@ at the following link:
 \begin{center}
   \url{https://github.com/gipert/bayesian-blocks}
 \end{center}
-The Julia code is reported also in the following.
+The \m{C++} library ships with \m{bblocks}, a command line utility to re-bin
+ROOT~\cite{Brun1997} histograms. The Julia code is reported also in the following.
 
-\begin{lstlisting}[basicstyle={\loadcolors\small\ttfamily},
-                   numbers=left,
-                   stepnumber=1,
-                   numberstyle={\color{jlcomment}\footnotesize\ttfamily}]
+% FIXME: this has to be loaded when using jlcode
+% \begin{lstlisting}[basicstyle={\loadcolors\small\ttfamily},
+%                    numbers=left,
+%                    stepnumber=1,
+%                    numberstyle={\color{jlcomment}\footnotesize\ttfamily}]
+\begin{lstlisting}
 # bayesian_blocks.jl
 #
 # Author: Luigi Pertoldi - pertoldi@pd.infn.it
@@ -249,7 +277,7 @@ function bayesian_blocks(x;
     logp_dict = Dict(
         # simple γ^Nblocks prior
         :gamma => (γ=gamma) -> log(γ),
-        # Note that there was an error in this equation in the original Scargle
+        # Note that there is a mistake in this equation in the original Scargle
         # paper (the "log" was missing). The following corrected form is taken
         # from https://arxiv.org/abs/1304.2818
         :p0    => (Np=N, p=p0) -> log(73.53 * p * Np^(-0.478)) - 4

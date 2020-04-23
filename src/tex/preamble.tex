@@ -8,12 +8,14 @@
 \usepackage{microtype}
 \usepackage{fontspec}
 \setmonofont{Fira Code}[Contextuals=Alternate, Scale=MatchLowercase]
-\usepackage[usebox=false, autoload=false]{tex/jlcode} % this must be loaded before unicode-math
+\usepackage{listings}
 \usepackage{lstfiracode}
+% FIXME: jlcode breaks math font
+% \usepackage[usebox=false, autoload=false]{tex/jlcode} % this must be loaded before unicode-math
 \lstset{%
-  language=julia,
+  % language=julia,
   style=FiraCodeStyle,
-  style=jlcodestyle,
+  % style=jlcodestyle,
 }
 \usepackage[math-style=ISO, bold-style=ISO]{unicode-math}
 \setmathfont{Garamond-Math.otf}[StylisticSet={7,8}]
