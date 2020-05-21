@@ -28,10 +28,11 @@
 #include "TBox.h"
 #include "TH1.h"
 
-#ifndef POISSONBANDS_HPP
-#define POISSONBANDS_HPP
+#ifndef POISSON_BANDS_HPP__
+#define POISSON_BANDS_HPP__
 
 namespace poiband {
+
     /*
      * smallest_poisson_interval(prob_coverage, poisson_mean)
      *
@@ -42,57 +43,59 @@ namespace poiband {
     std::pair<float, float> smallest_poisson_interval(double cov, double mu) {
 
         // sanity check
-        if (cov > 1 or cov < 0 or mu < 0) throw std::runtime_error("smallest_poisson_interval: bad input");
+        if (cov > 1 or cov < 0 or mu < 0) throw std::runtime_error("smallest_poisson_interval(): bad input");
 
+        // initialize lower and upper edges to something
         std::pair<float, float> res = {mu, mu};
 
-        auto theta = [](double x) {return x > 0 ? x : 0;};
-
-        if (mu > 50) { // gaussian approx
+        if (mu > 50) { // gaussian approximation os OK
             res = {
                 std::round(mu + TMath::NormQuantile((1-cov)/2)*sqrt(mu))-0.5,
                 std::round(mu - TMath::NormQuantile((1-cov)/2)*sqrt(mu))+0.5
             };
         }
         else { // do the computation
-            // start from the mode
+            // start from the mode, which is the integer part of the mean
             int mode = std::floor(mu);
-            int l = mode, u = mode;
-            double prob = TMath::PoissonI(mode, mu);
+            int l = mode, u = mode; // let's start from here
+            double prob = TMath::PoissonI(mode, mu); // probability covered by the interval
 
-            // check if we're still undercovering
+            // check if we're undercovering
             while (prob < cov) {
                 // compute probabilities of points just ouside interval
-                auto prob_u = TMath::PoissonI(u+1, mu);
-                auto prob_l = TMath::PoissonI(theta(l-1), mu);
+                double prob_u = TMath::PoissonI(u+1, mu);
+                double prob_l = TMath::PoissonI(l > 0 ? l-1 : 0, mu);
 
-                // check which one has the larger probability
-                if (prob_u > prob_l) {
+                // we expand on the right if:
+                //  - the lower edge is already at zero
+                //  - the prob of the right point is higher than the left
+                if (l == 0 or prob_u > prob_l) {
                     u++; // expand interval
                     prob += prob_u; // update coverage
                 }
+                // otherwhise we expand on the left
                 else if (prob_u < prob_l) {
-                    l = theta(l-1);
+                    l--;
                     prob += prob_l;
                 }
+                // if prob_u == prob_l we expand on both sides
                 else {
-                    u++;
-                    l = theta(l-1);
+                    u++; l--;
                     prob += prob_u + prob_l;
                 }
             }
-            res = {theta(l-0.5), u+0.5};
+            res = {l == 0 ? 0 : l-0.5, u+0.5};
         }
         return res;
     }
 
-    int col_idx = 0;
+    bool col_defined = false;
     /*
      * draw_poisson_bands(poisson_mean, box_x_left_location, box_size, normalize_to_mean)
      *
      * draws TBoxes corresponding to 68, 95 and 98 coverage intervals for poisson
      * (discrete) distribution with mean `poisson_mean`. The location and size of
-     * the bon on the x-axis must be provided with the second and third arguments.
+     * the box on the x-axis must be provided with the second and third arguments.
      * The boolean argument `residuals` can be used to normalize boxes to the value
      * of the `poisson_mean`. The histogram onto which the bands will be drawn can
      * be provided as a last argument, and the boxes will be clipped to its frame
@@ -100,11 +103,16 @@ namespace poiband {
      */
     void draw_poisson_bands(double mu, double x_low, double x_size, bool residuals = false, TH1* h = nullptr) {
 
-        if (col_idx == 0) {
-            col_idx = TColor::GetFreeColorIndex();
+        if (h != nullptr and h->GetDimension() != 1) {
+            throw runtime_error("draw_poisson_bands(): only 1D histograms are supported");
+        }
+
+        int col_idx = 9000;
+        if (!col_defined) {
             new TColor(col_idx  , 238./255, 136./255, 102./255, "tol-lig-orange");
             new TColor(col_idx+1, 238./255, 221./255, 136./255, "tol-lig-lightyellow");
             new TColor(col_idx+2, 187./255, 204./255,  51./255, "tol-lig-pear");
+            col_defined = true;
         }
 
         // calculate smallest intervals
@@ -129,14 +137,6 @@ namespace poiband {
         auto cent_b1 = (sig1.second + sig1.first)/2;
         auto cent_b2 = (sig2.second + sig2.first)/2;
         auto cent_b3 = (sig3.second + sig3.first)/2;
-
-        // fix overlapping bands drawing order
-        if (sig2.first  == sig3.first ) sig2.first  = cent_b2; // privilege 3sig band over 2sig
-        if (sig2.second == sig3.second) sig2.second = cent_b2;
-        if (sig1.first  == sig2.first ) sig1.first  = cent_b1; // privilege 2sig band over 1sig
-        if (sig1.second == sig2.second) sig1.second = cent_b1;
-        if (sig1.first  == sig3.first ) sig1.first  = cent_b1; // privilege 3sig band over 1sig
-        if (sig1.second == sig3.second) sig1.second = cent_b1;
 
         auto xdw = x_low;
         auto xup = x_low + x_size;

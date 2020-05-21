@@ -9,17 +9,14 @@
 \usepackage{fontspec}
 \setmonofont{Fira Code}[Contextuals=Alternate, Scale=MatchLowercase]
 \usepackage{listings}
-\usepackage{lstfiracode}
-% FIXME: jlcode breaks math font
-% \usepackage[usebox=false, autoload=false]{tex/jlcode} % this must be loaded before unicode-math
+\usepackage[usebox=false, autoload=false, verbatim=true]{tex/jlcode} % this must be loaded before unicode-math
 \lstset{%
-  % language=julia,
-  style=FiraCodeStyle,
-  % style=jlcodestyle,
+  language=julia,
+  style=jlcodestyle,
 }
+\usepackage[lining]{ebgaramond}
 \usepackage[math-style=ISO, bold-style=ISO]{unicode-math}
 \setmathfont{Garamond-Math.otf}[StylisticSet={7,8}]
-\usepackage[lining]{ebgaramond} % this must be loaded after
 % \usepackage{lettrine}
 % \newcommand{\initial}[2]{\lettrine[lines=3, depth=1, findent=2pt, nindent=0em]{\textin{#1}}{#2}}
 \usepackage{marginnote}\renewcommand*{\marginfont}{\scshape}

@@ -2,31 +2,32 @@
 
 \input{tex/preamble}
 \includeonly{%
-  chap/intro,
-  chap/chap1,
-  chap/chap2,
-  chap/chap3,
+  % chap/intro,
+  % chap/chap1,
+  % chap/chap2,
+  % chap/chap3,
   chap/apdx1,
   chap/apdx2,
   chap/apdx3,
   chap/apdx4,
-  chap/apdx5
+  % chap/apdx5,
+  % chap/glossary
 }
 
 \begin{document}
 
-  \input{titlepage}
+  \input{chap/titlepage}
   \clearpage
 
   \thispagestyle{empty}
   \newgeometry{margin=4cm}
   \selectlanguage{italian}
   \begin{abstract}
-    \input{sommario}
+    \input{chap/sommario}
   \end{abstract}
   \selectlanguage{english}
   \begin{abstract}
-    \input{abstract}
+    \input{chap/abstract}
   \end{abstract}
   \restoregeometry
 
@@ -57,6 +58,6 @@
   \listoftables
   \listoffigures
 
-  \include{glossary}
+  \include{chap/glossary}
 
 \end{document}
