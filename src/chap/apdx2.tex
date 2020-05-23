@@ -3,53 +3,55 @@
 \chapter{Monte Carlo simulations and probability density functions}%
 \label{apdx:magepdfs}
 
-\fillme{review this}
-
+\blocktitle{MaGe}
 Background components that were identified in the energy spectra or in
-radio-purity screening measurements \cref{assay} are simulated using the
-\mage\ software~\cite{Boswell2011} based on
+radio-purity screening measurements (see \cref{apdx:assay}) are
+simulated using the \mage\ software~\cite{Boswell2011} based on
 \geant~\cite{Agostinelli2002, Allison2006, Allison2016}.  The \gerda\
 \phasetwo\ detectors, their arrangement in seven strings as well as the
 LAr instrumentation are implemented into \mage. A graphic rendering of
 the relevant implemented hardware components is presented
-in~\cref{fig:setup:magevolumes}
+in~\cref{fig:setup:magevolumes}.
 \newpar
-Simulations of radioactive contaminations
-in the following hardware components are performed: in the bulk and on
-the \pplus\ and \nplus\ surfaces of the germanium detectors, in the LAr,
-detector holder bars and plates, nylon mini-shrouds, LAr veto system
-(i.e.~the fiber shroud, SiPMs, copper shrouds and photomultipliers) and
-in the signal and high-voltage flexible flat cables. The primary
-spectrum of the two electrons emitted in the \nnbb\ decay is sampled
-according to the distribution given in reference~\cite{Tretyak1995}
-implemented in \decayzero~\cite{Ponkratenko2000}. Note that the
-thickness of the detector assembly components are significantly smaller
-than the mean free path of the relevant simulated \g-particles in
-the given material, thus, no significant difference can be expected
-between the resulting spectra of bulk and surface contaminations. The
-detectors \nplus\ contact thicknesses are implemented according to the
-values reported in references~\cite{Agostini2013a, Agostini2019}.
+Simulations of radioactive decays and full tracking of the decay
+products are performed in all the hardware components close enough to
+the detector. Relevant event data like energy depositions in sensitive
+detectors (germanium, LAr, SiPMs and PMTs), hit location in germanium
+and LAr is written on disk. Propagation of optical photons
+(e.g.~resulting from the LAr scintillation) is disabled by default to
+save computing time. It is only enables during special simulations of
+the LAr veto capabilities.  The built-in \geant\ generators and
+databases are used to simulate all radioactive decays except for
+double-beta decay in germanium, for which more details about the decay
+dynamics (e.g.~angular correlations between the emitted electrons) are
+needed. The primary spectrum of the two electrons is indeed sampled in a
+separate step according to the distribution given in
+reference~\cite{Tretyak1995} implemented in
+\decayzero~\cite{Ponkratenko2000}.
 \newpar
 The \kvz\ decays (except for surface contaminations) are simulated
 homogeneously distributed in the relevant LAr volume. The following LAr
 volumes are chosen for the background model: the first is a cylinder
 centered on the detector array ($h=250$~cm, $r=100$~cm, simply referred
-to as ``homogeneous'' or abbreviated to ``hom.''~in the following)
+to as ``homogeneous'' or shortened to ``hom.''~in the following)
 subsequently divided into the volume enclosed by the mini-shrouds and
 the remaining one (outside the mini-shrouds); the second is a cylinder
 ($h=100$~cm, $r=25$~cm) positioned just above the array and the
 remaining seven are smaller cylinders ($h=20$~cm, $r=5$~cm), each one
 positioned just above each of the seven detector strings.
-\newpar
-On top of the \mage\ simulations a post-processing step is performed to
-compute the probability density functions (pdfs) used to model the
-\gerda\ data in the statistical analysis. This includes folding in
-run-time dependent information, i.e.~the detector status in each physics
-run, the finite energy resolution and threshold of each detector. All
-pdfs presented in the following are computed using the run-time
-parameters of the data sets. A selection of the pdfs projected in energy
-space and normalized to the number of simulated events, are
-displayed in \cref{fig:bkg:raw:ph2:pdfs:gmodel}. \fillme{explain better}
+
+\blocktitle{pdfs}
+The output of \mage\ simulations is further processed to compute the
+probability density functions (pdfs) used to model the \gerda\ data in
+the statistical analysis. This procedure includes folding in run-time
+dependent information, i.e.~the detector status in each physics run, the
+finite energy resolution and threshold of each detector. The detector
+dead-layer model is also applied in this post-processing step, by
+re-weighting energy positions according to their distance from the
+nearest surface. All pdfs presented in the following are computed using
+the run-time parameters of the data sets they refer to. A selection of
+the pdfs projected in energy space and normalized to the number of
+simulated events, is displayed in \cref{fig:bkg:raw:ph2:pdfs:gmodel}.
 
 For the potassium tracking analysis pdfs binned in detector space are
 used to model the data. The rotationally symmetric single-detector pdfs

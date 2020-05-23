@@ -11,28 +11,57 @@ information that guides the construction of the background model presented in
 converted to useful units for the characterisation of prior distributions in the
 background model and other analyses. Part of these measurements are published also
 in~\cite{Agostini2018a}.
+\newpar
+Radio-purity was measured with three techniques: \g\ spectroscopy, ICP-MS and neutron
+activation analysis (NAA), which main characteristics are summarized below.
+\begin{description}
+  \item[\g\ spectroscopy] is performed with photon-counting apparata (usually germanium
+    detectors). The radio-activity of a material sample is determined by measuring the
+    intensity of known \g\ lines from various decaying isotopes. \g\ spectroscopy is
+    well suited to constrain \kvn\ contaminations.
+  \item[ICP-MS] (Inductively Coupled Plasma Mass Spectrometry) is a technique that ionizes
+    the material samples and counts the resulting ions after separating them according to
+    their charge-to-mass ratio. It is applicable to materials which can be easily put in
+    liquid form. Statistical uncertainties on ICP-MS measurements are usually small, but
+    systematic effects can bias the results.
+  \item[NAA] (Neutron Activation Analysis) essentially exposes the target material sample
+    to a flux of neutrons. The \g\ radiation emitted by the activated nuclei in the sample
+    is analyzed to determine the initial isotopic composition. Light atomic nuclei
+    (e.g.~potassium) which are not activated by neutrons cannot be detected by this
+    method.
+\end{description}
 
-The following groups of isotopes are assumed to be in secular equilibrium:
+The results of all screening measurements available for \gerdatwo\ materials are
+summarized in \cref{tab:bkg:ph2:assay,tab:bkg:ph2p:assay}. Recommendations on how to
+properly use the values as prior information in the background model are included. Note
+that the following groups of isotopes are assumed to be in secular equilibrium:
 \[
-  ^{238}\text{U}  \succ ^{234\text{m}}\text{Pa}               \;,\quad
-  ^{226}\text{Ra} \succ ^{214}\text{Pb} \succ ^{214}\text{Bi} \;,\quad
-  ^{228}\text{Ra} \succ ^{228}\text{Ac}                       \;,\quad
+  ^{238}\text{U}  \succ ^{234\text{m}}\text{Pa}               \;\; \| \;\;
+  ^{226}\text{Ra} \succ ^{214}\text{Pb} \succ ^{214}\text{Bi} \;\; \| \;\;
+  ^{228}\text{Ra} \succ ^{228}\text{Ac}                       \;\; \| \;\;
   ^{228}\text{Th} \succ ^{212}\text{Bi} \succ ^{208}\text{Tl} \;.
 \]
-For each measurement a recommendation is also given on how to properly use the values. 
 
 \clearpage
 \thispagestyle{empty}
 \begin{sidewaystable}
   \caption{%
-    Activity of \gerda\ \phasetwo\ components calculated from radio-purity screening
+    Activity of \gerda\ \phasetwo\ setup components calculated from radio-purity screening
     measurements. Values in gray can be used as priors for \phasetwo\ background modeling
-    as they are; values in yellow are (partly) derived from ICPMS/NAA measurements under
+    as they are; values in green are (partly) derived from ICP-MS/NAA measurements under
     the assumption of secular equilibrium in the U/Th decay chains; values in light blue
     have to be multiplied by 2/3. The latter is an approximation for the shortening of the
     cables before deployment in \gerda.
   }\label{tab:bkg:ph2:assay}
   \input{tab/bkg/assay-measurements}
+\end{sidewaystable}
+
+\begin{sidewaystable}
+  \caption{%
+    Activity of setup components deployed during the \gerda\ \phasetwop\ upgrade
+    calculated from radio-purity screening measurements. \fillme{fillme}
+  }\label{tab:bkg:ph2p:assay}
+  \input{tab/bkg/assay-measurements-plus}
 \end{sidewaystable}
 
 % vim: tw=90
