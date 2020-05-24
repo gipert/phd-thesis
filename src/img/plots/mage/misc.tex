@@ -1,0 +1,42 @@
+%! TEX program = xelatex
+\input{../../../tex/standalone-def}
+\import{}{pgfplots-def}
+\usepgfplotslibrary{groupplots}
+
+\pgfplotsset{
+  width={0.5*14.7cm},
+  height=4.5cm,
+  table/col sep=space,
+  every axis/.style={grid, mark size=0.5pt},
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}[
+      group style={%
+        group size=2 by 1,
+        y descriptions at=all,
+        vertical sep=15pt,
+        horizontal sep=10pt,
+      },
+    ]
+
+    \nextgroupplot[xmin=200, xmax=850,
+                   xlabel={photon wavelength (nm)},ylabel={Reflectivity},
+                   legend style={cells={anchor=west}, legend pos=south east}]
+
+    \addplot+ table[x=lambda, y=R] {data/tpb-vm2000-refl.dat};
+    \addplot+ table[x=lambda, y=R] {data/tetratex-refl.dat};
+    \legend{VM2000, Tetratex}
+
+    \nextgroupplot[xmin=200, xmax=600,
+                   yticklabel pos=right,
+                   xlabel={photon wavelength (nm)},
+                   ylabel={$L_\text{Ray}$ (m)},
+                   y label style={at={(axis description cs:1.1,0.5)}}]
+
+    \addplot table[x=lambda, y=absl] {data/nylon-absl.dat};
+
+  \end{groupplot}
+\end{tikzpicture}
+\end{document}

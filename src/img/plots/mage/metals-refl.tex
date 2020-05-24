@@ -1,0 +1,27 @@
+%! TEX program = xelatex
+\input{../../../tex/standalone-def}
+\import{}{pgfplots-def}
+\usepgfplotslibrary{groupplots}
+
+\pgfplotsset{
+  width=11cm,
+  height=5cm,
+  table/col sep=space,
+  every axis/.style={grid, mark size=0.5pt},
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}[
+      xmin=100, xmax=750,
+      xlabel={photon wavelength (nm)}, ylabel={Reflectivity},
+      legend style={cells={anchor=west},legend pos=outer north east}
+    ]
+      \addplot+ table[x=lambda, y=R] {data/germanium-refl.dat};
+      \addplot+ table[x=lambda, y=R] {data/copper-refl.dat};
+      \addplot+ table[x=lambda, y=R] {data/silicon-refl.dat};
+      \addplot+ table[x=lambda, y=R] {data/teflon-refl.dat};
+      \legend{Ge, Cu, Si, Teflon}
+    \end{axis}
+  \end{tikzpicture}
+\end{document}

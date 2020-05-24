@@ -31,6 +31,9 @@
 /src/img/plots/bkg/raw/ph2/results/amodel/amodel-timealpha.pdf
 /src/img/plots/bkg/raw/ph2/results/gmodel/BI-bars.pdf
 /src/img/plots/bblocks/gerda-data-merged-bblocks.pdf
+/src/img/plots/mage/lar-props.pdf
+/src/img/plots/mage/metals-refl.pdf
+/src/img/plots/mage/misc.pdf
 
 *.DS_Store
 *.swp

@@ -1,6 +1,6 @@
 %!TEX root = ../main.tex
 
-\chapter{The background after the LAr veto cut}
+\chapter{The background after the LAr veto cut}\label{chap:bkg:lar:ph2}
 
 All what has been shown until now concerns data before the LAr and PSD cut. In this
 chapter a model of the background after the LAr veto cut will be presented, based on a
@@ -11,8 +11,142 @@ the LAr veto system. As extensively shown in \cref{chap:theory}, the presence of
 new physics phenomena can be constrained by looking at the shape of the \nnbb\ events
 distribution. Understanding the action of the LAr veto cut on background events from the
 point of view of the background model requires, however, a full Monte Carlo simulation of
-the LAr scintillation mechanism as well as the optical properties of all the relevant
-materials and surfaces that contribute to propagate light in the \gerda\ experimental
-setup.
+the LAr scintillation mechanism as well as the implementation of all the relevant material
+and surface optical properties that contribute to light propagation in the \gerda\ experimental
+setup. Implementing such a simulation, as it will be shown, requires an accurate knowledge
+of many optical parameters, which is not always the case, unfortunately, with the \gerda\
+setup. Nevertheless, it is possible to use special calibration data with low-activity
+sources and the LAr veto instrumentation turned on to constrain the LAr veto Monte Carlo
+model. An independent analysis of this special data set is used to tune the unknown
+optical parameters in the Monte Carlo such to reproduce the observed vetoing performance.
+The obtained parameters are then used to produce a map of the LAr scintillation light
+detection probability, which is applied to the background model simulations in order to
+obtain the LAr veto flag. Based on these new background model pdfs, a statistical analysis
+to test possible deviations of the \nnbb\ distribution from its Standard Model description
+will be finally presented.
+\newpar
+The chapter is structured as follows: \fillme{fillme}
+
+\section{Optical physics in \mage}%
+\label{sec:bkg:lar:ph2:mage}
+
+Optical materials and surfaces are implemented in \mage\ through the relevant \geant\
+libraries. Once properties like reflectivity, wavelength-shifting capabilities,
+attenuation lengths, scintillation yields etc.~are defined, the \geant\ core routines take
+care of simulating light propagation accordingly. In the following a reference list of the
+optical properties implemented in \mage\ for this study, with references to the
+literature.
+
+\subsection{Liquid argon}
+Key properties of the liquid argon from the point of view of the vetoing performance in
+\gerda\ are the scintillation mechanism, the refractive index and the attenuation length.
+The first two are relatively well known, while the latter strongly depends on the LAr
+purity, which has not been measured for \gerda. We recall here that the deployed LAr has
+not been subject to any purification process, and is therefore expected to meet the purity
+specifications of natural argon.
+
+\begin{description}
+
+  \item[Refractive index] shown in \cref{fig:bkg:lar:ph2:mage:lar-props}, formulas are
+    taken from~\cite{Bideau-Mehu1981}.
+
+  \item[Rayleigh scattering length] shown in \cref{fig:bkg:lar:ph2:mage:lar-props},
+    calculations are taken from~\cite{Seidel2002}. The refractive index calculation
+    mentioned before is used.
+
+  \item[Scintillation spectrum] in~\cite{Heindl2010} a measured scintillation spectrum
+    is shown (fig.~1 and 2). Only the (gaussian) peak is implemented in \mage\
+    (\cref{fig:bkg:lar:ph2:mage:lar-props}), as the non-gaussian contributions are of several
+    orders of magnitude lower and are therefore considered negligible.  A normal
+    distribution $(\mu=128\;\text{nm}, \sigma=2.929\;\text{nm})$ is implemented.
+
+  \item[Scintillation yield] different scintillation processes are defined in the \mage\
+    physics list for different ionizing particles, that in general show different
+    scintillation yields in LAr. A default, reference yield value of
+    $51\;\upgamma/\text{keV}$ is set for all particles~\cite{Doke2002}. This value does
+    certainly not represent the reality of \gerda, as the yield strongly depends on the
+    electric field configuration and the quencher impurities. Unfortunately a a reliable
+    direct measure of the scintillation yield of the \gerda\ LAr is not available.
+    Indirect measurements were performed with \large~\cite{Lehnert2015} and with a
+    dedicated setup deployed inside the \gerda\ cryostat~\cite{Barros2020} yielding
+    incompatible results. As shown in~\cite{Doke2002}, some particles, interestingly \a\
+    particles and nuclei, can have lower yields.  Therefore, the photon yield is reduced
+    for \a-particles and nuclei by a factor of 0.875 and 0.375 respectively in the physics
+    list. These numbers are extracted from~\cite{Doke2002}. In this way \b\ and \g\
+    particles will be affected by the nominal (maximum) photon yield, while \a\ particles
+    and nuclei will produce less light by a factor 0.875 and 0.375 (0.7/0.8 and 0.3/0.8
+    according to~\cite{Doke2002}) respectively
+
+  \item[Singlet and triplet lifetime] \sloppy The implemented triplet lifetime is the one
+    measured during \gerdatwo\ (\cref{fig:lar:triplet-lifetime}), the singlet lifetime
+    \fillme{fillme}. The relative occurrence of the two de-excitation processes is also
+    specified in terms of scintillation yield. The \geant\ \m{YIELDRATIO} property, which
+    is defined as the relative strength of the fast component as a fraction of total
+    scintillation yield, is set to 0.23 for all particles (\b\ and \g\ particles), 0.75
+    for nuclei and 1.0 for \a\ particles (the latter is a rough guess).
+
+  \item[Attenuation length] Strongly dependent on the LAr purity, therefore no literature
+    values can be used. It depends on the wavelength of the photon in general, but this
+    dependence is poorly known in the VUV regime.  The most important for \gerda\ is its
+    value at 128~nm, the wavelength of the LAr scintillation light. The following
+    implementation is adopted: an exponential function is used to make sure that the LAr
+    is opaque to photons with higher energy than 128~nm but transparent to WLS photons
+    (lower energy), see fig.~\ref{fig:bkg:lar:ph2:mage:lar-props}. A measurement of the
+    attenuation length in the \gerda\ LAr was performed~\cite{Barros2020}, yielding
+    $\sim15$~cm as a result, but \fillme{fillme}
+
+  \item[Fano factor] a Fano factor of 0.11 is set, taken from~\cite{Doke1976}.
+
+\end{description}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/mage/lar-props.pdf}
+  \caption{%
+    LAr optical properties as implemented in \mage. Top left: the refractive index, top
+    right: the Rayleigh absorption length, bottom left: the scintillation spectrum, bottom
+    right: the absorption length. Taken from~\cite{Bideau-Mehu1981, Seidel2002,
+    Heindl2010}.
+  }\label{fig:bkg:lar:ph2:mage:lar-props}
+\end{figure}
+
+\subsection{Reflectivity}
+
+Measurements are taken from Anne Wegmann's Ph.D.~thesis~\cite{Wegmann2017}. A
+reflectometer at room temperature and in air was used to measure the reflectivity in the
+wavelength range $[280, 700]$~nm. Values in the VUV region must be taken from other
+sources. For germanium it seems to strongly depend upon the radiation incident
+angle~\cite{Marton1967}, but it's not possible to implement angle-dependent reflectivities
+in \geant\ yet.  A rough, average value of 0.65 is therefore set for wavelengths smaller
+than 280~nm.  The source of the reflectivity values of the other materials below 280~nm is
+not known to me \fillme{fillme}.  The reflectivity values for all materials mentioned
+above are plot in \cref{fig:bkg:lar:ph2:mage:metals-refl}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/mage/metals-refl.pdf}
+  \caption{%
+    Reflectivity of germanium, copper, silicon and Teflon as implemented in \mage.
+  }\label{fig:bkg:lar:ph2:mage:metals-refl}
+\end{figure}
+
+Tetratex\reg{} values are taken from~\cite{Janecek2012}. The author reports measurements
+of the reflectivity of 2 and 4 superimposed layers of 160~\mum\ thick Tetratex. As the
+thickness of the foils used in \gerda\ is 254~\mum, the results for the two superimposed
+foils (320~\mum) are implemented in \mage. In reality, the reflectivity of the \gerda\
+foils should be (negligibly) smaller. The TPB layer has some effect on the reflectivity,
+but there's no measurement available in literature.  VM2000 values are taken
+from~\cite{Francini2013}.  The authors report measurements of TPB-coated VM2000, like in
+the \gerda\ setup. The measurement seems to be done properly as they take into account the
+effect of the TPB emission spectrum.  The measurement seems to be independent on the TPB
+layer thickness. The values are plot in \cref{fig:bkg:lar:ph2:mage:misc}.
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/mage/misc.pdf}
+  \caption{%
+    as implemented in \mage.
+  }\label{fig:bkg:lar:ph2:mage:misc}
+\end{figure}
 
 % vim: tw=90

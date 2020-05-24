@@ -1,0 +1,47 @@
+%! TEX program = xelatex
+\input{../../../tex/standalone-def}
+\import{}{pgfplots-def}
+\usepgfplotslibrary{groupplots}
+
+\pgfplotsset{
+  width={0.5*14.7cm},
+  height=4.5cm,
+  table/col sep=space,
+  every axis/.style={grid, mark size=0.5pt},
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}[
+      group style={%
+        group size=2 by 2,
+        y descriptions at=all,
+        vertical sep=15pt,
+        horizontal sep=10pt,
+      },
+    ]
+
+    \nextgroupplot[xmin=100, xmax=670, ylabel={$n$}]
+    \addplot+ table[x=lambda, y=rindex] {data/lar-rind.dat};
+
+    \nextgroupplot[xmin=100, xmax=670, ymode=log,
+                   yticklabel pos=right,
+                   ylabel={$L_\text{Ray}$ (m)},
+                   y label style={at={(axis description cs:1.1,0.5)}}]
+
+    \addplot+ table[x=lambda, y=rayl] {data/lar-rayl.dat};
+
+    \nextgroupplot[xmin=110, xmax=149,
+                   xlabel={photon wavelength (nm)}, ylabel={a.u.}]
+    \addplot+ table[x=lambda, y=scint] {data/lar-scin.dat};
+
+    \nextgroupplot[xmin=110, xmax=135, ymode=log,
+                   xlabel={photon wavelength (nm)}, ylabel={$L_\text{abs}$ (cm)},
+                   yticklabel pos=right,
+                   y label style={at={(axis description cs:1.1,0.5)}}]
+
+    \addplot+ table[x=lambda, y=absl] {data/lar-absl.dat};
+
+  \end{groupplot}
+\end{tikzpicture}
+\end{document}
