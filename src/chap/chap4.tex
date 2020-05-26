@@ -305,5 +305,46 @@ already existing simulations has been developed, based on the construction of a 
 probability map of scintillation photons in LAr. This object, which is going to be
 described in this section, will be also be referred to simply as `heat map' or
 `probability map' in the following.
+\newpar
+The first step to produce the probability map is to run a full photon tracking simulation
+of 128~nm scintillation photons in the whole LAr volume defined in \mage. An isotropic
+source of VUV photons homogeneously distributed in a pre-selected LAr volume is simulated.
+\mage\ allows to restrict the sampling to the volume occupied by LAr only or its
+intersection with a geometric solid (e.g.~a cylinder). The photon initial energy is
+sampled from a Gaussian distribution with mean 128~nm and variance 2.929~nm. After being
+propagated in the implemented \gerda\ setup by the \geant\ core routines, it may hit a
+LAr instrumentation sensitive volume (SiPM channel or PMT channel), which identification
+number is finally written on disk. After collecting a sufficient amount of simulated
+events, the simulation output is further processed into the probability map. The
+three-dimensional LAr volume implemented in \mage\ is partitioned in small boxes (or voxels),
+that define a probability validity region. Events generated in a voxel are collected and
+the ratio between the number of detected photons (at least one fired LAr veto channel)
+over the total is computed.
+\[
+  p_i = \frac{n_i}{N_i} \pm \frac{1}{N_1}\sqrt{n_i \left(1 - \frac{n_i}{N_1} \right)} \;.
+\]
+where $n_i$ and $N_i$ are the total number of detected and simulated photons in voxel $i$,
+respectively. The binomial uncertainty estimate assumes $N_i>0$ and $n_i<N_i$, which is
+always the case for the voxel size considered in this study.  These probability estimates
+are saved in a three-dimensional histogram, or LAr light detection probability map. The
+\gerda\ Monte Carlo LAr model is effectively condensed in this probability map object.
+\newpar
+The last step is to fold the probability map into the usual background model simulations,
+for which no information derived from optical processes is available. Information about
+energy depositions by \g, \b\ and \a\ particles in LAr is, in fact, available in the
+simulation output and provide the starting point to compute the LAr veto flag. A number
+of generated scintillation photons is drawn from a Poisson distribution with mean equal to
+the deposited amount of energy times the LAr scintillation yield times the LAr Fano
+factor:
+\[
+  M \sim \operatorname{Poisson}(E \cdot Y \cdot F) \;.
+\]
+The number of detected photons is then randomly drawn from a binomial distribution with
+success probability $p_k$, where $k$ labels the voxel that contains the LAr hit position,
+and number of trials equal to $M$:
+\[
+  m \sim \operatorname{B}(M, p_k) \;.
+\]
+If $m>0$ the event is flagged as vetoed by the LAr instrumentation.
 
 % vim: tw=90
