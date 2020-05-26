@@ -1,0 +1,47 @@
+%! TEX program = xelatex
+\input{../../../tex/standalone-def}
+\import{}{pgfplots-def}
+\usepgfplotslibrary{groupplots}
+
+\pgfplotsset{
+  width={0.5*14.7cm},
+  height=4.5cm,
+  table/col sep=space,
+  every axis/.style={grid, mark size=0.5pt},
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}[
+      group style={%
+        group size=2 by 1,
+        y descriptions at=all,
+        vertical sep=15pt,
+        horizontal sep=10pt,
+      },
+    ]
+
+    \nextgroupplot[width=5.5cm, height=6cm, xmin=150, xmax=450, ymax=100000,
+                   xlabel={photon wavelength (nm)}, ylabel={$L_\text{abs}$ (m)},
+                   ymode=log,
+                   legend pos=north west]
+
+    \addplot+ table[x=lambda, y=absl] {data/tpb-absl.dat};
+    \legend{WLS abs.~length}
+
+    \nextgroupplot[xmin=375, xmax=600, width=9.5cm, height=6cm,
+                   yticklabel pos=right,
+                   xlabel={photon wavelength (nm)},
+                   ylabel={emission intensity (a.u.)},
+                   y label style={at={(axis description cs:1.07,0.5)}},
+                   legend style={cells={anchor=west}}]
+
+    % \addplot+ table[x=lambda, y=emission] {data/tpb-emission.dat};
+    \addplot+ table[x=lambda, y=emission] {data/tpb-nylon-emission.dat};
+    \addplot+ table[x=lambda, y=emission] {data/tpb-vm2000-emission.dat};
+    \addplot+ table[x=lambda, y=emission] {data/tpb-tetratex-emission.dat};
+    \legend{TPB on nylon/fibers, TPB on VM2000, TPB on Tetratex\textsuperscript{\textregistered}};
+
+  \end{groupplot}
+\end{tikzpicture}
+\end{document}

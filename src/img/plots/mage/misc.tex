@@ -32,10 +32,12 @@
     \nextgroupplot[xmin=200, xmax=600,
                    yticklabel pos=right,
                    xlabel={photon wavelength (nm)},
-                   ylabel={$L_\text{Ray}$ (m)},
-                   y label style={at={(axis description cs:1.1,0.5)}}]
+                   ylabel={$L_\text{abs}$ (m)},
+                   y label style={at={(axis description cs:1.1,0.5)}},
+                   legend pos=north west]
 
     \addplot table[x=lambda, y=absl] {data/nylon-absl.dat};
+    \legend{Absorption spectrum}
 
   \end{groupplot}
 \end{tikzpicture}

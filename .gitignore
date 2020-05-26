@@ -34,6 +34,8 @@
 /src/img/plots/mage/lar-props.pdf
 /src/img/plots/mage/metals-refl.pdf
 /src/img/plots/mage/misc.pdf
+/src/img/plots/mage/fibers-props.pdf
+/src/img/plots/mage/tpb-props.pdf
 
 *.DS_Store
 *.swp
