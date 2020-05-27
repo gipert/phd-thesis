@@ -347,4 +347,66 @@ and number of trials equal to $M$:
 \]
 If $m>0$ the event is flagged as vetoed by the LAr instrumentation.
 
+\blocktitle{the LAr \\ heat map}
+A visualization of an example probability map is given in
+\cref{fig:bkg:lar:ph2:larmap:tac}, with one-voxel wide transversal and longitudinal
+slices. Voxels are colored according to their probability value: darker areas correspond
+to regions in which less scintillation photons reach the LAr veto detectors and therefore
+the vetoing efficiency is worse. It is worth to let the reader note how the detection
+probability reaches very low values in the LAr volume enclosed by germanium detectors, as
+photons get easily trapped in such a complex geometry. On the other hand, the closer to
+PMTs and fibers the photons are produce, the higher their detection probability. In the
+horizontal slice one can also appreciate the effect of the different SiPM channel
+efficiencies, which break the rotational invariance of the map.
+\newpar
+As remarked in \cref{sec:bkg:lar:ph2:mage}, uncertainties on the optical specifications
+implemented in \mage\ can be quite large. Properties like the LAr scintillation yield and
+attenuation length, the germanium reflectivity and the TPB quantum efficiency can possibly
+have a large impact on the probability map. Other crucial unknowns are the SiPM and PMT
+channel efficiencies and the coverage of the fiber shroud, defined as the fraction of
+lateral surface area of the curtain occupied by fiber material. Channel efficiencies
+extracted from physics data cannot be used, as the simulated efficiencies account for
+various other effects in the Monte Carlo and can therefore be quite different. The fiber
+coverage on the other hand should be around 0.5, but there could be shrinking phenomena or
+single-fiber twists in LAr which could make the real coverage significantly different. To
+understand the systematic impact of these parameters on the LAr probability map, a
+dedicated Monte Carlo study has been performed. A set of representative voxels has been
+selected, whose location is documented in \cref{fig:bkg:lar:ph2:larmap:dist}, rightmost
+image. For each of these voxels the probability dependence on some Monte Carlo parameters
+has been investigated, giving the results displayed in the remaining plots of
+\cref{fig:bkg:lar:ph2:larmap:dist}. Voxels have been considered along the central array
+axis (green), just outside (blue) and inside (red) the fiber shroud. An additional voxel
+has been chosen in the low-probability region between the \GD{89B} and \GD{02D} detectors
+(black). Three properties have been taken into consideration for this study: the germanium
+reflectivity, the fiber shroud coverage and the LAr absorption length. The reflectivity
+has been scaled with a global factor, such that the unit value refers to the value
+implemented in \mage.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{plots/lar/larmap-tac.png}
+  \caption{%
+    The three-dimensional LAr photon detection probability map interactive viewer.
+    Two-dimensional longitudinal and transversal sections are displayed in the second and
+    third pad from the left corresponding to the user pointer position on the 3D
+    rendering in the first pad. Red lines mark the cut positions. A smoothing algorithm is
+    applied to wash out statistical fluctuations and make the map look more homogeneous to
+    the eye.
+  }\label{fig:bkg:lar:ph2:larmap:tac}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/lar/larmap-dist.pdf}%
+  \includegraphics[height=7cm, clip, trim=0 -300 0 0]{plots/lar/lar-points-position.pdf}
+  \caption{%
+    Study of the impact of Monte Carlo parameters on LAr light detection probabilities in
+    various spatial points. Each curve shows the dependence of the probability upon
+    germanium reflectivity, fiber shroud coverage and LAr absorption length in the points
+    shown in the rightmost scheme of the \gerda\ setup, using the same color code. The
+    germanium reflectivity is scaled by a global factor, such that the unit value
+    corresponds to the value implemented in \mage.
+  }\label{fig:bkg:lar:ph2:larmap:dist}
+\end{figure}
+
 % vim: tw=90

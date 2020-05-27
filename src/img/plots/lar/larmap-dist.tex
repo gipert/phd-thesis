@@ -1,0 +1,64 @@
+%! TEX program = xelatex
+\input{../../../tex/standalone-def}
+\import{}{pgfplots-def}
+\usepgfplotslibrary{groupplots}
+
+\pgfplotscreateplotcyclelist{PointsList}{%
+  {TolVibBlue!80!black,  every mark/.append style={fill=TolVibBlue!80!black},  mark=*},
+  {TolVibBlue!90!cyan,   every mark/.append style={fill=TolVibBlue!90!cyan},   mark=*},
+  {TolVibCyan,           every mark/.append style={fill=TolVibCyan},           mark=*},
+  {TolVibRed,            every mark/.append style={fill=TolVibRed},            mark=*},
+  {TolVibOrange,         every mark/.append style={fill=TolVibOrange},         mark=*},
+  {TolBriGreen!70!black, every mark/.append style={fill=TolBriGreen!70!black}, mark=*},
+  {TolBriGreen!90!black, every mark/.append style={fill=TolBriGreen!90!black}, mark=*},
+  {TolBriGreen!90!green, every mark/.append style={fill=TolBriGreen!90!green}, mark=*},
+  {TolBriGreen!70!green, every mark/.append style={fill=TolBriGreen!70!green}, mark=*},
+  {TolBriGreen!50!green, every mark/.append style={fill=TolBriGreen!50!green}, mark=*},
+  {black,                every mark/.append style={fill=black},                mark=*},
+}
+
+\pgfplotsset{
+  width={0.33*14.7cm},
+  height=7cm,
+  cycle list name=PointsList,
+  every axis/.style={mark size=0.5pt},
+}
+
+\def\points{%
+  0_30_40,%
+  0_30_0,%
+  0_30_-30,%
+  0_20_0,%
+  0_20_-30,%
+  0_0_20,%
+  0_0_-27,%
+  0_0_-40,%
+  0_0_-70,%
+  0_0_-95,%
+  11_0_-24%
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}[
+      group style={%
+        group size=3 by 1,
+        y descriptions at=all,
+      },
+    ]
+
+    \nextgroupplot[xlabel={Ge reflectivity}, ylabel={probability}, ymode=log]
+    \foreach \point in \points
+      \addplot+ table[x=refl, y=\point ] {data/relf-dist.csv};
+
+    \nextgroupplot[xlabel={fiber shroud coverage}, ymode=log]
+    \foreach \point in \points
+      \addplot+ table[x=cov, y=\point ] {data/cov-dist.csv};
+
+    \nextgroupplot[xlabel={LAr abs.~length (cm)}, ymode=log]
+    \foreach \point in \points
+      \addplot+ table[x=absl, y=\point ] {data/absl-dist.csv};
+
+  \end{groupplot}
+\end{tikzpicture}
+\end{document}
