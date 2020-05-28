@@ -358,30 +358,6 @@ photons get easily trapped in such a complex geometry. On the other hand, the cl
 PMTs and fibers the photons are produce, the higher their detection probability. In the
 horizontal slice one can also appreciate the effect of the different SiPM channel
 efficiencies, which break the rotational invariance of the map.
-\newpar
-As remarked in \cref{sec:bkg:lar:ph2:mage}, uncertainties on the optical specifications
-implemented in \mage\ can be quite large. Properties like the LAr scintillation yield and
-attenuation length, the germanium reflectivity and the TPB quantum efficiency can possibly
-have a large impact on the probability map. Other crucial unknowns are the SiPM and PMT
-channel efficiencies and the coverage of the fiber shroud, defined as the fraction of
-lateral surface area of the curtain occupied by fiber material. Channel efficiencies
-extracted from physics data cannot be used, as the simulated efficiencies account for
-various other effects in the Monte Carlo and can therefore be quite different. The fiber
-coverage on the other hand should be around 0.5, but there could be shrinking phenomena or
-single-fiber twists in LAr which could make the real coverage significantly different. To
-understand the systematic impact of these parameters on the LAr probability map, a
-dedicated Monte Carlo study has been performed. A set of representative voxels has been
-selected, whose location is documented in \cref{fig:bkg:lar:ph2:larmap:dist}, rightmost
-image. For each of these voxels the probability dependence on some Monte Carlo parameters
-has been investigated, giving the results displayed in the remaining plots of
-\cref{fig:bkg:lar:ph2:larmap:dist}. Voxels have been considered along the central array
-axis (green), just outside (blue) and inside (red) the fiber shroud. An additional voxel
-has been chosen in the low-probability region between the \GD{89B} and \GD{02D} detectors
-(black). Three properties have been taken into consideration for this study: the germanium
-reflectivity, the fiber shroud coverage and the LAr absorption length. The reflectivity
-has been scaled with a global factor, such that the unit value refers to the value
-implemented in \mage.
-
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{plots/lar/larmap-tac.png}
@@ -394,6 +370,40 @@ implemented in \mage.
     the eye.
   }\label{fig:bkg:lar:ph2:larmap:tac}
 \end{figure}
+\newpar
+As remarked in \cref{sec:bkg:lar:ph2:mage}, uncertainties on the optical specifications
+implemented in \mage\ can be quite large. Properties like the LAr scintillation yield and
+attenuation length, the germanium reflectivity and the TPB quantum efficiency can possibly
+have a large impact on the probability map. Other crucial unknowns are the SiPM and PMT
+channel efficiencies and the coverage of the fiber shroud, defined as the fraction of
+lateral surface area of the curtain occupied by fiber material. Channel efficiencies
+extracted from physics data cannot be used, as the simulated efficiencies account for
+various other effects in the Monte Carlo and can therefore be quite different. The fiber
+coverage on the other hand should be around 0.5, but there could be shrinking phenomena or
+single-fiber twists in LAr which could make the real coverage significantly different.
+\newpar
+To understand the systematic impact of these parameters on the LAr probability map, a
+dedicated Monte Carlo study has been performed. A set of representative voxels has been
+selected, whose location is documented in \cref{fig:bkg:lar:ph2:larmap:dist}, rightmost
+image. For each of these voxels the probability dependence on some Monte Carlo parameters
+has been investigated, giving the results displayed in the remaining plots of
+\cref{fig:bkg:lar:ph2:larmap:dist}. Voxels have been considered along the central array
+axis (green), just outside (blue) and inside (red) the fiber shroud. An additional voxel
+has been chosen in the low-probability region between the \GD{89B} and \GD{02D} detectors
+(black). Three properties have been taken into consideration for this study: the germanium
+reflectivity, the fiber shroud coverage and the LAr absorption length. The reflectivity
+has been scaled with a global factor, such that the unit value refers to the value
+implemented in \mage. Two qualitatively different trends can be noticed: the reflectivity
+and coverage impact is approximately linear in the considered interval, while the
+absorption length acts more exponentially on probabilities. The latter is compatible with
+the assumption that attenuation in matter generally follows an exponential law, however a
+partial saturation effect seems to take place after about 40~cm, when the typical photon
+free path length in the \gerda\ setup is reached. Moreover, the impact of a parameter
+depends on the voxel location. As instance, the probability in the black voxel between
+\GD{89B} and \GD{02D} changes drastically upon different germanium reflectivity
+assumptions. On the other hand, orange and Red voxel close to the fibers (where the
+calibration sources are) are the most sensitive to modifications of the fiber shroud
+coverage.
 
 \begin{figure}
   \centering
@@ -408,5 +418,47 @@ implemented in \mage.
     corresponds to the value implemented in \mage.
   }\label{fig:bkg:lar:ph2:larmap:dist}
 \end{figure}
+
+\section{Tuning the LAr veto model}%
+\label{sec:bkg:lar:ph2:pcalib}
+
+As already mentioned several times, the knowledge about several Monte Carlo optical
+specifications is very limited. In particular, PMT and SiPM channel efficiencies are not
+known and are essential to build a predictive LAr veto model. Efficiencies extracted from
+physics data cannot be used directly, as the Monte Carlo efficiencies are in reality
+complex objects that account for other effects. As instance, SiPM efficiencies can include
+systematic effects from details of the geometry implementation of the fiber modules in
+MaGe. To overcome these issues, a statistical analysis has been developed to tune the
+Monte Carlo parameters with physics data. A sample which is independent from the
+regular \gerda\ physics data has been identified in the special calibration runs with
+low-activity sources and the LAr veto instrumentation turned on.
+
+\begin{table}
+  \centering
+  \caption{%
+    The special calibration runs 68 (July 2016) and 76 (February 2017).
+  }\label{tab:bkg:lar:ph2:pcalib-desc}
+  \begin{tabular}{lcccc}
+    \toprule
+    isotope      & source port & position (mm) & lifetime (h) & TP acceptance (\%) \\
+    \midrule
+    \mr{6}{\Th}  &             & 8168          & 10.2         & no TP              \\
+                 & \m{S2}      & 8396          & 3.2          & no TP              \\
+                 &             & 8570          & 12.5         & no TP              \\
+                 \cmidrule{2-5}
+                 &             & 8220          & 6.4          & 92.9(6)            \\
+                 & \m{S3}      & 8405          & 4.3          & 93.1(9)            \\
+                 &             & 8570          & 3.6          & 90.5(12)           \\
+    \midrule
+    \mr{6}{\Ra}  &             & 8139          & 8.9          & 89.3(2)            \\
+                 & \m{S2}      & 8405          & 4.3          & 90.6(3)            \\
+                 &             & 8570          & 6.9          & 88.3(3)            \\
+                 \cmidrule{2-5}
+                 &             & 8128          & 8.0          & 90.4(2)            \\
+                 & \m{S3}      & 8292          & 3.6          & 93.2(3)            \\
+                 &             & 8570          & 8.5          & 91.0(2)            \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 % vim: tw=90
