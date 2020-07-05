@@ -1,0 +1,443 @@
+{
+    "ge76-history" : {
+        "Milano": {
+            "1": {
+                "doi": "10.1016/0370-2693(67)90127-X",
+                "published": "1967-11-27",
+                "volume-cm3": 17,
+                "livetime-yr": 8.13E-2,
+                "BI-ctskeVh": 1.1E-2,
+                "T0nu-68-limit-yr": 3.1E20,
+                "enr-germanium": false,
+                "underground": false,
+                "notes": "volume is already active, no info about the original crystal"
+            },
+            "2": {
+                "doi": "10.1007/BF02755836",
+                "published": "1970-01-29",
+                "volume-cm3": 24,
+                "livetime-yr": 0.320,
+                "BI-ctskeVh": 5.3E-3,
+                "BI-err-ctskeVh": 0.5E-3,
+                "T0nu-68-limit-yr": 1.2E21,
+                "enr-germanium": false,
+                "underground": true,
+                "notes": "volume is total"
+            },
+            "3": {
+                "doi": "10.1007/BF02784100",
+                "published": "1973-02-01",
+                "volume-cm3": 87.10,
+                "livetime-yr": 0.50,
+                "BI-ctskeVh": 3.10E-3,
+                "T0nu-68-limit-yr": 5E21,
+                "enr-germanium": false,
+                "underground": true,
+                "notes": "total volume. different values than Anatholy's"
+            },
+            "4": {
+                "doi": "10.1016/0370-2693(83)90205-8",
+                "published": "1983-01-20",
+                "volume-cm3": 125,
+                "livetime-yr": 0.369,
+                "BI-ctskeVh": 1.8E-3,
+                "BI-err-ctskeVh": 0.4E-3,
+                "T0nu-68-limit-yr": 2E22,
+                "mbb-68-limit-eV": [8.3, 22],
+                "enr-germanium": false,
+                "underground": true,
+                "notes": "volume is already active, no info about the original crystal"
+            },
+            "5": {
+                "doi": "10.1016/0370-2693(84)90158-8",
+                "published": "1984-10-25",
+                "volume-cm3": [143, 169],
+                "livetime-yr": [1.66, 0.54],
+                "BI-ctskeVh": [1.7E-3, 0.37E-3],
+                "T0nu-68-limit-yr": 1.2E23,
+                "mbb-68-limit-eV": [3.7, 4.9],
+                "enr-germanium": false,
+                "underground": true,
+                "notes": "total volume"
+            },
+            "6": {
+                "doi": "10.1007/BF02768738",
+                "published": "1986-10-01",
+                "volume-cm3": [143, 169],
+                "livetime-yr": [2.36, 1.76],
+                "BI-ctskeVh": [1.6E-3, 0.4E-3],
+                "T0nu-68-limit-yr": 3.3E23,
+                "mbb-68-limit-eV": [1, 2.7],
+                "enr-germanium": false,
+                "underground": true,
+                "notes": "total volume. Should I use the fiducialized instead? Different values than Anatholy's"
+            }
+        },
+        "PNL-USC": {
+            "1": {
+                "doi": "10.1103/PhysRevC.34.666",
+                "published": "1986-08-01",
+                "volume-cm3": 135,
+                "livetime-yr": 0.923,
+                "BI-ctskeVkgyr": 1.7,
+                "T0nu-68-limit-yr": 1.4E23,
+                "enr-germanium": false,
+                "underground": true,
+                "notes": "numbers from Anatholy's proceeding, did not cross-check."
+            }
+        },
+        "ELEGANTS": {
+            "1": {
+                "doi": "10.1088/0305-4616/13/6/012",
+                "published": "1987-06-01",
+                "ge76-exposure-kgyr": 1.28E-2,
+                "BI-ctskeVkgyr": 5.5,
+                "T0nu-68-limit-yr": 7.3E22,
+                "mbb-68-limit-eV": [1.8, 4.7],
+                "enr-germanium": false,
+                "underground": true,
+                "notes": "numbers from Anatholy's proceeding, did not cross-check."
+            }
+        },
+        "UCSB-LBL": {
+            "1": {
+                "doi": "10.1103/PhysRevLett.54.281",
+                "published": "1985-01-28",
+                "volume-cm3": 336,
+                "BI-ctskeVh": 2E-3,
+                "livetime-yr": 0.185,
+                "T0nu-68-limit-yr": 5E22,
+                "enr-germanium": false,
+                "underground": false,
+                "notes": ""
+            },
+            "2": {
+                "doi": "10.1103/PhysRevD.33.2737",
+                "published": "1986-05-01",
+                "volume-cm3": 658,
+                "BI-ctskeVmolyr": 0.137,
+                "livetime-yr": 0.291,
+                "T0nu-68-limit-yr": 2.5E23,
+                "enr-germanium": false,
+                "underground": true,
+                "notes": "volume is fiducial"
+            },
+            "3": {
+                "doi": "10.1103/PhysRevLett.59.419",
+                "published": "1987-03-05",
+                "ge76-exposure-kgyr": 0.6552,
+                "BI-ctskeVkgyr": 1.4,
+                "T0nu-68-limit-yr": 5E23,
+                "mbb-68-limit-eV": [0.7, 1.8],
+                "enr-germanium": false,
+                "underground": true,
+                "notes": "volume is fiducial"
+            },
+            "4": {
+                "doi": "10.1016/0920-5632(90)90123-C",
+                "published": "1990-02-01",
+                "ge76-exposure-kgyr": 1.64,
+                "BI-ctskeVkgyr": 1.2,
+                "T0nu-68-limit-yr": 2.4E24,
+                "T0nu-90-limit-yr": 1.2E24,
+                "mbb-90-limit-eV": [1.2, 1.6],
+                "enr-germanium": false,
+                "underground": true,
+                "notes": "numbers from Anatholy's proceeding, did not cross-check."
+            }
+        },
+        "St-Gotthard": {
+            "1" : {
+                "doi": "10.1016/0370-2693(89)91429-9",
+                "published": "1989-02-16",
+                "volume-cm3": 1140,
+                "livetime-yr": 0.668,
+                "BI-ctskeVkgyr": 2.9,
+                "T0nu-68-limit-yr": 2.7E23,
+                "T0nu-90-limit-yr": 1.6E23,
+                "mbb-68-limit-eV": [3.4, 23],
+                "enr-germanium": false,
+                "underground": true,
+                "notes": "using the total detector volume"
+            },
+            "2" : {
+                "doi": "10.1088/0954-3899/17/S/020",
+                "published": "1991-12-01",
+                "ge-exposure-kgyr": 10,
+                "BI-ctskeVkgyr": 2.6,
+                "T0nu-68-limit-yr": 3.4E23,
+                "T0nu-90-limit-yr": 2E23,
+                "mbb-68-limit-eV": [2.9, 20],
+                "enr-germanium": false,
+                "underground": true,
+                "notes": "they only quote a fiducial volume"
+            },
+            "3" : {
+                "doi": "10.1103/PhysRevD.45.2548",
+                "published": "1992-04-01",
+                "ge-exposure-kgyr": 10,
+                "BI-ctskeVkgyr": 2.37,
+                "T0nu-68-limit-yr": 6.0E23,
+                "T0nu-90-limit-yr": 3.3E23,
+                "mbb-68-limit-eV": [1.8, 6.7],
+                "enr-germanium": false,
+                "underground": true,
+                "notes": "they only quote a fiducial volume"
+            }
+        },
+        "ITEP-YePI": {
+            "1": {
+                "doi": "10.1142/S0217732390001475",
+                "published": "1990-07-20",
+                "ge76-exposure-kgyr": 0.866,
+                "BI-ctskeVkgyr": 2.2,
+                "T0nu-68-limit-yr": 2E24,
+                "mbb-68-limit-eV": [1.4, 8],
+                "enr-germanium": true,
+                "underground": true
+            }
+        },
+        "Heidelberg-Moscow": {
+            "1": {
+                "doi": "10.1016/0370-2693(92)91421-5",
+                "published": "1992-06-04",
+                "ge76-exposure-kgyr": 1.29,
+                "BI-ctskeVkgyr": 0.4,
+                "T0nu-68-limit-yr": 2.5E24,
+                "T0nu-90-limit-yr": 1.4E24,
+                "mbb-90-limit-eV": [1.5, "nan"],
+                "enr-germanium": true,
+                "underground": true,
+                "notes": "they just put a number for mbb without any explanation"
+            },
+            "2": {
+                "doi": "10.1016/0370-2693(94)91103-7",
+                "published": "1994-02-17",
+                "ge76-exposure-molyr": 70.8,
+                "BI-ctskeVkgyr": 0.3,
+                "T0nu-90-limit-yr": 1.5E24,
+                "enr-germanium": true,
+                "underground": true,
+                "notes": "2nbb publication"
+            },
+            "3": {
+                "doi": "10.1016/0370-2693(95)00817-5",
+                "published": "1995-08-24",
+                "ge76-exposure-kgyr": 10.23,
+                "BI-ctskeVkgyr": 0.2,
+                "BI-err-ctskeVkgyr": 0.02,
+                "T0nu-68-limit-yr": 9.4E24,
+                "T0nu-90-limit-yr": 5.6E24,
+                "mbb-68-limit-eV": [0.5, "nan"],
+                "mbb-90-limit-eV": [0.65, "nan"],
+                "enr-germanium": true,
+                "underground": true,
+                "notes": "no theoretical uncertainty on mbb"
+            },
+            "4": {
+                "doi": "10.1016/S0370-2693(97)00756-9",
+                "published": "1997-10-04",
+                "ge76-exposure-kgyr": 28.7,
+                "BI-ctskeVkgyr": 0.2,
+                "BI-err-ctskeVkgyr": 0.01,
+                "T0nu-68-limit-yr": 1.9E25,
+                "T0nu-90-limit-yr": 1.1E25,
+                "mbb-68-limit-eV": [0.35, "nan"],
+                "mbb-90-limit-eV": [0.46, 1.6],
+                "enr-germanium": true,
+                "underground": true
+            },
+            "5": {
+                "doi": "10.1103/PhysRevLett.83.41",
+                "published": "1999-07-05",
+                "ge76-exposure-kgyr": 41.55,
+                "BI-ctskeVkgyr": 0.18,
+                "BI-err-ctskeVkgyr": 0.02,
+                "T0nu-68-limit-yr": 2.8E25,
+                "T0nu-90-limit-yr": 1.6E25,
+                "mbb-90-limit-eV": [0.32, 1.07],
+                "enr-germanium": true,
+                "underground": true
+            },
+            "6": {
+                "doi": "10.1007/s100500170022",
+                "published": "2001-10-01",
+                "ge76-exposure-kgyr": 35.5,
+                "BI-ctskeVkgyr": 0.06,
+                "BI-err-ctskeVkgyr": 0.01,
+                "T0nu-68-limit-yr": 3.1E25,
+                "T0nu-90-limit-yr": 1.9E25,
+                "mbb-90-limit-eV": [0.35, "nan"],
+                "mbb-68-limit-eV": [0.27, "nan"],
+                "enr-germanium": true,
+                "underground": true,
+                "notes" : "only the dataset with PSD. No theoretical uncertainty on mbb"
+            }
+        },
+        "KKDC": {
+            "1": {
+                "doi": "10.1142/S0217732301005825",
+                "published": "2001-12-07",
+                "ge76-exposure-kgyr": 54.9813,
+                "BI-ctskeVkgyr": 0.17,
+                "BI-err-ctskeVkgyr": 0.01,
+                "T0nu-best-yr": 1.5E25,
+                "T0nu-68-CI-yr": [1.04E25, 3.46E25],
+                "T0nu-95-CI-yr": [0.8E25, 18.3E25],
+                "mbb-val-eV": 0.39,
+                "mbb-68-CI-eV": [0.26, 0.47],
+                "mbb-95-CI-eV": [0.08, 0.54],
+                "enr-germanium": true,
+                "underground": true,
+                "notes": "no theoretical uncertainty on mbb"
+            },
+            "2": {
+                "doi": "10.1016/j.physletb.2004.02.025",
+                "published": "2004-04-29",
+                "ge76-exposure-kgyr": 71.7,
+                "BI-ctskeVkgyr": 0.113,
+                "BI-err-ctskeVkgyr": 0.007,
+                "T0nu-best-yr": 1.19E25,
+                "T0nu-99-CI-yr": [0.69E25, 4.18E25],
+                "mbb-val-eV": 0.44,
+                "mbb-99-CI-eV": [0.24, 0.58],
+                "enr-germanium": true,
+                "underground": true,
+                "notes": "no theoretical uncertainty on mbb"
+            },
+            "3": {
+                "doi": "10.1142/S0217732306020937",
+                "published": "2006-05-28",
+                "ge76-exposure-kgyr": 71.7,
+                "T0nu-best-yr": 2.23E25,
+                "T0nu-68-CI-yr": [1.92E25, 2.67E25],
+                "mbb-val-eV": 0.32,
+                "mbb-68-CI-eV": [0.29, 0.35],
+                "enr-germanium": true,
+                "underground": true,
+                "notes": "no theoretical uncertainty on mbb"
+            }
+        },
+        "IGEX" : {
+            "1" : {
+                "doi": "10.1016/0920-5632(94)90275-5",
+                "published": "1994-05-01",
+                "ge76-exposure-kgyr": 0.5357,
+                "BI-ctskeVkgyr": 0.3,
+                "T0nu-68-limit-yr": 1.6E24,
+                "T0nu-90-limit-yr": 1E24,
+                "enr-germanium": true,
+                "underground": true,
+                "notes": "not sure about the BI definition, I don't get 0.3"
+            },
+            "2" : {
+                "doi": "10.1103/PhysRevC.59.2108",
+                "published": "1999-04-01",
+                "ge76-exposure-molyr": 74.84,
+                "BI-ctskeVmolyr": 0.0227,
+                "T0nu-90-limit-yr": 8E24,
+                "mbb-90-limit-eV": [0.5, 1.5],
+                "enr-germanium": true,
+                "underground": true,
+                "notes": "Manually computed BI from raw counts"
+            },
+            "3": {
+                "doi": "10.1103/PhysRevD.65.092007",
+                "published": "2002-05-17",
+                "ge76-exposure-molyr": 117,
+                "BI-ctskeVmolyr": 0.0132,
+                "T0nu-90-limit-yr": 1.57E25,
+                "mbb-90-limit-eV": [0.33, 1.35],
+                "enr-germanium": true,
+                "underground": true,
+                "notes": "Manually computed BI from raw counts"
+            }
+        },
+        "GERDA": {
+            "1": {
+                "doi": "10.1103/PhysRevLett.111.122503",
+                "published": "2013-09-20",
+                "ge76-exposure-kgyr": 21.6,
+                "BI-ctskeVkgyr": 1.2E-2,
+                "sensitivity": 2E25,
+                "BI-err-ctskeVkgyr": 3E-3,
+                "T0nu-90-limit-yr": 2.1E25,
+                "mbb-90-limit-eV": [0.2, 0.4],
+                "enr-germanium": true,
+                "underground": true
+            },
+            "2": {
+                "doi": "10.1038/nature21717",
+                "published": "2017-04-06",
+                "ge76-exposure-kgyr": 34.4,
+                "BI-ctskeVkgyr": 2E-3,
+                "BI-err-ctskeVkgyr": 1.5E-3,
+                "sensitivity": 4E25,
+                "T0nu-90-limit-yr": 5.3E25,
+                "mbb-90-limit-eV": [0.15, 0.33],
+                "enr-germanium": true,
+                "underground": true
+            },
+            "3": {
+                "doi": "10.1103/PhysRevLett.120.132503",
+                "published": "2018-03-26",
+                "ge76-exposure-kgyr": 46.7,
+                "BI-ctskeVkgyr": 1E-3,
+                "BI-err-ctskeVkgyr": 5E-4,
+                "sensitivity": 5.8E25,
+                "T0nu-90-limit-yr": 8E25,
+                "mbb-90-limit-eV": [0.12, 0.26],
+                "enr-germanium": true,
+                "underground": true
+            },
+            "4": {
+                "doi": "10.1126/science.aav8613",
+                "published": "2019-09-27",
+                "ge76-exposure-kgyr": 82.4,
+                "BI-ctskeVkgyr": 5E-4,
+                "BI-err-ctskeVkgyr": 3E-4,
+                "sensitivity": 1.1E26,
+                "T0nu-90-limit-yr": 9E25,
+                "mbb-90-limit-eV": [0.07, 0.16],
+                "enr-germanium": true,
+                "underground": true
+            },
+            "5": {
+                "doi": "unpublished",
+                "published": "2021-01-01",
+                "ge76-exposure-kgyr": 127.2,
+                "BI-ctskeVkgyr": 5.2E-4,
+                "BI-err-ctskeVkgyr": 1.5E-4,
+                "sensitivity": 1.8E26,
+                "T0nu-90-limit-yr": 1.8E26,
+                "mbb-90-limit-eV": [0.08, 0.182],
+                "enr-germanium": true,
+                "underground": true
+            }
+        },
+        "Majorana": {
+            "1": {
+                "doi": "10.1103/PhysRevLett.120.132502",
+                "published": "2018-03-26",
+                "ge76-exposure-kgyr": 9.95,
+                "BI-ctskeVkgyr": 6.7E-3,
+                "BI-err-ctskeVkgyr": 1.4E-3,
+                "T0nu-90-limit-yr": 1.9E25,
+                "mbb-90-limit-eV": [0.24, 0.52],
+                "enr-germanium": true,
+                "underground": true
+            },
+            "2": {
+                "doi": "10.1103/PhysRevC.100.025501",
+                "published": "2019-08-23",
+                "ge76-exposure-kgyr": 26,
+                "BI-ctskeVkgyr": 6.1E-3,
+                "BI-err-ctskeVkgyr": 0.8E-3,
+                "T0nu-90-limit-yr": 2.7E25,
+                "mbb-90-limit-eV": [0.20, 0.43],
+                "enr-germanium": true,
+                "underground": true
+            }
+        }
+    }
+}

@@ -1,0 +1,352 @@
+%! TEX program = xelatex
+\input{../../../tex/standalone-def}
+\import{}{pgfplots-def}
+\usetikzlibrary{shapes, positioning}
+\usepgfplotslibrary{dateplot, fillbetween, groupplots}
+
+\pgfplotsset{
+  compat=1.16,
+  height=9cm,
+  every axis/.style={%
+    ymode=log,
+    date coordinates in=x,
+    xticklabel=\year,
+    xmin=1965-01-01, xmax=2023-01-01,
+    /pgf/number format/1000 sep=,
+    legend style={
+      draw=none,
+      legend cell align=left,
+      at={(0.57,0.03)}, anchor=south
+    },
+  },
+  symbols/.style={%
+    scatter,
+    point meta=explicit symbolic,
+    scatter/classes={
+      uenr={mark=*, mark size=1.5pt},
+      unat={mark=triangle*, mark size=2.2pt},
+      anat={mark=triangle*, fill=white, mark size=2.5pt, line width=0.7pt}
+    },
+    table/meta=label,
+  },
+  BI/.style={%
+    mark=diamond*,
+    % mark size=1pt,
+    mark options={solid, fill=white},
+    densely dotted,
+    % error bars/y dir=both,
+    % error bars/y explicit,
+    table/x=date,
+    table/y=bkg_idx,
+    table/y error plus=bkg_idx_err,
+    table/y error minus=bkg_idx_err,
+  },
+  BIupper/.style={%
+    draw=none,
+    table/x=date,
+    table/y expr=\thisrow{bkg_idx}+\thisrow{bkg_idx_err},
+    name path=upper,
+  },
+  BIlower/.style={%
+    draw=none,
+    table/x=date,
+    table/y expr=\thisrow{bkg_idx}-\thisrow{bkg_idx_err},
+    name path=lower,
+  },
+  filler/.style={%
+    opacity=0.3,
+  },
+  thalfupper/.style={%
+    draw=none,
+    table/x=date,
+    table/y expr=\thisrow{T0nu_val}+\thisrow{T0nu_val_err_up},
+    name path=upper,
+  },
+  thalflower/.style={%
+    draw=none,
+    table/x=date,
+    table/y expr=\thisrow{T0nu_val}-\thisrow{T0nu_val_err_low},
+    name path=lower,
+  },
+  thalf/.style={%
+    mark=*,
+    mark size=1.5pt,
+    line width=1pt,
+    error bars/y dir=both,
+    error bars/y explicit,
+    error bars/error bar style={line width=1pt},
+    error bars/error mark options={line width=1pt, rotate=90},
+    table/x=date,
+    table/y=T0nu_val,
+    table/y error plus=T0nu_val_err_up,
+    table/y error minus=T0nu_val_err_low,
+  },
+  68thalf/.style={%
+    thalf,
+    mark=*, mark options={fill=white},
+    table/x=date,
+    table/y=T0nu_68_limit,
+  },
+  90thalf/.style={%
+    thalf,
+    table/x=date,
+    table/y=T0nu_90_limit,
+  },
+  mbb/.style={%
+    mark=-,
+    mark size=0pt,
+    only marks,
+    mark size=1pt,
+    error bars/error mark options={mark size=0pt},
+    error bars/error bar style={line width=2pt},
+    error bars/y dir=both,
+    error bars/y explicit,
+  },
+  68mbb/.style={%
+    mbb,
+    error bars/error bar style={densely dotted},
+    table/x=date,
+    table/y expr={(\thisrow{mbb_68_limit_up}+\thisrow{mbb_68_limit_low})/2},
+    table/y error plus expr={(\thisrow{mbb_68_limit_up}+\thisrow{mbb_68_limit_low})/2-\thisrow{mbb_68_limit_low}},
+    table/y error minus expr={\thisrow{mbb_68_limit_up}-(\thisrow{mbb_68_limit_up}+\thisrow{mbb_68_limit_low})/2},
+  },
+  90mbb/.style={%
+    mbb,
+    table/x=date,
+    table/y expr={(\thisrow{mbb_90_limit_up}+\thisrow{mbb_90_limit_low})/2},
+    table/y error plus expr={(\thisrow{mbb_90_limit_up}+\thisrow{mbb_90_limit_low})/2-\thisrow{mbb_90_limit_low}},
+    table/y error minus expr={\thisrow{mbb_90_limit_up}-(\thisrow{mbb_90_limit_up}+\thisrow{mbb_90_limit_low})/2},
+  },
+  valmbb/.style={%
+    only marks,
+    mark=-,
+    mark size=1pt,
+    mark options={line width=2pt},
+    table/x=date,
+    table/y=mbb_90_limit_up,
+  },
+  exposure/.style={%
+    symbols,
+    % densely dashed,
+    mark=*,
+    mark options={solid},
+    table/x=date,
+    table/y=exposure_kgyr,
+  },
+}
+
+\tikzstyle{explabel} = [fill=white, align=center]
+\tikzstyle{anatmarker} = [regular polygon, regular polygon sides=3, draw, thick, scale=0.38]
+\tikzstyle{unatmarker} = [regular polygon, regular polygon sides=3, fill, scale=0.45]
+\tikzstyle{uenrmarker} = [circle, fill, scale=0.7]
+
+\pgfdeclareplotmark{mbbbox68}{%
+  \pgfpathrectangle{\pgfpoint{-0.5ex}{-1.5ex}}{\pgfpoint{1ex}{0.5ex}}
+  \pgfpathrectangle{\pgfpoint{-0.5ex}{-0.75ex}}{\pgfpoint{1ex}{0.5ex}}
+  \pgfpathrectangle{\pgfpoint{-0.5ex}{0ex}}{\pgfpoint{1ex}{0.5ex}}
+  \pgfpathrectangle{\pgfpoint{-0.5ex}{0.75ex}}{\pgfpoint{1ex}{0.5ex}}
+  \pgfusepathqfill
+}
+
+\pgfdeclareplotmark{mbbbox90}{%
+  \pgfpathrectangle{\pgfpoint{-0.5ex}{-1.5ex}}{\pgfpoint{1ex}{2.5ex}}
+  \pgfusepathqfill
+}
+
+\pgfdeclareplotmark{halflife}{%
+  \pgfpathcircle{\pgfpoint{-0.8ex}{0ex}}{0.4ex}
+  \pgfsetfillcolor{white}
+  \pgfusepath{stroke,fill}
+  \pgfpathcircle{\pgfpoint{0.8ex}{0ex}}{0.4ex}
+  \pgfsetfillcolor{black}
+  \pgfusepath{stroke,fill}
+}
+
+\pgfdeclareplotmark{expsym}{%
+  \pgfplothandlermark{\pgfuseplotmark{triangle*}}
+  \pgfsetfillcolor{white}
+  \pgfusepath{stroke,fill}
+  \pgfplotstreamstart
+  \pgfplotstreampoint{\pgfpoint{0ex}{0ex}}
+  \pgfplotstreampoint{\pgfpoint{-1.1ex}{0ex}}
+  \pgfplotstreamend
+  \pgfsetfillcolor{black}
+  \pgfusepath{stroke,fill}
+  \pgfplotstreamstart
+  \pgfplotstreampoint{\pgfpoint{0ex}{0ex}}
+  \pgfplotstreampoint{\pgfpoint{0ex}{0ex}}
+  \pgfplotstreamend
+  \pgfpathcircle{\pgfpoint{1.1ex}{0ex}}{2pt}
+  \pgfusepathqfill
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}[
+      group style={%
+        group size=1 by 2,
+        xlabels at=edge bottom,
+        xticklabels at=edge bottom,
+        vertical sep=2pt,
+      },
+      axis y line*=right,
+    ]
+
+    \nextgroupplot[
+      ylabel={$T_{1/2}^{0\upnu}$ lower limit (yr)},
+      ymin=1E20, ymax=1E28,
+      % ymajorgrids=true,
+      xmajorgrids=true,
+    ]
+
+      \addlegendimage{68thalf, black};
+      \addlegendentry{$T^{0\upnu}_{1/2}$ observed 68\% C.L.~lower limit};
+      \addlegendimage{90thalf, black};
+      \addlegendentry{$T^{0\upnu}_{1/2}$ observed 90\% C.L.~lower limit};
+      \addlegendimage{BI, black};
+      \addlegendentry{background index};
+
+      \node[TolMutGreen,  explabel] at (axis cs:1976-01-01, 3.0e+22) {Milano};
+      \node[TolBriBlue,   explabel] at (axis cs:1981-01-01, 1.0e+24) {UCSB/LBL};
+      \node[TolVibOrange, explabel] at (axis cs:1991-01-01, 2.0e+25) {ITEP/ \\ IePY};
+      \node[TolMutRose,   explabel] at (axis cs:1991-01-01, 7.0e+22) {St.~Gotthard};
+      \node[TolMutTeal,   explabel] at (axis cs:2001-01-01, 2.0e+24) {IGEX};
+      \node[TolMutWine,   explabel] at (axis cs:1998-01-01, 8.0e+25) {Heidelberg \\ Moscow};
+      \node[TolMutOlive,  explabel] at (axis cs:2008-06-01, 1.6e+25) {KKDC \\ Claim};
+      \node[TolVibRed,    explabel] at (axis cs:2015-01-01, 3.0e+26) {\Large\textsc{Gerda}};
+      \node[TolVibCyan,   explabel] at (axis cs:2017-06-01, 5.0e+24) {\textsc{Majorana}};
+
+      \addplot[68thalf, TolMutGreen ] table {data/Milano.csv};
+      % \addplot[68thalf, black       ] table {data/ELEGANTS.csv};
+      % \addplot[68thalf, black       ] table {data/PNL-USC.csv};
+      \addplot[68thalf, TolBriBlue  ] table {data/UCSB-LBL.csv};
+      \addplot[68thalf, TolVibOrange] table {data/ITEP-YePI.csv};
+      \addplot[90thalf, TolMutRose  ] table {data/St-Gotthard.csv};
+      \addplot[90thalf, TolMutTeal  ] table {data/IGEX.csv};
+      \addplot[90thalf, TolMutWine  ] table {data/Heidelberg-Moscow.csv};
+      \addplot[90thalf, TolVibRed   ] table {data/GERDA.csv};
+      \addplot[90thalf, TolVibCyan  ] table {data/Majorana.csv};
+
+      \addplot[thalf, TolMutOlive] table {data/KKDC.csv};
+      \addplot[thalfupper, TolMutOlive] table {data/KKDC.csv};
+      \addplot[thalflower, TolMutOlive] table {data/KKDC.csv};
+      \addplot[filler, fill=TolMutOlive] fill between[of=upper and lower];
+
+    \nextgroupplot[
+      ylabel={$m_{\upbeta\upbeta}$ upper limit (eV)},
+      xmajorgrids=true,
+    ]
+
+      \addlegendimage{only marks, mark=mbbbox68};
+      \addlegendentry{$m_{\upbeta\upbeta}$ 68\% C.L.~upper limits};
+      \addlegendimage{only marks, mark=mbbbox90};
+      \addlegendentry{$m_{\upbeta\upbeta}$ 90\% C.L.~upper limits};
+      \addlegendimage{exposure, mark=expsym, black};
+      \addlegendentry{$^{76}$Ge exposure};
+
+      \addplot[68mbb, TolMutGreen ] table {data/Milano.csv};
+      \addplot[68mbb, TolBriBlue  ] table {data/UCSB-LBL.csv};
+      \addplot[90mbb, TolBriBlue  ] table {data/UCSB-LBL.csv};
+      % \addplot[68mbb, black       ] table {data/ELEGANTS.csv};
+      \addplot[68mbb, TolVibOrange] table {data/ITEP-YePI.csv};
+      \addplot[68mbb, TolMutRose  ] table {data/St-Gotthard.csv};
+      \addplot[90mbb, TolMutTeal  ] table {data/IGEX.csv};
+      \addplot[90mbb, TolMutWine  ] table {data/Heidelberg-Moscow.csv};
+      \addplot[valmbb, TolMutWine ] table {data/Heidelberg-Moscow.csv};
+
+      % HACK
+      % \addplot[valmbb, TolMutOlive]   table {data/Heidelberg-Moscow.csv};
+      \addplot[TolMutOlive,
+        mark=-,
+        error bars/y dir=both,
+        error bars/y explicit,
+        table/x=date,
+        table/y=mbb_val,
+        table/y error plus=mbb_up,
+        table/y error minus=mbb_up,
+      ] table {
+          date, mbb_val, mbb_low, mbb_up
+          2004-04-29, 0.44, 0.20, 0.14
+      };
+
+      \addplot[90mbb, TolVibRed]    table {data/GERDA.csv};
+      \addplot[90mbb, TolVibCyan]   table {data/Majorana.csv};
+
+      \draw[fill=white, draw=none] (axis cs:1995-09-01, 1e1) rectangle (axis cs:2017-01-01, 2.7e+1);
+      \node[anatmarker] (a) at (axis cs:1997-01-01, 2e1) {};
+      \node[unatmarker, right=1ex of a] (b) {};
+      \node[right=0ex of b, anchor=west, yshift=0.4ex] (c) {$^\text{nat}$Ge};
+      \node[uenrmarker, right=2ex of c, yshift=-0.3ex] (d) {};
+      \node[right=0ex of d, anchor=west, yshift=0.1ex] (e) {$^\text{enr}$Ge};
+
+      \node[anatmarker, below=2ex of a] (f) {};
+      \node[right=0ex of f, yshift=0.3ex] (g) {/};
+      \node[unatmarker, right=0ex of g, yshift=-0.6ex] (h) {};
+      \node[uenrmarker, right=0.5ex of h, yshift=0.3ex] (i) {};
+      \node[right=0ex of i, anchor=west, yshift=-0.15ex] {above / under ground};
+
+    \end{groupplot}
+
+    \begin{groupplot}[
+      group style={%
+        group size=1 by 2,
+        xlabels at=edge bottom,
+        xticklabels at=edge bottom,
+        vertical sep=5pt,
+      },
+      axis y line*=left,
+      axis x line=none,
+    ]
+
+    \nextgroupplot[
+      ylabel={background index (cts/(keV$\cdot$kg$\cdot$yr))},
+      ymin=1E-4, ymax=1E4,
+    ]
+
+      \addplot[BI, TolMutGreen ] table {data/Milano.csv};
+      % \addplot[BI, black       ] table {data/ELEGANTS.csv};
+      % \addplot[BI, black       ] table {data/PNL-USC.csv};
+      \addplot[BI, TolBriBlue  ] table {data/UCSB-LBL.csv};
+
+      % HACK
+      % \addplot[BI, TolVibOrange] table {data/ITEP-YePI.csv};
+      \addplot[BI, TolVibOrange] table {
+          date, bkg_idx
+          1990-07-20, 2.7
+      };
+
+      \addplot[BI, TolMutRose  ] table {data/St-Gotthard.csv};
+      \addplot[BI, TolMutWine  ] table {data/Heidelberg-Moscow.csv};
+      \addplot[BI, TolMutTeal  ] table {data/IGEX.csv};
+      \addplot[BI, TolMutOlive ] table {data/KKDC.csv};
+
+      \addplot[BI, TolVibCyan  ] table {data/Majorana.csv};
+      \addplot[BIupper, TolVibCyan  ] table {data/Majorana.csv};
+      \addplot[BIlower, TolVibCyan  ] table {data/Majorana.csv};
+      \addplot[filler, fill=TolVibCyan] fill between[of=upper and lower];
+
+      \addplot[BI, TolVibRed   ] table {data/GERDA.csv};
+      \addplot[BIupper, TolVibRed] table {data/GERDA.csv};
+      \addplot[BIlower, TolVibRed] table {data/GERDA.csv};
+      \addplot[filler, fill=TolVibRed] fill between[of=upper and lower];
+
+    \nextgroupplot[
+      ylabel={$^{76}$Ge exposure (kg$\cdot$yr)},
+      ymin=1E-4, ymax=0.99E4,
+    ]
+
+      \addplot[exposure, TolMutGreen ] table {data/Milano.csv};
+      % \addplot[exposure, black       ] table {data/ELEGANTS.csv};
+      % \addplot[exposure, black       ] table {data/PNL-USC.csv};
+      \addplot[exposure, TolBriBlue  ] table {data/UCSB-LBL.csv};
+      \addplot[exposure, TolVibOrange] table {data/ITEP-YePI.csv};
+      \addplot[exposure, TolMutRose  ] table {data/St-Gotthard.csv};
+      \addplot[exposure, TolMutWine  ] table {data/Heidelberg-Moscow.csv};
+      \addplot[exposure, TolMutTeal  ] table {data/IGEX.csv};
+      \addplot[exposure, TolMutOlive ] table {data/KKDC.csv};
+      \addplot[exposure, TolVibCyan  ] table {data/Majorana.csv};
+      \addplot[exposure, TolVibRed   ] table {data/GERDA.csv};
+
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}

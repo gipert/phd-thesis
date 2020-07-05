@@ -1,0 +1,180 @@
+%! TEX program = xelatex
+\input{../../../tex/standalone-def}
+\import{}{pgfplots-def}
+\usepgfplotslibrary{groupplots, fillbetween}
+
+\newcommand{\BI}{5.2E-4}
+\newcommand{\BIerrup}{1.6E-4}
+\newcommand{\BIerrlow}{1.3E-4}
+
+\pgfplotsset{
+  height=4.5cm,
+  legend style={%
+    at={(rel axis cs:0.4,0.95)},
+    anchor=north west,
+    draw=none,
+  },
+  every axis/.style={%
+    ymode=log,
+    restrict x to domain=900:5400,
+    xmin=1000, xmax=5350,
+    ymin=2e-4, ymax=20,
+    log basis y=10,
+    log origin=infty,
+    ylabel style={%
+      at={(ticklabel cs:1,-4)},
+      anchor=south east,
+    },
+    xlabel style={%
+      at={(ticklabel cs:1,-4)},
+      anchor=north east,
+    },
+  },
+  inset/.style={%
+    xlabel={Energy (keV)},
+    font=\small,
+    width=7.5cm,
+    height=5cm,
+  },
+  extended/.style={%
+    inset,
+    at={(insetposup)},
+    anchor={north west},
+    xmin=1878, xmax=2658,
+    ymax=1,
+    restrict x to domain=1500:2800,
+    domain=1500:2800,
+  },
+  roi/.style={%
+    inset,
+    at={(insetposlo)},
+    anchor={north east},
+    xmin=1930, xmax=2190,
+    ymax=4e-1,
+    restrict x to domain=1930:2190,
+    domain=1930:2190,
+    legend pos=north west,
+  },
+  histogram/.style={%
+    solid,
+    const plot,
+    no marks,
+  },
+  fit/.style={%
+    no marks,
+    thick,
+    TolBriGreen, samples=200,
+    domain=1930:2190,
+  },
+  /pgf/declare function={%
+    gaus(\x,\mu,\fwhm) = (2.35/(\fwhm*sqrt(2*pi)))*exp(-0.5*(\x-\mu)^2/(\fwhm/2.35)^2);
+    signal(\x,\fwhm,\thalf) = (0.6*ln(2)*6.022141e23/0.076/\thalf)*gaus(\x,2039,\fwhm);
+  },
+  table/.cd,
+    x=energy,
+    y expr={\thisrow{EnrAll}+1e-10},
+}
+
+\pgfdeclareplotmark{linerrarea}{%
+  \pgfpathrectangle{\pgfpoint{-2ex}{-0.7ex}}{\pgfpoint{4ex}{1.4ex}}
+  \pgfsetfillopacity{0.4}
+  \pgfusepath{fill}
+  \pgfpathmoveto{\pgfpoint{-2ex}{0ex}}
+  \pgfpathlineto{\pgfpoint{2ex}{0ex}}
+  \pgfsetlinewidth{1pt}
+  \pgfusepath{stroke}
+}
+
+\tikzstyle{gammaline} = [%
+  fill=gray,
+  draw=none,
+  opacity=0.3,
+]
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}[
+      area legend,
+      axis lines=none,
+    ]
+
+      \addplot+[histogram, gray] table {data/hRaw-15keV.csv} \closedcycle;
+      \addplot+[histogram, TolVibRed, fill=TolVibRed] table {data/hPSDLAr-15keV.csv} \closedcycle;
+      \addplot+[black, smooth, thick, no marks, line legend] table {data/2nbb.csv};
+
+      \addlegendentry{Prior to analysis cuts}
+      \addlegendentry{After analysis cuts}
+      \addlegendentry{$2\upnu\upbeta\upbeta$ decay ($T_{1/2}=1.92\cdot10^{21}$~yr)}
+
+      % \node[isotope] at (axis cs:1430,1e1) {$^{40}$K};
+      % \node[isotope] at (axis cs:1535,2e1) {$^{42}$K};
+      % \node[isotope] at (axis cs:1730,5e-1) {$^{214}$Bi};
+      % \node[isotope] at (axis cs:2180,1e-1) {$^{214}$Bi};
+      % \node[isotope] at (axis cs:2580,2e-1) {$^{208}$Tl};
+      % \node[isotope, rotate=-90] at (axis cs:5100,2e-2) {$^{210}$Po};
+
+      \draw[TolBriBlue, thick] (axis cs:2039,2e-4) -- (axis cs:2039,3e-2) node[anchor=south] {Q$_{\upbeta\upbeta}$};
+
+      \coordinate (insetposup) at (rel axis cs:0.0,-0.2);
+      \coordinate (insetposlo) at (rel axis cs:1.0,-0.2);
+    \end{axis}
+
+    \begin{axis}[extended, axis lines=none]
+
+      \addplot+[histogram, gray] table {data/hRaw-5keV.csv} \closedcycle;
+      \addplot+[histogram, TolVibRed, fill=TolVibRed] table {data/hPSDLAr-5keV.csv} \closedcycle;
+
+      \draw[gammaline] (axis cs:1922.2-5,1e-5) rectangle (axis cs:1922.2+5,10);
+      \draw[gammaline] (axis cs:2104.0-5,1e-5) rectangle (axis cs:2104.0+5,10);
+      \draw[gammaline] (axis cs:2118.6-5,1e-5) rectangle (axis cs:2118.6+5,10);
+      \draw[gammaline] (axis cs:2204.2-5,1e-5) rectangle (axis cs:2204.2+5,10);
+      \draw[gammaline] (axis cs:2432.8-5,1e-5) rectangle (axis cs:2432.8+5,10);
+      \draw[gammaline] (axis cs:2447.9-5,1e-5) rectangle (axis cs:2447.9+5,10);
+      \draw[gammaline] (axis cs:2614.5-5,1e-5) rectangle (axis cs:2614.5+5,10);
+
+      \draw[TolBriBlue, thick] (axis cs:2039,2e-4) -- (axis cs:2039,1e-1) node [anchor=south] {Q$_{\upbeta\upbeta}$};
+      % \draw[TolBriGreen, densely dotted] (axis cs:1930,2e-4) -- (axis cs:1930,1.5e-1);
+      % \draw[TolBriGreen, <->, solid] (axis cs:1930,1.5e-1) -- (axis cs:2190,1.5e-1);
+      % \draw[TolBriGreen, densely dotted] (axis cs:2190,2e-4) -- (axis cs:2190,1.5e-1);
+
+      % BI band
+      \addplot[fit, draw=none, name path=low] {\BI-\BIerrlow};
+      \addplot[fit, draw=none, name path=up] {\BI+\BIerrup};
+      \addplot[fit, draw=none, opacity=0.4] fill between[of=low and up]; \label{filler}
+      \addplot[fit, name path=best] {\BI};
+
+    \end{axis}
+
+    \begin{axis}[roi, axis lines=none]
+
+      \addlegendimage{TolBriGreen, only marks, mark=linerrarea, line legend}
+      \addlegendentry{Background level}
+      \addlegendimage{fit, fill, TolBriBlue!70!white, draw=none, area legend}
+      \addlegendentry{$T_{1/2}>1.8\cdot10^{26}$~yr (90\% C.L. low.~limit)}
+
+      % BI band
+      \addplot[draw=none, name path=low] {\BI-\BIerrlow};
+      \addplot[draw=none, name path=up] {\BI+\BIerrup};
+      \addplot[fit, opacity=0.4] fill between[of=low and up]; \label{filler}
+      \addplot[fit, name path=best] {\BI};
+
+      \addplot[fit, TolBriBlue, draw=none, domain=2033:2045, name path=gaus, forget plot] {\BI+signal(x,2.56,1.8e26)};
+      \addplot[fit, TolBriBlue!70!white, draw=none] fill between[of=best and gaus]; \label{signal}
+
+      % redraw BI line
+      \addplot[fit, solid, no marks, name path=best] {\BI}; \label{biline}
+
+      \addplot[histogram, TolVibRed, fill=TolVibRed] table {data/hPSDLAr.csv} \closedcycle;
+
+      \draw[gammaline] (axis cs:2104.0-5,1e-5) rectangle (axis cs:2104.0+5,1e-1);
+      \draw[gammaline] (axis cs:2118.6-5,1e-5) rectangle (axis cs:2118.6+5,1e-1);
+
+    \end{axis}
+
+    % to re-draw axes
+    \begin{axis}[ylabel={Counts / (15 keV$\cdot$kg$\cdot$yr)}]\end{axis}
+    \begin{axis}[extended, ylabel={Counts / (5 keV$\cdot$kg$\cdot$yr)}]\end{axis}
+    \begin{axis}[roi, ylabel={Counts / (keV$\cdot$kg$\cdot$yr)}]\end{axis}
+
+  \end{tikzpicture}
+\end{document}

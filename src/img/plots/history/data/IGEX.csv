@@ -1,0 +1,4 @@
+date, exposure_kgyr, bkg_idx, bkg_idx_err, T0nu_sensitivity, T0nu_val, T0nu_val_err_up, T0nu_val_err_low, T0nu_68_limit, T0nu_90_limit, mbb_68_limit_up, mbb_68_limit_low, mbb_90_limit_up, mbb_90_limit_low, mbb_68_limit_today_up, mbb_68_limit_today_low, mbb_90_limit_today_up, mbb_90_limit_today_low, label
+1994-05-01, 0.5357, 0.3, nan, nan, nan, nan, nan, 1.6e24, 1.0e24, nan, nan, nan, nan, 0.8682092464757063, 1.8415649414865327, 1.0982074817926992, 2.3294158696848606, uenr
+1999-04-01, 5.681957778068, 0.31250000000000006, nan, nan, nan, nan, nan, nan, 8.0e24, nan, nan, 0.5, 1.5, nan, nan, 0.38827497876270983, 0.823572878828862, uenr
+2002-05-17, 8.8828041159, 0.1817180616740088, nan, nan, nan, nan, nan, nan, 1.57e25, nan, nan, 0.33, 1.35, nan, nan, 0.2771625650343113, 0.5878915306783143, uenr

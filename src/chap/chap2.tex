@@ -39,25 +39,37 @@ the natural \GTF{} detectors were removed.}. Moreover, the LAr veto system was e
 with a more efficient one, thanks to the denser fiber curtain and the addition of a shroud
 enclosing the central string, now consisting of inverted-coaxial detectors only. This last
 part of \phasetwo, which will be referred as \phasetwop\ in the following, ended in
-December 2019 after collecting the total exposure of \fillme{fillme}~\kgyr\ and
+December 2019 after collecting the total exposure of 103.7~\kgyr\ and
 establishing the final \gerda\ upper limit on the neutrinoless double-beta decay half-life
 of \gerdafinallimit. When generally referring to the \phasetwo\ period, if not specified
 in the following, \phasetwop\ must be considered as implicitly included.
 \begin{figure}
   \centering
-  \includegraphics{plots/0nbb-ge76-history.pdf}
-  \includegraphics{plots/gerda-history.pdf}
-  \caption{%
-    Top: history of lower limits (68\% CL, 90\% CL since 1991) and background indices from
-    \gesix\ neutrinoless double-beta decay experiments, extracted from~\cite{Fiorini1967,
-    Bellotti1984, Caldwell1989, Reusser1991, Vasenko1989, Klapdor2001, Aalseth2002,
-    Klapdor2004, Alvis2019, gerda-final} and references therein. Original design by Karl-Tasso
-    Kn\"opfle.  Numbers attached to single data points correspond to exposures in
-    mol(\gesix)$\cdot$yr. Bottom: evolution and milestones set by the \gerda\ experiment
-    through its three experimental phases. The exposure gain, the neutrinoless double-beta
-    decay half-life sensitivities and upper limits are tracked over time. \fillme{to be
-    updated}
+  \includegraphics{plots/history/0nbb-ge76-history.pdf}
+  \caption[placeholder]{%
+    History of neutrinoless double-beta decay experiments with \gesix. Each point
+    correspond to a specific journal publication. Top panel: evolution of \thalfzero\
+    lower limits and background index in the ROI. Bottom panel: evolution of the
+    accumulated exposure and \mbb\ upper limits, if reported in the publication. Note that
+    these \mbb\ constrains include the theoretical uncertainty on matrix elements as known
+    at the time of publication. Some \hdm\ publications report a single \mbb\ value. 90\%
+    C.L.~limits, if available, are preferred to 68\% C.L.~limits. Different markers are
+    used in the bottom panel to distinguish between experiments above or under ground,
+    experiments using natural or isotopically-enriched germanium\protect\footnotemark.
   }\label{img:exp:ge76-history}
+\end{figure}
+\footnotetext{Data collected for the history plots can be downloaded in JSON format at
+\url{https://github.com/gipert/phd-thesis/src/img/plots/history/data/ge76-history.json}.}
+\begin{figure}
+  \centering
+  \includegraphics{plots/history/gerda-history-vs-exposure.pdf}
+  \caption{%
+    Evolution of sensitivity and \thalfzero\ limits set by \gerda\ over accumulated
+    exposure. The almost perfect linear increase of the sensitivity for limit setting
+    demostrates the background-free conditions in which the experiment has been operating
+    in its second phase. Deviations of the observed limit from the expectations for no
+    signal are due to the particular statistical realization.
+  }\label{img:exp:gerda-history}
 \end{figure}
 \newpar
 The \phasetwop\ upgrade is partly also a test bench for the next-generation successor of
@@ -638,19 +650,19 @@ time stability of the experimental setup.  The resolution curves for \bege, semi
 and inverted-coaxial \phasetwop\ data sets are reported in \cref{fig:gerda:calib-desc} as
 an example. The typical energy resolution at \qbb\ is \fillme{fillme} and the associated
 uncertainty is of the order of \fillme{fillme}. The calibrated energy spectrum of the
-\gerda\ \phasetwo\ data after granularity cut is shown in \cref{fig:gerda:spectrum-cuts},
+\gerda\ \phasetwo\ data after granularity cut is shown in \cref{fig:gerda:physics-spectra},
 empty histogram. \fillme{update this to final analysis, calibration paper?}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.9\linewidth]{plots/0nbb-results/spectrum-cuts.pdf}
+  \includegraphics[width=0.9\linewidth]{plots/0nbb-results/physics-spectra.pdf}
   \caption{%
     Single-detector data from the enriched detectors is displayed in a combined spectrum
     after indicated cuts. Main contributions to the spectra are labeled. The insets
     display the analysis window for coaxial and \bege\ detectors separately, including the
     background rates (solid blue lines). The dashed blue curves depict the 90\% C.L.~limit
     for a \onbb\ signal of \gerdafinallimit. \fillme{to be updated}
-  }\label{fig:gerda:spectrum-cuts}
+  }\label{fig:gerda:physics-spectra}
 \end{figure}
 
 \begin{figure}
@@ -671,7 +683,7 @@ empty histogram. \fillme{update this to final analysis, calibration paper?}
 \blocktitle{LAr veto and \\ PSD cuts on \\ data}
 The first cut applied to \phasetwo\ data (after the quality cuts and the multiplicity cut)
 is the LAr veto cut.  Event energy histograms before and after this event selection are
-shown in \cref{fig:gerda:spectrum-cuts}. The cut clearly suppresses background events from
+shown in \cref{fig:gerda:physics-spectra}. The cut clearly suppresses background events from
 the \Th\ and \Uh\ decay chains, as well as \kvz\ events. The \kvz\ FEP event reduction to
 20\% and 18\% in \phasetwo\ and \phasetwop\ data, respectively, demonstrates the
 effectiveness of the improved fiber instrumentation installed for \phasetwop. \kvn\

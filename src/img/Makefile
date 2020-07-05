@@ -2,7 +2,8 @@ DIRS = $(sort $(dir $(wildcard */Makefile))) \
        $(sort $(dir $(wildcard */*/Makefile))) \
        $(sort $(dir $(wildcard */*/*/Makefile))) \
        $(sort $(dir $(wildcard */*/*/*/Makefile))) \
-       $(sort $(dir $(wildcard */*/*/*/*/Makefile)))
+       $(sort $(dir $(wildcard */*/*/*/*/Makefile))) \
+       $(sort $(dir $(wildcard */*/*/*/*/*/Makefile)))
 PWD = $(shell pwd)
 
 all: $(DIRS)

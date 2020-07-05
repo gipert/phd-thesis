@@ -1,0 +1,83 @@
+%! TEX program = xelatex
+\input{../../../tex/standalone-def}
+\import{}{pgfplots-def}
+\usepgfplotslibrary{dateplot}
+
+\pgfplotsset{%
+  compat=1.6,
+  width=11cm,
+  height=6cm,
+  every axis/.style={%
+    legend pos=north west,
+    legend style={cells={anchor=west}, draw=none},
+  },
+  expbars/.style={%
+    pattern=north west lines,
+    ybar interval,
+    area legend,
+  },
+  phaseI/.style={%
+    expbars,
+    pattern color=TolVibBlue,
+    draw=TolVibBlue
+  },
+  phaseII/.style={%
+    expbars,
+    pattern color=TolVibRed,
+    draw=TolVibRed
+  },
+  cumulative/.style={%
+    thick,
+    draw=black,
+    mark=none,
+    dashed
+  },
+  thalf/.style={%
+    thick,
+    mark options={fill=white},
+    mark size=3pt
+  },
+}
+
+\tikzstyle{publabel} = [
+  font=\scriptsize,
+  anchor=west,
+  xshift=10pt,
+]
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}[
+      xlabel={exposure (kg$\cdot$yr)},
+      ylabel={$T_{1/2}$ 90\% C.L.~lower limit},
+    ]
+
+      % sensitivities
+      \addplot+[thalf, mark=triangle*, TolBriGreen] coordinates {
+        (21.6,  0.25E26)
+        (32.4,  0.40E26)
+        (44.8,  0.58E26)
+        (80.5,  1.1E26)
+        (124.1, 1.8E26)
+      };
+      \addlegendentry{expected for no signal}
+
+      % upper limits
+      \addplot+[thalf, only marks, mark=*, mark size=3.4pt, line width=1.5pt, TolVibRed] coordinates {
+        (21.6,  0.25E26)
+        (32.4,  0.53E26)
+        (44.8,  0.80E26)
+        (80.5,  0.90E26)
+        (124.1, 1.8E26)
+      };
+      \addlegendentry{observed}
+
+        \node[publabel] at (axis cs:21.6,  0.25E26) {PRL 111 (2013) 122503};
+        \node[publabel] at (axis cs:32.4,  0.40E26) {\textsc{Nature} 544 (2017) 47};
+        \node[publabel] at (axis cs:44.8,  0.58E26) {PRL 120 (2018) 132503};
+        \node[publabel, anchor=east, xshift=-20pt] at (axis cs:80.5,  1.1E26) {\textsc{Science} 365, 1445 (2019)};
+        \node[publabel, anchor=east, xshift=-20pt] at (axis cs:124.1, 1.80E26) {2020 ???};
+
+    \end{axis}
+  \end{tikzpicture}
+\end{document}
