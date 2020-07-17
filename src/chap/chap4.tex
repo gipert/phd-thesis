@@ -407,8 +407,8 @@ coverage.
 
 \begin{figure}
   \centering
-  \includegraphics{plots/lar/larmap-dist.pdf}%
-  \includegraphics[height=7cm, clip, trim=0 -300 0 0]{plots/lar/lar-points-position.pdf}
+  \includegraphics[height=\linewidth, angle=90]{plots/lar/lar-points-position.pdf}
+  \includegraphics{plots/lar/larmap-dist.pdf}
   \caption{%
     Study of the impact of Monte Carlo parameters on LAr light detection probabilities in
     various spatial points. Each curve shows the dependence of the probability upon
@@ -417,6 +417,17 @@ coverage.
     germanium reflectivity is scaled by a global factor, such that the unit value
     corresponds to the value implemented in \mage.
   }\label{fig:bkg:lar:ph2:larmap:dist}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/lar/larmap-dist-pcanorm.pdf}
+  \caption{%
+    Study of the impact of Monte Carlo parameters on LAr light detection probabilities in
+    various spatial points, normalized to unity at the best value and such to leave the
+    probability at the uppermost calibration source position (red point) unchanged.  The
+    color code and other details are described in \cref{fig:bkg:lar:ph2:larmap:dist}.
+  }\label{fig:bkg:lar:ph2:larmap:dist-pcanorm}
 \end{figure}
 
 \section{Tuning the LAr veto model}%

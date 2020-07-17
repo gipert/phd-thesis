@@ -655,7 +655,7 @@ empty histogram. \fillme{update this to final analysis, calibration paper?}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.9\linewidth]{plots/0nbb-results/physics-spectra.pdf}
+  \includegraphics{plots/0nbb-results/physics-spectra.pdf}
   \caption{%
     Single-detector data from the enriched detectors is displayed in a combined spectrum
     after indicated cuts. Main contributions to the spectra are labeled. The insets
@@ -667,18 +667,79 @@ empty histogram. \fillme{update this to final analysis, calibration paper?}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.45\textwidth]{plots/0nbb-results/aoe-on-data.pdf}%
-  \includegraphics[width=0.45\textwidth]{plots/0nbb-results/ann-on-data.pdf}
-  \includegraphics[width=0.45\textwidth]{plots/0nbb-results/rt-on-data.pdf}
+  \includegraphics[width=0.5\textwidth]{plots/0nbb-results/G2006_bege_ic_psd0.pdf}%
+  \includegraphics[width=0.5\textwidth]{plots/0nbb-results/G2006_coax_psd0.pdf}
+  \includegraphics[width=0.5\textwidth]{plots/0nbb-results/G2006_coax_psd7.pdf}%
+  \includegraphics[width=0.5\textwidth]{plots/0nbb-results/G2006_all_deltaE_scatter.pdf}
   \caption{%
-    The three pulse shape discrimination techniques applied on the \gerda\ \phasetwo\
-    data. From left to right: the \aoe\ cut, the \annmse\ cut, the rise-time cut.
-    \fillme{to be updated with full data}
+    The four pulse shape discrimination techniques applied on the \gerda\ \phasetwo\
+    data. From left to right and top to bottom: the \aoe\ cut, the \annmse\ cut, the
+    rise-time cut and the \deltae\ cut. \fillme{to be updated with final plots}
   }\label{fig:gerda:psd-on-data}
 \end{figure}
 
 \blocktitle{statistical \\ methods}
-\fillme{update to final decision}
+The energy range considered for the \onbb\ statistical analysis goes from 1930~keV to
+2190~keV, excluding the two regions $2014 \pm 5$~keV and $2119 \pm 5$~keV in which two
+known \g\ lines from \Bih\ and \Tl\ lie. No other non-flat background structure is
+expected from the background studies that will be presented in the following chapters.
+The analysis window is shown in \cref{fig:gerda:physics-spectra}: in green in the bottom
+left panel and in the bottom right panel. The energy distribution of the events in this
+window is fitted to search for a \onbb-decay signal. The baseline fit model includes a
+Gaussian distribution for the signal, centered at \qbb\ with a width corresponding to the
+energy resolution, and a uniform distribution for the background. The free parameters of
+the fit are the signal strength $S=1/T$ and the background index $B$. The number of signal
+events scales with $S$ as
+\begin{equation}\label{eq:gerda:mu_s}
+  \mu_s = \frac{\mathcal{N}_A \log2}{m_{76}} \cdot \epsilon \cdot \expoM \cdot S \;,
+\end{equation}
+where $\mathcal{N}_A$ is the Avogadro number, $m_{76}$ is the \gesix\ molar mass,
+\expo\ is the total exposure scrutinized and $\epsilon$ is the total \onbb\ detection
+efficiency. The efficiency $\epsilon$ accounts for the enrichment fraction in \gesix, the
+active volume fraction of the germanium detectors, the electron containment efficiency and
+the analysis cuts. The latter include the quality cuts, the muon veto cut, the LAr veto
+cut and the PSD cut. The efficiency $\epsilon$ is evaluated on the full \phasetwo\
+dataset to be $(47.0 \pm 3.9)$ for the \scoax\ detectors $(60.7 \pm 2.5)$ for the \bege\
+detectors and $(66.0 \pm 1.8)$ for the \icoax\ detectors. The number of background events
+in the analysis window is given by
+\begin{equation}\label{eq:gerda:mu_b}
+  \mu_b = B \cdot \Delta{}E \cdot \expoM \;,
+\end{equation}
+where $\Delta{}E = 240$~keV is the effective width of the window after removing the two
+aforementioned \g-line regions.
+\newpar
+Data from each detector is divided in partitions, i.e.~periods of time in which parameters
+such as the resolution and efficiency are stable. The parameters of each of the 408
+partitions are indicated by the index $k$. The signal strength $S$ and the background
+index $B$ instead are common parameters to all partitions. This construction constitutes a
+significant improvement over the previous data releases~\cite{Agostini20191, Agostini2018,
+Agostini2017} as it allows a precise tracing of the performance of each detector at a
+given moment. Another difference compared to the previous analyses is that the background
+index is now assumed to be the same for all detectors, while independent parameters were
+used in the past for each detector type. There is no statistical evidence indeed that the
+background is different between the three detector types, or detector position within the
+array, or time.
+\newpar
+The statistical analysis is based on an unbinned extended likelihood function and it is
+performed in both frequentist and Bayesian frameworks, following the procedure described
+in~\cite{Agostini2017}. The likelihood function is given by the product of likelihoods of
+each partition:
+\[
+  \mathcal{L} = \prod_k \left[
+    \frac{{(\mu_s + \mu_b)}^{N_k} e^{-(\mu_s + \mu_b)}}{N_k!} \times
+    \frac{1}{\mu_s + \mu_b} \times
+    \prod^{N_k}_{i=1} \left(
+      \frac{\mu_b}{\Delta{}E} +
+      \frac{\mu_s}{\sqrt{2\pi\sigma_k}} e^{-\frac{{(E_i - \qbbM)}^2}{2\sigma_k^2}}
+    \right)
+  \right] \;,
+\]
+where $E_i$ is the energy of the $N_k$ events in the $k$-th partition and $\sigma_k =
+\text{FWHM}/2.35$ is the energy resolution of the partition. The parameters $\mu_s$ and
+$\mu_b$ are calculated from \cref{eq:gerda:mu_s,eq:gerda:mu_b} respectively and are a
+function of the efficiency $\epsilon_k$ and the exposure $\expoM_k$ of each partition.
+\phaseone\ data sets are included in the analysis as individual partitions with
+independent background indices.
 
 \blocktitle{LAr veto and \\ PSD cuts on \\ data}
 The first cut applied to \phasetwo\ data (after the quality cuts and the multiplicity cut)
@@ -701,14 +762,7 @@ data points correspond to events that survive the PSD cut.
 
 \blocktitle{unblinding \\ the ROI}
 The events in the background window that survive all cuts are displayed in
-\cref{fig:gerda:roi}. \fillme{background indices, should the definition go here?}.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\linewidth]{plots/0nbb-results/roi-unblinded.pdf}
-  \caption{%
-    Events that survive all cuts in the background window. \fillme{to be updated}
-  }\label{fig:gerda:roi}
-\end{figure}
+\cref{fig:gerda:physics-spectra}, right-bottom panel. \fillme{background indices, should
+the definition go here?}.
 
 % vim: tw=90

@@ -76,33 +76,33 @@
 
     \nextgroupplot[xlabel={Ge reflectivity}, ylabel={probability}]
     \foreach \point in \points {%
-      \addplot+[best] table {data/refl-dist-norm.csv};
-      \addplot+[upper] table {data/refl-dist-norm.csv};
-      \addplot+[lower] table {data/refl-dist-norm.csv};
+      \addplot+[best] table {data/refl-dist-pcanorm.csv};
+      \addplot+[upper] table {data/refl-dist-pcanorm.csv};
+      \addplot+[lower] table {data/refl-dist-pcanorm.csv};
       \addplot+[fillreg] fill between[of=upper and lower];
     }
 
     \nextgroupplot[xlabel={fiber shroud coverage}]
     \foreach \point in \points {%
-      \addplot+[best] table {data/cov-dist-norm.csv};
-      \addplot+[upper] table {data/cov-dist-norm.csv};
-      \addplot+[lower] table {data/cov-dist-norm.csv};
+      \addplot+[best] table {data/cov-dist-pcanorm.csv};
+      \addplot+[upper] table {data/cov-dist-pcanorm.csv};
+      \addplot+[lower] table {data/cov-dist-pcanorm.csv};
       \addplot+[fillreg] fill between[of=upper and lower];
     }
 
     \nextgroupplot[xlabel={LAr abs.~length (cm)}]
     \foreach \point in \points {%
-      \addplot+[best] table {data/absl-dist-norm.csv};
-      \addplot+[upper] table {data/absl-dist-norm.csv};
-      \addplot+[lower] table {data/absl-dist-norm.csv};
+      \addplot+[best] table {data/absl-dist-pcanorm.csv};
+      \addplot+[upper] table {data/absl-dist-pcanorm.csv};
+      \addplot+[lower] table {data/absl-dist-pcanorm.csv};
       \addplot+[fillreg] fill between[of=upper and lower];
     }
 
     \nextgroupplot[xlabel={TPB quant.~eff.}]
     \foreach \point in \points {%
-      \addplot+[best] table {data/tpb-dist-norm.csv};
-      \addplot+[upper] table {data/tpb-dist-norm.csv};
-      \addplot+[lower] table {data/tpb-dist-norm.csv};
+      \addplot+[best] table {data/tpb-dist-pcanorm.csv};
+      \addplot+[upper] table {data/tpb-dist-pcanorm.csv};
+      \addplot+[lower] table {data/tpb-dist-pcanorm.csv};
       \addplot+[fillreg] fill between[of=upper and lower];
     }
 

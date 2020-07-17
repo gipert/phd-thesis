@@ -2,13 +2,13 @@
 \input{paultolcolors}
 
 \pgfplotscreateplotcyclelist{TolVibList}{%
-  {TolVibRed,     every mark/.append style={fill=TolVibRed}, mark=*},
-  {TolVibBlue,    every mark/.append style={fill=TolVibBlue}, mark=*},
-  {TolVibTeal,    every mark/.append style={fill=TolVibTeal}, mark=*},
-  {TolVibCyan,    every mark/.append style={fill=TolVibCyan}, mark=*},
-  {TolVibOrange,  every mark/.append style={fill=TolVibOrange}, mark=*},
+  {TolVibRed,     every mark/.append style={fill=TolVibRed},     mark=*},
+  {TolVibBlue,    every mark/.append style={fill=TolVibBlue},    mark=*},
+  {TolVibTeal,    every mark/.append style={fill=TolVibTeal},    mark=*},
+  {TolVibCyan,    every mark/.append style={fill=TolVibCyan},    mark=*},
+  {TolVibOrange,  every mark/.append style={fill=TolVibOrange},  mark=*},
   {TolVibMagenta, every mark/.append style={fill=TolVibMagenta}, mark=*},
-  {TolGray,       every mark/.append style={fill=TolGray}, mark=*},
+  {TolGray,       every mark/.append style={fill=TolGray},       mark=*},
 }
 
 \pgfplotsset{
@@ -19,4 +19,11 @@
   /pgf/number format/1000 sep={},
   cycle list name=TolVibList,
   legend style={cells={anchor=west}},
+  xtick pos=left,
+  ytick pos=left,
+  histogram/.style={%
+    solid,
+    const plot,
+    no marks,
+  },
 }

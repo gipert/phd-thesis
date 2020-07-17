@@ -2,9 +2,9 @@ double exposure = 103.686;
 int nbins = 290;
 int rangelow = 989;
 int rangeup = 5339;
-// int nbins = 8000;
+// int nbins = 1000;
 // int rangelow = 0;
-// int rangeup = 8000;
+// int rangeup = 5000;
 
 struct dataset {
     int id;
@@ -37,12 +37,11 @@ void root2csv() {
                 int outBin = it->hist->FindBin(raw->GetBinCenter(inBin));
                 it->hist->SetBinContent(
                     outBin,
-                    it->hist->GetBinContent(outBin) +
-                    raw->GetBinContent(inBin)*raw->GetBinWidth(inBin)/it->hist->GetBinWidth(outBin)
+                    it->hist->GetBinContent(outBin) + raw->GetBinContent(inBin)//*raw->GetBinWidth(inBin)/it->hist->GetBinWidth(outBin)
                 );
             }
             fout << it->name << ", ";
-            it->hist->Scale(1/exposure);
+            // it->hist->Scale(1/exposure);
         }
         fout << "EnrAll\n";
 

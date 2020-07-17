@@ -1,7 +1,10 @@
 %! TEX program = xelatex
 \input{../../../tex/standalone-def}
 \import{}{pgfplots-def}
-\usepgfplotslibrary{groupplots, fillbetween}
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{fillbetween}
+\usepgflibrary{shadings}
+\usetikzlibrary{arrows.meta}
 
 \newcommand{\BI}{5.2E-4}
 \newcommand{\BIerrup}{1.6E-4}
@@ -15,33 +18,48 @@
     draw=none,
   },
   every axis/.style={%
+    font=\small,
     ymode=log,
+    area legend,
     restrict x to domain=900:5400,
     xmin=1000, xmax=5350,
-    ymin=2e-4, ymax=20,
+    ymin=3e-1, ymax=2e4,
     log basis y=10,
     log origin=infty,
     ylabel style={%
-      at={(ticklabel cs:1,-4)},
+      at={(ticklabel cs:1.03,-4)},
       anchor=south east,
     },
     xlabel style={%
-      at={(ticklabel cs:1,-4)},
+      at={(ticklabel cs:1.03,-4)},
       anchor=north east,
+    },
+    legend style={font=\small},
+    ytick={1e-4, 1e-3, 1e-2, 1e-1, 1e0, 1e1, 1e2, 1e3, 1e4},
+    minor ytick={%
+      2e-4, 3e-4, 4e-4, 5e-4, 6e-4, 7e-4, 8e-4, 9e-4,%
+      2e-3, 3e-3, 4e-3, 5e-3, 6e-3, 7e-3, 8e-3, 9e-3,%
+      2e-2, 3e-2, 4e-2, 5e-2, 6e-2, 7e-2, 8e-2, 9e-2,%
+      2e-1, 3e-1, 4e-1, 5e-1, 6e-1, 7e-1, 8e-1, 9e-1,%
+      2e+0, 3e+0, 4e+0, 5e+0, 6e+0, 7e+0, 8e+0, 9e+0,%
+      2e+1, 3e+1, 4e+1, 5e+1, 6e+1, 7e+1, 8e+1, 9e+1,%
+      2e+2, 3e+2, 4e+2, 5e+2, 6e+2, 7e+2, 8e+2, 9e+2,%
+      2e+3, 3e+3, 4e+3, 5e+3, 6e+3, 7e+3, 8e+3, 9e+3,%
+      2e+4, 3e+4, 4e+4, 5e+4, 6e+4, 7e+4, 8e+4, 9e+4%
     },
   },
   inset/.style={%
     xlabel={Energy (keV)},
-    font=\small,
     width=7.5cm,
     height=5cm,
+    legend style={font=\footnotesize},
   },
   extended/.style={%
     inset,
     at={(insetposup)},
     anchor={north west},
-    xmin=1878, xmax=2658,
-    ymax=1,
+    xmin=1900, xmax=2650,
+    ymax=1e2,
     restrict x to domain=1500:2800,
     domain=1500:2800,
   },
@@ -50,7 +68,7 @@
     at={(insetposlo)},
     anchor={north east},
     xmin=1930, xmax=2190,
-    ymax=4e-1,
+    ymin=2e-4, ymax=1e-1,
     restrict x to domain=1930:2190,
     domain=1930:2190,
     legend pos=north west,
@@ -91,29 +109,42 @@
   opacity=0.3,
 ]
 
+\tikzstyle{isotope} = [%
+  scale=0.75,
+  rotate=90,
+]
+
+\newcommand{\eps}{0.3}
+\newcommand{\yposup}{2e-3}
+\newcommand{\yposlo}{2e-4}
+\newcommand{\countline}[1]{%
+  \draw[draw=none, bottom color=TolVibRed, top color=white] (axis cs:#1-\eps,\yposup) rectangle (axis cs:#1+\eps,0.7*\yposup);
+  \draw[draw=none, fill, TolVibRed] (axis cs:#1-\eps,0.7*\yposup) rectangle (axis cs:#1+\eps,1.1*\yposlo);
+  \draw[->, >={Kite[width=2.2pt, length=6pt]}, TolVibRed, line width=0pt, draw opacity=0] (axis cs:#1,\yposup) to (axis cs:#1,\yposlo);
+  % \draw[->, >={Stealth[]}, TolVibRed, line width=0pt, draw opacity=0] (axis cs:#1,\yposup) to (axis cs:#1,\yposlo);
+}
+
 \begin{document}
   \begin{tikzpicture}
     \begin{axis}[
-      area legend,
       axis lines=none,
     ]
-
       \addplot+[histogram, gray] table {data/hRaw-15keV.csv} \closedcycle;
       \addplot+[histogram, TolVibRed, fill=TolVibRed] table {data/hPSDLAr-15keV.csv} \closedcycle;
-      \addplot+[black, smooth, thick, no marks, line legend] table {data/2nbb.csv};
+      \addplot+[black, smooth, line width=0.6pt, no marks, line legend] table {data/2nbb.csv};
 
       \addlegendentry{Prior to analysis cuts}
       \addlegendentry{After analysis cuts}
       \addlegendentry{$2\upnu\upbeta\upbeta$ decay ($T_{1/2}=1.92\cdot10^{21}$~yr)}
 
-      % \node[isotope] at (axis cs:1430,1e1) {$^{40}$K};
-      % \node[isotope] at (axis cs:1535,2e1) {$^{42}$K};
-      % \node[isotope] at (axis cs:1730,5e-1) {$^{214}$Bi};
-      % \node[isotope] at (axis cs:2180,1e-1) {$^{214}$Bi};
-      % \node[isotope] at (axis cs:2580,2e-1) {$^{208}$Tl};
-      % \node[isotope, rotate=-90] at (axis cs:5100,2e-2) {$^{210}$Po};
+      \node[isotope] at (axis cs:1405,3e3) {$^{40}$K};
+      \node[isotope] at (axis cs:1570,5e3) {$^{42}$K};
+      \node[isotope] at (axis cs:1730,4e2) {$^{214}$Bi};
+      \node[isotope] at (axis cs:2180,1.5e2) {$^{214}$Bi};
+      \node[isotope] at (axis cs:2580,1.5e2) {$^{208}$Tl};
+      \node[isotope, rotate=-90] at (axis cs:5100,3e1) {$^{210}$Po};
 
-      \draw[TolBriBlue, thick] (axis cs:2039,2e-4) -- (axis cs:2039,3e-2) node[anchor=south] {Q$_{\upbeta\upbeta}$};
+      \draw[TolBriBlue, thick] (axis cs:2039,2e-4) -- (axis cs:2039,1e2) node[anchor=south] {Q$_{\upbeta\upbeta}$};
 
       \coordinate (insetposup) at (rel axis cs:0.0,-0.2);
       \coordinate (insetposlo) at (rel axis cs:1.0,-0.2);
@@ -124,33 +155,27 @@
       \addplot+[histogram, gray] table {data/hRaw-5keV.csv} \closedcycle;
       \addplot+[histogram, TolVibRed, fill=TolVibRed] table {data/hPSDLAr-5keV.csv} \closedcycle;
 
-      \draw[gammaline] (axis cs:1922.2-5,1e-5) rectangle (axis cs:1922.2+5,10);
-      \draw[gammaline] (axis cs:2104.0-5,1e-5) rectangle (axis cs:2104.0+5,10);
-      \draw[gammaline] (axis cs:2118.6-5,1e-5) rectangle (axis cs:2118.6+5,10);
-      \draw[gammaline] (axis cs:2204.2-5,1e-5) rectangle (axis cs:2204.2+5,10);
-      \draw[gammaline] (axis cs:2432.8-5,1e-5) rectangle (axis cs:2432.8+5,10);
-      \draw[gammaline] (axis cs:2447.9-5,1e-5) rectangle (axis cs:2447.9+5,10);
-      \draw[gammaline] (axis cs:2614.5-5,1e-5) rectangle (axis cs:2614.5+5,10);
+      \draw[gammaline] (axis cs:1922.2-5,1e-5) rectangle (axis cs:1922.2+5,1e3);
+      \draw[gammaline] (axis cs:2104.0-5,1e-5) rectangle (axis cs:2104.0+5,1e3);
+      \draw[gammaline] (axis cs:2118.6-5,1e-5) rectangle (axis cs:2118.6+5,1e3);
+      \draw[gammaline] (axis cs:2204.2-5,1e-5) rectangle (axis cs:2204.2+5,1e3);
+      \draw[gammaline] (axis cs:2432.8-5,1e-5) rectangle (axis cs:2432.8+5,1e3);
+      \draw[gammaline] (axis cs:2447.9-5,1e-5) rectangle (axis cs:2447.9+5,1e3);
+      \draw[gammaline] (axis cs:2614.5-5,1e-5) rectangle (axis cs:2614.5+5,1e3);
 
-      \draw[TolBriBlue, thick] (axis cs:2039,2e-4) -- (axis cs:2039,1e-1) node [anchor=south] {Q$_{\upbeta\upbeta}$};
-      % \draw[TolBriGreen, densely dotted] (axis cs:1930,2e-4) -- (axis cs:1930,1.5e-1);
-      % \draw[TolBriGreen, <->, solid] (axis cs:1930,1.5e-1) -- (axis cs:2190,1.5e-1);
-      % \draw[TolBriGreen, densely dotted] (axis cs:2190,2e-4) -- (axis cs:2190,1.5e-1);
-
-      % BI band
-      \addplot[fit, draw=none, name path=low] {\BI-\BIerrlow};
-      \addplot[fit, draw=none, name path=up] {\BI+\BIerrup};
-      \addplot[fit, draw=none, opacity=0.4] fill between[of=low and up]; \label{filler}
-      \addplot[fit, name path=best] {\BI};
+      \draw[TolBriBlue, thick] (axis cs:2039,2e-4) -- (axis cs:2039,1.5e1) node [anchor=south] {Q$_{\upbeta\upbeta}$};
+      \draw[TolBriGreen, densely dashdotted] (axis cs:1930,2e-4) -- (axis cs:1930,5e1);
+      \draw[TolBriGreen, <->, solid] (axis cs:1930,5e1) -- (axis cs:2190,5e1);
+      \draw[TolBriGreen, densely dashdotted] (axis cs:2190,2e-4) -- (axis cs:2190,5e1);
 
     \end{axis}
 
     \begin{axis}[roi, axis lines=none]
 
       \addlegendimage{TolBriGreen, only marks, mark=linerrarea, line legend}
-      \addlegendentry{Background level}
-      \addlegendimage{fit, fill, TolBriBlue!70!white, draw=none, area legend}
-      \addlegendentry{$T_{1/2}>1.8\cdot10^{26}$~yr (90\% C.L. low.~limit)}
+      \addlegendentry{Background best fit and 68\% C.L.~interval}
+      \addlegendimage{fit, fill, TolBriBlue!70!white, draw=none}
+      \addlegendentry{Signal 90\% C.L. interval ($T_{1/2}>1.8\cdot10^{26}$~yr)}
 
       % BI band
       \addplot[draw=none, name path=low] {\BI-\BIerrlow};
@@ -164,17 +189,33 @@
       % redraw BI line
       \addplot[fit, solid, no marks, name path=best] {\BI}; \label{biline}
 
-      \addplot[histogram, TolVibRed, fill=TolVibRed] table {data/hPSDLAr.csv} \closedcycle;
+      % draw arrows for unbinned data
+      \countline{1995.2452}
+      \countline{1958.6807}
+      \countline{2018.1346}
+      \countline{1950.9419}
+      \countline{2067.9735}
+      \countline{2056.4280}
+      \countline{2042.0641}
+      \countline{1962.7372}
+      \countline{1957.5059}
+      \countline{1970.1398}
+      \countline{2058.8873}
+      \countline{2118.4412}
+      \countline{2015.8751}
+      \countline{2012.0643}
 
-      \draw[gammaline] (axis cs:2104.0-5,1e-5) rectangle (axis cs:2104.0+5,1e-1);
-      \draw[gammaline] (axis cs:2118.6-5,1e-5) rectangle (axis cs:2118.6+5,1e-1);
+      \draw[gammaline] (axis cs:2104.0-5,1e-5) rectangle (axis cs:2104.0+5,1.5e-2);
+      \draw[gammaline] (axis cs:2118.6-5,1e-5) rectangle (axis cs:2118.6+5,1.5e-2);
 
     \end{axis}
 
     % to re-draw axes
-    \begin{axis}[ylabel={Counts / (15 keV$\cdot$kg$\cdot$yr)}]\end{axis}
-    \begin{axis}[extended, ylabel={Counts / (5 keV$\cdot$kg$\cdot$yr)}]\end{axis}
-    \begin{axis}[roi, ylabel={Counts / (keV$\cdot$kg$\cdot$yr)}]\end{axis}
+    \begin{axis}[ylabel={Counts / 15 keV}]\end{axis}
+    \begin{axis}[extended, ylabel={Counts / 5 keV}]\end{axis}
+    \begin{axis}[roi, ylabel={Counts / (keV$\cdot$kg$\cdot$yr)}]
+
+    \end{axis}
 
   \end{tikzpicture}
 \end{document}
