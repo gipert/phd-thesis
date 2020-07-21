@@ -13,7 +13,7 @@
 \pgfplotsset{
   height=4.5cm,
   legend style={%
-    at={(rel axis cs:0.4,0.95)},
+    at={(rel axis cs:0.30,1)},
     anchor=north west,
     draw=none,
   },
@@ -127,14 +127,17 @@
 \begin{document}
   \begin{tikzpicture}
     \begin{axis}[
+      legend columns=2,
       axis lines=none,
     ]
-      \addplot+[histogram, gray] table {data/hRaw-15keV.csv} \closedcycle;
+      \addplot+[histogram, black] table {data/hRaw-15keV.csv} \closedcycle;
+      \addplot+[histogram, TolMutCyan, fill=TolMutCyan] table {data/hLAr-15keV.csv} \closedcycle;
       \addplot+[histogram, TolVibRed, fill=TolVibRed] table {data/hPSDLAr-15keV.csv} \closedcycle;
       \addplot+[black, smooth, line width=0.6pt, no marks, line legend] table {data/2nbb.csv};
 
       \addlegendentry{Prior to analysis cuts}
-      \addlegendentry{After analysis cuts}
+      \addlegendentry{After LAr veto}
+      \addlegendentry{After LAr veto and PSD cuts}
       \addlegendentry{$2\upnu\upbeta\upbeta$ decay ($T_{1/2}=1.92\cdot10^{21}$~yr)}
 
       \node[isotope] at (axis cs:1405,3e3) {$^{40}$K};
@@ -152,7 +155,8 @@
 
     \begin{axis}[extended, axis lines=none]
 
-      \addplot+[histogram, gray] table {data/hRaw-5keV.csv} \closedcycle;
+      \addplot+[histogram, black] table {data/hRaw-5keV.csv} \closedcycle;
+      \addplot+[histogram, TolMutCyan, fill=TolMutCyan] table {data/hLAr-5keV.csv} \closedcycle;
       \addplot+[histogram, TolVibRed, fill=TolVibRed] table {data/hPSDLAr-5keV.csv} \closedcycle;
 
       \draw[gammaline] (axis cs:1922.2-5,1e-5) rectangle (axis cs:1922.2+5,1e3);

@@ -440,7 +440,7 @@ evaluated to $(97.7 \pm 0.1)$\% and $(98.2 \pm 0.1)$\% for the first part of \ph
 and \phasetwop, respectively. Combining these two estimates for the whole \phasetwo\
 results in an efficiency for \onbb\ events of
 \[
-  \epsilon_\onbbM^\text{LAr-veto} = \fillme{fillme} \;.
+  \epsilon_\onbbM^\text{LAr-veto} = (97.92 \pm 0.07)\% \;.
 \]
 
 \blocktitle{granularity \\ cut}
@@ -497,9 +497,9 @@ lose part of their energy before reaching the active volume and contribute to th
 background in the ROI.
 \newpar
 To mitigate all these background sources, pulse-shape discrimination (PSD) techniques were
-developed separately for \bege\ and \scoax\ detectors separately, to be applied after the
-LAr veto cut. For the first class a simple univariate cut was sufficient, while for the
-latter two techniques were worked out, one based on neural networks and one on the
+developed separately for \bege, \icoax\ and \scoax\ detectors separately, to be applied
+after the LAr veto cut. For the first class a simple univariate cut was sufficient, while
+for the latter two techniques were worked out, one based on neural networks and one on the
 analysis of the rise time of the pulses.  In order to avoid systematic effects
 calibration, training and evaluation of the PSD methods should be performed on pulses with
 energies close to these of the expected signal at \qbb.  In practice, appropriate event
@@ -508,30 +508,31 @@ the \gerda\ data are briefly outlined in the following. The interested reader is
 to~\cite{psd-paper} for a detailed treatment of the topic. \fillme{define somewhere FEP,
 SEP and DEP}
 
-\blocktitle{PSD for \\ \bege{}s}
-PSD for the \bege\ detectors is based on the \aoe\ ratio, where $A$ is the maximum
-amplitude of the current signal and $E$ is the event energy. This technique has been
-extensively studied in the past in the context of \gerda~\cite{Agostini2013, Agostini2010,
-Budjas2008, Budjas2009, Budjas2009a, Agostini2010a}. The motivation in employing such a
-relatively simple, univariate cut lies in the observation that in the \bege\ detectors,
-thanks to their small \pplus\ contact, the electric field has a special distribution,
-resulting in the same shape of pulses induced by drifting holes along paths near the
-\pplus\ electrode~\cite{Agostini2010}. Multiple energy depositions in the detector can be
-treated as a superposition of several single interactions. It follows that a MSE will have
-a lower $A$ compared to a SSE with the same $E$.  A two-sided cut on \aoe\ to cut MSEs
-slow pulses and \pplus\ fast events is introduced and determined separately for each
-detector. Energy and time stability corrections to \aoe\ are discussed in detail
-in~\cite{psd-paper}. As mentioned before, the \aoe\ cut values are determined employing
-representative data samples from \Th\ calibration runs.  The low cut position (rejection
-of MSEs and slow pulses) is adjusted to achieve a 90\% survival fraction of the
-double-escape peak (DEP), a SSE sample. The threshold on the high \aoe\
-side (rejection of fast pulses) has been fixed to 3 standard deviations away from the SSE
-band distribution. The survival fraction for the \onbb-decay signal has been
-calculated assuming that it is the same as for the DEP events. A full analysis of the
-statistical and systematic uncertainties yields:
+\blocktitle{PSD for \\ \bege{}s and \\ \icoax{}s}
+PSD for point-contact detectors (\bege\ and \icoax) is based on the \aoe\ ratio, where $A$
+is the maximum amplitude of the current signal and $E$ is the event energy. This technique
+has been extensively studied in the past in the context of \gerda~\cite{Agostini2013,
+Agostini2010, Budjas2008, Budjas2009, Budjas2009a, Agostini2010a}. The motivation in
+employing such a relatively simple, univariate cut lies in the observation that in
+\bege\ and \icoax\ detectors, thanks to their small \pplus\ contact, the electric field
+has a special distribution, resulting in the same shape of pulses induced by drifting
+holes along paths near the \pplus\ electrode~\cite{Agostini2010}. Multiple energy
+depositions in the detector can be treated as a superposition of several single
+interactions. It follows that a MSE will have a lower $A$ compared to a SSE with the
+same $E$.  A two-sided cut on \aoe\ to cut MSEs slow pulses and \pplus\ fast events is
+introduced and determined separately for each detector. Energy and time stability
+corrections to \aoe\ are discussed in detail in~\cite{psd-paper}. As mentioned before,
+the \aoe\ cut values are determined employing representative data samples from \Th\
+calibration runs.  The low cut position (rejection of MSEs and slow pulses) is adjusted
+to achieve a 90\% survival fraction of the double-escape peak (DEP), a SSE sample. The
+threshold on the high \aoe\ side (rejection of fast pulses) has been fixed to 3 standard
+deviations away from the SSE band distribution. The survival fraction for the
+\onbb-decay signal has been calculated assuming that it is the same as for the DEP
+events. A full analysis of the statistical and systematic uncertainties yields
 \[
-  \epsilon_\onbbM^{A/E} = (87.6 \pm \stat{0.1} \pm \syst{2.6}) \% \;.
+  \epsilon_\onbbM^{A/E} = (88.7 \pm 2.3)\% \;.
 \]
+for the combined \bege\ and \icoax\ data sets.
 
 \blocktitle{PSD for \\ \scoax{}s}
 In semi-coaxial detectors the length of the drift path of the holes depends on the
@@ -539,17 +540,17 @@ location of the energy deposition and it induces different types of pulse shapes
 of this reason, a simple \aoe\ cut would not be as effective as for the \bege{}s, and
 therefore alternative methods have been worked out.
 \newpar
-The primary method to reject MSE, called here \annmse, consists in a TMVA-based
-artificial neural network\footnote{\url{https://root.cern/tmva}} and requires
-appropriate selection of input variables (from the rising part of the preamplifier charge
-pulse) and training on independent data samples. Several of these samples are available
-for training in calibration data (see \cref{fig:gerda:calib-desc}, top) and also in physics data (\kvz\
+The primary method to reject MSE, called here \annmse, consists in a TMVA-based artificial
+neural network\footnote{\url{https://root.cern/tmva}} and requires appropriate selection
+of input variables (from the rising part of the preamplifier charge pulse) and training on
+independent data samples. Several of these samples are available for training in
+calibration data (see \cref{fig:gerda:calib-desc}, top) and also in physics data (\kvz\
 full-energy peak, \nnbb\ events, \a-induced events). The \annmse\ is specifically trained
 on \Th\ calibration data, selecting the \Tl\ DEP as a SSE sample and the \Bil\ FEP at
 1621~keV as a MSE sample. The classifier cut threshold is then fixed to a 90\% survival
 probability for the \Th\ DEP, and the cut signal efficiency is calculated from Monte Carlo
-simulations of \onbb-decay events. The obtained \annmse\ signal survival fraction is $(85
-\pm 5)$\%.
+simulations of \onbb-decay events. The obtained \annmse\ signal survival fraction is
+$(82.2 \pm 3.7)$\%.
 \newpar
 \a-induced events on the \pplus\ electrode surface are rejected by a separate method based
 on the analysis of the pulses rise time (RT). These events are generally characterized by
@@ -564,12 +565,8 @@ signal survival square-probability and the \a-events rejection probability. The 
 \a-event test samples are obtained from physics data by selecting data in the $[1.0,
 1.3]$~MeV and $>3.5$~MeV energy regions, respectively, after \annmse\ and LAr veto cuts.
 The \onbb-signal efficiency of the RT cut is assumed to be the same as for the \nnbb\
-decays and hence estimated to $(84.3 \pm \stat{0.4} \pm \syst{1.0})$\%. The \annmse\ and
-RT-cut efficiency can be combined to obtain an overall survival fraction for the
-\onbb-decay events after the combined \annmse-RT cut:
-\[
-  \epsilon_\onbbM^\text{\annmse-RT} = (64.6 \pm 3.9) \% \;.
-\]
+decays and hence estimated to 82.3\%, with an uncertainty of the order of
+1\%~\cite{Lazzaro2019}.
 
 \blocktitle{\deltae\ cut}
 Events featuring slow charge collection might suffer from ballistic deficit in the ZAC
@@ -585,9 +582,38 @@ defined as $\delta{E} = {[E_\text{s}/E_\text{l}]}_\text{norm} - 1$, where the en
 is normalized to the values assumed by the \Th\ FEP events. The normalization is applied
 in a certain calibration validity period and for each detector separately. The cut value
 is defined as 3 negative standard deviations away from the mean of the FEP \deltae\
-distribution.
+distribution. The survival fraction of \nnbb\ events, which provides an estimate of the
+\onbb\ efficiency, is higher than 98\% for all detector types. It has been estimated,
+after all the other PSD cuts, to $(99.449 \pm 0.006)$\% for \scoax, $(99.9572 ± 0.0003)$\%
+for \bege\ and 100\% for \icoax\ detectors separately.  A weighted combination yields:
+\[
+  \epsilon_\onbbM^\text{\deltae} = (99.769 \pm 0.002)\% \;.
+\]
 
-\section{Data analysis}%
+The \annmse, RT, \aoe\ and \deltae\ cut efficiencies can be combined to obtain an overall
+survival fraction for the \onbb-decay events after the PSD cut:
+\begin{center}
+  \begin{tabular}{cc}
+    \mc{2}{Before upgrade (\%)}     \\
+    \midrule
+    \scoax\        & \bege\         \\
+    $69.1 \pm 5.6$ & $88.2 \pm 3.4$ \\
+  \end{tabular}
+  \hspace{0.5cm}
+  \begin{tabular}{ccc}
+    \mc{3}{After upgrade (\%)}                       \\
+    \midrule
+    \scoax\        & \bege\         & \icoax\        \\
+    $68.8 \pm 4.1$ & $89.0 \pm 4.1$ & $90.0 \pm 1.8$ \\
+  \end{tabular}
+\end{center}
+Combining all data together one gets
+\[
+  \epsilon_\onbbM^\text{PSD} = (80.8 \pm 2.1)\%
+\]
+as total \onbb\ PSD signal efficiency for the \phasetwo\ data set.
+
+\section{Final \gerda\ data analysis}%
 \label{sec:gerda:ana}
 
 The \phasetwo\ single-detector data is presented in this section together with the LAr
@@ -604,10 +630,10 @@ data are given.
     to display the histograms (see \cref{apdx:bayesblocks}). Three prominent \Tl\ high
     energy peaks (full-energy, single-escape and double-escape) and the \Bil\
     single-escape peak at 1621~keV are highlighted. Bottom panel: extracted peak widths
-    and fitted calibration curves. Points represented by empty markers are excluded from
-    the fit because of additional effects that contribute to the width. Triangles label
-    peaks broadened by the Doppler effect \fillme{ref?}, diamonds label summation peaks.
-    \fillme{fillme}
+    (FWHM) and fitted calibration curves for pre- and post-upgrade data separately. Points
+    represented by empty markers are excluded from the fit because of additional effects
+    that contribute to the width. Triangles label peaks broadened by the Doppler effect
+    \fillme{ref?}, diamonds label summation peaks.
   }\label{fig:gerda:calib-desc}
 \end{figure}
 
@@ -623,7 +649,7 @@ As already mentioned in \cref{sec:gerda:setup}, the germanium detectors are cali
 exposing them to \Th\ sources with an activity of about 10~kBq. A typical calibration
 spectrum is shown in \cref{fig:gerda:calib-desc}. The pattern of \g\ lines in the spectrum
 can be exploited to identify certain \g\ lines and calibrate the energy scale of a
-detector with their known position in terms of energy.  Additionally, the resolution of a
+detector with their known position in terms of energy. Additionally, the resolution of a
 detector can be determined from the width of the \g\ lines. Once the positions and the
 widths of the \g\ lines in an energy spectrum is determined by modeling the peaks with a
 suitable analytical function, an function interpolation is performed to obtain the energy
@@ -648,20 +674,35 @@ reconstructed \g-line widths. The uncertainty on this effective resolution inclu
 systematic contributions from the choice of the peak model, the resolution function and
 time stability of the experimental setup.  The resolution curves for \bege, semi-coaxial
 and inverted-coaxial \phasetwop\ data sets are reported in \cref{fig:gerda:calib-desc} as
-an example. The typical energy resolution at \qbb\ is \fillme{fillme} and the associated
-uncertainty is of the order of \fillme{fillme}. The calibrated energy spectrum of the
-\gerda\ \phasetwo\ data after granularity cut is shown in \cref{fig:gerda:physics-spectra},
-empty histogram. \fillme{update this to final analysis, calibration paper?}
+an example. The energy resolution at \qbb\ (FWHM) for \phasetwo\ is the following:
+\begin{center}
+  \begin{tabular}{cc}
+    \mc{2}{Before upgrade (keV)}  \\
+    \midrule
+    \scoax\       & \bege\        \\
+    $3.6 \pm 0.3$ & $2.9 \pm 0.3$ \\
+  \end{tabular}
+  \hspace{0.5cm}
+  \begin{tabular}{ccc}
+    \mc{3}{After upgrade (keV)}                   \\
+    \midrule
+    \scoax\       & \bege\        & \icoax\       \\
+    $5.2 \pm 1.9$ & $2.6 \pm 0.2$ & $2.9 \pm 0.1$ \\
+  \end{tabular}
+\end{center}
+The calibrated energy spectrum of the \gerda\ \phasetwo\ data after granularity cut is
+shown in \cref{fig:gerda:physics-spectra}, empty histogram.
 
 \begin{figure}
   \centering
   \includegraphics{plots/0nbb-results/physics-spectra.pdf}
   \caption{%
     Single-detector data from the enriched detectors is displayed in a combined spectrum
-    after indicated cuts. Main contributions to the spectra are labeled. The insets
-    display the analysis window for coaxial and \bege\ detectors separately, including the
-    background rates (solid blue lines). The dashed blue curves depict the 90\% C.L.~limit
-    for a \onbb\ signal of \gerdafinallimit. \fillme{to be updated}
+    after indicated cuts. Main contributions to the spectra are labeled in the top panel.
+    The bottom-left panel shows data in the \qbb\ region. Known \g\ peaks and the \onbb\
+    analysis window are highlighted in gray and green, respectively. The bottom-right
+    panel shows the unbinned data after all cuts in the analysis window and the fit
+    results.
   }\label{fig:gerda:physics-spectra}
 \end{figure}
 
@@ -711,7 +752,20 @@ new methods described in this work: as a consequence, three events (at energies 
 and 2064~keV) that were previously included in the analysis window in past data
 releases~\cite{Agostini2019a, Agostini2017, Agostini2018} are now discarded.
 
-\blocktitle{statistical \\ methods}
+\begin{sidewaystable}
+  \centering
+  \caption{%
+    Summary of the parameters of interest for \gerdatwo\ for different detector types and
+    before/after the upgrade.  The components of the total efficiency $\epsilon$ for
+    \onbb\ decays are also reported individually. The efficiency factors due to muon veto
+    and quality cuts are above $99.9\%$ and are not shown explicitly.  Energy resolution
+    and all \onbb\ decay efficiencies are reported as exposure-weighted average for each
+    detector type and their uncertainties are given as standard deviation.
+  }\label{tab:gerda:efficiencies}
+  \input{tab/0nbb-results/0nbb-eff.tex}
+\end{sidewaystable}
+
+\blocktitle{statistical \\ analysis}
 The energy distribution of the events in this window is fitted to search for a \onbb-decay
 signal. The baseline fit model includes a Gaussian distribution for the signal, centered
 at \qbb\ with a width corresponding to the energy resolution, and a uniform distribution
@@ -720,15 +774,16 @@ background index $B$. The number of signal events scales with $S$ as
 \begin{equation}\label{eq:gerda:mu_s}
   \mu_s = \frac{\mathcal{N}_A \log2}{m_{76}} \cdot \epsilon \cdot \expoM \cdot S \;,
 \end{equation}
-where $\mathcal{N}_A$ is the Avogadro number, $m_{76}$ is the \gesix\ molar mass,
-\expo\ is the total exposure scrutinized and $\epsilon$ is the total \onbb\ detection
-efficiency. The efficiency $\epsilon$ accounts for the enrichment fraction in \gesix, the
-active volume fraction of the germanium detectors, the electron containment efficiency and
-the analysis cuts. The latter include the quality cuts, the muon veto cut, the LAr veto
-cut and the PSD cut. The efficiency $\epsilon$ is evaluated on the full \phasetwo\
-dataset to be $(47.0 \pm 3.9)$ for the \scoax\ detectors $(60.7 \pm 2.5)$ for the \bege\
-detectors and $(66.0 \pm 1.8)$ for the \icoax\ detectors. The number of background events
-in the analysis window is given by
+where $\mathcal{N}_A$ is the Avogadro number, $m_{76}$ is the \gesix\ molar mass, \expo\
+is the total exposure scrutinized and $\epsilon$ is the total \onbb\ detection efficiency.
+The efficiency $\epsilon$ accounts for the enrichment fraction in \gesix, the active
+volume fraction of the germanium detectors, the electron containment efficiency and the
+analysis cuts. The latter include the quality cuts, the muon veto cut, the LAr veto cut
+and the PSD cut. The efficiency $\epsilon$ is evaluated on the full \phasetwo\ dataset to
+be $(47.0 \pm 3.9)$\% for the \scoax\ detectors $(60.7 \pm 2.5)$\% for the \bege\ detectors
+and $(66.0 \pm 1.8)$\% for the \icoax\ detectors. The average total efficiency $\epsilon$
+and the breakdown in the individual components are listed in \cref{tab:gerda:efficiencies}
+The number of background events in the analysis window is given by
 \begin{equation}\label{eq:gerda:mu_b}
   \mu_b = B \cdot \Delta{}E \cdot \expoM \;,
 \end{equation}
@@ -814,12 +869,13 @@ sensitivity and the most stringent half-life constraint of the entire field.
 The \thalfzero\ limit can be converted into an upper limit on the effective Majorana mass
 \mbb\ under the assumption that the decay dominated by the exchange of light Majorana
 neutrinos. Assuming a standard value of $g_A = 1.27$, the phase space factors and the set
-of nuclear matrix elements from~\cite{?}, a limit of $m_{\upbeta\upbeta} = 80 - 182$~meV
-is obtained, which is comparable to the most stringent constraints coming from other
-isotope~\cite{?}. \gerda\ has been a pioneering experiment in the search for \onbb\ decay.
-In about a decade, \gerda\ improved the sensitivity by one order of magnitude with respect
-to previous \gesix\ experiments and proved that a background-free experiment with \gesix\
-is feasible. This paves the way for the next generation experiment that is currently being
-prepared by the LEGEND collaboration.
+of most recent nuclear matrix elements calculations, a limit of $m_{\upbeta\upbeta} = 80 -
+182$~meV is obtained, which is comparable to the most stringent constraints coming from
+other isotopes~\cite{Anton2019, Gando2016, Adams2019}. \gerda\ has been a pioneering
+experiment in the search for \onbb\ decay.  In about a decade, \gerda\ improved the
+sensitivity by one order of magnitude with respect to previous \gesix\ experiments and
+proved that a background-free experiment with \gesix\ is feasible. This paves the way for
+the next generation experiment that is currently being prepared by the LEGEND
+collaboration.
 
 % vim: tw=90

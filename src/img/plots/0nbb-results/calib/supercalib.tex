@@ -7,38 +7,68 @@
   height=5.5cm,
   xmin=400, xmax=3300,
   % grid=major,
-  legend style={draw=none, cells={anchor=west}},
-  every axis plot post/.append style={every mark/.append style={rotate=180}}
+  legend style={draw=none, fill=none, cells={anchor=west}},
+  every axis plot post/.append style={every mark/.append style={rotate=180}},
+  legend style={font=\small},
+  bege/.style={%
+    TolVibRed, mark options={fill=TolVibRed}
+  },
+  scoax/.style={%
+    TolVibBlue, mark options={fill=TolVibBlue}
+  },
+  icoax/.style={%
+    TolVibTeal, mark options={fill=TolVibTeal}
+  },
+  histogram/.append style={%
+    line width=0.5pt
+  },
+  fit/.style={%
+    no marks,
+    solid,
+    domain=530:2650,
+    line width=0.7pt
+  },
+  fit1/.style={%
+    fit,
+    opacity=0.4,
+  },
+  fitdash/.style={%
+    no marks,
+    dashed,
+    domain=2650:4000,
+    line width=0.7pt
+  },
+  fitdash1/.style={%
+    fitdash,
+    opacity=0.4,
+  },
+  lowfit/.style={%
+    fit
+    domain=400:530,
+  },
+  lowfit1/.style={%
+    fit1,
+    domain=400:530,
+  },
+  lowfitdash/.style={%
+    fitdash,
+    domain=400:530,
+  },
+  lowfitdash1/.style={%
+    fitdash1,
+    domain=400:530,
+  },
+  points/.style={%
+    only marks,
+    mark=*,
+  },
+  points1/.style={%
+    points,
+    draw=none,
+    opacity=0.4,
+    draw opacity=0,
+  },
 }
-
-\tikzstyle{histogram} = [
-  const plot,
-  no marks,
-  line width=0.7pt
-]
-
-\tikzstyle{fit} = [
-  no marks,
-  solid,
-  domain=400:2650,
-  line width=0.7pt
-]
-
-\tikzstyle{fitdash} = [
-  no marks,
-  dashed,
-  domain=2650:4000,
-  line width=0.7pt
-]
-
-\tikzstyle{points} = [
-  only marks,
-  mark=*,
-  % /pgfplots/error bars/.cd,
-  %   y dir=both,
-  %   y explicit,
-  %   error mark=none,
-]
 
 \tikzstyle{peaklab} = [
   opacity=1,
@@ -64,7 +94,7 @@
     \nextgroupplot[
       ymin=1,
       ymode=log,
-      ylabel={counts},
+      ylabel={Counts},
       legend pos=south west,
     ]
 
@@ -73,17 +103,17 @@
     \draw[gridlike] (axis cs:2104,1) -- node[peaklab, above] {2104 keV SEP} (axis cs:2104,1E4);
     \draw[gridlike] (axis cs:2615,1) -- node[peaklab, above] {2615 keV FEP} (axis cs:2615,2E3);
 
-    \addplot+[histogram] table [x=energy, y=cts] {EnrBEGe_2-spectrum.csv};
-    \addplot+[histogram] table [x=energy, y=cts] {EnrCoax_2-spectrum.csv};
-    \addplot+[histogram] table [x=energy, y=cts] {EnrInvCoax-spectrum.csv};
+    \addplot+[histogram,  bege] table [x=energy, y=cts] {EnrBEGe_2-spectrum.csv};
+    \addplot+[histogram, scoax] table [x=energy, y=cts] {EnrCoax_2-spectrum.csv};
+    \addplot+[histogram, icoax] table [x=energy, y=cts] {EnrInvCoax-spectrum.csv};
 
-    \addlegendentry{\small\textsc{BEGe}}
-    \addlegendentry{\small\textsc{SemiCoax}}
-    \addlegendentry{\small\textsc{InvCoax}}
+    \addlegendentry{\textsc{BEGe}}
+    \addlegendentry{\textsc{SemiCoax}}
+    \addlegendentry{\textsc{InvCoax}}
 
     \nextgroupplot[
       ylabel={FWHM (keV)},
-      xlabel={energy (keV)},
+      xlabel={Energy (keV)},
       scatter,
       point meta=explicit symbolic,
       scatter/classes={
@@ -97,9 +127,22 @@
       legend image post style={black},
     ]
 
-    \addplot+[points] table [x=energy, y=fwhm, y error=fwhmerr, meta=linetype] {EnrBEGe_2-points.csv};
-    \addplot+[points] table [x=energy, y=fwhm, y error=fwhmerr, meta=linetype] {EnrCoax_2-points.csv};
-    \addplot+[points] table [x=energy, y=fwhm, y error=fwhmerr, meta=linetype] {EnrInvCoax-points.csv};
+    \addlegendimage{only marks, mark=triangle, fill=white}
+    \addlegendentry{Doppler broad.}
+    \addlegendimage{mark=*, mark size=1.3pt, fill=black, opacity=0.4}
+    \addlegendentry{fit pre-upgrade}
+    \addlegendimage{only marks, mark=diamond, fill=white}
+    \addlegendentry{summ.~peaks}
+    \addlegendimage{mark=*, mark size=1.3pt, fill=black}
+    \addlegendentry{fit Phase II$^+$}
+    \addlegendimage{only marks, mark=o, mark size=1.3pt, fill=white}
+    \addlegendentry{low stat}
+
+    \addplot+[points,   bege] table [x=energy, y=fwhm, y error=fwhmerr, meta=linetype] {EnrBEGe_2-points.csv};
+    \addplot+[points1,  bege] table [x=energy, y=fwhm, y error=fwhmerr, meta=linetype] {EnrBEGe-points.csv};
+    \addplot+[points,  scoax] table [x=energy, y=fwhm, y error=fwhmerr, meta=linetype] {EnrCoax_2-points.csv};
+    \addplot+[points1, scoax] table [x=energy, y=fwhm, y error=fwhmerr, meta=linetype] {EnrCoax-points.csv};
+    \addplot+[points,  icoax] table [x=energy, y=fwhm, y error=fwhmerr, meta=linetype] {EnrInvCoax-points.csv};
 
     \newcommand \begeres{2.35482*sqrt(0.36087132+0.00043591953*2039}
     \newcommand\scoaxres{2.35482*sqrt(0.89925576+0.00197534190*2039}
@@ -107,24 +150,27 @@
 
     \node[scale=0.8] at (axis cs:2039,\scoaxres+0.8) {$Q_{\upbeta\upbeta}$};
     \draw[gridlike] (axis cs:2039,0) -- (axis cs:2039,\scoaxres);
-    \draw[gridlike] (axis cs:2039,\begeres ) -- (axis cs:0, \begeres);
-    \draw[gridlike] (axis cs:2039,\scoaxres) -- (axis cs:0, \scoaxres);
-    \draw[gridlike] (axis cs:2039,\icoaxres) -- (axis cs:0, \icoaxres);
+    % \draw[gridlike] (axis cs:2039,\begeres ) -- (axis cs:0,\begeres);
+    % \draw[gridlike] (axis cs:2039,\scoaxres) -- (axis cs:0,\scoaxres);
+    % \draw[gridlike] (axis cs:2039,\icoaxres) -- (axis cs:0,\icoaxres);
 
-    \addlegendentry{\small fit points}
-    \addlegendentry{\small low stat?}
-    \addlegendentry{\small Doppler broad.}
-    \addlegendentry{\small summ.~peaks}
+    \addplot+[fitdash,   bege] {2.35482*sqrt(0.36087132+0.00043591953*x)};
+    \addplot+[fitdash1,  bege] {2.35482*sqrt(0.68230916+0.00042810056*x)};
+    \addplot+[fitdash,  scoax] {2.35482*sqrt(0.89925576+0.00197534190*x)};
+    \addplot+[fitdash1, scoax] {2.35482*sqrt(1.02112400+0.00064754776*x)};
+    \addplot+[fitdash,  icoax] {2.35482*sqrt(0.27572647+0.00058963471*x)};
 
-    \pgfplotsset{cycle list shift=-3}
-    \addplot+[fitdash] {2.35482*sqrt(0.36087132+0.00043591953*x)};
-    \addplot+[fitdash] {2.35482*sqrt(0.89925576+0.00197534190*x)};
-    \addplot+[fitdash] {2.35482*sqrt(0.27572647+0.00058963471*x)};
+    \addplot+[lowfitdash,   bege] {2.35482*sqrt(0.36087132+0.00043591953*x)};
+    \addplot+[lowfitdash1,  bege] {2.35482*sqrt(0.68230916+0.00042810056*x)};
+    \addplot+[lowfitdash,  scoax] {2.35482*sqrt(0.89925576+0.00197534190*x)};
+    \addplot+[lowfitdash1, scoax] {2.35482*sqrt(1.02112400+0.00064754776*x)};
+    \addplot+[lowfitdash,  icoax] {2.35482*sqrt(0.27572647+0.00058963471*x)};
 
-    \pgfplotsset{cycle list shift=-6}
-    \addplot+[fit] {2.35482*sqrt(0.36087132+0.00043591953*x)};
-    \addplot+[fit] {2.35482*sqrt(0.89925576+0.00197534190*x)};
-    \addplot+[fit] {2.35482*sqrt(0.27572647+0.00058963471*x)};
+    \addplot+[fit,   bege] {2.35482*sqrt(0.36087132+0.00043591953*x)};
+    \addplot+[fit1,  bege] {2.35482*sqrt(0.68230916+0.00042810056*x)};
+    \addplot+[fit,  scoax] {2.35482*sqrt(0.89925576+0.00197534190*x)};
+    \addplot+[fit1, scoax] {2.35482*sqrt(1.02112400+0.00064754776*x)};
+    \addplot+[fit,  icoax] {2.35482*sqrt(0.27572647+0.00058963471*x)};
 
     \end{groupplot}
   \end{tikzpicture}
