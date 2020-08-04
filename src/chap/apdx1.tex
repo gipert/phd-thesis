@@ -1,67 +1,148 @@
 %!TEX root = ../main.tex
 
-\chapter{Assay measurements}%
-\label{apdx:assay}
+\chapter{Germanium detector models}%
+\label{apdx:gedetav}
 
-To assess whether construction materials meet the \gerda\ radio-purity requirements,
-screening measurement campaigns have been carried one before the \phasetwo\ and \phasetwop\
-upgrades. The extracted radioactive decay activities constitute an important set of prior
-information that guides the construction of the background model presented in
-\cref{chap:bkg:raw:ph2} and following chapters. The results of the measurements are
-converted to useful units for the characterisation of prior distributions in the
-background model and other analyses. Part of these measurements are published also
-in~\cite{Agostini2018a}.
+As a result of the presence of the \nplus\ contact on the outer surface of the germanium
+detectors, the charge-collection efficiency (CCE) differs from unity in the region close
+to the contact. As a matter of fact, lithium impurities diffused inside the crystal during
+the diode fabrication process act as recombination centers for charge carriers, and the
+CCE curve strongly depends on the lithium concentration profile. Such a situation
+typically leads to events depositing energy in this region being characterized by a lower
+reconstructed energy, depending on the local CCE. The reader is referred
+to~\cite{Lehnert2016} for an extensive discussion of the charge-collection mechanism in
+germanium detectors and CCE models.
+
+\begin{figure}
+  \centering
+  \includegraphics{setup/gedet-av/tl-model.pdf}
+  \caption{%
+    Germanium detector active volume model. The charge-collection efficiency is zero by
+    definition at the outer surface and remains such through all the `dead layer'. The
+    detector is partially active in the `transition layer' region, where the CCE gradually
+    increases until reaching its maximal value in the fully active volume.
+  }\label{fig:gedetav:tl-model}
+\end{figure}
+
+\blocktitle{fully \\ active \\ volume}
+The full charge-collection depth (FCCD), defined as the depth at which the CCE reaches
+unity, has been estimated for each germanium detector deployed in \gerda\ during dedicated
+characterization campaigns. In these measurements, a radioactive source (e.g.~\Am, \Ba,
+\Co) is positioned close to the detector surface to sample its energy spectrum. A matching
+between data and Monte Carlo simulations is then performed to find the FCCD value that
+best describes data. The recommended FCCD values obtained from this characterization data
+are reported in \cref{tab:gedetav:official}. The \scoax\ values are extracted from \Co\
+data as documented in~\cite{Heider2009}, while the \bege\ values are obtained combining
+\Am\ and \Ba\ data~\cite{Agostini2019}. \icoax\ values are extracted from \Am\
+measurements. The \bege\ detectors have been stored at room temperature in the time
+interval between their characterization to the deployment in liquid argon, and must be
+therefore corrected for the dead-layer growing effect. The growth speed at room
+temperature has never been determined rigorously, and the best available estimate is of
+about $\sim{}0.1$~mm/yr, with a standard deviation of 0.04~mm/yr (\cite{Agostini2019} and
+references therein). The correction is therefore applied considering the exact time spent
+by each detector at room temperature together with an additional systematic uncertainty of
+50\%.
+\begin{table}
+  \centering
+  \caption{%
+    Recommended full charge-collection depth (FCCD) and dead layer fraction (DLF) values
+    for each detector deployed in \gerdatwo, calculated from detector characterization
+    data. The \bege\ FCCD values are obtained combining \Am\ and \Ba\
+    data~\cite{Agostini2019} while \scoax\ values are extracted from \Co\
+    data~\cite{Heider2009}. The \icoax\ values are obtained from \Am\ data. The \bege\
+    FCCDs are corrected for the dead-layer growing effect at room temperature experienced
+    before installment in \gerda~\cite{Agostini2019}. The uncertainties are split into
+    correlated and uncorrelated contributions. The DLF values have been estimated
+    in~\cite{Lehnert2016} and do not include any growing effect at room temperature.
+    \fillme{fill table}
+  }\label{tab:gedetav:official}
+  \input{tab/gedet-av/gedetav-official.tex}
+\end{table}
+
+\blocktitle{transition \\ layer}
+The region enclosed by the detector surface and the FCCD is, of course, not completely
+dead, and regions with reduced CCE are expected. The CCE curve in this region strongly
+depends on the lithium concentration profile, which is in turn strongly dependent on the
+diode fabrication process (initial lithium concentration at the surface, thermal annealing
+cycles etc.) and is \emph{a priori} different for each detector. As a consequence, the
+transition region must be characterized for each detector individually, e.g.~in a similar
+way as FCCD is determined from external source data.
 \newpar
-Radio-purity was measured with three techniques: \g\ spectroscopy, ICP-MS and neutron
-activation analysis (NAA), which main characteristics are summarized below.
-\begin{description}
-  \item[\g\ spectroscopy] is performed with photon-counting apparata (usually germanium
-    detectors). The radio-activity of a material sample is determined by measuring the
-    intensity of known \g\ lines from various decaying isotopes. \g\ spectroscopy is
-    well suited to constrain \kvn\ contaminations.
-  \item[ICP-MS] (Inductively Coupled Plasma Mass Spectrometry) is a technique that ionizes
-    the material samples and counts the resulting ions after separating them according to
-    their charge-to-mass ratio. It is applicable to materials which can be easily put in
-    liquid form. Statistical uncertainties on ICP-MS measurements are usually small, but
-    systematic effects can bias the results.
-  \item[NAA] (Neutron Activation Analysis) essentially exposes the target material sample
-    to a flux of neutrons. The \g\ radiation emitted by the activated nuclei in the sample
-    is analyzed to determine the initial isotopic composition. Light atomic nuclei
-    (e.g.~potassium) which are not activated by neutrons cannot be detected by this
-    method.
-\end{description}
-
-The results of all screening measurements available for \gerdatwo\ materials are
-summarized in \cref{tab:bkg:ph2:assay,tab:bkg:ph2p:assay}. Recommendations on how to
-properly use the values as prior information in the background model are included. Note
-that the following groups of isotopes are assumed to be in secular equilibrium:
+It is important to stress here that a precise characterization of the transition layer is
+not needed for the \onbb\ analysis, as the introduction of a partially-active region above
+the FCCD results in hypothetical, new \onbb\ events below the \qbb. \onbb\ events
+originating in this transition region would in fact be detected with an effectively lower
+energy and therefore `get out' of the gaussian peak at \qbb, which is what the experiment
+looks for. In summary, the presence of a non-null transition layer would have no impact on
+the signal detection efficiency defined for the \onbb\ analysis. Constraining the CCE
+curve is instead very important for the \nnbb\ analysis. Different transition layer models
+result in shape distortions of the \nnbb\ energy distribution that can potentially mimic
+the presence of new-physics phenomena (e.g.~those considered in
+\cref{sec:nbb:0nbbx,sec:nbb:2nbbLV}). The potential systematic effect due to the
+uncertainties in the CCE curve determination is investigated in \cref{?}. Last but not
+least, the size of the transition region marginally affects the \thalftwo\ estimate, since
+it depends on the total number of detected \nnbb\ events.
+\newpar
+An attempt to determine the CCE curve for \gerda's \bege\ detectors has been carried on
+in~\cite{Lehnert2016}. A simple linear model (the one shown in
+\cref{fig:gedetav:tl-model}) has been considered first. Once the FCCD is fixed, the only
+parameter that needs to be constrained is the starting point of the transition region,
+i.e.~the dead layer thickness (DLT). Monte Carlo simulations performed with different DLTs
+have been compared to \Am\ data in order to determine the dead layer fraction (DLF),
+defined as
 \[
-  ^{238}\text{U}  \succ ^{234\text{m}}\text{Pa}               \;\; \| \;\;
-  ^{226}\text{Ra} \succ ^{214}\text{Pb} \succ ^{214}\text{Bi} \;\; \| \;\;
-  ^{228}\text{Ra} \succ ^{228}\text{Ac}                       \;\; \| \;\;
-  ^{228}\text{Th} \succ ^{212}\text{Bi} \succ ^{208}\text{Tl} \;.
+  \text{DLF} = \frac{\text{DLT}}{\text{FCCD}} \in [0,1] \;,
 \]
+For each \bege\ detector. The results are reproduced in \cref{tab:gedetav:official}. Since
+the effect of the lithium concentration profile evolution at room temperature on the
+transition region is not known, these values have not been corrected.
 
-\clearpage
-\thispagestyle{empty}
-\begin{sidewaystable}
-  \caption{%
-    Activity of \gerda\ \phasetwo\ setup components calculated from radio-purity screening
-    measurements. Values in gray can be used as priors for \phasetwo\ background modeling
-    as they are; values in green are (partly) derived from ICP-MS/NAA measurements under
-    the assumption of secular equilibrium in the U/Th decay chains; values in light blue
-    have to be multiplied by 2/3. The latter is an approximation for the shortening of the
-    cables before deployment in \gerda.
-  }\label{tab:bkg:ph2:assay}
-  \input{tab/bkg/assay-measurements}
-\end{sidewaystable}
+\blocktitle{known \\ issues}
+Unfortunately, the active volume model presented above suffers from many uncertainties and
+cannot be fully trusted. A systematic discrepancy between FCCD values obtained from
+different radioactive sources (\Am, \Ba\ and \Co) has been highlighted and
+discussed~\cite{Lehnert2016}, but no convincing explanation of its origin has been
+formulated yet. Moreover, the fact that \bege\ detectors were stored at room temperature
+for a significant amount of time after being carefully characterized poses an additional
+question mark on these FCCD values, as the growing effect has never been carefully studied
+in detail. In particular, the size of the transition region extracted from the
+characterization data must also be affected by the evolution of the lithium concentration
+profile in some way, and cannot be left uncorrected when considering data collected in the
+\gerda\ cryostat. Finally, the linear transition layer model could be a bad approximation
+in some detectors. Evidence for these systematic discrepancies will be presented in the
+following sections.
 
-\begin{sidewaystable}
+\section{Tuning the \bege\ transition layer model on calibration data}%
+\label{sec:gedetav:calib-optim}
+
+\begin{table}
+  \centering
   \caption{%
-    Activity of setup components deployed during the \gerda\ \phasetwop\ upgrade
-    calculated from radio-purity screening measurements. \fillme{fillme}
-  }\label{tab:bkg:ph2p:assay}
-  \input{tab/bkg/assay-measurements-plus}
-\end{sidewaystable}
+    \bege\ dead layer fractions obtained from calibration data. \fillme{fill numbers}
+  }\label{tab:gedetav:calib-optim}
+  \input{tab/gedet-av/gedetav-calib.tex}
+\end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{plots/gedet-av/GD00C-tl-peak.pdf}%
+  \includegraphics[width=0.5\textwidth]{plots/gedet-av/GD00C-optimization.pdf}
+  \caption{%
+    Example optimization for detector \GD{00C}. \fillme{update, TLF -> DLF}
+  }\label{fig:gedetav:example-optim}
+\end{figure}
+
+\section{Insights from \Arl\ data}%
+\label{src:gedetav:ar39}
+
+The \gerda\ event spectrum is dominated, at low energies, by \Arl-decay events. This
+unstable nucleus is naturally present in the atmosphere and is cosmogenically activated.
+It decays to the ground state of $^{39}$K via $\upbeta^-$ decay with a half-life of
+269(3)~yr and Q-value of 656(5)~keV. Being commercial liquid argon distilled from air, it
+naturally contains a fraction of \Arl, whose activity has been estimated to be of about
+1~Bq/kg by various experiments~\cite{Ajaj2019, Calvo2017, Benetti2006, Loosli1983}.
+\newpar
+The first way a \b\ particle emitted in the \Arl\ decay is detected in \gerda is when it
+directly reaches the detector's active volume.
 
 % vim: tw=90

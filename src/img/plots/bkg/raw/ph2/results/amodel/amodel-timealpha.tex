@@ -21,19 +21,22 @@
 
 \tikzstyle{best} = [
   thick,
+  no marks,
   TolVibBlue
 ]
 
 \tikzstyle{error} = [
+  no marks,
   TolVibBlue,
   opacity=0.5,
   draw=none
 ]
 
 \tikzstyle{points} = [
-  black,
   only marks,
   mark=*,
+  black,
+  mark options={fill=black},
   mark size=1.1pt,
   /pgfplots/error bars/.cd,
     y dir=both,

@@ -112,8 +112,16 @@ sampled according to the distribution given in~\cite{Tretyak1995} and implemente
 taking into account the finite energy resolution and individual exposure acquired with
 each detector during the considered data taking periods. Special care is taken not to
 statistically bias the pdfs by assuring that each simulated decay is taken into account
-only once in the production of a pdf. For more details see \cref{apdx:magepdfs}. The pdfs
-for the background model of \gerdatwo\ data before cuts are displayed in
+only once in the production of a pdf. For more details see \cref{apdx:magepdfs}. The
+germanium detector active volume model is also applied to the simulations during this
+post-processing step. A simplified step-like function that defines the charge-collection
+efficiency (CCE) value depending on the depth from the detector surface is used to produce
+the pdfs for the analysis of \phasetwo\ data before the upgrade. The CCE is set to a null
+value through all the transition region between the surface and the full charge-collection
+efficiency region. From the full charge-collection depth (FCCD) and below the CCE is set
+equal to unity. The estimated FCCD values for each detector are documented and discussed
+in \cref{apdx:gedetav}. The pdfs for the background model of \gerdatwo\ data before
+cuts are displayed in
 \cref{fig:bkg:raw:ph2:pdfs:gmodel,fig:bkg:raw:ph2:pdfs:amodel,fig:bkg:raw:ph2:pdfs:kmodel:K40,fig:bkg:raw:ph2:pdfs:kmodel:K42}
 and will be presented in more detail in the following.
 
