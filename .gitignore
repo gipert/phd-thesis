@@ -43,6 +43,8 @@
 /src/img/plots/history/gerda-history-vs-exposure.pdf
 /src/img/plots/history/0nbb-ge76-history.pdf
 /src/img/setup/gedet-av/tl-model.pdf
+/src/img/plots/gedet-av/ar39-distortions.pdf
+/src/img/plots/gedet-av/ar39-spectrum.pdf
 
 *.DS_Store
 *.swp

@@ -95,7 +95,10 @@ defined as
 \]
 For each \bege\ detector. The results are reproduced in \cref{tab:gedetav:official}. Since
 the effect of the lithium concentration profile evolution at room temperature on the
-transition region is not known, these values have not been corrected.
+transition region is not known, these values have not been corrected. A more complex
+transition layer model has been also derived from first principles in~\cite{Lehnert2016},
+but it requires special PSD data from other radioactive sources (\aoe\ from \nuc{Sr}{90}
+in~\cite{Lehnert2016}) that was available just for \GD{91C}.
 
 \blocktitle{known \\ issues}
 Unfortunately, the active volume model presented above suffers from many uncertainties and
@@ -114,6 +117,8 @@ following sections.
 
 \section{Tuning the \bege\ transition layer model on calibration data}%
 \label{sec:gedetav:calib-optim}
+
+\fillme{Check with Katharina}
 
 \begin{table}
   \centering
@@ -142,7 +147,37 @@ It decays to the ground state of $^{39}$K via $\upbeta^-$ decay with a half-life
 naturally contains a fraction of \Arl, whose activity has been estimated to be of about
 1~Bq/kg by various experiments~\cite{Ajaj2019, Calvo2017, Benetti2006, Loosli1983}.
 \newpar
-The first way a \b\ particle emitted in the \Arl\ decay is detected in \gerda is when it
-directly reaches the detector's active volume.
+The \b\ particle emitted in the \Arl\ decay can be detected directly or indirectly in
+\gerda. In the first case the electron has to directly reach the detector's active volume.
+Since a \b\ particle of that energy has a mean range in germanium of less than 100~\mum\
+and the \nplus\ contact is typically several hundreds of \mum\ thick, the only way is
+through the \pplus\ electrode. For the same reason, the mother \Arl\ nucleus must decay
+very close to the detector surface, i.e.~less than 1~mm far from it. Being the \pplus\
+contact a small fraction of the total detector surface, the \b\ component of the \Arl\
+spectrum is expected to be sub-dominant or even negligible for point-like contact
+detectors such as \bege{}s or \icoax{}s.
+\newpar
+\Arl\ electrons typically emit \emph{bremsstrahlung} radiation in LAr that can reach the
+detectors' active volume: this is referred as the `indirect' detection method. Since the
+photon absorption length in germanium and liquid argon is much longer than the electrons',
+\Arl\ decays originating much further from the detector surface can be detected. Moreover,
+\emph{bremsstrahlung} photons can interact with the whole detector volume, and thus
+constitute a `volume probe'. It follows from what stated above that the \g\ component
+largely dominates the \Arl\ event spectrum.
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/gedet-av/ar39-spectrum.pdf}%
+  \includegraphics{plots/gedet-av/ar39-distortions.pdf}
+  \caption{%
+    Left: decomposition of the \Arl\ energy spectrum into \b\ and \g\ components. Center
+    and right: Impact of different linear transition layer model
+    (\cref{fig:gedetav:tl-model}) parameters on the \Arl\ energy spectrum shape, keeping
+    the \Arl\ activity in LAr fixed. Left: the dead layer fraction (DLF) is fixed to 1
+    (i.e.~hard step model) and the full charge-collection depth (FCCD) is varied between
+    0.3~mm and 1.5~mm in steps of 0.1~mm. Right: the FCCD is fixed to 0.9~mm and the DLF
+    is varied between 0 (i.e.~no dead layer) and 1 (i.e.~no transition layer).
+  }\label{fig:gedetav:ar39:distortions}
+\end{figure}
 
 % vim: tw=90

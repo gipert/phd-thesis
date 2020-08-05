@@ -1,0 +1,85 @@
+%! TEX program = xelatex
+\input{../../../tex/standalone-def.tex}
+\import{}{pgfplots-def}
+\usepgfplotslibrary{groupplots}
+
+\pgfplotscreateplotcyclelist{ShadesList}{%
+  {TolVibBlue!30!black},
+  {TolVibBlue!40!black},
+  {TolVibBlue!50!black},
+  {TolVibBlue!60!black},
+  {TolVibBlue!70!black},
+  {TolVibBlue!80!black},
+  {TolVibBlue!90!black},
+  {TolVibBlue!90!white},
+  {TolVibBlue!80!white},
+  {TolVibBlue!70!white},
+  {TolVibBlue!60!white},
+  {TolVibBlue!50!white},
+  {TolVibBlue!40!white},
+}
+
+\def\tls{00, 01, 02, 03, 04, 05, 06, 07, 08, 09, 10}
+\def\fccds{300um, 400um, 500um, 600um, 700um, 800um, 900um, 1000um, 1100um, 1200um, 1300um, 1400um, 1500um}
+
+\pgfplotsset{%
+  width=5.8cm,
+  xmin=41, xmax=300,
+  cycle list name=ShadesList,
+  no marks,
+  legend style={%
+    font=\footnotesize,
+    draw=none,
+    fill=none,
+  },
+  xlabel={Energy (keV)},
+  % ylabel={a.u.},
+  histogram/.append style={%
+    table/x=energy,
+    table/y expr=\thisrow{counts}/1e4,
+  },
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}[
+      group style={%
+        group size=2 by 1,
+        yticklabels at=edge left,
+        horizontal sep=5pt,
+      },
+    ]
+
+      \nextgroupplot
+
+      \addlegendimage{no marks, TolVibBlue!30!black, thick}
+      \addlegendentry{FCCD = 0.3 mm}
+      \addlegendimage{no marks, TolVibBlue!40!black, thick}
+      \addlegendentry{FCCD = 0.4 mm}
+      \addlegendimage{empty legend}
+      \addlegendentry{[\ldots]}
+      \addlegendimage{no marks, TolVibBlue!40!white, thick}
+      \addlegendentry{FCCD = 1.5 mm}
+
+      \foreach \fccd in \fccds {%
+        \addplot+[histogram] table {data/nplus-dl\fccd-tl10.csv};
+      }
+
+      \nextgroupplot
+
+      \addlegendimage{no marks, TolVibBlue!30!black, thick}
+      \addlegendentry{DLF = 0}
+      \addlegendimage{no marks, TolVibBlue!40!black, thick}
+      \addlegendentry{DLF = 0.1}
+      \addlegendimage{empty legend}
+      \addlegendentry{[\ldots]}
+      \addlegendimage{no marks, TolVibBlue!40!white, thick}
+      \addlegendentry{DLF = 1}
+
+      \foreach \tl in \tls {%
+        \addplot+[histogram] table {data/nplus-dl900um-tl\tl.csv};
+      }
+
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}
