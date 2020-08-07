@@ -1,0 +1,83 @@
+%! TEX program = xelatex
+\input{../../../tex/standalone-def.tex}
+\import{}{pgfplots-def}
+\usepgfplotslibrary{groupplots}
+
+\pgfplotsset{%
+  height=4.5cm,
+  table/col sep=comma,
+  table/x=index,
+  every axis/.style={%
+    % xlabel={Detector},
+    xmin=0, xmax=42,
+    only marks,
+    xmajorgrids,
+    xticklabel style={rotate=90, font=\ttfamily},
+    xtick={%
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10,%
+      11, 12, 13, 14, 15, 16, 17, 18, 19, 20,%
+      21, 22, 23, 24, 25, 26, 27, 28, 29, 30,%
+      31, 32, 33, 34, 35, 36, 37, 38, 39, 40,%
+      41
+    },
+    xticklabels={%
+      ANG1, ANG2, ANG3, ANG4, ANG5, RG1, RG2,%
+      GD00A, GD00B, GD00C, GD00D, GD02A, GD02B, GD02C, GD32A, GD32B,%
+      GD32C, GD32D, GD35A, GD35B, GD35C, GD61A, GD61B, GD61C, GD76B, GD76C,%
+      GD79B, GD79C, GD89A, GD89B, GD89C, GD89D, GD91A, GD91B, GD91C, GD91D,%
+      IC48A, IC48B, IC50A, IC50B, IC74A%
+    }
+  },
+  old/.style={%
+    mark size=1pt,
+    error bars/y dir=both,
+    error bars/y explicit,
+  },
+  new/.style={%
+    mark size=0pt,
+    error bars/y dir=both,
+    error bars/y fixed=0.1,
+    error bars/error mark options={mark size=0pt},
+    error bars/error bar style={line width=2pt},
+    % scatter,
+    % table/meta=label,
+    % point meta=explicit symbolic,
+    % scatter/classes={%
+    %   ok={mark=*},
+    %   off={mark=none, error}
+    % },
+  },
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}[
+      group style={%
+        group size=1 by 2,
+        vertical sep=5pt,
+        xticklabels at=edge bottom,
+      },
+    ]
+
+      \nextgroupplot[ylabel={FCCD (mm)}]
+
+      \addlegendimage{only marks, mark=square*, TolVibRed}
+      \addlegendentry{From $^{39}$Ar energy spectrum shape}
+      \addlegendimage{only marks, mark=*, TolVibBlue}
+      \addlegendentry{Detector characterization data}
+
+      \addplot+[new] table[y=fccd_new] {data/ar39-results.csv};
+      \addplot+[old] table[y=fccd_old,
+                           y error plus=fccd_old_err_p,
+                           y error minus=fccd_old_err_m] {data/ar39-results.csv};
+
+      \nextgroupplot[ylabel={DLF}]
+
+      \addplot+[new] table[y=dlf_new] {data/ar39-results.csv};
+      \addplot+[old] table[y=dlf_old,
+                           y error plus=dlf_old_err_p,
+                           y error minus=dlf_old_err_m] {data/ar39-results.csv};
+
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}
