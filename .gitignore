@@ -46,7 +46,12 @@
 /src/img/plots/gedet-av/ar39-distortions.pdf
 /src/img/plots/gedet-av/ar39-spectrum.pdf
 /src/img/plots/gedet-av/ar39-results.pdf
+/src/img/plots/gedet-av/ar39-spectra-optim-1.pdf
+/src/img/plots/gedet-av/ar39-spectra-optim-2.pdf
+/src/img/plots/gedet-av/ar39-spectra-optim-3.pdf
+/src/img/plots/gedet-av/ar39-spectra-optim-4.pdf
 
 *.DS_Store
 *.swp
 *.swo
+.ipynb_checkpoints

@@ -1,0 +1,137 @@
+%! TEX program = xelatex
+\input{../../../tex/standalone-def.tex}
+\import{}{pgfplots-def}
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{fillbetween}
+
+\pgfplotsset{%
+  width=5.1cm,
+  xmin=41, xmax=250,
+  legend style={%
+    font=\footnotesize,
+    draw=none,
+    fill=none,
+  },
+  xlabel={Energy (keV)},
+  ylabel={Counts / 4 keV},
+  histogram/.append style={%
+    table/x=energy,
+  },
+  data/.append style={%
+    table/x=energy,
+    table/y=data,
+    only marks,
+    mark size=0.7pt,
+  },
+  model/.append style={%
+    histogram,
+    table/y=model,
+    line width=0.2pt,
+    forget plot,
+  },
+  1sigu/.style={%
+    histogram,
+    table/y=1sig_u,
+    TolLigPear,
+    name path=1sigu,
+    forget plot,
+  },
+  1sigl/.style={%
+    histogram,
+    table/y=1sig_l,
+    TolLigPear,
+    name path=1sigl,
+    forget plot,
+  },
+  2sigu/.style={%
+    histogram,
+    table/y=2sig_u,
+    TolLigYellow,
+    name path=2sigu,
+    forget plot,
+  },
+  2sigl/.style={%
+    histogram,
+    table/y=2sig_l,
+    TolLigYellow,
+    name path=2sigl,
+    forget plot,
+  },
+  3sigu/.style={%
+    histogram,
+    table/y=3sig_u,
+    TolLigOrange,
+    name path=3sigu,
+    forget plot,
+  },
+  3sigl/.style={%
+    histogram,
+    table/y=3sig_l,
+    TolLigOrange,
+    name path=3sigl,
+    forget plot,
+  },
+  1sigb/.style={%
+    TolLigPear,
+    area legend,
+    forget plot,
+  },
+  2sigb/.style={%
+    TolLigYellow,
+    area legend,
+    forget plot,
+  },
+  3sigb/.style={%
+    TolLigOrange,
+    area legend,
+    forget plot,
+  },
+}
+
+% ANG2, ANG3, ANG4, RG1, RG2,
+% GD00A, GD00B, GD00C, GD00D, GD02A, GD02B, GD02C, GD32A, GD32B, GD32C, GD32D,
+% GD35A, GD35B, GD35C, GD61A, GD61B, GD61C, GD76B, GD76C, GD79B, GD79C, GD89A,
+% GD89B, GD89C, GD89D, GD91A, GD91B, GD91C, GD91D,
+% IC48A, IC50A, IC50B, IC74A
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}[
+      group style={%
+        group size=3 by 4,
+        xticklabels at=edge bottom,
+        ylabels at=edge left,
+        xlabels at=edge bottom,
+        horizontal sep=1cm,
+        vertical sep=5pt,
+      },
+      legend pos=south west,
+    ]
+
+      \pgfplotsinvokeforeach{GD79B, GD79C, GD89A, GD89B, GD89C, GD89D, GD91A, GD91B, GD91C, GD91D, IC48A, IC50A}{%
+
+        \nextgroupplot
+
+        \addplot[3sigu] table {data/optim/#1.csv};
+        \addplot[3sigl] table {data/optim/#1.csv};
+        \addplot[3sigb] fill between [of=3sigu and 3sigl];
+
+        \addplot[2sigu] table {data/optim/#1.csv};
+        \addplot[2sigl] table {data/optim/#1.csv};
+        \addplot[2sigb] fill between [of=2sigu and 2sigl];
+
+        \addplot[1sigu] table {data/optim/#1.csv};
+        \addplot[1sigl] table {data/optim/#1.csv};
+        \addplot[1sigb] fill between [of=1sigu and 1sigl];
+
+        \addplot[model] table {data/optim/#1.csv};
+        \addplot[data] table {data/optim/#1.csv};
+
+        \addlegendentry{\texttt{#1} data}
+        \addlegendimage{only marks, mark=poisson bands}
+        \addlegendentry{Model (1, 2, 3 $\sigma$)}
+      }
+
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}

@@ -114,8 +114,10 @@ in detail. In particular, the size of the transition region extracted from the
 characterization data must also be affected by the evolution of the lithium concentration
 profile in some way, and cannot be left uncorrected when considering data collected in the
 \gerda\ cryostat. Finally, the linear transition layer model could be a bad approximation
-in some detectors. Evidence for these systematic discrepancies will be presented in the
-following sections.
+in some detectors. An evidence for the presence of these systematic biases lies in the
+results of the background model presented in \cref{chap:bkg:raw:ph2}, which yields
+incompatible \thalftwo\ estimates from different detector types. More evidence in support
+of this and possible solutions will be presented in the following sections.
 
 \section{Tuning the \bege\ transition layer model on calibration data}%
 \label{sec:gedetav:calib-optim}
@@ -202,10 +204,15 @@ the distribution.
 \blocktitle{tuning the \\ model}
 An attempt to fit the \Arl\ energy spectrum and extract FCCD and DLF values for each
 detector has been carried on, whose preliminary results are presented here. The
-\phasetwop\ data set has been considered, as the germanium detectors' energy threshold has
-been kept low enough (about 40~keV) for the whole data taking. Each detector collected
-more than $5 \cdot 10^4$ events below 200~keV, where the bulk of the \Arl\ events is
-located. \fillme{fillme}
+\phasetwop\ data set (\gexpophasetwopbkg) has been considered, as the germanium detectors' energy threshold has
+been kept low enough (about 40~keV) for the whole data taking. No LAr veto cut or PSD cut
+has been applied, as the corresponding Monte Carlo model is not known in sufficient detail
+yet or is completely missing. Each detector collected more than $5 \cdot 10^4$ events
+below 200~keV, where the bulk of the \Arl\ events is located. \fillme{describe final
+analysis, refer to \cref{fig:gedetav:ar39-results}
+\cref{fig:gedetav:spectra-optim-1,fig:gedetav:spectra-optim-2,fig:gedetav:spectra-optim-3,fig:gedetav:spectra-optim-4}}
+\newpar
+\fillme{Comment results}
 
 \begin{figure}
   \centering
@@ -221,6 +228,79 @@ located. \fillme{fillme}
 \end{figure}
 
 \blocktitle{systematic \\ uncertainties}
-There are
+There are systematic effects that might play a significant role in this analysis and that
+could not be studied with the attention they deserve. These results are indeed preliminary
+and should be taken with a grain of salt. Nevertheless, a tentative list of the main
+sources of systematic biases is given here for completeness.
+\begin{description}
+  \item[Quality cuts] The effectiveness of the quality cuts has never been verified in the
+    \Arl\ energy region, where a large fraction of the total number of unphysical events
+    can be expected. A quality cuts efficiency degrading around the energy threshold might
+    induce deformations of the event energy distribution.
+  \item[Energy scale and resolution] The correctness of the calibration and resolution
+    curves of the germanium detector has never been investigated in detail at such low
+    energies. The lowest \g\ line included in the calibration analysis is in fact at
+    583~keV, which is even higher than the \Arl\ Q-value. As it can be speculated from
+    \cref{fig:gedetav:ar39:distortions}, a systematic shift in the energy scale or
+    resolution below the \Arl\ Q-value could mimic distortions corresponding to FCCD
+    shifts. \fillme{news from Z\"urich here?}.
+  \item[Transition layer model] A linear model for the CCE in the transition region has
+    been used to keep the analysis simple. However, as it can be easily noticed by
+    observing data close to the energy threshold, the approximation does not hold
+    perfectly throughout the whole \Arl\ energy spectrum. More realistic models should be
+    studied in order to asses whether the linear model introduces a severe bias in the
+    results.
+  \item[Background model] systematic effects arising from an incomplete or inexact
+    background model in the low energy region cannot be excluded. As instance, a \Kr\
+    contribution is known to be present in LAr (\g\ line at 514~keV) but is ignored in the
+    present analysis. A fit of the \Kr\ pdf to the \g\ line visible in data, however,
+    suggests a negligible contribution.
+  \item[\Arl\ spectrum theoretical shape] The dynamics of the first-forbidden unique
+    $\upbeta^-$ decay of \Arl\ are not known in great detail, from a theoretical point of
+    view~\cite{Kostensalo2017}. The impact of different numerical calculations should be
+    considered when performing such a shape analysis on its energy spectrum. However,
+    judging from the order of magnitude of the distortions shown in~\cite{Kostensalo2017},
+    this theoretical uncertainty should have a negligible impact.
+\end{description}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/gedet-av/ar39-spectra-optim-1.pdf}
+  \caption{%
+    \gerda\ \phasetwop\ data (\gexpophasetwopbkg) in the $[40, 250]$~keV energy range and
+    best-matching Monte Carlo model determined by adjusting the transition layer model.
+    The corresponding FCCD and DLF values are shown in \cref{fig:gedetav:ar39-results}.
+  }\label{fig:gedetav:spectra-optim-1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/gedet-av/ar39-spectra-optim-2.pdf}
+  \caption{%
+    \gerda\ \phasetwop\ data (\gexpophasetwopbkg) in the $[40, 250]$~keV energy range and
+    best-matching Monte Carlo model determined by adjusting the transition layer model.
+    The corresponding FCCD and DLF values are shown in \cref{fig:gedetav:ar39-results}.
+  }\label{fig:gedetav:spectra-optim-2}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/gedet-av/ar39-spectra-optim-3.pdf}
+  \caption{%
+    \gerda\ \phasetwop\ data (\gexpophasetwopbkg) in the $[40, 250]$~keV energy range and
+    best-matching Monte Carlo model determined by adjusting the transition layer model.
+    The corresponding FCCD and DLF values are shown in \cref{fig:gedetav:ar39-results}.
+  }\label{fig:gedetav:spectra-optim-3}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/gedet-av/ar39-spectra-optim-4.pdf}
+  \caption{%
+    \gerda\ \phasetwop\ data (\gexpophasetwopbkg) in the $[40, 250]$~keV energy range and
+    best-matching Monte Carlo model determined by adjusting the transition layer model.
+    The corresponding FCCD and DLF values are shown in \cref{fig:gedetav:ar39-results}.
+  }\label{fig:gedetav:spectra-optim-4}
+\end{figure}
 
 % vim: tw=90

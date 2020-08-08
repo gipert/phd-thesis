@@ -1,0 +1,553 @@
+{
+    "GD32A": {
+        "time-at-room-temperature-yr" : 3.4,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.59,
+            "corrPos": 0.03,
+            "corrNeg": 0.03,
+            "uncorrPos": 0.02,
+            "uncorrNeg": 0.02
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.53,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD32B": {
+        "time-at-room-temperature-yr" : 2.5,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.84,
+            "corrPos": 0.03,
+            "corrNeg": 0.03,
+            "uncorrPos": 0.02,
+            "uncorrNeg": 0.02
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.73,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.00,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD32C": {
+        "time-at-room-temperature-yr" : 2.6,
+        "am-fccd": {
+            "can-use": false,
+            "central": 0.81,
+            "corrPos": 0.03,
+            "corrNeg": 0.04,
+            "uncorrPos": 0.02,
+            "uncorrNeg": 0.02
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.54,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD32D": {
+        "time-at-room-temperature-yr" : 2.5,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.61,
+            "corrPos": 0.03,
+            "corrNeg": 0.04,
+            "uncorrPos": 0.03,
+            "uncorrNeg": 0.03
+        },
+        "ba-fccd": {
+            "can-use": false,
+            "central": 0.41,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD35A": {
+        "time-at-room-temperature-yr" : 3.4,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.62,
+            "corrPos": 0.03,
+            "corrNeg": 0.03,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.58,
+            "corrPos": 0.05,
+            "corrNeg": 0.04,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD35B": {
+        "time-at-room-temperature-yr" : 2.3,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.58,
+            "corrPos": 0.03,
+            "corrNeg": 0.04,
+            "uncorrPos": 0.06,
+            "uncorrNeg": 0.05
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.53,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD35C": {
+        "time-at-room-temperature-yr" : 2.4,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.58,
+            "corrPos": 0.03,
+            "corrNeg": 0.03,
+            "uncorrPos": 0.02,
+            "uncorrNeg": 0.02
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.50,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD61A": {
+        "time-at-room-temperature-yr" : 2.9,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.84,
+            "corrPos": 0.04,
+            "corrNeg": 0.04,
+            "uncorrPos": 0.05,
+            "uncorrNeg": 0.04
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.65,
+            "corrPos": 0.05,
+            "corrNeg": 0.05,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD61B": {
+        "time-at-room-temperature-yr" : 2.8,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.75,
+            "corrPos": 0.03,
+            "corrNeg": 0.04,
+            "uncorrPos": 0.04,
+            "uncorrNeg": 0.04
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.69,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD61C": {
+        "time-at-room-temperature-yr" : 2.4,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.70,
+            "corrPos": 0.03,
+            "corrNeg": 0.03,
+            "uncorrPos": 0.04,
+            "uncorrNeg": 0.04
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.67,
+            "corrPos": 0.06,
+            "corrNeg": 0.07,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD76B": {
+        "time-at-room-temperature-yr" : 2.8,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.93,
+            "corrPos": 0.03,
+            "corrNeg": 0.03,
+            "uncorrPos": 0.04,
+            "uncorrNeg": 0.03
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.76,
+            "corrPos": 0.06,
+            "corrNeg": 0.07,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD76C": {
+        "time-at-room-temperature-yr" : 2.9,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.89,
+            "corrPos": 0.03,
+            "corrNeg": 0.03,
+            "uncorrPos": 0.03,
+            "uncorrNeg": 0.03
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.81,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD79B": {
+        "time-at-room-temperature-yr" : 3.1,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.76,
+            "corrPos": 0.03,
+            "corrNeg": 0.04,
+            "uncorrPos": 0.03,
+            "uncorrNeg": 0.03
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.68,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD79C": {
+        "time-at-room-temperature-yr" : 2.5,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.90,
+            "corrPos": 0.03,
+            "corrNeg": 0.04,
+            "uncorrPos": 0.03,
+            "uncorrNeg": 0.03
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.78,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD89A": {
+        "time-at-room-temperature-yr" : 3.2,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.72,
+            "corrPos": 0.03,
+            "corrNeg": 0.03,
+            "uncorrPos": 0.04,
+            "uncorrNeg": 0.03
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.64,
+            "corrPos": 0.05,
+            "corrNeg": 0.05,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD89B": {
+        "time-at-room-temperature-yr" : 3.1,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.85,
+            "corrPos": 0.03,
+            "corrNeg": 0.04,
+            "uncorrPos": 0.02,
+            "uncorrNeg": 0.02
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.75,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD89C": {
+        "time-at-room-temperature-yr" : 3.0,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.71,
+            "corrPos": 0.03,
+            "corrNeg": 0.03,
+            "uncorrPos": 0.03,
+            "uncorrNeg": 0.03
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.66,
+            "corrPos": 0.06,
+            "corrNeg": 0.07,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD89D": {
+        "time-at-room-temperature-yr" : 2.7,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.83,
+            "corrPos": 0.03,
+            "corrNeg": 0.03,
+            "uncorrPos": 0.03,
+            "uncorrNeg": 0.02
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.62,
+            "corrPos": 0.07,
+            "corrNeg": 0.07,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD91A": {
+        "time-at-room-temperature-yr" : 3.0,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.75,
+            "corrPos": 0.03,
+            "corrNeg": 0.03,
+            "uncorrPos": 0.04,
+            "uncorrNeg": 0.03
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.65,
+            "corrPos": 0.05,
+            "corrNeg": 0.05,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD91B": {
+        "time-at-room-temperature-yr" : 2.8,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.73,
+            "corrPos": 0.03,
+            "corrNeg": 0.04,
+            "uncorrPos": 0.03,
+            "uncorrNeg": 0.03
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.60,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD91C": {
+        "time-at-room-temperature-yr" : 2.8,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.76,
+            "corrPos": 0.03,
+            "corrNeg": 0.04,
+            "uncorrPos": 0.04,
+            "uncorrNeg": 0.04
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.60,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD91D": {
+        "time-at-room-temperature-yr" : 3.1,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.72,
+            "corrPos": 0.03,
+            "corrNeg": 0.03,
+            "uncorrPos": 0.04,
+            "uncorrNeg": 0.04
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.64,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD00A": {
+        "time-at-room-temperature-yr" : 2.8,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.62,
+            "corrPos": 0.03,
+            "corrNeg": 0.03,
+            "uncorrPos": 0.04,
+            "uncorrNeg": 0.03
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.64,
+            "corrPos": 0.05,
+            "corrNeg": 0.05,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD00B": {
+        "time-at-room-temperature-yr" : 2.8,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.81,
+            "corrPos": 0.03,
+            "corrNeg": 0.04,
+            "uncorrPos": 0.04,
+            "uncorrNeg": 0.04
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.71,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD00C": {
+        "time-at-room-temperature-yr" : 3.1,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.75,
+            "corrPos": 0.03,
+            "corrNeg": 0.04,
+            "uncorrPos": 0.02,
+            "uncorrNeg": 0.02
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.62,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD00D": {
+        "time-at-room-temperature-yr" : 2.9,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.77,
+            "corrPos": 0.03,
+            "corrNeg": 0.03,
+            "uncorrPos": 0.02,
+            "uncorrNeg": 0.02
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.68,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD02A": {
+        "time-at-room-temperature-yr" : 2.4,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.75,
+            "corrPos": 0.03,
+            "corrNeg": 0.03,
+            "uncorrPos": 0.03,
+            "uncorrNeg": 0.03
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.52,
+            "corrPos": 0.05,
+            "corrNeg": 0.05,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD02B": {
+        "time-at-room-temperature-yr" : 2.7,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.77,
+            "corrPos": 0.03,
+            "corrNeg": 0.03,
+            "uncorrPos": 0.04,
+            "uncorrNeg": 0.04
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.63,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    },
+    "GD02C": {
+        "time-at-room-temperature-yr" : 2.8,
+        "am-fccd": {
+            "can-use": true,
+            "central": 0.79,
+            "corrPos": 0.03,
+            "corrNeg": 0.04,
+            "uncorrPos": 0.04,
+            "uncorrNeg": 0.04
+        },
+        "ba-fccd": {
+            "can-use": true,
+            "central": 0.71,
+            "corrPos": 0.06,
+            "corrNeg": 0.06,
+            "uncorrPos": 0.01,
+            "uncorrNeg": 0.01
+        }
+    }
+}
