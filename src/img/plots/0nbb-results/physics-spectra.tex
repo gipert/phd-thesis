@@ -34,7 +34,7 @@
       at={(ticklabel cs:1.03,-4)},
       anchor=north east,
     },
-    legend style={font=\small},
+    legend style={font=\footnotesize},
     ytick={1e-4, 1e-3, 1e-2, 1e-1, 1e0, 1e1, 1e2, 1e3, 1e4},
     minor ytick={%
       2e-4, 3e-4, 4e-4, 5e-4, 6e-4, 7e-4, 8e-4, 9e-4,%
@@ -110,17 +110,18 @@
 ]
 
 \tikzstyle{isotope} = [%
-  scale=0.75,
+  scale=0.6,
   rotate=90,
 ]
+
+\tikzstyle{super densely dashed} = [dash pattern=on 1.5pt off 0.7pt]
 
 \newcommand{\eps}{0.3}
 \newcommand{\yposup}{2e-3}
 \newcommand{\yposlo}{2e-4}
 \newcommand{\countline}[1]{%
-  \draw[draw=none, bottom color=TolVibRed, top color=white] (axis cs:#1-\eps,\yposup) rectangle (axis cs:#1+\eps,0.7*\yposup);
-  \draw[draw=none, fill, TolVibRed] (axis cs:#1-\eps,0.7*\yposup) rectangle (axis cs:#1+\eps,1.1*\yposlo);
-  \draw[->, >={Kite[width=2.2pt, length=6pt]}, TolVibRed, line width=0pt, draw opacity=0] (axis cs:#1,\yposup) to (axis cs:#1,\yposlo);
+  \draw[TolVibRed, super densely dashed, line width=0.6pt] (axis cs:#1,0.5*\yposup) -- (axis cs:#1,\yposup);
+  \draw[-{Straight Barb[width=2pt]}, TolVibRed, line width=0.6pt] (axis cs:#1,0.5*\yposup) to (axis cs:#1,\yposlo);
   % \draw[->, >={Stealth[]}, TolVibRed, line width=0pt, draw opacity=0] (axis cs:#1,\yposup) to (axis cs:#1,\yposlo);
 }
 
@@ -131,14 +132,14 @@
       axis lines=none,
     ]
       \addplot+[histogram, black] table {data/hRaw-15keV.csv} \closedcycle;
-      \addplot+[histogram, TolMutCyan, fill=TolMutCyan] table {data/hLAr-15keV.csv} \closedcycle;
-      \addplot+[histogram, TolVibRed, fill=TolVibRed] table {data/hPSDLAr-15keV.csv} \closedcycle;
+      \addplot+[histogram, draw=none, fill=TolMutCyan, fill opacity=0.6, legend image post style={draw opacity=0}] table {data/hLAr-15keV.csv} \closedcycle;
+      \addplot+[histogram, draw=none, fill=TolVibRed, legend image post style={draw opacity=0}] table {data/hPSDLAr-15keV.csv} \closedcycle;
       \addplot+[black, smooth, line width=0.6pt, no marks, line legend] table {data/2nbb.csv};
 
       \addlegendentry{Prior to analysis cuts}
       \addlegendentry{After LAr veto}
       \addlegendentry{After LAr veto and PSD cuts}
-      \addlegendentry{$2\upnu\upbeta\upbeta$ decay ($T_{1/2}=1.92\cdot10^{21}$~yr)}
+      \addlegendentry{$2\upnu\upbeta\upbeta$ decay ($T_{1/2}=1.93\cdot10^{21}$~yr)}
 
       \node[isotope] at (axis cs:1405,3e3) {$^{40}$K};
       \node[isotope] at (axis cs:1570,5e3) {$^{42}$K};
@@ -156,8 +157,8 @@
     \begin{axis}[extended, axis lines=none]
 
       \addplot+[histogram, black] table {data/hRaw-5keV.csv} \closedcycle;
-      \addplot+[histogram, TolMutCyan, fill=TolMutCyan] table {data/hLAr-5keV.csv} \closedcycle;
-      \addplot+[histogram, TolVibRed, fill=TolVibRed] table {data/hPSDLAr-5keV.csv} \closedcycle;
+      \addplot+[histogram, draw=none, fill=TolMutCyan, fill opacity=0.6] table {data/hLAr-5keV.csv} \closedcycle;
+      \addplot+[histogram, draw=none, fill=TolVibRed] table {data/hPSDLAr-5keV.csv} \closedcycle;
 
       \draw[gammaline] (axis cs:1922.2-5,1e-5) rectangle (axis cs:1922.2+5,1e3);
       \draw[gammaline] (axis cs:2104.0-5,1e-5) rectangle (axis cs:2104.0+5,1e3);
@@ -177,9 +178,9 @@
     \begin{axis}[roi, axis lines=none]
 
       \addlegendimage{TolBriGreen, only marks, mark=linerrarea, line legend}
-      \addlegendentry{Background best fit and 68\% C.L.~interval}
+      \addlegendentry{Background best fit and 68\% C.L.~int.}
       \addlegendimage{fit, fill, TolBriBlue!70!white, draw=none}
-      \addlegendentry{Signal 90\% C.L. interval ($T_{1/2}>1.8\cdot10^{26}$~yr)}
+      \addlegendentry{Signal 90\% C.L. lower limit}
 
       % BI band
       \addplot[draw=none, name path=low] {\BI-\BIerrlow};

@@ -10,7 +10,7 @@ LOGS  = .auxtex
 FLAGS = -pdfxe -pdfxelatex="xelatex -halt-on-error" -bibtex \
         -outdir=$(LOGS) -M -MP -MF $(LOGS)/$(PROJ).deps
 
-all : $(PROJ).pdf
+all : mkdirs | $(PROJ).pdf
 
 $(PROJ).pdf : $(PROJ).tex mkdirs img FORCE_MAKE
 	-$(LC) $(FLAGS) $<

@@ -56,40 +56,42 @@ specifications of natural argon.
 
 \begin{description}
 
-  \item[Refractive index] Its implementation is dependent on the photon energy (shown in
+  \item[Refractive index] Its implementation depends on the photon energy (shown in
     \cref{fig:bkg:lar:ph2:mage:lar-props}). Formulas are taken from~\cite{Bideau-Mehu1981}
     and give about 1.41 at 128~nm. A more recent measurement, similarly based on an
     extrapolation of measured data to lower wavelengths, suggests a lower value of about
     1.37~\cite{Babicz2018}.
 
-  \item[Rayleigh scattering length]. Depends on the refractive index and therefore the
+  \item[Rayleigh scattering length] Depends on the refractive index and therefore the
     photon energy (shown in \cref{fig:bkg:lar:ph2:mage:lar-props}). Formulas are taken
     from~\cite{Seidel2002}. The already implemented refractive index values are used. The
     obtained scattering length value at 128~nm is about 60~cm. The value suggested
     in~\cite{Babicz2018} is 91~cm, 50\% higher.
 
   \item[Scintillation spectrum] Taken from~\cite{Heindl2010}, which reports an
-    experimental measurement (fig.~1 and 2). Only the (gaussian) peak is implemented in
+    experimental measurement (figs.~1 and 2). Only the (gaussian) peak is implemented in
     \mage, as the non-gaussian contributions are of several orders of magnitude lower and
     are therefore negligible. A normal distribution $(\mu=128\;\text{nm},
     \sigma=2.929\;\text{nm})$ is implemented (\cref{fig:bkg:lar:ph2:mage:lar-props}).
 
   \item[Scintillation yield] Different scintillation processes are defined in the \mage\
     physics list for different ionizing particles, that in general have different
-    scintillation yields in LAr. A default, reference value of $51\;\upgamma/\text{keV}$
-    is set for all particles~\cite{Doke2002}. This value does certainly not represent the
-    reality of \gerda, as the yield strongly depends on the electric field configuration
-    and the quencher impurities. Unfortunately a a reliable direct measure of the
-    scintillation yield of the \gerda\ LAr is not available.  Indirect measurements were
-    performed within the \LArGe\ setup~\cite{Lehnert2016} and with a dedicated setup
-    deployed inside the \gerda\ cryostat~\cite{Barros2020}, but they both yield
-    incompatible results. As shown in~\cite{Doke2002}, some particles, interestingly \a\
-    particles and nuclei, can have lower yields. Therefore, the photon yield is reduced
-    for \a\ particles and nuclei by a factor of 0.875 and 0.375 respectively in the
-    physics list. These numbers are extracted from~\cite{Doke2002}. In this way \b\ and
-    \g\ particles will be affected by the nominal (maximum) photon yield, while \a\
-    particles and nuclei will produce less light by a factor 0.875 and 0.375 (0.7/0.8 and
-    0.3/0.8 according to~\cite{Doke2002}), respectively.
+    scintillation yields in LAr. A reference value of $51\;\upgamma/\text{keV}$ has been
+    suggested in~\cite{Doke2002}. This value does certainly not represent the reality of
+    \gerda, as the yield strongly depends on the electric field configuration and the
+    quencher impurity level. Unfortunately a reliable direct measure of the scintillation
+    yield of the \gerda\ LAr is not available. Indirect measurements were performed within
+    the \LArGe\ setup~\cite{Lehnert2016} and with a dedicated setup deployed inside the
+    \gerda\ cryostat~\cite{Barros2020}, but they both yield incompatible results. A
+    tentative, default value of 28~$\upgamma/\text{keV}$ is implemented in \mage, which is
+    the maximum achievable scintillation yield corresponding to 1~\mus\ triplet lifetime.
+    As shown in~\cite{Doke2002}, some particles (in particular \a\ particles and nuclei)
+    can be characterized by lower yields. Therefore, the photon yield is reduced for \a\
+    particles and nuclei by a factor of 0.875 and 0.375 respectively in the physics list.
+    These numbers are extracted from~\cite{Doke2002}. In this way \b\ and \g\ particles
+    will be affected by the nominal (maximum) photon yield, while \a\ particles and nuclei
+    will produce less light by a factor 0.875 and 0.375 (0.7/0.8 and 0.3/0.8 according
+    to~\cite{Doke2002}), respectively.
 
   \item[Singlet and triplet lifetime] \sloppy The implemented triplet lifetime is the one
     measured during \gerdatwo, before the \phasetwop\ upgrade
@@ -269,7 +271,7 @@ is achieved by coating them with TPB.
     inhomogeneous). It can however be solved numerically.  Since the units are arbitrary
     because the original absorption spectrum has arbitrary units, the spectrum has been
     then rescaled to match a measurement performed at 400~nm, which yielded
-    0.7~mm~\cite{Raphael Kneissl's bachelor thesis}. The result is shown in
+    0.7~mm~\cite{Kneissl2012}. The result is shown in
     \cref{fig:bkg:lar:ph2:mage:fibers-props}, left. The emission spectrum is taken again
     from~\cite{FibersData} and shown in \cref{fig:bkg:lar:ph2:mage:fibers-props}, right.
     The absorption length is set to 3.5~m \fillme{fillme}. The WLS time constant, the
@@ -280,7 +282,7 @@ is achieved by coating them with TPB.
 
   \item[Nylon mini-shrouds] The refraction index is set to 1.54, constant over
     incident photon wavelength. The attenuation length values are taken
-    from~\cite{Agostini2017a}, since \gerda\ is using the same material used for the
+    from~\cite{Agostini2017b}, since \gerda\ is using the same material used for the
     \textsc{Borexino} balloon (\cref{fig:bkg:lar:ph2:mage:misc}, right).
 
     \begin{figure}
@@ -306,14 +308,14 @@ probability map of scintillation photons in LAr. This object, which is going to 
 described in this section, will be also be referred to simply as `heat map' or
 `probability map' in the following.
 \newpar
-The first step to produce the probability map is to run a full photon tracking simulation
+The first step to produce the probability map is to run a full photon-tracking simulation
 of 128~nm scintillation photons in the whole LAr volume defined in \mage. An isotropic
 source of VUV photons homogeneously distributed in a pre-selected LAr volume is simulated.
 \mage\ allows to restrict the sampling to the volume occupied by LAr only or its
 intersection with a geometric solid (e.g.~a cylinder). The photon initial energy is
 sampled from a Gaussian distribution with mean 128~nm and variance 2.929~nm. After being
 propagated in the implemented \gerda\ setup by the \geant\ core routines, it may hit a
-LAr instrumentation sensitive volume (SiPM channel or PMT channel), which identification
+LAr instrumentation sensitive volume (SiPM channel or PMT channel), whose identification
 number is finally written on disk. After collecting a sufficient amount of simulated
 events, the simulation output is further processed into the probability map. The
 three-dimensional LAr volume implemented in \mage\ is partitioned in small boxes (or voxels),
@@ -327,15 +329,15 @@ where $n_i$ and $N_i$ are the total number of detected and simulated photons in 
 respectively. The binomial uncertainty estimate assumes $N_i>0$ and $n_i<N_i$, which is
 always the case for the voxel size considered in this study.  These probability estimates
 are saved in a three-dimensional histogram, or LAr light detection probability map. The
-\gerda\ Monte Carlo LAr model is effectively condensed in this probability map object.
+\gerda\ Monte Carlo LAr model is thus effectively condensed in this object.
 \newpar
 The last step is to fold the probability map into the usual background model simulations,
 for which no information derived from optical processes is available. Information about
 energy depositions by \g, \b\ and \a\ particles in LAr is, in fact, available in the
-simulation output and provide the starting point to compute the LAr veto flag. A number
-of generated scintillation photons is drawn from a Poisson distribution with mean equal to
-the deposited amount of energy times the LAr scintillation yield times the LAr Fano
-factor:
+simulation output and provide the starting point to compute the LAr veto flag. For a given
+single energy deposition the number of generated scintillation photons $M$ is drawn from a
+Poisson distribution with mean equal to the deposited amount of energy times the LAr
+scintillation yield times the LAr Fano factor:
 \[
   M \sim \operatorname{Poisson}(E \cdot Y \cdot F) \;.
 \]
@@ -395,13 +397,13 @@ reflectivity, the fiber shroud coverage and the LAr absorption length. The refle
 has been scaled with a global factor, such that the unit value refers to the value
 implemented in \mage. Two qualitatively different trends can be noticed: the reflectivity
 and coverage impact is approximately linear in the considered interval, while the
-absorption length acts more exponentially on probabilities. The latter is compatible with
-the assumption that attenuation in matter generally follows an exponential law, however a
+absorption length acts more exponentially on probabilities. This is compatible with
+the assumption that attenuation in matter generally follows an exponential law. However a
 partial saturation effect seems to take place after about 40~cm, when the typical photon
-free path length in the \gerda\ setup is reached. Moreover, the impact of a parameter
-depends on the voxel location. As instance, the probability in the black voxel between
+free path length in the \gerda\ setup is reached. The impact of a parameter
+depends on the voxel location too. As instance, the probability in the black voxel between
 \GD{89B} and \GD{02D} changes drastically upon different germanium reflectivity
-assumptions. On the other hand, orange and Red voxel close to the fibers (where the
+assumptions. On the other hand, orange and red voxel close to the fibers (where the
 calibration sources are) are the most sensitive to modifications of the fiber shroud
 coverage.
 
@@ -419,17 +421,6 @@ coverage.
   }\label{fig:bkg:lar:ph2:larmap:dist}
 \end{figure}
 
-\begin{figure}
-  \centering
-  \includegraphics{plots/lar/larmap-dist-pcanorm.pdf}
-  \caption{%
-    Study of the impact of Monte Carlo parameters on LAr light detection probabilities in
-    various spatial points, normalized to unity at the best value and such to leave the
-    probability at the uppermost calibration source position (red point) unchanged.  The
-    color code and other details are described in \cref{fig:bkg:lar:ph2:larmap:dist}.
-  }\label{fig:bkg:lar:ph2:larmap:dist-pcanorm}
-\end{figure}
-
 \section{Tuning the LAr veto model}%
 \label{sec:bkg:lar:ph2:pcalib}
 
@@ -439,7 +430,7 @@ known and are essential to build a predictive LAr veto model. Efficiencies extra
 physics data cannot be used directly, as the Monte Carlo efficiencies are in reality
 complex objects that account for other effects. As instance, SiPM efficiencies can include
 systematic effects from details of the geometry implementation of the fiber modules in
-MaGe. To overcome these issues, a statistical analysis has been developed to tune the
+\mage. To overcome these issues, a statistical analysis has been developed to tune the
 Monte Carlo parameters with physics data. A sample which is independent from the
 regular \gerda\ physics data has been identified in the special calibration runs with
 low-activity sources and the LAr veto instrumentation turned on.
@@ -471,5 +462,16 @@ low-activity sources and the LAr veto instrumentation turned on.
     \bottomrule
   \end{tabular}
 \end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/lar/larmap-dist-pcanorm.pdf}
+  \caption{%
+    Study of the impact of Monte Carlo parameters on LAr light detection probabilities in
+    various spatial points, normalized to unity at the best value and such to leave the
+    probability at the uppermost calibration source position (red point) unchanged.  The
+    color code and other details are described in \cref{fig:bkg:lar:ph2:larmap:dist}.
+  }\label{fig:bkg:lar:ph2:larmap:dist-pcanorm}
+\end{figure}
 
 % vim: tw=90

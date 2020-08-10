@@ -4,8 +4,6 @@
 \usepgfplotslibrary{groupplots}
 
 \pgfplotsset{
-  width={0.5*14.7cm},
-  height=4.5cm,
   table/col sep=space,
   every axis/.style={grid, mark size=0.5pt},
 }
@@ -29,7 +27,7 @@
     \addplot+ table[x=lambda, y=absl] {data/tpb-absl.dat};
     \legend{WLS abs.~length}
 
-    \nextgroupplot[xmin=375, xmax=600, width=9.5cm, height=6cm,
+    \nextgroupplot[xmin=375, xmax=600, width=9.4cm, height=6cm,
                    yticklabel pos=right,
                    xlabel={photon wavelength (nm)},
                    ylabel={emission intensity (a.u.)},
