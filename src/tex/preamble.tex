@@ -12,9 +12,9 @@
 % layout
 \newcommand{\blocktitle}[1]{\leavevmode\marginnote{#1}\ignorespaces}
 \newcommand{\newpar}{\newline\indent}
+\usepackage{paralist}
 \usepackage{enumitem}
   \renewcommand\descriptionlabel[1]{{\large\itshape{} #1.}}
-\usepackage{paralist}
 \usepackage{geometry}
 \usepackage{booktabs}
 \usepackage{multirow}
@@ -25,6 +25,7 @@
   \titleformat{\chapter}[hang]{\ebgaramondOsF}{}{0pt}{\Huge\swshape}
   \titleformat{\section}[hang]{\ebgaramondOsF\LARGE}{\thesection}{0.5em}{\LARGE\swshape}
   \titleformat{\subsection}[hang]{\ebgaramondOsF\Large}{\thesubsection}{0.5em}{\Large\swshape}
+\newcommand{\chapsummary}{{\swshape\LARGE The chapter in short}}
 \usepackage[indent]{parskip}
 \usepackage{rotating}
 % TOC
@@ -34,7 +35,7 @@
   \renewcommand{\cftchappagefont}{\ebgaramondOsF}
   \renewcommand{\cftsecpagefont}{\ebgaramondOsF}
   \renewcommand{\cftsubsecpagefont}{\ebgaramondOsF}
-\renewcommand{\labelitemi}{$\diamond$} % itemize bullets
+% \renewcommand{\labelitemi}{$\diamond$} % itemize bullets
 
 % math
 \usepackage{amsmath}
@@ -81,4 +82,4 @@
   \crefformat{subsection}{sec.~#2#1#3}
   \crefformat{equation}{eq.~(#2#1#3)}
 
-\input{tex/aliases}
+\input{tex/macros}

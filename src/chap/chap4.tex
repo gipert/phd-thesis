@@ -1,6 +1,7 @@
 %!TEX root = ../main.tex
 
-\chapter{The background after the LAr veto cut}\label{chap:bkg:lar:ph2}
+\chapter{The background after the LAr veto cut}%
+\label{chap:bkg:lar:ph2}
 
 All what has been shown until now concerns data before the LAr and PSD cut. In this
 chapter a model of the background after the LAr veto cut will be presented, based on a
@@ -23,7 +24,7 @@ The obtained parameters are then used to produce a map of the LAr scintillation 
 detection probability, which is applied to the background model simulations in order to
 obtain the LAr veto flag. Based on these new background model pdfs, a statistical analysis
 to test possible deviations of the \nnbb\ distribution from its Standard Model description
-will be finally presented.
+will be finally presented in the following chapter.
 \newpar
 The chapter is structured as follows: \fillme{fillme}
 
@@ -111,7 +112,8 @@ specifications of natural argon.
     ($\lambda \leq 128$~nm) but transparent to wavelength-shifted photons ($\lambda
     \gtrsim 400$~nm), see fig.~\ref{fig:bkg:lar:ph2:mage:lar-props}. A measurement of the
     attenuation length in the \gerda\ LAr was performed~\cite{Barros2020}, yielding
-    $\sim15$~cm as a result, but \fillme{fillme}
+    $\sim15$~cm as a result, but \fillme{fillme}. A default, reasonable value of 55~cm is
+    implemented in \mage\ and used in the LAr veto system simulation as `best guess'.
 
   \item[Fano factor] A Fano factor of 0.11 is set, taken from~\cite{Doke1976}.
 
@@ -362,7 +364,7 @@ horizontal slice one can also appreciate the effect of the different SiPM channe
 efficiencies, which break the rotational invariance of the map.
 \begin{figure}
   \centering
-  \includegraphics[width=0.9\linewidth]{plots/lar/larmap-tac.png}
+  \includegraphics[width=0.9\linewidth]{plots/bkg/lar/ph2/larmodel/larmap-tac.png}
   \caption{%
     The three-dimensional LAr photon detection probability map interactive viewer.
     Two-dimensional longitudinal and transversal sections are displayed in the second and
@@ -390,27 +392,26 @@ selected, whose location is documented in \cref{fig:bkg:lar:ph2:larmap:dist}, ri
 image. For each of these voxels the probability dependence on some Monte Carlo parameters
 has been investigated, giving the results displayed in the remaining plots of
 \cref{fig:bkg:lar:ph2:larmap:dist}. Voxels have been considered along the central array
-axis (green), just outside (blue) and inside (red) the fiber shroud. An additional voxel
-has been chosen in the low-probability region between the \GD{89B} and \GD{02D} detectors
-(black). Three properties have been taken into consideration for this study: the germanium
-reflectivity, the fiber shroud coverage and the LAr absorption length. The reflectivity
-has been scaled with a global factor, such that the unit value refers to the value
-implemented in \mage. Two qualitatively different trends can be noticed: the reflectivity
-and coverage impact is approximately linear in the considered interval, while the
-absorption length acts more exponentially on probabilities. This is compatible with
+axis (green), just outside (blue) and inside (red) the fiber shroud. Three additional
+voxels have been chosen in the low-probability region inside the germanium array (black
+and violet). Three properties have been taken into consideration for this study: the
+germanium reflectivity, the fiber shroud coverage and the LAr absorption length. The
+reflectivity has been scaled with a global factor, such that the unit value refers to the
+value implemented in \mage. Two qualitatively different trends can be noticed: the
+reflectivity and coverage impact is approximately linear in the considered interval, while
+the absorption length acts more exponentially on probabilities. This is compatible with
 the assumption that attenuation in matter generally follows an exponential law. However a
 partial saturation effect seems to take place after about 40~cm, when the typical photon
-free path length in the \gerda\ setup is reached. The impact of a parameter
-depends on the voxel location too. As instance, the probability in the black voxel between
-\GD{89B} and \GD{02D} changes drastically upon different germanium reflectivity
-assumptions. On the other hand, orange and red voxel close to the fibers (where the
-calibration sources are) are the most sensitive to modifications of the fiber shroud
-coverage.
+free path length in the \gerda\ setup is reached. The impact of a parameter depends on the
+voxel location too. As instance, the probability in the black voxel between \GD{89B} and
+\GD{02D} changes drastically upon different germanium reflectivity assumptions. On the
+other hand, orange and red voxel close to the fibers (where the calibration sources are)
+are the most sensitive to modifications of the fiber shroud coverage.
 
 \begin{figure}
   \centering
-  \includegraphics[height=\linewidth, angle=90]{plots/lar/lar-points-position.pdf}
-  \includegraphics{plots/lar/larmap-dist.pdf}
+  \includegraphics[height=0.8\textwidth, angle=90]{plots/bkg/lar/ph2/larmodel/lar-points-position.pdf}
+  \includegraphics{plots/bkg/lar/ph2/larmodel/larmap-dist.pdf}
   \caption{%
     Study of the impact of Monte Carlo parameters on LAr light detection probabilities in
     various spatial points. Each curve shows the dependence of the probability upon
@@ -433,45 +434,232 @@ systematic effects from details of the geometry implementation of the fiber modu
 \mage. To overcome these issues, a statistical analysis has been developed to tune the
 Monte Carlo parameters with physics data. A sample which is independent from the
 regular \gerda\ physics data has been identified in the special calibration runs with
-low-activity sources and the LAr veto instrumentation turned on.
+low-activity sources and the LAr veto instrumentation turned on. A short overview of this
+analysis will be given in this section, the reader is referred to~\cite{Wiesinger2021} for
+an extensive presentation of this broad subject.
+
+\blocktitle{pcalib \\ runs}
+The main characteristics of these data sets are documented in
+\cref{tab:bkg:lar:ph2:pcalib-desc}: the first special run carries identification number
+equal to 68 and has been performed with a \Th\ source in July 2016, while the second one
+is run 76 and has been carried through in February 2017 with a \Ra\ source. Data has been
+acquired with the sources \m{S2} and \m{S3} at three vertical positions at the top, middle
+and bottom of the array. The lower source activity ($\mathcal{O}$(kBq)) makes it possible
+to collect data with also the LAr veto instrumentation and provide a distinct setting for
+an accurate data-to-Monte-Carlo comparison. Since the subject of this study are the
+vetoing capabilities of the LAr system, the germanium main trigger has been maintained
+during the data taking. Test pulses are also available and are used to estimate the
+fraction of `random coincidences'. In these particular `false-positive' LAr-vetoed events
+the physical process generating the scintillation light detected by PMTs and SiPMs is
+distinct from the one triggering the germanium detectors at the same time. This can
+happen, for example, if a calibration source decay product deposits some energy in the
+germanium while a cosmic ray is ionizing the argon. Similarly these random coincidences
+can be produced by two nuclear decays happening at the same time. A good estimate of the
+random coincidences fraction in this special calibration data is crucial when comparing to
+simulations, which miss this background-like component. Unfortunately, as documented in
+\cref{tab:bkg:lar:ph2:pcalib-desc}, test pulse data is partly missing in run 68.
 
 \begin{table}
   \centering
   \caption{%
-    The special calibration runs 68 (July 2016) and 76 (February 2017).
+    Summary of the special calibration data with active LAr veto instrumentation from runs
+    68 (July 2016, \Th\ source) and 76 (February 2017, \Ra\ source). The random
+    coincidences are estimated combining data from test pulses and SiPM
+    traces~\cite{Wiesinger2021}.
   }\label{tab:bkg:lar:ph2:pcalib-desc}
   \begin{tabular}{lcccc}
     \toprule
-    isotope      & source port & position (mm) & lifetime (h) & TP acceptance (\%) \\
+    isotope      & source port & position (mm) & run time (h) & random coincidences (\%) \\
     \midrule
-    \mr{6}{\Th}  &             & 8168          & 10.2         & no TP              \\
-                 & \m{S2}      & 8396          & 3.2          & no TP              \\
-                 &             & 8570          & 12.5         & no TP              \\
+    \mr{6}{\Th}  &             & 8168          & 10.2         & --                       \\
+                 & \m{S2}      & 8396          & 3.2          & --                       \\
+                 &             & 8570          & 12.5         & --                       \\
                  \cmidrule{2-5}
-                 &             & 8220          & 6.4          & 92.9(6)            \\
-                 & \m{S3}      & 8405          & 4.3          & 93.1(9)            \\
-                 &             & 8570          & 3.6          & 90.5(12)           \\
+                 &             & 8220          & 6.4          & $7.5 \pm 0.6$            \\
+                 & \m{S3}      & 8405          & 4.3          & $7.2 \pm 1.0$            \\
+                 &             & 8570          & 3.6          & $10.2 \pm 1.4$           \\
     \midrule
-    \mr{6}{\Ra}  &             & 8139          & 8.9          & 89.3(2)            \\
-                 & \m{S2}      & 8405          & 4.3          & 90.6(3)            \\
-                 &             & 8570          & 6.9          & 88.3(3)            \\
+    \mr{6}{\Ra}  &             & 8139          & 8.9          & $12.2 \pm 0.3$           \\
+                 & \m{S2}      & 8405          & 4.3          & $11.2 \pm 0.4$           \\
+                 &             & 8570          & 6.9          & $12.9 \pm 0.3$           \\
                  \cmidrule{2-5}
-                 &             & 8128          & 8.0          & 90.4(2)            \\
-                 & \m{S3}      & 8292          & 3.6          & 93.2(3)            \\
-                 &             & 8570          & 8.5          & 91.0(2)            \\
+                 &             & 8128          & 8.0          & $10.8 \pm 0.3$           \\
+                 & \m{S3}      & 8292          & 3.6          & $8.9 \pm 0.4$            \\
+                 &             & 8570          & 8.5          & $10.7 \pm 0.3$           \\
     \bottomrule
   \end{tabular}
 \end{table}
 
+\blocktitle{data \\ selection}
+The analysis data set is constructed by applying an event cut based on the total energy
+released in the germanium detectors. The selected energy regions are shown in
+\cref{fig:bkg:lar:ph2:pcalib-data}: the \Tl\ FEP events ($2615 \pm 10$~keV) in run 68 and
+the Compton-dominated energy region from 2204~keV \Bih\ line in run 76 are considered. The
+obtained statistics is of about $2 \cdot 10^4$ events or more per source position.
+\newpar
+The data from the LAr instrumentation which is relevant to the comparison with the Monte
+Carlo simulation consists in a set of veto flags (one for each of the 25 LAr veto
+channels, i.e.~9 top PMTs, 7 bottom PMTs and 9 SiPM modules) for each germanium trigger.
+The probability that a LAr veto channel is triggered in data can be written as the
+convolution between a `signal' probability (the same event is responsible for both the
+germanium and LAr veto triggers) and a `background' probability (the false-positive rate
+from random coincidences). This convolution is simply the logic OR between the two
+probabilities. The amount of random coincidences is estimated by combining data from test
+pulses and SiPM traces, as documented in great detail in~\cite{Wiesinger2021}.
+
 \begin{figure}
   \centering
-  \includegraphics{plots/lar/larmap-dist-pcanorm.pdf}
+  \includegraphics[width=0.9\textwidth]{plots/bkg/lar/ph2/larmodel/pca-analysis-window.pdf}
   \caption{%
-    Study of the impact of Monte Carlo parameters on LAr light detection probabilities in
-    various spatial points, normalized to unity at the best value and such to leave the
-    probability at the uppermost calibration source position (red point) unchanged.  The
-    color code and other details are described in \cref{fig:bkg:lar:ph2:larmap:dist}.
-  }\label{fig:bkg:lar:ph2:larmap:dist-pcanorm}
+    The energy spectra of the \phasetwo\ special calibration runs. Left: run 68 (\Th),
+    Monte Carlo simulation in blue and data in black. The top panel shows the energy
+    distribution of the events while the top panel shows the amount of average amount of
+    energy released by an event with respect to its energy. Right: run 76 (\Ra). Colored
+    bands highlight the regions selected for the data analysis.
+  }\label{fig:bkg:lar:ph2:pcalib-data}
 \end{figure}
+
+\blocktitle{simulations}
+The calibration sources are fully implemented in \mage, with user commands to set their
+vertical position, the radioactive source and therefore replicate the run 68 and 76
+experimental settings (\cref{tab:bkg:lar:ph2:pcalib-desc}). Optical
+processes are enabled in these special simulation runs, but since they require high
+computational time photons are fully tracked only if an energy deposition is recorded in
+germanium as well. The optical properties of the setup are fixed to their best values
+documented in \cref{sec:bkg:lar:ph2:mage}. The two most important Monte Carlo settings
+for the calibration source physics are the LAr attenuation length and the fiber shroud
+coverage. As demonstrated in \cref{sec:bkg:lar:ph2:heatmap} and in
+\cref{fig:bkg:lar:ph2:larmap:dist} in particular, these are the two parameters that affect
+the most the LAr light detection probability in the red and orange points --- where the
+calibration sources are typically deployed. The germanium reflectivity, instead, is
+crucial when probing the region of the array. Changes in the LAr light yield or the TPB
+quantum efficiencies produce nearly linear distortions of the probability map and can be
+absorbed in the PMT and SiPM channel efficiencies.
+
+\blocktitle{statistical \\ analysis}
+The probability to detect $n$ LAr scintillation photons with the LAr veto instrumentation
+includes a signal component (the light is physically correlated to the germanium signal)
+and a background component from random coincidences:
+\[
+  \lambda[n] = \lambda_s[n] * \lambda_b[n] = \lambda_s \vee \lambda_b \;.
+\]
+A way to introduce an effective detection efficiency $\epsilon$ for a LAr veto channel is
+by the following `binomial repopulation':
+\[
+  \lambda_s[m](\epsilon) = \sum_{n \geq m} \lambda_s[n] \binom{n}{m} \epsilon^m
+    {(1-\epsilon)}^{n-m} \;,
+\]
+which is the probability, reduced by the efficiency $\epsilon \in [0,1]$, to observe $m <
+n$ photons. Since the quantity of interest for this analysis is the LAr veto flag (i.e.~an
+event is seen by the instrumentation or not), the probability to detect $m > 0$ photons
+can be expressed as
+\[
+  \lambda_s(\epsilon) = 1 - \lambda[0](\epsilon)
+                      = 1 - \sum_n \lambda_s[n] {(1-\epsilon)}^n
+                      = 1 - \frac{1}{N_\text{tot}} \sum_n N_n {(1-\epsilon)}^n \;,
+\]
+where the last equality holds for the Monte Carlo simulations, in which $\lambda_s[n]$ is
+just the ratio between the number of events in which $n$ photons were detected and the
+total number of events: $\lambda_s[n] = N_n / N_\text{tot}$.
+\newpar
+A likelihood function is then constructed to match the Monte Carlo simulation output to the
+special calibration data. Since each single event includes data from 25 LAr veto channels,
+also the particular `detection pattern' must be taken into account. Given three channels
+$A$, $B$ and $C$, for example, the pattern $\{A,C\}$ represents the occurence of a signal
+in channel $A$, $C$ but not in $B$. The pattern in the example has probability $p_A
+\cdot (1-p_B) \cdot p_C$, i.e.~it always probes all the channel detection probabilities
+$p_i$. The full likelihood reads
+\begin{equation}\label{eq:bkg:lar:ph2:pca-likelihood}
+  \mathcal{L}(\vec{\epsilon}, \ldots) =
+    \prod_P \operatorname{B}_{N_\text{tot}}^N \big(
+      \sum_G ( \lambda_s(\vec{\epsilon}) + \sigma \cdot \Delta\lambda_s(\vec{\epsilon})) \cdot
+      \lambda_b \big)
+    \cdot \prod_G \operatorname{B}_{M_\text{tot}}^M (\lambda_b) \cdot
+    \operatorname{G}(\sigma) \;,
+\end{equation}
+where the first product runs over all possible $\dim{P} = 2^{N_\text{ch}}$ patterns
+($N_\text{ch}$ is the number of considered channels), the summation and the last product
+run over all the pattern generator pairs $G = \{\{A,B\},\{B,C\},\ldots\}$. In the first
+binomial term $\operatorname{B}^N_{N_\text{tot}}(\lambda)$, $N$ is the number of events in
+which light was seen over the total $N_\text{tot}$ for a certain pattern. The same
+nomenclature applies for the second binomial term
+$\operatorname{B}^M_{M_\text{tot}}(\lambda)$, but now for the random coincidence data set.
+The probability in the first binomial term is the product between the signal probability
+for a given pattern (which is calculated by summing over all possible pattern generators)
+and the background random coincidence probability $\lambda_b$. The signal probability
+contains an additional contribution $\sigma \Delta\lambda_s(\vec{\epsilon})$ which
+accounts for the effect of low statistics in the Monte Carlo data sample. The term is
+regulated by the nuisance parameter $\sigma$, which is constrained by the pull term
+$\operatorname{\sigma}$, a Gaussian distribution with null mean and variance $\sigma$. The
+number of degrees of freedom of this likelihood is $2^{N_\text{ch}}-N$.
+\newpar
+The likelihood function is then maximized to obtain the best fit values for the parameters
+of interest, the LAr veto channel efficiencies $\vec{\epsilon}$. The same likelihood
+function can also be used to make some inference on other Monte Carlo optical unknowns,
+e.g.~the LAr attenuation length or the fiber shroud coverage. This idea is presented and
+discussed in~\cite{Wiesinger2021}, but its application is out of the scope of this work,
+which requires only a rough tuning of the LAr probability map. Indeed, a broad range of
+systematic map distortions which might be due to uncertain optical specifications is
+tested in the framework of the \nnbb\ distribution analysis, which will be presented in
+\cref{chap:2nbb-ana}.
+
+\blocktitle{results}
+Since the tuned LAr probability map will be only used to provide the LAr veto flag for the
+background model simulations, which are further processed to create the pdfs for the
+\bege\ summed energy spectrum, an additional simplification can be introduced in the
+analysis. In principle, the array of channel efficiencies $\vec{\epsilon}$ in
+\cref{eq:bkg:lar:ph2:pca-likelihood} has dimension 25, but the symmetries of the
+experimental setup can be exploited to reduce the number of parameters. A cylindrical
+symmetry is \emph{de facto} present in the arrangement of PMTs and SiPM modules, as shown
+in the technical drawings in \cref{fig:setup:magevolumes}. This spatial symmetry is evidently
+broken in the LAr veto channel efficiencies domain, since the measured signal rates are
+already different one from the other, but the effect of this asymmetry has to be evaluated
+on the analysis data set, i.e.~the \bege\ summed energy spectrum. Since the \bege\
+detector arrangement in the array does not significantly deviate from a cylindrical
+distribution, it is not expected to depend too much on differences between efficiencies of
+light detectors at the same vertical height. Therefore, only three effective efficiencies
+are used in \cref{eq:bkg:lar:ph2:pca-likelihood} ($N_\text{ch}=3$): one for all top PMTs,
+one for all SiPM modules and one for all bottom PMTs.
+\newpar
+In this simplified setting, the maximization of $\mathcal{L}(\vec{\epsilon})$ yields:
+\[
+  \epsilon_\text{PMTt} = 0.140 \pm 0.003 \;, \quad
+  \epsilon_\text{SiPM} = 0.326 \pm 0.007 \;, \quad
+  \epsilon_\text{PMTb} = 0.346 \pm 0.007 \;.
+\]
+And the magnitude of systematic uncertainty needed to obtain a reasonable goodness of fit
+($-2\Delta\log\mathcal{L}=10$) at the best fit point is around 30\%, which already shows
+how this analysis suffers from the many unknown optical specifications in the Monte Carlo.
+The impact of this problem on the \nnbb\ distribution analysis is addressed in
+\cref{sec:2nbb-ana:systematics} through a dedicated study of the connected systematic
+uncertainty.
+
+\section{The data after the LAr veto cut}
+
+\chapsummary
+\begin{itemize}
+  \item The background model pdfs after the LAr veto cut necessitates the implementation
+    of the LAr veto instrumentation as well as the optical properties of all materials
+    involved in the propagation of the scintillation photons into the Monte Carlo
+    framework (\mage). Many of these properties are unfortunately not precisely known: the
+    LAr absorption length, the channel efficiencies, the germanium reflectivity in the VUV
+    light regime, among the others.
+  \item The high computational time cost of the \geant\ simulations of optical processes
+    require the implementation of an alternative approach to compute the LAr veto flag for
+    Monte Carlo events, rather than directly enabling the optical physics in the \mage\
+    simulations. A three-dimensional LAr light detection probability map is independently
+    built by means of a dedicated, massive simulation of scintillation photons in the LAr.
+    The map is then convoluted with the existing background model simulations to determine
+    the LAr veto flag.
+  \item Since the shape of the \nnbb\ distribution is nearly not affected by the LAr veto
+    and the background level is low, a qualitative LAr probability map is enough in light
+    of the \nnbb\ energy distribution analysis after the LAr veto cut. Special calibration
+    data with LAr veto discrimination is used to determine three average detection
+    efficiencies for top PMTs, SiPMs and bottom PMTs. The background model pdfs are
+    expected to be negligibly affected by differences between single-channel efficiencies.
+    The impact of other possible systematic uncertainties in the LAr veto modeling is
+    assessed in the context of the \nnbb\ shape analysis.
+  \item \fillme{fillme}
+\end{itemize}
 
 % vim: tw=90

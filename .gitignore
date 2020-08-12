@@ -36,8 +36,8 @@
 /src/img/plots/mage/misc.pdf
 /src/img/plots/mage/fibers-props.pdf
 /src/img/plots/mage/tpb-props.pdf
-/src/img/plots/lar/larmap-dist.pdf
-/src/img/plots/lar/larmap-dist-pcanorm.pdf
+/src/img/plots/bkg/lar/ph2/larmodel/larmap-dist.pdf
+/src/img/plots/bkg/lar/ph2/larmodel/larmap-dist-pcanorm.pdf
 /src/img/plots/0nbb-results/data/*.root
 /src/img/plots/0nbb-results/physics-spectra.pdf
 /src/img/plots/history/gerda-history-vs-exposure.pdf
