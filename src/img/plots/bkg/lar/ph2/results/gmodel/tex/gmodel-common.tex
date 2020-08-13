@@ -1,0 +1,147 @@
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{fillbetween}
+
+\pgfplotsset{%
+  height=5.5cm,
+  xmin=565, xmax=2000,
+  legend style={%
+    draw=none,
+    fill=none,
+  },
+  legend pos=south east,
+  xlabel={Energy (keV)},
+  ylabel={Count rate},
+  xtick pos=both,
+  histogram/.append style={%
+    table/x=xunit,
+  },
+  loghistogramaxis/.append style={%
+    ymin=5e-3,
+  },
+  group style={%
+    group size=1 by 2,
+    xticklabels at=edge bottom,
+    xlabels at=edge bottom,
+    vertical sep=1pt,
+  },
+  spectrum/.style={%
+    loghistogramaxis,
+    ymax=1e3,
+    area legend,
+  },
+  data/.style={%
+    loghistogram,
+    draw=none,
+    fill=TolVibBlue,
+    fill opacity=0.3,
+    table/y=fitted_data,
+  },
+  model/.style={%
+    loghistogram,
+    black,
+    table/y=total_model,
+  },
+  residuals/.style={%
+    height=3cm,
+    ylabel={data/model},
+  },
+  ratio/.style={%
+    histogram,
+    mark=*,
+    mark size=0.6pt,
+    only marks,
+    table/y expr=\thisrow{fitted_data}/\thisrow{total_model},
+  },
+  1sigu/.style={%
+    histogram,
+    table/y expr=\thisrow{1sig_p}/\thisrow{total_model},
+    TolLigPear,
+    name path=1sigu,
+    forget plot,
+  },
+  1sigl/.style={%
+    histogram,
+    table/y expr=\thisrow{1sig_m}/\thisrow{total_model},
+    TolLigPear,
+    name path=1sigl,
+    forget plot,
+  },
+  2sigu/.style={%
+    histogram,
+    table/y expr=\thisrow{2sig_p}/\thisrow{total_model},
+    TolLigYellow,
+    name path=2sigu,
+    forget plot,
+  },
+  2sigl/.style={%
+    histogram,
+    table/y expr=\thisrow{2sig_m}/\thisrow{total_model},
+    TolLigYellow,
+    name path=2sigl,
+    forget plot,
+  },
+  3sigu/.style={%
+    histogram,
+    table/y expr=\thisrow{3sig_p}/\thisrow{total_model},
+    TolLigOrange,
+    name path=3sigu,
+    forget plot,
+  },
+  3sigl/.style={%
+    histogram,
+    table/y expr=\thisrow{3sig_m}/\thisrow{total_model},
+    TolLigOrange,
+    name path=3sigl,
+    forget plot,
+  },
+  1sigb/.style={%
+    TolLigPear,
+    area legend,
+    forget plot,
+  },
+  2sigb/.style={%
+    TolLigYellow,
+    area legend,
+    forget plot,
+  },
+  3sigb/.style={%
+    TolLigOrange,
+    area legend,
+    forget plot,
+  },
+  Ac228/.style={%
+    loghistogram,
+    TolVibBlue,
+    table/y=Ac228_holders_lar_M1_enrBEGe,
+  },
+  Th228/.style={%
+    loghistogram,
+    TolVibCyan,
+    table/y=Th228_cables_lar_M1_enrBEGe,
+  },
+  U238/.style={%
+    loghistogram,
+    TolVibTeal,
+    table/y=U238_cables_lar_M1_enrBEGe,
+  },
+  Co60/.style={%
+    loghistogram,
+    TolVibOrange,
+    table/y=Co60_cables_lar_M1_enrBEGe,
+  },
+  K40/.style={%
+    loghistogram,
+    TolVibRed,
+    table/y expr=\thisrow{K40_close_lar_M1_enrBEGe}+\thisrow{K40_far_lar_M1_enrBEGe},
+  },
+  K42/.style={%
+    loghistogram,
+    TolVibMagenta,
+    table/y expr=\thisrow{K42_close_bege_lar_M1_enrBEGe}+\thisrow{K42_far_lar_M1_enrBEGe},
+  },
+  2nbb/.style={%
+    loghistogram,
+    TolMutOlive,
+    table/y=Nnbb_bege_lar_M1_enrBEGe,
+  },
+}

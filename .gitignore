@@ -50,6 +50,8 @@
 /src/img/plots/gedet-av/ar39-spectra-optim-2.pdf
 /src/img/plots/gedet-av/ar39-spectra-optim-3.pdf
 /src/img/plots/gedet-av/ar39-spectra-optim-4.pdf
+/src/img/plots/bkg/lar/ph2/data-desc.pdf
+/src/img/plots/bkg/lar/ph2/results/gmodel/gmodel-results.pdf
 
 *.DS_Store
 *.swp

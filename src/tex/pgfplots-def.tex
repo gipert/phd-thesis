@@ -1,4 +1,5 @@
 \usepackage{pgfplots}
+\usepackage{pgfplotstable}
 \input{paultolcolors}
 
 \pgfplotscreateplotcyclelist{TolVibList}{%
@@ -25,6 +26,22 @@
     solid,
     const plot,
     no marks,
+  },
+  loghistogram/.style={%
+    histogram,
+    y filter/.code={%
+      \ifx\pgfmathresult\empty%
+        \def\pgfmathresult{-10}%
+      \fi%
+    },
+  },
+  loghistogramaxis/.style={%
+    ymin=2e-1,
+    /pgfplots/log basis=10,
+    log origin=infty,
+  },
+  area legend/.append style={%
+    legend image post style={draw opacity=0}
   },
 }
 

@@ -1,0 +1,79 @@
+%! TEX program = xelatex
+\input{../../../../../tex/standalone-def.tex}
+\import{}{pgfplots-def}
+\usepgfplotslibrary{groupplots}
+
+\pgfplotsset{%
+  height=4.5cm,
+  xmin=565, xmax=5400,
+  restrict x to domain=550:5400,
+  legend style={%
+    draw=none,
+    fill=none,
+  },
+  legend pos=south east,
+  xlabel={Energy (keV)},
+  ylabel={Counts / 15 keV},
+  xtick pos=both,
+  histogram/.append style={%
+    table/x=energy,
+  },
+  raw/.style={%
+    loghistogram,
+    draw=none,
+    fill=TolGray,
+  },
+  lar/.style={%
+    loghistogram,
+    draw=none,
+    fill=TolVibBlue,
+  },
+  group style={%
+    group size=1 by 3,
+    xticklabels at=edge bottom,
+    xlabels at=edge bottom,
+    vertical sep=2pt,
+  },
+  every axis/.style={%
+    loghistogramaxis,
+    area legend,
+  },
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}[hide axis]
+
+      \nextgroupplot[ymode=log]
+
+      \addplot[raw] table [y=bege_raw] {data.csv} \closedcycle;
+      \addplot[lar] table [y=bege_lar] {data.csv} \closedcycle;
+      \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{BEGe} -- 32.1 kg$\cdot$yr};
+      \node[anchor=north east] at (axis description cs:0.95,0.77) {\footnotesize single-detector events};
+
+      \nextgroupplot[ymode=log]
+
+      \addplot[raw] table [y=coax_raw] {data.csv} \closedcycle;
+      \addplot[lar] table [y=coax_lar] {data.csv} \closedcycle;
+      \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{SemiCoax} -- 28.1 kg$\cdot$yr};
+      \node[anchor=north east] at (axis description cs:0.95,0.77) {\footnotesize single-detector events};
+
+      \nextgroupplot[ymode=log]
+
+      \addplot[raw] table [y=all_raw] {data.csv} \closedcycle;
+      \addplot[lar] table [y=all_lar] {data.csv} \closedcycle;
+      \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{All} -- 60.2 kg$\cdot$yr};
+      \node[anchor=north east] at (axis description cs:0.95,0.77) {\footnotesize two-detector events};
+
+      \addlegendentry{Before analysis cuts}
+      \addlegendentry{After LAr veto cut}
+
+    \end{groupplot}
+
+    \begin{groupplot}
+      \nextgroupplot[ymode=log, ymax=7e3]
+      \nextgroupplot[ymode=log, ymax=8e3]
+      \nextgroupplot[ymode=log, ymax=2e3]
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}
