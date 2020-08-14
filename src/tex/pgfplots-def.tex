@@ -19,7 +19,10 @@
   height=5.5cm,
   /pgf/number format/1000 sep={},
   cycle list name=TolVibList,
-  legend style={cells={anchor=west}},
+  legend style={%
+    cells={anchor=west},
+    /tikz/every even column/.append style={column sep=4pt},
+  },
   xtick pos=left,
   ytick pos=left,
   histogram/.style={%
@@ -45,7 +48,7 @@
   },
 }
 
-\pgfdeclareplotmark{poisson bands}{%
+\pgfdeclareplotmark{model and sigma bands}{%
   \pgfpathrectangle{\pgfpoint{-2ex}{-0.7ex}}{\pgfpoint{4ex}{1.4ex}}
   \pgfsetfillcolor{TolLigOrange}
   \pgfusepath{fill}
@@ -58,4 +61,16 @@
   \pgfpathmoveto{\pgfpoint{0ex}{-0.7ex}}
   \pgfpathlineto{\pgfpoint{0ex}{0.7ex}}
   \pgfusepath{stroke}
+}
+
+\pgfdeclareplotmark{sigma bands}{%
+  \pgfpathrectangle{\pgfpoint{-2ex}{-0.7ex}}{\pgfpoint{4ex}{1.4ex}}
+  \pgfsetfillcolor{TolLigOrange}
+  \pgfusepath{fill}
+  \pgfpathrectangle{\pgfpoint{-2ex*2/3}{-0.7ex}}{\pgfpoint{4ex*2/3}{1.4ex}}
+  \pgfsetfillcolor{TolLigYellow}
+  \pgfusepath{fill}
+  \pgfpathrectangle{\pgfpoint{-2ex*1/3}{-0.7ex}}{\pgfpoint{4ex*1/3}{1.4ex}}
+  \pgfsetfillcolor{TolLigPear}
+  \pgfusepath{fill}
 }

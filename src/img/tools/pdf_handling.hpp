@@ -75,7 +75,7 @@ struct pdf_set {
     TFile* file;
 };
 
-pdf_set get_pdf_set(std::string volume, std::string part, std::string isotope, bool norm = true) {
+pdf_set get_pdf_set(std::string volume, std::string part, std::string isotope, bool norm = true, std::string prefix = "raw/") {
     pdf_set set;
     auto file = new TFile(("./gerda-pdfs/" + volume + "/" + part + "/" + isotope
                            + "/pdf-" + volume + "-" + part + "-" + isotope + ".root").c_str(), "READ");
@@ -124,30 +124,30 @@ pdf_set get_pdf_set(std::string volume, std::string part, std::string isotope, b
     // set.M1_ch37           = dynamic_cast<TH1D*>(file->Get("M1_ch37"));
     // set.M1_ch38           = dynamic_cast<TH1D*>(file->Get("M1_ch38"));
     // set.M1_ch39           = dynamic_cast<TH1D*>(file->Get("M1_ch39"));
-    set.M1_enrBEGe        = dynamic_cast<TH1D*>(file->Get("M1_enrBEGe"));
-    set.M1_enrCoax        = dynamic_cast<TH1D*>(file->Get("M1_enrCoax"));
-    set.M1_natCoax        = dynamic_cast<TH1D*>(file->Get("M1_natCoax"));
-    set.M1_all_1525       = dynamic_cast<TH1D*>(file->Get("M1_all_1525"));
-    set.M1_all_1461       = dynamic_cast<TH1D*>(file->Get("M1_all_1461"));
-    set.M1_all_full       = dynamic_cast<TH1D*>(file->Get("M1_all_full"));
-    set.M1_all_S1         = dynamic_cast<TH1D*>(file->Get("M1_all_S1"));
-    set.M1_all_S2         = dynamic_cast<TH1D*>(file->Get("M1_all_S2"));
-    set.M1_all_S3         = dynamic_cast<TH1D*>(file->Get("M1_all_S3"));
-    set.M2_enrE1vsE2      = dynamic_cast<TH2D*>(file->Get("M2_enrE1vsE2"));
-    set.M2_enrE1plusE2    = dynamic_cast<TH1D*>(file->Get("M2_enrE1plusE2"));
-    set.M2_enrE1andE2     = dynamic_cast<TH1D*>(file->Get("M2_enrE1andE2"));
-    set.M2_ID1vsID2_1525  = dynamic_cast<TH2D*>(file->Get("M2_ID1vsID2_1525"));
-    set.M2_ID1vsID2_1461  = dynamic_cast<TH2D*>(file->Get("M2_ID1vsID2_1461"));
-    set.M2_ID1vsID2_full  = dynamic_cast<TH2D*>(file->Get("M2_ID1vsID2_full"));
-    set.M2_ID1vsID2_S1    = dynamic_cast<TH2D*>(file->Get("M2_ID1vsID2_S1"));
-    set.M2_ID1vsID2_S2    = dynamic_cast<TH2D*>(file->Get("M2_ID1vsID2_S2"));
-    set.M2_ID1vsID2_S3    = dynamic_cast<TH2D*>(file->Get("M2_ID1vsID2_S3"));
-    set.M2_ID1andID2_1525 = dynamic_cast<TH1D*>(file->Get("M2_ID1andID2_1525"));
-    set.M2_ID1andID2_1461 = dynamic_cast<TH1D*>(file->Get("M2_ID1andID2_1461"));
-    set.M2_ID1andID2_full = dynamic_cast<TH1D*>(file->Get("M2_ID1andID2_full"));
-    set.M2_ID1andID2_S1   = dynamic_cast<TH1D*>(file->Get("M2_ID1andID2_S1"));
-    set.M2_ID1andID2_S2   = dynamic_cast<TH1D*>(file->Get("M2_ID1andID2_S2"));
-    set.M2_ID1andID2_S3   = dynamic_cast<TH1D*>(file->Get("M2_ID1andID2_S3"));
+    set.M1_enrBEGe        = dynamic_cast<TH1D*>(file->Get(Form("%sM1_enrBEGe", prefix.c_str())));
+    set.M1_enrCoax        = dynamic_cast<TH1D*>(file->Get(Form("%sM1_enrCoax", prefix.c_str())));
+    set.M1_natCoax        = dynamic_cast<TH1D*>(file->Get(Form("%sM1_natCoax", prefix.c_str())));
+    set.M1_all_1525       = dynamic_cast<TH1D*>(file->Get(Form("%sM1_all_1525", prefix.c_str())));
+    set.M1_all_1461       = dynamic_cast<TH1D*>(file->Get(Form("%sM1_all_1461", prefix.c_str())));
+    set.M1_all_full       = dynamic_cast<TH1D*>(file->Get(Form("%sM1_all_full", prefix.c_str())));
+    set.M1_all_S1         = dynamic_cast<TH1D*>(file->Get(Form("%sM1_all_S1", prefix.c_str())));
+    set.M1_all_S2         = dynamic_cast<TH1D*>(file->Get(Form("%sM1_all_S2", prefix.c_str())));
+    set.M1_all_S3         = dynamic_cast<TH1D*>(file->Get(Form("%sM1_all_S3", prefix.c_str())));
+    set.M2_enrE1vsE2      = dynamic_cast<TH2D*>(file->Get(Form("%sM2_enrE1vsE2", prefix.c_str())));
+    set.M2_enrE1plusE2    = dynamic_cast<TH1D*>(file->Get(Form("%sM2_enrE1plusE2", prefix.c_str())));
+    set.M2_enrE1andE2     = dynamic_cast<TH1D*>(file->Get(Form("%sM2_enrE1andE2", prefix.c_str())));
+    set.M2_ID1vsID2_1525  = dynamic_cast<TH2D*>(file->Get(Form("%sM2_ID1vsID2_1525", prefix.c_str())));
+    set.M2_ID1vsID2_1461  = dynamic_cast<TH2D*>(file->Get(Form("%sM2_ID1vsID2_1461", prefix.c_str())));
+    set.M2_ID1vsID2_full  = dynamic_cast<TH2D*>(file->Get(Form("%sM2_ID1vsID2_full", prefix.c_str())));
+    set.M2_ID1vsID2_S1    = dynamic_cast<TH2D*>(file->Get(Form("%sM2_ID1vsID2_S1", prefix.c_str())));
+    set.M2_ID1vsID2_S2    = dynamic_cast<TH2D*>(file->Get(Form("%sM2_ID1vsID2_S2", prefix.c_str())));
+    set.M2_ID1vsID2_S3    = dynamic_cast<TH2D*>(file->Get(Form("%sM2_ID1vsID2_S3", prefix.c_str())));
+    set.M2_ID1andID2_1525 = dynamic_cast<TH1D*>(file->Get(Form("%sM2_ID1andID2_1525", prefix.c_str())));
+    set.M2_ID1andID2_1461 = dynamic_cast<TH1D*>(file->Get(Form("%sM2_ID1andID2_1461", prefix.c_str())));
+    set.M2_ID1andID2_full = dynamic_cast<TH1D*>(file->Get(Form("%sM2_ID1andID2_full", prefix.c_str())));
+    set.M2_ID1andID2_S1   = dynamic_cast<TH1D*>(file->Get(Form("%sM2_ID1andID2_S1", prefix.c_str())));
+    set.M2_ID1andID2_S2   = dynamic_cast<TH1D*>(file->Get(Form("%sM2_ID1andID2_S2", prefix.c_str())));
+    set.M2_ID1andID2_S3   = dynamic_cast<TH1D*>(file->Get(Form("%sM2_ID1andID2_S3", prefix.c_str())));
 
     set.file = file;
 

@@ -5,18 +5,22 @@
   height=5.5cm,
   xmin=565, xmax=2000,
   legend style={%
+    font=\small,
     draw=none,
     fill=none,
+    /tikz/every even column/.append style={column sep=8pt},
   },
-  legend pos=south east,
+  legend columns=3,
+  legend pos=north east,
   xlabel={Energy (keV)},
-  ylabel={Count rate},
+  ylabel={Counts / keV},
   xtick pos=both,
   histogram/.append style={%
-    table/x=xunit,
+    table/x=xunit_low,
+    line width=0.7pt,
   },
   loghistogramaxis/.append style={%
-    ymin=5e-3,
+    ymin=1e-4,
   },
   group style={%
     group size=1 by 2,
@@ -27,14 +31,17 @@
   spectrum/.style={%
     loghistogramaxis,
     ymax=1e3,
-    area legend,
   },
   data/.style={%
     loghistogram,
-    draw=none,
-    fill=TolVibBlue,
-    fill opacity=0.3,
+    table/x=xunit,
     table/y=fitted_data,
+    % draw=none,
+    % fill=TolVibBlue,
+    % fill opacity=0.3,
+    % area legend,
+    only marks,
+    mark size=0.7pt,
   },
   model/.style={%
     loghistogram,
@@ -43,18 +50,21 @@
   },
   residuals/.style={%
     height=3cm,
-    ylabel={data/model},
+    ylabel={residuals},
   },
   ratio/.style={%
     histogram,
     mark=*,
     mark size=0.6pt,
     only marks,
+    table/x=xunit,
     table/y expr=\thisrow{fitted_data}/\thisrow{total_model},
+    table/y=norm_pois_res,
   },
   1sigu/.style={%
     histogram,
     table/y expr=\thisrow{1sig_p}/\thisrow{total_model},
+    % table/y expr=1,
     TolLigPear,
     name path=1sigu,
     forget plot,
@@ -62,6 +72,7 @@
   1sigl/.style={%
     histogram,
     table/y expr=\thisrow{1sig_m}/\thisrow{total_model},
+    % table/y expr=-1,
     TolLigPear,
     name path=1sigl,
     forget plot,
@@ -69,6 +80,7 @@
   2sigu/.style={%
     histogram,
     table/y expr=\thisrow{2sig_p}/\thisrow{total_model},
+    % table/y expr=2,
     TolLigYellow,
     name path=2sigu,
     forget plot,
@@ -76,6 +88,7 @@
   2sigl/.style={%
     histogram,
     table/y expr=\thisrow{2sig_m}/\thisrow{total_model},
+    % table/y expr=-2,
     TolLigYellow,
     name path=2sigl,
     forget plot,
@@ -83,6 +96,7 @@
   3sigu/.style={%
     histogram,
     table/y expr=\thisrow{3sig_p}/\thisrow{total_model},
+    % table/y expr=3,
     TolLigOrange,
     name path=3sigu,
     forget plot,
@@ -90,6 +104,7 @@
   3sigl/.style={%
     histogram,
     table/y expr=\thisrow{3sig_m}/\thisrow{total_model},
+    % table/y expr=-3,
     TolLigOrange,
     name path=3sigl,
     forget plot,
@@ -112,36 +127,56 @@
   Ac228/.style={%
     loghistogram,
     TolVibBlue,
-    table/y=Ac228_holders_lar_M1_enrBEGe,
+    table/y=Ac228_holders_lar_\dataset,
   },
   Th228/.style={%
     loghistogram,
     TolVibCyan,
-    table/y=Th228_cables_lar_M1_enrBEGe,
+    table/y=Th228_cables_lar_\dataset,
   },
   U238/.style={%
     loghistogram,
     TolVibTeal,
-    table/y=U238_cables_lar_M1_enrBEGe,
+    table/y=U238_cables_lar_\dataset,
   },
   Co60/.style={%
     loghistogram,
     TolVibOrange,
-    table/y=Co60_cables_lar_M1_enrBEGe,
+    table/y=Co60_cables_lar_\dataset,
   },
   K40/.style={%
     loghistogram,
     TolVibRed,
-    table/y expr=\thisrow{K40_close_lar_M1_enrBEGe}+\thisrow{K40_far_lar_M1_enrBEGe},
+    table/y expr=\thisrow{K40_close_lar_\dataset}+\thisrow{K40_far_lar_\dataset},
   },
   K42/.style={%
     loghistogram,
     TolVibMagenta,
-    table/y expr=\thisrow{K42_close_bege_lar_M1_enrBEGe}+\thisrow{K42_far_lar_M1_enrBEGe},
+    table/y expr=\thisrow{K42_close_bege_lar_\dataset}+\thisrow{K42_far_lar_\dataset},
   },
-  2nbb/.style={%
+  2nbbCoax/.style={%
     loghistogram,
     TolMutOlive,
-    table/y=Nnbb_bege_lar_M1_enrBEGe,
+    table/y=Nnbb_coax_lar_\dataset,
+  },
+  2nbbBEGe/.style={%
+    loghistogram,
+    TolMutOlive,
+    table/y=Nnbb_bege_lar_\dataset,
   },
 }
+
+\newcommand{\addbrasilianplot}{%
+  \addplot[3sigu] table {\loadedtable};
+  \addplot[3sigl] table {\loadedtable};
+  \addplot[3sigb] fill between [of=3sigu and 3sigl];
+  \addplot[2sigu] table {\loadedtable};
+  \addplot[2sigl] table {\loadedtable};
+  \addplot[2sigb] fill between [of=2sigu and 2sigl];
+  \addplot[1sigu] table {\loadedtable};
+  \addplot[1sigl] table {\loadedtable};
+  \addplot[1sigb] fill between [of=1sigu and 1sigl];
+  \addplot[ratio] table {\loadedtable};
+}
+
+\newcommand{\dataset}{M1_enrBEGe}

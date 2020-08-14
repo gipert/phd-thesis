@@ -28,277 +28,34 @@ will be finally presented in the following chapter.
 \newpar
 The chapter is structured as follows: \fillme{fillme}
 
-\section{Optical physics in \mage}%
-\label{sec:bkg:lar:ph2:mage}
-
-Optical materials and surfaces are implemented in \mage\ through the relevant \geant\
-libraries. Once properties like reflectivity, wavelength-shifting capabilities,
-attenuation lengths, scintillation yields etc.~are defined, the \geant\ core routines take
-care of simulating light propagation accordingly. When defining optical parameters in the
-Monte Carlo, one must keep in mind what are the typical photon wavelengths that come to
-play in the \gerda\ setup. The most important wavelength is 128~nm, in the so-called
-vacuum-ultra-violet (VUV) regime, which defines the energy of the photon emitted by the
-LAr scintillation process. The second interesting regime is in the 400--600~nm range,
-typical of photons which are wavelength-shifted (WLS) in the fiber curtain or by
-Tetraphenil-Butadiene (TPB) coatings to match the absorption range of the light detectors
-(PMTs, SiPMs). As it will be clear in the next sections, many optical parameters are
-poorly known in the VUV regime or depend on the details of the experimental setup (LAr
-purity, WLS coating thickness etc.), and a dedicated measurement should be therefore
-performed.  In the following sections a reference list of the optical properties
-implemented in \mage\ is provided, with references to the literature.
-
-\blocktitle{liquid \\ argon}
-Key properties of the liquid argon from the point of view of the vetoing performance in
-\gerda\ are the scintillation mechanism, the refractive index and the attenuation length.
-The first two are relatively well known, while the latter strongly depends on the LAr
-purity, which has not been measured for \gerda. We recall here that the deployed LAr has
-not been subject to any purification process, and is therefore expected to meet the purity
-specifications of natural argon.
-
-\begin{description}
-
-  \item[Refractive index] Its implementation depends on the photon energy (shown in
-    \cref{fig:bkg:lar:ph2:mage:lar-props}). Formulas are taken from~\cite{Bideau-Mehu1981}
-    and give about 1.41 at 128~nm. A more recent measurement, similarly based on an
-    extrapolation of measured data to lower wavelengths, suggests a lower value of about
-    1.37~\cite{Babicz2018}.
-
-  \item[Rayleigh scattering length] Depends on the refractive index and therefore the
-    photon energy (shown in \cref{fig:bkg:lar:ph2:mage:lar-props}). Formulas are taken
-    from~\cite{Seidel2002}. The already implemented refractive index values are used. The
-    obtained scattering length value at 128~nm is about 60~cm. The value suggested
-    in~\cite{Babicz2018} is 91~cm, 50\% higher.
-
-  \item[Scintillation spectrum] Taken from~\cite{Heindl2010}, which reports an
-    experimental measurement (figs.~1 and 2). Only the (gaussian) peak is implemented in
-    \mage, as the non-gaussian contributions are of several orders of magnitude lower and
-    are therefore negligible. A normal distribution $(\mu=128\;\text{nm},
-    \sigma=2.929\;\text{nm})$ is implemented (\cref{fig:bkg:lar:ph2:mage:lar-props}).
-
-  \item[Scintillation yield] Different scintillation processes are defined in the \mage\
-    physics list for different ionizing particles, that in general have different
-    scintillation yields in LAr. A reference value of $51\;\upgamma/\text{keV}$ has been
-    suggested in~\cite{Doke2002}. This value does certainly not represent the reality of
-    \gerda, as the yield strongly depends on the electric field configuration and the
-    quencher impurity level. Unfortunately a reliable direct measure of the scintillation
-    yield of the \gerda\ LAr is not available. Indirect measurements were performed within
-    the \LArGe\ setup~\cite{Lehnert2016} and with a dedicated setup deployed inside the
-    \gerda\ cryostat~\cite{Barros2020}, but they both yield incompatible results. A
-    tentative, default value of 28~$\upgamma/\text{keV}$ is implemented in \mage, which is
-    the maximum achievable scintillation yield corresponding to 1~\mus\ triplet lifetime.
-    As shown in~\cite{Doke2002}, some particles (in particular \a\ particles and nuclei)
-    can be characterized by lower yields. Therefore, the photon yield is reduced for \a\
-    particles and nuclei by a factor of 0.875 and 0.375 respectively in the physics list.
-    These numbers are extracted from~\cite{Doke2002}. In this way \b\ and \g\ particles
-    will be affected by the nominal (maximum) photon yield, while \a\ particles and nuclei
-    will produce less light by a factor 0.875 and 0.375 (0.7/0.8 and 0.3/0.8 according
-    to~\cite{Doke2002}), respectively.
-
-  \item[Singlet and triplet lifetime] \sloppy The implemented triplet lifetime is the one
-    measured during \gerdatwo, before the \phasetwop\ upgrade
-    (\cref{fig:lar:triplet-lifetime}), the singlet lifetime \fillme{fillme}. The relative
-    occurrence of the two de-excitation processes is also specified in terms of
-    scintillation yield. The \geant\ \m{YIELDRATIO} property, which is defined as the
-    relative strength of the fast component as a fraction of total scintillation yield, is
-    set to 0.23 for all particles (\b\ and \g\ particles), 0.75 for nuclei and 1.0 for \a\
-    particles (the latter is a rough guess).
-
-  \item[Attenuation length] As the absorption length is strongly dependent on the LAr
-    purity, no literature values can be used. It is known to depend on the wavelength of
-    the photon in general, but this dependence is poorly known in the VUV regime. What is
-    most important in \mage\ is its value at 128~nm, i.e.~the wavelength of the LAr
-    scintillation light. The following, heuristic implementation is adopted: an
-    exponential function is used to make sure that the LAr is opaque to VUV photons
-    ($\lambda \leq 128$~nm) but transparent to wavelength-shifted photons ($\lambda
-    \gtrsim 400$~nm), see fig.~\ref{fig:bkg:lar:ph2:mage:lar-props}. A measurement of the
-    attenuation length in the \gerda\ LAr was performed~\cite{Barros2020}, yielding
-    $\sim15$~cm as a result, but \fillme{fillme}. A default, reasonable value of 55~cm is
-    implemented in \mage\ and used in the LAr veto system simulation as `best guess'.
-
-  \item[Fano factor] A Fano factor of 0.11 is set, taken from~\cite{Doke1976}.
-
-\end{description}
+\section{Analysis data sets}%
+\label{sec:bkg:lar:ph2:data}
 
 \begin{figure}
   \centering
-  \includegraphics{plots/mage/lar-props.pdf}
+  \includegraphics[width=\textwidth]{plots/bkg/lar/ph2/data-desc.pdf}
   \caption{%
-    LAr optical properties as implemented in \mage. Top left: the refractive index, top
-    right: the Rayleigh absorption length, bottom left: the scintillation spectrum, bottom
-    right: the absorption length. Taken from~\cite{Bideau-Mehu1981, Seidel2002,
-    Heindl2010}.
-  }\label{fig:bkg:lar:ph2:mage:lar-props}
+    The data from the first \gexpophasetwobkg\ of \gerdatwo\ before and after the liquid argon veto
+    cut, divided into the three background model data sets: \enrBEGeII, \enrCoaxII\ and
+    \enrGeII.
+  }\label{fig:bkg:lar:ph2:data-desc}
 \end{figure}
 
-\blocktitle{reflectivity}
-Reflectivity is another key property in optical simulations, as it can be different for
-VUV scintillation photons and wavelength-shifted photons. Unfortunately, the available
-literature about material reflectivity in the VUV regime is often very scarce. Surfaces
-in the \gerda\ setup for which knowing the reflectivity is crucial are certainly
-germanium, silicon holder plates and the VM2000 and Tetratex\reg{} reflectors that cover
-the internal copper surface of the LAr veto instrumentation.
+\section{Monte Carlo simulations and probability density functions}%
+\label{sec:bkg:lar:ph2:pdfs}
 
-\begin{description}
-  \item[Ge, Si, Cu and Teflon] Measurements performed for \gerda\ are available
-    in~\cite{Wegmann2017}.  A reflectometer at room temperature and in air was used to
-    measure the reflectivity in the wavelength range $[280, 700]$~nm, therefore values in
-    the VUV region must be taken from other sources. For germanium it seems to strongly
-    depend upon the radiation incident angle~\cite{Marton1967}, but it's not possible to
-    implement angle-dependent reflectivities in \geant\ yet. A rough, average value of
-    0.65 is therefore set for wavelengths smaller than 280~nm. The source of the
-    reflectivity values of the other materials below 280~nm is not known to me
-    \fillme{fillme}. The reflectivity values for all materials mentioned above are plot in
-    \cref{fig:bkg:lar:ph2:mage:metals-refl}.
+The Monte Carlo simulation of the liquid argon veto requires to enable the \geant\ optical physics
+simulation routines, which have been disabled for the production of the background model
+pdfs before analysis cuts (c.f.r.~\cref{sec:bkg:raw:ph2:pdfs}). The relevant material
+optical properties needed to simulate the scintillation of LAr and the propagation of the
+photons throughout the whole setup have been implemented into \mage\ and documented in
+detail in \cref{sec:apdx:mage-optics}. As reported there, unfortunately, many properties
+are uncertain or not known at all, especially in the VUV regime ($\sim$128~nm). This
+uncertainty propagates to the LAr veto model and the background pdfs, and is treated as a
+systematic uncertainty in the \nnbb\ distribution analysis presented in
+\cref{chap:2nbb-ana}.
 
-    \begin{figure}
-      \centering
-      \includegraphics{plots/mage/metals-refl.pdf}
-      \caption{%
-        Reflectivity of germanium, copper, silicon and Teflon as implemented in \mage.
-      }\label{fig:bkg:lar:ph2:mage:metals-refl}
-    \end{figure}
-
-  \item[Polymeric reflectors] Tetratex\reg{} values are taken from~\cite{Janecek2012}. The
-    author reports measurements of the reflectivity of 2 and 4 superimposed layers of
-    160~\mum\ thick Tetratex\reg{}. As the thickness of the foils used in \gerda\ is
-    254~\mum, the results for the two superimposed foils (320~\mum) are implemented in
-    \mage. In reality, the reflectivity of the \gerda\ foils should be (negligibly)
-    smaller. The TPB layer has some effect on the reflectivity, but there's no measurement
-    available in literature.  VM2000 values are taken from~\cite{Francini2013}.  The
-    authors report measurements of TPB-coated VM2000, as in the \gerda\ setup, which then
-    take into account the effect of the TPB emission spectrum. The measurement seems to be
-    independent on the TPB layer thickness. The values are plot in
-    \cref{fig:bkg:lar:ph2:mage:misc}, left.
-
-    \begin{figure}
-      \centering
-      \includegraphics{plots/mage/misc.pdf}
-      \caption{%
-        Reflectivity of VM2000 and Tetratex\reg{} reflectors (right) and absorption length
-        of the nylon mini-shrouds (left), as implemented in \mage.
-      }\label{fig:bkg:lar:ph2:mage:misc}
-    \end{figure}
-
-\end{description}
-
-\blocktitle{wavelength \\ shifters}
-Various surfaces in the \gerda\ setup are coated with a wavelength-shifting material in
-order to enhance the light collection efficiency and therefore the LAr veto cut
-efficiency. Tetraphenyl-Butadiene (TPB) is either evaporated on the surface pure or
-embedded in a polystyrene matrix. The concerned surfaces are the nylon mini-shrouds, the
-light-guiding fibers, the VM2000 and Tetratex\reg{} reflectors on the copper components of
-the LAr veto instrumentation (or simply copper shrouds in the following) and the PMTs
-glass window. The physical properties that define the wavelength-shifting process are the
-quantum efficiencies (average number of WLS photons emitted), the emission spectrum of the
-emitted WLS photons and their absorption length in the material. Since these properties
-depend on the substrate and other characteristics like the thickness or the deposition
-technique, multiple definitions of TPB are present in \mage. The quantum efficiency
-depends on the layer thickness, so it should be measured for the specific sample. Since
-these measurements are not available, an arbitrary but realistic value of 1.2 is set. The
-WLS absorption length is another property for which no good data seems to be available in
-the literature. The implemented values are taken from~\cite{Benson2017}
-(\cref{fig:bkg:lar:ph2:mage:tpb-props}, left). Other TPB properties which are common to
-all instances are the WLS emission time constant, which is set to an arbitrarily small
-value of 0.01~ns and the reflectivity which should be small but not zero (set to 0.2).
-The WLS emission spectrum changes upon the specific layer
-
-\begin{description}
-
-  \item[TPB on nylon mini-shrouds] This WLS coating consists of TPB embedded in a
-    polystyrene matrix (3:7 ratio TPB:polystyrene) and diluted in toluene (1:10).  The
-    solution is then brushed on the nylon. The emission spectrum has been
-    measured~\cite{Walter2015} (see \cref{fig:bkg:lar:ph2:mage:tpb-props}, right) and is
-    similar to the one in reported~\cite{Francini2013} (fig.~14) for TPB in polystyrene
-    matrix on glass.
-
-  \item[TPB on VM2000] The copper shroud internal reflective surface is coated with
-    evaporated TPB. The emission spectrum is taken from~\cite{Francini2013}
-    (\cref{fig:bkg:lar:ph2:mage:tpb-props}, right).  The authors report the measurement of
-    a $\sim$160~\mum\ thick TPB layer on VM2000 at an excitation wavelength of 128~nm and
-    at 87~K, the same \gerda\ experimental conditions. The major differences brought in by
-    the LAr temperature are the vibronic structures that modify the shape of the spectrum.
-
-  \item[TPB on fibers] No measurement is available here so the same emission spectrum
-    defined for TPB on VM2000 is used. The TPB is evaporated.
-
-  \item[TPB on Tetratex\reg{}] The Tetratex\reg{} is dip-coated (0.9~mg/cm$^2$, 8~\mum\
-    thickness) with TPB. The emission spectrum has been measured for
-    \gerda~\cite{Baudis2015a} and is reported in \cref{fig:bkg:lar:ph2:mage:tpb-props},
-    right. The measured sample has a TPB surface density of 0.17~mg/cm$^2$. In principle
-    the thickness affects the shape of the emission spectrum, as the efficiency of the
-    reabsorption effect increases with the thickness of the layer. However, no relative
-    measurements could be found at the time.
-
-    \begin{figure}
-      \centering
-      \includegraphics{plots/mage/tpb-props.pdf}
-      \caption{%
-        Optical properties of Tetraphenyl-Butadiene (TPB) implemented in \mage. On the
-        left: the attenuation length of the wavelength-shifted light. On the right:
-        emission spectrum.
-      }\label{fig:bkg:lar:ph2:mage:tpb-props}
-    \end{figure}
-
-\end{description}
-
-\blocktitle{fiber shroud \\ mini-shrouds}
-An essential part of the LAr veto system is the wavelength-shifting light-guiding fiber
-curtain. The fibers themselves are a Saint Gobain product (BCF-91A polystyrene
-fibers~\cite{FibersData}), and consist of a core and two cladding layers with different
-refraction indices, to increase the light trapping efficiency, which is of about 3\%.
-Photons interacting in the fiber are shifted to the green band of the optical spectrum,
-guided to the endpoints and collected by the SiPMs at the top. The fibers are coated with
-TPB, that shifts the VUV light to match the fiber absorption range.
-\newpar
-The nylon mini-shrouds have the triple role of keeping \kvz\ ions out, being transparent
-to optical photons and eventually shift VUV photons to higher wavelengths. This capability
-is achieved by coating them with TPB.
-
-\begin{description}
-
-  \item[BCF-91A polystyrene] Material of the fiber core. The data sheet from Saint
-    Gobain~\cite{FibersData} reports the absorption spectrum, knowing that the fibers are
-    1~mm thick one can extract the absorption length. Starting from the trivial relation:
-    \[
-      1 - P(E) = e^{-x/l(E)}
-    \]
-    where $P(E)$ is the probability (thus proportional to the absorption
-    spectrum) for a photon travelling a distance $x$ to be absorbed in the
-    material. Given the attenuation length $l(E)$, one can extract $l(E)$ from
-    $P(E)$. By integrating over the thickness of the material $L$ one obtains:
-    \[
-      L \cdot (1 - P(E)) = l(E) \cdot (1 - e^{-L/l(E)})
-    \]
-    The problem now is that $l(E)$ cannot be extracted analytically (the expression is
-    inhomogeneous). It can however be solved numerically.  Since the units are arbitrary
-    because the original absorption spectrum has arbitrary units, the spectrum has been
-    then rescaled to match a measurement performed at 400~nm, which yielded
-    0.7~mm~\cite{Kneissl2012}. The result is shown in
-    \cref{fig:bkg:lar:ph2:mage:fibers-props}, left. The emission spectrum is taken again
-    from~\cite{FibersData} and shown in \cref{fig:bkg:lar:ph2:mage:fibers-props}, right.
-    The absorption length is set to 3.5~m \fillme{fillme}. The WLS time constant, the
-    refractive index have also been taken from~\cite{FibersData}. The quantum efficiency
-    is set to 1. The two cladding layers are made of PMMA. As only the refractive index is
-    important, it is set to 1.49 for the inner cladding layer and to 1.42 for the outer
-    layer~\cite{FibersData}.
-
-  \item[Nylon mini-shrouds] The refraction index is set to 1.54, constant over
-    incident photon wavelength. The attenuation length values are taken
-    from~\cite{Agostini2017b}, since \gerda\ is using the same material used for the
-    \textsc{Borexino} balloon (\cref{fig:bkg:lar:ph2:mage:misc}, right).
-
-    \begin{figure}
-      \centering
-      \includegraphics{plots/mage/fibers-props.pdf}
-      \caption{%
-        Absorption length and emission spectrum of the wavelength-shifted light in the
-        light-guiding fibers, as implemented in \mage.
-      }\label{fig:bkg:lar:ph2:mage:fibers-props}
-    \end{figure}
-
-\end{description}
-
-\section{Simulating the LAr veto}%
+\subsection{Simulating the LAr veto}%
 \label{sec:bkg:lar:ph2:heatmap}
 
 Simulating optical physics is notoriously a computationally intensive task, as the number
@@ -422,7 +179,7 @@ are the most sensitive to modifications of the fiber shroud coverage.
   }\label{fig:bkg:lar:ph2:larmap:dist}
 \end{figure}
 
-\section{Tuning the LAr veto model}%
+\subsection{Tuning the LAr veto model}%
 \label{sec:bkg:lar:ph2:pcalib}
 
 As already mentioned several times, the knowledge about several Monte Carlo optical
@@ -634,16 +391,20 @@ The impact of this problem on the \nnbb\ distribution analysis is addressed in
 \cref{sec:2nbb-ana:systematics} through a dedicated study of the connected systematic
 uncertainty.
 
-\section{The data after the LAr veto cut}
+\section{Full-range analysis}%
+\label{sec:bkg:lar:ph2:gmodel}
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{plots/bkg/lar/ph2/data-desc.pdf}
+  \includegraphics[width=\textwidth]{plots/bkg/lar/ph2/results/gmodel/enrBEGe-results.pdf}
+  \includegraphics[width=\textwidth]{plots/bkg/lar/ph2/results/gmodel/enrCoax-results.pdf}
+  \includegraphics[width=\textwidth]{plots/bkg/lar/ph2/results/gmodel/enrE1plusE2-results.pdf}
   \caption{%
-    The data from the first \gexpophasetwobkg\ of \gerdatwo\ before after the liquid argon veto
-    cut, divided into the three background model data sets: \enrBEGeII, \enrCoaxII\ and
-    \enrGeII.
-  }\label{fig:bkg:lar:ph2:data-desc}
+    The background model of the first \gexpophasetwobkg\ of \gerdatwo\ after the liquid argon veto
+    cut. Contributions from the same radioactive decay are summed for visualization
+    purposes. The data/model ratio is shown in the bottom panels together with the
+    smallest 60\%, 95\% and \%99 confidence intervals.
+  }\label{fig:bkg:lar:ph2:results}
 \end{figure}
 
 \chapsummary
