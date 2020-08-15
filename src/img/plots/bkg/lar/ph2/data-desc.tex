@@ -40,6 +40,8 @@
   },
 }
 
+\tikzstyle{isotope} = [scale=0.6, rotate=90]
+
 \begin{document}
   \begin{tikzpicture}
     \begin{groupplot}[hide axis]
@@ -50,6 +52,12 @@
       \addplot[lar] table [y=bege_lar] {data.csv} \closedcycle;
       \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{BEGe} -- 32.1 kg$\cdot$yr};
       \node[anchor=north east] at (axis description cs:0.95,0.77) {\footnotesize single-detector events};
+
+      \node[isotope] at (1400,1e3) {$^{40}$K};
+      \node[isotope] at (1575,2e3) {$^{42}$K};
+      \node[isotope] at (1730,1e2) {$^{214}$Bi};
+      \node[isotope] at (2580,5e1) {$^{208}$Tl};
+      \node[isotope, rotate=-90] at (4800,3e1) {$^{210}$Po};
 
       \nextgroupplot[ymode=log]
 
@@ -65,8 +73,8 @@
       \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{All} -- 60.2 kg$\cdot$yr};
       \node[anchor=north east] at (axis description cs:0.95,0.77) {\footnotesize two-detector events};
 
-      \addlegendentry{Before analysis cuts}
-      \addlegendentry{After LAr veto cut}
+      \addlegendentry{Before analysis cuts};
+      \addlegendentry{After LAr veto cut};
 
     \end{groupplot}
 

@@ -22,13 +22,13 @@
     gerdaStyle->SetPalette(kGreyScale);
 
     // set the paper & margin sizes
-    gerdaStyle->SetPadLeftMargin(0.09);
+    gerdaStyle->SetPadLeftMargin(0.10);
     gerdaStyle->SetPadRightMargin(0.005);
     gerdaStyle->SetPadBottomMargin(0.1);
     gerdaStyle->SetPadTopMargin(0.011);
 
     // default canvas size
-    gerdaStyle->SetCanvasDefH(650);
+    gerdaStyle->SetCanvasDefH(600);
     gerdaStyle->SetCanvasDefW(900);
     gerdaStyle->SetPaperSize(0.01*gerdaStyle->GetCanvasDefW(),
                              0.01*gerdaStyle->GetCanvasDefW());
@@ -45,7 +45,7 @@
     gerdaStyle->SetTitleXSize(fontsize);
     gerdaStyle->SetTitleYSize(fontsize);
     gerdaStyle->SetTitleOffset(1, "X");
-    gerdaStyle->SetTitleOffset(1, "Y");
+    gerdaStyle->SetTitleOffset(1.1, "Y");
 
     // ticks
     gerdaStyle->SetTickLength(0.01, "Y");

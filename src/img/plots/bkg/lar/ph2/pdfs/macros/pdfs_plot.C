@@ -72,25 +72,25 @@ void g_plot_K40(bool bayes = false) {
     h4 -> SetLineColorAlpha(kTBriGreen, 1.0);
     h5 -> SetLineColorAlpha(kTBriGreen, 0.5);
 
-    TLegend leg(0.14, 0.14, 0.55, 0.34);
+    TLegend leg(0.15, 0.14, 0.55, 0.34);
     leg.AddEntry(_big(h0), "^{40}K - mini-shroud", "L");
     leg.AddEntry(_big(h2), "^{40}K - fibers", "L");
     leg.AddEntry(_big(h4), "^{40}K - copper shrouds", "L");
 
     // props
     _h0->GetXaxis()->SetRangeUser(560, 1510);
-    _h0->GetYaxis()->SetRangeUser(1.1E-10, 2E-03);
+    _h0->GetYaxis()->SetRangeUser(1.1E-12, 2E-03);
     _h0->GetYaxis()->SetNdivisions(4);
     _h0->SetTitle(";energy [keV];probability / (decay keV)");
     _h0->GetXaxis()->SetNdivisions(8,0,0);
-    _h0->GetYaxis()->SetTitleOffset(1.4);
+    _h0->GetYaxis()->SetTitleOffset(1.5);
 
     // draw!
     TCanvas c;
     TPad pad_l("pad_l", "pad_l", 0.0, 0.0, 0.7, 1.0);
     TPad pad_r("pad_r", "pad_r", 0.7, 0.0, 1.0, 1.0);
     pad_l.Draw();
-    pad_l.SetLeftMargin(0.13);
+    pad_l.SetLeftMargin(0.14);
     pad_l.SetRightMargin(0.01);
     pad_r.SetLeftMargin(0.02);
     pad_r.Draw();
@@ -181,13 +181,13 @@ void g_plot_K42(bool bayes = false) {
 
     // props
     h0->SetTitle(";energy [keV];probability / (decay keV)");
-    h0->GetXaxis()->SetRangeUser(560, 3499);
+    h0->GetXaxis()->SetRangeUser(560, 3400);
     //h0->GetXaxis()->SetRangeUser(1525-30, 1525+30);
-    h0->GetYaxis()->SetRangeUser(5E-13, 8E-03);
+    h0->GetYaxis()->SetRangeUser(1E-15, 8E-03);
     // set1_M1->GetYaxis()->SetRangeUser(1E-8, 20);
     h0->GetYaxis()->SetNdivisions(6);
 
-    TLegend leg(0.1, 0.14, 0.5, 0.34);
+    TLegend leg(0.11, 0.14, 0.5, 0.34);
     leg.AddEntry(_big(h0), "^{42}K - homogeneous", "L");
     leg.AddEntry(_big(h2), "^{42}K - homogeneous above", "L");
     leg.AddEntry(_big(h4), "^{42}K - n^{+} BEGe", "L");
@@ -251,9 +251,12 @@ void g_plot_Th(bool bayes = false) {
         h3 = dynamic_cast<TH1D*>(f->Get("bb_larveto_fibers_Th_M2"   ));
     }
 
+    h0 -> Scale(10);
+    h1 -> Scale(10);
+
     // props
     h0->GetXaxis()->SetRangeUser(560, 3999);
-    h0->GetYaxis()->SetRangeUser(3E-11, 5E-03);
+    h0->GetYaxis()->SetRangeUser(1E-12, 5E-03);
     h0->SetTitle(";energy [keV];probability / (decay keV)");
 
     h0 -> SetLineColorAlpha(kTBriBlue, 1.0);
@@ -261,8 +264,8 @@ void g_plot_Th(bool bayes = false) {
     h2 -> SetLineColorAlpha(kTBriRed,  1.0);
     h3 -> SetLineColorAlpha(kTBriRed,  0.5);
 
-    TLegend leg;
-    leg.AddEntry(_big(h0), "^{212}Bi + ^{208}Tl - mini-shroud", "L");
+    TLegend leg(0.11, 0.11, 0.60, 0.27);
+    leg.AddEntry(_big(h0), "^{212}Bi + ^{208}Tl - mini-shroud (#times 10)", "L");
     leg.AddEntry(_big(h2), "^{212}Bi + ^{208}Tl - fibers", "L");
 
     // draw!
@@ -330,8 +333,10 @@ void g_plot_U(bool bayes = false) {
     // h2 -> SetLineColorAlpha(kTBriRed,  1.0);
     // h3 -> SetLineColorAlpha(kTBriRed,  0.5);
 
-    TLegend leg;
-    leg.AddEntry(_big(h0), "^{214}Pb + ^{214}Bi - mini-shroud", "L");
+    h0 -> Scale(10);
+
+    TLegend leg(0.11, 0.11, 0.60, 0.27);
+    leg.AddEntry(_big(h0), "^{214}Pb + ^{214}Bi - mini-shroud (M1 #times 10)", "L");
     // leg.AddEntry(_big(h2), "^{214}Pb + ^{214}Bi - fibers", "L");
 
     // draw!
@@ -388,9 +393,11 @@ void g_plot_misc(bool bayes = false) {
     h5 -> SetLineColorAlpha(kTBriPurple, 1.0);
     h6 -> SetLineColorAlpha(kTBriPurple, 0.5);
 
-    TLegend leg(0.1, 0.14, 0.45, 0.34);
+    h5->Scale(10);
+
+    TLegend leg(0.11, 0.14, 0.45, 0.34);
     // leg.AddEntry(_big(h3), "^{234m}Pa - mini-shroud", "L");
-    leg.AddEntry(_big(h5), "^{228}Ac - mini-shroud",  "L");
+    leg.AddEntry(_big(h5), "^{228}Ac - mini-shroud (M1 #times 10)",  "L");
 
     // draw!
     TCanvas c;
@@ -437,6 +444,7 @@ void g_plot_misc2(bool bayes = false) {
 
     // props
     h0->GetXaxis()->SetRangeUser(560, 2599);
+    h0->GetYaxis()->SetRangeUser(5E-9, 2E-3);
     h0->GetYaxis()->SetNdivisions(4);
     h0->SetTitle(";energy [keV];probability / (decay keV)");
 
@@ -444,7 +452,7 @@ void g_plot_misc2(bool bayes = false) {
     h1 -> SetLineColorAlpha(kTBriBlue,   0.5);
     h2 -> SetLineColorAlpha(kTBriRed,    1.0);
 
-    TLegend leg(0.1, 0.14, 0.45, 0.34);
+    TLegend leg(0.11, 0.14, 0.45, 0.34);
     leg.AddEntry(_big(h0), "^{60}Co - flat cables",        "L");
     leg.AddEntry(_big(h2), "2#nu#beta#beta",     "L");
 
@@ -480,10 +488,10 @@ void pdfs_plot() {
     float f = 10;
     for (int i = 0; i < 11; ++i) new TColor(freec+i, (0+i*f)/255., (51+i*f)/255., (102+i*f)/255., "blue");
 
-    // g_plot_K40(use_bb);
-    // g_plot_K42(use_bb);
-    // g_plot_Th(use_bb);
-    // g_plot_U(use_bb);
+    g_plot_K40(use_bb);
+    g_plot_K42(use_bb);
+    g_plot_Th(use_bb);
+    g_plot_U(use_bb);
     g_plot_misc(use_bb);
     g_plot_misc2(use_bb);
 

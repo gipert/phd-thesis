@@ -3,7 +3,7 @@
 
 \pgfplotsset{%
   height=5.5cm,
-  xmin=565, xmax=2000,
+  xmin=565, xmax=5260,
   legend style={%
     font=\small,
     draw=none,
@@ -127,42 +127,52 @@
   Ac228/.style={%
     loghistogram,
     TolVibBlue,
-    table/y=Ac228_holders_lar_\dataset,
+    table/y=Ac228_holders,
   },
   Th228/.style={%
     loghistogram,
     TolVibCyan,
-    table/y=Th228_cables_lar_\dataset,
+    table/y=Th228_cables,
   },
   U238/.style={%
     loghistogram,
     TolVibTeal,
-    table/y=U238_cables_lar_\dataset,
+    table/y=U238_cables,
   },
   Co60/.style={%
     loghistogram,
     TolVibOrange,
-    table/y=Co60_cables_lar_\dataset,
+    table/y=Co60_cables,
   },
   K40/.style={%
     loghistogram,
     TolVibRed,
-    table/y expr=\thisrow{K40_close_lar_\dataset}+\thisrow{K40_far_lar_\dataset},
+    table/y expr=\thisrow{K40_close}+\thisrow{K40_far},
   },
   K42/.style={%
     loghistogram,
     TolVibMagenta,
-    table/y expr=\thisrow{K42_close_bege_lar_\dataset}+\thisrow{K42_far_lar_\dataset},
+    table/y expr=\thisrow{K42_close_bege}+\thisrow{K42_far},
   },
   2nbbCoax/.style={%
     loghistogram,
     TolMutOlive,
-    table/y=Nnbb_coax_lar_\dataset,
+    table/y=Nnbb_coax,
   },
   2nbbBEGe/.style={%
     loghistogram,
     TolMutOlive,
-    table/y=Nnbb_bege_lar_\dataset,
+    table/y=Nnbb_bege,
+  },
+  alphaBEGe/.style={%
+    loghistogram,
+    TolMutSand,
+    table/y=alpha_high_energy_bege,
+  },
+  alphaCoax/.style={%
+    loghistogram,
+    TolMutSand,
+    table/y=alpha_high_energy_coax,
   },
 }
 
@@ -178,5 +188,3 @@
   \addplot[1sigb] fill between [of=1sigu and 1sigl];
   \addplot[ratio] table {\loadedtable};
 }
-
-\newcommand{\dataset}{M1_enrBEGe}

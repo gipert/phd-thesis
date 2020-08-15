@@ -11,18 +11,18 @@
   \begin{tikzpicture}
     \begin{groupplot}
 
-      \renewcommand{\dataset}{M2_enrE1plusE2}
-      \pgfplotstableread{data/gerda_data_bkgmodel_phaseII_v07_00_lar_\dataset.csv}\loadedtable;
+      \pgfplotstableread{data/gerda_data_bkgmodel_phaseII_v07_00_lar_M2_enrE1plusE2.csv}\loadedtable;
 
-      \nextgroupplot[spectrum, hide axis, ymode=log]
+      \nextgroupplot[spectrum, hide axis, ymode=log, ymax=2E3]
 
-      \addplot[data] table {\loadedtable} \closedcycle;
+      \addplot[data]  table {\loadedtable} \closedcycle;
       \addplot[Ac228] table {\loadedtable};
-      \addplot[K42] table {\loadedtable};
-      \addplot[U238] table {\loadedtable};
-      \addplot[Co60] table {\loadedtable};
-      \addplot[K40] table {\loadedtable};
+      \addplot[K42]   table {\loadedtable};
+      \addplot[U238]  table {\loadedtable};
+      \addplot[Co60]  table {\loadedtable};
+      \addplot[K40]   table {\loadedtable};
       \addplot[Th228] table {\loadedtable};
+      \addlegendimage{alphaBEGe}
       \addplot[model] table {\loadedtable};
       \addlegendimage{only marks, mark=sigma bands}
 
@@ -33,6 +33,7 @@
       \addlegendentry{$^{60}$Co};
       \addlegendentry{$^{40}$K};
       \addlegendentry{$^{212}$Bi + $^{208}$Tl};
+      \addlegendentry{$\upalpha$ model};
       \addlegendentry{Model};
       \addlegendentry{1,2,3 $\sigma$};
 
@@ -45,7 +46,7 @@
     \end{groupplot}
 
     \begin{groupplot}
-      \nextgroupplot[spectrum, ymode=log]
+      \nextgroupplot[spectrum, ymode=log, ymax=2E3]
       % \nextgroupplot[residuals]
     \end{groupplot}
   \end{tikzpicture}

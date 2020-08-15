@@ -31,6 +31,26 @@ The chapter is structured as follows: \fillme{fillme}
 \section{Analysis data sets}%
 \label{sec:bkg:lar:ph2:data}
 
+The background model after the LAr veto cut has been developed using data from the first
+part of \gerdatwo, as in \cref{chap:bkg:raw:ph2}. Single- and two- detector events that
+survive the LAr veto cut (more in \cref{sec:gerda:cuts}) have been considered: two data
+sets from the first category (\enrBEGeII\ and \enrCoaxII) and a single one for the second
+(\enrGeII). The exposures documented in \cref{tab:bkg:raw:ph2:datasets} remain the same.
+The reader is referred to \label{sec:bkg:raw:ph2:data} for further details about how these
+data sets are constructed.
+\newpar
+The event energy distributions of the three data sets before and after the LAr veto cut
+are displayed in \cref{fig:bkg:lar:ph2:data-desc}: the sum spectrum of \enrBEGeII\ and
+\enrCoaxII\ in the top panel and \enrGeII\ in the bottom panel. \g\ peaks and their
+Compton shoulders are largely suppressed (e.g.~80\% of the \kvz\ FEP is cut) with the
+exception of \kvn, which is a pure \g\ emission (electron capture) and is less likely to
+deposit coincident energy in the LAr. After the cut, the spectrum is mainly composed by
+\nnbb\ and residual \a\ events. The signal-to-background ratio in the \nnbb-dominated
+region (from 565~keV to 2000~keV excluding the potassium \g\ lines) improves by a factor
+10, jumping from $\sim$2 to $\sim$~20 (\fillme{cross-check with betta}). This large
+background reduction motivates the development of a background model after the LAr veto
+cut to study the \nnbb\ event distribution with a significant sensitivity improvement.
+
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{plots/bkg/lar/ph2/data-desc.pdf}
@@ -391,8 +411,61 @@ The impact of this problem on the \nnbb\ distribution analysis is addressed in
 \cref{sec:2nbb-ana:systematics} through a dedicated study of the connected systematic
 uncertainty.
 
+The background model pdfs after LAr veto cut obtained by applying the probability map to
+the Monte Carlo simulations (the same used to produce the pdfs before analysis cuts shown
+in \cref{fig:bkg:raw:ph2:pdfs:gmodel}) are displayed in
+\cref{fig:bkg:lar:ph2:pdfs:gmodel}. \fillme{any comment?}
+
+\begin{figure}
+  \centering
+   \subfloat[\label{fig:bkg:lar:ph2:pdfs:gmodel:Th}%
+     \Bil\ and \Tl\ (\Thh\ chain) contaminations far from (fiber shroud) and close to
+     (mini-shrouds) the detectors.
+   ]{\includegraphics[width=0.48\textwidth]{plots/bkg/lar/ph2/pdfs/gmodel-pdfs-Th.pdf}}
+   \hfill
+   \subfloat[\label{fig:bkg:lar:ph2:pdfs:gmodel:U}%
+     \Bih\ and \Pbh\ (\Uh\ chain) contaminations far from (fiber shroud) and close to
+     (mini-shrouds) the detectors. \fillme{simulate also far?}
+     ]{\includegraphics[width=0.48\textwidth]{plots/bkg/lar/ph2/pdfs/gmodel-pdfs-U.pdf}}
+
+  \subfloat[\label{fig:bkg:lar:ph2:pdfs:gmodel:K40}%
+    \kvn\ contamination close to the detectors (mini-shrouds), at a higher radial distance
+    (fiber shroud) and higher vertical distance (copper shrouds).
+  ]{\includegraphics[width=0.48\textwidth]{plots/bkg/lar/ph2/pdfs/gmodel-pdfs-K40.pdf}}
+  \hfill
+  \subfloat[\label{fig:bkg:lar:ph2:pdfs:gmodel:K42}%
+    \kvz\ contamination in different locations inside the LAr.
+  ]{\includegraphics[width=0.48\textwidth]{plots/bkg/lar/ph2/pdfs/gmodel-pdfs-K42.pdf}} \\
+
+   \subfloat[\label{fig:bkg:lar:ph2:pdfs:gmodel:other}%
+   \Ac\ contamination in the close vicinity of the detectors (mini-shrouds).
+   ]{\includegraphics[width=0.48\textwidth]{plots/bkg/lar/ph2/pdfs/gmodel-pdfs-misc.pdf}}
+   \hfill
+   \subfloat[\label{fig:bkg:lar:ph2:pdfs:gmodel:other2}%
+     \Co\ contamination in the signal and high-voltage cables and detector intrinsic
+     \gesix\ \nnbb\ decay.
+   ]{\includegraphics[width=0.48\textwidth]{plots/bkg/lar/ph2/pdfs/gmodel-pdfs-misc2.pdf}}
+
+  \caption{%
+    The pdfs for the \enrGeII\ ($\enrBEGeII + \enrCoaxII$) (in fully opaque colors) and
+    the \enrGeII\ (in shaded colors) data sets after the LAr veto cut in the full energy
+    domain and relative to different background sources. Bayesian blocks are used to
+    visualize histograms (see \cref{apdx:bayesblocks} for details. All pdfs are normalized
+    to the number of simulated events. These pdfs should be compared with those before the
+    LAr veto cut in \cref{fig:bkg:raw:ph2:pdfs:gmodel}.
+  }\label{fig:bkg:lar:ph2:pdfs:gmodel}
+\end{figure}
+
 \section{Full-range analysis}%
 \label{sec:bkg:lar:ph2:gmodel}
+
+A full-range background analysis of the energy spectra after the LAr veto cut in the same
+spirit of the one reported in \cref{sec:bkg:raw:ph2:gmodel} has been carried on. The \a\
+event analysis has not been repeated, as they survive almost completely the LAr veto cut.
+The pdf extracted from the \a\ model presented in \cref{sec:bkg:raw:ph2:amodel} can be
+therefore used in the full-range analysis as it is. The potassium tracking analysis has
+not been repeated too. The full-energy spectrum has been therefore analysed in its entire
+range from 565~keV to 5260~keV.
 
 \begin{figure}
   \centering
@@ -403,7 +476,8 @@ uncertainty.
     The background model of the first \gexpophasetwobkg\ of \gerdatwo\ after the liquid argon veto
     cut. Contributions from the same radioactive decay are summed for visualization
     purposes. The data/model ratio is shown in the bottom panels together with the
-    smallest 60\%, 95\% and \%99 confidence intervals.
+    smallest 60\%, 95\% and \%99 confidence intervals. \fillme{some blocks look odd,
+    check. logx?}
   }\label{fig:bkg:lar:ph2:results}
 \end{figure}
 
