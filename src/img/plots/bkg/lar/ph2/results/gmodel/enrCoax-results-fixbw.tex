@@ -1,0 +1,44 @@
+%! TEX program = xelatex
+\input{../../../../../../../tex/standalone-def.tex}
+\import{}{pgfplots-def}
+\input{tex/gmodel-common}
+
+\pgfplotsset{%
+  group/every plot/.append style={%
+    xlabel={},
+  },
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}
+
+      \pgfplotstableread{data/originals/gerda_data_bkgmodel_phaseII_v07_00_lar_M1_enrCoax.csv}\loadedtable;
+
+      \nextgroupplot[spectrum, hide axis, ymode=log]
+
+      \addplot[data]      table {\loadedtable};
+      \addplot[alphaCoax] table {\loadedtable};
+      \addplot[Ac228]     table {\loadedtable};
+      \addplot[Th228]     table {\loadedtable};
+      \addplot[U238]      table {\loadedtable};
+      \addplot[Co60]      table {\loadedtable};
+      \addplot[K40]       table {\loadedtable};
+      \addplot[K42]       table {\loadedtable};
+      \addplot[2nbbCoax]  table {\loadedtable};
+      \addplot[model]     table {\loadedtable};
+
+      \node[anchor=north east] at (axis description cs:0.98,0.93) {\textsc{Coax} -- 28.1 kg$\cdot$yr};
+      \node[anchor=north east] at (axis description cs:0.98,0.83) {\footnotesize single-detector events};
+
+      \nextgroupplot[residuals]
+      \addbrasilianplot
+
+    \end{groupplot}
+
+    \begin{groupplot}
+      \nextgroupplot[spectrum, ymode=log]
+      % \nextgroupplot[residuals]
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}

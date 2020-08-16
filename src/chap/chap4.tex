@@ -414,7 +414,11 @@ uncertainty.
 The background model pdfs after LAr veto cut obtained by applying the probability map to
 the Monte Carlo simulations (the same used to produce the pdfs before analysis cuts shown
 in \cref{fig:bkg:raw:ph2:pdfs:gmodel}) are displayed in
-\cref{fig:bkg:lar:ph2:pdfs:gmodel}. \fillme{any comment?}
+\cref{fig:bkg:lar:ph2:pdfs:gmodel}. Another notable difference with the pdfs constructed
+for the analysis presented in \cref{chap:bkg:raw:ph2} is that the linear transition layer
+model obtained from characterization data for \bege\ detectors \cite{Lehnert2016} is now
+taken into account. More information about the germanium detector transition layer models
+is found in \cref{apdx:gedetav}. \fillme{any other comment?}
 
 \begin{figure}
   \centering
@@ -462,10 +466,72 @@ in \cref{fig:bkg:raw:ph2:pdfs:gmodel}) are displayed in
 A full-range background analysis of the energy spectra after the LAr veto cut in the same
 spirit of the one reported in \cref{sec:bkg:raw:ph2:gmodel} has been carried on. The \a\
 event analysis has not been repeated, as they survive almost completely the LAr veto cut.
-The pdf extracted from the \a\ model presented in \cref{sec:bkg:raw:ph2:amodel} can be
-therefore used in the full-range analysis as it is. The potassium tracking analysis has
-not been repeated too. The full-energy spectrum has been therefore analysed in its entire
-range from 565~keV to 5260~keV.
+The pdfs extracted from the \a\ model presented in \cref{sec:bkg:raw:ph2:amodel} can be
+therefore used in the full-range analysis as they are. The potassium tracking analysis has
+not been repeated too.
+
+\blocktitle{statistical \\ methods}
+The full-energy spectrum has been analysed in its entire range from 565~keV to 5260~keV
+and no data sub-sets have been excluded. To speed-up the analysis and exploit all the
+information brought by data at the same time, an heuristic variable binning has been
+adopted. Dedicated bins have been used for the strongest \g\ lines: the two \kvn\ and
+\kvz\ lines, the \Bih\ and \Tl\ lines. In the rest of the energy spectrum the bin size has
+been chosen according to the event rate (e.g.~10~keV for \enrBEGeII\ and \enrCoaxII\ above
+the \Arl\ Q-value and below the potassium lines, 40~keV for \enrGeII). Since above the
+\Tl\ FEP the \Mone\ event spectrum is dominated by \a\ events which are almost completely
+surviving the LAr veto cut, only two bins $[2610, 4500]$~keV and $[4500, 5260]$~keV have
+been set. As a cross-check, fit results have been tested to be stable when using this
+data partitioning scheme or a fixed 5~keV binning.
+\newpar
+The statistical analysis to determine the background decomposition consists in the usual
+Poissonian likelihood maximization in a Bayesian setting presented in
+\cref{sec:bkg:raw:ph2:stat}. The C++ BAT-based~\cite{Caldwell2008} software routine is
+publicly available on GitHub\footnote{The \texttt{gerda-fitter} software:
+\url{https://github.com/gipert/gerda-fitter}}. Since the global event suppression factor
+built in the pdfs after the LAr veto cut cannot be fully trusted (i.e.~the pdf
+normalization), no priors from screening measurement data have been set. \fillme{explain
+this better maybe somewhere else?} A uniform prior
+is assigned to all fit parameters (including the \nnbb\ fit parameter, which is
+proportional to $1/\thalftwoM$).
+
+\blocktitle{results}
+Since the background level (excluding the \a\ events) is about an order of magnitude less
+than before the LAr veto cut, a basic sample of background pdfs has been tested in the fit
+model. Given the reduce size of the background sample, in fact, no sensitivity to
+second-order shape distortions between pdfs of the same radioactive decay in different
+locations (e.g.~\Ac\ in holders, cables, etc.) is expected. The following set of pdf
+components has been therefore selected: \nnbb\ in germanium, \kvn\ close (mini-shrouds)
+and far (fiber shroud) from the detectors, \kvz\ close (on the \bege\ and \scoax\ \nplus\
+contact, in the LAr inside the mini-shrouds) and far (in the LAr outside the
+mini-shrouds, in the LAr above the array), \Bil\ and \Tl\ on cables, \Pbh\ and \Bih\ on
+cables, \Co\ on cables, \Ac\ on detector holders and the \a\ model pdfs for \bege{} and
+\scoax\ detectors from \cref{sec:bkg:raw:ph2:amodel}.
+\newpar
+Not all the posterior distributions for the aforementioned pdfs report non-zero estimates
+of background counts in the spectra. Notably, posteriors for \kvz\ above the array and on
+the \bege\ \nplus\ contact are peaked at zero and are thus removed from the fit. The
+exclusion of \kvz\ on the \bege\ \nplus\ contact, which has not been reported in the fit
+before analysis cuts (\cref{chap:bkg:raw:ph2}), is attributed to the novel transition
+layer model, which significantly affects the pdf shape above the FEP. The \b\ spectrum
+component above 1525~keV, indeed, is now higher and shows less compatibility with
+experimental data. The \Co\ component is also compatible with zero, possibly because of
+the high LAr veto efficiency on a background contamination which was already low before
+the cut (c.f.r.~\cref{tab:bkg:raw:ph2:gmodel:results}). Nevertheless, the component is not
+removed from the fit because of its clear non-zero mode.
+\newpar
+The results of the analysis are shown in \cref{fig:bkg:lar:ph2:results} and
+\cref{tab:bkg:lar:ph2:results} (\fillme{table if I have time}). The background
+decomposition in \cref{fig:bkg:lar:ph2:results} is presented together with the residuals
+plot and the 68\%, 95\% and 99\% Poissonian probability intervals of the best fit model.
+Smallest intervals are now used instead of central intervals
+(c.f.r.~\cref{chap:bkg:raw:ph2})~\cite{Aggarwal2011}, and the visually-appealing
+normalization in units of $\sigma$ (as in e.g.~\cref{fig:bkg:raw:ph2:gmodel:results}) is
+not possible anymore. Already from a visual inspection of the residuals, the goodness of
+fit is not satisfactory. In particular, discrepancies between the best-fit model and the
+data are visible in \enrGeII\ right below the potassium peaks and in \enrBEGeII\ around
+the potassium Compton shoulder region. These systematic discrepancies can be
+well-attributed to uncertainties in the Monte Carlo LAr veto model. \fillme{is this true?
+update to final fit results}
 
 \begin{figure}
   \centering
@@ -480,6 +546,9 @@ range from 565~keV to 5260~keV.
     check. logx?}
   }\label{fig:bkg:lar:ph2:results}
 \end{figure}
+
+\section{Discussion}%
+\label{sec:bkg:lar:ph2:discussion}
 
 \chapsummary
 \begin{itemize}
@@ -504,7 +573,13 @@ range from 565~keV to 5260~keV.
     expected to be negligibly affected by differences between single-channel efficiencies.
     The impact of other possible systematic uncertainties in the LAr veto modeling is
     assessed in the context of the \nnbb\ shape analysis.
-  \item \fillme{fillme}
+  \item The first \gexpophasetwobkg\ of \phasetwo\ data after the LAr veto cut is divided
+    into the usual three data sets corresponding to single-detector events in \bege\ and
+    \scoax\ detectors and two-detector events in all enriched detectors. Their energy
+    spectrum is decomposed into background and signal (\nnbb) components in the same
+    statistical framework presented in \cref{chap:bkg:raw:ph2}. The goodness-of-fit is
+    overall acceptable but systematic deviations are present in selected regions of the
+    spectrum. They can be due to uncertainties in the Monte Carlo LAr veto model.
 \end{itemize}
 
 % vim: tw=90
