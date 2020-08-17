@@ -4,25 +4,20 @@
 \input{tex/gmodel-common}
 
 \pgfplotsset{%
-  ylabel={Counts / 15 keV},
   group/every plot/.append style={%
     xlabel={},
-    restrict x to domain=500:5300,
-  },
-  spectrum/.append style={%
-    ymin=2e-3, ymax=1e4,
+    xmax=2000,
   },
   residuals/.append style={%
-    ymax=4,
+    ymax=2,
   },
 }
-
 
 \begin{document}
   \begin{tikzpicture}
     \begin{groupplot}
 
-      \pgfplotstableread{data/originals/gerda_data_bkgmodel_phaseII_v07_00_lar_M1_enrCoax.csv}\loadedtable;
+      \pgfplotstableread{data/gerda_data_bkgmodel_phaseII_v07_00_lar_M1_enrCoax.csv}\loadedtable;
 
       \nextgroupplot[spectrum, hide axis, ymode=log]
 

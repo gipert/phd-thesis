@@ -45,11 +45,12 @@ are displayed in \cref{fig:bkg:lar:ph2:data-desc}: the sum spectrum of \enrBEGeI
 Compton shoulders are largely suppressed (e.g.~80\% of the \kvz\ FEP is cut) with the
 exception of \kvn, which is a pure \g\ emission (electron capture) and is less likely to
 deposit coincident energy in the LAr. After the cut, the spectrum is mainly composed by
-\nnbb\ and residual \a\ events. The signal-to-background ratio in the \nnbb-dominated
-region (from 565~keV to 2000~keV excluding the potassium \g\ lines) improves by a factor
-10, jumping from $\sim$2 to $\sim$~20 (\fillme{cross-check with betta}). This large
-background reduction motivates the development of a background model after the LAr veto
-cut to study the \nnbb\ event distribution with a significant sensitivity improvement.
+\nnbb\ (the LAr veto survival probability is $>99$\%) and residual \a\ events. The
+signal-to-background ratio in the \nnbb-dominated region (from 565~keV to 2000~keV
+excluding the potassium \g\ lines) improves by a factor 10, jumping from $\sim$2 to
+$\sim$~20 (\fillme{cross-check with betta}). This large background reduction motivates the
+development of a background model after the LAr veto cut to study the \nnbb\ event
+distribution with a significant sensitivity improvement.
 
 \begin{figure}
   \centering
@@ -519,19 +520,20 @@ the high LAr veto efficiency on a background contamination which was already low
 the cut (c.f.r.~\cref{tab:bkg:raw:ph2:gmodel:results}). Nevertheless, the component is not
 removed from the fit because of its clear non-zero mode.
 \newpar
-The results of the analysis are shown in \cref{fig:bkg:lar:ph2:results} and
-\cref{tab:bkg:lar:ph2:results} (\fillme{table if I have time}). The background
+The results of the analysis are shown in
+\cref{fig:bkg:lar:ph2:results,fig:bkg:lar:ph2:results-fixbw,fig:bkg:lar:ph2:results-closeup}
+and \cref{tab:bkg:lar:ph2:results} (\fillme{table if I have time}). The background
 decomposition in \cref{fig:bkg:lar:ph2:results} is presented together with the residuals
 plot and the 68\%, 95\% and 99\% Poissonian probability intervals of the best fit model.
 Smallest intervals are now used instead of central intervals
 (c.f.r.~\cref{chap:bkg:raw:ph2})~\cite{Aggarwal2011}, and the visually-appealing
 normalization in units of $\sigma$ (as in e.g.~\cref{fig:bkg:raw:ph2:gmodel:results}) is
 not possible anymore. Already from a visual inspection of the residuals, the goodness of
-fit is not satisfactory. In particular, discrepancies between the best-fit model and the
-data are visible in \enrGeII\ right below the potassium peaks and in \enrBEGeII\ around
-the potassium Compton shoulder region. These systematic discrepancies can be
-well-attributed to uncertainties in the Monte Carlo LAr veto model. \fillme{is this true?
-update to final fit results}
+fit is not satisfactory through all the spectrum. In particular, discrepancies between the
+best-fit model and the data are visible in \enrGeII\ right below the potassium peaks,
+in \enrBEGeII\ around the potassium Compton shoulder region and in \enrCoaxII\ in the
+$[1.8, 2]$~MeV region (\cref{fig:bkg:lar:ph2:results-closeup}.
+\fillme{update to final fit results}
 
 \begin{figure}
   \centering
@@ -539,16 +541,43 @@ update to final fit results}
   \includegraphics[width=\textwidth]{plots/bkg/lar/ph2/results/gmodel/enrCoax-results.pdf}
   \includegraphics[width=\textwidth]{plots/bkg/lar/ph2/results/gmodel/enrE1plusE2-results.pdf}
   \caption{%
-    The background model of the first \gexpophasetwobkg\ of \gerdatwo\ after the liquid argon veto
-    cut. Contributions from the same radioactive decay are summed for visualization
-    purposes. The data/model ratio is shown in the bottom panels together with the
-    smallest 60\%, 95\% and \%99 confidence intervals. \fillme{some blocks look odd,
-    check. logx?}
+    The background decomposition of the first \gexpophasetwobkg\ of \gerdatwo\ after the
+    liquid argon veto cut. The binning is the one used in the analysis. Contributions from
+    the same radioactive decay are summed for visualization purposes. The data-to-model
+    ratio is shown in the bottom panels together with the smallest 60\%, 95\% and 99\%
+    confidence intervals.
   }\label{fig:bkg:lar:ph2:results}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{plots/bkg/lar/ph2/results/gmodel/enrBEGe-results-fixbw.pdf}
+  \includegraphics[width=\textwidth]{plots/bkg/lar/ph2/results/gmodel/enrCoax-results-fixbw.pdf}
+  \includegraphics[width=\textwidth]{plots/bkg/lar/ph2/results/gmodel/enrE1plusE2-results-fixbw.pdf}
+  \caption{%
+    The background decomposition of the first \gexpophasetwobkg\ of \gerdatwo\ after the
+    liquid argon veto cut with a fixed-width 15~keV binning. Contributions from the same
+    radioactive decay are summed for visualization purposes. The data-to-model ratio is
+    shown in the bottom panels together with the smallest 60\%, 95\% and 99\% confidence
+    intervals.
+  }\label{fig:bkg:lar:ph2:results-fixbw}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{plots/bkg/lar/ph2/results/gmodel/enrBEGe-results-closeup.pdf}
+  \includegraphics[width=\textwidth]{plots/bkg/lar/ph2/results/gmodel/enrCoax-results-closeup.pdf}
+  \caption{%
+    The background decomposition of the first \gexpophasetwobkg\ of \gerdatwo\ after the
+    liquid argon veto cut in the \nnbb\ region. Contributions from the same radioactive
+    decay are summed for visualization purposes. The data-to-model ratio is shown in the
+    bottom panels together with the smallest 60\%, 95\% and 99\% confidence intervals.
+  }\label{fig:bkg:lar:ph2:results-closeup}
 \end{figure}
 
 \section{Discussion}%
 \label{sec:bkg:lar:ph2:discussion}
+\fillme{discuss about transition layer models}
 
 \chapsummary
 \begin{itemize}

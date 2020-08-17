@@ -3,7 +3,7 @@
 
 \pgfplotsset{%
   height=5.5cm,
-  xmin=565, xmax=5260,
+  xmin=565, xmax=5250,
   legend style={%
     font=\small,
     draw=none,
@@ -41,7 +41,7 @@
     % fill opacity=0.3,
     % area legend,
     only marks,
-    mark size=0.7pt,
+    mark size=0.5pt,
   },
   model/.style={%
     loghistogram,
@@ -55,7 +55,7 @@
   ratio/.style={%
     histogram,
     mark=*,
-    mark size=0.6pt,
+    mark size=0.5pt,
     only marks,
     table/x=xunit,
     table/y expr=\thisrow{fitted_data}/\thisrow{total_model},

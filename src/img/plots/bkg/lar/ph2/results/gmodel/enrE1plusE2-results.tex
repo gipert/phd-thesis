@@ -5,6 +5,9 @@
 
 \pgfplotsset{%
   xmax=2999,
+  legend style={%
+    font=\footnotesize,
+  },
 }
 
 \begin{document}
@@ -15,29 +18,40 @@
 
       \nextgroupplot[spectrum, hide axis, ymode=log, ymax=2E3]
 
-      \addplot[data]  table {\loadedtable} \closedcycle;
+      \addlegendimage{data};
+      \addlegendimage{model};
+      \addlegendimage{only marks, mark=sigma bands}
+      \addlegendimage{K42};
+      \addlegendimage{U238};
+      \addlegendimage{Co60};
+      \addlegendimage{K40};
+      \addlegendimage{Th228};
+      \addlegendimage{Ac228};
+      \addlegendimage{alphaBEGe};
+      \addlegendimage{2nbbBEGe};
+
+      \addlegendentry{Data};
+      \addlegendentry{Model};
+      \addlegendentry{1,2,3 $\sigma$};
+      \addlegendentry{$^{42}$K};
+      \addlegendentry{$^{214}$Pb + $^{214}$Bi};
+      \addlegendentry{$^{60}$Co};
+      \addlegendentry{$^{40}$K};
+      \addlegendentry{$^{212}$Bi + $^{208}$Tl};
+      \addlegendentry{$^{228}$Ac};
+      \addlegendentry{$\upalpha$ model};
+      \addlegendentry{$2\upnu\upbeta\upbeta$};
+
+      \addplot[data]  table {\loadedtable};
       \addplot[Ac228] table {\loadedtable};
       \addplot[K42]   table {\loadedtable};
       \addplot[U238]  table {\loadedtable};
       \addplot[Co60]  table {\loadedtable};
       \addplot[K40]   table {\loadedtable};
       \addplot[Th228] table {\loadedtable};
-      \addlegendimage{alphaBEGe}
       \addplot[model] table {\loadedtable};
-      \addlegendimage{only marks, mark=sigma bands}
 
-      \addlegendentry{Data};
-      \addlegendentry{$^{228}$Ac};
-      \addlegendentry{$^{42}$K};
-      \addlegendentry{$^{214}$Pb + $^{214}$Bi};
-      \addlegendentry{$^{60}$Co};
-      \addlegendentry{$^{40}$K};
-      \addlegendentry{$^{212}$Bi + $^{208}$Tl};
-      \addlegendentry{$\upalpha$ model};
-      \addlegendentry{Model};
-      \addlegendentry{1,2,3 $\sigma$};
-
-      \node[anchor=north west] at (axis description cs:0.03,0.93) {\textsc{All} -- 28.1 kg$\cdot$yr};
+      \node[anchor=north west] at (axis description cs:0.03,0.93) {\textsc{All} -- 61.4 kg$\cdot$yr};
       \node[anchor=north west] at (axis description cs:0.03,0.83) {\footnotesize two-detector events};
 
       \nextgroupplot[residuals]

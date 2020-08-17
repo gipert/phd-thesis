@@ -4,8 +4,16 @@
 \input{tex/gmodel-common}
 
 \pgfplotsset{%
+  ylabel={Counts / 15 keV},
   group/every plot/.append style={%
     xlabel={},
+    restrict x to domain=500:5300,
+  },
+  spectrum/.append style={%
+    ymin=2e-3, ymax=1e4,
+  },
+  residuals/.append style={%
+    ymax=4,
   },
 }
 
@@ -27,7 +35,7 @@
       \addplot[2nbbBEGe]  table {\loadedtable};
       \addplot[model]     table {\loadedtable};
 
-      \node[anchor=north east] at (axis description cs:0.98,0.93) {\textsc{BEGe} -- 32.1 kg$\cdot$yr};
+      \node[anchor=north east] at (axis description cs:0.98,0.93) {\textsc{BEGe} -- 32.7 kg$\cdot$yr};
       \node[anchor=north east] at (axis description cs:0.98,0.83) {\footnotesize single-detector events};
 
       \nextgroupplot[residuals]
