@@ -153,26 +153,107 @@ model for the toy data sets was fixed. A way to include systematic model uncerta
 when sampling the test statistic distribution is to sample the generative pdf from a set
 of `alternative' models according to a certain probability distribution. This is
 conceptually equivalent to fitting the data with `wrong' models that assume the presence
-of a systematic distortion of the best model.
+of a systematic distortion of the best model. As instance, alternative transition layer
+or LAr veto models induce coherent distortions in all background and signal pdfs, which
+must be taken into account when generating the toy data sets.
 \newpar
 This way of treating systematic uncertainties is formalized as a \emph{hybrid
-Bayesian-frequentist} approach~\cite{Tanabashi2018}.
+Bayesian-frequentist} approach~\cite{Tanabashi2018}. In this setting, the distribution
+of the test statistic becomes:
+\[
+  f(t_s) = \int f(t_s | S, \vec{B}, \nu) \pi(\vec{\nu}) d\vec{\nu} \;,
+\]
+Where $\vec{\nu}$ are the parameters representing the sources of systematic uncertainties
+in the model and $\pi(\vec{\nu})$ a `prior' distribution from which $\vec{\nu}$ is sampled
+from. The effect introduced by these additional parameters is to smear $f(t_S)$ and
+enlarge its tail, weakening the new-physics experimental limits extracted from it. The
+software that implements this approach for the \nnbb\ analysis is implemented in the
+\texttt{gerda-factor} suite, publicly available on GitHub\footnote{The
+\texttt{gerda-factory} software suite: \url{https://github.com/gipert/gerda-factory}.
+\fillme{describe}}.
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/2nbb-ana/bege-pdf-dist.pdf}
+  \caption{%
+    Distortions
+  }\label{fig:2nbb-ana:pdf-dist}
+\end{figure}
 
 \begin{description}
 
   \item[LAr veto model] The Monte Carlo LAr veto model, as shown in detail in
     \cref{sec:bkg:lar:ph2:pdfs}, suffers from many uncertainties, some of them arising
-    directly from the poor knowledge of material optical properties implemented in \mage\
-    (c.f.r~\cref{sec:apdx:mage-optics}).
+    directly from the poor knowledge of LAr channel efficiencies and material optical
+    properties implemented in \mage\ (c.f.r~\cref{sec:apdx:mage-optics}). The systematic
+    effect of variations of some of these Monte Carlo parameters (i.e.~the LAr absorption
+    length, the germanium reflectivity, the coverage of the fiber shroud and the TPB
+    quantum efficiency) has been already studied in selected regions of the LAr
+    probability map (the object in which the LAr veto model is encoded) in
+    \cref{sec:bkg:lar:ph2:heatmap,fig:bkg:lar:ph2:larmap:dist}. Special calibration data
+    can be used to determine the channel efficiencies (\cref{sec:bkg:lar:ph2:pcalib}), but
+    could not be exploited to reliably constrain other Monte Carlo parameters. This second
+    possibility, which requires a much more complex analysis and a deeper understanding of
+    simulated and physics data, is discussed in~\cite{Wiesinger2021}.
+    \newpar
+    To include the LAr veto model uncertainties in the \nnbb\ distribution analysis, the
+    following approach has been formulated. First, the special calibration data is
+    compared to Monte Carlo simulations to extract three effective channel efficiencies:
+    one for all top PMTs, one for all SiPM modules and one for all bottom PMTs
+    (\cref{eq:bkg:lar:ph2:chan-eff}). Considering the cylindrical symmetry of the problem
+    (a set of detectors arranged in a cylindrical array), A more detailed knowledge of
+    efficiencies for each single channel is not necessary. In this reference probability
+    map the other Monte Carlo optical parameters are fixed to the values that better
+    reflect our degree of belief, which are documented in \cref{sec:apdx:mage-optics}.
+    \newpar
+    The second step is to provide alternative LAr veto maps for the determination of the
+    test statistic distribution, generated with different assumptions for the optical
+    parameters. These alternative maps will still have to reproduce the special
+    calibration data (i.e.~they will have to be re-tuned on them), which is, technically
+    speaking, the \emph{control sample}, but they will differ from the original map in all
+    other LAr regions, in particular those probed by the background source simulations.
+    Unfortunately, the map generation process is exceptionally expensive from
+    the computational point of view (the required time is on the order of several
+    thousands of CPU hours), therefore obtaining several alternative probability maps from
+    scratch is not feasible. To overcome with this issue, the possibility to perform
+    manual distortions of the reference probability map has been investigated.
+    \newpar
+    An alternative presentation of the probability map distortions in
+    \cref{fig:bkg:lar:ph2:larmap:dist}, in which the detection probability in the first
+    calibration source position area is set to unity, is given in
+    \cref{fig:2nbb-ana:dist-pcanorm} for the germanium reflectivity, the fiber shroud
+    coverage and the LAr absorption length (first three panels from left). In this way the
+    constraint of reproducing the special calibration data set is made visually explicit,
+    as the corresponding probability (in red) is invariant under transformations of the
+    Monte Carlo parameters. TPB quantum efficiency and LAr light yield distortions are not
+    considered because they can be well-approximated with a global scaling of the
+    probability map (i.e.~their effect is fully absorbed in the LAr channel efficiencies).
+    The distortions shown in the rightmost panel are obtained in a different way: instead
+    of running the full simulation chain with different Monte Carlo parameters to compute
+    the detection probability in the selected spatial points, the probability map is
+    directly distorted by means of an analytical transformation. A power-law
+    transformation is used:
+    \[
+      p_k \rightarrow c \cdot p_k^a \;,
+    \]
+    in which $p_k$ is the probability value in the LAr voxel $k$ (i.e.~the probability
+    map) and $a$ is an arbitrary coefficient controlling the magnitude of the distortion
+    and $c$ is a constant factor to let the new map reproducing the special
+    calibration data. \fillme{the analysis flow is not very logical here, talk with
+    Christoph}
+
     \begin{figure}
       \centering
-      \includegraphics{plots/bkg/lar/ph2/larmodel/larmap-dist-pcanorm.pdf}
+      \includegraphics{plots/2nbb-ana/larmap-dist-pcanorm.pdf}
       \caption{%
         Study of the impact of Monte Carlo parameters on LAr light detection probabilities in
         various spatial points, normalized to unity at the best value and such to leave the
-        probability at the uppermost calibration source position (red point) unchanged.  The
-        color code and other details are described in \cref{fig:bkg:lar:ph2:larmap:dist}.
-      }\label{fig:bkg:lar:ph2:larmap:dist-pcanorm}
+        probability at the uppermost calibration source position (red point) unchanged. In
+        the rightmost panel the effect of a direct, power-law transformation of the
+        probability map is shown (no normalization to the red point applied, see text for
+        details). The color code and other details are described in
+        \cref{fig:bkg:lar:ph2:larmap:dist}.
+      }\label{fig:2nbb-ana:dist-pcanorm}
     \end{figure}
 
   \item[Transition layer model] \fillme{fillme}
@@ -181,7 +262,7 @@ Bayesian-frequentist} approach~\cite{Tanabashi2018}.
 
   \item[Background model] \fillme{fillme}
 
-  \item[Theoretical 2nu model] \fillme{fillme}
+  \item[Theoretical \nnbb\ decay model] \fillme{fillme}
 
   \item[\mage\ and \geant{}] \fillme{fillme}
 

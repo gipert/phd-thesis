@@ -196,7 +196,7 @@ are the most sensitive to modifications of the fiber shroud coverage.
     germanium reflectivity, fiber shroud coverage and LAr absorption length in the points
     shown in the rightmost scheme of the \gerda\ setup, using the same color code. The
     germanium reflectivity is scaled by a global factor, such that the unit value
-    corresponds to the value implemented in \mage.
+    corresponds to the value implemented in \mage. \fillme{check this plot}
   }\label{fig:bkg:lar:ph2:larmap:dist}
 \end{figure}
 
@@ -400,11 +400,11 @@ are used in \cref{eq:bkg:lar:ph2:pca-likelihood} ($N_\text{ch}=3$): one for all 
 one for all SiPM modules and one for all bottom PMTs.
 \newpar
 In this simplified setting, the maximization of $\mathcal{L}(\vec{\epsilon})$ yields:
-\[
+\begin{equation}\label{eq:bkg:lar:ph2:chan-eff}
   \epsilon_\text{PMTt} = 0.140 \pm 0.003 \;, \quad
   \epsilon_\text{SiPM} = 0.326 \pm 0.007 \;, \quad
   \epsilon_\text{PMTb} = 0.346 \pm 0.007 \;.
-\]
+\end{equation}
 And the magnitude of systematic uncertainty needed to obtain a reasonable goodness of fit
 ($-2\Delta\log\mathcal{L}=10$) at the best fit point is around 30\%, which already shows
 how this analysis suffers from the many unknown optical specifications in the Monte Carlo.

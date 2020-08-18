@@ -37,7 +37,6 @@
 /src/img/plots/mage/fibers-props.pdf
 /src/img/plots/mage/tpb-props.pdf
 /src/img/plots/bkg/lar/ph2/larmodel/larmap-dist.pdf
-/src/img/plots/bkg/lar/ph2/larmodel/larmap-dist-pcanorm.pdf
 /src/img/plots/0nbb-results/data/*.root
 /src/img/plots/0nbb-results/physics-spectra.pdf
 /src/img/plots/history/gerda-history-vs-exposure.pdf
@@ -62,6 +61,8 @@
 /src/img/plots/bkg/lar/ph2/results/gmodel/enrCoax-results-closeup.pdf
 /src/img/plots/bkg/lar/ph2/results/gmodel/enrCoax-results-fixbw.pdf
 /src/img/plots/bkg/lar/ph2/results/gmodel/enrE1plusE2-results-fixbw.pdf
+/src/img/plots/2nbb-ana/larmap-dist-pcanorm.pdf
+/src/img/plots/2nbb-ana/bege-pdf-dist.pdf
 
 *.DS_Store
 *.swp

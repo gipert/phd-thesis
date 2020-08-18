@@ -1,0 +1,119 @@
+//usr/bin/env root -q -l ${0}\(\""${0}"\",\""${*}"\"\); exit $?
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+#include <fstream>
+#include <getopt.h>
+
+void usage() {
+    std::cerr << "\n"
+              << "USAGE: <progname> [options] ROOTfile:objname ...\n"
+              << "\n"
+              << "options:\n"
+              << "  -h | --help : print this help message and exit\n"
+              << "  -r | --rebin n : apply rebin factor n"
+              << "\n";
+    gSystem->Exit(1);
+}
+
+void csvifier(std::string prog = "csvifier", std::string args = "") {
+
+    // this is for getopt to work
+    args = prog + " " + args;
+
+    int argc = 0;
+    char** argv = new char*[200];
+
+    // get all arguments
+    std::istringstream iss(args);
+    std::string word;
+    while (iss >> word) {
+        char* tmp = new char[200];
+        strcpy(tmp, word.c_str());
+        argv[argc] = tmp;
+        argc++;
+    }
+
+    const char* const short_opts = "r:h";
+    const option long_opts[] = {
+        { "rebin",  required_argument, nullptr, 'r' },
+        { "help",   no_argument,       nullptr, 'h' },
+        // add other options...
+        { nullptr,  no_argument,       nullptr, 0   }
+    };
+
+    int rebfactor = 1;
+
+    // read in with getopt
+    int opt = 0;
+    while ((opt = getopt_long(argc, argv, short_opts, long_opts, nullptr)) != -1) {
+        switch (opt) {
+            case 'r':
+                rebfactor = std::stoi(optarg);
+                break;
+            case 'h': // -h or --help
+            case '?': // Unrecognized option
+            default:
+                usage();
+        }
+    }
+
+    // get extra arguments
+    std::vector<std::string> extra_args;
+    for(; optind < argc; optind++){
+        extra_args.emplace_back(argv[optind]);
+    }
+
+    if (extra_args.empty()) usage();
+
+    std::vector<TH1*> histos;
+    int nbins = -1;
+
+    for (auto a : extra_args) {
+
+        if (a.find(':') == std::string::npos) {
+            throw std::invalid_argument("input '" + a + "' not in the form 'file:object'");
+        }
+
+        auto filename = a.substr(0, a.find_first_of(':'));
+        auto objname = a.substr(a.find_first_of(':')+1, std::string::npos);
+
+        TFile tf(filename.c_str(), "read");
+        if (!tf.IsOpen()) throw std::invalid_argument("error reading '" + filename + "'");
+        auto h = dynamic_cast<TH1*>(tf.Get(objname.c_str()));
+        if (!h) throw std::invalid_argument("error reading object '" + objname + "' in file '" + filename + "'");
+        if (h->GetDimension() != 1) throw std::invalid_argument("unsupported: object '" + a + "' is not one-dimensional");
+
+        if (nbins < 0) nbins = h->GetNbinsX();
+        else if (h->GetNbinsX() != nbins) {
+            throw std::runtime_error("object '" + a + "' has a different number of bins than the first histogram in the list");
+        }
+
+        h->SetName(objname.c_str());
+        h->SetDirectory(nullptr);
+        h->Rebin(rebfactor);
+        histos.push_back(h);
+
+        tf.Close();
+    }
+
+    std::ofstream fout("data.csv");
+    fout << "bin_low_edge, bin_center";
+    for (auto h : histos) fout << ", " << h->GetName();
+    fout << '\n';
+
+    for (int b = 0; b <= nbins+1; ++b) {
+        fout << histos[0]->GetBinLowEdge(b)
+             << ", " << histos[0]->GetBinCenter(b);
+        for (auto h : histos) fout << ", " << h->GetBinContent(b);
+        fout << '\n';
+    }
+
+    for (auto h : histos) delete h;
+    fout.close();
+    return;
+}
+
+// vim: filetype=cpp

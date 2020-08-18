@@ -1,5 +1,5 @@
 %! TEX program = xelatex
-\input{../../../../../../tex/standalone-def}
+\input{../../../tex/standalone-def}
 \import{}{pgfplots-def}
 \usepgfplotslibrary{groupplots, fillbetween}
 
@@ -98,11 +98,11 @@
       \addplot+[fillreg] fill between[of=upper and lower];
     }
 
-    \nextgroupplot[xlabel={TPB quant.~eff.}]
+    \nextgroupplot[xlabel={parameter $a$ in $p^a$}, ymin=0.05, axis line style = thick]
     \foreach \point in \points {%
-      \addplot+[best] table {data/tpb-dist-pcanorm.csv};
-      \addplot+[upper] table {data/tpb-dist-pcanorm.csv};
-      \addplot+[lower] table {data/tpb-dist-pcanorm.csv};
+      \addplot+[best] table {data/larmap-dist-manual.csv};
+      \addplot+[upper] table {data/larmap-dist-manual.csv};
+      \addplot+[lower] table {data/larmap-dist-manual.csv};
       \addplot+[fillreg] fill between[of=upper and lower];
     }
 

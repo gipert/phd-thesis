@@ -1,0 +1,117 @@
+%! TEX program = xelatex
+\input{../../../tex/standalone-def.tex}
+\import{}{pgfplots-def}
+\usepgfplotslibrary{groupplots}
+
+\pgfplotscreateplotcyclelist{ShadesList1}{%
+  {TolVibBlue},
+  {TolVibBlue!80!black},
+  {TolVibBlue!60!black},
+  {TolVibBlue!40!black},
+  {TolVibBlue!20!black},
+  {TolVibRed!20!black},
+  {TolVibRed!40!black},
+  {TolVibRed!60!black},
+  {TolVibRed!80!black},
+  {TolVibRed},
+  {black},
+}
+
+\pgfplotscreateplotcyclelist{ShadesList2}{%
+  {TolVibBlue},
+  {TolVibBlue!60!black},
+  {TolVibBlue!30!black},
+  {TolVibRed!30!black},
+  {TolVibRed!60!black},
+  {TolVibRed},
+  {black},
+}
+
+\pgfplotsset{%
+  width=7cm,
+  cycle list name=ShadesList1,
+  legend pos=north west,
+  legend style={%
+    font=\footnotesize,
+    fill=none,
+  },
+  xlabel={Energy (keV)},
+  ylabel={Counts / 15 keV},
+  xmin=565, xmax=2000,
+  restrict x to domain=500:2050,
+  group style={%
+    group size=2 by 1,
+    ylabels at=edge left,
+    horizontal sep=1cm,
+  },
+  every axis/.style={%
+    loghistogramaxis,
+    ymin=3e2,
+  },
+}
+
+\def\larmodel{0p5, 0p6, 0p7, 0p8, 0p9, 1p1, 1p2, 1p3, 1p4, 1p5, best}
+\def\tlayer{m5sigma, m2sigma, m1sigma, p1sigma, p2sigma, p5sigma, best}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}
+
+      \nextgroupplot[ymode=log]
+
+      \addlegendimage{no marks, TolVibBlue, thick}
+      \addlegendentry{$p^{0.5}$}
+      \addlegendimage{no marks, black, thick}
+      \addlegendentry{undistorted}
+      \addlegendimage{no marks, TolVibRed, thick}
+      \addlegendentry{$p^{1.5}$}
+
+      \foreach \dist in \larmodel {%
+        \addplot+[loghistogram] table[y=\dist] {data/larmodel-dist-K42.csv};
+      }
+
+      \pgfplotsset{cycle list shift=-11}
+
+      \foreach \dist in \larmodel {%
+        \addplot+[loghistogram] table[y=\dist] {data/larmodel-dist-K40.csv};
+      }
+
+      \node[rotate=90, anchor=south east] at (axis description cs:1,1) {\scriptsize\scshape LAr veto model};
+
+      \nextgroupplot[ymode=log,
+        legend style={%
+          at={(axis description cs:0.05,0.6)},
+          anchor=west,
+        },
+      ]
+
+      \addlegendimage{no marks, TolVibBlue, thick}
+      \addlegendentry{$-5\sigma$}
+      \addlegendimage{no marks, black, thick}
+      \addlegendentry{undistorted}
+      \addlegendimage{no marks, TolVibRed, thick}
+      \addlegendentry{$+5\sigma$}
+
+      \pgfplotsset{cycle list name=ShadesList2}
+
+      \foreach \dist in \tlayer {%
+        \addplot+[loghistogram] table[y=\dist] {data/tlayer-dist-K42.csv};
+      }
+
+      \pgfplotsset{cycle list shift=-6}
+
+      \foreach \dist in \tlayer {%
+        \addplot+[loghistogram] table[y=\dist] {data/tlayer-dist-K40.csv};
+      }
+
+      \pgfplotsset{cycle list shift=-6}
+
+      \foreach \dist in \tlayer {%
+        \addplot+[loghistogram] table[y=\dist] {data/tlayer-dist-2nbb.csv};
+      }
+
+      \node[rotate=90, anchor=south east] at (axis description cs:1,1) {\scriptsize\scshape trans.~layer model};
+
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}
