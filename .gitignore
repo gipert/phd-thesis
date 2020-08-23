@@ -64,6 +64,14 @@
 /src/img/plots/2nbb-ana/larmap-dist-pcanorm.pdf
 /src/img/plots/2nbb-ana/bege-pdf-dist.pdf
 /src/img/plots/bkg/raw/ph2p/data-desc.pdf
+/src/img/plots/bkg/raw/ph2p/results/gmodel/enrInvCoax-results.pdf
+/src/img/plots/bkg/raw/ph2p/results/gmodel/enrInvCoax-results-fixbw.pdf
+/src/img/plots/bkg/raw/ph2p/results/gmodel/enrE1plusE2-results.pdf
+/src/img/plots/bkg/raw/ph2p/results/gmodel/enrE1plusE2-results-fixbw.pdf
+/src/img/plots/bkg/raw/ph2p/results/gmodel/enrCoax-results.pdf
+/src/img/plots/bkg/raw/ph2p/results/gmodel/enrCoax-results-fixbw.pdf
+/src/img/plots/bkg/raw/ph2p/results/gmodel/enrBEGe-results.pdf
+/src/img/plots/bkg/raw/ph2p/results/gmodel/enrBEGe-results-fixbw.pdf
 
 *.DS_Store
 *.swp

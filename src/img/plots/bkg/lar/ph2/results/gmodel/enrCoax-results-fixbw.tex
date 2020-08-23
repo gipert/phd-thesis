@@ -10,10 +10,7 @@
     restrict x to domain=500:5300,
   },
   spectrum/.append style={%
-    ymin=2e-3, ymax=1e4,
-  },
-  residuals/.append style={%
-    ymax=4,
+    ymin=2e-3,
   },
 }
 
@@ -24,7 +21,7 @@
 
       \pgfplotstableread{data/originals/gerda_data_bkgmodel_phaseII_v07_00_lar_M1_enrCoax.csv}\loadedtable;
 
-      \nextgroupplot[spectrum, hide axis, ymode=log]
+      \nextgroupplot[spectrum, ymode=log]
 
       \addplot[data]      table {\loadedtable};
       \addplot[alphaCoax] table {\loadedtable};
@@ -43,11 +40,6 @@
       \nextgroupplot[residuals]
       \addbrasilianplot
 
-    \end{groupplot}
-
-    \begin{groupplot}
-      \nextgroupplot[spectrum, ymode=log]
-      % \nextgroupplot[residuals]
     \end{groupplot}
   \end{tikzpicture}
 \end{document}

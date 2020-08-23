@@ -16,7 +16,7 @@
 
       \pgfplotstableread{data/gerda_data_bkgmodel_phaseII_v07_00_lar_M2_enrE1plusE2.csv}\loadedtable;
 
-      \nextgroupplot[spectrum, hide axis, ymode=log, ymax=2E3]
+      \nextgroupplot[spectrum, ymode=log, ymax=2E3]
 
       \addlegendimage{data};
       \addlegendimage{model};
@@ -57,11 +57,6 @@
       \nextgroupplot[residuals]
       \addbrasilianplot
 
-    \end{groupplot}
-
-    \begin{groupplot}
-      \nextgroupplot[spectrum, ymode=log, ymax=2E3]
-      % \nextgroupplot[residuals]
     \end{groupplot}
   \end{tikzpicture}
 \end{document}

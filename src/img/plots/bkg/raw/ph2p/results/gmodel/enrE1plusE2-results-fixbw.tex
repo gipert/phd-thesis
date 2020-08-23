@@ -4,51 +4,54 @@
 \input{tex/gmodel-common}
 
 \pgfplotsset{%
-  xmax=2999,
+  xmax=3750,
   ylabel={Counts / 15 keV},
   group/every plot/.append style={%
     xlabel={},
-    restrict x to domain=500:3500,
+    restrict x to domain=500:4100,
   },
   spectrum/.append style={%
-    ymin=2e-3, ymax=1e5,
+    ymin=2e-3, ymax=5e4,
   },
   legend style={%
     font=\footnotesize,
   },
+  legend columns=4,
 }
 
 \begin{document}
   \begin{tikzpicture}
     \begin{groupplot}
 
-      \pgfplotstableread{data/originals/gerda_data_bkgmodel_phaseII_v07_00_lar_M2_enrE1plusE2.csv}\loadedtable;
+      \pgfplotstableread{data/originals/gerda_data_bkgmodel_phaseIIplus_v07_00_raw_M2_enrE1plusE2.csv}\loadedtable;
 
       \nextgroupplot[spectrum, ymode=log]
 
       \addlegendimage{data};
       \addlegendimage{model};
       \addlegendimage{only marks, mark=sigma bands}
-      \addlegendimage{K42};
+      \addlegendimage{2nbbBEGe};
       \addlegendimage{U238};
-      \addlegendimage{Co60};
+      \addlegendimage{K42};
       \addlegendimage{K40};
+      \addlegendimage{Co60};
       \addlegendimage{Th228};
       \addlegendimage{Ac228};
+      \addlegendimage{Zn65};
       \addlegendimage{alphaBEGe};
-      \addlegendimage{2nbbBEGe};
 
       \addlegendentry{Data};
       \addlegendentry{Model};
       \addlegendentry{1,2,3 $\sigma$};
-      \addlegendentry{$^{42}$K};
+      \addlegendentry{$2\upnu\upbeta\upbeta$};
       \addlegendentry{$^{214}$Pb + $^{214}$Bi};
-      \addlegendentry{$^{60}$Co};
+      \addlegendentry{$^{42}$K};
       \addlegendentry{$^{40}$K};
+      \addlegendentry{$^{60}$Co};
       \addlegendentry{$^{212}$Bi + $^{208}$Tl};
       \addlegendentry{$^{228}$Ac};
+      \addlegendentry{$^{65}$Zn};
       \addlegendentry{$\upalpha$ model};
-      \addlegendentry{$2\upnu\upbeta\upbeta$};
 
       \addplot[data]  table {\loadedtable};
       \addplot[Ac228] table {\loadedtable};
@@ -57,9 +60,10 @@
       \addplot[Co60]  table {\loadedtable};
       \addplot[K40]   table {\loadedtable};
       \addplot[Th228] table {\loadedtable};
+      \addplot[Zn65]  table {\loadedtable};
       \addplot[model] table {\loadedtable};
 
-      \node[anchor=north west] at (axis description cs:0.03,0.93) {\textsc{All} -- 61.4 kg$\cdot$yr};
+      \node[anchor=north west] at (axis description cs:0.03,0.93) {\textsc{All} -- 44.1 kg$\cdot$yr};
       \node[anchor=north west] at (axis description cs:0.03,0.83) {\footnotesize two-detector events};
 
       \nextgroupplot[residuals]

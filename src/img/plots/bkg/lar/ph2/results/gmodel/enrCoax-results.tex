@@ -15,7 +15,7 @@
 
       \pgfplotstableread{data/gerda_data_bkgmodel_phaseII_v07_00_lar_M1_enrCoax.csv}\loadedtable;
 
-      \nextgroupplot[spectrum, hide axis, ymode=log]
+      \nextgroupplot[spectrum, ymode=log]
 
       \addplot[data]      table {\loadedtable};
       \addplot[alphaCoax] table {\loadedtable};
@@ -34,11 +34,6 @@
       \nextgroupplot[residuals]
       \addbrasilianplot
 
-    \end{groupplot}
-
-    \begin{groupplot}
-      \nextgroupplot[spectrum, ymode=log]
-      % \nextgroupplot[residuals]
     \end{groupplot}
   \end{tikzpicture}
 \end{document}

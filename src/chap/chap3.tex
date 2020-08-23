@@ -398,7 +398,7 @@ in \cref{eq:bkg:raw:ph2:likelihood} is outlined in detail in
 order to adopt a useful detector-wise analysis. The spatial analysis of \kvn\ and \kvz\ is
 incorporated in the full-range fit by directly employing the posterior parameter
 distributions as prior information.\footnote{By adopting this approach, a part of the data
-in the potassium \g\ lines region is analyzed twice: first in the potassium tracking
+in the potassium \g\ lines region is analyzed twice: first in the potassium-tracking
 analysis and then in the full-range fit. Nevertheless, considering that the two analyses
 exploit different data features (i.e.~count rate per detector and total count rate per
 energy) and the overlap between the two data set is minimal, the overall effect is
@@ -604,7 +604,7 @@ to the ROI.
 
 \fillme{mention to time alpha}
 
-\section{Potassium tracking analysis}%
+\section{Potassium-tracking analysis}%
 \label{sec:bkg:raw:ph2:kmodel}
 
 The two full-energy lines of \kvn\ and \kvz\ at 1461~keV and 1525~keV are distinct
@@ -659,7 +659,7 @@ Other components are expected to contribute less in the respective energy window
 \begin{table}
   \centering
   \caption{%
-    Energy ranges and corresponding number of events for the potassium tracking analysis
+    Energy ranges and corresponding number of events for the potassium-tracking analysis
     (visualized in \cref{fig:bkg:raw:ph2:kmodel:regions}). Note that the windows for
     two-detector data are larger as the two single-detector energy resolutions are folded
     in the summed energy spectrum.
@@ -682,7 +682,7 @@ Other components are expected to contribute less in the respective energy window
   \centering
   \includegraphics[width=0.8\linewidth]{plots/bkg/raw/ph2/kmodel-regions.pdf}
   \caption{%
-    Visual representation of the five energy ranges defined for the potassium tracking
+    Visual representation of the five energy ranges defined for the potassium-tracking
     analysis. The exact intervals and counts are given in
     \cref{tab:bkg:raw:ph2:kmodel:regions-cts}.
   }\label{fig:bkg:raw:ph2:kmodel:regions}
@@ -853,7 +853,7 @@ the marginalized mode is the most probable parameter value when integrating over
 parameters. The original type of prior distribution is marked with \m{[f]} for flat,
 \m{[g]} for Gaussian and \m{[e]} for exponential; the latter two are used if screening
 measurements are available. Subsequently, for all \kvn\ and \kvz\ components, the prior
-distribution is imported from the potassium tracking analysis and for \Pbh\ and \Bih\ on
+distribution is imported from the potassium-tracking analysis and for \Pbh\ and \Bih\ on
 the \pplus\ contact from the reconstructed \Ra\ content from the \a\ events background
 analysis.
 \newpar
@@ -930,7 +930,7 @@ part of the reconstructed events in the spectra is attributed to impurities clos
 array.
 \newpar
 The \kvn\ and \kvz\ distributions can be further split into smaller volumes and studied as
-an extension of the potassium tracking analysis (as described in
+an extension of the potassium-tracking analysis (as described in
 \cref{sec:bkg:raw:ph2:kmodel}) projected in detector space. The additional \kvn\ component
 close to the array and the \kvz\ component above the array are split into 7 sub-components
 on a string-by-string basis. The potassium concentration is in general found to be
@@ -1137,12 +1137,153 @@ $T^{2\nu}_{1/2} = (2.03 \pm 0.09) \cdot 10^{21}$~yr compatible with earlier resu
 \section{Full \phasetwo\ data analysis}%
 \label{sec:bkg:raw:ph2p}
 
+The background model presented in the past sections is based on data from the first part
+of \phasetwo, for a total exposure of \gexpophasetwobkg. In April 2018 the data taking was
+stopped to permit a hardware upgrade, in which five new detectors of the inverted-coaxial
+type were deployed together with an improved LAr veto system. For further details the
+reader is referred to \cref{sec:gerda:setup}. The data taking resumed in May 2018 and
+ended in December 2019 after collecting \gexpophasetwopbkg\ of data valid for the
+background model. In the following, the extension of the full-range energy spectrum
+analysis to this data is presented.
+
+\blocktitle{data \\ and pdfs}
+The total \gexpophasetwopbkg\ of single-detector data is divided according to the detector
+type, giving three \Mone\ datasets: \enrBEGeIIp, \enrSCoaxIIp\ and \enrICoaxIIp.
+Two-detector events are grouped in a single data set \enrGeIIp. As above, their energy is
+defined as the sum of the energies reconstructed in the two detectors. The four data sets,
+their exposures and corresponding detector masses are listed in
+\cref{tab:bkg:raw:ph2p:datasets}. Note that the exposures for the \bege\ and \icoax\ data
+sets are higher than those reported for the \onbb\ analysis~\cite{Agostini2021}, because
+of additional data that that was discarded due to poor PSD detector performance. The
+energy spectra of the four data sets are shown in \cref{fig:bkg:raw:ph2p:data-desc}. In
+addition to the list of background contributions in \cref{sec:bkg:raw:ph2:data} that can
+be identified by eye in the spectra, an event excess is observed at 1120~keV in
+\enrICoaxIIp\ which is attributed to the decay of the cosmogenically-activated
+\Zn\ in the germanium \fillme{I know there is a reference somewhere}.
+\newpar
+The new experimental setup has been implemented into \mage. The changes to the software
+include the implementation of the new \icoax\ detector geometry, the central fiber shroud
+(see also \cref{fig:setup:magevolumes}, \emph{(c)} and \emph{(d)}) the new detector
+arrangement (each holder unit supports only one detector) and the adaption of the
+mini-shroud geometry. The updated \mage\ version is then used to run simulations of
+background and signal contaminations and produce the corresponding pdfs, as described in
+\cref{apdx:magepdfs}.
+
 \begin{figure}
   \centering
   \includegraphics{plots/bkg/raw/ph2p/data-desc.pdf}
   \caption{%
     The \phasetwop\ data before analysis cuts.
   }\label{fig:bkg:raw:ph2p:data-desc}
+\end{figure}
+
+\begin{table}
+  \centering
+  \caption{%
+    Properties of the data sets considered in this analysis. Further
+    details about the \gerda\ detectors can be found in past
+    publications~\cite{Agostini2013a, Agostini2018a}.
+  }\label{tab:bkg:raw:ph2p:datasets}
+  \small
+  \input{tab/bkg/raw/ph2p/datasets.tex}
+\end{table}%
+
+\footnotetext[1]{%
+  The BEGe detector \GD{02D} is the only detector that does not fully
+  deplete~\cite{Agostini2018a}. Hence, events triggered by this detector are
+  not considered in either data set and it is omitted from the mass
+  computation.
+}
+
+\blocktitle{background \\ expectations}
+Because of the hardware changes, the expectations about the radio-purity of
+the setup parts are different than before. In particular, the contribution of the signal
+and high-voltage cables to the global background budget is expected to be lower, as
+screening measurements show that the Tecnomec 3 mil cable type is cleaner. Moreover, the
+introduction of material around the central string might increase the background level.
+Many of the results of the first screening measurement campaign can be still used as prior
+information for the \phasetwop\ background model, and part of the new material was
+screened before installment in \gerda. The situation is summarized in \cref{apdx:assay}.
+
+\blocktitle{analysis}
+The full-range analysis of the binned energy spectra has been repeated for the \phasetwop\
+data sets. The usual Poissonian likelihood that runs over each single energy bin and each
+data set is maximized in a Bayesian setting. The C++ BAT-based~\cite{Caldwell2008}
+software routine is publicly available on GitHub\footnote{%
+  The \texttt{gerda-fitter} software, available at
+  \url{https://github.com/gipert/gerda-fitter}, is a Bayesian histogram fitting program
+  written in C++ and based on the BAT toolkit. It is specialized and tested on the \gerda\
+  data and pdfs format, but any ROOT histogram can be provided as input. The analysis is
+  fully configurable in JSON format (\url{https://www.json.org}) and does not require
+  writing or compiling C++ code (as one would need to do if using BAT directly). The list
+  of features include: customization of nearly all the BAT parameters, computation of the
+  Bayesian evidence, \pvalue\ computation, prior distribution configuration by
+  analytical expression or external histogram, variable re-binning and posterior sampling of
+  user-defined observables.
+}. Variable bin sizes are used to represent data and pdfs in the analysis, to speed up the
+computation. Dedicated, thin bins (depending on the energy resolution) are used for known
+\g\ lines; larger ones (depending on the event rate) for the continuum. The analysis is
+repeated with fixed-size bins (5~keV) to verify the consistency of the results.
+\newpar
+Given the lower \a-event rate compared to the first part of \phasetwo, the \a-events
+analysis has not been repeated. In principle, the \Po\ contamination could have changed
+after being manipulated during the upgrade works (see \cref{apdx:timealpha}), resulting in
+a different shape of the event energy distribution. To avoid using a wrong model of \a\
+events in the full-range fit, only two large bins are used in the high-energy region of
+the single-detector event spectra: $[2620, 4500]$~keV and $[4500, 5260]$~keV. In this way,
+no potential bias is introduced, and this last part of the energy range is just used to
+constrain the \a\ event contribution in the \nnbb\ region. The \enrBEGeII\ and \enrCoaxII\
+pdfs (see \cref{sec:bkg:raw:ph2:amodel}) are re-used for \enrBEGeIIp\ and \enrSCoaxIIp,
+respectively. The \enrBEGeII\ pdf is also used for \enrICoaxIIp, since the corresponding
+detectors have been introduced in \phasetwop\ for the first time. The faithfulness
+of the pdfs is verified \emph{a posteriori}.
+\newpar
+Since also the potassium-tracking analysis has not been repeated, no prior information is
+used to constrain the potassium activity. Priors are extracted from screening
+measurements results: Gaussian distributions for positive contamination detections and
+exponential distributions of the form $e^{-2.3 \mu x}$ for 90\% C.L.~upper limits.
+
+\blocktitle{results}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{plots/bkg/raw/ph2p/results/gmodel/enrBEGe-results.pdf}
+  \includegraphics[width=\textwidth]{plots/bkg/raw/ph2p/results/gmodel/enrCoax-results.pdf}
+  \includegraphics[width=\textwidth]{plots/bkg/raw/ph2p/results/gmodel/enrInvCoax-results.pdf}
+  \caption{%
+    The background decomposition of the last \gexpophasetwopbkg\ of \gerdatwo\ before
+    analysis cuts. The binning is the one used in the analysis. Contributions from
+    the same radioactive decay are summed for visualization purposes. The data-to-model
+    ratio is shown in the bottom panels together with the smallest 60\%, 95\% and 99\%
+    confidence intervals.
+  }\label{fig:bkg:raw:ph2p:results}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{plots/bkg/raw/ph2p/results/gmodel/enrE1plusE2-results.pdf}
+  \includegraphics[width=\textwidth]{plots/bkg/raw/ph2p/results/gmodel/enrBEGe-results-fixbw.pdf}
+  \includegraphics[width=\textwidth]{plots/bkg/raw/ph2p/results/gmodel/enrCoax-results-fixbw.pdf}
+  \caption{%
+    The background decomposition of the last \gexpophasetwopbkg\ of \gerdatwo\ before
+    analysis cuts. The binning is the one used in the analysis. Contributions from
+    the same radioactive decay are summed for visualization purposes. The data-to-model
+    ratio is shown in the bottom panels together with the smallest 60\%, 95\% and 99\%
+    confidence intervals.
+  }\label{fig:bkg:raw:ph2p:results}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{plots/bkg/raw/ph2p/results/gmodel/enrInvCoax-results-fixbw.pdf}
+  \includegraphics[width=\textwidth]{plots/bkg/raw/ph2p/results/gmodel/enrE1plusE2-results-fixbw.pdf}
+  \caption{%
+    The background decomposition of the last \gexpophasetwopbkg\ of \gerdatwo\ before
+    analysis cuts. The binning is the one used in the analysis. Contributions from
+    the same radioactive decay are summed for visualization purposes. The data-to-model
+    ratio is shown in the bottom panels together with the smallest 60\%, 95\% and 99\%
+    confidence intervals.
+  }\label{fig:bkg:raw:ph2p:results}
 \end{figure}
 
 % vim: tw=90

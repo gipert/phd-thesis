@@ -14,25 +14,28 @@
   },
 }
 
+
 \begin{document}
   \begin{tikzpicture}
     \begin{groupplot}
 
-      \pgfplotstableread{data/originals/gerda_data_bkgmodel_phaseII_v07_00_lar_M1_enrBEGe.csv}\loadedtable;
+      \pgfplotstableread{data/originals/gerda_data_bkgmodel_phaseIIplus_v07_00_raw_M1_enrCoax.csv}\loadedtable;
+
       \nextgroupplot[spectrum, ymode=log]
 
       \addplot[data]      table {\loadedtable};
-      \addplot[alphaBEGe] table {\loadedtable};
+      \addplot[alphaCoax] table {\loadedtable};
       \addplot[Ac228]     table {\loadedtable};
       \addplot[Th228]     table {\loadedtable};
       \addplot[U238]      table {\loadedtable};
       \addplot[Co60]      table {\loadedtable};
       \addplot[K40]       table {\loadedtable};
       \addplot[K42]       table {\loadedtable};
-      \addplot[2nbbBEGe]  table {\loadedtable};
+      \addplot[Zn65]      table {\loadedtable};
+      \addplot[2nbbCoax]  table {\loadedtable};
       \addplot[model]     table {\loadedtable};
 
-      \node[anchor=north east] at (axis description cs:0.98,0.93) {\textsc{BEGe} -- 32.7 kg$\cdot$yr};
+      \node[anchor=north east] at (axis description cs:0.98,0.93) {\textsc{SemiCoax} -- 13.2 kg$\cdot$yr};
       \node[anchor=north east] at (axis description cs:0.98,0.83) {\footnotesize single-detector events};
 
       \nextgroupplot[residuals]

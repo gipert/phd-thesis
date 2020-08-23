@@ -8,9 +8,6 @@
     xlabel={},
     xmax=2000,
   },
-  residuals/.append style={%
-    ymin=0.5, ymax=1.5,
-  },
 }
 
 \begin{document}
@@ -18,7 +15,7 @@
     \begin{groupplot}
 
       \pgfplotstableread{data/gerda_data_bkgmodel_phaseII_v07_00_lar_M1_enrBEGe.csv}\loadedtable;
-      \nextgroupplot[spectrum, hide axis, ymode=log]
+      \nextgroupplot[spectrum, ymode=log]
 
       \addplot[data]      table {\loadedtable};
       \addplot[alphaBEGe] table {\loadedtable};
@@ -37,11 +34,6 @@
       \nextgroupplot[residuals]
       \addbrasilianplot
 
-    \end{groupplot}
-
-    \begin{groupplot}
-      \nextgroupplot[spectrum, ymode=log]
-      % \nextgroupplot[residuals]
     \end{groupplot}
   \end{tikzpicture}
 \end{document}

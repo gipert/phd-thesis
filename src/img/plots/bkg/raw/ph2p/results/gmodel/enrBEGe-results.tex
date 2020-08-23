@@ -4,13 +4,8 @@
 \input{tex/gmodel-common}
 
 \pgfplotsset{%
-  ylabel={Counts / 15 keV},
   group/every plot/.append style={%
     xlabel={},
-    restrict x to domain=500:5300,
-  },
-  spectrum/.append style={%
-    ymin=2e-3,
   },
 }
 
@@ -18,7 +13,7 @@
   \begin{tikzpicture}
     \begin{groupplot}
 
-      \pgfplotstableread{data/originals/gerda_data_bkgmodel_phaseII_v07_00_lar_M1_enrBEGe.csv}\loadedtable;
+      \pgfplotstableread{data/gerda_data_bkgmodel_phaseIIplus_v07_00_raw_M1_enrBEGe.csv}\loadedtable;
       \nextgroupplot[spectrum, ymode=log]
 
       \addplot[data]      table {\loadedtable};
@@ -29,10 +24,11 @@
       \addplot[Co60]      table {\loadedtable};
       \addplot[K40]       table {\loadedtable};
       \addplot[K42]       table {\loadedtable};
+      \addplot[Zn65]      table {\loadedtable};
       \addplot[2nbbBEGe]  table {\loadedtable};
       \addplot[model]     table {\loadedtable};
 
-      \node[anchor=north east] at (axis description cs:0.98,0.93) {\textsc{BEGe} -- 32.7 kg$\cdot$yr};
+      \node[anchor=north east] at (axis description cs:0.98,0.93) {\textsc{BEGe} -- 22.2 kg$\cdot$yr};
       \node[anchor=north east] at (axis description cs:0.98,0.83) {\footnotesize single-detector events};
 
       \nextgroupplot[residuals]
