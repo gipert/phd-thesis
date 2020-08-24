@@ -1,0 +1,43 @@
+%! TEX program = xelatex
+\input{../../../../../../../tex/standalone-def.tex}
+\input{../../../../../../../tex/macros.tex}
+\import{}{pgfplots-def}
+
+\pgfplotsset{%
+  width=12cm,
+  no marks,
+  every axis/.append style={%
+    xmin=1.75, ymin=0,
+    ylabel={norm.~prob.},
+    xlabel={\thalftwo\ ($10^{21}$~yr)},
+    legend style={fill=none},
+    area legend/.append style={%
+      legend image post style={draw opacity=1}
+    },
+    area legend,
+    legend pos=north west,
+  },
+  every axis plot/.append style={%
+    smooth,
+    thick,
+    fill, fill opacity=0.2,
+    y filter/.expression={y == 0 ? nan : y},
+    x filter/.expression={x*1E-21},
+  },
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}[]
+
+      \addplot+ table[y=halflifesemicoax] {data/2nbb-posteriors.csv};
+      \addplot+ table[y=halflifebege]     {data/2nbb-posteriors.csv};
+      \addplot+ table[y=halflifeinvcoax]  {data/2nbb-posteriors.csv};
+
+      \addlegendentry{\enrSCoaxIIp}
+      \addlegendentry{\enrBEGeIIp}
+      \addlegendentry{\enrICoaxIIp}
+
+    \end{axis}
+  \end{tikzpicture}
+\end{document}

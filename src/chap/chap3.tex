@@ -1244,6 +1244,51 @@ measurements results: Gaussian distributions for positive contamination detectio
 exponential distributions of the form $e^{-2.3 \mu x}$ for 90\% C.L.~upper limits.
 
 \blocktitle{results}
+A first fit model is constructed including all the background components for which a prior
+distribution is available from material screening measurements. Additionally, based on the
+results for the first data of \phasetwo, two unconstrained \kvn\ fit
+components are added --- one \emph{close}, on the mini-shrouds and \emph{far}, on the
+outer fiber shroud. As done before, 6 pdfs for \kvz\ are considered: one corresponding to
+a homogeneous distribution in the LAr volume enclosed by the mini-shrouds, one outside and
+one in a cylinder above the array (see \cref{apdx:magepdfs} and
+\cref{sec:bkg:raw:ph2:gmodel}). The other three pdfs correspond to \kvz\ homogeneously
+distributed on the \nplus\ surface of the detectors included in the three \Mone\ data
+sets. A linear function $b_1+b_2x$ is also included for each \Mone\ data set
+separately (6 parameters in total) to account for slow pulses (see sections above for
+details). Given the known discrepancies between the detector active volume determination
+methods, three independent parameters are used for the \nnbb-decay half-lives
+reconstructed from the three \Mone\ data sets. A uniform prior is set on
+$1/\thalftwoM$\footnote{The detailed fit configuration file is available at
+\url{https://github.com/gipert/gerda-fitter/config/phaseIIplus/gerda-fitter-phIIp-raw-global_extra_blocks.json}.}.
+\newpar
+The resulting background decomposition of the four analysis data sets is shown in
+\cref{fig:bkg:raw:ph2p:results-1,fig:bkg:raw:ph2p:results-2,fig:bkg:raw:ph2p:results-3}.
+Data is presented with the variable binning used in the analysis and a fixed-width 15~keV
+binning. In this rich configuration, most of the marginalized posteriors are driven by
+their respective prior distribution. This is expected, given the known correlations
+between the pdfs and the low count rate of some background sources. All the marginalized
+posteriors are compatible with the prior information. The additional, special, \kvn\
+component close to the detector array still reports a non-zero result, while the posterior
+for \kvn\ far from the array is peaked at zero. Differently from what has been previously
+obtained in \cref{sec:bkg:raw:ph2:gmodel}, the \kvz\ component on the \nplus\ contact of
+the \bege\ detectors is now compatible with zero. This is due to the non-null \bege\
+detectors transition layer model used to obtain the corresponding pdf, which increases the
+rate of \b\ events above the 1525~keV peak (c.f.r.~\cref{fig:bkg:raw:ph2:pdfs:gmodel:K42})
+and decreases the compatibility with experimental data.
+
+\begin{sidewaystable}
+  \centering
+  \footnotesize
+  \caption{%
+    Summary of the analysis parameter estimates. Global mode and marginalized mode, along
+    with its smallest 68\% C.I., are reported as representatives of the posterior
+    parameter distribution. The number of reconstructed counts in the fit range and the BI
+    at \qbb\ prior active background suppression are listed for each component and each
+    analysis data set. The original type of prior distribution is marked with \m{[f]} for
+    flat, \m{[g]} for Gaussian and \m{[e]} for exponential. \fillme{fillme}
+  }\label{tab:bkg:raw:ph2p:gmodel:results}
+  \input{tab/bkg/raw/ph2p/gmodel-results}%
+\end{sidewaystable}
 
 \begin{figure}
   \centering
@@ -1256,7 +1301,7 @@ exponential distributions of the form $e^{-2.3 \mu x}$ for 90\% C.L.~upper limit
     the same radioactive decay are summed for visualization purposes. The data-to-model
     ratio is shown in the bottom panels together with the smallest 60\%, 95\% and 99\%
     confidence intervals.
-  }\label{fig:bkg:raw:ph2p:results}
+  }\label{fig:bkg:raw:ph2p:results-1}
 \end{figure}
 
 \begin{figure}
@@ -1270,7 +1315,7 @@ exponential distributions of the form $e^{-2.3 \mu x}$ for 90\% C.L.~upper limit
     the same radioactive decay are summed for visualization purposes. The data-to-model
     ratio is shown in the bottom panels together with the smallest 60\%, 95\% and 99\%
     confidence intervals.
-  }\label{fig:bkg:raw:ph2p:results}
+  }\label{fig:bkg:raw:ph2p:results-2}
 \end{figure}
 
 \begin{figure}
@@ -1283,7 +1328,76 @@ exponential distributions of the form $e^{-2.3 \mu x}$ for 90\% C.L.~upper limit
     the same radioactive decay are summed for visualization purposes. The data-to-model
     ratio is shown in the bottom panels together with the smallest 60\%, 95\% and 99\%
     confidence intervals.
-  }\label{fig:bkg:raw:ph2p:results}
+  }\label{fig:bkg:raw:ph2p:results-3}
+\end{figure}
+
+\blocktitle{\thalftwo}
+The three marginalized posteriors for the \nnbb-decay half-life, coming from the three
+detector types separately, are shown in \cref{fig:bkg:raw:ph2p:gmodel:2nbb-post}. The
+distributions have been obtained by re-sampling of the Markov chain. Note that the priors
+on \thalftwo\ are not exactly flat, as the real uniform priors are set on the number of
+\nnbb\ counts, which is proportional to $1/\thalftwoM$. In this range of half-life values,
+however, they can be well approximated by a flat distribution. As it is evident, a
+systematic discrepancy between the half-life predicted with \bege\ detectors and with
+\scoax\ detectors is found, at the same level of what observed in the analysis of the
+\enrBEGeII\ and \enrCoaxII\ (c.f.r.~\cref{sec:bkg:raw:ph2:gmodel}). The half-life
+predicted with \icoax\ detectors, on the other hand, seems to give the same results
+extracted from the \scoax\ detectors. Again, there is a clear evidence for a systematic
+underestimation of the \scoax\ and \icoax\ detector active volume, or overestimation of
+the \bege\ detector active volume, or even a more complex effect. This issue is addressed
+in detail in \cref{apdx:gedetav}, where additional evidence for the presence of systematic
+biases in the active volume estimate is presented. In the case of \bege\ detectors, the
+shift could be largely due to uncertainties on the \nplus\ dead-layer growth speed at room
+temperature\footnote{\bege\ detectors have been stored at room temperature for 2--3 years
+after being characterized and before being deployed at cryogenic
+temperatures~\cite{Agostini2019}.}.
+\newpar
+To further investigate the origin of the discrepancy, the full-range analysis is repeated
+with pdfs (for all background sources and \nnbb-decay) that assume the preliminary active
+and transition layer model extracted by \Arl\ data, which is described in detail in
+\cref{sec:gedetav:ar39}. A comparison between the latter and the official model is given
+in \cref{fig:gedetav:ar39-results}, and the obtained \thalftwo\ posteriors are shown in
+\cref{fig:bkg:raw:ph2p:gmodel:2nbb-post-ar39av}. \icoax\ and \scoax\ posteriors are
+shifted up, while the \bege\ posterior is shifted down, achieving a better compatibility
+between the three estimates. These results, however, must be taken with a grain of salt:
+the \Arl\ data analysis is still at an early stage and the impact of possible sources of
+systematic uncertainties has not been evaluated yet. They demonstrate, indeed, the
+potential of an analysis of \Arl\ data to obtain unbiased estimated of the detector active
+volumes in their experimental working conditions. A robust estimated of the active volumes
+is, in fact, of great interest for the \nnbb\ analysis and the \onbb\ search.
+
+\blocktitle{upgrade \\ effect}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/bkg/raw/ph2p/results/gmodel/ph2-comparison.pdf}
+  \caption{%
+    Comparison with above. \fillme{update}
+  }\label{fig:bkg:raw:ph2p:comparison}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/bkg/raw/ph2p/results/gmodel/2nbb-posteriors.pdf}
+  \caption{%
+    Marginalized posterior distributions of the \nnbb-decay half-lives reconstructed from
+    the three \enrBEGeIIp, \enrSCoaxIIp\ and \enrICoaxIIp\ data sets separately. The three
+    parameters are independent from each other in the fit and carry a nearly uniform prior
+    distribution (the prior is actually uniform on $1/\thalftwoM$).
+  }\label{fig:bkg:raw:ph2p:gmodel:2nbb-post}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/bkg/raw/ph2p/results/gmodel/2nbb-posteriors-ar39av.pdf}
+  \caption{%
+    Marginalized posterior distributions of the \nnbb-decay half-lives reconstructed from
+    the three \enrBEGeIIp, \enrSCoaxIIp\ and \enrICoaxIIp\ data sets separately. The pdfs
+    in the analysis have been computed with the preliminary detector active volume model
+    results obtained from \Arl\ data in \cref{sec:gedetav:ar39}. The systematic shifts
+    observed in \cref{fig:bkg:raw:ph2p:gmodel:2nbb-post} are reduced. \fillme{increase
+    posterior statistics}
+  }\label{fig:bkg:raw:ph2p:gmodel:2nbb-post-ar39av}
 \end{figure}
 
 % vim: tw=90

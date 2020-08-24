@@ -13,7 +13,8 @@ void usage() {
               << "\n"
               << "options:\n"
               << "  -h | --help : print this help message and exit\n"
-              << "  -r | --rebin n : apply rebin factor n"
+              << "  -r | --rebin n : apply rebin factor n\n"
+              << "  -n | --normalize : normalize histograms first\n"
               << "\n";
     gSystem->Exit(1);
 }
@@ -36,15 +37,17 @@ void csvifier(std::string prog = "csvifier", std::string args = "") {
         argc++;
     }
 
-    const char* const short_opts = "r:h";
+    const char* const short_opts = "r:nh";
     const option long_opts[] = {
-        { "rebin",  required_argument, nullptr, 'r' },
-        { "help",   no_argument,       nullptr, 'h' },
+        { "rebin",     required_argument, nullptr, 'r' },
+        { "normalize", no_argument,       nullptr, 'n' },
+        { "help",      no_argument,       nullptr, 'h' },
         // add other options...
-        { nullptr,  no_argument,       nullptr, 0   }
+        { nullptr,     no_argument,       nullptr, 0   }
     };
 
     int rebfactor = 1;
+    bool normalize = false;
 
     // read in with getopt
     int opt = 0;
@@ -52,6 +55,9 @@ void csvifier(std::string prog = "csvifier", std::string args = "") {
         switch (opt) {
             case 'r':
                 rebfactor = std::stoi(optarg);
+                break;
+            case 'n':
+                normalize = true;
                 break;
             case 'h': // -h or --help
             case '?': // Unrecognized option
@@ -94,6 +100,7 @@ void csvifier(std::string prog = "csvifier", std::string args = "") {
         h->SetName(objname.c_str());
         h->SetDirectory(nullptr);
         h->Rebin(rebfactor);
+        if (normalize) h->Scale(1./h->Integral());
         histos.push_back(h);
 
         tf.Close();

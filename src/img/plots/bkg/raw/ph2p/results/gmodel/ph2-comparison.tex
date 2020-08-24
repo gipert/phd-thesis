@@ -1,0 +1,125 @@
+%! TEX program = xelatex
+\input{../../../../../../../tex/standalone-def.tex}
+\input{../../../../../../../tex/macros.tex}
+\import{}{pgfplots-def}
+
+\pgfplotsset{%
+  width=5.8cm,
+  group style={%
+    group size=3 by 1,
+    ylabels at=edge left,
+    yticklabels at=edge left,
+    % y descritions at=,
+    vertical sep=2pt,
+    horizontal sep=2pt,
+  },
+  every tick label/.append style={font=\footnotesize},
+  group/every plot/.style={
+    ymin=5, ymax=900,
+    xtick={1,2,3,4,5,6,7},
+    xticklabels={\Ac,\Th,\Co,\kvn,\kvz,\Uh,\Zn},
+    ylabel={Counts / (\kgyr)},
+    grid=both,
+    legend pos=north west,
+    only marks,
+    error bars/x dir=both,
+    error bars/x explicit,
+    error bars/y dir=both,
+    error bars/y explicit,
+    table/col sep=space,
+    table/x=id,
+  },
+  phase II BEGe/.style={%
+    table/y expr={\thisrow{margmode}/32.7},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/32.7},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/32.7}
+  },
+  phase II SemiCoax/.style={%
+    table/y expr={\thisrow{margmode}/28.6},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/28.6},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/28.6}
+  },
+  phase IIplus BEGe/.style={%
+    table/y expr={\thisrow{margmode}/22.2},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/22.2},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/22.2}
+  },
+  phase IIplus SemiCoax/.style={%
+    table/y expr={\thisrow{margmode}/13.2},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/13.2},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/13.2}
+  },
+  phase IIplus InvCoax/.style={%
+    table/y expr={\thisrow{margmode}/8.8},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/8.8},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/8.8}
+  },
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}
+
+    \nextgroupplot[ymode=log, xlabel=\bege]
+
+      \addplot+[phase IIplus BEGe] table {%
+        iso   id margmode 16qt     84qt
+        Ac228 1  303.653  248.996  377.518
+        Th228 2  391.788  367.019  419.170
+        Co60  3  295.334  263.969  357.802
+        K40   4  3933.00  3299     5027
+        K42   5  11799    9470     13954
+        U238  6  1005.89  944.656  1062.34
+      };
+
+      \addplot+[phase II BEGe] table {%
+        iso   id margmode 16qt     84qt
+        Ac228 1  541      0        0
+        Th228 2  424      0        0
+        Co60  3  382      0        0
+        K40   4  3800     0        0
+        K42   5  17000    0        0
+        U238  6  1300     0        0
+      };
+
+      \addlegendentry{\phasetwop}
+      \addlegendentry{\phasetwo}
+
+    \nextgroupplot[ymode=log, xlabel=\scoax]
+
+      \addplot+[phase IIplus SemiCoax] table {%
+        iso   id margmode 16qt     84qt
+        Ac228 1  134.653  110.41660 167.40939
+        Th228 2  153.24346 143.55559 163.95360
+        Co60  3  112.00560 100.11041 135.69621
+        K40   4  2274.6602 1912.4666 2920.9601
+        K42   5  6209.2442 5000.1950 7413.3693
+        U238  6  386.22512 362.71337 407.90118
+      };
+
+      \addplot+[phase II SemiCoax] table {%
+        iso   id margmode 16qt     84qt
+        Ac228 1  289      0        0
+        Th228 2  300      0        0
+        Co60  3  270      0        0
+        K40   4  5746     0        0
+        K42   5  14918    0        0
+        U238  6  887      0        0
+      };
+
+    \nextgroupplot[ymode=log, xlabel=\icoax]
+
+      \addplot+[phase IIplus InvCoax] table {%
+        iso   id margmode 16qt     84qt
+        Ac228 1  122.2295 100.22856 151.96269
+        Th228 2  124.30399 116.44564 132.99157
+        Co60  3  93.296355 83.388122 113.02971
+        K40   4  2467.3883 1984.0180 2885.0480
+        K42   5  5025.5052 4148.9086 5835.6778
+        U238  6  325.81363 305.97947 344.09922
+        Zn65  7  211.80252 184.40393 254.24790
+      };
+
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}
