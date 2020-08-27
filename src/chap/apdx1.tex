@@ -138,37 +138,6 @@ Data from the special \Th\ calibration run 68\footnote{%
 \cref{fig:gedetav:calib-optim-example}, in red. Pdfs corresponding to different sizes of
 the transition region (DLF) are overlaid to demonstrate the effect on the low side of the
 full-energy peak.
-\newpar
-To determine the optimum transition region size the observable $V/P$ is defined, where $V$
-(valley) and $P$ (peak) are the total number of counts in the $[2500, 2600]$~keV and
-$[2610, 2620]$~keV regions, respectively (the two energy ranges are highlighted in grey in
-\cref{fig:gedetav:calib-optim-example}, left). The uncertainty on $V/P$ is obtained by
-error propagation of the Poisson uncertainties on $V$ and $P$. Pdfs with dead-layer
-fractions from 0 to 0.9 in steps of 0.1 and the FCCDs fixed to the official values in
-\cref{tab:gedetav:official} have been produced for each detector, in order to obtain the
-predicted $V/P$ values. Since $V/P$ is observed to change linearly upon the dead-layer
-fraction, a linear interpolation is performed between the simulated values. The result is
-depicted in \cref{fig:gedetav:calib-optim-example}, on the right, for detector \GD{02A}.
-Finally, the value of the observable is calculated from data (grey lines) and compared
-against the interpolation result in order to find the optimum dead-layer fraction value
-(red lines). The results are reported in \cref{tab:gedetav:calib-optim} for each
-detector.
-\newpar
-Unfortunately, not all detectors were active during run 68. Some of them were switched off
-because of hardware instabilities, some of them had an unstable energy calibration,
-therefore no data is available.
-
-\begin{table}
-  \centering
-  \caption{%
-    \bege\ dead-layer fractions obtained from special \Th\ calibration data (run 68).
-    Detector \GD{02D} does not fully deplete~\cite{Agostini2019} and is excluded from the
-    analysis. Detectors marked with an asterisk ($^*$) are switched off or unusable in run
-    68. \fillme{fill numbers}
-  }\label{tab:gedetav:calib-optim}
-  \input{tab/gedet-av/gedetav-calib.tex}
-\end{table}
-
 \begin{figure}
   \centering
   \includegraphics[width=0.46\textwidth]{plots/gedet-av/GD02A-tl-peak.pdf}%
@@ -184,6 +153,65 @@ therefore no data is available.
     simulation results. The statistical uncertainties are plot in dashed lines.
   }\label{fig:gedetav:calib-optim-example}
 \end{figure}
+\newpar
+To determine the optimum transition region size the observable $V/P$ is defined, where $V$
+(valley) and $P$ (peak) are the total number of counts in the $[2500, 2600]$~keV and
+$[2610, 2620]$~keV regions, respectively (the two energy ranges are highlighted in grey in
+\cref{fig:gedetav:calib-optim-example}, left). The uncertainty on $V/P$ is obtained by
+error propagation of the Poisson uncertainties on $V$ and $P$. Pdfs with dead-layer
+fractions from 0 to 0.9 in steps of 0.1 and the FCCDs fixed to the official values in
+\cref{tab:gedetav:official} have been produced for each detector, in order to obtain the
+predicted $V/P$ values. Since $V/P$ is observed to change linearly upon the dead-layer
+fraction, a linear interpolation is performed between the simulated values. The result is
+depicted in \cref{fig:gedetav:calib-optim-example}, on the right, for detector \GD{02A}.
+Finally, the value of the observable is calculated from data (grey lines) and compared
+against the interpolation result in order to find the optimum dead-layer fraction value
+(red lines). The results are reported in \cref{tab:gedetav:calib-optim} for each
+detector and in \cref{fig:gedetav:calib-optim}, where they are compared with the
+dead-layer fractions extracted from detector characterization data. The latter look
+clearly underestimated, possibly because of the effect of the \nplus\ contact growth at
+room temperature, which has never been studied in the transition region.
+\begin{table}
+  \centering
+  \caption{%
+    \bege\ dead-layer fractions obtained from special \Th\ calibration data (run 68).
+    Detector \GD{02D} does not fully deplete~\cite{Agostini2019} and is excluded from the
+    analysis. Detectors marked with an asterisk ($^*$) are switched off or unusable in run
+    68. \fillme{fill numbers}
+  }\label{tab:gedetav:calib-optim}
+  \input{tab/gedet-av/gedetav-calib.tex}
+\end{table}
+\begin{figure}
+  \centering
+  \includegraphics{plots/gedet-av/calib-optim-results.pdf}
+  \caption{%
+    Comparison between the recommended DLF values (extracted from detector
+    characterization data) and the ones extracted by analyzing the low energy tail of the
+    \Tl\ full-energy peak in calibration data. Some values are missing because of
+    detectors for which no data is available.
+  }\label{fig:gedetav:calib-optim}
+\end{figure}
+\newpar
+Unfortunately, not all detectors were active during run 68. Some of them were switched off
+because of hardware instabilities and some of them were not usable because of unstable
+energy calibration. Since no data is available for these detectors, an educated guess is
+made by assuming a dead-layer fraction equal to an average value. This average value is
+calculated by repeating the $V/P$ analysis on the \bege\ summed energy spectrum, and by
+varying the simulated dead-layer fraction consistently in all detectors (i.e.~all \bege\
+dead-layer fractions set to 0.0, 0.1, \ldots, 0.9). The obtained effective dead-layer
+fraction is
+\[
+  0.529 \pm 0.016 \;,
+\]
+which carries a smaller uncertainty because of the higher statistics in the data
+sample\footnote{%
+  This effective dead-layer fraction value is used as an educated guess for detectors in
+  the \nnbb\ analysis (\cref{chap:2nbb-ana}) that were inactive in run 68. This assumption
+  holds well if only the combined \bege\ energy spectrum is considered in the analysis.
+  Moreover, the obtained effective uncertainty is adopted in the estimation of the systematic
+  uncertainty contribution from the transition layer model, as it represents the average
+  potential distortion seen in the combined energy spectrum.
+}.
 
 \section{Insights from \Arl\ data}%
 \label{sec:gedetav:ar39}
@@ -191,7 +219,7 @@ therefore no data is available.
 The \gerda\ event spectrum is dominated, at low energies, by \Arl-decay events. This
 unstable nucleus is naturally present in the atmosphere and is cosmogenically activated.
 It decays to the ground state of $^{39}$K via $\upbeta^-$ decay with a half-life of
-269(3)~yr and Q-value of 656(5)~keV. Being commercial liquid argon distilled from air, it
+269(3)~yr and Q-value of 656(5)~keV~\cite{Wang2017}. Being commercial liquid argon distilled from air, it
 naturally contains a fraction of \Arl, whose activity has been estimated to be of about
 1~Bq/kg by various experiments~\cite{Ajaj2019, Calvo2017, Benetti2006, Loosli1983}. The
 \Arl\ energy spectrum of events collected by \gerda\ in the first part of \phasetwo\ has
@@ -252,11 +280,61 @@ detector has been carried on, whose preliminary results are presented here. The
 been kept low enough (about 40~keV) for the whole data taking. No LAr veto cut or PSD cut
 has been applied, as the corresponding Monte Carlo model is not known in sufficient detail
 yet or is completely missing. Each detector collected more than $5 \cdot 10^4$ events
-below 200~keV, where the bulk of the \Arl\ events is located. \fillme{describe final
-analysis, refer to \cref{fig:gedetav:ar39-results}
-\cref{fig:gedetav:spectra-optim-1,fig:gedetav:spectra-optim-2,fig:gedetav:spectra-optim-3,fig:gedetav:spectra-optim-4}}
+below 200~keV, where the bulk of the \Arl\ events is located.
 \newpar
-\fillme{Comment results}
+A set of \Arl\ pdfs has been generated for each detector separately and considering
+different combinations of FCCD and DLF values. In this preliminary setting, FCCDs and DLFs
+have been sampled in discrete steps of 0.1~mm and 0.1, respectively. Together with the
+signal pdf (\Arl), the most prominent background pdfs in the considered energy region have
+been generated.  Specifically, \Pbh\ and \Bih\ in the detector cabling, \nnbb\ in
+germanium, \kvz\ in liquid argon and \kvn\ in the mini-shrouds. \Arh, which decays into
+\kvz\ by emitting a \b\ particle with a Q-value of 599(6)~keV~\cite{Wang2017} which is
+very close to the \Arl\ Q-value, has not been considered as its activity in LAr is
+negligible, compared to \Arl~\cite{?}. The \Kr\ contribution has also been discarded
+because it is highly localized at 514~keV, in correspondence with its only \g\ line, and
+does not contribute significantly to the rest of the energy spectrum. To find the
+combination of FCCD and DLF that best describes the data, first the background of
+the \Arl\ event distribution is fixed at the results of the background model
+presented in \cref{chap:bkg:raw:ph2}. Then, for each detector separately, the \Arl\
+activity, the FCCD and DLF values are adjusted in order to reproduce the shape of the
+energy spectrum and the total number of counts. Since activities in the 1.3--1.4~Bq/kg range
+seem to reasonably describe data from all detectors, the same value of 1.35~Bq/kg is
+preliminary set for all of them. The results of this manual optimization are shown in
+\cref{fig:gedetav:spectra-optim-1,fig:gedetav:spectra-optim-2,fig:gedetav:spectra-optim-3,fig:gedetav:spectra-optim-4},
+including the 68\%, 95\% and 99\% confidence intervals that highlight the magnitude of
+statistical fluctuations in data. The obtained FCCD and DLF values are compared to the
+official values from detector characterization data (where available) in
+\cref{fig:gedetav:ar39-results}. Note that data is not available for some detectors that
+have not been deployed in \phasetwop\ (\ANG{1}) or were switched off because of hardware
+instabilities (\ANG{5} and \IC{48B}).
+
+\blocktitle{results}
+Starting from the FCCD values, it is interesting to note the great compatibility between
+the characterization data and the \Arl\ data for \icoax\ detectors. Indeed, these are the
+most precisely-characterized and newly-produced detectors deployed in \gerda. In contrast,
+the \Arl\ data analysis reports quite different FCCDs for some \scoax\ detectors, but the
+uncertainty on their official estimate is large enough to account for such a deviation.
+The situation changes again for \bege\ detectors, in which the new values are almost
+always higher than the official estimates and incompatible with them. This discrepancy
+could be motivated by the observation that these detectors have been stored at room
+temperature, after being characterized, for 2--3 years, a time in which the Lithium
+concentration profile in the \nplus\ contact could have grown at a different rate than
+what has been suggested in the past (\cite{Agostini2019} and references therein). For what
+concerns the \bege\ dead-layer fraction values, the \Arl\ analysis results are
+systematically higher than the old estimates. This finding is in agreement with what
+already seen in calibration data (\cref{sec:gedetav:calib-optim}), and could again be
+motivated by the fact that the dead-layer growth model has never been studied in detail
+with experimental data.
+\newpar
+As already mentioned, an \Arl\ activity in the 1.3--1.4~Bq/kg range is needed to reproduce
+the observed count rate, given the transition layer model that best reproduces the energy
+spectrum shape. This result is in contrast with what reported by other experimental
+efforts~\cite{Ajaj2019, Calvo2017, Benetti2006, Loosli1983}, which quote an activity of
+about 1~Bq/kg. Considering that an independent analysis of \gerda\ \phaseone\ data
+(private communications) seems to obtain the same result and there is no reason to
+hypothesize that the argon deployed in \gerda\ has a naturally-higher \Arl\ activity, the
+explanation might lie in the different experimental conditions in which \gerda\ operates.
+However, no convincing hypothesis have been formulated nor tested yet.
 
 \begin{figure}
   \centering

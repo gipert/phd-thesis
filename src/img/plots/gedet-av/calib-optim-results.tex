@@ -1,0 +1,56 @@
+%! TEX program = xelatex
+\input{../../../tex/standalone-def.tex}
+\import{}{pgfplots-def}
+\usepgfplotslibrary{groupplots}
+
+\pgfplotsset{%
+  height=6cm,
+  table/x=index,
+  every axis/.style={%
+    % xlabel={Detector},
+    ylabel={dead-layer fraction},
+    xmin=7, xmax=37,
+    ymax=1.49,
+    only marks,
+    mark size=1pt,
+    xmajorgrids,
+    xticklabel style={rotate=90, font=\ttfamily},
+    xtick={%
+      8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
+      27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37
+    },
+    xticklabels={%
+      GD00A, GD00B, GD00C, GD00D, GD02A, GD02B, GD02C, GD32A, GD32B,
+      GD32C, GD32D, GD35A, GD35B, GD35C, GD61A, GD61B, GD61C, GD76B, GD76C,
+      GD79B, GD79C, GD89A, GD89B, GD89C, GD89D, GD91A, GD91B, GD91C, GD91D
+    }
+  },
+  old/.style={%
+    error bars/y dir=both,
+    error bars/y explicit,
+  },
+  new/.style={%
+    error bars/y dir=both,
+    error bars/y explicit,
+  },
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}
+
+      \addlegendimage{only marks, mark=square*, TolVibRed}
+      \addlegendentry{From calibration data (run 68)}
+      \addlegendimage{only marks, mark=*, TolVibBlue}
+      \addlegendentry{Detector characterization data}
+
+      \addplot+[new] table[y=dlf_new,
+                           y error plus=dlf_new_err_p,
+                           y error minus=dlf_new_err_m] {data/calib-optim-results.csv};
+      \addplot+[old] table[y=dlf_old,
+                           y error plus=dlf_old_err_p,
+                           y error minus=dlf_old_err_m] {data/calib-optim-results.csv};
+
+    \end{axis}
+  \end{tikzpicture}
+\end{document}

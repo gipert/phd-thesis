@@ -1,0 +1,42 @@
+index, gedet, dlf_old, dlf_old_err_p, dlf_old_err_m, dlf_new, dlf_new_err_p, dlf_new_err_m, label
+1    , ANG1 , nan    , nan          , nan          , nan    , nan    , nan    , off
+2    , ANG2 , nan    , nan          , nan          , nan    , nan    , nan    , off
+3    , ANG3 , nan    , nan          , nan          , nan    , nan    , nan    , off
+4    , ANG4 , nan    , nan          , nan          , nan    , nan    , nan    , off
+5    , ANG5 , nan    , nan          , nan          , nan    , nan    , nan    , off
+6    , RG1  , nan    , nan          , nan          , nan    , nan    , nan    , off
+7    , RG2  , nan    , nan          , nan          , nan    , nan    , nan    , off
+8    , GD00A, 0.13   , 0.05         , 0.04         , 0.28   , 0.08   , 0.07   , ok
+9    , GD00B, 0.2    , 0.03         , 0.04         , 0.08   , 0.20   , 0.08   , ok
+10   , GD00C, 0.17   , 0.03         , 0.03         , 0.56   , 0.05   , 0.04   , ok
+11   , GD00D, 0.37   , 0.02         , 0.02         , 0.76   , 0.07   , 0.08   , ok
+12   , GD02A, 0.02   , 0.03         , 0.04         , 0.11   , 0.09   , 0.09   , ok
+13   , GD02B, 0.24   , 0.04         , 0.04         , 0.44   , 0.21   , 0.21   , ok
+14   , GD02C, 0.49   , 0.03         , 0.03         , 0.67   , 0.05   , 0.06   , ok
+15   , GD32A, 0.17   , 0.03         , 0.03         , 0.24   , 0.12   , 0.13   , ok
+16   , GD32B, 0.21   , 0.03         , 0.02         , 0.48   , 0.05   , 0.06   , ok
+17   , GD32C, 0.28   , 0.02         , 0.03         , 0.51   , 0.09   , 0.09   , ok
+18   , GD32D, 0.31   , 0.04         , 0.04         , 0.38   , 0.10   , 0.11   , ok
+19   , GD35A, 0.13   , 0.03         , 0.02         , 0.34   , 0.07   , 0.07   , ok
+20   , GD35B, 0.16   , 0.09         , 0.07         , 0.81   , 0.19   , 0.21   , ok
+21   , GD35C, 0.34   , 0.02         , 0.02         , 0.53   , 0.08   , 0.09   , ok
+22   , GD61A, 0.15   , 0.04         , 0.05         , 0.35   , 0.18   , 0.18   , ok
+23   , GD61B, 0.37   , 0.03         , 0.03         , 0.68   , 0.04   , 0.05   , ok
+24   , GD61C, 0.44   , 0.03         , 0.03         , 0.73   , 0.06   , 0.07   , ok
+25   , GD76B, 0.32   , 0.03         , 0.03         , 0.58   , 0.09   , 0.08   , ok
+26   , GD76C, 0.45   , 0.02         , 0.02         , 0.79   , 0.05   , 0.04   , ok
+27   , GD79B, 0.25   , 0.03         , 0.03         , nan    , nan    , nan    , off
+28   , GD79C, 0.45   , 0.02         , 0.02         , nan    , nan    , nan    , off
+29   , GD89A, 0.19   , 0.03         , 0.04         , 0.31   , 0.09   , 0.10   , ok
+30   , GD89B, 0.28   , 0.03         , 0.02         , 0.45   , 0.17   , 0.17   , ok
+31   , GD89C, 0.33   , 0.04         , 0.03         , 0.60   , 0.07   , 0.07   , ok
+32   , GD89D, 0.36   , 0.03         , 0.03         , 0.48   , 0.09   , 0.09   , ok
+33   , GD91A, 0.14   , 0.03         , 0.04         , 0.43   , 0.18   , 0.19   , ok
+34   , GD91B, 0.19   , 0.03         , 0.03         , nan    , nan    , nan    , off
+35   , GD91C, 0.13   , 0.05         , 0.05         , 0.24   , 0.15   , 0.15   , ok
+36   , GD91D, 0.36   , 0.04         , 0.03         , 0.00   , 0.00   , 0.00   , ok
+37   , IC48A, nan    , nan          , nan          , nan    , nan    , nan    , off
+38   , IC48B, nan    , nan          , nan          , nan    , nan    , nan    , off
+39   , IC50A, nan    , nan          , nan          , nan    , nan    , nan    , off
+40   , IC50B, nan    , nan          , nan          , nan    , nan    , nan    , off
+41   , IC74A, nan    , nan          , nan          , nan    , nan    , nan    , off
