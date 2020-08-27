@@ -4,7 +4,7 @@
 \import{}{pgfplots-def}
 
 \pgfplotsset{%
-  width=5.8cm,
+  width=5.7cm,
   group style={%
     group size=3 by 1,
     ylabels at=edge left,
@@ -21,7 +21,9 @@
     ylabel={Counts / (\kgyr)},
     grid=both,
     legend pos=north west,
+    legend style={draw=black},
     only marks,
+    mark size=1.2pt,
     error bars/x dir=both,
     error bars/x explicit,
     error bars/y dir=both,
@@ -30,26 +32,31 @@
     table/x=id,
   },
   phase II BEGe/.style={%
+    TolVibBlue, mark=*,
     table/y expr={\thisrow{margmode}/32.7},
     table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/32.7},
     table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/32.7}
   },
   phase II SemiCoax/.style={%
+    TolVibBlue, mark=*,
     table/y expr={\thisrow{margmode}/28.6},
     table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/28.6},
     table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/28.6}
   },
   phase IIplus BEGe/.style={%
+    TolVibRed, mark=*,
     table/y expr={\thisrow{margmode}/22.2},
     table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/22.2},
     table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/22.2}
   },
   phase IIplus SemiCoax/.style={%
+    TolVibRed, mark=*,
     table/y expr={\thisrow{margmode}/13.2},
     table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/13.2},
     table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/13.2}
   },
   phase IIplus InvCoax/.style={%
+    TolVibRed, mark=*,
     table/y expr={\thisrow{margmode}/8.8},
     table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/8.8},
     table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/8.8}
@@ -60,64 +67,64 @@
   \begin{tikzpicture}
     \begin{groupplot}
 
-    \nextgroupplot[ymode=log, xlabel=\bege]
+      \nextgroupplot[ymode=log, xlabel=\ttfamily\enrBEGeII\textsuperscript{(+)}]
 
-      \addplot+[phase IIplus BEGe] table {%
-        iso   id margmode 16qt     84qt
-        Ac228 1  303.653  248.996  377.518
-        Th228 2  391.788  367.019  419.170
-        Co60  3  295.334  263.969  357.802
-        K40   4  3933.00  3299     5027
-        K42   5  11799    9470     13954
-        U238  6  1005.89  944.656  1062.34
+      \addplot[phase II BEGe] table {%
+        iso   id margmode  16qt      84qt
+        Ac228 1  465.67304 383.08301 581.11677
+        Th228 2  404.88777 376.22706 435.39521
+        Co60  3  386.82517 320.67415 458.70961
+        K40   4  7109.0714 4593.5667 9088.8365
+        K42   5  16023.408 9999.5847 22098.620
+        U238  6  1287.7873 1217.8814 1378.7483
       };
 
-      \addplot+[phase II BEGe] table {%
-        iso   id margmode 16qt     84qt
-        Ac228 1  541      0        0
-        Th228 2  424      0        0
-        Co60  3  382      0        0
-        K40   4  3800     0        0
-        K42   5  17000    0        0
-        U238  6  1300     0        0
+      \addplot[phase IIplus BEGe] table {%
+        iso   id margmode  16qt      84qt
+        Ac228 1  297.28619 239.55354 372.95494
+        Th228 2  378.02269 351.12995 399.49424
+        Co60  3  349.43235 293.82636 407.53222
+        K40   4  4222.4825 4139.2694 4451.1130
+        K42   5  11221.242 8862.4321 14283.785
+        U238  6  954.77720 900.11208 1021.4443
       };
 
-      \addlegendentry{\phasetwop}
-      \addlegendentry{\phasetwo}
+      \addlegendentry{\phasetwo};
+      \addlegendentry{\phasetwop};
 
-    \nextgroupplot[ymode=log, xlabel=\scoax]
+        \nextgroupplot[ymode=log, xlabel=\ttfamily\enrCoaxII\textsuperscript{(+)}]
 
-      \addplot+[phase IIplus SemiCoax] table {%
-        iso   id margmode 16qt     84qt
-        Ac228 1  134.653  110.41660 167.40939
-        Th228 2  153.24346 143.55559 163.95360
-        Co60  3  112.00560 100.11041 135.69621
-        K40   4  2274.6602 1912.4666 2920.9601
-        K42   5  6209.2442 5000.1950 7413.3693
-        U238  6  386.22512 362.71337 407.90118
+      \addplot[phase II SemiCoax] table {%
+        iso   id margmode  16qt      84qt
+        Ac228 1  304.71882 250.67503 380.26083
+        Th228 2  252.33786 234.47567 271.35098
+        Co60  3  234.31947 194.24847 277.86350
+        K40   4  6422.5754 4149.9492 8211.7988
+        K42   5  14611.383 9272.1324 19876.934
+        U238  6  775.98221 733.85895 830.79257
       };
 
-      \addplot+[phase II SemiCoax] table {%
-        iso   id margmode 16qt     84qt
-        Ac228 1  289      0        0
-        Th228 2  300      0        0
-        Co60  3  270      0        0
-        K40   4  5746     0        0
-        K42   5  14918    0        0
-        U238  6  887      0        0
+      \addplot[phase IIplus SemiCoax] table {%
+        iso   id margmode  16qt      84qt
+        Ac228 1  140.94762 105.98248 164.71806
+        Th228 2  142.90654 136.81457 156.37248
+        Co60  3  136.32191 112.46374 156.16389
+        K40   4  2466.7119 2418.3260 2598.8778
+        K42   5  6055.2784 4723.6076 7688.6190
+        U238  6  373.95728 347.82519 395.45500
       };
 
-    \nextgroupplot[ymode=log, xlabel=\icoax]
+    \nextgroupplot[ymode=log, width=6.3cm, xlabel=\enrICoaxIIp]
 
-      \addplot+[phase IIplus InvCoax] table {%
-        iso   id margmode 16qt     84qt
-        Ac228 1  122.2295 100.22856 151.96269
-        Th228 2  124.30399 116.44564 132.99157
-        Co60  3  93.296355 83.388122 113.02971
-        K40   4  2467.3883 1984.0180 2885.0480
-        K42   5  5025.5052 4148.9086 5835.6778
-        U238  6  325.81363 305.97947 344.09922
-        Zn65  7  211.80252 184.40393 254.24790
+      \addplot[phase IIplus InvCoax] table {%
+        iso   id margmode  16qt      84qt
+        Ac228 1  125.90393 94.670717 147.13730
+        Th228 2  114.63893 109.75198 125.44124
+        Co60  3  112.54522 92.848303 128.92645
+        K40   4  2153.4879 2108.1247 2230.4420
+        K42   5  4850.1634 3916.6821 5948.7435
+        U238  6  312.35493 290.52761 330.31131
+        Zn65  7  238.65680 193.24089 267.93884
       };
 
     \end{groupplot}

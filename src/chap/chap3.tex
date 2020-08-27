@@ -1182,7 +1182,7 @@ background and signal contaminations and produce the corresponding pdfs, as desc
   \caption{%
     Properties of the data sets considered in this analysis. Further
     details about the \gerda\ detectors can be found in past
-    publications~\cite{Agostini2013a, Agostini2018a}.
+    publications~\cite{Agostini2013a, Agostini2018a}. \fillme{check these numbers carefully}
   }\label{tab:bkg:raw:ph2p:datasets}
   \small
   \input{tab/bkg/raw/ph2p/datasets.tex}
@@ -1367,12 +1367,29 @@ volumes in their experimental working conditions. A robust estimated of the acti
 is, in fact, of great interest for the \nnbb\ analysis and the \onbb\ search.
 
 \blocktitle{upgrade \\ effect}
+To detect changes of the background level before and after the \phasetwop\ upgrade works,
+the full-range analysis of the energy spectra presented in \cref{sec:bkg:raw:ph2:gmodel}
+and in this section has been repeated with a minimal fit configuration. A representative
+set of background components has been identically selected for the two analyses:
+\nnbb-decay for each detector type, \Bil, \Tl, \Pbh, \Bih, and \Co\ on cables, \Ac\ on
+detector holders, \kvn\ close (mini-shrouds) and far (outer fiber shroud) from the array,
+\kvz\ in LAr outside/inside the mini-shrouds, above the array and on the \nplus\ surface
+for each detector type, the \a\ model pdfs and \Zn\ in the \icoax\ detectors.
+\newpar
+In \cref{fig:bkg:raw:ph2p:comparison} the number of reconstructed counts above the \Arl\
+Q-value (565~keV) for each radioactive source, for each single-detector event data set,
+before and after the \phasetwop\ upgrade, in units of \gesix\ exposure is shown. The
+extracted count rates before and after the upgrade are consistent within their statistical
+error, except for \Th\ (\Bil\ and \Tl) and \Co\ contaminations, which seem to have
+increased after the upgrade.
 
 \begin{figure}
   \centering
   \includegraphics{plots/bkg/raw/ph2p/results/gmodel/ph2-comparison.pdf}
   \caption{%
-    Comparison with above. \fillme{update}
+    Comparison between the single-detector event background counts in units of \gesix\
+    exposure above the \Arl\ Q-value (565~keV) reconstructed with the background model
+    analysis before and after the \phasetwop\ hardware upgrade.
   }\label{fig:bkg:raw:ph2p:comparison}
 \end{figure}
 

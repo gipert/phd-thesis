@@ -1,0 +1,55 @@
+\newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
+\newcolumntype{x}[1]{>{\centering\arraybackslash}p{#1}}
+\newcommand{\mrr}[2]{\multirow{#1}[1]{*}{#2}}
+\newcommand{\mrc}[2]{\multirowcell{#1}{#2}}
+
+\begin{tabular}{%
+  r
+  l
+  S[% BEGe
+    table-format=5.0,
+    table-number-alignment=center,
+    table-text-alignment=center,
+    table-auto-round=true
+  ]@{ | }
+  l
+  S[% Coax
+    table-format=4.0,
+    table-number-alignment=center,
+    table-text-alignment=right,
+    table-auto-round
+    ]@{ | }
+  l
+  S[% M2-All
+    table-format=4.0,
+    table-number-alignment=center,
+    table-text-alignment=center,
+    table-auto-round
+  ]
+}
+  \toprule
+  \mrr{3}{source}      & \mrr{3}{location}             & \mc{5}{model content in fit range | BI at \qbb}                                             \\
+                       &                               & \mc{5}{units: cts | $10^{-3}$\ctsper}                                                       \\
+  \cmidrule(lr){3-7}
+                       &                               & \mc{2}{\enrBEGeII}                     & \mc{2}{\enrCoaxII}                     & \enrGeII\ \\
+  \midrule
+  \mr{2}{\nnbb}        & \bege\ detectors              & ?       & \mrc{2}{0}                   & ?       & \mrc{2}{0}                   & ?         \\
+                       & \scoax\ detectors             & ?       &                              & ?       &                              & ?         \\
+  \midrule
+  \mr{2}{\kvn}         & far from the array            & ?       & \mrc{2}{0}                   & ?       & \mrc{2}{0}                   & ?         \\
+                       & close to the array            & ?       &                              & ?       &                              & ?         \\
+  \midrule
+  \mr{3}{\kvz}         & \nplus\ (\scoax)              & ?       & \mrc{3}{5.69\\$[4.58,6.29]$} & ?       & \mrc{3}{1.29\\$[1.15,1.40]$} & ?         \\
+                       & LAr {--} outside mini-shrouds & ?       &                              & ?       &                              & ?         \\
+                       & LAr {--} inside  mini-shrouds & ?       &                              & ?       &                              & ?         \\
+  \midrule
+  \Bil\ + \Tl\         & flat cables                   & ?       & 3.52 $[3.30,3.76]$           & ?       & 2.21 $[2.03,2.34]$           & ?         \\
+  \Pbh\ + \Bih\        & flat cables                   & ?       & 2.63 $[2.50,2.78]$           & ?       & 3.16 $[2.83,3.50]$           & ?         \\
+  \Ac\                 & detector holders              & ?       & 0.36 $[0.31,0.40]$           & ?       & 0.33 $[0.28,0.37]$           & ?         \\
+  \midrule
+  \mr{2}{\a\ decays}   & \Po\ + \Ra\ chain (\bege)     & ?       & \mrc{2}{3.31\\$[3.12,3.78]$} & ?       & \mrc{2}{4.76\\$[4.40,5.08]$} & ?         \\
+                       & \Po\ + \Ra\ chain (\scoax)    & ?       &                              & ?       &                              & ?         \\
+  \bottomrule%
+\end{tabular}%
+
+% vim: nowrap

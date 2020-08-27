@@ -123,22 +123,65 @@ of this and possible solutions will be presented in the following sections.
 \section{Tuning the \bege\ transition layer model on calibration data}%
 \label{sec:gedetav:calib-optim}
 
-\fillme{Check with Katharina}
+The effect of the transition region size on the event energy spectrum is particularly
+strong in the lower tail of intense \g\ peaks. Full-energy events interacting in the
+transition region are reconstructed with a smaller effective energy, and are therefore
+shifted out of the peak. The high-statistics \Tl\ 2615~keV line from calibration data is
+an interesting sample that can be used to determine the size of the transition region.
+Data from the special \Th\ calibration run 68\footnote{%
+  As documented in \cref{sec:bkg:lar:ph2:pcalib}, data from run 68 has been collected with
+  low-activity $\mathcal{O}(1)$~kBq \Th\ sources, to study the performance of the liquid
+  argon veto system. Since in these experimental conditions the rate of pile-up events is
+  much lower than in regular calibrations, this data set is more suited to a comparison
+  with Monte Carlo simulations.
+} collected by the \GD{02A} detector is shown in the left-hand side of
+\cref{fig:gedetav:calib-optim-example}, in red. Pdfs corresponding to different sizes of
+the transition region (DLF) are overlaid to demonstrate the effect on the low side of the
+full-energy peak.
+\newpar
+To determine the optimum transition region size the observable $V/P$ is defined, where $V$
+(valley) and $P$ (peak) are the total number of counts in the $[2500, 2600]$~keV and
+$[2610, 2620]$~keV regions, respectively (the two energy ranges are highlighted in grey in
+\cref{fig:gedetav:calib-optim-example}, left). The uncertainty on $V/P$ is obtained by
+error propagation of the Poisson uncertainties on $V$ and $P$. Pdfs with dead-layer
+fractions from 0 to 0.9 in steps of 0.1 and the FCCDs fixed to the official values in
+\cref{tab:gedetav:official} have been produced for each detector, in order to obtain the
+predicted $V/P$ values. Since $V/P$ is observed to change linearly upon the dead-layer
+fraction, a linear interpolation is performed between the simulated values. The result is
+depicted in \cref{fig:gedetav:calib-optim-example}, on the right, for detector \GD{02A}.
+Finally, the value of the observable is calculated from data (grey lines) and compared
+against the interpolation result in order to find the optimum dead-layer fraction value
+(red lines). The results are reported in \cref{tab:gedetav:calib-optim} for each
+detector.
+\newpar
+Unfortunately, not all detectors were active during run 68. Some of them were switched off
+because of hardware instabilities, some of them had an unstable energy calibration,
+therefore no data is available.
 
 \begin{table}
   \centering
   \caption{%
-    \bege\ dead layer fractions obtained from calibration data. \fillme{fill numbers}
+    \bege\ dead-layer fractions obtained from special \Th\ calibration data (run 68).
+    Detector \GD{02D} does not fully deplete~\cite{Agostini2019} and is excluded from the
+    analysis. Detectors marked with an asterisk ($^*$) are switched off or unusable in run
+    68. \fillme{fill numbers}
   }\label{tab:gedetav:calib-optim}
   \input{tab/gedet-av/gedetav-calib.tex}
 \end{table}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\textwidth]{plots/gedet-av/GD00C-tl-peak.pdf}%
-  \includegraphics[width=0.5\textwidth]{plots/gedet-av/GD00C-optimization.pdf}
+  \includegraphics[width=0.46\textwidth]{plots/gedet-av/GD02A-tl-peak.pdf}%
+  \hspace{0.07\textwidth}%
+  \includegraphics[width=0.46\textwidth]{plots/gedet-av/GD02A-optimization.pdf}
   \caption{%
-    Example optimization for detector \GD{00C}. \fillme{update, TLF -> DLF}
+    Example optimization of the dead-layer fraction for detector \GD{02A}. Left: close-up
+    of the energy spectrum in the \Tl\ FEP region. The data (red) is compared against
+    simulations with different DLF values, from 0 to 0.9 in steps of 0.1. The pdf
+    corresponding to the recommended DLF value (\cref{tab:gedetav:official}) is
+    highlighted in orange. The energy regions used to compute the $V/P$ observable are
+    shown in grey. Right: extraction of the optimal DLF value by interpolating the
+    simulation results. The statistical uncertainties are plot in dashed lines.
   }\label{fig:gedetav:calib-optim-example}
 \end{figure}
 

@@ -398,7 +398,7 @@
                 "BI-err-ctskeVkgyr": 3E-4,
                 "sensitivity": 1.1E26,
                 "T0nu-90-limit-yr": 9E25,
-                "mbb-90-limit-eV": [0.07, 0.16],
+                "mbb-90-limit-eV": [0.104, 0.228],
                 "enr-germanium": true,
                 "underground": true
             },
