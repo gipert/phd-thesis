@@ -13,13 +13,13 @@ history of the achievements in \thalfzero\ limit setting and background level wi
 is presented in \cref{img:exp:ge76-history}, top. On the bottom plot, a zoom in the
 \gerda\ data taking period showing the experimental progresses in terms of \thalfzero\
 sensitivity, lower limit and collected active exposure.  \gerda\ data taking officially
-ended in December 2019 after hitting the target total background-free exposure of 100~\kgyr\ and
+ended in November 2019 after hitting the target total background-free exposure of 100~\kgyr\ and
 establishing itself as the leading experiment in the field in terms of lowest background
 level ever achieved around \qbb~\cite{Agostini2019a}.
 
 \blocktitle{\gerda\ \\ phases}
-Since the start of the data taking in 2008 the experiment, located in hall~A of the Gran
-Sasso National Laboratories (LNGS) in Italy, has been running through two distinct
+Since the start of the data taking in 2008 the experiment, located in hall~A of the
+Laboratori Nazionali del Gran Sasso (LNGS) in Italy, has been running through two distinct
 experimental phases (\phaseone\ and \phasetwo). Detectors from the former \hdm\ and \igex\
 experiments (of semi-coaxial geometry) along with newly produced diodes (of \bege\
 geometry type, shorthand for Broad Energy Germanium detectors) were deployed bare into
@@ -39,7 +39,7 @@ the natural \GTF{} detectors were removed.}. Moreover, the LAr veto system was e
 with a more efficient one, thanks to the denser fiber curtain and the addition of a shroud
 enclosing the central string, now consisting of inverted-coaxial detectors only. This last
 part of \phasetwo, which will be referred as \phasetwop\ in the following, ended in
-December 2019 after collecting the total exposure of 103.7~\kgyr\ and
+November 2019 after collecting the total exposure of 103.7~\kgyr\ and
 establishing the final \gerda\ upper limit on the neutrinoless double-beta decay half-life
 of \gerdafinallimit. When generally referring to the \phasetwo\ period, if not specified
 in the following, \phasetwop\ must be considered as implicitly included.
@@ -111,7 +111,7 @@ together with a picture taken from the outside.
   \caption{%
     On the right: artist view of the \gerda\ experimental setup. On the left: a picture of
     taken during the inauguration in November 2010. The experiment, installed in hall A of
-    the Gran Sasso National Laboratories in Italy, deploys an array of germanium detectors
+    the Laboratori Nazionali del Gran Sasso in Italy, deploys an array of germanium detectors
     enriched in \gesix\ bare in liquid argon, together with a liquid argon scintillation
     light veto system. The cryostat is submerged in a water tank to provide additional
     shielding from external background sources. A plastic scintillating panel system is
@@ -212,7 +212,7 @@ provides the substrate onto which signal and high voltage cables are attached
 cryogenic and low radioactivity preamplifiers called `CC3'~\cite{Riboldi2015}
 (\cref{fig:setup:pictures}g). The Ge readout electrode is connected to the JFET-PCB by a
 flexible flat cable. Two different cable types are adopted for the signal and HV contact:
-the HV cables are made from 10 mils Cuflon\reg, or 3 mils Pyralux\reg, the signal FFCs
+the HV cables are made from 10 mils Cuflon\reg, or 3 mils Pyralux\reg, the signal cables
 from 3 mils Cuflon\reg\ or Pyralux\reg. See \cref{fig:setup:magevolumes}a.
 \fillme{PhaseII+ changes?}
 
@@ -235,7 +235,7 @@ mechanical barrier to reduce the background from \kvz\ ions naturally present in
 which undergo \b-decay and can mimic the \onbb\ signature at \qbb. Being made of
 transparent nylon material, in contrast to the ones from \phaseone\ made of copper, the
 mini-shrouds let the light propagate more efficiently to a close-by light collecting
-surface. To match the fibers and PMTs spectral response many surfaces in the close
+surface. To match the fibers, the SiPMs and PMTs spectral response many surfaces in the close
 vicinity of the array were coated with tetraphenil-butadiene (TPB), a wavelength shifting
 material.  Coating has been applied on mini-shrouds, fiber-shroud, copper shroud, PMTs as
 well as their holder plates. The reader is referred to ref.~\cite{Agostini2018a} for the
@@ -247,8 +247,8 @@ The LAr veto system was upgraded in 2018 for \phasetwop\ to achieve a higher vet
 efficiency. The fiber shroud was exchanged and its fiber density increased by 50\%. A new
 fiber curtain was fabricated to wrap around the central string and enhance the detection
 probability in volumes close to the detectors (\cref{fig:setup:pictures}c,f and
-\cref{fig:setup:magevolumes}c). The light collected by the fibers is read out by two SiPM
-arrays at the top end (visible in \cref{fig:setup:pictures}b).
+\cref{fig:setup:magevolumes}c). The light collected by the inner fibers is read out by two
+SiPM arrays at the top end (visible in \cref{fig:setup:pictures}b).
 
 \begin{figure}
   \tikzstyle{label} = [circle, fill=white, inner sep=1.5pt]
@@ -312,7 +312,7 @@ has to pass a series of quality cuts tailored to discard unphysical events with 
 efficiency (see \cref{sec:gerda:cuts}). The reconstructed trigger positions are converted
 into time differences relative to the first trigger found in the germanium detector
 traces. Trigger positions and amplitudes are subsequently used together with hits from the
-SiPM to test the LAr veto condition. The algorithms were implemented in the \gelatio\
+SiPMs and PMTs to test the LAr veto condition. The algorithms were implemented in the \gelatio\
 framework~\cite{Agostini2011} which is used to process \gerda\ data. Each event is
 characterized by the calibrated energy deposited in the Ge diode, a data quality flag, the
 classification as signal or background event from the pulse shape analysis, and veto flags
@@ -322,7 +322,7 @@ from the muon veto and LAr veto systems.
   \centering
   \includegraphics[width=\textwidth]{setup/mage-volumes.pdf}
   \caption{%
-    Implementation of the \gerda\ array in \mage, visualized using the \geant\
+    Implementation of the \gerda\ array in \mage, displayed using the \geant\
     visualization drivers. From left to right: \emph{a)} the \phasetwo\ holder mounting,
     composed of silicon plates and copper bars, and the high-voltage and signal flex flat
     cables.  Front-end electronics are on the top end, \emph{b)} the full \phasetwo\ array
@@ -358,7 +358,7 @@ Various background mitigation techniques are adopted, both at the data acquisiti
 (online) and the analysis level (offline) in \gerda\ to lower the background index to the
 background-free level of \pIIbi. The techniques outlined in the following have been
 gradually developed and refined during several years of research and publications, and
-have been employed for the \phasetwo\ final (re-)analysis in~\cite{gerda-final}.
+have been employed for the \phasetwo\ final (re-)analysis in~\cite{Agostini2021}.
 Documentation about partial analyses of the \gerda\ \phasetwo\ data published
 in~\cite{Agostini2015a, Agostini2017, Agostini2018, Agostini2019a} can be found in those
 publications and references therein.
@@ -510,7 +510,7 @@ calibration, training and evaluation of the PSD methods should be performed on p
 energies close to these of the expected signal at \qbb.  In practice, appropriate event
 sets are extracted from the weekly \Th\ calibration spectra. The PSD methods applied to
 the \gerda\ data are briefly outlined in the following. The interested reader is referred
-to~\cite{psd-paper} for a detailed treatment of the topic. \fillme{define somewhere FEP,
+to~\cite{Agostini2021a} for a detailed treatment of the topic. \fillme{define somewhere FEP,
 SEP and DEP}
 
 \blocktitle{PSD for \\ \bege{}s and \\ \icoax{}s}
@@ -526,7 +526,7 @@ depositions in the detector can be treated as a superposition of several single
 interactions. It follows that a MSE will have a lower $A$ compared to a SSE with the
 same $E$.  A two-sided cut on \aoe\ to cut MSEs slow pulses and \pplus\ fast events is
 introduced and determined separately for each detector. Energy and time stability
-corrections to \aoe\ are discussed in detail in~\cite{psd-paper}. As mentioned before,
+corrections to \aoe\ are discussed in detail in~\cite{Agostini2021a}. As mentioned before,
 the \aoe\ cut values are determined employing representative data samples from \Th\
 calibration runs.  The low cut position (rejection of MSEs and slow pulses) is adjusted
 to achieve a 90\% survival fraction of the double-escape peak (DEP), a SSE sample. The
@@ -583,7 +583,7 @@ integration time $E_\text{s}$ and the energy reconstructed with a long (20~\mus)
 integration time $E_\text{l}$. The energy here is reconstructed using a gaussian-shaping
 filter, which has been the default \gerda\ energy reconstruction method for \phaseone.
 Ballistic deficit is observed to reduce this ratio, therefore the \deltae\ classifier is
-defined as $\delta{E} = {[E_\text{s}/E_\text{l}]}_\text{norm} - 1$, where the energy ratio
+defined as $\delta{E} = E\cdot({[E_\text{s}/E_\text{l}]}_\text{norm} - 1)$, where the energy ratio
 is normalized to the values assumed by the \Th\ FEP events. The normalization is applied
 in a certain calibration validity period and for each detector separately. The cut value
 is defined as 3 negative standard deviations away from the mean of the FEP \deltae\
@@ -732,11 +732,14 @@ data points correspond to events that survive the PSD cut.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{plots/0nbb-results/G2006_all_psd0.png}%
+  \includegraphics[width=0.9\textwidth]{plots/0nbb-results/G2006_all_psd0.png}%
   \caption{%
-    The four pulse shape discrimination techniques applied on the \gerda\ \phasetwo\
-    data. From left to right and top to bottom: the \aoe\ cut, the \annmse\ cut, the
-    rise-time cut and the \deltae\ cut. \fillme{to be updated with final plots}
+    The four pulse shape discrimination techniques applied on the final \gerda\ \phasetwo\
+    data set. From top t0 bottom: the \aoe\ cut, the \annmse\ cut, the
+    rise-time cut and the \deltae\ cut. Note that, being the \deltae\ cut
+    highly-correlated with \aoe\ in \bege\ and \icoax\ detectors, its direct application
+    on data after the LAr veto cut results in a high cut efficiency. If applied after all
+    others PSD cuts, the event survival fraction is >99\%.
   }\label{fig:gerda:psd-on-data}
 \end{figure}
 

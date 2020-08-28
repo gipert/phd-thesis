@@ -20,6 +20,9 @@
   every axis/.style={%
     font=\small,
     ymode=log,
+    area legend/.append style={%
+      legend image post style={draw opacity=1}
+    },
     area legend,
     restrict x to domain=900:5400,
     xmin=1000, xmax=5350,

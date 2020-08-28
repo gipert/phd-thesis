@@ -51,7 +51,7 @@ results of the background decomposition in the full energy range are given in
   \caption{%
     Properties of the data sets considered in this analysis. Further
     details about the \gerda\ detectors can be found in past
-    publications~\cite{Agostini2013a, Agostini2018a}.
+    publications~\cite{Agostini2013a, Agostini2018a}. \fillme{check with Katharina}
   }\label{tab:bkg:raw:ph2:datasets}
   \small
   \input{tab/bkg/raw/ph2/datasets.tex}
@@ -1142,7 +1142,7 @@ of \phasetwo, for a total exposure of \gexpophasetwobkg. In April 2018 the data 
 stopped to permit a hardware upgrade, in which five new detectors of the inverted-coaxial
 type were deployed together with an improved LAr veto system. For further details the
 reader is referred to \cref{sec:gerda:setup}. The data taking resumed in May 2018 and
-ended in December 2019 after collecting \gexpophasetwopbkg\ of data valid for the
+ended in November 2019 after collecting \gexpophasetwopbkg\ of data valid for the
 background model. In the following, the extension of the full-range energy spectrum
 analysis to this data is presented.
 
@@ -1157,9 +1157,16 @@ sets are higher than those reported for the \onbb\ analysis~\cite{Agostini2021},
 of additional data that that was discarded due to poor PSD detector performance. The
 energy spectra of the four data sets are shown in \cref{fig:bkg:raw:ph2p:data-desc}. In
 addition to the list of background contributions in \cref{sec:bkg:raw:ph2:data} that can
-be identified by eye in the spectra, an event excess is observed at 1120~keV in
-\enrICoaxIIp\ which is attributed to the decay of the cosmogenically-activated
-\Zn\ in the germanium \fillme{I know there is a reference somewhere}.
+be identified by eye in the spectra, an event excess is observed at 1124~keV in
+\enrICoaxIIp\ which is attributed to the decay of \Zn\ in the germanium\footnote{%
+  The \Zn\ present in the \icoax\ crystals is due to the reaction \nuc{Ge}{70}(n,
+  \a{}2n)\Zn, induced by cosmic rays. It disintegrates mainly by electron capture to the
+  1115~keV excited level of \nuc{Cu}{65} with a half-life of 244 days. \icoax\ detectors
+  have been deployed in \gerda\ short after being produced, so the 1124~keV line (\g\
+  de-excitation of \nuc{Cu}{65} coincident with K-shell X-rays) can be seen. A first
+  reference to this decay in germanium has been found in a publication from the
+  \textsc{Milano} \onbb\ experiment~\cite{Bellotti1986}.
+}.
 \newpar
 The new experimental setup has been implemented into \mage. The changes to the software
 include the implementation of the new \icoax\ detector geometry, the central fiber shroud
@@ -1412,8 +1419,7 @@ increased after the upgrade.
     the three \enrBEGeIIp, \enrSCoaxIIp\ and \enrICoaxIIp\ data sets separately. The pdfs
     in the analysis have been computed with the preliminary detector active volume model
     results obtained from \Arl\ data in \cref{sec:gedetav:ar39}. The systematic shifts
-    observed in \cref{fig:bkg:raw:ph2p:gmodel:2nbb-post} are reduced. \fillme{increase
-    posterior statistics}
+    observed in \cref{fig:bkg:raw:ph2p:gmodel:2nbb-post} are reduced.
   }\label{fig:bkg:raw:ph2p:gmodel:2nbb-post-ar39av}
 \end{figure}
 

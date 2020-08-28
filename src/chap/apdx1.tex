@@ -4,16 +4,16 @@
 \label{apdx:gedetav}
 
 As a result of the presence of the \nplus\ contact on the outer surface of the germanium
-detectors, the charge-collection efficiency (CCE) differs from unity in the region close
-to the contact. As a matter of fact, lithium impurities diffused inside the crystal during
-the \nplus\ contact fabrication process act as recombination centers for charge carriers, and the
-CCE curve strongly depends on the lithium concentration profile. Such a situation
-typically leads to events depositing energy in this region being characterized by a lower
-reconstructed energy, depending on the local CCE. Since the \pplus\ contact is
-boron-implanted, it is expected to have a thin dead layer, on the order of 1~\mum, and it
-will not be considered in the following. The reader is referred
-to~\cite{Lehnert2016} for an extensive discussion of the charge-collection mechanism in
-germanium detectors and CCE models.
+detectors, the charge-collection efficiency (CCE) differs from unity in the region of the
+crystal close to the contact. As a matter of fact, lithium impurities diffused inside the
+crystal during the \nplus\ contact fabrication process act as recombination centers for
+charge carriers, and thus the CCE curve strongly depends on the lithium concentration
+profile. Since part of the charge is lost, events depositing energy in this region are
+typically characterized by a lower reconstructed energy, depending on the local CCE. Since
+the \pplus\ contact is boron-implanted, it is expected to have a thin dead layer, on the
+order of 1~\mum, and it will not be considered in the following. The interested reader is
+referred to~\cite{Lehnert2016} for an extensive discussion of the charge-collection
+mechanism in germanium detectors and CCE models.
 
 \begin{figure}
   \centering
@@ -30,17 +30,18 @@ germanium detectors and CCE models.
 The full charge-collection depth (FCCD), defined as the depth at which the CCE reaches
 unity, has been estimated for each germanium detector deployed in \gerda\ at the \nplus\
 contact during dedicated characterization campaigns. In these measurements, a radioactive
-source (e.g.~\Am, \Ba, \Co) is positioned close to the detector surface to sample its
-energy spectrum. A matching between data and Monte Carlo simulations is then performed to
+source (e.g.~\Am, \Ba, \Co) is positioned close to the detector surface, and a data sample
+is acquired. A comparison between data and Monte Carlo simulations is then performed to
 find the FCCD value that best describes data. The recommended FCCD values obtained from
-this characterization data are reported in \cref{tab:gedetav:official}. The \scoax\ values
-are extracted from \Co\ data as documented in~\cite{Heider2009}, while the \bege\ values
-are obtained combining \Am\ and \Ba\ data~\cite{Agostini2019}. \icoax\ values are
-extracted from \Am\ measurements~\cite{Miloradovic2020}. The \bege\ detectors have been stored at room
+this characterization data are reported in \cref{tab:gedetav:official} and are briefly
+described in the following. The \scoax\ values are extracted from \Co\ data as documented
+in~\cite{Heider2009}, while the \bege\ values are obtained combining \Am\ and \Ba\
+data~\cite{Agostini2019}. \icoax\ values are extracted from \Am\
+measurements~\cite{Miloradovic2020}. The \bege\ detectors have been stored at room
 temperature in the time interval between their characterization to the deployment in
 liquid argon, and must be therefore corrected for the dead-layer growing effect. The
 growth speed at room temperature has never been determined rigorously, and the best
-available estimate is of about $\sim{}0.1$~mm/yr, with a standard deviation of 0.04~mm/yr
+available estimate is of about $\sim$$0.1$~mm/yr, with a standard deviation of 0.04~mm/yr
 (\cite{Agostini2019} and references therein). The correction is therefore applied
 considering the exact time spent by each detector at room temperature together with an
 additional systematic uncertainty of 50\%.
@@ -58,6 +59,8 @@ additional systematic uncertainty of 50\%.
     uncorrelated contributions (FCCD$\protect\substack{+\text{corr}\,+\text{ucorr} \\
     -\text{corr}\,-\text{ucorr}}$). The DLF values have been estimated
     in~\cite{Lehnert2016} and do not include any growing effect at room temperature.
+    Detector \GD{02D} does not fully deplete and is therefore excluded from any physics
+    analysis~\cite{Agostini2019}.
   }\label{tab:gedetav:official}
   \input{tab/gedet-av/gedetav-official.tex}
 \end{table}
@@ -68,7 +71,7 @@ dead, and regions with reduced CCE are expected. The CCE curve in this region st
 depends on the lithium concentration profile, which is in turn strongly dependent on the
 diode fabrication process (initial lithium concentration at the surface, thermal annealing
 cycles etc.) and is \emph{a priori} different for each detector. As a consequence, the
-transition region must be characterized for each detector individually, e.g.~in a similar
+transition region must be characterized for each detector individually, i.e.~in a similar
 way as FCCD is determined from external source data.
 \newpar
 It is important to stress here that a precise characterization of the transition layer is
@@ -76,23 +79,26 @@ not needed for the \onbb\ analysis, as the introduction of a partially-active re
 the FCCD results in hypothetical, new \onbb\ events below the \qbb. \onbb\ events
 originating in this transition region would in fact be detected with an effectively lower
 energy and therefore `get out' of the gaussian peak at \qbb, which is what the experiment
-looks for. In summary, the presence of a non-null transition layer would have no impact on
-the signal detection efficiency defined for the \onbb\ analysis. Constraining the CCE
-curve is instead very important for the \nnbb\ analysis. Different transition layer models
-result in shape distortions of the \nnbb\ energy distribution that can potentially mimic
-the presence of new-physics phenomena (e.g.~those considered in
-\cref{sec:nbb:0nbbx,sec:nbb:2nbbLV}). The potential systematic effect due to the
-uncertainties in the CCE curve determination is investigated in \cref{?}. Last but not
-least, the size of the transition region marginally affects the \thalftwo\ estimate, since
-it depends on the total number of detected \nnbb\ events.
+looks for. In other words, the presence of a non-null transition layer would have no
+impact on the signal detection efficiency defined for the \onbb\ analysis. Constraining
+the CCE curve is instead important for the \nnbb\ analysis. Different transition layer
+models result in shape distortions of the \nnbb\ energy distribution that can potentially
+mimic the presence of new-physics phenomena (e.g.~those considered in
+\cref{sec:nbb:0nbbx,sec:nbb:2nbbLV})\footnote{%
+  Technically, the size of the transition region marginally affects also the \thalftwo\
+  estimate, since it depends on the total number of detected \nnbb\ events, which
+  increases with the size of the transition region. This effect, however, is negligible
+  compared to the uncertainty induced by the FCCD estimates.
+}. The potential systematic effect due to the uncertainties in the CCE curve determination
+is investigated in \cref{sec:2nbb-ana:systematics}.
 \newpar
 An attempt to determine the CCE curve for \gerda's \bege\ detectors has been carried on
 in~\cite{Lehnert2016}. A simple linear model (the one shown in
-\cref{fig:gedetav:tl-model}) has been considered first. Once the FCCD is fixed, the only
-parameter that needs to be constrained is the starting point of the transition region,
-i.e.~the dead layer thickness (DLT). Monte Carlo simulations performed with different DLTs
-have been compared to \Am\ data in order to determine the dead layer fraction (DLF),
-defined as
+\cref{fig:gedetav:tl-model}) has been considered at first. Once the FCCD is fixed, as it
+is clear from the formulation of the model, the only parameter that needs to be
+constrained is the starting point of the transition region, i.e.~the dead layer thickness
+(DLT). Monte Carlo simulations performed with different DLTs have been compared to \Am\
+data in order to determine the dead-layer fraction (DLF), defined as
 \[
   \text{DLF} = \frac{\text{DLT}}{\text{FCCD}} \in [0,1] \;,
 \]
@@ -100,8 +106,8 @@ For each \bege\ detector. The results are reproduced in \cref{tab:gedetav:offici
 the effect of the lithium concentration profile evolution at room temperature on the
 transition region is not known, these values have not been corrected. A more complex
 transition layer model has been also derived from first principles in~\cite{Lehnert2016},
-but it requires special PSD data from other radioactive sources (\aoe\ from \nuc{Sr}{90}
-in~\cite{Lehnert2016}) that was available just for \GD{91C}.
+but it requires special PSD data from other radioactive sources (i.e.~\aoe\ from
+\nuc{Sr}{90} in~\cite{Lehnert2016}) that is available just for \GD{91C}.
 
 \blocktitle{known \\ issues}
 Unfortunately, the active volume model presented above suffers from many uncertainties and
@@ -118,7 +124,7 @@ profile in some way, and cannot be left uncorrected when considering data collec
 in some detectors. An evidence for the presence of these systematic biases lies in the
 results of the background model presented in \cref{chap:bkg:raw:ph2}, which yields
 incompatible \thalftwo\ estimates from different detector types. More evidence in support
-of this and possible solutions will be presented in the following sections.
+of this discrepancy and possible solutions will be presented in the following sections.
 
 \section{Tuning the \bege\ transition layer model on calibration data}%
 \label{sec:gedetav:calib-optim}
@@ -177,7 +183,7 @@ room temperature, which has never been studied in the transition region.
     \bege\ dead-layer fractions obtained from special \Th\ calibration data (run 68).
     Detector \GD{02D} does not fully deplete~\cite{Agostini2019} and is excluded from the
     analysis. Detectors marked with an asterisk ($^*$) are switched off or unusable in run
-    68. \fillme{fill numbers}
+    68.
   }\label{tab:gedetav:calib-optim}
   \input{tab/gedet-av/gedetav-calib.tex}
 \end{table}
@@ -223,10 +229,10 @@ It decays to the ground state of $^{39}$K via $\upbeta^-$ decay with a half-life
 naturally contains a fraction of \Arl, whose activity has been estimated to be of about
 1~Bq/kg by various experiments~\cite{Ajaj2019, Calvo2017, Benetti2006, Loosli1983}. The
 \Arl\ energy spectrum of events collected by \gerda\ in the first part of \phasetwo\ has
-been published in~\cite{Agostini2020}.
+been partly published in~\cite{Agostini2020}.
 \newpar
 The \b\ particle emitted in the \Arl\ decay can be detected directly or indirectly in
-\gerda. In the first case the electron has to directly reach the detector's active volume.
+\gerda. In the first case the electron has to directly reach the detector active volume.
 Since a \b\ particle of that energy has a mean range in germanium of less than 100~\mum\
 and the \nplus\ contact is typically several hundreds of \mum\ thick, the only way is
 through the \pplus\ electrode. For the same reason, the mother \Arl\ nucleus must decay
@@ -236,12 +242,13 @@ spectrum is expected to be sub-dominant or even negligible for point-like contac
 detectors such as \bege{}s or \icoax{}s (c.f.r~\cref{fig:gedetav:ar39:distortions}, left).
 \newpar
 \Arl\ electrons typically emit \emph{bremsstrahlung} radiation in LAr that can reach the
-detectors' active volume: this is referred as the `indirect' detection method. Since the
-photon absorption length in germanium and liquid argon is much longer than the electrons',
-\Arl\ decays originating much further from the detector surface can be detected. Moreover,
-\emph{bremsstrahlung} photons can interact with the whole detector volume, and thus
-constitute a `volume probe'. It follows from what stated above that the \g\ component
-largely dominates the \Arl\ event spectrum (c.f.r.~\cref{fig:gedetav:ar39:distortions}, left).
+detector active volume: this is referred as the `indirect' detection method. Since the
+photon absorption length in germanium and liquid argon is much longer than the electron
+absorption length, \Arl\ decays originating much further from the detector surface can be
+detected. Moreover, \emph{bremsstrahlung} photons can interact with the whole detector
+volume, and thus constitute a `volume probe'. It follows from what stated above that the
+\g\ component largely dominates the \Arl\ event spectrum
+(c.f.r.~\cref{fig:gedetav:ar39:distortions}, left).
 
 \begin{figure}
   \centering
@@ -276,11 +283,11 @@ the distribution.
 \blocktitle{tuning the \\ model}
 An attempt to fit the \Arl\ energy spectrum and extract FCCD and DLF values for each
 detector has been carried on, whose preliminary results are presented here. The
-\phasetwop\ data set (\gexpophasetwopbkg) has been considered, as the germanium detectors' energy threshold has
-been kept low enough (about 40~keV) for the whole data taking. No LAr veto cut or PSD cut
-has been applied, as the corresponding Monte Carlo model is not known in sufficient detail
-yet or is completely missing. Each detector collected more than $5 \cdot 10^4$ events
-below 200~keV, where the bulk of the \Arl\ events is located.
+\phasetwop\ data set (\gexpophasetwopbkg) has been considered, as the germanium detectors
+energy threshold has been kept low enough (about 40~keV) for the whole data taking. No LAr
+veto cut or PSD cut has been applied, as the corresponding Monte Carlo model is not known
+in sufficient detail yet or is completely missing. Each detector collected more than $5
+\cdot 10^4$ events below 200~keV, where the bulk of the \Arl\ events is located.
 \newpar
 A set of \Arl\ pdfs has been generated for each detector separately and considering
 different combinations of FCCD and DLF values. In this preliminary setting, FCCDs and DLFs
@@ -290,9 +297,19 @@ been generated.  Specifically, \Pbh\ and \Bih\ in the detector cabling, \nnbb\ i
 germanium, \kvz\ in liquid argon and \kvn\ in the mini-shrouds. \Arh, which decays into
 \kvz\ by emitting a \b\ particle with a Q-value of 599(6)~keV~\cite{Wang2017} which is
 very close to the \Arl\ Q-value, has not been considered as its activity in LAr is
-negligible, compared to \Arl~\cite{?}. The \Kr\ contribution has also been discarded
-because it is highly localized at 514~keV, in correspondence with its only \g\ line, and
-does not contribute significantly to the rest of the energy spectrum. To find the
+negligible, compared to \Arl\ (less than 43~\mubq/kg~\cite{Ashitkov2003}). The \Kr\
+contribution has also been discarded because it is highly localized at 514~keV, in
+correspondence with its only \g\ line, and does not contribute significantly to the rest
+of the energy spectrum\footnote{%
+  \Kr\ disintegrates by \b\ emission mainly to the ground state of \nuc{Rb}{85}. Its
+  activity in the atmosphere is of the order of 1 Bq/m$^3$, with a half-life of nearly
+  11~yr. Its energy spectrum is characterized by a strong \g\ line at 514~keV, compared to
+  the Compton and \b\ components. The distillation procedure for the production of liquid
+  argon substantially reduces the \Kr\ fraction, and the residual \Kr\ in liquid argon may
+  vary in different batches of liquid~\cite{Benetti2006}. A rough estimate of its
+  activity in the liquid argon in the \gerda\ cryostat obtained by comparing the simulated
+  \Kr\ pdf to the 514~keV line count rate yields 2.3(3)~mBq/kg.
+}. To find the
 combination of FCCD and DLF that best describes the data, first the background of
 the \Arl\ event distribution is fixed at the results of the background model
 presented in \cref{chap:bkg:raw:ph2}. Then, for each detector separately, the \Arl\
@@ -304,12 +321,14 @@ preliminary set for all of them. The results of this manual optimization are sho
 including the 68\%, 95\% and 99\% confidence intervals that highlight the magnitude of
 statistical fluctuations in data. The obtained FCCD and DLF values are compared to the
 official values from detector characterization data (where available) in
-\cref{fig:gedetav:ar39-results}. Note that data is not available for some detectors that
-have not been deployed in \phasetwop\ (\ANG{1}) or were switched off because of hardware
-instabilities (\ANG{5} and \IC{48B}).
+\cref{fig:gedetav:ar39-results}. It is stressed here that these results are preliminary
+and qualitative, as they have not been extracted by means of a careful analysis, which
+includes the evaluation of the systematic uncertainties. Note that data is not available
+for some detectors that have not been deployed in \phasetwop\ (\ANG{1}) or were switched
+off because of hardware instabilities (\ANG{5} and \IC{48B}).
 
 \blocktitle{results}
-Starting from the FCCD values, it is interesting to note the great compatibility between
+Starting from the FCCD values, it is interesting to note the high compatibility between
 the characterization data and the \Arl\ data for \icoax\ detectors. Indeed, these are the
 most precisely-characterized and newly-produced detectors deployed in \gerda. In contrast,
 the \Arl\ data analysis reports quite different FCCDs for some \scoax\ detectors, but the
@@ -317,7 +336,7 @@ uncertainty on their official estimate is large enough to account for such a dev
 The situation changes again for \bege\ detectors, in which the new values are almost
 always higher than the official estimates and incompatible with them. This discrepancy
 could be motivated by the observation that these detectors have been stored at room
-temperature, after being characterized, for 2--3 years, a time in which the Lithium
+temperature, after being characterized, for 2--3 years, a time in which the lithium
 concentration profile in the \nplus\ contact could have grown at a different rate than
 what has been suggested in the past (\cite{Agostini2019} and references therein). For what
 concerns the \bege\ dead-layer fraction values, the \Arl\ analysis results are
@@ -333,8 +352,9 @@ efforts~\cite{Ajaj2019, Calvo2017, Benetti2006, Loosli1983}, which quote an acti
 about 1~Bq/kg. Considering that an independent analysis of \gerda\ \phaseone\ data
 (private communications) seems to obtain the same result and there is no reason to
 hypothesize that the argon deployed in \gerda\ has a naturally-higher \Arl\ activity, the
-explanation might lie in the different experimental conditions in which \gerda\ operates.
-However, no convincing hypothesis have been formulated nor tested yet.
+explanation might lie in the different experimental conditions in which \gerda\ operates,
+compared to other experiments. However, no convincing hypothesis have been formulated nor
+tested yet.
 
 \begin{figure}
   \centering
@@ -357,7 +377,7 @@ sources of systematic biases is given here for completeness.
 \begin{description}
   \item[Quality cuts] The effectiveness of the quality cuts has never been verified in the
     \Arl\ energy region, where a large fraction of the total number of unphysical events
-    can be expected. A quality cuts efficiency degrading around the energy threshold might
+    can be expected. A degrading quality cuts efficiency around the energy threshold might
     induce deformations of the event energy distribution.
   \item[Energy scale and resolution] The correctness of the calibration and resolution
     curves of the germanium detector has never been investigated in detail at such low
@@ -384,6 +404,13 @@ sources of systematic biases is given here for completeness.
     judging from the order of magnitude of the distortions shown in~\cite{Kostensalo2017},
     this theoretical uncertainty should have a negligible impact.
 \end{description}
+
+These qualitative results, despite not being obtained within a robust statistical
+framework and despite the lack of a careful study of potential sources of systematic
+uncertainties, show all the potential of an \Arl\ data analysis. This decaying nucleus
+offers the unique possibility to characterize the active volume of germanium detectors
+\emph{in situ} and in a clear way, without recurring to dedicated characterization
+campaigns prior installment in the experimental apparatus.
 
 \begin{figure}
   \centering
@@ -424,5 +451,41 @@ sources of systematic biases is given here for completeness.
     The corresponding FCCD and DLF values are shown in \cref{fig:gedetav:ar39-results}.
   }\label{fig:gedetav:spectra-optim-4}
 \end{figure}
+
+\chapsummary
+\begin{itemize}
+  \item A transition region in which the charge-collection efficiency is reduced is
+    present between the \nplus\ contact surface of a germanium detector
+    and the fully-active volume (defined as the region in which the efficiency is
+    maximal). The full charge-collection depth and the size of the transition region have
+    been measured during dedicated detector characterization campaigns.
+  \item The \scoax\ detectors inherited from the \hdm\ and \igex\ experiments have not
+    been characterized very precisely, and the uncertainty on their active volume is
+    large. \bege\ and \icoax\ detectors have been instead precisely characterized. \bege\
+    detectors, however, have been stored at room temperature for 2--3 years after their
+    characterization and before being deployed in liquid argon. This fact poses a large
+    systematic uncertainty on the dead-layer thickness, which is known to grow at that
+    temperature due to the diffusion of the lithium dopant. The dynamics of the lithium
+    diffusion in a germanium detector, unfortunately, have never been studied in detail in
+    an experimental setting. Moreover, systematic discrepancies are noticed between
+    results obtained with different characterization methods, which are not fully
+    explained.
+  \item To estimate the size of the transition region in \bege\ detectors, an important
+    parameter for the \nnbb\ shape analysis (\cref{chap:2nbb-ana}), the
+    full-energy \Tl\ peak from \Th\ calibration data is modeled via Monte Carlo
+    simulations. Energy spectrum shapes are generated considering different sizes of the
+    transition region and compared to data to find the best-matching values on a
+    detector-by-detector basis. The obtained values suggest that the fully-dead layer (the
+    region between the outer surface and the starting point of the transition region) is
+    thicker than what predicted by characterization data.
+  \item The high-statistics, low-energy \Arl\ data sample is also qualitatively analyzed
+    to characterize the fully-active volume and the transition region. Preliminary results
+    confirm the discrepancy between data and official active-volume parameters for \bege\
+    detectors, while \icoax{}s characteristics seem to be well reproduced. These
+    preliminary investigations show the potential of an analysis of the \Arl\ data to
+    precisely constrain the active volume model of a germanium detector without the need
+    of dedicated characterization campaigns preceding deployment in the experimental
+    apparatus.
+\end{itemize}
 
 % vim: tw=90
