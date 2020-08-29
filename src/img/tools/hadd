@@ -1,0 +1,114 @@
+//usr/bin/env root -q -l ${0}\(\""${0}"\",\""${*}"\"\); exit $?
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+#include <fstream>
+#include <getopt.h>
+
+void usage() {
+    std::cerr << "\n"
+              << "USAGE: hadd [options] ROOTfile:objname ...\n"
+              << "\n"
+              << "options:\n"
+              << "  -r | --rebin n : apply rebin factor n\n"
+              << "\n";
+    gSystem->Exit(1);
+}
+
+void hadd(std::string prog = "csvifier", std::string args = "") {
+
+    // this is for getopt to work
+    args = prog + " " + args;
+
+    int argc = 0;
+    char** argv = new char*[500];
+
+    // get all arguments
+    std::istringstream iss(args);
+    std::string word;
+    while (iss >> word) {
+        char* tmp = new char[500];
+        strcpy(tmp, word.c_str());
+        argv[argc] = tmp;
+        argc++;
+    }
+
+    const char* const short_opts = "r:nh";
+    const option long_opts[] = {
+        { "rebin",     required_argument, nullptr, 'r' },
+        { "help",      no_argument,       nullptr, 'h' },
+        // add other options...
+        { nullptr,     no_argument,       nullptr, 0   }
+    };
+
+    int rebfactor = 1;
+
+    // read in with getopt
+    int opt = 0;
+    while ((opt = getopt_long(argc, argv, short_opts, long_opts, nullptr)) != -1) {
+        switch (opt) {
+            case 'r':
+                rebfactor = std::stoi(optarg);
+                break;
+            case 'h': // -h or --help
+            case '?': // Unrecognized option
+            default:
+                usage();
+        }
+    }
+
+    // get extra arguments
+    std::vector<std::string> extra_args;
+    for(; optind < argc; optind++){
+        extra_args.emplace_back(argv[optind]);
+    }
+
+    if (extra_args.empty()) usage();
+
+    TH1* sum = nullptr;
+
+    auto filename = extra_args.back().substr(0, extra_args.back().find_first_of(':'));
+    auto objname = extra_args.back().substr(extra_args.back().find_first_of(':')+1, std::string::npos);
+    auto tfout = new TFile(filename.c_str(), "update");
+
+    for (auto a : extra_args) {
+
+        filename = a.substr(0, a.find_first_of(':'));
+        objname = a.substr(a.find_first_of(':')+1, std::string::npos);
+
+        if (a == extra_args.back()) {
+            tfout->cd();
+            sum->SetDirectory(tfout);
+            sum->SetName(objname.c_str());
+            sum->Write();
+            tfout->Close();
+            return;
+        }
+
+        if (a.find(':') == std::string::npos) {
+            throw std::invalid_argument("input '" + a + "' not in the form 'file:object'");
+        }
+
+        auto tf = new TFile(filename.c_str(), "read");
+        if (!tf->IsOpen()) throw std::invalid_argument("error reading '" + filename + "'");
+        auto h = dynamic_cast<TH1*>(tf->Get(objname.c_str()));
+        if (!h) throw std::invalid_argument("error reading object '" + objname + "' in file '" + filename + "'");
+
+        h->Rebin(rebfactor);
+
+        if (!sum) {
+            sum = dynamic_cast<TH1*>(h->Clone());
+            sum->SetDirectory(tfout);
+        }
+        else {
+            sum->Add(h);
+        }
+        tf->Close();
+    }
+
+    return;
+}
+
+// vim: filetype=cpp

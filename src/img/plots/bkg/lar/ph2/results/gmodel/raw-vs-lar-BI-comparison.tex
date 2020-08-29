@@ -1,0 +1,126 @@
+%! TEX program = xelatex
+\input{../../../../../../../tex/standalone-def.tex}
+\input{../../../../../../../tex/macros.tex}
+\import{}{pgfplots-def}
+
+\pgfplotsset{%
+  width=8cm,
+  group style={%
+    group size=2 by 1,
+    ylabels at=edge left,
+    yticklabels at=edge left,
+    % y descritions at=,
+    vertical sep=2pt,
+    horizontal sep=2pt,
+  },
+  every tick label/.append style={font=\small},
+  group/every plot/.style={
+    typeset ticklabels with strut,
+    ymin=1E-7, ymax=1E-3,
+    xtick={1,2,3,4,5,6},
+    xticklabels={\Ac,\Th,\Co,\kvz,\Uh,\textbf{SUM}},
+    ylabel={BI (\ctsper)},
+    grid=both,
+    legend pos=south east,
+    legend style={draw=black},
+    only marks,
+    mark size=1.2pt,
+    error bars/x dir=both,
+    error bars/x explicit,
+    error bars/y dir=both,
+    error bars/y explicit,
+    table/col sep=space,
+    table/x=id,
+  },
+  raw BEGe/.style={%
+    TolVibBlue, mark=*,
+    table/y expr={\thisrow{margmode}/32.7},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/32.7},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/32.7}
+  },
+  raw SemiCoax/.style={%
+    TolVibBlue, mark=*,
+    table/y expr={\thisrow{margmode}/28.6},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/28.6},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/28.6}
+  },
+  raw All/.style={%
+    TolVibBlue, mark=*,
+    table/y expr={\thisrow{margmode}/61},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/61},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/61}
+  },
+  lar BEGe/.style={%
+    TolVibRed, mark=*,
+    table/y expr={\thisrow{margmode}/32.7},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/32.7},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/32.7}
+  },
+  lar SemiCoax/.style={%
+    TolVibRed, mark=*,
+    table/y expr={\thisrow{margmode}/28.6},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/28.6},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/28.6}
+  },
+  lar All/.style={%
+    TolVibRed, mark=*,
+    table/y expr={\thisrow{margmode}/61},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/61},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/61}
+  },
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}
+
+      \nextgroupplot[ymode=log, xlabel=\enrBEGeII]
+
+      \addplot[raw BEGe] table {%
+        iso   id margmode 16qt      84qt
+        Ac228 1  2.02e-05 1.627e-05 2.428e-05
+        Th228 2  0.00331  0.0030965 0.0035805
+        Co60  3  0.000327 0.0002675 0.0003879
+        K42   4  0.0042   0.0035255 0.0050360
+        U238  5  0.00257  0.0024112 0.0027309
+        tot   6  0.01565  0.0149619 0.0163245
+      };
+
+      \addplot[lar BEGe] table {%
+        iso   id margmode 16qt      84qt
+        Ac228 1  2.06e-05 1.720e-05 2.399e-05
+        Th228 2  3.08e-05 2.077e-05 4.148e-05
+        Co60  3  1.35e-05 6.634e-06 3.542e-05
+        K42   4  0.000705 0.0004144 0.0012430
+        U238  5  0.000525 0.0004688 0.0005771
+        tot   6  0.011725 0.0112119 0.0122129
+      };
+
+      \addlegendentry{before cuts};
+      \addlegendentry{after LAr cut};
+
+      \nextgroupplot[ymode=log, xlabel=\enrCoaxII]
+
+      \addplot[raw SemiCoax] table {%
+        iso   id margmode 16qt      84qt
+        Ac228 1  1.98e-05 1.601e-05 2.389e-05
+        Th228 2  0.00225  0.0020979 0.0024283
+        Co60  3  0.000321 0.0002586 0.0003750
+        K42   4  0.0042   0.0036835 0.0047802
+        U238  5  0.00179  0.0016881 0.0019125
+        tot   6  0.00618  0.0058395 0.0066502
+      };
+
+      \addplot[lar SemiCoax] table {%
+        iso   id margmode  16qt      84qt
+        Ac228 1  2.02e-05  1.695e-05 2.365e-05
+        Th228 2  2.43e-05  1.712e-05 3.420e-05
+        Co60  3  1.55e-05  8.703e-06 4.640e-05
+        K42   4  0.001665  0.0013426 0.0021502
+        U238  5  0.0003825 0.0003417 0.0004206
+        tot   6  0.00507   0.0047459 0.0055134
+      };
+
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}

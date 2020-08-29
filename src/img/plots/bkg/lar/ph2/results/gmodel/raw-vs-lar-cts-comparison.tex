@@ -1,0 +1,148 @@
+%! TEX program = xelatex
+\input{../../../../../../../tex/standalone-def.tex}
+\input{../../../../../../../tex/macros.tex}
+\import{}{pgfplots-def}
+
+\pgfplotsset{%
+  width=5.8cm,
+  group style={%
+    group size=3 by 1,
+    ylabels at=edge left,
+    yticklabels at=edge left,
+    % y descritions at=,
+    vertical sep=2pt,
+    horizontal sep=2pt,
+  },
+  every tick label/.append style={font=\footnotesize},
+  group/every plot/.style={
+    typeset ticklabels with strut,
+    % ymin=1E-7, ymax=1E-3,
+    xtick={1,2,3,4,5,6},
+    xticklabels={\Ac,\Th,\Co,\kvn,\kvz,\Uh},
+    ylabel={BI (\ctsper)},
+    grid=both,
+    legend pos=south east,
+    legend style={draw=black},
+    only marks,
+    mark size=1.2pt,
+    error bars/x dir=both,
+    error bars/x explicit,
+    error bars/y dir=both,
+    error bars/y explicit,
+    table/col sep=space,
+    table/x=id,
+  },
+  raw BEGe/.style={%
+    TolVibBlue, mark=*,
+    table/y expr={\thisrow{margmode}/32.7},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/32.7},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/32.7}
+  },
+  raw SemiCoax/.style={%
+    TolVibBlue, mark=*,
+    table/y expr={\thisrow{margmode}/28.6},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/28.6},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/28.6}
+  },
+  raw All/.style={%
+    TolVibBlue, mark=*,
+    table/y expr={\thisrow{margmode}/61},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/61},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/61}
+  },
+  lar BEGe/.style={%
+    TolVibRed, mark=*,
+    table/y expr={\thisrow{margmode}/32.7},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/32.7},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/32.7}
+  },
+  lar SemiCoax/.style={%
+    TolVibRed, mark=*,
+    table/y expr={\thisrow{margmode}/28.6},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/28.6},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/28.6}
+  },
+  lar All/.style={%
+    TolVibRed, mark=*,
+    table/y expr={\thisrow{margmode}/61},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/61},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/61}
+  },
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}
+
+      \nextgroupplot[ymode=log, xlabel=\enrBEGeII]
+
+      \addplot[raw BEGe] table {%
+        iso   id margmode 16qt 84qt
+        Ac228 1  479  386  577
+        Th228 2  405  377  437
+        Co60  3  387  311  449
+        K40   4  6777 4587 9173
+        K42   5  16271 9733 22306
+        U238  6  1305 1220 1383
+      };
+
+      \addplot[lar BEGe] table {%
+        iso   id margmode 16qt 84qt
+        Ac228 1  206  172  239
+        Th228 2  76   51   103
+        Co60  3  7    3    16
+        K40   4  2192 1744 2727
+        K42   5  1240 1131 1364
+        U238  6  175  156  193
+      };
+
+      \addlegendentry{before cuts};
+      \addlegendentry{after LAr cut};
+
+      \nextgroupplot[ymode=log, xlabel=\enrCoaxII]
+
+      \addplot[raw SemiCoax] table {%
+        iso   id margmode 16qt 84qt
+        Ac228 1  313  253  378
+        Th228 2  252  235  272
+        Co60  3  234  188  272
+        K40   4  6123 4144 8288
+        K42   5  14806 8996 20095
+        U238  6  787  735  833
+      };
+
+      \addplot[lar SemiCoax] table {%
+        iso   id margmode  16qt 84qt
+        Ac228 1  147  123  171
+        Th228 2  44   29   59
+        Co60  3  5    2    13
+        K40   4  2337 1872 2888
+        K42   5  1712 1493 1931
+        U238  6  112  100  123
+      };
+
+      \nextgroupplot[ymode=log, xlabel=\enrGeII]
+
+      \addplot[raw All] table {%
+        iso   id margmode 16qt 84qt
+        Ac228 1  327  264  394
+        Th228 2  440  410  475
+        Co60  3  349  280  405
+        K40   4  3013 2034 4091
+        K42   5  7434 4431 10195
+        U238  6  1038 971  1100
+      };
+
+      \addplot[lar All] table {%
+        iso   id margmode 16qt 84qt
+        Ac228 1  123  102  142
+        Th228 2  45   31   61
+        Co60  3  10   5    25
+        K40   4  1266 1004 1579
+        K42   5  696  647  747
+        U238  6  39   26   51
+      };
+
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}

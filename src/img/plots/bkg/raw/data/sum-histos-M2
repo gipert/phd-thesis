@@ -1,0 +1,40 @@
+#!/usr/bin/env zsh
+
+hadd="../../../../tools/hadd"
+
+outfile="M2-spectra.root"
+
+phII_file="/home/gipert/code/gerda/gerda-fitter/results/phII-raw-global_light_blocks/gerda-fitter-phII-raw-global_light_blocks-histograms.root:gerda_data_bkgmodel_phaseII_v07_00_raw_M2_"
+phIIp_file="/home/gipert/code/gerda/gerda-fitter/results/phIIp-raw-global_light_blocks/gerda-fitter-phIIp-raw-global_light_blocks-histograms.root:gerda_data_bkgmodel_phaseIIplus_v07_00_raw_M2_"
+
+rm -f ${outfile}
+
+eval ${hadd} ${phII_file}enrE1plusE2/originals/fitted_data \
+             ${phIIp_file}enrE1plusE2/originals/fitted_data ${outfile}:fitted_data
+
+eval ${hadd} ${phII_file}enrE1plusE2/originals/total_model \
+             ${phIIp_file}enrE1plusE2/originals/total_model ${outfile}:total_model
+
+eval ${hadd} ${phII_file}enrE1plusE2/originals/K40_{close,far} \
+             ${phIIp_file}enrE1plusE2/originals/K40_close ${outfile}:K40
+
+eval ${hadd} ${phII_file}enrE1plusE2/originals/K42_{above_array,inside_ms,nplus_semicoax,outside_ms} \
+             ${phIIp_file}enrE1plusE2/originals/K42_{above_array,inside_ms,nplus_semicoax,nplus_invcoax,outside_ms} ${outfile}:K42
+
+eval ${hadd} ${phII_file}enrE1plusE2/originals/Co60_cables \
+             ${phIIp_file}enrE1plusE2/originals/Co60_cables ${outfile}:Co60
+
+eval ${hadd} ${phII_file}enrE1plusE2/originals/Ac228_holders \
+             ${phIIp_file}enrE1plusE2/originals/Ac228_holders ${outfile}:Ac228
+
+eval ${hadd} ${phII_file}enrE1plusE2/originals/Bi212Tl208_cables \
+             ${phIIp_file}enrE1plusE2/originals/Bi212Tl208_cables ${outfile}:Bi212Tl208
+
+eval ${hadd} ${phII_file}enrE1plusE2/originals/Pb214Bi214_cables \
+             ${phIIp_file}enrE1plusE2/originals/Pb214Bi214_cables ${outfile}:Pb214Bi214
+
+eval ${hadd} ${phIIp_file}enrE1plusE2/originals/Zn65_invcoax ${outfile}:Zn65
+
+../../../../tools/csvifier -r 15 ${outfile}:{fitted_data,total_model,K40,K42,Co60,Ac228,Bi212Tl208,Pb214Bi214,Zn65}
+
+mv data.csv M2-spectra.csv

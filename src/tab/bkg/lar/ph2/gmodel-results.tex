@@ -6,49 +6,37 @@
 \begin{tabular}{%
   r
   l
-  S[% BEGe
-    table-format=5.0,
-    table-number-alignment=center,
-    table-text-alignment=center,
-    table-auto-round=true
-  ]@{ | }
+  r@{ | }
   l
-  S[% Coax
-    table-format=4.0,
-    table-number-alignment=center,
-    table-text-alignment=right,
-    table-auto-round
-    ]@{ | }
+  r@{ | }
   l
-  S[% M2-All
-    table-format=4.0,
-    table-number-alignment=center,
-    table-text-alignment=center,
-    table-auto-round
-  ]
+  r
 }
   \toprule
   \mrr{3}{source}      & \mrr{3}{location}             & \mc{5}{model content in fit range | BI at \qbb}                                             \\
-                       &                               & \mc{5}{units: cts | $10^{-3}$\ctsper}                                                       \\
+                       &                               & \mc{5}{units: cts | $10^{-4}$\ctsper}                                                       \\
   \cmidrule(lr){3-7}
-                       &                               & \mc{2}{\enrBEGeII}                     & \mc{2}{\enrCoaxII}                     & \enrGeII\ \\
+                       &                               & \mc{2}{\enrBEGeII}                                   & \mc{2}{\enrCoaxII}                                    & \enrGeII\        \\
   \midrule
-  \mr{2}{\nnbb}        & \bege\ detectors              & ?       & \mrc{2}{0}                   & ?       & \mrc{2}{0}                   & ?         \\
-                       & \scoax\ detectors             & ?       &                              & ?       &                              & ?         \\
+  \mr{2}{\nnbb}        & \bege\ detectors              & 45511 $[45274,45722]$ & \mrc{2}{0}                   & --                     & \mrc{2}{0}                   & --               \\
+                       & \scoax\ detectors             & --                    &                              & 39242 $[39049, 39470]$ &                              & --               \\
   \midrule
-  \mr{2}{\kvn}         & far from the array            & ?       & \mrc{2}{0}                   & ?       & \mrc{2}{0}                   & ?         \\
-                       & close to the array            & ?       &                              & ?       &                              & ?         \\
+  \mr{2}{\kvn}         & far from the array            & 775 $[506,1028]$      & \mrc{2}{0}                   & 739 $[484, 981]$       & \mrc{2}{0}                   & 466 $[305, 619]$ \\
+                       & close to the array            & 1485 $[1237,1699]$    &                              & 1636 $[1390, 1905]$    &                              & 824 $[700, 960]$ \\
   \midrule
-  \mr{3}{\kvz}         & \nplus\ (\scoax)              & ?       & \mrc{3}{5.69\\$[4.58,6.29]$} & ?       & \mrc{3}{1.29\\$[1.15,1.40]$} & ?         \\
-                       & LAr {--} outside mini-shrouds & ?       &                              & ?       &                              & ?         \\
-                       & LAr {--} inside  mini-shrouds & ?       &                              & ?       &                              & ?         \\
+  \mr{3}{\kvz}         & \nplus\ (\scoax)              & 24 $[16,30]$          & \mrc{3}{7.05\\$[4.14,1.24]$} & 359 $[237, 464]$       & \mrc{3}{16.7\\$[13.4,21.5]$} & 39 $[26, 50]$    \\
+                       & LAr {--} outside mini-shrouds & 1114 $[1065,1164]$    &                              & 1267 $[1212, 1324]$    &                              & 641 $[613, 670]$ \\
+                       & LAr {--} inside  mini-shrouds & 108 $[52,172]$        &                              & 86 $[43, 143]$         &                              & 16 $[8, 27]$     \\
   \midrule
-  \Bil\ + \Tl\         & flat cables                   & ?       & 3.52 $[3.30,3.76]$           & ?       & 2.21 $[2.03,2.34]$           & ?         \\
-  \Pbh\ + \Bih\        & flat cables                   & ?       & 2.63 $[2.50,2.78]$           & ?       & 3.16 $[2.83,3.50]$           & ?         \\
-  \Ac\                 & detector holders              & ?       & 0.36 $[0.31,0.40]$           & ?       & 0.33 $[0.28,0.37]$           & ?         \\
+  \Bil\ + \Tl\         & cabling                       & 76 $[51,103]$         & 0.31 $[0.21,0.41]$           & 44 $[30, 59]$          & 0.24 $[0.17,0.34]$           & 45 $[31, 62]$    \\
+  \Pbh\ + \Bih\        & cabling                       & 175 $[157,192]$       & 5.25 $[4.69,5.77]$           & 110 $[100, 123]$       & 3.83 $[3.42,4.21]$           & 122 $[111, 136]$ \\
+  \Co\                 & cabling                       & 6 $[3,16]$            & 0.14 $[0.07,0.35]$           & 5 $[2, 12]$            & 0.16 $[0.09,0.46]$           & 10 $[5, 25]$     \\
+  \Ac\                 & detector holders              & 202 $[171,239]$       & 0.21 $[0.17,0.24]$           & 149 $[123, 171]$       & 0.20 $[0.17,0.24]$           & 124 $[102, 142]$ \\
   \midrule
-  \mr{2}{\a\ decays}   & \Po\ + \Ra\ chain (\bege)     & ?       & \mrc{2}{3.31\\$[3.12,3.78]$} & ?       & \mrc{2}{4.76\\$[4.40,5.08]$} & ?         \\
-                       & \Po\ + \Ra\ chain (\scoax)    & ?       &                              & ?       &                              & ?         \\
+  \mr{2}{\a\ decays}   & \Po\ + \Ra\ chain (\bege)     & 1228 $[1187,1265]$    & \mrc{2}{46.6\\$[49.7,50.2]$} & --                     & \mrc{2}{29.3\\$[28.7,30.1]$} & --               \\
+                       & \Po\ + \Ra\ chain (\scoax)    & --                    &                              & 1927 $[1883, 1975]$    &                              & --               \\
+  \midrule
+  \textsc{total}       &                               &                       & 61.8 $[58.4,66.5]$           &                        & 50.7 $[47.5,55.1]$           &                  \\
   \bottomrule%
 \end{tabular}%
 

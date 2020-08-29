@@ -1,0 +1,46 @@
+#!/usr/bin/env zsh
+
+hadd="../../../../tools/hadd"
+
+outfile="M1-spectra.root"
+
+phII_file="/home/gipert/code/gerda/gerda-fitter/results/phII-raw-global_light_blocks/gerda-fitter-phII-raw-global_light_blocks-histograms.root:gerda_data_bkgmodel_phaseII_v07_00_raw_M1_"
+phIIp_file="/home/gipert/code/gerda/gerda-fitter/results/phIIp-raw-global_light_blocks/gerda-fitter-phIIp-raw-global_light_blocks-histograms.root:gerda_data_bkgmodel_phaseIIplus_v07_00_raw_M1_"
+
+rm -f ${outfile}
+
+eval ${hadd} ${phII_file}{enrBEGe,enrCoax}/originals/fitted_data \
+             ${phIIp_file}{enrBEGe,enrCoax,invCoax}/originals/fitted_data ${outfile}:fitted_data
+
+eval ${hadd} ${phII_file}{enrBEGe,enrCoax}/originals/total_model \
+             ${phIIp_file}{enrBEGe,enrCoax,invCoax}/originals/total_model ${outfile}:total_model
+
+eval ${hadd} ${phII_file}{enrBEGe/originals/Nnbb_bege,enrCoax/originals/Nnbb_semicoax} \
+             ${phIIp_file}{enrBEGe/originals/Nnbb_bege,enrCoax/originals/Nnbb_semicoax,invCoax/originals/Nnbb_invcoax} ${outfile}:Nnbb
+
+eval ${hadd} ${phII_file}{enrBEGe,enrCoax}/originals/K40_{close,far} \
+             ${phIIp_file}{enrBEGe,enrCoax,invCoax}/originals/K40_close ${outfile}:K40
+
+eval ${hadd} ${phII_file}{enrBEGe,enrCoax}/originals/K42_{above_array,inside_ms,nplus_semicoax,outside_ms} \
+             ${phIIp_file}{enrBEGe,enrCoax,invCoax}/originals/K42_{above_array,inside_ms,nplus_semicoax,nplus_invcoax,outside_ms} ${outfile}:K42
+
+eval ${hadd} ${phII_file}{enrBEGe,enrCoax}/originals/Co60_cables \
+             ${phIIp_file}{enrBEGe,enrCoax,invCoax}/originals/Co60_cables ${outfile}:Co60
+
+eval ${hadd} ${phII_file}{enrBEGe,enrCoax}/originals/Ac228_holders \
+             ${phIIp_file}{enrBEGe,enrCoax,invCoax}/originals/Ac228_holders ${outfile}:Ac228
+
+eval ${hadd} ${phII_file}{enrBEGe,enrCoax}/originals/Bi212Tl208_cables \
+             ${phIIp_file}{enrBEGe,enrCoax,invCoax}/originals/Bi212Tl208_cables ${outfile}:Bi212Tl208
+
+eval ${hadd} ${phII_file}{enrBEGe,enrCoax}/originals/Pb214Bi214_cables \
+             ${phIIp_file}{enrBEGe,enrCoax,invCoax}/originals/Pb214Bi214_cables ${outfile}:Pb214Bi214
+
+eval ${hadd} ${phII_file}{enrBEGe/originals/alpha_high_energy_bege,enrCoax/originals/alpha_high_energy_coax} \
+             ${phIIp_file}{enrBEGe/originals/alpha_high_energy_bege,enrCoax/originals/alpha_high_energy_coax,invCoax/originals/alpha_high_energy_invcoax} ${outfile}:alpha
+
+eval ${hadd} ${phIIp_file}{enrBEGe,enrCoax,invCoax}/originals/Zn65_invcoax ${outfile}:Zn65
+
+../../../../tools/csvifier -r 15 ${outfile}:{fitted_data,total_model,Nnbb,K40,K42,Co60,Ac228,Bi212Tl208,Pb214Bi214,Zn65,alpha}
+
+mv data.csv M1-spectra.csv

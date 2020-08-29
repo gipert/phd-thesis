@@ -1,0 +1,184 @@
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{fillbetween}
+
+\pgfplotsset{%
+  height=5.5cm,
+  xmin=565, xmax=5250,
+  legend style={%
+    font=\small,
+    draw=none,
+    fill=none,
+    /tikz/every even column/.append style={column sep=8pt},
+  },
+  legend columns=3,
+  legend pos=north east,
+  xlabel={Energy (keV)},
+  ylabel={Counts / keV},
+  xtick pos=both,
+  histogram/.append style={%
+    table/x=bin_low_edge,
+    line width=0.7pt,
+  },
+  loghistogramaxis/.append style={%
+    ymin=1e-4,
+  },
+  group style={%
+    group size=1 by 2,
+    xticklabels at=edge bottom,
+    xlabels at=edge bottom,
+    vertical sep=1pt,
+  },
+  spectrum/.style={%
+    loghistogramaxis,
+  },
+  data/.style={%
+    loghistogram,
+    table/x=bin_center,
+    table/y=fitted_data,
+    % draw=none,
+    % fill=TolVibBlue,
+    % fill opacity=0.3,
+    % area legend,
+    only marks,
+    mark size=0.5pt,
+  },
+  model/.style={%
+    loghistogram,
+    black,
+    table/y=total_model,
+  },
+  residuals/.style={%
+    height=3cm,
+    ylabel={residuals},
+  },
+  ratio/.style={%
+    histogram,
+    mark=*,
+    mark size=0.5pt,
+    only marks,
+    table/x=bin_center,
+    % table/y expr=\thisrow{fitted_data}/\thisrow{total_model},
+    table/y=norm_pois_res,
+  },
+  1sigu/.style={%
+    histogram,
+    % table/y expr=\thisrow{1sig_p}/\thisrow{total_model},
+    table/y expr=1,
+    TolLigPear,
+    name path=1sigu,
+    forget plot,
+  },
+  1sigl/.style={%
+    histogram,
+    % table/y expr=\thisrow{1sig_m}/\thisrow{total_model},
+    table/y expr=-1,
+    TolLigPear,
+    name path=1sigl,
+    forget plot,
+  },
+  2sigu/.style={%
+    histogram,
+    % table/y expr=\thisrow{2sig_p}/\thisrow{total_model},
+    table/y expr=2,
+    TolLigYellow,
+    name path=2sigu,
+    forget plot,
+  },
+  2sigl/.style={%
+    histogram,
+    % table/y expr=\thisrow{2sig_m}/\thisrow{total_model},
+    table/y expr=-2,
+    TolLigYellow,
+    name path=2sigl,
+    forget plot,
+  },
+  3sigu/.style={%
+    histogram,
+    % table/y expr=\thisrow{3sig_p}/\thisrow{total_model},
+    table/y expr=3,
+    TolLigOrange,
+    name path=3sigu,
+    forget plot,
+  },
+  3sigl/.style={%
+    histogram,
+    % table/y expr=\thisrow{3sig_m}/\thisrow{total_model},
+    table/y expr=-3,
+    TolLigOrange,
+    name path=3sigl,
+    forget plot,
+  },
+  1sigb/.style={%
+    TolLigPear,
+    area legend,
+    forget plot,
+  },
+  2sigb/.style={%
+    TolLigYellow,
+    area legend,
+    forget plot,
+  },
+  3sigb/.style={%
+    TolLigOrange,
+    area legend,
+    forget plot,
+  },
+  Ac228/.style={%
+    loghistogram,
+    TolVibBlue,
+    table/y=Ac228,
+  },
+  Th228/.style={%
+    loghistogram,
+    TolVibCyan,
+    table/y=Bi212Tl208,
+  },
+  U238/.style={%
+    loghistogram,
+    TolVibTeal,
+    table/y=Pb214Bi214,
+  },
+  Co60/.style={%
+    loghistogram,
+    TolVibOrange,
+    table/y=Co60,
+  },
+  K40/.style={%
+    loghistogram,
+    TolVibRed,
+    table/y=K40,
+  },
+  K42/.style={%
+    loghistogram,
+    TolVibMagenta,
+    table/y=K42,
+  },
+  2nbb/.style={%
+    loghistogram,
+    TolMutOlive,
+    table/y=Nnbb,
+  },
+  Zn65/.style={%
+    loghistogram,
+    TolBriGreen,
+    table/y=Zn65,
+  },
+  alpha/.style={%
+    loghistogram,
+    TolMutSand,
+    table/y=alpha,
+  },
+}
+
+\newcommand{\addbrasilianplot}{%
+  \addplot[3sigu] table {\loadedtable};
+  \addplot[3sigl] table {\loadedtable};
+  \addplot[3sigb] fill between [of=3sigu and 3sigl];
+  \addplot[2sigu] table {\loadedtable};
+  \addplot[2sigl] table {\loadedtable};
+  \addplot[2sigb] fill between [of=2sigu and 2sigl];
+  \addplot[1sigu] table {\loadedtable};
+  \addplot[1sigl] table {\loadedtable};
+  \addplot[1sigb] fill between [of=1sigu and 1sigl];
+  \addplot[ratio] table {\loadedtable};
+}

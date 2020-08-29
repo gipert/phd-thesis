@@ -522,7 +522,7 @@ removed from the fit because of its clear non-zero mode.
 \newpar
 The results of the analysis are shown in
 \cref{fig:bkg:lar:ph2:results,fig:bkg:lar:ph2:results-fixbw,fig:bkg:lar:ph2:results-closeup}
-and \cref{tab:bkg:lar:ph2:results} (\fillme{table if I have time}). The background
+and \cref{tab:bkg:lar:ph2:results}. The background
 decomposition in \cref{fig:bkg:lar:ph2:results} is presented together with the residuals
 plot and the 68\%, 95\% and 99\% Poissonian probability intervals of the best fit model.
 Smallest intervals are now used instead of central intervals
@@ -536,8 +536,15 @@ $[1.8, 2]$~MeV region (\cref{fig:bkg:lar:ph2:results-closeup}.
 \fillme{update to final fit results}
 
 \begin{sidewaystable}
+  \footnotesize
   \centering
-  \caption{}\label{}
+  \caption{%
+    Summary of the background decomposition after LAr veto cut. The number of
+    reconstructed counts in the fit range and the BI at \qbb\ is listed for each component
+    and each analysis data set. Marginalized modes, along with its smallest 68\% C.I., are
+    reported as representatives of the marginalized posterior distributions.
+    \fillme{exposures}
+  }\label{tab:bkg:lar:ph2:results}
   \input{tab/bkg/lar/ph2/gmodel-results}
 \end{sidewaystable}
 
@@ -584,6 +591,26 @@ $[1.8, 2]$~MeV region (\cref{fig:bkg:lar:ph2:results-closeup}.
 \section{Discussion}%
 \label{sec:bkg:lar:ph2:discussion}
 \fillme{discuss about transition layer models}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/bkg/lar/ph2/results/gmodel/raw-vs-lar-BI-comparison.pdf}
+  \caption{%
+    Comparison between background indices obtained from the background model before
+    analysis cuts and after LAr veto cut, for the \enrBEGeII\ and \enrCoaxII\ data sets.
+    \fillme{exposures}
+  }\label{fig:bkg:lar:ph2:BI-comparison}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/bkg/lar/ph2/results/gmodel/raw-vs-lar-cts-comparison.pdf}
+  \caption{%
+    Comparison between total counts in the fit range (i.e.~above 565~keV) obtained from
+    the background model before analysis cuts and after LAr veto cut.
+    \fillme{exposures}
+  }\label{fig:bkg:lar:ph2:cts-comparison}
+\end{figure}
 
 \chapsummary
 \begin{itemize}

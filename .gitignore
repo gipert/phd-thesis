@@ -76,6 +76,11 @@
 /src/img/plots/bkg/raw/ph2p/results/gmodel/2nbb-posteriors.pdf
 /src/img/plots/bkg/raw/ph2p/results/gmodel/ph2-comparison.pdf
 /src/img/plots/gedet-av/calib-optim-results.pdf
+/src/img/plots/bkg/lar/ph2/results/gmodel/raw-vs-lar-BI-comparison.pdf
+/src/img/plots/bkg/lar/ph2/results/gmodel/raw-vs-lar-cts-comparison.pdf
+/src/img/plots/bkg/raw/combined-results.pdf
+/src/img/plots/bkg/raw/data/M1-spectra.root
+/src/img/plots/bkg/raw/data/M2-spectra.root
 
 *.DS_Store
 *.swp
