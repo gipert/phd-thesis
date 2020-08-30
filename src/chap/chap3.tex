@@ -14,7 +14,7 @@ similar future projects. Lastly, a good background model allows to isolate \nnbb
 events, estimate the half-life of the process and study their distribution as a source of
 potential new-physics effects (see \cref{chap:theory}).
 \newpar
-A first background model has been built for the \phaseone\ data and published
+A first background model has been built for the \gerda\ \phaseone\ data and published
 in~\cite{Agostini2013a}. Later, a new and advanced model has been constructed to describe
 the first 60~\kgyr\ of \phasetwo\ data before the LAr veto and PSD cuts, which has been
 published in~\cite{Agostini2019b} and is described in detail in this chapter. In
@@ -28,8 +28,11 @@ presented in \cref{sec:bkg:raw:ph2:stat}. As it will be shown, the high-statisti
 \kvz\ and \a\ event data samples deserve dedicated studies and are thus treated
 separately. These potassium and \a\ event analyses are presented in
 \cref{sec:bkg:raw:ph2:kmodel} and \cref{sec:bkg:raw:ph2:amodel} respectively. Finally, the
-results of the background decomposition in the full energy range are given in
-\cref{sec:bkg:raw:ph2:gmodel} and discussed in \cref{sec:bkg:raw:ph2:discussion}.
+results of the background decomposition in the full energy range of data from the first
+part of \phasetwo\ are given in \cref{sec:bkg:raw:ph2:gmodel} and discussed in
+\cref{sec:bkg:raw:ph2:discussion}. To complete the survey of background contributions to
+the complete \gerdatwo\ energy spectrum before analysis cuts, the background model of data
+from the second part of \phasetwo\ (\phasetwop) is presented in \cref{sec:bkg:raw:ph2p}.
 
 \section{Analysis data sets}%
 \label{sec:bkg:raw:ph2:data}
@@ -51,7 +54,7 @@ results of the background decomposition in the full energy range are given in
   \caption{%
     Properties of the data sets considered in this analysis. Further
     details about the \gerda\ detectors can be found in past
-    publications~\cite{Agostini2013a, Agostini2018a}. \fillme{check with Katharina}
+    publications~\cite{Agostini2013a, Agostini2018a}. \fillme{exposures}
   }\label{tab:bkg:raw:ph2:datasets}
   \small
   \input{tab/bkg/raw/ph2/datasets.tex}
@@ -106,7 +109,7 @@ software implementation of the \gerdatwo\ detectors as well as the assembly and 
 surrounding hardware components. A visualization of this implementation is presented in
 \cref{fig:setup:magevolumes}. Detector intrinsic \nnbb\ decays of \gesix\ and background
 events originating from radioactive contaminations in and around the detector assembly are
-simulated. The energy spectrum of the two electrons emitted in the \nnbb\ decay was
+simulated. The energy spectrum of the two electrons emitted in the \nnbb\ decay is
 sampled according to the distribution given in~\cite{Tretyak1995} and implemented in
 \decayzero~\cite{Ponkratenko2000}. The pdfs are obtained from the Monte Carlo simulations,
 taking into account the finite energy resolution and individual exposure acquired with
@@ -119,9 +122,10 @@ efficiency (CCE) value depending on the depth from the detector surface is used 
 the pdfs for the analysis of \phasetwo\ data before the upgrade. The CCE is set to a null
 value through all the transition region between the surface and the full charge-collection
 efficiency region. From the full charge-collection depth (FCCD) and below the CCE is set
-equal to unity. The estimated FCCD values for each detector are documented and discussed
-in \cref{apdx:gedetav}. The pdfs for the background model of \gerdatwo\ data before
-cuts are displayed in
+equal to unity. The recommended FCCD values obtained from dedicated characterization data
+(the same used in the \onbb\ detection efficiency calculation) are documented and
+discussed in \cref{apdx:gedetav}. The pdfs for the background model of \gerdatwo\ data
+before cuts are displayed in
 \cref{fig:bkg:raw:ph2:pdfs:gmodel,fig:bkg:raw:ph2:pdfs:amodel,fig:bkg:raw:ph2:pdfs:kmodel:K40,fig:bkg:raw:ph2:pdfs:kmodel:K42}
 and will be presented in more detail in the following.
 
@@ -159,17 +163,17 @@ and will be presented in more detail in the following.
   ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/gmodel-pdfs-misc2.pdf}}
 
   \caption{%
-    The pdfs for the \enrGeII\ ($\enrBEGeII + \enrCoaxII$) (in fully opaque colors) and
+    The pdfs for the \m{M1-AllEnr} ($\enrBEGeII + \enrCoaxII$) (in fully opaque colors) and
     the \enrGeII\ (in shaded colors) data sets in the full energy domain and relative to
     different background sources. Bayesian blocks are used to visualize histograms (see
-    \cref{apdx:bayesblocks} for details. All pdfs are normalized to the number of
+    \cref{apdx:bayesblocks} for details). All pdfs are normalized to the number of
     simulated events.
   }\label{fig:bkg:raw:ph2:pdfs:gmodel}
 \end{figure}
 
 The structural components of the setup have been screened for their radio-purity before
 deployment. Two measurement methods were used depending on the screened isotope: \g-ray
-spectroscopy (Ge-\g) with High Purity Germanium (in four underground laboratories, for
+spectroscopy (Ge-\g) with high-purity germanium (in four underground laboratories, for
 details see reference~\cite{Ackermann2012}) and mass spectrometry with Inductively Coupled
 Plasma Mass Spectrometers (ICP-MS)~\cite{Vacri2015}. Especially materials close to the
 detectors have been screened for radioactive contaminations originating from the \Uh\ and
@@ -218,12 +222,13 @@ This spatial information is used to resolve degeneracies of \kvn\ in the energy 
 A cosmogenically-produced isotope in LAr is \Arh\ ($T_{1/2} = 32.9(11)$~yr) which decays
 to \kvz. The distribution of \kvz\ inside the LAr is likely to be inhomogeneous due to
 drift of the ionized decay products induced by the electric field (generated by
-high-voltage cables and detectors) and convection. \kvz\ decays to $^{42}$Ca via \b\ decay
-with a half-life of 12.355(7)~h and a Q-value of 3525.22(18)~keV, well above \qbb (see
-\cref{fig:bkg:raw:ph2:pdfs:gmodel:K42}). For the \b\ particle to be detected the decay
-needs to happen within a distance of a few centimeters\footnote{The path length of \kvz\
-\b\ particles in LAr is less than 1.6~cm, but bremsstrahlung photons from the interaction
-with LAr can travel as far as $\sim$10~cm.} to the detector surface. As the detectors are
+high-voltage cables and detectors) and convection~\cite{Pelczar2016}. \kvz\ decays to
+$^{42}$Ca via \b\ decay with a half-life of 12.355(7)~h and a Q-value of 3525.22(18)~keV,
+well above \qbb\ (see \cref{fig:bkg:raw:ph2:pdfs:gmodel:K42}). For the \b\ particle to be
+detected the decay needs to happen within a distance of a few centimeters\footnote{%
+  The path length of \kvz\ \b\ particles in LAr is less than 1.6~cm, but bremsstrahlung
+  photons from the interaction with LAr can travel as far as $\sim$10~cm.
+} to the detector surface. As the detectors are
 in direct contact with the LAr, the \b\ component of \kvz\ potentially gives one of the
 most significant contributions to the background in the ROI. Therefore, we separate decays
 originating inside and outside the mini-shrouds in the following analysis. The full-range
@@ -231,7 +236,7 @@ fit has little sensitivity to any potassium inhomogeneity outside the mini-shrou
 is hence assumed to be distributed homogeneously in this region. Based on detector-wise
 observations, however, a surplus of \kvz\ above the detector array in the vicinity of the
 front-end electronics is deduced (see \cref{sec:bkg:raw:ph2:kmodel}). Inside the
-mini-shrouds the \b\ spectrum becomes potentially important.  Some scenarios are possible,
+mini-shrouds the \b\ spectrum becomes potentially important.  Some scenarios are possible:
 the closer \kvz\ decays to the detector surface, namely to the \nplus\ and \pplus\
 contacts, the more \b\ particles enter the germanium. A fraction of events around \qbb\
 coming from \kvz\ is potentially due to \g\ particles with higher energy and sub-percent
@@ -278,24 +283,23 @@ crystals as material of outstanding radio-purity.  Hence, only the decay of \ges
 impurities are considered to be negligible.
 
 \blocktitle{other \\ sources}
-As discussed in reference~\cite{Agostini2013a}, prompt cosmic muon induced background
-events are efficiently vetoed by the identification of \v{C}erenkov light emitted by muons
-when they pass the water tank. The expected BIs, due to the direct muon and neutron fluxes
-at the LNGS underground laboratory, have been estimated to be of the order
-$3 \cdot 10^{-5}$~\ctsper~\cite{Freund2014} and $10^{-5}$~\ctsper~\cite{Meierhofer2012} in
-earlier works, respectively.  Background contributions coming from delayed decays of
-$^{77}$Ge and $^{77\text{m}}$Ge, also induced by cosmic muons, are estimated to be
-$0.21 \pm 0.01$~nuclei/(kg$\cdot$yr)~\cite{Wiesinger2018} corresponding to a BI prior to the
-active background suppression techniques of about $10^{-5}$~\ctsper. Also, the water tank
-and LAr cryostat contaminations are expected to contribute to the \gerda\ BI with less
-than $10^{-4}$~\ctsper~\cite{Ackermann2012, Barabanov2009}. All above mentioned
-contributions are considered negligible in this work. Other potential sources of
-background from interactions of \gesix~\cite{Meierhofer2012, Vanhoefen2018} and
-$^{206}$Pb~\cite{Mei2007} with neutrons and $^{56}$Co for which no evidence was found are
-not taken into consideration. The cosmogenically produced isotope \Arl\ and the
-anthropogenic isotope \Kr~\cite{Winger2005}, which are dissolved in LAr, emit particles
-which are dominantly less energetic than the energy window which is considered in the
-presented analysis.
+Prompt cosmic muon induced background events are efficiently vetoed by the identification
+of \v{C}erenkov light emitted by muons when they pass the water tank~\cite{Agostini2013a}.
+The expected background indices, due to the direct muon and neutron fluxes at the LNGS underground
+laboratory, have been estimated to be of the order $3 \cdot
+10^{-5}$~\ctsper~\cite{Freund2014} and $10^{-5}$~\ctsper~\cite{Meierhofer2012} in earlier
+works, respectively.  Background contributions coming from delayed decays of $^{77}$Ge and
+$^{77\text{m}}$Ge, also induced by cosmic muons, are estimated to be $0.21 \pm
+0.01$~nuclei/(kg$\cdot$yr)~\cite{Wiesinger2018} corresponding to a background index prior to the active
+background suppression techniques of about $10^{-5}$~\ctsper. Also, the water tank and LAr
+cryostat contaminations are expected to contribute to the \gerda\ background index with less than
+$10^{-4}$~\ctsper~\cite{Ackermann2012, Barabanov2009}. All above mentioned contributions
+are considered negligible in this work. Other potential sources of background from
+interactions of \gesix~\cite{Meierhofer2012, Vanhoefen2018} and $^{206}$Pb~\cite{Mei2007}
+with neutrons and $^{56}$Co for which no evidence was found are not taken into
+consideration. The cosmogenically-produced isotope \Arl\ and the anthropogenic isotope
+\Kr~\cite{Winger2005}, which are dissolved in LAr, emit particles which are dominantly
+less energetic than the energy window which is considered in the presented analysis.
 
 \section{Statistical analysis}%
 \label{sec:bkg:raw:ph2:stat}
@@ -311,9 +315,9 @@ matrix of pairs of detectors for all \Mtwo\ events.
 
 \blocktitle{likelihood}
 \sloppy Assuming that the number of events in each bin follows the Poisson probability
-distribution $\operatorname{Poisson}(n;\nu)$, where $\nu$ is the expected mean and $n$ is the
+distribution $\operatorname{P}(n;\nu)$, where $\nu$ is the expected mean and $n$ is the
 experimentally measured number of counts, the likelihood function for a binned data set
-reads $\prod_{i=1}^{N_\text{bins}} \operatorname{Poisson}(n_i;\nu_i)$. Here $\nu_i =
+reads $\prod_{i=1}^{N_\text{bins}} \operatorname{P}(n_i;\nu_i)$. Here $\nu_i =
 \sum_{k=1}^{N_\text{com}} \nu_i^{(k)}$ is the expected number of events in the $i$-th bin,
 calculated as the sum of the contributions from each background component $k$;
 $\nu_i(\lambda_1, \ldots, \lambda_{N_\text{com}})$ is a function of the parameters of
@@ -324,7 +328,7 @@ likelihood function adopted for the present analysis combines the three data set
   \mathcal{L}(\lambda_1, \ldots, \lambda_m \,|\, \text{data}) =
     \prod_{d=1}^{N_\text{dat}}
     \prod_{i=1}^{N_\text{bins}}
-    \operatorname{Poisson}(n_{d,i};\nu_{d,i})\;.
+    \operatorname{P}(n_{d,i};\nu_{d,i})\;.
 \end{equation}
 
 \blocktitle{statistical \\ inference}
@@ -357,7 +361,7 @@ $\sim$100~keV the shape of the pdfs is dominated by uncertainties on the detecto
 transition layer model, which describes the charge-carrier collection at the interface
 between the \nplus\ contact and the detector active volume. The exact nature of this
 transition region is different for each detector and prone to systematic
-uncertainties~\cite{Lehnert2016}.
+uncertainties (see \cref{apdx:gedetav} for a detailed discussion).
 \newpar
 With an energy resolution which is typically 3--4~keV at \qbb\ (FWHM)~\cite{Agostini2018,
 Agostini2019a} and better at lower energies, a fixed bin size of 1~keV was chosen for all
@@ -392,17 +396,18 @@ detector pair) is used to exploit mainly top-down and rotational asymmetries in 
 and \kvz\ distributions. The events in the two energy windows are classified according to
 the detectors in which an energy deposition was registered, so to exploit the available
 information about the event location. In the following this classification procedure will
-be referred to as \textit{projection in detector space}. The treatment of the likelihood
+be referred to as `projection in detector space'. The treatment of the likelihood
 in \cref{eq:bkg:raw:ph2:likelihood} is outlined in detail in
 \cref{sec:bkg:raw:ph2:kmodel}.  The number of events in all other \g\ lines is too low in
 order to adopt a useful detector-wise analysis. The spatial analysis of \kvn\ and \kvz\ is
 incorporated in the full-range fit by directly employing the posterior parameter
-distributions as prior information.\footnote{By adopting this approach, a part of the data
-in the potassium \g\ lines region is analyzed twice: first in the potassium-tracking
-analysis and then in the full-range fit. Nevertheless, considering that the two analyses
-exploit different data features (i.e.~count rate per detector and total count rate per
-energy) and the overlap between the two data set is minimal, the overall effect is
-negligible.}
+distributions as prior information.\footnote{%
+  By adopting this approach, a part of the data in the potassium \g\ lines region is
+  analyzed twice: first in the potassium-tracking analysis and then in the full-range fit.
+  Nevertheless, considering that the two analyses exploit different data features
+  (i.e.~count rate per detector and total count rate per energy) and the overlap between
+  the two data set is minimal, the overall effect is negligible.
+}
 
 \blocktitle{\a\ events background analysis}
 The single-detector energy spectra above 3.5~MeV (the Q-value of \kvz\ \b\ decay) are
@@ -426,16 +431,16 @@ interest to be used in Bayesian inference: if a measured value with uncertainty 
 available for a background contamination then a Gaussian distribution with a corresponding
 centroid and a $1\sigma$ width is adopted. In presence of a 90\% C.L.~upper limit,
 instead, an exponential prior distribution is constructed with 90\% of its area covering
-parameter values from 0 up to the given 90\% C.L.~upper limit. A uniform prior
-distribution is assigned to components for which no measured value or upper limit is
-available. Ranges for uniform priors are initially taken very wide, in order to span a
-large portion of the allowed parameter space, then optimized to contain at least 99\% of
-the posterior distribution. As mentioned before, in addition to the information from
-screening measurements, prior distributions for \kvn\ and \kvz\ are constructed
-considering the posterior inference from their spatial distribution. Moreover, as \Bih\ is
-part of the \Ra\ decay chain, we constrain a \Bih\ component on the \pplus\ contact by a
-Gaussian prior extracted from the obtained \Ra\ activity based on the energy estimator in
-the high-energy \a\ region.
+parameter values from 0 up to the given 90\% C.L.~upper limit (i.e. $p \sim e^{-\mu x}$).
+A uniform prior distribution is assigned to components for which no measured value or
+upper limit is available. Ranges for uniform priors are initially taken very wide, in
+order to span a large portion of the allowed parameter space, then optimized to contain at
+least 99\% of the posterior distribution. As mentioned before, in addition to the
+information from screening measurements, prior distributions for \kvn\ and \kvz\ are
+constructed considering the posterior inference from their spatial distribution. Moreover,
+as \Bih\ is part of the \Ra\ decay chain, we constrain a \Bih\ component on the \pplus\
+contact by a Gaussian prior extracted from the obtained \Ra\ activity based on the energy
+estimator in the high-energy \a\ region.
 
 \section{\texorpdfstring{\a\ events analysis}{alpha events analysis}}%
 \label{sec:bkg:raw:ph2:amodel}
@@ -443,9 +448,11 @@ the high-energy \a\ region.
 Above an energy of 3.5~MeV almost all registered events are due to \a-emitting isotopes.
 The respective part of the full likelihood can be approximately factorized and studied
 separately. \a\ particles have a very short range in LAr as well as in
-germanium\footnote{In the continuous slowing down approximation (CSDA) the range of \a\
-particles is estimated to be of 50~\mum\ and 20~\mum\ for LAr and germanium,
-respectively~\cite{Berger2017}.} and are able to reach a detector's active volume only
+germanium\footnote{%
+  In the continuous slowing down approximation (CSDA) the range of \a\ particles is
+  estimated to be of 50~\mum\ and 20~\mum\ for LAr and germanium,
+  respectively~\cite{Berger2017}.
+} and are able to reach a detector's active volume only
 through the very thin (of the order of 500~nm) \pplus\ contact surface. Therefore, the \a\
 emitter contamination is detector-specific and depends only on the \pplus\ surface
 contaminations. For this reason, \enrBEGeII\ and \enrCoaxII\ detector data above 3.5~MeV
@@ -462,7 +469,8 @@ All contaminations found are constituents of the \Uh\ decay chain. The main surf
 contamination observed is \Po\ which occurs either as an incident contamination and decays
 in time with a half-life of $138.3763(17)$~days~\cite{Be2008} or is fed by a \Pbl\ contamination
 with a stable rate in time. The spectral form is identical for both cases and
-can only be disentangled by analyzing the \a\ event rate in time.
+can only be disentangled by analyzing the \a-event rate in time. The analysis of the
+evolution of the \a-event count rate in time is presented in \cref{apdx:timealpha}.
 Above the \Po\ peak very few events are observed. In the \enrBEGeII\ data set we find only
 four events with an energy larger than 5.3~MeV, while in the \enrCoaxII\ data set 22 such
 events are observed, 14 of which in a single detector \ANG{2}
@@ -518,7 +526,12 @@ counts observed in the \Ra\ chain it is sufficient to model this component with 
 pdf. Furthermore, the isotope contamination is assumed to halve at each decay step. A
 reduction effect of the subsequent \a\ decays in the \Rn\ chain had been observed in
 \phaseone\ and attributed to possible recoil off the surface into the
-LAr~\cite{Agostini2013}. We adopt this explanation in our model although we note that the
+LAr~\footnote{%
+  The hypothesis of nuclear recoils caused by \a\ decays might also be supported by the
+  observation that a small suppression of \a\ events (above the level of random
+  coincidences) of about 4\% is observed after LAr. Scintillation light could be indeed
+  produced by nuclei recoiling in LAr.
+}~\cite{Agostini2013}. We adopt this explanation in our model although we note that the
 number of events observed with an energy >5.3~MeV is not sufficient to confirm such an
 effect.
 \newpar
@@ -556,17 +569,20 @@ from 3.5~MeV to 5.25~MeV. Events with an energy higher than 5.25~MeV are put in 
 overflow bin:
 \begin{equation}
   \mathcal{L}_{\alpha}{(\lambda_1,\ldots,\lambda_m\,|\,n)} =
-  \prod_{i=1}^{N_\text{bins}} \operatorname{Poisson}(n_{i};\nu_{i})\;
+  \prod_{i=1}^{N_\text{bins}} \operatorname{P}(n_{i};\nu_{i})\;
   \label{eq:bkg:raw:ph2:amodel:likelihood}
 \end{equation}
-A flat prior probability is assigned to each of the fit parameters $\lambda_i$. Both data
-sets are fit separately with a fixed bin size of 10~keV\footnote{The calibration curves
-are accurate on the sub-keV level up to the highest \g\ energy of about 2.6~MeV emitted
-by the \Th\ calibration sources. Although no major non-linearity effects were found the
-same accuracy cannot be guaranteed at 6~MeV. Deviations from linearity at this energy are
-within 10~keV, hence, we increase the bin size in the higher energy range.} as the \a\
-contamination is detector individual and the two single-detector data sets are
-uncorrelated in the respective energy window.
+where $\operatorname{P}(n;\nu)$ denotes the Poisson probability of observing $n$ counts
+with mean $\nu$. A flat prior probability is assigned to each of the fit parameters
+$\lambda_i$. Both data sets are fit separately with a fixed bin size of
+10~keV\footnote{%
+  The calibration curves are accurate on the sub-keV level up to the highest \g\ energy of
+  about 2.6~MeV emitted by the \Th\ calibration sources. Although no major non-linearity
+  effects were found the same accuracy cannot be guaranteed at 6~MeV.  Deviations from
+  linearity at this energy are within 10~keV, hence, we increase the bin size in the
+  higher energy range.
+} as the \a\ contamination is detector individual and the
+two single-detector data sets are uncorrelated in the respective energy window.
 \newpar
 The fit results are shown in \cref{fig:bkg:raw:ph2:amodel:resultsplot} and listed in
 \cref{tab:bkg:raw:ph2:amodel:results}. The \Po\ component is modeled with a combination of
@@ -602,8 +618,6 @@ to the ROI.
   \input{tab/bkg/raw/ph2/amodel-results.tex}
 \end{table}
 
-\fillme{mention to time alpha}
-
 \section{Potassium-tracking analysis}%
 \label{sec:bkg:raw:ph2:kmodel}
 
@@ -625,18 +639,21 @@ signal to background ratio.
 Initial observations in \phasetwo\ have shown that the \kvn\ and \kvz\ full-energy line
 intensities have increased by a factor of 4 and 2, respectively, in the single-detector
 data compared to \phaseone~\cite{DAndrea2017}. The \kvz\ increase in activity can be
-attributed to the exchange of the mini-shrouds material from copper to nylon\footnote{The
-exchange of material from copper to nylon was necessary in order to properly propagate the
-LAr scintillation light which otherwise would be blocked.} during the \phasetwo\ upgrade:
-The electric field generated by the detectors bias high voltage is not screened by the
-conductive material anymore. The \kvz\ ions can be attracted from a larger LAr volume into
-the vicinity of the detectors.  Moreover, the unshielded high-voltage cables could be an
-explanation for the higher rate of \kvz\ events seen in the uppermost detectors in the
-\gerda\ array. The higher \kvn\ event rate, on the other hand, is possibly attributable to
-the glue used for the nylon mini-shrouds and other new materials introduced with the LAr
-veto system. The exact amount, location and radio-purity of the glue is not precisely
-known.  All changes to the setup that have been made during the upgrade to \phasetwo\ are
-described and motivated in exhaustive detail in reference~\cite{Agostini2018a}.
+attributed to the exchange of the mini-shrouds material from copper to nylon\footnote{%
+  The exchange of material from copper to nylon has been necessary in the presence of a
+  LAr veto system. Copper surfaces would have indeed blocked the scintillation light,
+  instead of letting it propagate and wavelength-shift as with TPB-coated nylon
+  mini-shrouds~\cite{Lubashevskiy2017}.
+} during the \phasetwo\ upgrade: The electric field generated by the detectors bias high
+voltage is not screened by the conductive material anymore. The \kvz\ ions can be
+attracted from a larger LAr volume into the vicinity of the detectors.  Moreover, the
+unshielded high-voltage cables could be an explanation for the higher rate of \kvz\ events
+seen in the uppermost detectors in the \gerda\ array. The higher \kvn\ event rate, on the
+other hand, is possibly attributable to the glue used for the nylon mini-shrouds and other
+new materials introduced with the LAr veto system. The exact amount, location and
+radio-purity of the glue is not precisely known.  All changes to the setup that have been
+made during the upgrade to \phasetwo\ are described and motivated in exhaustive detail in
+reference~\cite{Agostini2018a}.
 
 \blocktitle{data set}
 Data in two energy windows around the potassium \g\ lines is projected in detector index
@@ -698,16 +715,17 @@ naming convention introduced it reads:
   \prod_{d=1}^{N_\text{dat}}
   \left\{
     \prod_{i=1}^{N_\text{det}}
-    \operatorname{Poisson}(n_{d,i}^\text{\m{M1}};\nu_{d,i}^\text{\m{M1}})
+    \operatorname{P}(n_{d,i}^\text{\m{M1}};\nu_{d,i}^\text{\m{M1}})
     \times
     \prod_{j<k}^{N_\text{det}}
-    \operatorname{Poisson}(n_{d,jk}^\text{\m{M2}};\nu_{d,jk}^\text{\m{M2}})
+    \operatorname{P}(n_{d,jk}^\text{\m{M2}};\nu_{d,jk}^\text{\m{M2}})
   \right\}\;,
 \end{equation}
 where the index $i$ runs over the bins (i.e.~detectors) and the index $d$ over the 5
 considered energy windows, namely the three side-bands \m{SB1}, \m{SB2}, \m{SB3} and the
 two line-bands \m{K40} and \m{K42}.  The \m{M2-} data sets are two-dimensional in detector
-space and run over the two indices $j$ and $k$.
+space and run over the two indices $j$ and $k$. $\operatorname{P}(n,\nu)$ is the usual
+Poisson probability.
 
 \blocktitle{priors}
 Gaussian prior probability distributions for the \kvn\ activity are built from
@@ -859,7 +877,8 @@ analysis.
 \newpar
 The spectral decomposition of all data sets is shown in
 \cref{fig:bkg:raw:ph2:gmodel:results}. For each data set the residual distribution as a
-multiple of the expected 1$\sigma$ fluctuation in each bin is displayed. We find for the
+multiple of the expected 1$\sigma$ fluctuation in each bin (i.e.~the 68\% probability
+interval centered on the mean of the Poisson distribution) is displayed. We find for the
 \enrBEGeII\ data set 66.4\%, 94.5\% and 99.6\% of points in the 1$\sigma$-, 2$\sigma$- and
 3$\sigma$-bands, for the \enrCoaxII\ data set 66.0\%, 94.7\% and 99.8\% and for the
 \enrGeII\ data set 70.0\%, 96.1\% and 99.7\%, respectively. Thus, in all three cases the
@@ -873,11 +892,12 @@ correspond to any known \g\ line.
   \caption{%
     Summary of the analysis parameter estimates. Global mode and marginalized mode, along
     with its smallest 68\% C.I., are reported as representatives of the posterior
-    parameter distribution. The number of reconstructed counts in the fit range and the BI
-    at \qbb\ prior active background suppression are listed for each component and each
-    analysis data set. The original type of prior distribution is marked with \m{[f]} for
-    flat, \m{[g]} for Gaussian and \m{[e]} for exponential. ($\,^{\dagger}$
-    Tetratex\reg-coated) %
+    parameter distribution. The number of reconstructed counts in the fit range and the
+    background index at \qbb\ prior active background suppression are listed for each
+    component and each analysis data set. The original type of prior distribution is
+    marked with \m{[f]} for flat, \m{[g]} for Gaussian and \m{[e]} for exponential.
+    ($\,^{\dagger}$ Tetratex\reg-coated) \fillme{why \kvz\ on \nplus (BEGe) is non-zero in
+    this table?}
   }\label{tab:bkg:raw:ph2:gmodel:results}
   \input{tab/bkg/raw/ph2/gmodel-results}%
 \end{sidewaystable}
@@ -908,18 +928,18 @@ compatible with the data as well as \kvz\ attached to the detectors contact surf
 the fit model given here, a possible scenario is chosen where all \kvz\ is located on the
 \nplus\ surfaces. However, we note that \kvz\ on the \pplus\ appears to partly substitute
 the energy-degraded \a\ component in the \enrCoaxII\ data set if introduced in the fit and
-predicts a higher total BI around \qbb. The extracted \kvz\ activity on the
+predicts a higher total background index around \qbb. The extracted \kvz\ activity on the
 \scoax\ \pplus\ contact in this case is $22\pm4$~\mubq\ corresponding to a
-contribution to the BI around \qbb\ of $(7\pm1)\cdot10^{-3}~$\ctsper. For the \enrBEGeII\
+contribution to the background index around \qbb\ of $(7\pm1)\cdot10^{-3}~$\ctsper. For the \enrBEGeII\
 data set the posterior distribution of a possible \kvz\ component on the \pplus\ contact
 is compatible with zero. Outside the mini-shrouds an inhomogeneous distribution of the
 \kvz\ decays better explains the observations. Detectors which are located at higher
 positions in the strings show an excess of events in the \kvz\ 1525~keV \g\ line which is
 compatible with a surplus of \kvz\ located right above the detector array (see
 \cref{sec:bkg:raw:ph2:kmodel}). The full-range fit model contains a homogeneous \kvz\
-distribution in \textit{LAr, outside the mini-shrouds} which is reconstructed with a specific
+distribution in LAr, outside the mini-shrouds, which is reconstructed with a specific
 activity of $186\pm39$~\mubq/kg plus an additional distribution in the vicinity of the
-cables (in \textit{LAr, above the array}).
+cables (in LAr, above the array).
 \newpar
 A large fraction of the contamination with \kvn\ in the setup cannot be accounted for by
 the screened hardware listed in \cref{tab:bkg:raw:ph2:gmodel:results}. We thus add a close
@@ -947,15 +967,14 @@ to be best described by a mixture of pdfs obtained assuming different \pplus\ co
 thicknesses confirming results of the \phaseone\ background analysis~\cite{Agostini2013a}.
 The empirical linear model which is used to describe \a\ events with degraded energy (see
 \cref{sec:bkg:raw:ph2:amodel}), extends down to \qbb\ and below. For the \enrBEGeII\ data
-set \a\ events are efficiently isolated using pulse shape discrimination (PSD) techniques.
-The compatibility of the degraded-energy \a\ component with \a\ events identified by PSD
-was checked and is found consistent.  All details about the \a\ events analysis can be
-found in \cref{sec:bkg:raw:ph2:amodel}.
+set \a\ events are efficiently isolated using pulse shape discrimination (PSD) techniques
+(see \cref{sec:gerda:cuts}).  All details about the \a\ events analysis can be found in
+\cref{sec:bkg:raw:ph2:amodel}.
 
 \blocktitle{\nnbb}
 Most counts in the fit range are attributed to the \nnbb\ decay of \gesix; in fact its
-continuous distribution dominates the spectrum up to almost 1.9~MeV. Here, we base the
-\nnbb\ half-life estimate on the \enrBEGeII\ data set only. An additional parameter,
+continuous distribution dominates the spectrum up to almost 1.9~MeV. Here, the \nnbb\
+half-life estimate is based on the \enrBEGeII\ data set only. An additional parameter,
 $\delta^{2\nu}$, parametrizes the observed discrepancy to the value solely derived from
 the \enrCoaxII\ data set. The value of $\delta^{2\nu}$ extracted from the fit amounts to a
 surplus of 5\% of \nnbb\ counts observed in \enrCoaxII.  It mainly quantifies the
@@ -964,33 +983,19 @@ types. The \bege\ detectors active volume measurements are affected by a smaller
 systematic uncertainty than the \scoax\ detectors~\cite{Agostini2013a, Agostini2019}.
 Hence, the extracted \nnbb\ half-life, based on the \enrBEGeII\ data set and given here
 only with statistical uncertainties, amounts to $\thalftwoM = (2.03 \pm 0.02) \cdot
-10^{21}$~yr. A detailed discussion follows in \cref{sec:bkg:raw:ph2:discussion}.
+10^{21}$~yr. A detailed discussion of this result follows in
+\cref{sec:bkg:raw:ph2:discussion}.
 
 \blocktitle{other}
 Smaller contributions to the background model in the full energy range are attributed to
 \Pbh\ and \Bih\ from the \Uh\ decay chain, \Ac, \Bil\ and \Tl\ from the \Thh\ decay chains
 and \Co. With a total contribution in the fit range of $10^{-3}$~cts/keV for both the
-\enrBEGeII\ and \enrCoaxII\ data set \Pa\ gives negligible contribution to the spectra and
+\enrBEGeII\ and \enrCoaxII\ data set, \Pa\ gives negligible contribution to the spectra and
 is therefore dropped from the full-range fit model. The central values preferred in the
 full-range fit are driven by screening measurements and the spectral contributions are all
 fully accounted for by the listed hardware components. The only exception is \Pbh\ and
 \Bih\ where a minor contribution is added on the p$^+$ contact expected from the
 observation of \a\ events belonging to the \Ra\ decay chain.
-
-\blocktitle{background \\ at \qbb}
-The background model describes the individual contributions to the total BI around \qbb\
-prior active background suppression (see \cref{fig:bkg:raw:ph2:gmodel:results:roi}).
-The BI is defined as the number of counts over exposure and energy in the energy window
-from 1930~keV to 2190~keV excluding the region around \qbb\ ($\qbbM \pm 5$~keV) and the
-intervals $2104 \pm 5$~keV and $2119 \pm 5$~keV, which correspond to known \g\ lines from
-\Tl\ and \Bih. The values for each background contribution are given in
-\cref{tab:bkg:raw:ph2:gmodel:results}. The dominating background contribution around \qbb\
-in the \enrBEGeII\ data set come from \kvz. Isotopes from the \Thh\ decay chain, \a\
-particles mainly with degraded energy and isotopes from the \Uh\ decay chain contribute
-about equally. The estimated total BIs extracted from the marginalized posterior
-distributions are $\stat{16.04^{+0.78}_{-0.85}} \cdot 10^{-3}$~\ctsper\ for the
-\enrBEGeII\ data set and $\stat{14.68^{+0.47}_{-0.52}} \cdot 10^{-3}$~\ctsper\ for the
-\enrCoaxII\ data set.
 
 \begin{figure}
   \centering
@@ -1005,12 +1010,22 @@ distributions are $\stat{16.04^{+0.78}_{-0.85}} \cdot 10^{-3}$~\ctsper\ for the
     window can be well approximated with a constant function. For color code see
     \cref{fig:bkg:raw:ph2:gmodel:results}.%
   }\label{fig:bkg:raw:ph2:gmodel:results:roi}
-
-  \includegraphics{plots/bkg/raw/ph2/results/gmodel/BI-bars.pdf}
-  \caption{%
-    Background decomposition in the BI analysis window around \qbb.
-  }\label{fig:bkg:raw:ph2:gmodel:results:roibars}
 \end{figure}
+
+\blocktitle{background \\ at \qbb}
+The background model describes the individual contributions to the total background index
+around \qbb\ prior active background suppression (see
+\cref{fig:bkg:raw:ph2:gmodel:results:roi}).  The background index is defined as the number
+of counts over exposure and energy in the energy window from 1930~keV to 2190~keV
+excluding the region around \qbb\ ($\qbbM \pm 5$~keV) and the intervals $2104 \pm 5$~keV
+and $2119 \pm 5$~keV, which correspond to known \g\ lines from \Tl\ and \Bih. The values
+for each background contribution are given in \cref{tab:bkg:raw:ph2:gmodel:results}. The
+dominating background contribution around \qbb\ in the \enrBEGeII\ data set come from
+\kvz. Isotopes from the \Thh\ decay chain, \a\ particles mainly with degraded energy and
+isotopes from the \Uh\ decay chain contribute about equally. The estimated total
+background indices extracted from the marginalized posterior distributions are
+$\stat{16.04^{+0.78}_{-0.85}} \cdot 10^{-3}$~\ctsper\ for the \enrBEGeII\ data set and
+$\stat{14.68^{+0.47}_{-0.52}} \cdot 10^{-3}$~\ctsper\ for the \enrCoaxII\ data set.
 
 \section{Discussion}%
 \label{sec:bkg:raw:ph2:discussion}
@@ -1018,14 +1033,14 @@ distributions are $\stat{16.04^{+0.78}_{-0.85}} \cdot 10^{-3}$~\ctsper\ for the
 In general, the marginalized posterior distributions and the results of the material assay
 measurements are in very good agreement. The only exception is constituted by the \kvn\
 activity, which cannot be explained by the available prior information and is fit with the
-additionally introduced components far and close to the detector array. The \kvz\ and \a\
-event distributions, as already mentioned, cannot be constrained by screening measurements
-and are adjusted to best fit the data.  The background model is not completely free of
-parameter correlations. As shown in \cref{fig:bkg:raw:ph2:pdfs:gmodel} several pdfs of the
-same source of background located in different structural components are very similar and
-thus generate correlations. Most of them have been resolved by introducing prior
-distributions based on the screening measurements.  However, a few anti-correlations
-persist which are listed in \cref{tab:bkg:raw:ph2:corr}.
+additionally introduced components far and close to the detector array. The \kvz\ and
+\a-event distributions, as already mentioned, cannot be constrained by screening
+measurements and are adjusted to best fit the data.  The background model is not
+completely free of parameter correlations. As shown in \cref{fig:bkg:raw:ph2:pdfs:gmodel}
+several pdfs of the same source of background located in different structural components
+are very similar and thus generate correlations. Most of them have been resolved by
+introducing prior distributions based on the screening measurements.  However, a few
+anti-correlations persist which are listed in \cref{tab:bkg:raw:ph2:corr}.
 
 \begin{table}
   \centering
@@ -1033,14 +1048,14 @@ persist which are listed in \cref{tab:bkg:raw:ph2:corr}.
     Correlations between fit components relative to the same background contamination in
     different locations.
   }\label{tab:bkg:raw:ph2:corr}
-  \begin{tabular}{cccc}
+  \begin{tabular}{rllc}
     \toprule
     contamination & location 1                  & location 2         & correlation \\
     \midrule
     \Bih\ + \Pbh\ & mini-shrouds                & flat cables        & -0.43 \\
     % \midrule
-    \mr{2}{\kvn}  & flat cables                 & detector holders   & -0.45 \\
-                  & flat cables                 & close to the array & -0.63 \\
+    \mr{2}{\kvn}  & cabling                     & detector holders   & -0.45 \\
+                  & cabling                     & close to the array & -0.63 \\
     % \midrule
     \mr{2}{\kvz}  & LAr -- outside mini-shrouds & \nplus\ contact    & -0.42 \\
                   & LAr -- outside mini-shrouds & LAr -- above array & -0.56 \\
@@ -1059,48 +1074,60 @@ cables above the detector array can perhaps explain the excess of \kvz\ observed
 region. A more detailed investigation of the \kvz\ distribution in LAr is not pursued any
 further, as the full-range fit is inevitably not sensitive to such effects. A more
 sophisticated Monte Carlo model would in fact not significantly impact the \kvz\ pdfs
-shape. Nevertheless, some considerations are presented in the contest of the potassium
-tracking analysis, which is the only analysis presented here that could shed some light on
-the problem (see \cref{sec:bkg:raw:ph2:kmodel}). An explanation for \kvz\ on the \pplus\
-contact being rejected for the \enrBEGeII\ data set but potentially present in the
-\enrCoaxII\ data can be the specific bore-hole geometry of the semi-coaxial detectors.
-\kvz\ produced inside the hole cannot easily escape and is trapped close to the \pplus\
-contact.
+shape. Nevertheless, some considerations are presented in the contest of the
+potassium-tracking analysis, which is the only analysis presented here that could shed
+some light on the problem (see \cref{sec:bkg:raw:ph2:kmodel}). Systematic uncertainties on
+the \kvz\ pdf shape can also arise from the model of the partially-active dead layer of
+the germanium detectors, which is treated as completely dead (the charge-collection
+efficiency is set to zero throughout all the region between the surface and the full
+charge-collection depth) in this analysis. The \b\ component of the \kvz\ spectrum above
+the 1525~keV peak, relevant the in \onbb\ ROI, is indeed particularly affected by the
+transition-layer model. It follows that the level of background model contributions from
+\kvz\ sources particularly close to the \nplus\ contact might drastically change when
+considering different active-volume models.
 
 \blocktitle{background \\ window}
-For each source of background the contribution to the BI at \qbb\ prior to active
-background reduction is listed in \cref{tab:bkg:raw:ph2:gmodel:results}. The statistical
-uncertainties on the single contributions to the BI are generally of the order of 10\% or
-lower, with the exception of \kvz\ and energy-degraded \a\ events, for which the
-uncertainty is roughly doubled. The two contributions are affected by a higher uncertainty
-because they are not bound by screening measurements.
+For each source of background the contribution to the background index at \qbb\ prior to
+active background reduction is listed in \cref{tab:bkg:raw:ph2:gmodel:results}. The
+statistical uncertainties on the single contributions to the background index are
+generally of the order of 10\% or lower, with the exception of \kvz\ and energy-degraded
+\a\ events, for which the uncertainty is roughly doubled. The two contributions are
+affected by a higher uncertainty because they are not bound by screening measurements. In
+particular, it has been argued how the \kvz\ content in the ROI, arising from \b\
+particles reaching the detector active volume, might be strongly affected by the model of
+the transition region. Because of the amount of systematic effects which might play a
+significant role in the background decomposition of the ROI, the background indices
+reported in \cref{tab:bkg:raw:ph2:gmodel:results} should be taken with a grain of salt.
 \newpar
 The background event distribution in the \onbb\ analysis window can be well approximated
 with a constant function (see \cref{fig:bkg:raw:ph2:gmodel:results:roi}).  With this
-assumption, the BIs extracted from data are $16.4^{+1.7}_{-1.6} \cdot 10^{-3}$~\ctsper\
-for \enrBEGeII\ and $15.4^{+1.8}_{-1.6} \cdot 10^{-3}$~\ctsper\ for the \enrCoaxII\ data
-set.  These values agree well with the background model description presented in
-\cref{sec:bkg:raw:ph2:gmodel}. The BIs prior to further analysis cuts and before the
-upgrade of the \gerda\ experiment to \phasetwo\ can be found in
-reference~\cite{Agostini2013c}. For the \enrCoaxII\ data set the BI prior to the upgrade
-of $(18 \pm 2) \cdot 10^{-3}$~\ctsper\ is very consistent with the values presented here.
-The BI of the \enrBEGeII\ data set instead is substantially improved from a \phaseone\
-value of $42^{+10}_{-8} \cdot 10^{-3}$~\ctsper\ to a value which is at least $2.5\times$
-smaller in \phasetwo\ despite a significant increase of inactive hardware
-mass.\footnote{Note the slight difference of the \enrBEGeII\ analysis data set presented
-here and the data set used for \onbb\ analysis for which the improvement in the BI is
-slightly higher ($3\times$ better BI). This is due to discarded \bege\ data for which no
-PSD can be applied.} Contributions to the BI from all isotopes have been improved with
+assumption, the background indices extracted from data are $16.4^{+1.7}_{-1.6} \cdot
+10^{-3}$~\ctsper\ for \enrBEGeII\ and $15.4^{+1.8}_{-1.6} \cdot 10^{-3}$~\ctsper\ for the
+\enrCoaxII\ data set.  These values agree well with the background model description
+presented in \cref{sec:bkg:raw:ph2:gmodel}. The background indices prior to further
+analysis cuts and before the upgrade of the \gerda\ experiment to \phasetwo\ can be found
+in reference~\cite{Agostini2013c}. For the \enrCoaxII\ data set the background index prior
+to the upgrade of $(18 \pm 2) \cdot 10^{-3}$~\ctsper\ is very consistent with the values
+presented here.  The background index of the \enrBEGeII\ data set instead is substantially
+improved from a \phaseone\ value of $42^{+10}_{-8} \cdot 10^{-3}$~\ctsper\ to a value
+which is at least $2.5\times$ smaller in \phasetwo\ despite a significant increase of
+inactive hardware mass.\footnote{%
+  Note the slight difference of the \enrBEGeII\ analysis data set presented here and the
+  data set used for \onbb\ analysis for which the improvement in the background index is
+  slightly higher ($3\times$ better background index). This is due to discarded \bege\
+  data for which no PSD can be applied.
+} Contributions to the background index from all isotopes have been improved with
 respect to \phaseone\ with the exception of background introduced by \a\ surface events.
-The most drastic improvement is notable for \kvz\ for which the BI contribution for the
-\bege\ detectors appears four times smaller than before the upgrade to \phasetwo.
+The most drastic improvement is notable for \kvz\ for which the background index
+contribution for the \bege\ detectors appears four times smaller than before the upgrade
+to \phasetwo.
 
 \blocktitle{\nnbb\ \\ systematics}
 As mentioned in \cref{sec:bkg:raw:ph2:gmodel}, the extracted \nnbb\ half-life estimate is
 based on the \enrBEGeII\ data set only. The additional parameter $\delta^{2\nu}$ mainly
 quantifies the systematic biases between the active volume determination methods of the
 two detector types. The full charge collection depth (FCCD), which determines the active
-volume of a detector, was studied extensively in a detector characterization campaign for
+volume of a detector, has been studied extensively in a detector characterization campaign for
 the \bege\ detectors~\cite{Agostini2015e, Agostini2019}. The estimate of the FCCD used in
 this analysis is based on measurements using an \Am\ source with characteristic \g\ lines
 at 60~keV, 99~keV and 103~keV.  However, the FCCD was also measured using a \Co\ source
@@ -1112,12 +1139,14 @@ the \scoax\ detectors only FCCD values determined with a \Co\ source are availab
 Considering the systematic uncertainties affecting the determined active \gesix\ exposures
 of the \enrBEGeII\ and \enrCoaxII\ data sets (1.8\% and 5\% respectively, see
 \cref{tab:bkg:raw:ph2:datasets}) $\delta^{2\nu}$ is compatible with zero within
-$1\sigma$.\footnote{The systematic bias between the active volume estimates for the \bege\
-and coaxial detector types is a sub-dominant contribution in the \onbb\ analysis with
-respect to e.g.~PSD uncertainties.}
+$1\sigma$.\footnote{%
+  The systematic bias between the active volume estimates for the \bege\ and coaxial
+  detector types is a sub-dominant contribution in the \onbb\ analysis with respect to
+  e.g.~PSD uncertainties.
+}
 \newpar
 Various systematic effects have to be considered when estimating the uncertainty on the
-\nnbb\ half-life \thalftwo. Due to the fact that the aim of the paper is not a precise
+\nnbb\ half-life \thalftwo. Due to the fact that the aim of this analysis is not a precise
 \nnbb\ half-life measurement, for most of them only a conservative evaluation is provided.
 Several systematic uncertainties arise from the Monte Carlo simulation framework.
 Uncertainties due to the \geant\ model of particle interactions and propagation were
@@ -1130,9 +1159,12 @@ model of \nnbb\ decays implemented in \decayzero, as well as data acquisition an
 selection methods are considered negligible. A 1.8\% contribution accounts for
 uncertainties in the enrichment and active mass fraction determination (see active \gesix\
 exposure in \cref{tab:bkg:raw:ph2:datasets}). All the systematic effects considered above
-sum up to a total systematic uncertainty on \thalftwo\ of $3-4$\%. In total this leads to
+sum up to a total systematic uncertainty on \thalftwo\ of 3--4\%. In total this leads to
 $T^{2\nu}_{1/2} = (2.03 \pm 0.09) \cdot 10^{21}$~yr compatible with earlier results
-\cite{Agostini2013a, Agostini2015a}.
+\cite{Agostini2013a, Agostini2015a}. A precision measurement of \thalftwo\ after the LAr
+veto cut, which removes a large fraction of the background, will be presented in
+\cref{chap:2nbb-ana} together with a careful estimation of the contribution of systematic
+uncertainty sources.
 
 \section{Full \phasetwo\ data analysis}%
 \label{sec:bkg:raw:ph2p}
@@ -1289,10 +1321,11 @@ and decreases the compatibility with experimental data.
   \caption{%
     Summary of the analysis parameter estimates. Global mode and marginalized mode, along
     with its smallest 68\% C.I., are reported as representatives of the posterior
-    parameter distribution. The number of reconstructed counts in the fit range and the BI
-    at \qbb\ prior active background suppression are listed for each component and each
-    analysis data set. The original type of prior distribution is marked with \m{[f]} for
-    flat, \m{[g]} for Gaussian and \m{[e]} for exponential. \fillme{fillme}
+    parameter distribution. The number of reconstructed counts in the fit range and the
+    background index at \qbb\ prior active background suppression are listed for each
+    component and each analysis data set. The original type of prior distribution is
+    marked with \m{[f]} for flat, \m{[g]} for Gaussian and \m{[e]} for exponential.
+    \fillme{fillme}
   }\label{tab:bkg:raw:ph2p:gmodel:results}
   \input{tab/bkg/raw/ph2p/gmodel-results}%
 \end{sidewaystable}
@@ -1430,4 +1463,29 @@ increased after the upgrade.
     Background decomposition of the full \gerdatwo\ data set.
   }\label{fig:bkg:raw:results}
 \end{figure}
+
+\chapsummary
+\begin{itemize}
+  \item The development of a careful model of the background in the full energy range of
+    events collected by a neutrinoless double-beta decay experiment is crucial in order to
+    understand the composition of background events in the region of interest. The spatial
+    distribution of the background sources and their effect in the data is useful
+    information in designing future hardware upgrades or experimental efforts. Last but
+    not least, a background model grants access to the two-neutrino double-beta decay
+    event distribution, that can be analyzed to determine the half-life of the process and
+    to constrain the presence of beyond the standard model physics phenomena.
+  \item The energy spectrum of single- and two-detector events before the LAr veto and the
+    PSD cuts, divided by detector type, is decomposed in a Bayesian setting, which
+    includes prior information from material screening measurements. The expected
+    distribution of the various background components is generated starting from a full
+    Monte Carlo simulation chain of the experimental setup. The shape of high-energy events,
+    attributed to \a\ decays on the \pplus\ detector contacts, is studied separately and
+    incorporated in the final fit. The spatial information enclosed in potassium events
+    from the two intense \g\ peaks is exploited in a potassium-tracking analysis, which
+    considers data from each detector separately and is therefore able to better
+    unravel the origin of the background events. The results are incorporated in the final
+    fit as prior information.
+  \item The obtained model describes the data and reproduces the screening measurement
+    results to a satisfying degree of accuracy.
+\end{itemize}
 % vim: tw=90

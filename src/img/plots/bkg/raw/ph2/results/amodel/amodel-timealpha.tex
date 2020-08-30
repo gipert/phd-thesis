@@ -77,7 +77,7 @@
       \addplot+[error, name path=D] table [x=time, y=low] {bege-fit-ph2p.csv};
       \addplot[error] fill between[of=C and D];
 
-      \node[fill=white] at (axis cs:2016-11-15,0.117) {%
+      \node[fill=none] at (axis cs:2017-01-01,0.117) {%
           \begin{tabular}{cl}
             \ref{bege-ph2}     & \textsc{BEGe} \\
             \ref{bege-fit-ph2} & $f(t) = C + N \exp\frac{-\log2 t}{T_{1/2}}$ \\
@@ -118,7 +118,7 @@
       \addplot+[error, name path=H] table [x=time, y=low] {scoax-fit-ph2p.csv};
       \addplot[error] fill between[of=G and H];
 
-      \node[fill=white] at (axis cs:2016-12-15,1.2) {%
+      \node[fill=none] at (axis cs:2016-12-15,1.2) {%
           \begin{tabular}{cl}
             \ref{coax-ph2}     & \textsc{SemiCoax} \\
             \ref{coax-fit-ph2} & $f(t) = C + N \exp\frac{-\log2 t}{T_{1/2}}$ \\
@@ -151,7 +151,7 @@
       \addplot+[error, name path=J] table [x=time, y=low] {icoax-fit-ph2p.csv};
       \addplot[error] fill between[of=I and J];
 
-      \node[fill=white] at (axis cs:2016-07-01,0.11) {%
+      \node[fill=none] at (axis cs:2016-07-01,0.11) {%
           \begin{tabular}{cl}
             \ref{inv-ph2}      & \textsc{InvCoax} \\
             \ref{coax-fit-ph2} & $f(t) = C$ \\
