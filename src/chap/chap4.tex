@@ -48,9 +48,9 @@ deposit coincident energy in the LAr. After the cut, the spectrum is mainly comp
 \nnbb\ (the LAr veto survival probability is $>99$\%) and residual \a\ events. The
 signal-to-background ratio in the \nnbb-dominated region (from 565~keV to 2000~keV
 excluding the potassium \g\ lines) improves by a factor 10, jumping from $\sim$2 to
-$\sim$~20 (\fillme{cross-check with betta}). This large background reduction motivates the
-development of a background model after the LAr veto cut to study the \nnbb\ event
-distribution with a significant sensitivity improvement.
+$\sim$~20. This large background reduction motivates the development of a background model
+after the LAr veto cut to study the \nnbb\ event distribution with a significant
+sensitivity improvement.
 
 \begin{figure}
   \centering
@@ -119,7 +119,7 @@ single energy deposition the number of generated scintillation photons $M$ is dr
 Poisson distribution with mean equal to the deposited amount of energy times the LAr
 scintillation yield times the LAr Fano factor:
 \[
-  M \sim \operatorname{Poisson}(E \cdot Y \cdot F) \;.
+  M \sim \operatorname{P}(E \cdot Y \cdot F) \;.
 \]
 The number of detected photons is then randomly drawn from a binomial distribution with
 success probability $p_k$, where $k$ labels the voxel that contains the LAr hit position,
@@ -465,11 +465,11 @@ is found in \cref{apdx:gedetav}. \fillme{any other comment?}
 \label{sec:bkg:lar:ph2:gmodel}
 
 A full-range background analysis of the energy spectra after the LAr veto cut in the same
-spirit of the one reported in \cref{sec:bkg:raw:ph2:gmodel} has been carried on. The \a\
-event analysis has not been repeated, as they survive almost completely the LAr veto cut.
-The pdfs extracted from the \a\ model presented in \cref{sec:bkg:raw:ph2:amodel} can be
-therefore used in the full-range analysis as they are. The potassium tracking analysis has
-not been repeated too.
+spirit of the one reported in \cref{sec:bkg:raw:ph2:gmodel} has been carried on. The
+\a-event analysis has not been repeated, as they survive almost completely the LAr veto
+cut.  The pdfs extracted from the \a\ model presented in \cref{sec:bkg:raw:ph2:amodel} can
+be therefore used in the full-range analysis as they are. The potassium tracking analysis
+has not been repeated too.
 
 \blocktitle{statistical \\ methods}
 The full-energy spectrum has been analysed in its entire range from 565~keV to 5260~keV
@@ -487,13 +487,14 @@ data partitioning scheme or a fixed 5~keV binning.
 The statistical analysis to determine the background decomposition consists in the usual
 Poissonian likelihood maximization in a Bayesian setting presented in
 \cref{sec:bkg:raw:ph2:stat}. The C++ BAT-based~\cite{Caldwell2008} software routine is
-publicly available on GitHub\footnote{The \texttt{gerda-fitter} software:
-\url{https://github.com/gipert/gerda-fitter}}. Since the global event suppression factor
-built in the pdfs after the LAr veto cut cannot be fully trusted (i.e.~the pdf
-normalization), no priors from screening measurement data have been set. \fillme{explain
-this better maybe somewhere else?} A uniform prior
-is assigned to all fit parameters (including the \nnbb\ fit parameter, which is
-proportional to $1/\thalftwoM$).
+publicly available on GitHub\footnote{%
+  The \texttt{gerda-fitter} software: \url{https://github.com/gipert/gerda-fitter}, see
+  \cref{footnote:gerda-fitter}.
+}. Since the global event suppression factor built in the pdfs after the LAr veto cut
+(i.e.~the pdf normalization) cannot be fully trusted, no priors from screening measurement
+data have been set. \fillme{explain this better maybe somewhere else?} A uniform prior is
+assigned to all fit parameters (including the \nnbb\ fit parameter, which is proportional
+to $1/\thalftwoM$).
 
 \blocktitle{results}
 Since the background level (excluding the \a\ events) is about an order of magnitude less
@@ -505,35 +506,31 @@ components has been therefore selected: \nnbb\ in germanium, \kvn\ close (mini-s
 and far (fiber shroud) from the detectors, \kvz\ close (on the \bege\ and \scoax\ \nplus\
 contact, in the LAr inside the mini-shrouds) and far (in the LAr outside the
 mini-shrouds, in the LAr above the array), \Bil\ and \Tl\ on cables, \Pbh\ and \Bih\ on
-cables, \Co\ on cables, \Ac\ on detector holders and the \a\ model pdfs for \bege{} and
+cables, \Co\ on cables, \Ac\ on detector holders and the \a\ model pdfs for \bege\ and
 \scoax\ detectors from \cref{sec:bkg:raw:ph2:amodel}.
 \newpar
-Not all the posterior distributions for the aforementioned pdfs report non-zero estimates
-of background counts in the spectra. Notably, posteriors for \kvz\ above the array and on
-the \bege\ \nplus\ contact are peaked at zero and are thus removed from the fit. The
-exclusion of \kvz\ on the \bege\ \nplus\ contact, which has not been reported in the fit
-before analysis cuts (\cref{chap:bkg:raw:ph2}), is attributed to the novel transition
-layer model, which significantly affects the pdf shape above the FEP. The \b\ spectrum
-component above 1525~keV, indeed, is now higher and shows less compatibility with
-experimental data. The \Co\ component is also compatible with zero, possibly because of
-the high LAr veto efficiency on a background contamination which was already low before
-the cut (c.f.r.~\cref{tab:bkg:raw:ph2:gmodel:results}). Nevertheless, the component is not
-removed from the fit because of its clear non-zero mode.
+Not all the marginalized posterior distributions of fit parameters report non-zero
+estimates of background counts in the spectra. Notably, posteriors for \kvz\ above the
+array and on the \bege\ \nplus\ contact are peaked at zero and are thus removed from the
+fit. The \Co\ component is also compatible with zero, possibly because of the high LAr
+veto efficiency on a background contamination which was already low before the cut
+(c.f.r.~\cref{tab:bkg:raw:ph2:gmodel:results}). Nevertheless, the component is not removed
+from the fit because of its clear non-zero mode.
 \newpar
 The results of the analysis are shown in
 \cref{fig:bkg:lar:ph2:results,fig:bkg:lar:ph2:results-fixbw,fig:bkg:lar:ph2:results-closeup}
-and \cref{tab:bkg:lar:ph2:results}. The background
-decomposition in \cref{fig:bkg:lar:ph2:results} is presented together with the residuals
-plot and the 68\%, 95\% and 99\% Poissonian probability intervals of the best fit model.
-Smallest intervals are now used instead of central intervals
-(c.f.r.~\cref{chap:bkg:raw:ph2})~\cite{Aggarwal2011}, and the visually-appealing
-normalization in units of $\sigma$ (as in e.g.~\cref{fig:bkg:raw:ph2:gmodel:results}) is
-not possible anymore. Already from a visual inspection of the residuals, the goodness of
-fit is not satisfactory through all the spectrum. In particular, discrepancies between the
-best-fit model and the data are visible in \enrGeII\ right below the potassium peaks,
+and \cref{tab:bkg:lar:ph2:results}. Since the radioactivity of hardware parts is better
+constrained within the background model before the analysis cuts
+(\cref{chap:bkg:raw:ph2}), where the background level is higher, and additional
+uncertainties affect the normalization of the pdfs after the LAr veto cut, only the
+reconstructed number of counts in the fit range and the background index are given. The
+background decomposition in \cref{fig:bkg:lar:ph2:results} is presented together with the
+residuals plot and the 68\%, 95\% and 99\% central Poisson probability intervals of the
+best fit model. Already from a visual inspection of the residuals, the goodness of fit is
+not completely satisfactory through all the spectrum. In particular, discrepancies between
+the best-fit model and the data are visible in \enrGeII\ right below the potassium peaks,
 in \enrBEGeII\ around the potassium Compton shoulder region and in \enrCoaxII\ in the
-$[1.8, 2]$~MeV region (\cref{fig:bkg:lar:ph2:results-closeup}.
-\fillme{update to final fit results}
+$[1.8, 2]$~MeV region (\cref{fig:bkg:lar:ph2:results-closeup}).
 
 \begin{sidewaystable}
   \footnotesize
@@ -590,7 +587,7 @@ $[1.8, 2]$~MeV region (\cref{fig:bkg:lar:ph2:results-closeup}.
 
 \section{Discussion}%
 \label{sec:bkg:lar:ph2:discussion}
-\fillme{discuss about transition layer models}
+
 
 \begin{figure}
   \centering

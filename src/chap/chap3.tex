@@ -52,14 +52,17 @@ from the second part of \phasetwo\ (\phasetwop) is presented in \cref{sec:bkg:ra
 \begin{table}
   \centering
   \caption{%
-    Properties of the data sets considered in this analysis. Further
-    details about the \gerda\ detectors can be found in past
-    publications~\cite{Agostini2013a, Agostini2018a}. \fillme{exposures}
+    Properties of the data sets considered in this analysis. Further details about the
+    \gerda\ detectors can be found in past publications~\cite{Agostini2013a,
+    Agostini2018a}.  Note that the \bege\ exposure of 31.1~\kgyr\ is higher than the one
+    reported in~\cite{Agostini2019a} because additional data for which PSD methods are not
+    applicable is here included. \fillme{exposures}
   }\label{tab:bkg:raw:ph2:datasets}
   \small
   \input{tab/bkg/raw/ph2/datasets.tex}
 \end{table}%
 \footnotetext[1]{%
+  \fillme{check footnote number!}
   The BEGe detector \GD{02D} is the only detector that does not fully
   deplete~\cite{Agostini2018a}. Hence, events triggered by this detector are
   not considered in either data set and it is omitted from the mass
@@ -77,9 +80,7 @@ two data sets based on the two enriched detector geometries which we call \enrBE
 \enrCoaxII\ in the following.  The \Mtwo\ data form a third data set which is named
 \enrGeII. The energy we associate to an \Mtwo\ event is the sum of the energies
 reconstructed in the two detectors. The data sets, their exposure and respective detector
-mass are listed in \cref{tab:bkg:raw:ph2:datasets}. Note that the \bege\ exposure of
-31.1~\kgyr\ is higher than the one reported in~\cite{Agostini2019a} because additional
-data for which PSD methods are not applicable is here included.
+mass are listed in \cref{tab:bkg:raw:ph2:datasets}.
 \newpar
 The event energy distribution of the three data sets is displayed in
 \cref{fig:bkg:raw:ph2:datasets}: the sum spectrum of \enrBEGeII\ and \enrCoaxII\ in the
@@ -1134,13 +1135,20 @@ at 60~keV, 99~keV and 103~keV.  However, the FCCD was also measured using a \Co\
 with characteristic \g\ energies of 1173~keV and 1332~keV. The latter FCCD$_\text{Co}$ is
 systematically higher (about 3\%) with respect to the FCCD$_\text{Am}$. The discrepancy
 could be explained by an energy dependence of the initial charge-carrier cloud size inside
-the detector but the actual impact on the active volume is still under investigation.  For
+the detector but the actual impact on the active volume is still under investigation. For
 the \scoax\ detectors only FCCD values determined with a \Co\ source are available.
+Another possible explanation for the observed shift might lie in the correction
+which is applied to the \bege\ FCCD values consequently to the 2--3 year period they were
+stored at room temperature, after being characterized and before being deployed into
+liquid argon~\cite{Agostini2019}. The dead-layer growth effect in germanium detector has
+never been rigorously studied, and therefore the applied correction might be biased. These
+systematic uncertainties affecting the active volume estimates are investigated in
+\cref{apdx:gedetav}.
 Considering the systematic uncertainties affecting the determined active \gesix\ exposures
 of the \enrBEGeII\ and \enrCoaxII\ data sets (1.8\% and 5\% respectively, see
-\cref{tab:bkg:raw:ph2:datasets}) $\delta^{2\nu}$ is compatible with zero within
+\cref{tab:bkg:raw:ph2:datasets}), however, $\delta^{2\nu}$ is compatible with zero within
 $1\sigma$.\footnote{%
-  The systematic bias between the active volume estimates for the \bege\ and coaxial
+  The systematic bias between the active volume estimates for the \bege\ and \scoax\
   detector types is a sub-dominant contribution in the \onbb\ analysis with respect to
   e.g.~PSD uncertainties.
 }
@@ -1172,28 +1180,26 @@ uncertainty sources.
 The background model presented in the past sections is based on data from the first part
 of \phasetwo, for a total exposure of \gexpophasetwobkg. In April 2018 the data taking was
 stopped to permit a hardware upgrade, in which five new detectors of the inverted-coaxial
-type were deployed together with an improved LAr veto system. For further details the
-reader is referred to \cref{sec:gerda:setup}. The data taking resumed in May 2018 and
-ended in November 2019 after collecting \gexpophasetwopbkg\ of data valid for the
-background model. In the following, the extension of the full-range energy spectrum
-analysis to this data is presented.
+type were deployed together with an improved LAr veto system. For further details about
+the upgrade the reader is referred to \cref{sec:gerda:setup}. The data taking resumed in
+May 2018 and ended in November 2019 after collecting \gexpophasetwopbkg\ of data valid for
+the background model. In the following, the extension of the full-range energy spectrum
+analysis to this data set is presented.
 
 \blocktitle{data \\ and pdfs}
 The total \gexpophasetwopbkg\ of single-detector data is divided according to the detector
 type, giving three \Mone\ datasets: \enrBEGeIIp, \enrSCoaxIIp\ and \enrICoaxIIp.
-Two-detector events are grouped in a single data set \enrGeIIp. As above, their energy is
+Two-detector events are grouped in a single data set: \enrGeIIp. As above, their energy is
 defined as the sum of the energies reconstructed in the two detectors. The four data sets,
 their exposures and corresponding detector masses are listed in
-\cref{tab:bkg:raw:ph2p:datasets}. Note that the exposures for the \bege\ and \icoax\ data
-sets are higher than those reported for the \onbb\ analysis~\cite{Agostini2021}, because
-of additional data that that was discarded due to poor PSD detector performance. The
+\cref{tab:bkg:raw:ph2p:datasets}. The
 energy spectra of the four data sets are shown in \cref{fig:bkg:raw:ph2p:data-desc}. In
 addition to the list of background contributions in \cref{sec:bkg:raw:ph2:data} that can
 be identified by eye in the spectra, an event excess is observed at 1124~keV in
 \enrICoaxIIp\ which is attributed to the decay of \Zn\ in the germanium\footnote{%
   The \Zn\ present in the \icoax\ crystals is due to the reaction \nuc{Ge}{70}(n,
   \a{}2n)\Zn, induced by cosmic rays. It disintegrates mainly by electron capture to the
-  1115~keV excited level of \nuc{Cu}{65} with a half-life of 244 days. \icoax\ detectors
+  1115~keV excited level of \nuc{Cu}{65} with a half-life of 244~days. \icoax\ detectors
   have been deployed in \gerda\ short after being produced, so the 1124~keV line (\g\
   de-excitation of \nuc{Cu}{65} coincident with K-shell X-rays) can be seen. A first
   reference to this decay in germanium has been found in a publication from the
@@ -1219,19 +1225,22 @@ background and signal contaminations and produce the corresponding pdfs, as desc
 \begin{table}
   \centering
   \caption{%
-    Properties of the data sets considered in this analysis. Further
-    details about the \gerda\ detectors can be found in past
-    publications~\cite{Agostini2013a, Agostini2018a}. \fillme{check these numbers carefully}
+    Properties of the data sets considered in this analysis. Further details about the
+    \gerda\ detectors can be found in past publications~\cite{Agostini2013a,
+    Agostini2018a, Miloradovic2020}. Note that the exposures for the \bege\ and \icoax\
+    data sets are higher than those reported for the \onbb\ analysis~\cite{Agostini2021},
+    because of additional data that that was discarded due to poor PSD detector
+    performance. \fillme{check these numbers carefully}
   }\label{tab:bkg:raw:ph2p:datasets}
   \small
   \input{tab/bkg/raw/ph2p/datasets.tex}
 \end{table}%
 
-\footnotetext[1]{%
+\footnotetext[11]{%
+  \fillme{check footnote number!}
   The BEGe detector \GD{02D} is the only detector that does not fully
-  deplete~\cite{Agostini2018a}. Hence, events triggered by this detector are
-  not considered in either data set and it is omitted from the mass
-  computation.
+  deplete~\cite{Agostini2018a}. Hence, events triggered by this detector are not
+  considered in either data set and it is omitted from the mass computation.
 }
 
 \blocktitle{background \\ expectations}
@@ -1248,7 +1257,7 @@ screened before installment in \gerda. The situation is summarized in \cref{apdx
 The full-range analysis of the binned energy spectra has been repeated for the \phasetwop\
 data sets. The usual Poissonian likelihood that runs over each single energy bin and each
 data set is maximized in a Bayesian setting. The C++ BAT-based~\cite{Caldwell2008}
-software routine is publicly available on GitHub\footnote{%
+software routine is publicly available on GitHub\footnote{\label{footnote:gerda-fitter}%
   The \texttt{gerda-fitter} software, available at
   \url{https://github.com/gipert/gerda-fitter}, is a Bayesian histogram fitting program
   written in C++ and based on the BAT toolkit. It is specialized and tested on the \gerda\
@@ -1272,10 +1281,10 @@ events in the full-range fit, only two large bins are used in the high-energy re
 the single-detector event spectra: $[2620, 4500]$~keV and $[4500, 5260]$~keV. In this way,
 no potential bias is introduced, and this last part of the energy range is just used to
 constrain the \a\ event contribution in the \nnbb\ region. The \enrBEGeII\ and \enrCoaxII\
-pdfs (see \cref{sec:bkg:raw:ph2:amodel}) are re-used for \enrBEGeIIp\ and \enrSCoaxIIp,
-respectively. The \enrBEGeII\ pdf is also used for \enrICoaxIIp, since the corresponding
-detectors have been introduced in \phasetwop\ for the first time. The faithfulness
-of the pdfs is verified \emph{a posteriori}.
+\a-model pdfs (see \cref{sec:bkg:raw:ph2:amodel}) are re-used for \enrBEGeIIp\ and
+\enrSCoaxIIp, respectively. The \enrBEGeII\ pdf is also arbitrarily used for \enrICoaxIIp,
+since the corresponding detectors have been introduced in \phasetwop\ for the first time.
+The faithfulness of the pdfs is verified \emph{a posteriori}.
 \newpar
 Since also the potassium-tracking analysis has not been repeated, no prior information is
 used to constrain the potassium activity. Priors are extracted from screening
@@ -1293,12 +1302,14 @@ one in a cylinder above the array (see \cref{apdx:magepdfs} and
 \cref{sec:bkg:raw:ph2:gmodel}). The other three pdfs correspond to \kvz\ homogeneously
 distributed on the \nplus\ surface of the detectors included in the three \Mone\ data
 sets. A linear function $b_1+b_2x$ is also included for each \Mone\ data set
-separately (6 parameters in total) to account for slow pulses (see sections above for
-details). Given the known discrepancies between the detector active volume determination
-methods, three independent parameters are used for the \nnbb-decay half-lives
-reconstructed from the three \Mone\ data sets. A uniform prior is set on
-$1/\thalftwoM$\footnote{The detailed fit configuration file is available at
-\url{https://github.com/gipert/gerda-fitter/config/phaseIIplus/gerda-fitter-phIIp-raw-global_extra_blocks.json}.}.
+separately (6 parameters in total) to account for energy-degraded \a\ events, as also
+done in \cref{sec:bkg:raw:ph2:gmodel}. Given the known discrepancies between the detector
+active volume determination methods, three independent parameters are used for the
+\nnbb-decay half-lives reconstructed from the three \Mone\ data sets. A uniform prior is
+set on $1/\thalftwoM$\footnote{%
+  The detailed fit configuration file is available at
+  \url{https://github.com/gipert/gerda-fitter/config/phaseIIplus/gerda-fitter-phIIp-raw-global_extra_blocks.json}.
+}.
 \newpar
 The resulting background decomposition of the four analysis data sets is shown in
 \cref{fig:bkg:raw:ph2p:results-1,fig:bkg:raw:ph2p:results-2,fig:bkg:raw:ph2p:results-3}.
@@ -1308,12 +1319,9 @@ their respective prior distribution. This is expected, given the known correlati
 between the pdfs and the low count rate of some background sources. All the marginalized
 posteriors are compatible with the prior information. The additional, special, \kvn\
 component close to the detector array still reports a non-zero result, while the posterior
-for \kvn\ far from the array is peaked at zero. Differently from what has been previously
-obtained in \cref{sec:bkg:raw:ph2:gmodel}, the \kvz\ component on the \nplus\ contact of
-the \bege\ detectors is now compatible with zero. This is due to the non-null \bege\
-detectors transition layer model used to obtain the corresponding pdf, which increases the
-rate of \b\ events above the 1525~keV peak (c.f.r.~\cref{fig:bkg:raw:ph2:pdfs:gmodel:K42})
-and decreases the compatibility with experimental data.
+for \kvn\ far from the array is peaked at zero. As also observed in
+\cref{sec:bkg:raw:ph2:gmodel}, the \kvz\ component on the \nplus\ contact of the \bege\
+detectors is compatible with zero.
 
 \begin{sidewaystable}
   \centering
@@ -1374,27 +1382,26 @@ and decreases the compatibility with experimental data.
 \blocktitle{\thalftwo}
 The three marginalized posteriors for the \nnbb-decay half-life, coming from the three
 detector types separately, are shown in \cref{fig:bkg:raw:ph2p:gmodel:2nbb-post}. The
-distributions have been obtained by re-sampling of the Markov chain. Note that the priors
-on \thalftwo\ are not exactly flat, as the real uniform priors are set on the number of
-\nnbb\ counts, which is proportional to $1/\thalftwoM$. In this range of half-life values,
-however, they can be well approximated by a flat distribution. As it is evident, a
-systematic discrepancy between the half-life predicted with \bege\ detectors and with
-\scoax\ detectors is found, at the same level of what observed in the analysis of the
-\enrBEGeII\ and \enrCoaxII\ (c.f.r.~\cref{sec:bkg:raw:ph2:gmodel}). The half-life
-predicted with \icoax\ detectors, on the other hand, seems to give the same results
-extracted from the \scoax\ detectors. Again, there is a clear evidence for a systematic
-underestimation of the \scoax\ and \icoax\ detector active volume, or overestimation of
-the \bege\ detector active volume, or even a more complex effect. This issue is addressed
-in detail in \cref{apdx:gedetav}, where additional evidence for the presence of systematic
-biases in the active volume estimate is presented. In the case of \bege\ detectors, the
-shift could be largely due to uncertainties on the \nplus\ dead-layer growth speed at room
-temperature\footnote{\bege\ detectors have been stored at room temperature for 2--3 years
-after being characterized and before being deployed at cryogenic
-temperatures~\cite{Agostini2019}.}.
+distributions have been obtained by re-sampling of the Markov chain\footnote{%
+  Note that the priors on \thalftwo\ are not exactly flat, as the real uniform priors are
+  set on the number of \nnbb\ counts, which is proportional to $1/\thalftwoM$. In this
+  range of half-life values, however, they can be well approximated by a flat
+  distribution.
+}. As it is evident, a systematic discrepancy between the half-life predicted with \bege\
+detectors and with \scoax\ detectors is found, at the same level of what observed in the
+analysis of the \enrBEGeII\ and \enrCoaxII\ (c.f.r.~\cref{sec:bkg:raw:ph2:gmodel}). The
+half-life predicted with \icoax\ detectors, on the other hand, seems to give the same
+results extracted from the \scoax\ detectors. Again, there is a clear evidence for a
+systematic underestimation of the \scoax\ and \icoax\ detector active volume, or
+overestimation of the \bege\ detector active volume, or even a more complex effect. This
+issue is addressed in detail in \cref{apdx:gedetav}, where additional evidence for the
+presence of systematic biases in the active volume estimate is presented. As remarked
+before, in the case of \bege\ detectors the shift could be largely due to uncertainties on
+the \nplus\ dead-layer growth speed at room temperature.
 \newpar
 To further investigate the origin of the discrepancy, the full-range analysis is repeated
 with pdfs (for all background sources and \nnbb-decay) that assume the preliminary active
-and transition layer model extracted by \Arl\ data, which is described in detail in
+and transition layer model extracted from \Arl\ data, which is described in detail in
 \cref{sec:gedetav:ar39}. A comparison between the latter and the official model is given
 in \cref{fig:gedetav:ar39-results}, and the obtained \thalftwo\ posteriors are shown in
 \cref{fig:bkg:raw:ph2p:gmodel:2nbb-post-ar39av}. \icoax\ and \scoax\ posteriors are
@@ -1405,6 +1412,29 @@ systematic uncertainties has not been evaluated yet. They demonstrate, indeed, t
 potential of an analysis of \Arl\ data to obtain unbiased estimated of the detector active
 volumes in their experimental working conditions. A robust estimated of the active volumes
 is, in fact, of great interest for the \nnbb\ analysis and the \onbb\ search.
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/bkg/raw/ph2p/results/gmodel/2nbb-posteriors.pdf}
+  \caption{%
+    Marginalized posterior distributions of the \nnbb-decay half-lives reconstructed from
+    the three \enrBEGeIIp, \enrSCoaxIIp\ and \enrICoaxIIp\ data sets separately. The three
+    parameters are independent from each other in the fit and carry a nearly uniform prior
+    distribution (the prior is actually uniform on $1/\thalftwoM$).
+  }\label{fig:bkg:raw:ph2p:gmodel:2nbb-post}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/bkg/raw/ph2p/results/gmodel/2nbb-posteriors-ar39av.pdf}
+  \caption{%
+    Marginalized posterior distributions of the \nnbb-decay half-lives reconstructed from
+    the three \enrBEGeIIp, \enrSCoaxIIp\ and \enrICoaxIIp\ data sets separately. The pdfs
+    in the analysis have been computed with the preliminary detector active volume model
+    results obtained from \Arl\ data in \cref{sec:gedetav:ar39}. The systematic shifts
+    observed in \cref{fig:bkg:raw:ph2p:gmodel:2nbb-post} are reduced.
+  }\label{fig:bkg:raw:ph2p:gmodel:2nbb-post-ar39av}
+\end{figure}
 
 \blocktitle{upgrade \\ effect}
 To detect changes of the background level before and after the \phasetwop\ upgrade works,
@@ -1433,34 +1463,19 @@ increased after the upgrade.
   }\label{fig:bkg:raw:ph2p:comparison}
 \end{figure}
 
-\begin{figure}
-  \centering
-  \includegraphics{plots/bkg/raw/ph2p/results/gmodel/2nbb-posteriors.pdf}
-  \caption{%
-    Marginalized posterior distributions of the \nnbb-decay half-lives reconstructed from
-    the three \enrBEGeIIp, \enrSCoaxIIp\ and \enrICoaxIIp\ data sets separately. The three
-    parameters are independent from each other in the fit and carry a nearly uniform prior
-    distribution (the prior is actually uniform on $1/\thalftwoM$).
-  }\label{fig:bkg:raw:ph2p:gmodel:2nbb-post}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics{plots/bkg/raw/ph2p/results/gmodel/2nbb-posteriors-ar39av.pdf}
-  \caption{%
-    Marginalized posterior distributions of the \nnbb-decay half-lives reconstructed from
-    the three \enrBEGeIIp, \enrSCoaxIIp\ and \enrICoaxIIp\ data sets separately. The pdfs
-    in the analysis have been computed with the preliminary detector active volume model
-    results obtained from \Arl\ data in \cref{sec:gedetav:ar39}. The systematic shifts
-    observed in \cref{fig:bkg:raw:ph2p:gmodel:2nbb-post} are reduced.
-  }\label{fig:bkg:raw:ph2p:gmodel:2nbb-post-ar39av}
-\end{figure}
+The results of the background decomposition of the full \gerdatwo\ data before the LAr
+veto and PSD cuts have been combined in \cref{fig:bkg:raw:results}. The single-detector
+data sets \enrBEGeII, \enrCoaxII, \enrBEGeIIp, \enrSCoaxIIp\ and \enrICoaxIIp\ have been
+combined in the upper panel; \enrGeII\ and \enrGeIIp\ have been combined in the bottom
+panel.
 
 \begin{figure}
   \centering
   \includegraphics{plots/bkg/raw/combined-results.pdf}
   \caption{%
-    Background decomposition of the full \gerdatwo\ data set.
+    Background decomposition of the full \gerdatwo\ data set, divided in single- and two-
+    detector events. Background components are grouped per radioactive source for
+    visualization purposes.
   }\label{fig:bkg:raw:results}
 \end{figure}
 
@@ -1486,6 +1501,32 @@ increased after the upgrade.
     unravel the origin of the background events. The results are incorporated in the final
     fit as prior information.
   \item The obtained model describes the data and reproduces the screening measurement
-    results to a satisfying degree of accuracy.
+    results to a satisfying degree of accuracy. An unexpected higher \kvn\ contamination
+    is found both in locations close to the detector array and far from it. Moreover, an
+    excess of \kvz\ events is seen by detectors at the top of the array, possibly
+    attributed to the electromagnetic attraction of the potassium ions towards the
+    high-voltage cables. The background at the \onbb\ is found to be flat except for two
+    \g\ lines from \Tl\ and \Bih. The main contribution is \kvz\ \b\ particles, while \a\
+    events and isotopes from the \Thh\ and \Uh\ decay chains contribute equally. However,
+    the composition of the background at the \onbb\ Q-value must be taken with a grain of
+    salt: many sources of systematic uncertainties have not been taken into account.
+  \item A discrepancy between the \nnbb-decay half-life reconstructed with \bege\
+    detectors and the one from \scoax\ detectors is found, revealing the presence of a
+    systematic bias between the two active volume estimates. This is attributed to the
+    employment of different measurement techniques or the underestimation of the \bege\
+    detectors dead-layer growth at room temperature. Nevertheless, the two results are
+    compatible within the systematic uncertainty attributed to the active volume
+    estimates. The measurement of the \nnbb\ half-life is, however, out of the scope of
+    the analysis of data before the analysis cuts. A more precise determination will be
+    presented in \cref{chap:2nbb-ana}, based on data after LAr veto cut.
+  \item The full-range analysis of the energy spectrum has been repeated for data
+    collected after the \phasetwop\ upgrade. The experimental setup implemented in the
+    Monte Carlo has been updated, and new pdfs have been generated. Compared to the first
+    part of \phasetwo, the background has not significantly changed as a consequence of
+    the upgrade works. A systematic shift between the \nnbb-decay half-life estimates from
+    \scoax\ and \icoax\ detectors, from one side, and \bege\ detectors is also observed
+    with the new data. A preliminary re-analysis using the detectors active volume
+    extracted from \Arl\ data seems to remove this tension.
 \end{itemize}
+
 % vim: tw=90
