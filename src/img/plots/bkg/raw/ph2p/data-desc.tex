@@ -33,7 +33,7 @@
       \nextgroupplot[ymode=log]
 
       \addplot[raw] table [y=bege_raw] {gerda-data.csv} \closedcycle;
-      \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{BEGe} -- 22.2 kg$\cdot$yr};
+      \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{BEGe} -- \gebkgBEGeIIp};
       \node[anchor=north east] at (axis description cs:0.95,0.77) {\footnotesize single-detector events};
 
       \node[isotope] at (1395,1e3) {$^{40}$K};
@@ -45,19 +45,19 @@
       \nextgroupplot[ymode=log]
 
       \addplot[raw] table [y=scoax_raw] {gerda-data.csv} \closedcycle;
-      \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{SemiCoax} -- 13.2 kg$\cdot$yr};
+      \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{SemiCoax} -- \gebkgSCoaxIIp};
       \node[anchor=north east] at (axis description cs:0.95,0.77) {\footnotesize single-detector events};
 
       \nextgroupplot[ymode=log]
 
       \addplot[raw] table [y=icoax_raw] {gerda-data.csv} \closedcycle;
-      \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{InvCoax} -- 8.8 kg$\cdot$yr};
+      \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{InvCoax} -- \gebkgICoaxIIp};
       \node[anchor=north east] at (axis description cs:0.95,0.77) {\footnotesize single-detector events};
 
       \nextgroupplot[ymode=log]
 
       \addplot[raw] table [y=all_raw] {gerda-data.csv} \closedcycle;
-      \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{All} -- 44.1 kg$\cdot$yr};
+      \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{All} -- \gexpophasetwopbkg};
       \node[anchor=north east] at (axis description cs:0.95,0.77) {\footnotesize two-detector events};
 
     \end{groupplot}

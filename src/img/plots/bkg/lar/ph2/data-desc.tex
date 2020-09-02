@@ -50,7 +50,7 @@
 
       \addplot[raw] table [y=bege_raw] {gerda-data.csv} \closedcycle;
       \addplot[lar] table [y=bege_lar] {gerda-data.csv} \closedcycle;
-      \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{BEGe} -- 32.1 kg$\cdot$yr};
+      \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{BEGe} -- \gebkgBEGeII};
       \node[anchor=north east] at (axis description cs:0.95,0.77) {\footnotesize single-detector events};
 
       \node[isotope] at (1400,1e3) {$^{40}$K};
@@ -63,14 +63,14 @@
 
       \addplot[raw] table [y=coax_raw] {gerda-data.csv} \closedcycle;
       \addplot[lar] table [y=coax_lar] {gerda-data.csv} \closedcycle;
-      \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{SemiCoax} -- 28.1 kg$\cdot$yr};
+      \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{SemiCoax} -- \gebkgSCoaxII};
       \node[anchor=north east] at (axis description cs:0.95,0.77) {\footnotesize single-detector events};
 
       \nextgroupplot[ymode=log]
 
       \addplot[raw] table [y=all_raw] {gerda-data.csv} \closedcycle;
       \addplot[lar] table [y=all_lar] {gerda-data.csv} \closedcycle;
-      \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{All} -- 60.2 kg$\cdot$yr};
+      \node[anchor=north east] at (axis description cs:0.95,0.9) {\textsc{All} -- \gexpophasetwobkg};
       \node[anchor=north east] at (axis description cs:0.95,0.77) {\footnotesize two-detector events};
 
       \addlegendentry{Before analysis cuts};

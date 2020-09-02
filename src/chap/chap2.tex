@@ -39,7 +39,7 @@ the natural \GTF{} detectors were removed.}. Moreover, the LAr veto system was e
 with a more efficient one, thanks to the denser fiber curtain and the addition of a shroud
 enclosing the central string, now consisting of inverted-coaxial detectors only. This last
 part of \phasetwo, which will be referred as \phasetwop\ in the following, ended in
-November 2019 after collecting the total exposure of 103.7~\kgyr\ and
+November 2019 after collecting the total exposure of \gexpo and
 establishing the final \gerda\ upper limit on the neutrinoless double-beta decay half-life
 of \gerdafinallimit. When generally referring to the \phasetwo\ period, if not specified
 in the following, \phasetwop\ must be considered as implicitly included.
@@ -66,7 +66,7 @@ in the following, \phasetwop\ must be considered as implicitly included.
   \caption{%
     Evolution of sensitivity and \thalfzero\ limits set by \gerda\ over accumulated
     exposure. The almost perfect linear increase of the sensitivity for limit setting
-    demostrates the background-free conditions in which the experiment has been operating
+    demonstrates the background-free conditions in which the experiment has been operating
     in its second phase. Deviations of the observed limit from the expectations for no
     signal are due to the particular statistical realization.
   }\label{img:exp:gerda-history}
@@ -188,16 +188,22 @@ in~\cite{inverted-paper}.
   \includegraphics[width=0.48\textwidth]{gedet/phII-array-2D.pdf}%
   \hspace{0.04\textwidth}%
   \includegraphics[width=0.48\textwidth]{gedet/phIIp-array-2D.pdf}
-  \caption{%
+  \caption[placeholder]{%
     The \gerda\ \phasetwo\ detector array. On the left: setup from the start of Phase II
     (December 2015). On the right: \phasetwop\ setup after the 2018 upgrade works. The
     main difference between the two configurations is the presence of upside-down detectors
     in the first configuration and the inverted-coaxial detectors in place of the natural
     detectors in the central string in the \phasetwop\ configuration. In the center: top
-    view of the \phasetwo\ array, with the three calibration sources. \fillme{different
+    view of the \phasetwo\ array, with the three calibration sources. Drawings have been
+    created through the \m{gedet-plots} library\footnotemark{}. \fillme{different
     colors for detector types}
   }\label{fig:setup:array}
 \end{figure}
+\footnotetext{\label{footnote:gedetplots}%
+  The \m{gedet-plots} drawing library is based on the Asymptote
+  (\url{https://asymptote.sourceforge.io/}) vector graphics language and is freely
+  available on GitHub at \url{https://github.com/gipert/gedet-plots}.
+}
 
 \blocktitle{array \\ instrumentation}
 As already mentioned, the \gerda\ \phasetwo\ detectors are arranged into 7 strings, packed
@@ -349,7 +355,8 @@ from the muon veto and LAr veto systems.
     events, \b{}s and \a{}s on the surface can be discriminated with offline algorithms
     depending on the specific detector geometry. \emph{LAr veto}: background events that
     deposit energy in germanium and LAr at the same time can be efficiently vetoed by
-    the \gerda\ LAr veto.
+    the \gerda\ LAr veto. Drawings have been
+    created through the \m{gedet-plots} library\textsuperscript{\ref{footnote:gedetplots}}.
   }\label{fig:gerda:event-types}
 \end{figure}
 

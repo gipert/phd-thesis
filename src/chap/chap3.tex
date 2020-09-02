@@ -56,14 +56,13 @@ from the second part of \phasetwo\ (\phasetwop) is presented in \cref{sec:bkg:ra
     \gerda\ detectors can be found in past publications~\cite{Agostini2013a,
     Agostini2018a}.  Note that the \bege\ exposure of 31.1~\kgyr\ is higher than the one
     reported in~\cite{Agostini2019a} because additional data for which PSD methods are not
-    applicable is here included. \fillme{exposures}
+    applicable is here included.
   }\label{tab:bkg:raw:ph2:datasets}
   \small
   \input{tab/bkg/raw/ph2/datasets.tex}
 \end{table}%
-\footnotetext[1]{%
-  \fillme{check footnote number!}
-  The BEGe detector \GD{02D} is the only detector that does not fully
+\footnotetext{%
+  The \bege\ detector \GD{02D} is the only detector that does not fully
   deplete~\cite{Agostini2018a}. Hence, events triggered by this detector are
   not considered in either data set and it is omitted from the mass
   computation.
@@ -1235,10 +1234,8 @@ background and signal contaminations and produce the corresponding pdfs, as desc
   \small
   \input{tab/bkg/raw/ph2p/datasets.tex}
 \end{table}%
-
-\footnotetext[11]{%
-  \fillme{check footnote number!}
-  The BEGe detector \GD{02D} is the only detector that does not fully
+\footnotetext{%
+  The \bege\ detector \GD{02D} is the only detector that does not fully
   deplete~\cite{Agostini2018a}. Hence, events triggered by this detector are not
   considered in either data set and it is omitted from the mass computation.
 }
@@ -1319,9 +1316,12 @@ their respective prior distribution. This is expected, given the known correlati
 between the pdfs and the low count rate of some background sources. All the marginalized
 posteriors are compatible with the prior information. The additional, special, \kvn\
 component close to the detector array still reports a non-zero result, while the posterior
-for \kvn\ far from the array is peaked at zero. As also observed in
-\cref{sec:bkg:raw:ph2:gmodel}, the \kvz\ component on the \nplus\ contact of the \bege\
-detectors is compatible with zero.
+for \kvn\ far from the array is peaked at zero.  Differently from what has been previously
+obtained in \cref{sec:bkg:raw:ph2:gmodel}, the \kvz\ component on the \nplus\ contact of
+the \bege\ detectors is now compatible with zero. This is due to the non-null \bege\
+detectors transition layer model used to obtain the corresponding pdf, which increases the
+rate of \b\ events above the 1525~keV peak (c.f.r.~\cref{fig:bkg:raw:ph2:pdfs:gmodel:K42})
+and decreases the compatibility with experimental data.
 
 \begin{sidewaystable}
   \centering
@@ -1459,7 +1459,7 @@ increased after the upgrade.
   \caption{%
     Comparison between the single-detector event background counts in units of \gesix\
     exposure above the \Arl\ Q-value (565~keV) reconstructed with the background model
-    analysis before and after the \phasetwop\ hardware upgrade. \fillme{exposures}
+    analysis before and after the \phasetwop\ hardware upgrade.
   }\label{fig:bkg:raw:ph2p:comparison}
 \end{figure}
 

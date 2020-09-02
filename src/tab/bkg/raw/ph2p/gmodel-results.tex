@@ -7,12 +7,6 @@
   r
   l
   c
-  S[% global mode
-    table-format=4.2,
-    table-number-alignment=right,
-    table-text-alignment=right,
-    table-parse-only
-  ]
   r@{ }l% marginalized with 68% CI interval
   S[% screening measurements
     table-number-alignment=left,
@@ -33,6 +27,13 @@
     table-auto-round
     ]@{ | }
   l
+  S[% Inverted
+    table-format=4.0,
+    table-number-alignment=center,
+    table-text-alignment=right,
+    table-auto-round
+    ]@{ | }
+  l
   S[% M2-All
     table-format=4.0,
     table-number-alignment=center,
@@ -41,49 +42,46 @@
   ]
 }
   \toprule
-  \mrr{3}{source}      & \mrr{3}{\m{[prior]} location}         & \mrr{3}{units}      & {\mrc{3}{global\\mode}} & \mc{2}{\mrc{3}{marg.~mode\\with 68\% CI}} & {\mrr{3}{screening}} & \mc{5}{model content in fit range | BI at \qbb}                                             \\
-                       &                                       &                     &                         &       &                                   &                      & \mc{5}{units: cts | $10^{-3}$\ctsper}                                                       \\
-  \cmidrule(lr){8-12}
-                       &                                       &                     &                         &       &                                   &                      & \mc{2}{\enrBEGeII}                     & \mc{2}{\enrCoaxII}                     & \enrGeII\ \\
+  \mrr{3}{source}      & \mrr{3}{\m{[prior]} location}         & \mrr{3}{units}      & \mc{2}{\mrc{3}{marg.~mode\\with 68\% CI}} & {\mrr{3}{screening}} & \mc{7}{model content in fit range | BI at \qbb}                                             \\
+                       &                                       &                     &       &                                   &                      & \mc{7}{units: cts | $10^{-3}$\ctsper}                                                       \\
+  \cmidrule(lr){7-13}
+                       &                                       &                     &       &                                   &                      & \mc{2}{\enrBEGeIIp}                    & \mc{2}{\enrSCoaxIIp}                   & \mc{2}{\enrICoaxIIp}                   & \enrGeIIp\ \\
   \midrule
-  \mr{2}{\nnbb}        & \m{[f]} \bege\ detectors              & \mr{3}{$10^{21}$yr} &                         &       &                                   & {--}                 &         & \mrc{2}{0}                   &         & \mrc{2}{0}                   &           \\
-                       & \m{[f]} \scoax\ detectors             &                     &                         &       &                                   & {--}                 &         & \mrc{2}{0}                   &         & \mrc{2}{0}                   &           \\
-                       & \m{[f]} \icoax\ detectors             &                     &                         &       &                                   & {--}                 &         & \mrc{2}{0}                   &         & \mrc{2}{0}                   &           \\
+  \mr{3}{\nnbb}        & \m{[f]} \bege\ detectors              & \mr{3}{$10^{21}$yr} & 2.094 & $[2.080, 2.114]$                  & {--}                 & 31451   &                              &         &                              &         &                              & 0         \\
+                       & \m{[f]} \scoax\ detectors             &                     & 1.910 & $[1.890, 1.927]$                  & {--}                 &         &                              &         &                              &         &                              & 0         \\
+                       & \m{[f]} \icoax\ detectors             &                     & 1.898 & $[1.875, 1.922]$                  & {--}                 &         &                              &         &                              &         &                              & 0         \\
   \midrule
-  \mr{3}{\Bil\ + \Tl}  & \m{[e]} flat cables                   & \mr{3}{$\upmu$Bq}   &                         &       &                                   & < 410                &         & \mrc{3}{3.52\\$[3.30,3.76]$} &         & \mrc{3}{2.21\\$[2.03,2.34]$} &           \\
-                       & \m{[g]} copper shrouds$^{\dagger}$    &                     &                         &       &                                   & 194 \pm 19           &         &                              &         &                              &           \\
-                       & \m{[g]} mini-shrouds                  &                     &                         &       &                                   & 18  \pm 5            &         &                              &         &                              &           \\
+  \mr{4}{\Bil\ + \Tl}  & \m{[e]} detector holders              & \mr{4}{$\upmu$Bq}   &       &                                   & {--}                 &         & \mrc{4}{3.52\\$[3.30,3.76]$} &         & \mrc{4}{2.21\\$[2.03,2.34]$} &         & \mrc{4}{2.21\\$[2.03,2.34]$} &           \\
+                       & \m{[g]} mini-shrouds                  &                     &       &                                   & 18 \pm 5             &         &                              &         &                              &         &                              &           \\
+                       & \m{[g]} inner fiber shroud            &                     &       &                                   & 24 \pm 7             &         &                              &         &                              &         &                              &           \\
+                       & \m{[g]} outer fiber shroud            &                     &       &                                   & 177 \pm 53           &         &                              &         &                              &         &                              &           \\
   \midrule
-  \mr{6}{\Pbh\ + \Bih} & \m{[f]} \pplus\ (BEGe)                & \mr{6}{$\upmu$Bq}   &                         &       &                                   & {--}                 &         & \mrc{6}{2.63\\$[2.50,2.78]$} &         & \mrc{6}{3.16\\$[2.83,3.50]$} &           \\
-                       & \m{[f]} \pplus\ (Coax)                &                     &                         &       &                                   & {--}                 &         &                              &         &                              &           \\
-                       & \m{[g]} flat cables                   &                     &                         &       &                                   & 660 \pm 210          &         &                              &         &                              &           \\
-                       & \m{[g]} copper shrouds$^{\dagger}$    &                     &                         &       &                                   & 532 \pm 53           &         &                              &         &                              &           \\
-                       & \m{[g]} mini-shrouds                  &                     &                         &       &                                   & 43  \pm 13           &         &                              &         &                              &           \\
-                       & \m{[g]} SiPM-ring                     &                     &                         &       &                                   & 351 \pm 97           &         &                              &         &                              &           \\
+  \mr{3}{\Pbh\ + \Bih} & \m{[g]} cabling                       & \mr{3}{$\upmu$Bq}   &       &                                   & < 210                &         & \mrc{3}{2.63\\$[2.50,2.78]$} &         & \mrc{3}{3.16\\$[2.83,3.50]$} &         & \mrc{3}{3.16\\$[2.83,3.50]$} &           \\
+                       & \m{[g]} mini-shrouds                  &                     &       &                                   & 46 \pm 14            &         &                              &         &                              &         &                              &           \\
+                       & \m{[g]} inner fiber shroud            &                     &       &                                   & 1.2 \pm 0.4          &         &                              &         &                              &         &                              &           \\
   \midrule
-  \mr{9}{\kvn}         & \m{[g]} flat cables                   & \mr{9}{mBq}         &                         &       &                                   & 6  \pm 2             &         & \mrc{9}{0}                   &         & \mrc{9}{0}                   &           \\
-                       & \m{[g]} front-end electronics         &                     &                         &       &                                   & 13 \pm 4             &         &                              &         &                              &           \\
-                       & \m{[g]} copper shrouds$^{\dagger}$    &                     &                         &       &                                   & 18 \pm 2             &         &                              &         &                              &           \\
-                       & \m{[g]} fiber shroud                  &                     &                         &       &                                   & 2.9 \pm 0.6          &         &                              &         &                              &           \\
-                       & \m{[g]} detector holders              &                     &                         &       &                                   & 2.8 \pm 0.6          &         &                              &         &                              &           \\
-                       & \m{[g]} mini-shrouds                  &                     &                         &       &                                   & 1.7 \pm 0.6          &         &                              &         &                              &           \\
-                       & \m{[g]} SiPM ring                     &                     &                         &       &                                   & 2 \pm 2              &         &                              &         &                              &           \\
-                       & \m{[f]} far from the array            &                     &                         &       &                                   & {--}                 &         &                              &         &                              &           \\
-                       & \m{[f]} close to the array            &                     &                         &       &                                   & {--}                 &         &                              &         &                              &           \\
+  \mr{6}{\kvn}         & \m{[g]} cabling                       & \mr{6}{mBq}         &       &                                   & 3.0 \pm 0.8          &         & \mrc{6}{0}                   &         & \mrc{6}{0}                   &         & \mrc{6}{0}                   &           \\
+                       & \m{[g]} inner fiber shroud            &                     &       &                                   & 0.4 \pm 1.2          &         &                              &         &                              &         &                              &           \\
+                       & \m{[g]} outer fiber shroud            &                     &       &                                   & 3.1 \pm 0.9          &         &                              &         &                              &         &                              &           \\
+                       & \m{[g]} detector holders              &                     &       &                                   & 2.8 \pm 0.6          &         &                              &         &                              &         &                              &           \\
+                       & \m{[g]} mini-shrouds                  &                     &       &                                   & 1.7 \pm 0.6          &         &                              &         &                              &         &                              &           \\
+                       & \m{[f]} close to the array            &                     &       &                                   & {--}                 &         &                              &         &                              &         &                              &           \\
   \midrule
-  \mr{4}{\kvz}         & \m{[f]} \nplus\ (BEGe)                & \mr{2}{$\upmu$Bq}   &                         &       &                                   & {--}                 &         & \mrc{4}{5.69\\$[4.58,6.29]$} &         & \mrc{4}{1.29\\$[1.15,1.40]$} &           \\
-                       & \m{[f]} \nplus\ (Coax)                &                     &                         &       &                                   & {--}                 &         &                              &         &                              &           \\
-                       & \m{[f]} LAr {--} above array          & \mr{2}{Bq}          &                         &       &                                   & {--}                 &         &                              &         &                              &           \\
-                       & \m{[f]} LAr {--} outside mini-shrouds &                     &                         &       &                                   & {--}                 &         &                              &         &                              &           \\
+  \mr{6}{\kvz}         & \m{[f]} \nplus\ (\bege)               & \mr{3}{$\upmu$Bq}   &       &                                   & {--}                 &         & \mrc{6}{5.69\\$[4.58,6.29]$} &         & \mrc{6}{1.29\\$[1.15,1.40]$} &         & \mrc{6}{1.29\\$[1.15,1.40]$} &           \\
+                       & \m{[f]} \nplus\ (\scoax)              &                     &       &                                   & {--}                 &         &                              &         &                              &         &                              &           \\
+                       & \m{[f]} \nplus\ (\icoax)              &                     &       &                                   & {--}                 &         &                              &         &                              &         &                              &           \\
+                       & \m{[f]} LAr {--} above array          & \mr{3}{Bq}          &       &                                   & {--}                 &         &                              &         &                              &         &                              &           \\
+                       & \m{[f]} LAr {--} inside mini-shrouds  &                     &       &                                   & {--}                 &         &                              &         &                              &         &                              &           \\
+                       & \m{[f]} LAr {--} outside mini-shrouds &                     &       &                                   & {--}                 &         &                              &         &                              &         &                              &           \\
   \midrule
-  \mr{3}{\Ac}          & \m{[g]} copper shrouds$^{\dagger}$    & \mr{4}{$\upmu$Bq}   &                         &       &                                   & 62 \pm 6             &         & \mrc{4}{0.36\\$[0.31,0.40]$} &         & \mrc{4}{0.33\\$[0.28,0.37]$} &           \\
-                       & \m{[e]} detector holders              &                     &                         &       &                                   & < 250                &         &                              &         &                              &           \\
-                       & \m{[g]} mini-shrouds                  &                     &                         &       &                                   & 18  \pm  5           &         &                              &         &                              &           \\
-  \Co\                 & \m{[e]} flat cables                   &                     &                         &       &                                   & < 250                &         &                              &         &                              &           \\
+  \mr{2}{\Ac}          & \m{[g]} inner fiber shroud            & \mr{4}{$\upmu$Bq}   &       &                                   & 24 \pm 7             &         & \mrc{4}{0.36\\$[0.31,0.40]$} &         & \mrc{4}{0.33\\$[0.28,0.37]$} &         & \mrc{4}{0.33\\$[0.28,0.37]$} &           \\
+                       & \m{[g]} mini-shrouds                  &                     &       &                                   & 19 \pm  5            &         &                              &         &                              &         &                              &           \\
+  \Co\                 & \m{[e]} detector holders              &                     &       &                                   & < 102                &         &                              &         &                              &         &                              &           \\
+  \Zn\                 & \m{[f]} \icoax\ detectors             &                     &       &                                   & {--}                 &         &                              &         &                              &         &                              &           \\
   \midrule
-  \mr{4}{\a\ decays}   & \m{[f]} \Po\ + \Ra\ chain (\bege)     & \mr{3}{cts}         &                         &       &                                   & {--}                 &         & \mrc{4}{3.31\\$[3.12,3.78]$} &         & \mrc{4}{4.76\\$[4.40,5.08]$} &           \\
-                       & \m{[f]} \Po\ + \Ra\ chain (\scoax)    &                     &                         &       &                                   & {--}                 &         &                              &         &                              &           \\
-                       & \m{[f]} \Po\ + \Ra\ chain (\icoax)    &                     &                         &       &                                   & {--}                 &         &                              &         &                              &           \\
+  \mr{3}{\a\ decays}   & \m{[f]} \Po\ + \Ra\ chain (\bege)     & \mr{3}{cts}         &       &                                   & {--}                 &         & \mrc{3}{3.31\\$[3.12,3.78]$} &         & \mrc{3}{4.76\\$[4.40,5.08]$} &         & \mrc{3}{4.76\\$[4.40,5.08]$} &           \\
+                       & \m{[f]} \Po\ + \Ra\ chain (\scoax)    &                     &       &                                   & {--}                 &         &                              &         &                              &         &                              &           \\
+                       & \m{[f]} \Po\ + \Ra\ chain (\icoax)    &                     &       &                                   & {--}                 &         &                              &         &                              &         &                              &           \\
   \bottomrule%
 \end{tabular}%
 
