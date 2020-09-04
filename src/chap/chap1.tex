@@ -1,53 +1,68 @@
 %!TEX root = ../main.tex
 
-\chapter{Double-beta decay}\label{chap:theory}
+\chapter{The physics of double-beta decay}\label{chap:theory}
 
-Studying the properties and interactions of neutrinos has been one of the most
-exciting and vigorous activities in particle physics and astrophysics ever
-since W.~E.~Pauli in 1930~\cite{Brown1978}. Despite their weakly interacting
-nature, that challenged physicists to detect it directly until
-1965~\cite{Cowan1956}, we have so far accumulated an enormous amount of
-knowledge about them. No experiments that have been performed so far have
-detected conclusive deviations from the Standard Model, except neutrino
-oscillation experiments, which have shown that neutrinos are massive and
-mixed~\cite{Fukuda1998, Ahmad2002, Eguchi2003, Kajita2016, McDonald2016}.
-This discovery, however, is far from being the last word on neutrino
-fundamental properties. The mechanism through which the neutrino acquires mass
-and why it is so tiny with respect to all the other elementary
-particles remains a mystery. How can such a specific and rare nuclear process
+Studying the properties and interactions of neutrinos has been one of the most exciting
+and vigorous activities in particle physics and astrophysics ever since W.~E.~Pauli in
+1930~\cite{Brown1978}. Despite their weakly interacting nature, that challenged physicists
+to detect it directly until 1965~\cite{Cowan1956}, we have so far accumulated an enormous
+amount of knowledge about them. No experiments that have been performed so far have
+detected conclusive deviations from the Standard Model of Particle Physics, except
+neutrino oscillation experiments, which have shown that neutrinos are massive and
+mixed~\cite{Fukuda1998, Ahmad2002, Eguchi2003, Kajita2016, McDonald2016}.  This discovery,
+however, is far from being the last word on the fundamental properties of neutrino. The
+mechanism through which the neutrino acquires mass and why it is so tiny with respect to
+all the other elementary particles remains a mystery. How can such a rare nuclear process
 like double-beta decay help shading some light on these enigmas?
-
-The mass-generation mechanism is strongly connected to the nature of these
+\newpar
+The mass-generation mechanism is strongly connected to the nature of these extremely light
 particles, which could be either of Dirac or Majorana type (i.e.~neutrino and
-anti-neutrino are distinct particles or the same particle). An attempt to
-address this problem is done by experiments looking for the neutrinoless mode
-of double-beta decay. The double-beta decay, in its two-neutrino Standard Model
-mode (\nnbb), consists in a nucleus that decays into a daughter nucleus with
-two electrons and two electron anti-neutrinos as a byproduct. If the neutrino
-is a Majorana particle then another mode may occur (\onbb), in which
-neutrinos are not produced at all~\cite{Schechter1982}. Neutrinoless
-double-beta decay experiments are considered the most promising way to solve
-the neutrino mass puzzle, although these events are very rare processes
-controlled by weak interactions.
-
-From its definition it is also clear that neutrinoless double-beta decay
-violates lepton number conservation, an accidental symmetry in the Standard
-Model, by two units ($\Delta L = 2$). The existence of such a process beyond
-the Standard Model would therefore be crucial to support baryogenesis ideas,
-that try to explain why we live in matter-dominated Universe.
-
-In the following the theory of double-beta decay is briefly reviewed, focusing
-on the core concepts and formulas which will be used in this work. Formulas for
-the differential double-beta decay rates associated to the two-neutrino mode,
-the neutrinoless mode as well as modes driven by other new physics scenarios
-(Majoron emission, Lorentz symmetry violation) are given. \fillme{expand}
+anti-neutrino are distinct particles or the same particle). An attempt to address this
+problem is pursued by experiments looking for the neutrinoless mode of double-beta decay.
+The double-beta decay, in its two-neutrino Standard Model mode (\nnbb), consists in a
+nucleus that decays into a daughter nucleus with two electrons and two electron
+anti-neutrinos as a byproduct. If the neutrino is a Majorana particle then another mode
+may occur (\onbb), in which neutrinos are not produced at all~\cite{Schechter1982}.
+Neutrinoless double-beta decay experiments are considered the most promising way to solve
+the neutrino mass puzzle, although these events are very rare processes controlled by weak
+interactions.
+\newpar
+From its definition it is also clear that neutrinoless double-beta decay violates lepton
+number conservation, an accidental symmetry of the Standard Model, by two units. The
+existence of such a process beyond the Standard Model would be crucial to support
+baryogenesis ideas, that aim to explain why we live in matter-dominated Universe.  Many
+theories, in fact, predict that the asymmetry is eventually produced by a violation of
+lepton number via leptogenesis. Neutrino Majorana masses and lepton-number violation can
+be therefore verified at the same time by observing neutrinoless double-beta decay.
+\newpar
+Neutrinoless double-beta decay is not the only hypothetical process that can be searched
+in a dedicated physics experiment. Other exotic processes have been conjectured by
+theorists that have different theoretical signatures and are usually searched by studying
+the distribution of two-neutrino double-beta decay events. Two of them have been
+considered in this work, namely the neutrinoless double-beta decay with Majoron emission
+and the Lorentz-violating two-neutrino double beta decay. The first is essentially a
+variant of neutrinoless double beta decay in which massless Goldstone bosons connected to
+the symmetry breaking are emitted together with the two electrons. The second one,
+instead, re-considers the two-neutrino mode in the theoretical framework of an extension
+of the Standard Model in which the Lorentz symmetry is not conserved.
+\newpar
+In the following the theory of double-beta decay is briefly reviewed, focusing on the core
+concepts and formulas which will be used in this work. First, the decay scheme of the
+standard two-neutrino double-beta decay mode is discussed in \cref{sec:nbb:2nbb}. The
+ingredients to calculate its differential decay rate are presented, including a brief
+discussion of the long-standing nuclear matrix element issue. The theoretical implications
+of the hypothesized neutrinoless double-beta decay mode on the nature of the neutrino mass
+and the baryogenesis puzzle are discussed in \cref{sec:nbb:0nbb}. In
+\cref{sec:nbb:0nbbx,sec:nbb:2nbbLV} other exotic double-beta decay modes that contemplate
+the emission of additional particles (i.e.~the Majorons) or break the Lorentz symmetry
+are considered. Finally, aspects concerning the detection of double-beta decay events in
+real experimental settings will be examined in \cref{sec:nbb:exp}.
 
 \section{Two-neutrino double-beta decay}%
 \label{sec:nbb:2nbb}
 
-The two-neutrino double-beta decay (\nnbb) processes, first suggested by
-M.~Goeppert-Mayer in 1935~\cite{GoeppertMayer1935}, can be schematically
-represented as:
+The two-neutrino double-beta decay (\nnbb) processes, first suggested by M.~Goeppert-Mayer
+in 1935~\cite{GoeppertMayer1935}, can be schematically represented as:
 \[
   \begin{array}{llr}
     2\upnu\upbeta^-\upbeta^-: &
@@ -56,12 +71,11 @@ represented as:
       \mathcal{N}(A,Z) \longrightarrow \mathcal{N}(A,Z-2)+2e^++2\upnu_e &,
   \end{array}
 \]
-where \NAZ\ represents a nucleus with mass number $A$ and atomic number $Z$. The
-\nnbbm\ (\nnbbp) process consists of the simultaneous $\upbeta^-$ ($\upbeta^+$)
-decay of two neutrons (protons) in the same nucleus. The processes are
-generated at second-order in the perturbative expansion of weak interactions in
-the Standard Model. The Feynman graph for \nnbbm\ is shown in
-\cref{fig:nbb:feydiag}, left.
+where \NAZ\ represents a nucleus with mass number $A$ and atomic number $Z$. The \nnbbm\
+(\nnbbp) process consists of the simultaneous $\upbeta^-$ ($\upbeta^+$) decay of two
+neutrons (protons) in the same nucleus. The processes are generated at second-order in the
+perturbative expansion of weak interactions in the Standard Model. The Feynman graph for
+\nnbbm\ is shown in \cref{fig:nbb:feydiag}, left.
 
 \begin{figure}
   \centering%
@@ -70,38 +84,36 @@ the Standard Model. The Feynman graph for \nnbbm\ is shown in
     \includegraphics[width=0.5\textwidth]{plots/theory/0nbbfey.pdf}%
   }
   \caption{%
-    Feynman graphs for two-neutrino (left) and neutrinoless (right) double-beta
-    decay.
+    Feynman graphs for two-neutrino (left) and neutrinoless (right) double-beta decay. In
+    the neutrinoless mode, the two interaction vertices are connected by a Majorana
+    propagator, such that no neutrinos are present in the final state.
   }\label{fig:nbb:feydiag}
 \end{figure}
 
-Since the \nnbb\ decays have a four-body leptonic final state, the sum of the
-kinetic energies of the two decay electrons follows a continuous distribution
-from zero to the Q-value of the decay process (the recoil energy of the final
-nucleus is negligible), which is given by
+Since the \nnbb\ decays have a four-body leptonic final state, the sum of the kinetic
+energies of the two decay electrons follows a continuous distribution from zero to the
+Q-value of the decay process (the recoil energy of the final nucleus is negligible), which
+is given by
 \[
   Q_{\upbeta\upbeta} = M_i - M_f - 2m_e \;,
 \]
-where $M_i$ and $M_f$ are, respectively, the masses of the initial and final
-nuclei (i.e.~the energy levels of their ground states; if the transition occurs
-into an excited energy level of the final nucleus, $M_f$ must be replaced with
-the appropriate energy).
+where $M_i$ and $M_f$ are, respectively, the masses of the initial and final nuclei
+(i.e.~the energy levels of their ground states; if the transition occurs into an excited
+energy level of the final nucleus, $M_f$ must be replaced with the appropriate energy).
 
-A nucleus \NAZ\ can decay through a \nnbb\ process if its ground state has an
-energy which is larger than the ground-state energy of the nucleus
-$\mathcal{N}(A,Z\pm2)$ plus twice the electron mass. Moreover, if a nucleus can
-decay through both the \b\ and \nnbb\ processes, in practice the latter is not
-observable, because its \b\ decay lifetime is much shorter than its \nnbb\
-decay lifetime (the half-life of \nnbb\ is typically around $10^{19}-10^{24}$
-yrs). Therefore, in practice the \nnbb\ decay of a nucleus is observable only
-if its \b\ decay is energetically forbidden or strongly suppressed because of a
-large change of spin. The $\upbeta^-$ decay of a nucleus \NAZ\ is energetically
-forbidden if its ground-state energy is lower than the ground-state energy of
-the nucleus $\mathcal{N}(A,Z+1)$ plus the electron mass ($Q_{\upbeta^{-}} < 0$).
-Typically, in \nnbbm\ decays the energy levels of the three nuclei \NAZ,
-$\mathcal{N}(A,Z+1)$, and $\mathcal{N}(A,Z+2)$ are of the type depicted in
-\cref{fig:nbb:gesixlevels}, left, where the specific case of \gesix,
-$^{76}$As, and $^{76}$Se nuclei is considered.
+A nucleus \NAZ\ can decay through a \nnbb\ process if its ground state has an energy which
+is larger than the ground-state energy of the nucleus $\mathcal{N}(A,Z\pm2)$ plus twice
+the electron mass. Moreover, if a nucleus can decay through both the \b\ and \nnbb\
+processes, in practice the latter is not observable, because its \b\ decay lifetime is
+much shorter than its \nnbb\ decay lifetime (the half-life of \nnbb\ is typically around
+$10^{19}-10^{24}$ yrs). Therefore, in practice the \nnbb\ decay of a nucleus is observable
+only if its \b\ decay is energetically forbidden or strongly suppressed because of a large
+change of spin. The $\upbeta^-$ decay of a nucleus \NAZ\ is energetically forbidden if its
+ground-state energy is lower than the ground-state energy of the nucleus
+$\mathcal{N}(A,Z+1)$ plus the electron mass ($Q_{\upbeta^{-}} < 0$).  Typically, in
+\nnbbm\ decays the energy levels of the three nuclei \NAZ, $\mathcal{N}(A,Z+1)$, and
+$\mathcal{N}(A,Z+2)$ are of the type depicted in \cref{fig:nbb:gesixlevels}, left, where
+the specific case of \gesix, $^{76}$As, and $^{76}$Se nuclei is considered.
 
 \begin{figure}
   \centering
@@ -109,40 +121,37 @@ $^{76}$As, and $^{76}$Se nuclei is considered.
   \includegraphics[width=0.5\textwidth]{plots/theory/masspar.pdf}%
   \caption{%
     On the left: schematic illustration of the energy level structure of the
-    $2\upnu\upbeta^-\upbeta^-$ decay of \gesix into $^{76}$Se. On the right: general
-    energy level configuration for double-beta decay emitters.  The situation
-    for a nucleus with even mass number $A$ is presented: the mass parabola,
-    representing the dependence of the binding energy $M(A,Z)$ on the atomic
-    number $Z$, is plotted for even-even (even number of protons and neutrons)
-    and odd-odd nuclei with the relevant \b\ and \b\b\ decays among them.
+    $2\upnu\upbeta^-\upbeta^-$ decay of \gesix\ into $^{76}$Se. On the right: general
+    energy level configuration for double-beta decay emitters.  The situation for a
+    nucleus with even mass number $A$ is presented: the mass parabola, representing the
+    dependence of the binding energy $M(A,Z)$ on the atomic number $Z$, is plotted for
+    even-even (even number of protons and neutrons) and odd-odd nuclei with the relevant
+    \b\ and \b\b\ decays among them.
   }\label{fig:nbb:gesixlevels}
 \end{figure}
 
 \blocktitle{$2\upnu\upbeta^-\upbeta^-$}
-The naturally occurring isotopes which can decay through the
-$2\upnu\upbeta^-\upbeta^-$ process, with forbidden or suppressed $\upbeta^-$ decay are
-35, and they are listed in~\cite{Giunti2007}. All of the initial and final
-nuclei in the \nnbbm\ process are even-even, i.e.~they have an
-even number of protons and neutrons. Their binding energy is larger than the
-intermediate odd-odd nuclei one because of the pairing force acting between
-identical nucleons (see \cref{fig:nbb:gesixlevels}, right). For the same reason,
+The naturally occurring isotopes which can decay through the $2\upnu\upbeta^-\upbeta^-$
+process, with forbidden or suppressed $\upbeta^-$ decay are 35, and they are listed
+in~\cite{Giunti2007}. All of the initial and final nuclei in the \nnbbm\ process are
+even-even, i.e.~they have an even number of protons and neutrons. Their binding energy is
+larger than the intermediate odd-odd nuclei one because of the pairing force acting
+between identical nucleons (see \cref{fig:nbb:gesixlevels}, right). For the same reason,
 all of the initial and final nuclei have a $0^+$ ground state.  Therefore, all
-ground-state to ground-state transitions are $0^+\rightarrow0^+$. Ground-state
-transitions to an excited state of the final nucleus may be energetically
-allowed, as in the case of the $^{76}\text{Ge} \rightarrow {^{76}\text{Se}}$ decay in
-\cref{fig:nbb:gesixlevels}, left, in which there is an accessible $2^+$ excited
-state of $^{76}$Se. However, due to a cancellation occurring in the phase
-space integral and the lower Q-value~\cite{Tomoda1991}, the
-$0^+\rightarrow2^+$ double-beta decay is suppressed with respect to
-$0^+\rightarrow0^+$.
+ground-state to ground-state transitions are $0^+\rightarrow0^+$. Ground-state transitions
+to an excited state of the final nucleus may be energetically allowed, as in the case of
+the $^{76}\text{Ge} \rightarrow {^{76}\text{Se}}$ decay in \cref{fig:nbb:gesixlevels},
+left, in which there is an accessible $2^+$ excited state of $^{76}$Se. However, due to a
+cancellation occurring in the phase space integral and the lower
+Q-value~\cite{Tomoda1991}, the $0^+\rightarrow2^+$ double-beta decay is suppressed with
+respect to $0^+\rightarrow0^+$.
 
 \blocktitle{$2\upnu\upbeta^+\upbeta^+$}
-There are only six naturally occurring isotopes which can decay through the
-\nnbbp\ process~\cite{Haxton1985}. These isotopes have small Q-values and
-lifetimes which are much longer than the lifetimes of the \nnbbm. The reason
-for the rarity of \nnbbp-decaying isotopes and their small Q-values can be
-understood considering that the decay $\mathcal{N}(A,Z) \rightarrow
-\mathcal{N}(A,Z-1)$ can occur in two ways:
+There are only six naturally occurring isotopes which can decay through the \nnbbp\
+process~\cite{Haxton1985}. These isotopes have small Q-values and lifetimes which are much
+longer than the lifetimes of the \nnbbm. The reason for the rarity of \nnbbp-decaying
+isotopes and their small Q-values can be understood considering that the decay
+$\mathcal{N}(A,Z) \rightarrow \mathcal{N}(A,Z-1)$ can occur in two ways:
 \[
   \begin{array}{lrl}
     \upbeta^+: &
@@ -151,25 +160,23 @@ understood considering that the decay $\mathcal{N}(A,Z) \rightarrow
       e^- + \mathcal{N}(A,Z) \rightarrow \mathcal{N}(A,Z-1) + \upnu_e &.
   \end{array}
 \]
-Since $Q_\text{EC} = Q_{\upbeta^+}+2m_e$, the electron-capture process (EC) can
-occur even if the $\upbeta^+$ process is energetically forbidden ($Q_{\upbeta^+} <
-0$). Thus, in order to have an energetically forbidden
-$\mathcal{N}(A,Z)\rightarrow\mathcal{N}(A,Z-1)$ transitions, the ground-state
-energy of \NAZ\ must be smaller than the ground-state energy of the nucleus
-$\mathcal{N}(A,Z-1)$ minus the electron mass ($Q_\text{EC}<0$).  Considering as
-a reference the energy of the ground-state energy of the intermediate nucleus,
-the ground-state energy of the initial nucleus in a \nnbbp\ decay must be at
-least $2m_e$ lower than in the case of a \nnbbm\ decay. This implies that
-\nnbbp-decaying isotopes are more rare than \nnbbm-decaying isotopes. Moreover,
-for the same energy difference between the ground states of the intermediate
-and final nuclei, the energy difference between the ground states of the
-initial and final nucleus in a \nnbbp\ decay is at least $2m_e$ lower than in
-the case of a \nnbbm\ decay, leading to a correspondingly smaller Q-value. For
-these reasons, the \nnbbp\ decay has been less studied than the \nnbbm\ decay
-and in the following we will consider only \nnbbm\ decays (from now on we will
-simply refer to them with \nnbb). Let us only mention that $\mathcal{N}(A,Z)
-\rightarrow \mathcal{N}(A,Z-2)$ transitions can occur not only through \nnbbp\
-processes, but also through the processes
+Since $Q_\text{EC} = Q_{\upbeta^+}+2m_e$, the electron-capture process (EC) can occur even
+if the $\upbeta^+$ process is energetically forbidden ($Q_{\upbeta^+} < 0$). Thus, in
+order to have an energetically forbidden $\mathcal{N}(A,Z)\rightarrow\mathcal{N}(A,Z-1)$
+transitions, the ground-state energy of \NAZ\ must be smaller than the ground-state energy
+of the nucleus $\mathcal{N}(A,Z-1)$ minus the electron mass ($Q_\text{EC}<0$).
+Considering as a reference the energy of the ground-state energy of the intermediate
+nucleus, the ground-state energy of the initial nucleus in a \nnbbp\ decay must be at
+least $2m_e$ lower than in the case of a \nnbbm\ decay. This implies that \nnbbp-decaying
+isotopes are more rare than \nnbbm-decaying isotopes. Moreover, for the same energy
+difference between the ground states of the intermediate and final nuclei, the energy
+difference between the ground states of the initial and final nucleus in a \nnbbp\ decay
+is at least $2m_e$ lower than in the case of a \nnbbm\ decay, leading to a correspondingly
+smaller Q-value. For these reasons, the \nnbbp\ decay has been less studied than the
+\nnbbm\ decay and in the following we will consider only \nnbbm\ decays (from now on we
+will simply refer to them with \nnbb). Let us only mention that $\mathcal{N}(A,Z)
+\rightarrow \mathcal{N}(A,Z-2)$ transitions can occur not only through \nnbbp\ processes,
+but also through the processes
 \[
   \begin{array}{lrl}
     \text{EC}\upbeta^+: &
@@ -180,44 +187,41 @@ processes, but also through the processes
 \]
 
 \blocktitle{decay \\ rate}
-The rate of \nnbb\ can be calculated by invoking the recipe of the Fermi golden
-rule for simple \b\ decay. To a good approximation, the decay rate can be
-factorized as a kinematic part, or phase space factor, times the matrix element
-describing the transition probability between the initial and final nuclear
-states:
+The rate of \nnbb\ can be calculated by invoking the recipe of the Fermi golden rule for
+simple \b\ decay. To a good approximation, the decay rate can be factorized as a kinematic
+part, or phase space factor, times the matrix element describing the transition
+probability between the initial and final nuclear states:
 \[
   \Gamma^{2\upnu} = G^{2\upnu}(Q_{\upbeta\upbeta},Z) |\mathcal{M}^{2\upnu}|^2 \;.
 \]
-The phase space factor \psft\ is obtained by integration over the phase space
-of four leptons emitted in the decay and can be calculated to a high degree of
-accuracy~\cite{Kotila2012, Stoica2013}. Its value for \nnbb\ varies between
-$10^{-21}$ and $10^{-17}$~yr$^{-1}$ depending on the double-beta emitter.
-The nuclear matrix element (NME) \nmet\ deals with the nuclear structure of the
-transition and is notoriously much more difficult to evaluate. Its value for
-\nnbb\ depends on the isotope but is around $10^{-1}$~MeV.
+The phase space factor \psft\ is obtained by integration over the phase space of four
+leptons emitted in the decay and can be calculated to a high degree of
+accuracy~\cite{Kotila2012, Stoica2013}. Its value for \nnbb\ varies between $10^{-21}$ and
+$10^{-17}$~yr$^{-1}$ depending on the double-beta emitter.  The nuclear matrix element
+(NME) \nmet\ deals with the nuclear structure of the transition and is notoriously much
+more difficult to evaluate. Its value for \nnbb\ depends on the isotope and is on the
+order of $10^{-1}$~MeV.
 
 \blocktitle{nuclear \\ matrix \\ elements}
-Denoting the 4-momentum of the two electrons and the two anti-neutrinos by
-$p^\alpha_i = (E_i,\mathbf{p}_i)$ and $q^\alpha_i = (\omega_i,\mathbf{q}_i)$,
-respectively ($i=1,2$), the relevant matrix element for \nnbb\ is given by
+Denoting the 4-momentum of the two electrons and the two anti-neutrinos by $p^\alpha_i =
+(E_i,\mathbf{p}_i)$ and $q^\alpha_i = (\omega_i,\mathbf{q}_i)$, respectively ($i=1,2$),
+the relevant matrix element for \nnbb\ is given by
 \[
   i\mathcal{M} = iG^2_F V^2_{ud}
                  [\overline{e}(p_1) \gamma^\mu (1-\gamma_5) \nu(q_1)]
                  [\overline{e}(p_2) \gamma^\nu (1-\gamma_5) \nu(q_2)]
                  J_{\mu\nu} - (p_1\leftrightarrow p_2) \;,
 \]
-where the last expression in brackets represents the first term with $p_1$ and
-$p_2$ interchanged. The hadronic tensor $J_{\mu\nu}$ is the troublesome part,
-as it encodes all the details of the interaction with the atomic nucleus. While
-the Lagrangian for double-beta decay is written at the quark level, in fact,
-the atomic nucleus contains hadrons, therefore operators need to be run from
-their fundamental high scale down to the lower nuclear scale, and then matched
-to the hadronic operators build from the hadronic (effective) degrees of
-freedom. A problem is that the hadronic operators are often phenomenologically
-written in terms of the form factors when this transition is made. As an
-example, the nucleon matrix element $J^\mu = \langle{p}| \overline{u}
-\gamma^\mu (1-\gamma_5) d |{n}\rangle$, which is relevant for double-beta
-decay, can be expressed as:
+where the last expression in brackets represents the first term with $p_1$ and $p_2$
+interchanged. The hadronic tensor $J_{\mu\nu}$ is the troublesome part, as it encodes all
+the details of the interaction with the atomic nucleus. While the Lagrangian for
+double-beta decay is written at the quark level, in fact, the atomic nucleus contains
+hadrons, therefore operators need to be run from their fundamental high scale down to the
+lower nuclear scale, and then matched to the hadronic operators build from the hadronic
+(effective) degrees of freedom. A problem is that the hadronic operators are often
+phenomenologically written in terms of the form factors when this transition is made. As
+an example, the nucleon matrix element $J^\mu = \langle{p}| \overline{u} \gamma^\mu
+(1-\gamma_5) d |{n}\rangle$, which is relevant for double-beta decay, can be expressed as:
 \[
   \overline{u}(p) \left[
     F_V(q^2)\gamma^\mu
@@ -226,82 +230,78 @@ decay, can be expressed as:
     + F_P(q^2)/(2m_p)\gamma_5q_\mu
   \right] u(p')e^{iqx} \;,
 \]
-where $u(p)$ and $u(p')$ are the spinors for the initial and final-state
-neutron, $p'-p=q$ and the normalization factors $F_i(q^2=0)$ are the coupling
-constants. The $q^2$-dependence and the normalization of several form factors
-is, unfortunately, poorly known.  To go further, most authors then apply three
-approximations:
+where $u(p)$ and $u(p')$ are the spinors for the initial and final-state neutron, $p'-p=q$
+and the normalization factors $F_i(q^2=0)$ are the coupling constants. The
+$q^2$-dependence and the normalization of several form factors is, unfortunately, poorly
+known.  To proceed in the calculations, most authors then apply three approximations:
 \begin{inparaenum}[\itshape a)]
-  \item the impulse approximation for the nuclear current $J^\mu$, which sums
-    over the individual free-nucleon matrix elements;
+  \item the impulse approximation for the nuclear current $J^\mu$, which sums over the
+    individual free-nucleon matrix elements;
   \item the non-relativistic expansion for the form factors;
-  \item the closure approximation, which averages on the energies of all the
-    intermediate odd-odd nuclear states ($1^+$ for \nnbb) that must be
-    considered when calculating the amplitude of a second-order process. 
+  \item the closure approximation, which averages on the energies of all the intermediate
+    odd-odd nuclear states ($1^+$ for \nnbb) that must be considered when calculating the
+    amplitude of a second-order process. 
 \end{inparaenum}
-The unpolarized transition probability
-then reads:
+In this setting, the un-polarized transition probability reads:
 \begin{equation}\label{eq:nbb:trans-prob}
   \sum_\text{spin} |\mathcal{M}|^2 = 64 G^4_F |V_{ud}|^4 g^4_A (p_1 \cdot p_2)
                                      (q_1 \cdot q_2) |\mathcal{M}^{2\upnu}|^2 \;,
 \end{equation}
-where \nmet\ involves vector and axial couplings $g^2_V
-\equiv F_V(q^2=0)$ and $g^2_A \equiv F_A(q^2=0)$ for Fermi and Gamow-Teller
-transitions in the form
+where \nmet\ involves vector and axial couplings $g^2_V \equiv F_V(q^2=0)$ and $g^2_A
+\equiv F_A(q^2=0)$ for Fermi and Gamow-Teller transitions in the form\footnote{%
+  The most general formula includes also the tensor matrix element $\mathcal{M}_T$, which
+  can be safely neglected.
+}
 \[
   \mathcal{M}^{2\nu} = \mathcal{M}^{2\upnu}_{GT} -
                        \frac{g^2_V}{g^2_A} \mathcal{M}^{2\upnu}_F \;.
 \]
-In particular, $\mathcal{M}_F$ depends on the integral over $q$ of $F_V(q^2)$
-whereas $\mathcal{M}_{GT}$ depends on the corresponding integrals over linear
-combinations of $F_{A,P,W}(q^2)$.
+In particular, $\mathcal{M}_F$ depends on the integral over $q$ of $F_V(q^2)$ whereas
+$\mathcal{M}_{GT}$ depends on the corresponding integrals over linear combinations of
+$F_{A,P,W}(q^2)$.
 
-The difficulty of NME calculations is to know the initial- and final-state
-nuclear wave functions, a many-body problem that has no exact solution. Several
-numerical approaches to the problem exist, the reader is referred
-to~\cite{Engel2017} and references therein for a complete review. In summary,
-all approaches miss certain features, and are therefore expected to be affected
-by systematic biases. This seems to be confirmed by comparisons between results
-(see \cref{fig:nbb:nme} for \onbb). Evaluation of the \nnbb\ NMEs presents a
-formidable challenge and could help improve the reliability of \nmez\
-calculations, that present the same difficulties. \nnbb, in fact, gives only
-indirect information on \onbb, as the set of intermediate states considered in
-the calculations is different\footnote{In \onbb\ all intermediate states up
-to 100~MeV contribute; in contrast, \nnbb\ has only $1^+$ states (as two real
-neutrinos are emitted) with energies up to \qbb\ of a few MeV.}, but can be
-used to verify the accuracy of the various techniques.  Under this perspective,
-the greatest advantage of the two-neutrino mode is that the calculations can be
-directly verified in an experiment by measuring the half-life of the process.
+The difficulty of NME calculations is to know the initial- and final-state nuclear wave
+functions, a many-body problem that has no exact solution. Several numerical approaches to
+the problem exist, the reader is referred to~\cite{Engel2017} and references therein for a
+complete review. In summary, all approaches miss certain features, and are therefore
+expected to be affected by systematic biases. This seems to be confirmed by comparisons
+between results from different methods (see \cref{fig:nbb:nme} for \onbb). Evaluation of
+the \nnbb\ NMEs presents a formidable challenge and could help improve the reliability of
+\nmez\ calculations, that present the same difficulties. \nnbb, in fact, gives only
+indirect information on \onbb, as the set of intermediate states considered in the
+calculations is different\footnote{%
+  In \onbb\ all intermediate states up to 100~MeV contribute; in contrast, \nnbb\ has only
+  $1^+$ states (as two real neutrinos are emitted) with energies up to \qbb\ of a few MeV.
+}, but can be used to verify the accuracy of the various techniques.  Under this
+perspective, the greatest advantage of the two-neutrino mode is that the calculations can
+be directly verified in an experiment by measuring the half-life of the process.
 
 \blocktitle{quenching}
-With the Gamov-Teller matrix element $\mathcal{M}_{GT}$ the leading one, the
-nuclear matrix element is to a good approximation proportional to $g_A^2$, and
-\thalftwo\ is proportional to $g_a^{-4}$. Quenching denotes the reduction of
-$g_A$ with respect to its free nucleon value of 1.27 that is necessary to
-reproduce the observable quantities of nuclear decays, particularly \b\ and
-\nnbb\ decays, see~\cite{Suhonen2017} for a review.  Possible origins of
-quenching are nuclear-medium effects, many-body currents or the inherent
-shortcomings of the nuclear many-body models. The latter usually fix $g_A$
-first and then adjust the nuclear interaction to reproduce the measured \nnbb\
-rates. Another common approach is to take $g_A$ from Gamow-Teller \b\ decay and
-electron capture rates, assuming a common quenching for all weak processes. In
-this way, one can reproduce \nnbb\ rates and predict non-measured ones. A
-possibly important observation is that \b\ and \nnbb\ decays have energy scales
-of order MeV, i.e.~much smaller than the \onbb\ scale of order 100~MeV. Recent
-studies show that low-energy processes may require more quenching and thus,
-less or no quenching might be needed in \onbb\ decay (not more than 20--30\%).
-However, there is not yet consensus in the literature on this issue, and
-further studies are needed. The dependence of quenching on the nuclear
-calculations can be demonstrated by analyzing the \nnbb\ electron-energy
-spectra, which allows the extraction of the sub-leading higher-order
-contributions to the matrix elements~\cite{Gando2019}.
+With the Gamow-Teller matrix element $\mathcal{M}_{GT}$ being the leading one, the nuclear
+matrix element is to a good approximation proportional to $g_A^2$, and \thalftwo\ is
+proportional to $g_a^{-4}$. Quenching denotes the reduction of $g_A$ with respect to its
+free nucleon value of 1.27 that is necessary to reproduce the observable quantities of
+nuclear decays, particularly \b\ and \nnbb\ decays, see~\cite{Suhonen2017} for a review.
+Possible origins of quenching are nuclear-medium effects, many-body currents or the
+inherent shortcomings of the nuclear many-body models. The latter usually fix $g_A$ first
+and then adjust the nuclear interaction to reproduce the measured \nnbb\ rates. Another
+common approach is to take $g_A$ from Gamow-Teller \b\ decay and electron capture rates,
+assuming a common quenching for all weak processes. In this way, one can reproduce \nnbb\
+rates and predict non-measured ones. A possibly important observation is that \b\ and
+\nnbb\ decays have energy scales of order MeV, i.e.~much smaller than the \onbb\ scale of
+order 100~MeV. Recent studies show that low-energy processes may require more quenching
+and thus, less or no quenching might be needed in \onbb\ decay (not more than 20--30\%).
+However, there is not yet consensus in the literature on this issue, and further studies
+are needed. The dependence of quenching on the nuclear calculations can be demonstrated by
+analyzing the \nnbb\ electron-energy spectra, which allows the extraction of the
+sub-leading higher-order contributions to the matrix elements~\cite{Gando2019}.
 
 \blocktitle{energy \\ spectrum}
-Having found an expression for the transition probability in which the kinematic
-variables of the decay products are factored out (\cref{eq:nbb:trans-prob}), it
-is possible to proceed and calculate the decay rate, which is given by
-integrating over all possible energies and angles of the leptons emitted in the
-decay.  The differential decay amplitude reads:
+Having found in \cref{eq:nbb:trans-prob} an expression for the transition probability in
+which the kinematic variables of the decay products are factored out, it is possible to
+proceed and calculate the decay rate, which is obtained by integrating over all possible
+energies and angles of the leptons emitted in the decay.  The differential decay amplitude
+reads:
 \[
   \begin{split}
     \text{d}\Gamma^{2\upnu} =

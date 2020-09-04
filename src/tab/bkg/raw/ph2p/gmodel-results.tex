@@ -6,82 +6,63 @@
 \begin{tabular}{%
   r
   l
-  c
   r@{ }l% marginalized with 68% CI interval
   S[% screening measurements
     table-number-alignment=left,
     table-text-alignment=left,
     table-parse-only
   ]
-  S[% BEGe
-    table-format=5.0,
-    table-number-alignment=center,
-    table-text-alignment=center,
-    table-auto-round=true
-  ]@{ | }
+  r@{ | }
   l
-  S[% Coax
-    table-format=4.0,
-    table-number-alignment=center,
-    table-text-alignment=right,
-    table-auto-round
-    ]@{ | }
+  r@{ | }
   l
-  S[% Inverted
-    table-format=4.0,
-    table-number-alignment=center,
-    table-text-alignment=right,
-    table-auto-round
-    ]@{ | }
+  r@{ | }
   l
-  S[% M2-All
-    table-format=4.0,
-    table-number-alignment=center,
-    table-text-alignment=center,
-    table-auto-round
-  ]
+  r
 }
   \toprule
-  \mrr{3}{source}      & \mrr{3}{\m{[prior]} location}         & \mrr{3}{units}      & \mc{2}{\mrc{3}{marg.~mode\\with 68\% CI}} & {\mrr{3}{screening}} & \mc{7}{model content in fit range | BI at \qbb}                                             \\
-                       &                                       &                     &       &                                   &                      & \mc{7}{units: cts | $10^{-3}$\ctsper}                                                       \\
-  \cmidrule(lr){7-13}
-                       &                                       &                     &       &                                   &                      & \mc{2}{\enrBEGeIIp}                    & \mc{2}{\enrSCoaxIIp}                   & \mc{2}{\enrICoaxIIp}                   & \enrGeIIp\ \\
+  \mrr{3}{source}                & \mrr{3}{\m{[prior]} location}         & \mc{2}{\mrc{3}{marg.~mode\\with 68\% CI}} & {\mrr{3}{screening}} & \mc{7}{counts in fit range | BI at \qbb} \\
+                                 &                                       &      &                                    &             & \mc{7}{units: cts | $10^{-3}$\ctsper} \\
+  \cmidrule(lr){6-12}
+                                 &                                       &      &                                    &             & \mc{2}{\enrBEGeIIp} & \mc{2}{\enrSCoaxIIp}         & \mc{2}{\enrICoaxIIp} & \enrGeIIp\ \\
   \midrule
-  \mr{3}{\nnbb}        & \m{[f]} \bege\ detectors              & \mr{3}{$10^{21}$yr} & 2.094 & $[2.080, 2.114]$                  & {--}                 & 31451   &                              &         &                              &         &                              & 0         \\
-                       & \m{[f]} \scoax\ detectors             &                     & 1.910 & $[1.890, 1.927]$                  & {--}                 &         &                              &         &                              &         &                              & 0         \\
-                       & \m{[f]} \icoax\ detectors             &                     & 1.898 & $[1.875, 1.922]$                  & {--}                 &         &                              &         &                              &         &                              & 0         \\
+  \mrc{3}{\nnbb\\($10^{21}$~yr)} & \m{[f]} \bege\ detectors              & 2.09 & $[2.08, 2.11]$                     & {--}        & 31451               & \mrc{3}{0}                   & {--}                 & \mrc{3}{0}                   & {--}  & \mrc{3}{0}                   & 0     \\
+                                 & \m{[f]} \scoax\ detectors             & 1.91 & $[1.89, 1.93]$                     & {--}        & {--}                &                              & 19181                &                              & {--}  &                              & 0     \\
+                                 & \m{[f]} \icoax\ detectors             & 1.90 & $[1.88, 1.92]$                     & {--}        & {--}                &                              & {--}                 &                              & 13816 &                              & 0     \\
   \midrule
-  \mr{4}{\Bil\ + \Tl}  & \m{[e]} detector holders              & \mr{4}{$\upmu$Bq}   &       &                                   & {--}                 &         & \mrc{4}{3.52\\$[3.30,3.76]$} &         & \mrc{4}{2.21\\$[2.03,2.34]$} &         & \mrc{4}{2.21\\$[2.03,2.34]$} &           \\
-                       & \m{[g]} mini-shrouds                  &                     &       &                                   & 18 \pm 5             &         &                              &         &                              &         &                              &           \\
-                       & \m{[g]} inner fiber shroud            &                     &       &                                   & 24 \pm 7             &         &                              &         &                              &         &                              &           \\
-                       & \m{[g]} outer fiber shroud            &                     &       &                                   & 177 \pm 53           &         &                              &         &                              &         &                              &           \\
+  \mrc{4}{\Bil\ + \Tl\\(\mubq)}  & \m{[f]} detector holders              & 210  & $[160, 240]$                       & {--}        & 248                 & \mrc{4}{3.52\\$[3.30,3.76]$} & 114                  & \mrc{4}{2.21\\$[2.03,2.34]$} & 88    & \mrc{4}{2.21\\$[2.03,2.34]$} & 415   \\
+                                 & \m{[g]} mini-shrouds                  & 20   & $[15, 24]$                         & 18 \pm 5    & 14                  &                              & 9                    &                              & 7     &                              & 25    \\
+                                 & \m{[g]} inner fiber shroud            & 25   & $[18, 31]$                         & 24 \pm 7    & 11                  &                              & 6                    &                              & 13    &                              & 29    \\
+                                 & \m{[g]} outer fiber shroud            & 190  & $[140, 240]$                       & 177 \pm 53  & 32                  &                              & 20                   &                              & 8     &                              & 26    \\
   \midrule
-  \mr{3}{\Pbh\ + \Bih} & \m{[g]} cabling                       & \mr{3}{$\upmu$Bq}   &       &                                   & < 210                &         & \mrc{3}{2.63\\$[2.50,2.78]$} &         & \mrc{3}{3.16\\$[2.83,3.50]$} &         & \mrc{3}{3.16\\$[2.83,3.50]$} &           \\
-                       & \m{[g]} mini-shrouds                  &                     &       &                                   & 46 \pm 14            &         &                              &         &                              &         &                              &           \\
-                       & \m{[g]} inner fiber shroud            &                     &       &                                   & 1.2 \pm 0.4          &         &                              &         &                              &         &                              &           \\
+  \mrc{4}{\Pbh\ + \Bih\\(\mubq)} & \m{[e]} cabling                       & 530  & $[500, 580]$                       & < 210       & 812                 & \mrc{4}{2.63\\$[2.50,2.78]$} & 312                  & \mrc{4}{3.16\\$[2.83,3.50]$} & 260   & \mrc{4}{3.16\\$[2.83,3.50]$} & 860   \\
+                                 & \m{[g]} mini-shrouds                  & 51   & $[34, 61]$                         & 46 \pm 14   & 75                  &                              & 46                   &                              & 39    &                              & 94    \\
+                                 & \m{[g]} inner fiber shroud            & 13   & $[8.7, 17]$                        & 1.2 \pm 0.4 & 11                  &                              & 6                    &                              & 13    &                              & 21    \\
+                                 & \m{[g]} outer fiber shroud            & 88   & $[64, 120]$                        & 177 \pm 53  & 23                  &                              & 14                   &                              & 5     &                              & 16    \\
   \midrule
-  \mr{6}{\kvn}         & \m{[g]} cabling                       & \mr{6}{mBq}         &       &                                   & 3.0 \pm 0.8          &         & \mrc{6}{0}                   &         & \mrc{6}{0}                   &         & \mrc{6}{0}                   &           \\
-                       & \m{[g]} inner fiber shroud            &                     &       &                                   & 0.4 \pm 1.2          &         &                              &         &                              &         &                              &           \\
-                       & \m{[g]} outer fiber shroud            &                     &       &                                   & 3.1 \pm 0.9          &         &                              &         &                              &         &                              &           \\
-                       & \m{[g]} detector holders              &                     &       &                                   & 2.8 \pm 0.6          &         &                              &         &                              &         &                              &           \\
-                       & \m{[g]} mini-shrouds                  &                     &       &                                   & 1.7 \pm 0.6          &         &                              &         &                              &         &                              &           \\
-                       & \m{[f]} close to the array            &                     &       &                                   & {--}                 &         &                              &         &                              &         &                              &           \\
+  \mrc{6}{\kvn\\(mBq)}           & \m{[g]} cabling                       & 2.2  & $[1.4, 2.9]$                       & 3.0 \pm 0.8 & 462                 & \mrc{6}{0}                   & 176                  & \mrc{6}{0}                   & 152   & \mrc{6}{0}                   & 252   \\
+                                 & \m{[g]} inner fiber shroud            & 0.49 & $[0.38, 0.62]$                     & 0.4 \pm 1.2 & 70                  &                              & 59                   &                              & 73    &                              & 54    \\
+                                 & \m{[g]} outer fiber shroud            & 2.7  & $[1.8, 3.5]$                       & 3.1 \pm 0.9 & 91                  &                              & 54                   &                              & 21    &                              & 51    \\
+                                 & \m{[g]} detector holders              & 2.4  & $[1.9, 3]$                         & 2.8 \pm 0.6 & 820                 &                              & 359                  &                              & 315   &                              & 474   \\
+                                 & \m{[g]} mini-shrouds                  & 1.7  & $[1.1, 2.3]$                       & 1.7 \pm 0.6 & 351                 &                              & 205                  &                              & 179   &                              & 217   \\
+                                 & \m{[f]} close to the array            & 13   & $[11, 14]$                         & {--}        & 2640                &                              & 1542                 &                              & 1347  &                              & 1628  \\
   \midrule
-  \mr{6}{\kvz}         & \m{[f]} \nplus\ (\bege)               & \mr{3}{$\upmu$Bq}   &       &                                   & {--}                 &         & \mrc{6}{5.69\\$[4.58,6.29]$} &         & \mrc{6}{1.29\\$[1.15,1.40]$} &         & \mrc{6}{1.29\\$[1.15,1.40]$} &           \\
-                       & \m{[f]} \nplus\ (\scoax)              &                     &       &                                   & {--}                 &         &                              &         &                              &         &                              &           \\
-                       & \m{[f]} \nplus\ (\icoax)              &                     &       &                                   & {--}                 &         &                              &         &                              &         &                              &           \\
-                       & \m{[f]} LAr {--} above array          & \mr{3}{Bq}          &       &                                   & {--}                 &         &                              &         &                              &         &                              &           \\
-                       & \m{[f]} LAr {--} inside mini-shrouds  &                     &       &                                   & {--}                 &         &                              &         &                              &         &                              &           \\
-                       & \m{[f]} LAr {--} outside mini-shrouds &                     &       &                                   & {--}                 &         &                              &         &                              &         &                              &           \\
+  \mrc{6}{\kvz\\(mBq)}           & \m{[f]} \nplus\ (\bege)               &      & $<4.8\cdot10^{-3}$                 & {--}        & < 210               & \mrc{6}{5.69\\$[4.58,6.29]$} & < 6                  & \mrc{6}{1.29\\$[1.15,1.40]$} & < 5   & \mrc{6}{1.29\\$[1.15,1.40]$} & < 185 \\
+                                 & \m{[f]} \nplus\ (\scoax)              & 1.4  & $[1.1, 1.6]$                       & {--}        & 313                 &                              & 1610                 &                              & 188   &                              & 484   \\
+                                 & \m{[f]} \nplus\ (\icoax)              & 0.26 & $[0.22, 0.31]$                     & {--}        & 76                  &                              & 49                   &                              & 602   &                              & 152   \\
+                                 & \m{[f]} LAr {--} above array          & 930  & $[780, 1000]$                      & {--}        & 8527                &                              & 3112                 &                              & 3336  &                              & 4564  \\
+                                 & \m{[f]} LAr {--} inside mini-shrouds  & 1.2  & $[0.73, 1.6]$                      & {--}        & 999                 &                              & 444                  &                              & 338   &                              & 506   \\
+                                 & \m{[f]} LAr {--} outside mini-shrouds & 380  & $[190, 690]$                       & {--}        & 1622                &                              & 957                  &                              & 491   &                              & 942   \\
   \midrule
-  \mr{2}{\Ac}          & \m{[g]} inner fiber shroud            & \mr{4}{$\upmu$Bq}   &       &                                   & 24 \pm 7             &         & \mrc{4}{0.36\\$[0.31,0.40]$} &         & \mrc{4}{0.33\\$[0.28,0.37]$} &         & \mrc{4}{0.33\\$[0.28,0.37]$} &           \\
-                       & \m{[g]} mini-shrouds                  &                     &       &                                   & 19 \pm  5            &         &                              &         &                              &         &                              &           \\
-  \Co\                 & \m{[e]} detector holders              &                     &       &                                   & < 102                &         &                              &         &                              &         &                              &           \\
-  \Zn\                 & \m{[f]} \icoax\ detectors             &                     &       &                                   & {--}                 &         &                              &         &                              &         &                              &           \\
+  \mr{2}{\Ac\ (\mubq)}           & \m{[g]} inner fiber shroud            & 25   & $[18, 31]$                         & 24 \pm 7    & 16                  & \mrc{4}{0.36\\$[0.31,0.40]$} & 9                    & \mrc{4}{0.33\\$[0.28,0.37]$} & 21    & \mrc{4}{0.33\\$[0.28,0.37]$} & 24    \\
+                                 & \m{[g]} mini-shrouds                  & 20   & $[15, 24]$                         & 19 \pm  5   & 20                  &                              & 12                   &                              & 11    &                              & 20    \\
+                                 & \m{[g]} detector holders              & 210  & $[160, 240]$                       & < 250       & 149                 &                              & 66                   &                              & 59    &                              & 148   \\
+  \Co\ (\mubq)                   & \m{[e]} detector holders              & 83   & $[68, 97]$                         & < 102       & 296                 &                              & 133                  &                              & 104   &                              & 419   \\
+  \Zn\ (\mubq)                   & \m{[f]} \icoax\ detectors             & 50   & $[44, 61]$                         & {--}        & 24                  &                              & 16                   &                              & 219   &                              & 85    \\
   \midrule
-  \mr{3}{\a\ decays}   & \m{[f]} \Po\ + \Ra\ chain (\bege)     & \mr{3}{cts}         &       &                                   & {--}                 &         & \mrc{3}{3.31\\$[3.12,3.78]$} &         & \mrc{3}{4.76\\$[4.40,5.08]$} &         & \mrc{3}{4.76\\$[4.40,5.08]$} &           \\
-                       & \m{[f]} \Po\ + \Ra\ chain (\scoax)    &                     &       &                                   & {--}                 &         &                              &         &                              &         &                              &           \\
-                       & \m{[f]} \Po\ + \Ra\ chain (\icoax)    &                     &       &                                   & {--}                 &         &                              &         &                              &         &                              &           \\
+  \mr{3}{\a\ decays (cts)}       & \m{[f]} \Po\ + \Ra\ chain (\bege)     & 1130 & $[1090, 1180]$                     & {--}        & 748                 & \mrc{3}{3.31\\$[3.12,3.78]$} & {--}                 & \mrc{3}{4.76\\$[4.40,5.08]$} & {--}  & \mrc{3}{4.76\\$[4.40,5.08]$} & {--}  \\
+                                 & \m{[f]} \Po\ + \Ra\ chain (\scoax)    & 1020 & $[975, 1070]$                      & {--}        & {--}                &                              & 544                  &                              & {--}  &                              & {--}  \\
+                                 & \m{[f]} \Po\ + \Ra\ chain (\icoax)    & 132  & $[117, 151]$                       & {--}        & {--}                &                              & {--}                 &                              & 87    &                              & {--}  \\
   \bottomrule%
 \end{tabular}%
 

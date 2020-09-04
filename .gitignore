@@ -81,6 +81,8 @@
 /src/img/plots/bkg/raw/combined-results.pdf
 /src/img/plots/bkg/raw/data/M1-spectra.root
 /src/img/plots/bkg/raw/data/M2-spectra.root
+/src/img/plots/bkg/lar/ph2/results/gmodel/BI-bar.pdf
+/src/img/plots/bkg/raw/ph2/results/gmodel/BI-bar.pdf
 
 *.DS_Store
 *.swp

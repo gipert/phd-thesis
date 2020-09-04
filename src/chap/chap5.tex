@@ -15,20 +15,20 @@ parameters that regulate their magnitude. Moreover, a new estimate of the \nnbb\
 \thalftwo\ will be presented with a reduced systematic uncertainty compared to past
 publications~\cite{Agostini2015a}. To improve the sensitivity of the analysis the data
 after the liquid argon veto cut is considered for the first time. As already shown in
-\cref{sec:bkg:lar:ph2:gmodel}, the signal-to-background ratio improves by a factor of 10
+\cref{sec:bkg:lar:ph2:gmodel}, in fact, the signal-to-background ratio improves by a factor of 10
 in the \nnbb\ energy region after the cut. Furthermore, to reduce the systematic
 uncertainties connected to the detector active volume model, data from enriched
 semi-coaxial detectors is discarded. The low background level (signal-to-background ratio
 of $\sim$20 in the \nnbb\ region excluding the potassium \g\ lines) and the high-statistic
-signal data sample ($\sim$$5 \cdot 10^{4}$~\nnbb\ events above the \Arl\ Q-value)
-motivates the construction of a high-precision fit of the \nnbb\ energy distribution to
-test the validity of the Standard Model predictions.
+signal data sample ($\sim$$5 \cdot 10^{4}$~\nnbb\ events above the \Arl\ Q-value,
+c.f.r.~\cref{tab:bkg:lar:ph2:results}) motivates the construction of a high-precision fit
+of the \nnbb\ energy distribution to test the validity of the Standard Model predictions.
 \newpar
 This chapter is divided in three sections: the data selection and the statistical methods
 which are used to study the signal sensitivity and analyze the data set are presented in
 \cref{sec:2nbb-ana:stat}, while sources of systematic uncertainties and their effect on
 the analysis are extensively described in \cref{sec:2nbb-ana:systematics}. The
-results are presented and discussed in the last \cref{sec:2nbb-ana:results}.
+results are finally presented and discussed in \cref{sec:2nbb-ana:results}.
 
 \section{Statistical analysis}%
 \label{sec:2nbb-ana:stat}
@@ -43,17 +43,20 @@ signal-to-background ratio in the \nnbb\ region of about 20 (excluding the two p
 \newpar
 The theoretical predictions for signal and background event distributions are obtained, as
 usual, from Monte Carlo simulations through the \mage\ software framework. The LAr veto
-model extensively described in \cref{sec:bkg:lar:ph2:pdfs} is used to compute the LAr veto
-flag for synthetic events. A selection of pdfs is shown in
-\cref{fig:bkg:lar:ph2:pdfs:gmodel}. The pdf sample considered in the background model
+model, which is extensively described in \cref{sec:bkg:lar:ph2:pdfs}, is used to compute
+the LAr veto flag for synthetic events. A selection of pdfs is shown in
+\cref{fig:bkg:lar:ph2:pdfs:gmodel}. The same pdf sample considered in the background model
 after the LAr veto cut (\cref{sec:bkg:lar:ph2:gmodel}) has been selected to represent the
-background in the current analysis. The choice of a reduced set, compared to the
-background model before analysis cuts, is motivated by the smallness of the background
-sample. The obtained goodness-of-fit for the \enrBEGeII\ data set in the \nnbb\ region is
-satisfactory enough, and the impact of different pdf shapes (e.g.~\Ac\ far or close to the
-detector array) is assessed in the analysis of the systematic uncertainties.
+background in this analysis. The choice of a reduced set, compared to the background model
+before analysis cuts, is motivated by the fact that the description of the shape of such a
+low background does not benefit from more complex models, from the statistical point of
+view. The obtained goodness-of-fit for the \enrBEGeII\ data set in the \nnbb\ region is,
+indeed, satisfactory enough (c.f.r.~\cref{fig:bkg:lar:ph2:results-closeup}), and the
+impact of different pdf shapes (e.g.~\Ac\ far or close to the detector array) is assessed
+in the analysis of the systematic uncertainties. Note that the information from the
+\enrCoaxII\ and \enrGeII\ data sets is also missing.
 \newpar
-The likelihood function defined to compare data and expectations is the usual Poissonian
+The likelihood function defined to compare data and expectations is the usual Poisson
 likelihood which runs over the binned \enrBEGeII\ energy spectrum:
 \[
   \mathcal{L}(S, \vec{B} | \vec{n}) =
@@ -74,13 +77,13 @@ counts from signal and background events in the energy spectrum, respectively. T
 parameter of interest for this analysis is, of course, $S$, and the $B_k$ are treated as
 nuisance parameters. The relation between number of signal counts $S$ and the
 corresponding process half-life is:
-\[
+\begin{equation}\label{eq:2nbb:halflife}
   \thalftwoM = \frac{1}{S} \frac{\expoM_{76}\, \mathcal{N}_A\, \log2}{m_{76}}\, \epsilon \;,
-\]
+\end{equation}
 where $\expoM_{76}$ is the data set \gesix\ exposure, $\mathcal{N}_A$ is the Avogadro number,
 $m_{76}$ is the \gesix\ molar mass and $\epsilon$ is the efficiency of detecting the decay
 process, which includes the detector containment probability and the LAr veto survival
-probability.
+probability $(87.6 \pm 0.5)$\%.
 
 \blocktitle{test \\ statistic}
 To test a hypothesized value of $S$ the following profile likelihood ratio is defined:
@@ -419,18 +422,20 @@ analysis are discussed.
     distribution shape are not exact and are based on approximations and assumptions
     (\cref{chap:theory}).  \nnbb\ primary vertices are generated in \mage\ through the
     \decayzero\ program, whose theoretical formulae are documented
-    in~\cite{Ponkratenko2000} and references therein. In similar works from the
-    past~\cite{Agostini2015a, Agostini2013c}in fact the systematic uncertainty contribution
+    in~\cite{Ponkratenko2000} and references therein. In similar works in the
+    past~\cite{Agostini2015a, Agostini2013c} the systematic uncertainty contribution
     arising from the decay theoretical description has been evaluated by considering the
     \nnbb\ distribution obtained with the Primakoff-Rosen
     approximation~\cite{Primakoff1959} as an alternative. The comparison resulted in a
-    $<1\%$ effect, however there is no guarantee that the impact on the current analysis
-    is at the same, second-order, level. The lower background and higher statistics with
-    respect to the \phaseone\ data set require indeed a second evaluation. Calculations
-    in the Primakoff-Rosen approximation are known to yield results which are less
-    accurate than other techniques developed in recent years (i.e.~those implemented in
-    \decayzero). Results from recent theoretical advances~\cite{Kotila2012} are more
-    suitable to this comparison. \fillme{SSD vs HSD? Go ahead\ldots}
+    <1\% effect.
+
+    % however there is no guarantee that the impact on the current analysis
+    % is at the same, second-order, level. The lower background and higher statistics with
+    % respect to the \phaseone\ data set require indeed a second evaluation. Calculations
+    % in the Primakoff-Rosen approximation are known to yield results which are less
+    % accurate than other techniques developed in recent years (i.e.~those implemented in
+    % \decayzero). Results from recent theoretical advances~\cite{Kotila2012} are more
+    % suitable to this comparison. \fillme{SSD vs HSD? Go ahead\ldots}
 
   \item[\mage\ and \geant{}] Another possible source of systematic biases in the analysis
     is the implementation of the experimental setup into the Monte Carlo software stack
@@ -466,10 +471,9 @@ analysis are discussed.
   \item[Other sources] The energy scale and resolution is another potential source of
     bias in the analysis. Given, however, the excellent resolution of germanium detectors
     and the remarkably precise knowledge of the energy calibration parameters (see
-    e.g.~\cref{fig:gerda:calib-desc}), this contribution is negligible.
-    \newpar
-    \fillme{Do we use the \onbb\ number for the \nnbb\ LAr survival probability? There's a
-    small uncertainty there.}
+    e.g.~\cref{fig:gerda:calib-desc}), this contribution is negligible. The uncertainty on
+    the electron containment and LAr veto efficiency $\epsilon$ in \cref{eq:2nbb:halflife}
+    is also negligible.
 
 \end{description}
 
@@ -486,7 +490,32 @@ analysis are discussed.
 
 Once the analysis procedure has been fixed and the distribution of the test statistic is
 determined, its value is computed on real data to extract the \nnbb\ half-life and 90\%
-C.L.~lower limits for new-physics processes. \fillme{eannamoooooooooooo}
+C.L.~lower limits for new-physics processes.
+
+The final estimate of the standard \nnbb-decay half-life is
+\[
+  \thalftwoM = (2.0 \pm \stat{0.0} \pm \syst{0.0}) \cdot 10^{21}~\text{yr} \;.
+\]
+
+\begin{table}
+  \centering
+  \caption{%
+    90\% C.L.~lower limits for new physics processes contributing to the \nnbb\ event
+    distribution. \fillme{numbers here}
+  }\label{tab:2nbb-ana:limits}
+  \begin{tabular}{lcrl}
+    \toprule
+    Decay mode             & Spectral index ($n$) & \mc{2}{lower 90\% C.L.~limit} \\
+                           &                      & $T_{1/2}$   & $g_\alpha$      \\
+    \midrule
+    \onbbx\                & 1                    & \fillme{?}  & \fillme{?}      \\
+    \onbbx\                & 2                    & \fillme{?}  & \fillme{?}      \\
+    $\onbbM\upchi(\upchi)$ & 3                    & \fillme{?}  & \fillme{?}      \\
+    \onbbxx\               & 7                    & \fillme{?}  & \fillme{?}      \\
+    \nnbblv\               & 4                    & \fillme{?}  & \fillme{?}      \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \chapsummary
 \begin{itemize}

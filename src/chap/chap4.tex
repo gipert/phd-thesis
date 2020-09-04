@@ -26,7 +26,15 @@ obtain the LAr veto flag. Based on these new background model pdfs, a statistica
 to test possible deviations of the \nnbb\ distribution from its Standard Model description
 will be finally presented in the following chapter.
 \newpar
-The chapter is structured as follows: \fillme{fillme}
+The chapter is structured as follows: in \cref{sec:bkg:lar:ph2:data} the data after the
+LAr veto cut is presented, sub-divided in the analysis data sets. Then, the development of
+the Monte Carlo simulation of the LAr veto system into the \mage\ framework is outlined in
+\cref{sec:bkg:lar:ph2:pdfs}. It will be shown how special calibration data is used to tune
+the simulation model and how the LAr veto flag for synthetic events is evaluated through a
+scintillation light detection probability map. Finally, the background decomposition of
+the full-range \gerda\ energy spectrum after the LAr veto cut (\gexpophasetwobkg\ from the
+first part of \phasetwo) is presented in \cref{sec:bkg:lar:ph2:gmodel} and discussed in
+\cref{sec:bkg:lar:ph2:discussion}.
 
 \section{Analysis data sets}%
 \label{sec:bkg:lar:ph2:data}
@@ -485,13 +493,14 @@ been set. As a cross-check, fit results have been tested to be stable when using
 data partitioning scheme or a fixed 5~keV binning.
 \newpar
 The statistical analysis to determine the background decomposition consists in the usual
-Poissonian likelihood maximization in a Bayesian setting presented in
+Poisson likelihood maximization in a Bayesian setting presented in
 \cref{sec:bkg:raw:ph2:stat}. The C++ BAT-based~\cite{Caldwell2008} software routine is
 publicly available on GitHub\textsuperscript{\ref{footnote:gerda-fitter}}. Since the
 global event suppression factor built in the pdfs after the LAr veto cut (i.e.~the pdf
-normalization) cannot be fully trusted, no priors from screening measurement data have
-been set. \fillme{explain this better maybe somewhere else?} A uniform prior is assigned
-to all fit parameters (including the \nnbb\ fit parameter, which is proportional to
+normalization) cannot be fully trusted\footnote{%
+  \fillme{A nice way to explain this? Ask Christoph}
+}, no priors from screening measurement data have been set. A uniform prior is assigned to
+all fit parameters (including the \nnbb\ fit parameter, which is proportional to
 $1/\thalftwoM$).
 
 \blocktitle{results}
@@ -512,12 +521,14 @@ estimates of background counts in the spectra. Notably, posteriors for \kvz\ abo
 array and on the \bege\ \nplus\ contact are peaked at zero and are thus removed from the
 fit. The exclusion of \kvz\ on the \bege\ \nplus\ contact, which has not been reported in
 the fit before analysis cuts (\cref{chap:bkg:raw:ph2}), is attributed to the novel
-transition layer model, which significantly affects the pdf shape above the FEP. The \b\
-spectrum component above 1525~keV, indeed, is now higher and shows less compatibility with
-experimental data. The \Co\ component is also compatible with zero, possibly because of
-the high LAr veto efficiency on a background contamination which was already low before
-the cut (c.f.r.~\cref{tab:bkg:raw:ph2:gmodel:results}). Nevertheless, the component is not
-removed from the fit because of its clear non-zero mode.
+transition layer model, which significantly affects the pdf shape above the full-energy
+peak. The \b\ spectrum component above 1525~keV, indeed, is now higher and shows less
+compatibility with experimental data. The \Co\ component is also compatible with zero,
+possibly because of the high LAr veto efficiency on a background contamination which was
+already low before the cut (c.f.r.~\cref{tab:bkg:raw:ph2:gmodel:results}). Nevertheless,
+the component is not removed from the fit because of its clear non-zero mode. Finally, a
+strong anti-correlation is present between the two \kvn\ sources far and close to the
+array. The former can be dropped from the model without affecting the fit results.
 \newpar
 The results of the analysis are shown in
 \cref{fig:bkg:lar:ph2:results,fig:bkg:lar:ph2:results-fixbw,fig:bkg:lar:ph2:results-closeup}
@@ -533,6 +544,26 @@ not completely satisfactory through all the spectrum. In particular, discrepanci
 the best-fit model and the data are visible in \enrGeII\ right below the potassium peaks,
 in \enrBEGeII\ around the potassium Compton shoulder region and in \enrCoaxII\ in the
 $[1.8, 2]$~MeV region (\cref{fig:bkg:lar:ph2:results-closeup}).
+
+\blocktitle{background \\ at \qbb}
+The background model describes the individual contributions to the total background index
+around \qbb\ after the LAr veto cut. The background index is defined as the number
+of counts over exposure and energy in the energy window from 1930~keV to 2190~keV
+excluding the region around \qbb\ ($\qbbM \pm 5$~keV) and the intervals $2104 \pm 5$~keV
+and $2119 \pm 5$~keV, which correspond to known \g\ lines from \Tl\ and \Bih. The values
+for each background contribution are given in \cref{tab:bkg:lar:ph2:results}. The
+composition of the background around \qbb\ is also displayed as fractions of the total
+background index in the following:
+\begin{center}
+  \includegraphics{plots/bkg/lar/ph2/results/gmodel/BI-bar.pdf}
+\end{center}
+The dominating background contribution in both data sets come from
+\a\ decays, which are left practically untouched by the LAr veto cut. \kvz\ is the second
+largest contribution, together with isotopes from the \Uh\ decay chain.
+The estimated total
+background indices extracted from the marginalized posterior distributions are
+$\stat{6.22^{+0.47}_{-0.35}} \cdot 10^{-3}$~\ctsper\ for the \enrBEGeII\ data set and
+$\stat{5.11^{+0.44}_{-0.32}} \cdot 10^{-3}$~\ctsper\ for the \enrCoaxII\ data set.
 
 \begin{sidewaystable}
   \footnotesize
@@ -589,6 +620,32 @@ $[1.8, 2]$~MeV region (\cref{fig:bkg:lar:ph2:results-closeup}).
 \section{Discussion}%
 \label{sec:bkg:lar:ph2:discussion}
 
+As noted in the plots of the residuals shown in
+\cref{fig:bkg:lar:ph2:results,fig:bkg:lar:ph2:results-fixbw,fig:bkg:lar:ph2:results-closeup},
+the goodness-of-fit looks acceptable through nearly all the considered energy range. Few
+notable discrepancies remain, the most evident being the region below the \kvn\
+full-energy peak in the \enrGeII\ data set. Since the issue is not present in the analysis
+before the LAr veto cut (c.f.r.~\cref{sec:bkg:raw:ph2:gmodel}), where the statistics is
+even higher, it could be originated by an inaccurate LAr veto system modeling. The same
+hypothesis might be formulated for the inconsistency between model and data observed in
+the potassium Compton edge energy region in the \enrBEGeII\ data set and above the \kvz\
+line in the \enrCoaxII\ data set.
+\newpar
+The background indices extracted from data after the LAr veto cut are
+$\stat{5.09^{+?}_{-?}} \cdot 10^{-3}$~\ctsper\ for the \enrBEGeII\ data set and
+$\stat{5.24^{+?}_{-?}} \cdot 10^{-3}$~\ctsper\ for the \enrCoaxII\ data set, which agree
+with the ones predicted by the background model within the statistical uncertainty. The
+partial contributions to the background index are compared to those found with the
+background model before analysis cuts (\cref{sec:bkg:raw:ph2:gmodel}) in
+\cref{fig:bkg:lar:ph2:BI-comparison}. The contribution from \a\ decays is not considered
+in this comparison as it is left unchanged by the LAr veto cut. The \Th\ (\Bil\ + \Tl) and
+the \Co\ contributions are the most suppressed, followed by \kvz\ and \Uh\ (\Pbh\ + \Bih).
+The \Ac\ contribution stays at the same negligible level as before the LAr veto cut. The
+same picture is observed when comparing the count rates in the analysis energy range
+(i.e.~above the \Arl\ Q-value), which are more relevant to the \nnbb\ analysis, in
+\cref{fig:bkg:lar:ph2:cts-comparison}, with some minor differences.
+
+\fillme{Fix problem with \a\ model BI. Other ideas to discuss?}
 
 \begin{figure}
   \centering

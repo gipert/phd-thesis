@@ -15,10 +15,10 @@
   every tick label/.append style={font=\footnotesize},
   group/every plot/.style={
     typeset ticklabels with strut,
-    % ymin=1E-7, ymax=1E-3,
+    ymin=4E-2, ymax=2E3,
     xtick={1,2,3,4,5,6},
     xticklabels={\Ac,\Th,\Co,\kvn,\kvz,\Uh},
-    ylabel={BI (\ctsper)},
+    ylabel={Counts / (\kgyr)},
     grid=both,
     legend pos=south east,
     legend style={draw=black},
@@ -33,39 +33,39 @@
   },
   raw BEGe/.style={%
     TolVibBlue, mark=*,
-    table/y expr={\thisrow{margmode}/32.1},
-    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/32.1},
-    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/32.1}
+    table/y expr={\thisrow{margmode}/32.7},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/32.7},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/32.7}
   },
   raw SemiCoax/.style={%
     TolVibBlue, mark=*,
-    table/y expr={\thisrow{margmode}/28.1},
-    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/28.1},
-    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/28.1}
+    table/y expr={\thisrow{margmode}/28.6},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/28.6},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/28.6}
   },
   raw All/.style={%
     TolVibBlue, mark=*,
-    table/y expr={\thisrow{margmode}/60.2},
-    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/60.2},
-    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/60.2}
+    table/y expr={\thisrow{margmode}/61.4},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/61.4},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/61.4}
   },
   lar BEGe/.style={%
     TolVibRed, mark=*,
-    table/y expr={\thisrow{margmode}/32.1},
-    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/32.1},
-    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/32.1}
+    table/y expr={\thisrow{margmode}/32.7},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/32.7},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/32.7}
   },
   lar SemiCoax/.style={%
     TolVibRed, mark=*,
-    table/y expr={\thisrow{margmode}/28.1},
-    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/28.1},
-    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/28.1}
+    table/y expr={\thisrow{margmode}/28.6},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/28.6},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/28.6}
   },
   lar All/.style={%
     TolVibRed, mark=*,
-    table/y expr={\thisrow{margmode}/60.2},
-    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/60.2},
-    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/60.2}
+    table/y expr={\thisrow{margmode}/61.4},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/61.4},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/61.4}
   },
 }
 

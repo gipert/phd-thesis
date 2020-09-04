@@ -15,7 +15,7 @@
   every tick label/.append style={font=\small},
   group/every plot/.style={
     typeset ticklabels with strut,
-    ymin=1E-7, ymax=1E-3,
+    ymin=3E-6, ymax=4E-2,
     xtick={1,2,3,4,5,6},
     xticklabels={\Ac,\Th,\Co,\kvz,\Uh,\textbf{SUM}},
     ylabel={BI (\ctsper)},
@@ -33,39 +33,39 @@
   },
   raw BEGe/.style={%
     TolVibBlue, mark=*,
-    table/y expr={\thisrow{margmode}/32.1},
-    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/32.1},
-    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/32.1}
+    table/y expr={\thisrow{margmode}},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})}
   },
   raw SemiCoax/.style={%
     TolVibBlue, mark=*,
-    table/y expr={\thisrow{margmode}/28.1},
-    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/28.1},
-    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/28.1}
+    table/y expr={\thisrow{margmode}},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})}
   },
   raw All/.style={%
     TolVibBlue, mark=*,
-    table/y expr={\thisrow{margmode}/60.2},
-    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/60.2},
-    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/60.2}
+    table/y expr={\thisrow{margmode}},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})}
   },
   lar BEGe/.style={%
     TolVibRed, mark=*,
-    table/y expr={\thisrow{margmode}/32.1},
-    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/32.1},
-    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/32.1}
+    table/y expr={\thisrow{margmode}},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})}
   },
   lar SemiCoax/.style={%
     TolVibRed, mark=*,
-    table/y expr={\thisrow{margmode}/28.1},
-    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/28.1},
-    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/28.1}
+    table/y expr={\thisrow{margmode}},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})}
   },
   lar All/.style={%
     TolVibRed, mark=*,
-    table/y expr={\thisrow{margmode}/60.2},
-    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})/60.2},
-    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})/60.2}
+    table/y expr={\thisrow{margmode}},
+    table/y error minus expr={(\thisrow{margmode}-\thisrow{16qt})},
+    table/y error plus expr={(\thisrow{84qt}-\thisrow{margmode})}
   },
 }
 
