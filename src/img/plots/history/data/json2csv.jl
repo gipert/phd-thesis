@@ -9,7 +9,8 @@ ge76_nat_fr = 0.078
 function mbb(thalf)
     thalf == "nan" && return ["nan", "nan"]
     NME = [2.89, 6.13]
-    return [sqrt(1 / thalf / 2.36e-15 / 1.25^4 / NME[2]^2 * 511e3^2), sqrt(1 / thalf / 2.36e-15 / 1.25^4 / NME[1]^2 * 511e3^2)]
+    return [sqrt(1 / thalf / 2.36e-15 / 1.25^4 / NME[2]^2 * 511e3^2),
+            sqrt(1 / thalf / 2.36e-15 / 1.25^4 / NME[1]^2 * 511e3^2)]
 end
 
 j = JSON.parsefile("ge76-history.json")["ge76-history"]
