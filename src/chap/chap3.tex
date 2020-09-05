@@ -1260,14 +1260,14 @@ data set is maximized in a Bayesian setting. The C++ BAT-based~\cite{Caldwell200
 software routine is publicly available on GitHub\footnote{\label{footnote:gerda-fitter}%
   The \texttt{gerda-fitter} software, available at
   \url{https://github.com/gipert/gerda-fitter}, is a Bayesian histogram fitting program
-  written in C++ and based on the BAT toolkit. It is specialized and tested on the \gerda\
-  data and pdfs format, but any ROOT histogram can be provided as input. The analysis is
-  fully configurable in JSON format (\url{https://www.json.org}) and does not require
-  writing or compiling C++ code (as one would need to do if using BAT directly). The list
-  of features include: customization of nearly all the BAT parameters, computation of the
-  Bayesian evidence, \pvalue\ computation, prior distribution configuration by
-  analytical expression or external histogram, variable re-binning and posterior sampling of
-  user-defined observables.
+  written in C++ and based on the BAT toolkit \m{v1.0.0}~\cite{Beaujean2018}. It is
+  specialized and tested on the \gerda\ data and pdfs format, but any ROOT histogram can
+  be provided as input. The analysis is fully configurable in JSON format
+  (\url{https://www.json.org}) and does not require writing or compiling C++ code (as one
+  would need to do if using BAT directly). The list of features include: customization of
+  nearly all the BAT parameters, computation of the Bayesian evidence, \pvalue\
+  computation, prior distribution configuration by analytical expression or external
+  histogram, variable re-binning and posterior sampling of user-defined observables.
 }. Variable bin sizes are used to represent data and pdfs in the analysis, to speed up the
 computation. Dedicated, thin bins (depending on the energy resolution) are used for known
 \g\ lines; larger ones (depending on the event rate) for the continuum. The analysis is
