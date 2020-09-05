@@ -58,7 +58,7 @@ the emission of additional particles (i.e.~the Majorons) or break the Lorentz sy
 are considered. Finally, aspects concerning the detection of double-beta decay events in
 real experimental settings will be examined in \cref{sec:nbb:exp}.
 
-\section{Two-neutrino double-beta decay}%
+\section{Standard two-neutrino double-beta decay}%
 \label{sec:nbb:2nbb}
 
 The two-neutrino double-beta decay (\nnbb) processes, first suggested by M.~Goeppert-Mayer
@@ -250,7 +250,7 @@ In this setting, the un-polarized transition probability reads:
 where \nmet\ involves vector and axial couplings $g^2_V \equiv F_V(q^2=0)$ and $g^2_A
 \equiv F_A(q^2=0)$ for Fermi and Gamow-Teller transitions in the form\footnote{%
   The most general formula includes also the tensor matrix element $\mathcal{M}_T$, which
-  can be safely neglected.
+  can be safely neglected~\cite{?}.
 }
 \[
   \mathcal{M}^{2\nu} = \mathcal{M}^{2\upnu}_{GT} -
@@ -262,7 +262,7 @@ $F_{A,P,W}(q^2)$.
 
 The difficulty of NME calculations is to know the initial- and final-state nuclear wave
 functions, a many-body problem that has no exact solution. Several numerical approaches to
-the problem exist, the reader is referred to~\cite{Engel2017} and references therein for a
+the problem exist; the reader is referred to~\cite{Engel2017} and references therein for a
 complete review. In summary, all approaches miss certain features, and are therefore
 expected to be affected by systematic biases. This seems to be confirmed by comparisons
 between results from different methods (see \cref{fig:nbb:nme} for \onbb). Evaluation of
@@ -284,13 +284,13 @@ free nucleon value of 1.27 that is necessary to reproduce the observable quantit
 nuclear decays, particularly \b\ and \nnbb\ decays, see~\cite{Suhonen2017} for a review.
 Possible origins of quenching are nuclear-medium effects, many-body currents or the
 inherent shortcomings of the nuclear many-body models. The latter usually fix $g_A$ first
-and then adjust the nuclear interaction to reproduce the measured \nnbb\ rates. Another
+and then adjust the nuclear interaction to reproduce the measured \nnbb\ rates~\cite{?}. Another
 common approach is to take $g_A$ from Gamow-Teller \b\ decay and electron capture rates,
-assuming a common quenching for all weak processes. In this way, one can reproduce \nnbb\
+assuming a common quenching for all weak processes~\cite{?}. In this way, one can reproduce \nnbb\
 rates and predict non-measured ones. A possibly important observation is that \b\ and
 \nnbb\ decays have energy scales of order MeV, i.e.~much smaller than the \onbb\ scale of
-order 100~MeV. Recent studies show that low-energy processes may require more quenching
-and thus, less or no quenching might be needed in \onbb\ decay (not more than 20--30\%).
+order 100~MeV. Recent studies suggest that low-energy processes may require more quenching
+and thus, less or no quenching might be needed in \onbb\ decay (not more than 20--30\%)~\cite{?}.
 However, there is not yet consensus in the literature on this issue, and further studies
 are needed. The dependence of quenching on the nuclear calculations can be demonstrated by
 analyzing the \nnbb\ electron-energy spectra, which allows the extraction of the
@@ -321,7 +321,7 @@ respectively.
 In the Primakoff–Rosen approximation~\cite{Primakoff1959} for the non-relativistic Coulomb
 correction, the sum spectrum of the electrons energies can be analytically calculated.
 After a suitable change of integration variables and defining the sum of kinetic energies
-$K=T_1+T_2$ for the two electrons and integrating over the remaining variables, we obtain
+$K=T_1+T_2$ for the two electrons and integrating over the remaining variables, one obtains
 \begin{equation}\label{eq:nbb:stdmodel}
   \frac{\text{d}\Gamma^{2\upnu}}{\text{d}K} =
   \Lambda \cdot (K^5+10K^4+40K^3+60K^2+30K) {(Q_{\upbeta\upbeta}-K)}^5 \;,
@@ -332,8 +332,8 @@ by
   \Lambda = \frac{G_F^4g_A^4|V_{ud}|^4F^2_\text{PR}(Z)m_e^{11}}{7200\pi^7}
             |\mathcal{M}^{2\upnu}|^2 \;,
 \]
-with $F_\text{PR}(Z) = 2\pi\alpha/Z(\-e^{-2\pi\alpha Z})$. The distribution for \gesix\ is
-plotted in \cref{fig:nbb:spectra}.
+with $F_\text{PR}(Z) = 2\pi\alpha/Z(\-e^{-2\pi\alpha Z})$. The distribution in
+\cref{eq:nbb:stdmodel} for \gesix\ is plotted in \cref{fig:nbb:spectra} in red.
 
 \begin{figure}
   \centering
@@ -346,10 +346,13 @@ plotted in \cref{fig:nbb:spectra}.
   }\label{fig:nbb:spectra}
 \end{figure}
 
-\section{Neutrinoless double-beta decay}%
+\section{Neutrinoless double-beta decay, neutrino mass and baryogenesis}%
 \label{sec:nbb:0nbb}
 
-The neutrinoless double-beta decay processes (\onbb) of the types
+The neutrinoless double-beta decay processes (\onbb) of the types\footnote{%
+  Also the other double-beta decay modes mentioned in \cref{sec:nbb:2nbb} have their
+  neutrinoless analog.
+}
 \[
   \begin{array}{lrl}
     0\upnu\upbeta^-\upbeta^-: &
@@ -358,14 +361,14 @@ The neutrinoless double-beta decay processes (\onbb) of the types
       \mathcal{N}(A,Z) \longrightarrow \mathcal{N}(A,Z-2)+2e^+ &,
   \end{array}
 \]
-which have been proposed by W.~H.~Furry in 1939~\cite{Furry1939}, are forbidden in the
-minimal Standard Model, where the neutrinos are massless, because the conservation of the
-total lepton number is violated by two units.  Interestingly, lepton number $L$ (as well
-as baryon number $B$) is only an accidentally conserved global symmetry in the Standard
-Model and its conservation in extended theories seems very unlikely. To support the idea
-that $L$ and $B$ conservation laws are nothing sacred and lack of a deep justification
-even in the Standard Model, one should note that they are only valid at the classical
-level\footnote{%
+which have been first proposed by W.~H.~Furry in 1939~\cite{Furry1939}, are forbidden in
+the minimal Standard Model, where the neutrinos are massless, because the conservation of
+the total lepton number is violated by two units.  Interestingly, lepton number $L$ (as
+well as baryon number $B$) is only an accidentally-conserved global symmetry in the
+Standard Model and its conservation in extended theories seems very unlikely. Moreover, to
+support the idea that $L$ and $B$ conservation laws are nothing sacred and lack of a deep
+justification even in the Standard Model, one should note that they are only valid at the
+classical level\footnote{%
   Chiral anomalies actually violate this conservation law. It can be shown that the
   currents associated with baryon and lepton number have non-vanishing divergences:
   $\partial^\mu J_\mu^{B,L} = c G_{\mu\nu} \widetilde{G}^{\mu\nu} \neq 0$, where
@@ -379,51 +382,47 @@ lowest higher dimensional $d=5$ operator one can write down,
                            (\widetilde{\Phi}^T L_\beta) + \text{h.c.} \;,
 \]
 often referred to as Weinberg operator~\cite{Weinberg1979}, immediately violates lepton
-number. Superscript $^c$ denotes the charge conjugation operation, $L_\alpha =
-(\nu_\alpha, \alpha)^T$ are the lepton doublets of flavor $\alpha = e, \mu, \tau$, $\Phi$
+number. Superscript $c$ denotes the charge conjugation operation, $L_\alpha =
+(\nu_\alpha, \alpha)^T$ are the lepton doublets of flavor $\alpha = \{e, \mu, \tau\}$, $\Phi$
 is the Higgs doublet and $\Lambda$ denotes the energy scale of the complete theory.
 Therefore, it is possible to suspect that the validity of $B$ and $L$ conservation laws is
 just approximate or circumstantial, since it is related to the range of energies that we
-can explore in laboratories.  It should be mentioned that also the other double-beta decay
-modes mentioned in \cref{sec:nbb:2nbb} have their neutrinoless analog.
+can explore in laboratories.
 
 \blocktitle{lepton \\ violation}
-\fillme{missing citations}
-Why searching for lepton violation is so important? Apart from the naturalness issue, the
-connection with baryon number in most Grand Unified Theories (GUTs), i.e.~gauge theories
-with a single gauge coupling at a certain high energy scale, might help solving the
-long-standing problem of explaining why we live in a matter-dominated Universe, often
-referred as the `baryogenesis problem', despite the equal importance of matter and
-anti-matter in the Standard Model.  In 1967, Sakharov proposed a set of necessary
-conditions to generate the cosmic baryon asymmetry~\cite{Sakharov1991}. These conditions
-are satisfied in the Standard Model, but they don't generate the required amount of
-baryonic asymmetry observed by current experiments~\cite{citation needed}. One viable and
-attractive way to mach theoretical predictions to experimental data is assuming that
-lepton number violating processes had a major role in the early history of the Universe.
-This is referred as the leptogenesis mechanism, which was first proposed by Fukugita and
-Yanigada in 1986~\cite{Fukugita1986}. In this model (`unflavored' Leptogenesis) heavy
-particles present in many GUTs would have been produced during the Big Bang and then
-quickly decayed through $CP$-violating processes, producing a leptonic asymmetry. Note
-however that, since its first formulation, a large number of alternative theoretical
-possibilities for leptogenesis have been formulated~\cite{citation needed}. How can
-leptogenesis the convert to baryogenesis? As already mentioned, in GUTs quarks and leptons
-live together in multiplets, and hence both $B$ and $L$ are not expected to be conserved
+Why searching for lepton violation is so important? Apart from the just discussed
+naturalness issue, the connection with baryon number in most Grand Unified Theories
+(GUTs), i.e.~gauge theories with a single gauge coupling at a certain high energy scale,
+might help solving the long-standing problem of explaining why we live in a
+matter-dominated Universe, often referred as the `baryogenesis problem', despite the equal
+importance of matter and anti-matter in the Standard Model.  In 1967, Sakharov proposed a
+set of necessary conditions to generate the cosmic baryon asymmetry~\cite{Sakharov1991}.
+These conditions are satisfied in the Standard Model, but they don't generate the required
+amount of baryonic asymmetry observed by current experiments~\cite{Zyla2020, Aghanim2018}.
+One viable and attractive way to mach theoretical predictions to experimental data is
+assuming that lepton number violating processes had a major role in the early history of
+the Universe.  This is referred as the leptogenesis mechanism, which was first proposed by
+Fukugita and Yanigada in 1986~\cite{Fukugita1986}. In this model (`unflavored'
+Leptogenesis) heavy particles present in many GUTs would have been produced during the Big
+Bang and then quickly decayed through $CP$-violating processes, producing a leptonic
+asymmetry. Note however that, since its first formulation, a large number of alternative
+theoretical possibilities for leptogenesis have also been formulated~\cite{?}.  How can
+leptogenesis the convert to baryogenesis? As already mentioned, quarks and leptons live
+together in GUT multiplets, and hence both $B$ and $L$ are not expected to be conserved
 quantities. By the way, the combination $B−L$, which is conserved in the Standard Model
 both at the classical and quantum level (by sphaleron processes), often plays an important
 role in GUTs, and is broken at some stage.  In the spirit of baryogenesis, one needs to
 require that baryon number is violated, and hence lepton number should be violated too. In
 this sense lepton violation should be treated on the same level as baryon number
 violation, and its observation would be far more fundamental than a simple measurement of
-neutrino properties, which is often quoted as the main goal of \onbb\ searches. Its
-implications are far beyond that.  For the sake of completeness, it should be mentioned
-that the link between \onbb\ and the baryon asymmetry is not guaranteed, as mentioned
-here~\cite{Rodejohann2011}. The often-made and popular statement that \onbb\ experiments
-probe the origin of matter in the Universe is not true in all cases.  There might be
-scenarios in which new physics processes that allow for \onbb\ do not generate baryon
-asymmetry, yet the decay is very well possible.
+neutrino properties, which is often quoted as the main goal of \onbb\ searches.  For the
+sake of completeness, it should be mentioned that the link between \onbb\ and the baryon
+asymmetry is not guaranteed, as remarked in~\cite{Rodejohann2011}. The often-made and
+popular statement that \onbb\ experiments probe the origin of matter in the Universe is
+not true in all cases. There might be scenarios in which new physics processes that allow
+for \onbb\ do not generate baryon asymmetry, yet the decay is very well possible.
 
 \blocktitle{neutrino \\ mass}
-\fillme{missing citations}
 Besides lepton number violation, \onbb, if observed, would be of great importance for
 establishing the mechanism through which the neutrino acquires its mass. As a starting
 point, it's interesting to note that the aforementioned Weinberg operator, upon
@@ -439,27 +438,28 @@ characterize massive fermions: they could be particles of the `Dirac' type (as a
 other fundamental fermions) or the `Majorana' type.  Such a distinction arises from
 different representation choices of neutral fermionic fields in Quantum Field
 Theory~\cite{Giunti2007}.  Majorana particles were first proposed by Ettore
-Majorana~\cite{Majorana1932}, which showed a peculiar consequence of such an alternative
+Majorana~\cite{Majorana1932}, who showed a peculiar consequence of such an alternative
 representation: in contrast to Dirac particles, Majorana particles and anti-particles are
-the same entity. With the proper convention, in fact, $\nu_i^c = C\overline{\nu}^T_i =
-\nu_i$.  ith the typical mass scale of $m_\nu \simeq 0.05$~eV, it follows that $\Lambda
-\simeq 10^{15}$~GeV, tantalizingly close to the GUT scale. This is why Majorana neutrinos
-are so popular: small neutrino masses probe higher energy scale physics. It has been shown
-that within the minimal standard electroweak model there are only three tree-level
-realizations of the Weinberg operator.  One is the canonical type-I seesaw mechanism with
-right-handed neutrinos.  Another approach is introducing a scalar Higgs triplet (type-II,
-or triplet seesaw), and the third one involves hypercharge-less fermion triplets (type-III
-seesaw).  In the simplest type-I mechanism, as an example, one introduces three Majorana
-neutrinos, which are Standard Model singlets, and therefore can be arbitrarily heavy with
-mass matrix $M_R$. Integrating out the heavy states gives a Majorana mass term for the
-light neutrinos which is suppressed by the mass of the heavy degrees of freedom. The
-Weinberg operator is realized with $\Lambda \simeq M_R$.
-
+the same entity. With the proper phase convention, in fact, $\nu_i^c = C\overline{\nu}^T_i =
+\nu_i$. With the typical mass scale of $m_\nu \simeq 0.05$~eV, it follows that $\Lambda
+\simeq 10^{15}$~GeV, which is tantalizingly close to the GUT scale. This is why Majorana
+neutrinos are so popular: small neutrino masses probe higher energy scale physics. It has
+been shown that within the minimal standard electroweak model there are only three
+tree-level realizations of the Weinberg operator~\cite{Ma1998}.  One is the canonical
+type-I seesaw mechanism with right-handed neutrinos.  Another approach is introducing a
+scalar Higgs triplet (type-II, or triplet seesaw), and the third one involves
+hypercharge-less fermion triplets (type-III seesaw).  In the simplest type-I mechanism, as
+an example, one introduces three Majorana neutrinos, which are Standard Model singlets,
+and therefore can be arbitrarily heavy with mass matrix $M_R$~\cite{Mohpatra1979}.
+Integrating out the heavy states gives a Majorana mass term for the light neutrinos which
+is suppressed by the mass of the heavy degrees of freedom. The Weinberg operator is
+realized with $\Lambda \simeq M_R$.
+\newpar
 Many Standard Model extensions predict neutrinoless double-beta decay, most often through
-the introduction of a $\Delta L = 2$ Majorana mass term (like the Weinberg operator) for
+the introduction of a $\Delta L = 2$ Majorana mass term (as the Weinberg operator) for
 standard or new neutrinos.  It should be noted, that via the black-box, or
 Schechter-Valle, theorem~\cite{Schechter1982}, all realizations of neutrinoless
-double-beta decay are connected to a Majorana neutrino mass. This nevertheless generates a
+double-beta decay are connected to a Majorana neutrino mass. This, nevertheless, generates a
 tiny mass at the 4-loop level, too small to account for the mass scale as identified in
 oscillation experiments.  Therefore, as discussed in~\cite{Rodejohann2011}, it is possible
 to classify the possible interpretations of \onbb\ into the `standard interpretation', in
@@ -467,11 +467,11 @@ which the decay is mediated by light and massive Majorana neutrinos (the same th
 oscillate, see Feynman diagram in \cref{fig:nbb:feydiag}), and the `non-standard
 interpretations', in which the decay is mediated by some other lepton number violating
 physics. Most experimental searches focus on the standard interpretation, which is
-arguably the best motivated possibility for the decay. We will focus on this mechanism in
-the following.  Considerable experimental efforts are being dedicated to the detection of
-\onbb, as such experiments still represent the only practical way of establishing the
-nature of neutrino mass.
-
+arguably the best motivated possibility for the decay. The discussion that follows will be
+focused on this standard mechanism. Considerable experimental efforts are being dedicated
+to the detection of \onbb, as such experiments still represent the only practical way of
+establishing the nature of neutrino mass.
+\newpar
 In the standard interpretation, searches for \onbb\ are searches for neutrino mass,
 complementing the other approaches to determine it. We recall that in the `3-Majorana
 neutrino paradigm' the neutrino mass matrix $m_\nu$ is diagonalized by the
@@ -485,15 +485,18 @@ $\theta_{13}$ and $\theta_{23}$, one `Dirac' phase $\delta$ and two `Majorana' p
 $\alpha$ and $\beta$. It is important to know that among the open problems in neutrino
 physics there is the `hierarchy problem', i.e.~whether $m_1 < m_2 < m_3$ (normal ordering)
 or $m_3 < m_1 < m_2$ (inverted ordering).  In the recent years the normal ordering
-hypothesis has progressively gained support against the inverted ordering. At the time of
-writing, frequentist global fits of neutrino oscillation data favor the normal ordering
+hypothesis has progressively gained support against the inverted ordering. In 2019,
+frequentist global fits of neutrino oscillation data were favoring the normal ordering
 hypothesis over the inverted ordering by more than $3\sigma$~\cite{Esteban2019}. Results
-of Bayesian analyses, however, have shown how the normal ordering preference is strongly
+of Bayesian analyses, however, showed how the normal ordering preference was strongly
 dependent on the choices of the prior and the parameter space~\cite{Hannestad2016,
-Schwetz2017}.  Normal ordering is most strongly preferred when the sampling is performed
-for the three neutrino masses with logarithmic priors~\cite{Gariazzo2018}.
-
-In the light neutrino exchange model, the \onbb\ decay width can be expressed as:
+Schwetz2017}. Normal ordering was most strongly preferred when the sampling was performed
+for the three neutrino masses with logarithmic priors~\cite{Gariazzo2018}. After the
+publication of new oscillation data at the \textsc{Neutrino2020}
+conference\footnote{\url{https://conferences.fnal.gov/nu2020/}}, a significant reduction
+of the preference for normal ordering has been reported~\cite{Kelly2020, Esteban2020}
+\newpar
+In the light-neutrino exchange model, the \onbb\ decay width can be expressed as:
 \begin{equation}\label{eq:nbb:0nudecayrate}
   \Gamma^{0\upnu} = G^{0\upnu}(Q_{\upbeta\upbeta}, Z)
                   |\mathcal{M}^{0\upnu}|^2
@@ -523,17 +526,21 @@ sensitivity in the KATRIN experiment is 0.2~eV.  Cosmology gives the strongest m
 in the sum of the neutrino masses $\Sigma$, but they depend on the data sets and on the
 cosmological model. The current conservative limits on $\Sigma$ are about
 0.3~eV~\cite{Aghanim2018}.
-
+\newpar
 Varying the neutrino oscillation parameters within their $3\sigma$ ranges it is possible
 to plot \mbb, \mb\ and $\Sigma$ one against each other in \cref{fig:nbb:mass-obs}. In the
 normal ordering hypothesis, \mbb\ can even vanish, while in the inverted ordering scenario
 there is a minimum value of about 0.013~eV. This value represents a physics goal for the
-current and upcoming \onbb\ experiments.  As already mentioned, the current global fits of
-neutrino oscillation data favor the normal mass ordering hypothesis at $3\sigma$, and the
-preference has slowly strengthened over time, as one would expect if the hypothesis does
-reflect indeed the reality. This, however, does not strictly imply a small \mbb, as the
-smallest neutrino mass can be still sizable. Moreover, \onbb\ would still probe lepton
-violation.
+current and upcoming \onbb\ experiments. The normal ordering scenario, however, does not
+strictly imply a small \mbb, as the smallest neutrino mass can be still sizable. Moreover,
+\onbb\ would still be a probe lepton violation, as extensively discussed above.
+\newpar
+Considering the cosmological and neutrino oscillation constraints imposed on the available
+data it is possible to obtain the probability distribution for \mbb, from which the
+discovery potential of future experiments can be inferred~\cite{Caldwell2017,
+Agostini2017a, Ge2017}. An optimistic picture can be drawn from these studies, since there
+is better than a 50\% \onbb\ discovery probability for normal ordering and almost unity
+for inverted ordering for some of the future experiments.
 
 \begin{figure}
   \centering
@@ -546,13 +553,6 @@ violation.
     from~\cite{Dolinski2019}.
   }\label{fig:nbb:mass-obs}
 \end{figure}
-
-Considering the cosmological and neutrino oscillation constraints imposed on the available
-data it is possible to obtain the probability distribution for \mbb, from which the
-discovery potential of future experiments can be inferred~\cite{Caldwell2017,
-Agostini2017a, Ge2017}. An optimistic picture can be drawn from these studies, since there
-is better than a 50\% \onbb\ discovery probability for normal ordering and almost unity
-for inverted ordering for some of the future experiments.
 
 \blocktitle{decay \\ rate}
 As we have seen in \cref{eq:nbb:0nudecayrate}, the \onbb\ decay rate can be still
@@ -567,8 +567,11 @@ the 1--10 range but remain terribly affected by large error bars. The situation 
 latter is depicted in \cref{fig:nbb:nme}. As already mentioned in \cref{sec:nbb:2nbb}, the
 quenching problem affects also \onbb. Recent studies suggest that there might be less
 quenching needed (not more than 20--30\%) in processes with large momentum transfer such
-as \onbb, but there is not yet consensus in the literature. A reduced $g_A$ implies a
-longer \thalfzero, which is undesirable for experimental searches.
+as \onbb~\cite{?}, but there is not yet consensus in the literature. A reduced $g_A$
+implies a longer \thalfzero, which is undesirable for experimental searches.  Since no
+neutrinos are emitted during the process, the experimental signature of \onbb\ is a
+Dirac-delta function at \qbb\ in the summed energy spectrum of the decay products
+(\cref{fig:nbb:spectra}).
 
 \begin{figure}
   \centering
@@ -579,14 +582,11 @@ longer \thalfzero, which is undesirable for experimental searches.
   }\label{fig:nbb:nme}
 \end{figure}
 
-\blocktitle{energy \\ spectrum}
-In this case, no neutrinos are emitted during the process and the experimental signature
-is therefore a Dirac-delta function at \qbb\ in the summed energy spectrum
-(\cref{fig:nbb:spectra}).
-
 \blocktitle{experimental \\ limits}
-The experimental program to search for \onbb\ decay is presented in \cref{sec:nbb:exp},
-here a compilation of the current experimental bounds is given in \cref{tab:nbb:0nbb-lim}.
+A compilation of the current most stringent experimental bounds on \thalfzero\ and \mbb\
+from \gesix, $^{130}$Te and $^{136}$Xe is given in \cref{tab:nbb:0nbb-lim}.
+The experimental program to search for \onbb\ decay is presented more in detail in
+\cref{sec:nbb:exp}.
 
 \begin{table}
   \centering
@@ -845,7 +845,7 @@ in \cref{tab:nbb:2nbblv-lim}.
   \input{tab/theory/2nbblv-limits.tex}
 \end{table}
 
-\section{Experimental aspects}%
+\section{Detecting double-beta: from theory to practice}%
 \label{sec:nbb:exp}
 
 The primary focus of experiments that involve double-beta decay is the search
@@ -1052,9 +1052,9 @@ double-beta point-like events.
     for a full SuperNEMO is projected to be $1.2 \cdot 10^{26}$~yr.
 \end{description}
 
-% vim: tw=90
-
 \chapsummary
 \begin{itemize}
   \item Double-beta decay
 \end{itemize}
+
+% vim: tw=90
