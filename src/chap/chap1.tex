@@ -512,7 +512,7 @@ In the light-neutrino exchange model, the \onbb\ decay width can be expressed as
                   |\mathcal{M}^{0\upnu}|^2
                   \langle{m_{\upbeta\upbeta}}\rangle^2 \;,
 \end{equation}
-where \mbb\ is the so-called `effective mass':
+where \mbb\ is the so-called `effective Majorana mass':
 \[
   \langle m_{ee} \rangle = \left| \sum U_{ei}^2 m_i \right|
                          = |c^2_{12} c^2_{13} m_1
@@ -588,7 +588,8 @@ Dirac-delta function at \qbb\ in the summed energy spectrum of the decay product
   \includegraphics[width=0.6\textwidth]{plots/theory/0nbb-nme.pdf}
   \caption{%
     A representative compilation of nuclear matrix element calculations with an unquenched
-    $g_A=1.27$ for different isotopes. Taken from~\cite{Yao2020}.
+    $g_A=1.27$ for different isotopes. Taken from~\cite{Yao2020}. \fillme{replace this
+    with plot in \cite{Engel2017}?}
   }\label{fig:nbb:nme}
 \end{figure}
 
@@ -688,7 +689,7 @@ be factorized as:
   \Gamma^{0\upnu\upchi\upchi} &= g_\alpha^4 \cdot G_\alpha^{0\upnu\upchi\upchi}(Q_{\upbeta\upbeta}, Z)
     \cdot |M_\alpha^{0\upnu\upchi\upchi}|^2 \;,
 \end{align*}
-where $g_\alpha$ is the effective coupling constant and $\alpha$ denotes the considered
+where \ga\ is the effective coupling constant and $\alpha$ denotes the considered
 model. The phase space factors can be parametrized as a function of \qbb, the sum kinetic
 energy of the two electrons emitted in the decay $K$ and the spectral index $n$:
 \[
@@ -701,15 +702,15 @@ consequence, the energy spectrum of the two emitted electrons allows to distingu
 different models. The energy spectra for all modes of the Majoron emitting double beta
 decay are shown in \cref{fig:nbb:majorons-spectra}.
 
-\begin{table}
-  \centering
-  \caption{%
-    Compilation of up-to-date calculations of phase-space factors
-    \psfmajo~\cite{Kotila2015} and nuclear matrix elements \nmemajo\ for various
-    Majoron-emitting \onbb\ modes and isotopes.
-  }\label{tab:nbb:0nbbx-psf-nme}
-  \input{tab/theory/0nbbx-psf-nme.tex}
-\end{table}
+% \begin{table}
+%   \centering
+%   \caption{%
+%     Compilation of up-to-date calculations of phase-space factors
+%     \psfmajo~\cite{Kotila2015} and nuclear matrix elements \nmemajo\ for various
+%     Majoron-emitting \onbb\ modes and isotopes.
+%   }\label{tab:nbb:0nbbx-psf-nme}
+%   \input{tab/theory/0nbbx-psf-nme.tex}
+% \end{table}
 
 \begin{figure}
   \centering
@@ -724,17 +725,23 @@ decay are shown in \cref{fig:nbb:majorons-spectra}.
 \end{figure}
 
 \blocktitle{experimental \\ limits}
-\fillme{expand} A compilation of the current experimental bounds is given in
-\cref{tab:nbb:0nbbx-lim}.
+A compilation of the most recent experimental 90\% C.L.~lower limits on the half-life of
+Majoron-emitting \onbb-decay for several nuclei is given in \cref{tab:nbb:0nbbx-lim}. To
+compare the experimental sensitivity, the upper limit on \ga\ is calculated for the spectral
+index $n=1$, for which the half-life limit is usually higher. Phase space factors
+\psfmajo\ are taken from~\cite{Kotila2015}, nuclear matrix elements \nmemajo\
+from~\cite{Engel2017}. The most stringent limits at the moment are for \nuc{Xe}{136} from
+EXO-200 and \kamlandzen.
 
 \begin{table}
   \centering
   \caption{%
-    A compilation of the current limits on Majoron-emitting \onbb\ modes as set by the
-    \gerda, EXO-200, KamLAND-Zen and NEMO-3 experiments for different isotopes. The most
-    stringent limit on the coupling constant $g_\alpha$ is reported, as calculated from
-    phase-space factors and nuclear matrix elements reported in
-    \cref{tab:nbb:0nbbx-psf-nme}.
+    A compilation of the current 90\% C.L.~lower limits on Majoron-emitting \onbb\ modes
+    as set by the \gerda, EXO-200, KamLAND-Zen and NEMO-3 experiments for different
+    isotopes. The limit on the coupling constant \ga\ for $n=1$ is reported, as calculated
+    with phase-space factors from~\cite{Kotila2015} and most up-to-date nuclear matrix
+    elements~\cite{Engel2017}. \ga\ limits for the other indices and different models can
+    be found in the references.
   }\label{tab:nbb:0nbbx-lim}
   \input{tab/theory/0nbbx-limits.tex}
 \end{table}
@@ -864,213 +871,228 @@ constraints on \aof\ has been recently posed with \nuc{Te}{130}, \nuc{Xe}{136} a
 \section{Detecting double-beta: from theory to practice}%
 \label{sec:nbb:exp}
 
-The primary focus of experiments that involve double-beta decay is the search
-for its neutrinoless decay mode, by far the most important compared to other
-processes. The observables in direct searches of \onbb\ are the kinematic
-parameters of the two emitted electrons. A typical experiment measures the
-total energy of the two electrons (the only observable that is both necessary
-and sufficient for discovery) and my have the capability to reconstruct the
-electron tracks in order to reject background events with different event
-topologies. Since \qbb\ is usually precisely known and the \onbb\ signature is
-a monoenergetic peak at \qbb, the signal search is performed in a narrow energy
-window defined by the energy resolution of the detector.
+The primary focus of experiments that involve double-beta decay is the search for the
+neutrinoless decay mode, by far the most important compared to other processes. The
+observables in direct searches of \onbb\ are the kinematic parameters of the two emitted
+electrons. A typical experiment measures the total energy of the two electrons (the only
+observable that is both necessary and sufficient for discovery) and may have the
+capability to reconstruct the electron tracks in order to reject background events with
+different event topologies. Since \qbb\ is usually known to a high degree of accuracy and
+the \onbb\ signature is a mono-energetic peak at \qbb, the signal search is performed in a
+narrow energy window defined by the energy resolution of the detector.
 
 \blocktitle{background \\ level}
-The number of signal counts in this Region Of Interest (ROI) depends linearly
-on the detector signal efficiency $\epsilon$, the active mass $M$, the
-measurement time $t$ and the isotopic fraction of the double-beta emitter $a$.
-These are the quantities that usually play a fundamental role when designing an
-experiment. The sensitivity to the half-life \thalfzero\ then scales linearly
-with the number of candidate signal counts in the ROI, but the dependence is
-weaker if some of them are background counts. Two experimental regimes can be
-defined:
+The number of signal counts in this Region Of Interest (ROI) depends linearly on the
+detector signal efficiency $\epsilon$, the active mass $M$, the measurement time $t$ and
+the isotopic fraction of the double-beta emitter $a$.  These are the quantities that
+usually play a fundamental role when designing an experiment. The sensitivity to the
+half-life \thalfzero\ scales linearly with the number of candidate signal counts in the
+ROI, but the dependence is weaker if some of them are background counts. Two experimental
+regimes can be defined:
 \begin{equation}\label{eq:nbb:bkglevel}
   T^{0\upnu}_{1/2} =
     \begin{cases}
       a M \epsilon t & \text{background-free} \\
-      a \epsilon \sqrt{\frac{M t}{B \Delta{E}}} & \text{with background} \\
+      a \epsilon \sqrt{\frac{M t}{B \Delta{E}}} & \text{with background} \;, \\
     \end{cases}
 \end{equation}
-where $B$ is the `background index', namely the number of background events
-normalized to the width of the ROI, source mass and measurement time. This
-expression shows clearly the advantage of a background-free experiment, as the
-\thalfzero\ scales linearly with $t$ as opposed to $\sqrt{t}$ in the presence
-of backgrounds. The background-free condition is effectively realized when the
-expected number of background events in the ROI in the measurement time $t$ is
-of the order of unity:
+where $B$ is the `background index', namely the number of background events normalized to
+the width of the ROI, source mass and measurement time. This expression clearly shows the
+advantage of a background-free experiment, since the \thalfzero\ scales linearly with $t$
+as opposed to $\sqrt{t}$ in the presence of backgrounds. The background-free condition is
+effectively realized when the expected number of background events in the ROI in the
+measurement time $t$ is of the order of unity:
 \[
-  M \cdot T \cdot B \cdot \Delta{E} \lesssim 1
+  M \cdot T \cdot B \cdot \Delta{E} \lesssim 1 \;.
 \]
 
 \blocktitle{isotope \\ choice}
-Not all the double-beta emitters that exist in Nature can be effectively
-employed to search for \onbb. As it can be clearly understood from
-\cref{eq:nbb:bkglevel}, an ideal isotope should have a high isotopic abundance
-$a$, should be available in large quantities $M$ as high-resolution $\Delta{E}$
-detectors under low background conditions $B$. Other relevant isotope features
-are a low \nnbb\ decay rate to mitigate the occurrence of background events in
-the ROI, and a high \qbb\ to avoid backgrounds from primordial radioisotopes
-which are naturally present in construction materials. Moreover, the detection
-efficiency $\epsilon$ can be drastically enhanced if the source material is
-integrated in the detector medium.  A good double-beta emitter should also be
-readily available in its natural form and have a high natural abundance, to
-reduce the cost of the experiment. If natural abundance is high enough, isotope
-enrichment might also be unnecessary, as demonstrated in the case of
-$^{130}$Te~\cite{Alduino2017}.
+Not all the double-beta emitters that exist in Nature can be effectively employed to
+search for \onbb. As it can be clearly understood from \cref{eq:nbb:bkglevel}, an ideal
+isotope should have a high isotopic abundance $a$, should be available in large quantities
+$M$ as high-resolution $\Delta{E}$ detectors under low background conditions $B$. Other
+relevant isotope features are a low \nnbb\ decay rate to mitigate the occurrence of
+background events in the ROI, and a high \qbb\ to avoid backgrounds from primordial
+radioisotopes which are naturally present in construction materials. Moreover, the
+detection efficiency $\epsilon$ can be drastically enhanced if the source material is
+integrated in the detector medium.  A good double-beta emitter should also be readily
+available in its natural form and have a high natural abundance, to reduce the cost of the
+experiment. If natural abundance is high enough, isotope enrichment might also be
+unnecessary, as demonstrated in the case of $^{130}$Te~\cite{Alduino2017}.
 
 \blocktitle{backgrounds}
 To achieve the ambitious goal of operating in a background-free regime, the
-next-generation experiments need to fight against many different background
-sources. Here a short summary of the main experimental issues concerning this
-topic is given. The only irreducible background to \onbb\ signal searches
-is given by \nnbb\ events. A careful isotope and detector technology choices
-can mitigate the impact of such a contribution, since the number of \nnbb\
-events that can leak in the ROI shrinks with increasing energy resolution.
-Solar neutrinos interactions are also expected to be relevant for tonne-scale
-detectors, and the respective background contribution can be mitigated by a
-high mass loading of the decaying isotope in the target medium. As already
-mentioned, radioisotopes from the uranium and thorium decay chains are
-ubiquitous in construction materials and their presence must be kept to a
-minimum. Material radiopurity must be kept high during production and later
-on before installation, to avoid, among the others, contamination by exposure
-to \Rn. Natural radioactivity from components far away from the active source,
-e.g.~rock walls of an underground laboratory, can be passively screened with
-clean lead or copper, water or cryogenic liquid. The latter two options allow
-the shielding medium to serve also as an active shield vetoing background
-events. Cosmic rays can also induce several type of backgrounds. Prompt
-muon interactions typically deposit large amount of energy in detectors
-and can be easily vetoed. Backgrounds coming from secondary neutrons and
-cosmogenically-activated isotopes. The latter can be avoided by minimizing
-the exposure of the active material to cosmic rays on the Earth's surface
-and rapidly deploying them underground.
+next-generation experiments need to fight against many different background sources. Here
+a short summary of the main experimental issues concerning this topic is given. The only
+irreducible background to \onbb\ signal searches is given by \nnbb\ events. A careful
+isotope and detector technology choice can mitigate the impact of such a contribution,
+since the number of \nnbb\ events that can leak in the ROI reduces with increasing energy
+resolution.  Solar neutrino interactions are also expected to be relevant in tonne-scale
+detectors, and the respective background contribution can be mitigated by a high mass
+loading of the decaying isotope in the target medium. As already mentioned, radioisotopes
+from the uranium and thorium decay chains are ubiquitous in construction materials and
+their presence must be kept to a minimum. Material radio-purity must be kept high during
+production and later on before installation, to avoid, among the others, contamination by
+exposure to \Rn. Natural radioactivity from components far away from the active source,
+e.g.~rock walls of an underground laboratory, can be passively screened with clean lead or
+copper, water or cryogenic liquid. The latter two options allow the shielding medium to
+serve also as an active shield vetoing background events. Cosmic rays can also induce
+several type of backgrounds. Prompt muon interactions typically deposit large amount of
+energy in detectors and can be easily vetoed. Backgrounds coming from secondary neutrons
+and cosmogenically-activated isotopes are the main worries. The latter can be avoided by
+minimizing the exposure of the active material to cosmic rays on the Earth's surface and
+rapidly deploying them underground.
 
 \blocktitle{experimental \\ approaches}
-Neutrinoless double-beta decay has a characteristic event topology with the
-emission of two $\sim$MeV electrons. Low-density-gas tracking detectors can in
-principle resolve the two electron tracks, leaving only the irreducible
-background from \nnbb\ decay. For detectors with higher density, such as
-discrete detectors or liquid scintillator detectors, these electrons deposit
-their energy within a few millimeters, allowing a less powerful but still
-useful discrimination between `compact' signal-like events and \g\ rays, which
-are likely to scatter and deposit energy at multiple sites. The difference may
-be resolved through discriminating between the `single-site' and `multi-site'
-events by pulse-shape discrimination or reconstructed event topology, depending
-on the position resolution, as well as the size and type of a given detector.
-Some detectors are capable of particle discrimination through multiple
-detection channels, e.g.~scintillation and ionization. This could allow for the
-identification of \a\ backgrounds. Other discrimination techniques exploit the
-spatial distribution of background events, if consistently different from that
-of the signal events. If background events coming from mechanical support
-materials are concentrated close around them they might be rejected by an
-optimized fiducial volume cut, if a monolithic detector is used. In presence of
-a discrete detector, instead, multi-detector event cuts can be used to isolate
-double-beta point-like events.
+Neutrinoless double-beta decay has a characteristic event topology with the emission of
+two $\sim$MeV electrons. Low-density-gas tracking detectors can in principle resolve the
+two electron tracks, leaving only the irreducible background from \nnbb\ decay. For
+detectors with higher density, such as discrete detectors or liquid scintillator
+detectors, these electrons deposit their energy within a few millimeters, allowing a less
+powerful but still useful discrimination between `compact' signal-like events and \g\
+rays, which are likely to scatter and deposit energy at multiple sites. The difference may
+be resolved through discriminating between the `single-site' and `multi-site' events by
+pulse-shape discrimination or reconstructed event topology, depending on the position
+resolution, as well as the size and type of a given detector.  Some detectors are capable
+of particle discrimination through multiple detection channels, e.g.~scintillation and
+ionization. This could allow for the identification of \a\ backgrounds. Other
+discrimination techniques exploit the spatial distribution of background events, if
+consistently different from that of the signal events. If background events coming from
+mechanical support materials are concentrated close around them they might be rejected by
+an optimized fiducial volume cut, if a monolithic detector is used. In presence of a
+discrete detector, instead, multi-detector event cuts can be used to isolate double-beta
+point-like events.
 
 \begin{description}[wide]
-  \item[Semiconductors] One of the most promising approaches for scaling to
-    tonne-scale experiments is using \gesix-enriched High-Purity Germanium
-    (HPGe) detectors, which serve as active source and target for \onbb\ at the
-    same time. The main advantages of using HPGe detectors are the maturity of
-    the industrial production technologies, their intrinsic purity and the
-    superior energy resolution (per-mill level at \qbb).  A clear disadvantage
-    of these detectors is their production cost and the low \qbb\ of
-    $\sim$2~MeV. The current generation of \gesix\ experiments is constituted
-    by \gerda~\cite{Budjas2013} and \majoranademo~\cite{Abgrall2014}, whose
-    collaborations are currently joining their efforts into the next-generation
-    LEGEND experimental program~\cite{Abgrall2017}. Its first phase, LEGEND-200,
-    is expected to start data taking in 2021 while its planned tonne-scale phase
-    LEGEND-1000, aims at $\thalfzeroM {\sim}10^{28}$~yr sensitivity.
 
-  \item[Bolometers] Bolometers are cryogenic calorimeters that operate at
-    temperatures of $\sim$10~mK. An absorber is connected to the thermal bath
-    via a weak thermal link, and the temperature is read out by a sensitive
-    thermometer. Crystal absorbers can be grown from many materials that
-    include double-beta decay isotopes, e.g.~TeO$_2$, $^{116}$CdWO$_4$,
-    Zn$^{82}$Se, $^{40}$Ca$^{100}$MoO$_4$, Zn$^{100}$MoO$_4$ and
-    Li$_2^{100}$MoO$_4$.  Advantages of this detector technology are the
-    intrinsically low crystal radioactivity and the high energy resolution. The
-    challenge is to operate a large-scale detector at these ultra-low
-    temperatures. Existing projects that exploit the bolometric technique are
-    CUORE~\cite{Arnaboldi2002, Artusa2014}, that takes advantage of the large
-    natural abundance of $^{130}$Te, CUPID~\cite{Wang2015}, which explores the
-    possibility to improve the background rejection in CUORE through active
-    particle discrimination, and \textsc{AMoRE}, a $^{100}$Mo-based
+  \item[Semiconductors] One of the most promising approaches for scaling to tonne-scale
+    experiments is using \gesix-enriched High-Purity Germanium (HPGe) detectors, which
+    serve as active source and target for \onbb\ at the same time. The main advantages of
+    using HPGe detectors are the maturity of the industrial production technologies, their
+    intrinsic purity and the superior energy resolution (per-mill level at \qbb).  A clear
+    disadvantage of these detectors is their production cost and the low \qbb\ of
+    $\sim$2~MeV. The current generation of \gesix\ experiments is constituted by
+    \gerda~\cite{Budjas2013} and \majoranademo~\cite{Abgrall2014}, whose collaborations
+    are currently joining their efforts into the next-generation LEGEND experimental
+    program~\cite{Abgrall2017}. Its first phase, LEGEND-200, is expected to start data
+    taking in 2021 while its planned tonne-scale phase LEGEND-1000, aims at $\thalfzeroM
+    {\sim}10^{28}$~yr sensitivity.
+
+  \item[Bolometers] Bolometers are cryogenic calorimeters that operate at temperatures of
+    $\sim$10~mK. An absorber is connected to the thermal bath via a weak thermal link, and
+    the temperature is read out by a sensitive thermometer. Crystal absorbers can be grown
+    from many materials that include double-beta decay isotopes, e.g.~TeO$_2$,
+    $^{116}$CdWO$_4$, Zn$^{82}$Se, $^{40}$Ca$^{100}$MoO$_4$, Zn$^{100}$MoO$_4$ and
+    Li$_2^{100}$MoO$_4$.  Advantages of this detector technology are the intrinsically low
+    crystal radioactivity and the high energy resolution. The challenge is to operate a
+    large-scale detector at these ultra-low temperatures. Existing projects that exploit
+    the bolometric technique are CUORE~\cite{Arnaboldi2002, Artusa2014}, that takes
+    advantage of the large natural abundance of \nuc{Te}{130}, CUPID~\cite{Wang2015}, which
+    explores the possibility to improve the background rejection in CUORE through active
+    particle discrimination, and \textsc{AMoRE}, a \nuc{Mo}{100}-based
     experiment~\cite{Kim2015}. The ultimate sensitivity goal of the CUPID and
-    \textsc{AMoRE} tonne-scale program is $\thalfzeroM > 10^{27}$~yr and
-    $\thalfzeroM {\sim}5 \cdot 10^{26}$~yr, respectively.
+    \textsc{AMoRE} tonne-scale program is $\thalfzeroM > 10^{27}$~yr and $\thalfzeroM
+    \sim 5 \cdot 10^{26}$~yr, respectively.
 
-  \item[Time Projection Chambers] The time projection chamber (TPC) is an
-    attractive detector technology for \onbb-decay searches because of a
-    combination of mass scalability and access to multiple background
-    discrimination variables. A TPC takes advantage of a detection medium that
-    produces two energy channels: ionization and scintillation. The combination
-    of these two signals allows the reconstruction of event topology, position,
-    energy and particle type. $^{136}$Xe is a convenient source and detector
-    medium for both liquid- and gas-phase TPCs. By operating high-pressure
-    gas-phase xenon TPCs in electroluminescent mode, an energy resolution of
-    better than 0.5\% FWHM at \qbb\ can be achieved. Liquid-phase xenon TPCs,
-    instead, offer maximum source density. Since \onbb-searches focus on low
-    background and good energy resolution, single-phase detectors are usually
-    chosen for liquid-phase TPCs. The achievable energy resolution is somewhat
-    worse than that of the gas-phase detectors, but multi-site background and
-    spatial distribution discrimination work well with position resolution
-    achievable at the few-mm level. Notable projects focusing on the
+  \item[Time Projection Chambers] The time projection chamber (TPC) is an attractive
+    detector technology for \onbb-decay searches because of a combination of mass
+    scalability and access to multiple background discrimination variables. A TPC takes
+    advantage of a detection medium that produces two energy channels: ionization and
+    scintillation. The combination of these two signals allows the reconstruction of event
+    topology, position, energy and particle type. \nuc{Xe}{136} is a convenient source and
+    detector medium for both liquid- and gas-phase TPCs. By operating high-pressure
+    gas-phase xenon TPCs in electroluminescent mode, an energy resolution of better than
+    0.5\% FWHM at \qbb\ can be achieved. Liquid-phase xenon TPCs, instead, offer maximum
+    source density. Since \onbb\ searches focus on low background and good energy
+    resolution, single-phase detectors are usually chosen for liquid-phase TPCs. The
+    achievable energy resolution is somewhat worse than that of the gas-phase detectors,
+    but multi-site background and spatial distribution discrimination work well with
+    position resolution achievable at the few-mm level. Notable projects focusing on the
     liquid-xenon single-phase TPC technology to search for \onbb\ are
     EXO-200~\cite{Auger2012} and its proposed tonne-scale successor,
-    nEXO~\cite{Kharusi2018}, which aims at $\thalfzeroM {\sim}10^{28}$~yr
+    \textsc{nEXO}~\cite{Kharusi2018}, which aims at $\thalfzeroM {\sim}10^{28}$~yr
     sensitivity.  Planned high-pressure xenon gas-phase TPC projects are
-    NEXT~\cite{Lopez-March2017} (\thalfzero\ sensitivity goal $2.8 \cdot
-    10^{25}$~yr with NEXT-100) and PandaX-III~\cite{Chen2016} (\powtenyr{27}
-    sensitivity goal within its tonne-scale program). Two-phase liquid-xenon
-    detectors, popular for dark matter searches, such as
-    LUX-ZEPLIN~\cite{Akerib2015}, XENON-nT~\cite{Aprile2017} and the future
-    DARWIN~\cite{Aalbers2016} might also have the capability to search for
-    \onbb\ decay.
+    NEXT~\cite{Lopez-March2017} (\thalfzero\ sensitivity goal $2.8 \cdot 10^{25}$~yr with
+    NEXT-100) and \textsc{PandaX-III}~\cite{Chen2016} (\powtenyr{27} sensitivity goal
+    within its tonne-scale program). Two-phase liquid-xenon detectors, popular for dark
+    matter searches, such as LUX-ZEPLIN~\cite{Akerib2015},
+    \textsc{XENON-nT}~\cite{Aprile2017} and the future DARWIN~\cite{Aalbers2016} might
+    also have the capability to search for \onbb\ decay.
 
-  \item[Scintillators] The main appeal of organic scintillators for \onbb\
-    searches is their mass scalability, despite their poor energy resolution.
-    Another advantage of liquid target masses is the possibility to remove
-    contaminants online. A notable experiment exploiting this detection
-    approach is KamLAND-Zen, which loaded nearly 400~kg of enriched xenon
-    (KamLAND-Zen 400, Phase~II) and set the world best limit on
-    \thalfzero~\cite{Gando2016}, at the time of writing. The collaboration is
-    currently starting the new KamLAND-Zen 800 phase, that will load 750~kg of
-    enriched xenon. In the longer term, the KamLAND-Zen collaboration plans to
-    deploy over a tonne of enriched xenon and to reduce the \nnbb-decay
-    background in the signal region of interest by improving the detector
-    resolution in the KamLAND2-Zen experiment and reaching a \thalfzero\
-    sensitivity of ${\sim}2 \cdot 10^{27}$~yr. Searching \onbb\ decay with
-    $^{130}$Te is the main goal of another liquid scintillator experiment,
-    SNO+~\cite{Andringa2015}, which is currently loading its target medium with
-    the source isotope~\cite{Paton2019}. Also inorganic CaF$_2$ scintillators
-    have been always receiving interest, because of the high $^{48}$Ca \qbb\ of
-    4.27~MeV. However, finding a cost effective process to enrich the isotope,
-    whose natural abundance is only $\sim$0.2\%, is still a challenge. The
-    CANDLES series~\cite{Umehara2015} of \onbb\ searches at the Kamioka
-    Observatory is actively exploring this experimental approach.
+  \item[Scintillators] The main appeal of organic scintillators for \onbb\ searches is
+    their mass scalability, despite their poor energy resolution.  Another advantage of
+    liquid target masses is the possibility to remove contaminants online. A notable
+    experiment exploiting this detection approach is \kamlandzen, which loaded nearly
+    400~kg of enriched xenon (\kamlandzen\ 400, Phase~II). The collaboration is currently
+    starting the new KamLAND-Zen 800 phase, that will load 750~kg of enriched xenon. In
+    the longer term, the KamLAND-Zen collaboration plans to deploy over a tonne of
+    enriched xenon and to reduce the \nnbb-decay background in the signal region of
+    interest by improving the detector resolution in the \textsc{KamLAND2-Zen} experiment and
+    reaching a \thalfzero\ sensitivity of ${\sim}2 \cdot 10^{27}$~yr. Searching \onbb\
+    decay with $^{130}$Te is the main goal of another liquid scintillator experiment,
+    SNO+~\cite{Andringa2015}, which is currently loading its target medium with the source
+    isotope~\cite{Paton2019}. Also inorganic CaF$_2$ scintillators have been always
+    receiving interest, because of the high $^{48}$Ca \qbb\ of 4.27~MeV. However, finding
+    a cost effective process to enrich the isotope, whose natural abundance is only
+    $\sim$0.2\%, is still a challenge. The CANDLES series~\cite{Umehara2015} of \onbb\
+    searches at the Kamioka Observatory is actively exploring this experimental approach.
 
-  \item[Tracking Calorimeters] The SuperNEMO~\cite{Arnold2010} unique
+  \item[Tracking Calorimeters] The \textsc{SuperNEMO}~\cite{Arnold2010} unique
     experimental programs, based on the technology demonstrated by
-    NEMO-3~\cite{Arnold2004}, uses a thin foil of source material in the center
-    of a sandwich configuration, surrounded first by a low-pressure gas
-    tracking layer to track the two \b\ particles and then a calorimetric layer
-    to measure the energy. This type of detectors provides superior topological
-    information and is the only detector technology capable of measuring the
-    opening angle between the two {\b}s --- one observable that can distinguish
-    certain underlying mechanisms for \onbb\ decay. In addition, many different
-    isotopes can be formed into foils and studied in the same detector
-    configuration. The advantage of this detection approach is the excellent
-    background discrimination, which allows to easily reach a zero-background
-    condition. However, the low energy resolution does not permit to
-    efficiently discriminate between \nnbb\ and \onbb\ events around \qbb, plus
-    the detection efficiency is low (around 30\%) and the thin source foils are
-    difficult to scale up to large exposures. The sensitivity with $^{82}$Se
-    for a full SuperNEMO is projected to be $1.2 \cdot 10^{26}$~yr.
+    NEMO-3~\cite{Arnold2004}, uses a thin foil of source material in the center of a
+    sandwich configuration, surrounded first by a low-pressure gas tracking layer to track
+    the two \b\ particles and then a calorimetric layer to measure the energy. This type
+    of detectors provides superior topological information and is the only detector
+    technology capable of measuring the opening angle between the two {\b}s --- one
+    observable that can distinguish certain underlying mechanisms for \onbb\ decay. In
+    addition, many different isotopes can be formed into foils and studied in the same
+    detector configuration. The advantage of this detection approach is the excellent
+    background discrimination, which allows to easily reach a zero-background condition.
+    However, the low energy resolution does not permit to efficiently discriminate between
+    \nnbb\ and \onbb\ events around \qbb, plus the detection efficiency is low (around
+    30\%) and the thin source foils are difficult to scale up to large exposures. The
+    sensitivity with $^{82}$Se for a full \textsc{SuperNEMO} is projected to be $1.2 \cdot
+    10^{26}$~yr.
+
 \end{description}
 
 \chapsummary
 \begin{itemize}
-  \item Double-beta decay
+  \item Double-beta decay is a rare nuclear decay process in which two electrons and two
+    electron anti-neutrinos are emitted. The decay rate can be factorized in a phase space
+    factor, that can be calculated to a high degree of accuracy, and a nuclear matrix
+    element, which is notoriously much more difficult to evaluate. Several numerical
+    approaches to the problem have been proposed, which give inconsistent results. The
+    energy spectrum of the two emitted electrons is a continuous distribution between zero
+    and the Q-value of the reaction.
+  \item Neutrinoless double-beta decay is an hypothetical decay mode in which no neutrinos
+    are present in the final state. The occurrence of such a process is connected to the
+    fundamental properties of the neutrino and the origin of the our matter-dominated
+    universe. The observation of neutrinoless double-beta decay would establish the
+    Majorana nature of the neutrino and imply the existence of physics beyond the Standard
+    Model. The observable connected to the neutrino mass tested by neutrinoless
+    double-beta decay is the so-called `effective Majorana mass'. The experimental
+    signature of the decay is a mono-energetic peak in the summed energy spectrum at the
+    Q-value. No experiments have conclusively collected evidence of the existence of the
+    decay so far.
+  \item Since neutrinoless double-beta decay requires a symmetry breaking in the model, a
+    massless bosonic particle, the so-called Majoron, must exist in the theory. Many
+    theories predict the presence of Majorons in the final state of the decay process.
+    Another hypothetical process is the Lorentz and CPT violating two-neutrino double-beta
+    decay, which has been proposed in the framework of the Standard Model Extension. The
+    experimental signature of these exotic decay modes is a distortion of the standard
+    two-neutrino double-beta decay spectrum, regulated by the coupling constant \ga\ in
+    presence of Majorons or the \aof\ coefficient in the case of Lorentz symmetry
+    violation.
+  \item Several experimental aspects are of fundamental importance when searching for
+    neutrinoless double-beta decay in laboratories. The so-called background-free
+    condition, in which the sensitivity to the signal scales linearly with exposure time,
+    is realized when the expected number of background events at the double-beta decay
+    Q-value is of the order of unity. The current and planned experimental program is rich
+    and vast. Science collaborations that deploy semiconductors, bolometers, time projection
+    chambers, scintillators and tracking calorimeters are challenging each other in
+    setting the most stringent limit on the neutrinoless double-beta decay half life, if
+    not finding a signal.
 \end{itemize}
 
 % vim: tw=90

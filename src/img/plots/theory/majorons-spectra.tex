@@ -11,7 +11,7 @@
                  % x label style={at={(axis description cs:0.5,0.05)}},
                  % y label style={at={(axis description cs:0.1,0.5)}},
                  no marks,
-                 xlabel=Energy {[}MeV{]},
+                 xlabel=Energy {(}MeV{)},
                  ylabel=a.u.,
                  yticklabels={,,},
                  grid = major,
@@ -26,12 +26,12 @@
       \addplot {x/0.511*(4-x/0.511)^7*((x/0.511)^4+10*(x/0.511)^3+40*(x/0.511)^2+60*(x/0.511)+30)/235046};
 
       \legend{%
-        {$n = 1$, $0\upnu\upbeta\upbeta\upchi$},
-        {$n = 2$, $0\upnu\upbeta\upbeta\upchi$},
-        {$n = 3$, $0\upnu\upbeta\upbeta\upchi(\upchi)$},
-        {$n = 4$, $2\upnu\upbeta\upbeta_\text{LV}$},
-        {$n = 5$, $2\upnu\upbeta\upbeta$},
-        {$n = 7$, $0\upnu\upbeta\upbeta\upchi(\upchi)$}
+        {$n = 1$ [$0\upnu\upbeta\upbeta\upchi$]},
+        {$n = 2$ [$0\upnu\upbeta\upbeta\upchi$]},
+        {$n = 3$ [$0\upnu\upbeta\upbeta\upchi(\upchi)$]},
+        {$n = 4$ [$2\upnu\upbeta\upbeta_\text{LV}$]},
+        {$n = 5$ [$2\upnu\upbeta\upbeta$]},
+        {$n = 7$ [$0\upnu\upbeta\upbeta\upchi(\upchi)$]}
       }
     \end{axis}
   \end{tikzpicture}
