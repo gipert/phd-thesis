@@ -122,7 +122,9 @@ freedom~\cite{Cowan2011}.
   \includegraphics[width=0.33\textwidth]{plots/2nbb-ana/teststatNewphysics.png}%
   \includegraphics[width=0.33\textwidth]{plots/2nbb-ana/pvalueNewphysics.png}
   \caption{%
-    \fillme{Betta give me the histos}
+    Distribution of the test statistic for various signal hypothesis sampled with Monte
+    Carlo methods. The \pvalue\ as a function of the test statistic value, used to extract
+    experimental limits on the signals, is shown in the rightmost panel. \fillme{Update}
   }\label{fig:2nbb-ana:ts-dist}
 \end{figure}
 
@@ -156,17 +158,18 @@ to check that the performance of the fit is not affected by this choice.
   \caption{%
     Statistical-only sensitivity for 90\% C.L.~limit setting on the half-lives of some new
     physics processes contributing to the \nnbb\ event distribution. The results are
-    extracted from toy Monte Carlo data sets. \fillme{numbers here}
+    extracted from toy Monte Carlo data sets. \fillme{numbers}
   }\label{tab:2nbb-ana:sensitivity}
   \begin{tabular}{lcc}
     \toprule
-    Decay mode             & Spectral index ($n$) & Sensitivity            \\
+    Decay                  & Spectral    & Sensitivity     \\
+    Mode                   & index ($n$) & (\powtenyr{23}) \\
     \midrule
-    \onbbx\                & 1                    & $1.0 \cdot 10^{24}$ yr \\
-    \onbbx\                & 2                    & $1.0 \cdot 10^{23}$ yr \\
-    $\onbbM\upchi(\upchi)$ & 3                    & $1.0 \cdot 10^{23}$ yr \\
-    \onbbxx\               & 7                    & $1.0 \cdot 10^{23}$ yr \\
-    \nnbblv\               & 4                    & \fillme{?}             \\
+    \onbbx\                & 1           & \fillme{?}      \\
+    \onbbx\                & 2           & \fillme{?}      \\
+    $\onbbM\upchi(\upchi)$ & 3           & \fillme{?}      \\
+    \onbbxx\               & 7           & \fillme{?}      \\
+    \nnbblv\               & 4           & \fillme{?}      \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -481,6 +484,7 @@ analysis are discussed.
   \centering
   \caption{%
     Summary of the systematic uncertainties affecting the \nnbb\ distribution analysis.
+    \fillme{numbers}
   }\label{tab:2nbb-ana:systematics}
   \input{tab/2nbb-ana/systematics.tex}
 \end{table}
@@ -492,29 +496,41 @@ Once the analysis procedure has been fixed and the distribution of the test stat
 determined, its value is computed on real data to extract the \nnbb\ half-life and 90\%
 C.L.~lower limits for new-physics processes.
 
-The final estimate of the standard \nnbb-decay half-life is
+The estimate of the standard \nnbb-decay half-life is
 \[
   \thalftwoM = (2.0 \pm \stat{0.0} \pm \syst{0.0}) \cdot 10^{21}~\text{yr} \;.
 \]
+The statistical and systematic uncertainty is remarkably reduced compared to previous
+works~\cite{Agostini2015a}.
+\newpar
+Lower limits (90\% C.L.) on the half-lives of various Majoron-emitting modes of \onbb\ are
+reported in \cref{tab:2nbb-ana:onbbx:limits}. Using phase space factors
+from~\cite{Kotila2015} and the most recent set of nuclear matrix elements (the same as the
+standard \onbb-decay for spectral index $n=1$, \cite{Hirsch1995} for all the others) it is
+possible to convert the half-life limit into a lower limit on the coupling constant \ga.
+\newpar
+The obtained lower limit on the Lorentz- (and CPT-) violating double-beta decay mode is
+\[
+  \thalflvM > 0.0 \cdot 10^{23}~\text{yr} \;,
+\]
+which can be converted into a lower limit on the \aof\ coefficient using phase space
+factors in~\cite{Nitescu2020}:
+\[
+  \aofM > 0 \cdot 10^{-5}~\text{GeV} \;.
+\]
+
+\fillme{more comments, compare with previous estimates}
 
 \begin{table}
   \centering
   \caption{%
     90\% C.L.~lower limits for new physics processes contributing to the \nnbb\ event
-    distribution. \fillme{numbers here}
-  }\label{tab:2nbb-ana:limits}
-  \begin{tabular}{lcrl}
-    \toprule
-    Decay mode             & Spectral index ($n$) & \mc{2}{lower 90\% C.L.~limit} \\
-                           &                      & $T_{1/2}$   & $g_\alpha$      \\
-    \midrule
-    \onbbx\                & 1                    & \fillme{?}  & \fillme{?}      \\
-    \onbbx\                & 2                    & \fillme{?}  & \fillme{?}      \\
-    $\onbbM\upchi(\upchi)$ & 3                    & \fillme{?}  & \fillme{?}      \\
-    \onbbxx\               & 7                    & \fillme{?}  & \fillme{?}      \\
-    \nnbblv\               & 4                    & \fillme{?}  & \fillme{?}      \\
-    \bottomrule
-  \end{tabular}
+    distribution. Nuclear matrix elements for $n=1$ are the same as the standard \onbb,
+    and have been therefore selected from the most recent nuclear calculations. Matrix
+    elements for the other decay modes have been taken from~\cite{Hirsch1995}. Phase space
+    factors have been taken from~\cite{Kotila2015}. \fillme{numbers}
+  }\label{tab:2nbb-ana:onbbx:limits}
+  \input{tab/2nbb-ana/limits-onbbx.tex}
 \end{table}
 
 \chapsummary
