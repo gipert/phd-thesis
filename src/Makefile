@@ -15,6 +15,7 @@ all : mkdirs | $(PROJ).pdf
 $(PROJ).pdf : $(PROJ).tex mkdirs img FORCE_MAKE
 	-$(LC) $(FLAGS) $<
 	cp $(LOGS)/$@ .
+	xdg-open "$@"
 
 img :
 	+cd img && make; cd ..
