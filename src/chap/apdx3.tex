@@ -15,22 +15,23 @@ Simulations of radioactive decays and full tracking of the decay products are pe
 all the hardware components close enough to the detector. Relevant event data like energy
 depositions in sensitive detectors (germanium, LAr, SiPMs and PMTs), hit location in
 germanium and LAr is written on disk. Propagation of optical photons (e.g.~resulting from
-the LAr scintillation) is disabled by default to save computing time. It is only enables
-during special simulations of the LAr veto capabilities.  The built-in \geant\ generators
-and databases are used to simulate all radioactive decays except for double-beta decay in
+the LAr scintillation) is disabled by default to save computing time. It is only enabled
+during special simulations of the LAr veto system.  The built-in \geant\ generators and
+databases are used to simulate all radioactive decays except for double-beta decay in
 germanium, for which more details about the decay dynamics (e.g.~angular correlations
 between the emitted electrons) are needed. The primary spectrum of the two electrons is
-indeed sampled in a separate step according to the distribution given in
-reference~\cite{Tretyak1995} implemented in \decayzero~\cite{Ponkratenko2000}.
+indeed sampled separately according to the distribution implemented in
+\decayzero~\cite{Ponkratenko2000}.
 \newpar
 The \kvz\ decays (except for surface contaminations) are simulated homogeneously
 distributed in the relevant LAr volume. The following LAr volumes are chosen for the
 background model: the first is a cylinder centered on the detector array ($h=250$~cm,
-$r=100$~cm, simply referred to as ``homogeneous'' or shortened to ``hom.''~in the
-following) subsequently divided into the volume enclosed by the mini-shrouds and the
+$r=100$~cm) subsequently divided into the volume enclosed by the mini-shrouds and the
 remaining one (outside the mini-shrouds); the second is a cylinder ($h=100$~cm, $r=25$~cm)
 positioned just above the array and the remaining seven are smaller cylinders ($h=20$~cm,
-$r=5$~cm), each one positioned just above each of the seven detector strings.
+$r=5$~cm), each one positioned just above each of the seven detector strings. The obtained
+pdfs are used in the full energy range background model and in the potassium tracking
+analysis
 
 \blocktitle{pdfs}
 The output of \mage\ simulations is further processed to compute the probability density
@@ -39,33 +40,33 @@ procedure includes folding in run-time dependent information, i.e.~the detector 
 each physics run, the finite energy resolution and threshold of each detector. The
 detector dead-layer model is also applied in this post-processing step, by re-weighting
 energy positions according to their distance from the nearest surface. All pdfs presented
-in the following are computed using the run-time parameters of the data sets they refer
+in this work are computed using the run-time parameters of the data sets they refer
 to. A selection of the pdfs projected in energy space and normalized to the number of
 simulated events, is displayed in \cref{fig:bkg:raw:ph2:pdfs:gmodel}.
 \newpar
 For the potassium tracking analysis pdfs binned in detector space are used to model the
 data. The rotationally symmetric single-detector pdfs for the \kvn\ and \kvz\ energy
 windows are shown in \cref{fig:bkg:raw:ph2:pdfs:kmodel:K42} and
-\cref{fig:bkg:raw:ph2:pdfs:kmodel:K40}.  For two-detector events the following
+\cref{fig:bkg:raw:ph2:pdfs:kmodel:K40}. For two-detector events the following
 representation style is used: projections of the two-dimensional histograms on their axis
 are summed, such that each two-detector event enters the final histogram twice, in the two
 bins associated to the respective detectors. They can be found in
 \cref{fig:bkg:raw:ph2:pdfs:kmodel:K40} together with the single-detector pdfs of the
 rotationally asymmetric components.
 \newpar
-Common features can be noticed across the multitude of histogram shapes.  The event rate
-in single-detector data is generally higher in coaxial detectors, due to their larger mass
+Common features can be noticed across the multitude of histogram shapes. The event rate in
+single-detector data is generally higher in coaxial detectors, due to their larger mass
 compared to BEGe detectors --- maximal correlation between event rate and
 detector-by-detector exposure can be found in the \nnbb\ pdf
 in~\cref{fig:bkg:raw:ph2:pdfs:kmodel:K42}. This feature is generally lost in the
-two-detector data: the coaxial detectors larger volume allows to stop more efficiently
-$\gamma$-particles that would otherwise escape and eventually deposit energy in a second
-detector. Other similarities between different pdfs can be attributed to detectors
-live-times, like in the case of \texttt{GD91C}, which was inactive for a large fraction of
-the \phasetwo\ exposure and thus generally registers a low number of counts.  The effects
-of asymmetrically distributed background contaminations are easily recognizable in the
-shape of the pdfs.  Impurities located above the detector array are mostly seen by the
-upper most detectors in each string as can be seen for \kvn\ in the front-end electronics
+two-detector data: the coaxial detectors larger volume allows to stop more efficiently \g\
+particles that would otherwise escape and eventually deposit energy in a second detector.
+Other similarities between different pdfs can be attributed to detectors live-times, like
+in the case of \GD{91C}, which was inactive for a large fraction of the \phasetwo\
+exposure and thus generally registers a low number of counts. The effects of
+asymmetrically distributed background contaminations are easily recognizable in the shape
+of the pdfs. Impurities located above the detector array are mostly seen by the uppermost
+detectors in each string as can be seen for \kvn\ in the front-end electronics
 in~\cref{fig:bkg:raw:ph2:pdfs:kmodel:K40:M1} and
 in~\cref{fig:bkg:raw:ph2:pdfs:kmodel:K40:M2} and for \kvz\ above each mini-shroud
 (see~\cref{fig:bkg:raw:ph2:pdfs:kmodel:K42sep:M1} and
@@ -141,9 +142,130 @@ before reaching the active detector volume.
   }\label{fig:bkg:raw:ph2:pdfs:kmodel:K42}
 \end{figure}
 
+\blocktitle{management \\ tools}
+The \mage\ simulations are performed at the high-performance computing cluster of the Max
+Planck Instutit f\"ur Kernphysik in Heidelberg (Germany), where access to a job queue (for
+a maximum of 200 concurrent jobs per user) and several PB of disk space is granted.
+Managing simulations and their post-processing queue is not a simple
+task when scaling up significantly their number and size. As a reference, the \gerda\
+simulation output saved on disk which is used to produce the background model pdfs amounts
+to about 30~TB of data. Moreover, simulations are split up in small chunks to allow for
+parallelization of the workload and to not exceed the maximum run time per job allowed by
+the job scheduler\footnote{%
+  The Son of Grid Engine (\url{https://arc.liv.ac.uk/trac/SGE}), a community project to
+  continue Sun's old grid engine previously used on the cluster, is used for allocating
+  computing resources to users and running batch jobs.
+}, resulting in about $\sim$$10^{5}$ files that need to be managed.
+\newpar
+The \mage\ simulations are stored in databases, which contain macro files (that configure
+a simulation job and are directly fed into \mage), output files and log files organized
+in a specific directory structure (i.e.~\m{group1/group2/isotope/subtype}). Multiple
+separate databases can be managed at the same time (e.g.~to keep \phasetwo\ and
+\phasetwop\ simulations separate). A library of code utilities\footnote{%
+  The \m{GeMS.jl} (\gerda\ \mage\ Simulations) library is a
+  Julia-based~\cite{Bezanson2017} toolkit with functions to analyze JSON simulation
+  databases, populate them with \mage\ macros and interact with a SGE job scheduler.
+  Management of large databases is efficiently automated, providing a simple user
+  interface to check whether macros should be written or updated or outdated simulations
+  should be re-run. Support for parallel processing is available. \m{GeMS.jl} is part of
+  the \m{gerda-gems-sw} software stack available on GitHub at
+  \url{https://github.com/mppmu/gerda-gems-sw}.
+} has been developed to automate the interaction with the job scheduler and populate the
+database with simulation output. The database is built through a JSON-based metadata
+interface. The user is required to specify the simulation parameters (including the \mage\
+volume in which the primaries should be confined, the number of simulated events, the
+number of parallel jobs, the commands required to define the physics of the simulation,
+the software version, etc.) by filling \m{metadata.json} files, which are subsequently
+parsed by the \m{GeMS.jl} software when populating the database with macro configuration
+files. The following part of metadata file, for example, defines the volume used to
+simulate radioactive contaminations in the cabling (\m{cables/cables\_all}):
+\begin{lstlisting}[language=json, style=jsonstyle]
+{
+    "cables": {
+        "template": "gerda-ph2",
+        "cables_all": {
+            "description": "All the cables parts together, HV, signal and the cable patches",
+            "simulated-properties": {
+                "mass-g": 31.01,
+                "volume-cm3": 20.26,
+                "density-gcm3": 1.53
+            },
+            "mage-volumes": [
+                "HVCableAtHolder_Phase2_[0-39]",
+                "SignalCableAtHolder_Phase2_[0-39]",
+                "HVCableFromHolderToElectronicsPlate_Phase2_[0-39]",
+                "SignalCableFromHolderToElectronicsPlate_Phase2_[0-39]"
+            ]
+        },
+        // ...
+    }
+}
+\end{lstlisting}
+The following excerpt configures a \kvn\ simulation in the cables.
+\begin{lstlisting}[language=json, style=jsonstyle]
+{
+    "cables": {
+        "cables_all": {
+            "K40": {
+                "additional-commands": {
+                    "generator": [
+                        "/MG/generator/select G4gun",
+                        "/MG/generator/g4gun/cone_on true",
+                        "/gun/particle ion",
+                        "/gun/ion 19 40",
+                        "/gun/energy 0 eV"
+                    ]
+                },
+                "edep": {
+                    "mage-version": {
+                        "revision": "gerda-v2.0.0-rc3",
+                        "gerda-sw-all": "gerda-sw-all_v6.1.1-mage@gerda-v2.0.0-rc3"
+                    },
+                    "total-events": 1.0e9,
+                    "number-of-files": 100,
+                    "contact": "L.Pertoldi"
+                }
+            },
+            // other isotope...
+        }
+    }
+}
+\end{lstlisting}
+In this way, the user is absolved from having to deal with thousands of files and
+the database can be versioned with Git\footnote{\url{https://git-scm.com}}. Databases for
+background model simulations are uploaded to
+GitHub\footnote{\url{https://github.com/mppmu/gerda-gems-db}}.
+\newpar
+The simulation post-processing to obtain the background pdfs is also managed with the
+cluster job scheduler and dedicated automation software tools\footnote{%
+  Available on GitHub at \url{https://github.com/mppmu/gerda-pdfs}.
+}. Each single simulation has to undergo a process pipeline to fold detector parameters
+and run-dependent information into the raw \mage\ output, before being parsed by histogram
+generation routines that write the pdfs to disk. The software utilities interact with the
+job scheduler and add the requested or outdated jobs to the queue, based on the set of
+simulations selected by the user. The letter is required to provide a list of simulations
+as input; the software then builds a local replica of the database with symbolic links to
+the corresponding directories in the simulation database and inspects it. The pdf
+production is also configured with JSON files; the detector active volume parameters, the
+energy calibration and all other settings can then be modified by the user without any
+need to recompile the software. The ROOT files with the output pdfs are then distributed
+to the collaboration.
+\newpar
+The reproducibility of the results is guaranteed in various ways. First, the simulation
+databases and the software are versioned with Git. Once a new pdf release is ready, it is
+distributed with a progressive version number, and the software revision is tagged. The
+pdf production configuration files are shipped as part of the pdf release. Lastly, all the
+simulation and pdf production pipeline is run within Singularity~\cite{Kurtzer2017,
+Singularity2020} containers.
+
 \section{Optical physics in \mage}%
 \label{sec:apdx:mage-optics}
 
+The computation of the LAr veto flag for Monte Carlo events is described
+in~\cref{sec:bkg:lar:ph2:heatmap}. Here, a reference list of the optical properties
+implemented in \mage\ that regulate the propagation of light in the \gerda\ cryostat is
+given.
+\newpar
 Optical materials and surfaces are implemented in \mage\ through the relevant \geant\
 libraries. Once properties like reflectivity, wavelength-shifting capabilities,
 attenuation lengths, scintillation yields etc.~are defined, the \geant\ core routines take
@@ -190,15 +312,25 @@ specifications of natural argon.
 
   \item[Scintillation yield] Different scintillation processes are defined in the \mage\
     physics list for different ionizing particles, that in general have different
-    scintillation yields in LAr. A reference value of $51\;\upgamma/\text{keV}$ has been
-    suggested in~\cite{Doke2002}. This value does certainly not represent the reality of
-    \gerda, as the yield strongly depends on the electric field configuration and the
-    quencher impurity level. Unfortunately a reliable direct measure of the scintillation
-    yield of the \gerda\ LAr is not available. Indirect measurements were performed within
-    the \LArGe\ setup~\cite{Lehnert2016} and with a dedicated setup deployed inside the
-    \gerda\ cryostat~\cite{Barros2020}, but they both yield incompatible results. A
-    tentative, default value of 28~$\upgamma/\text{keV}$ is implemented in \mage, which is
-    the maximum achievable scintillation yield corresponding to 1~\mus\ triplet lifetime.
+    scintillation yields in LAr. A nominal value of $51\;\upgamma/\text{keV}$ is
+    recommended in~\cite{Doke2002, Doke1988} for flat-top particles, which reduces to
+    $40\;\upgamma/\text{keV}$ for \b\ and \g\ particles. This value does certainly not
+    represent the reality of \gerda, as the yield strongly depends on the electric field
+    configuration and the quencher impurity level. Unfortunately a reliable direct measure
+    of the scintillation yield of the \gerda\ LAr is not available. Indirect measurements
+    were performed within the \LArGe\ setup~\cite{Lehnert2016} and with a dedicated setup
+    deployed inside the \gerda\ cryostat~\cite{Barros2020}, but they both yield
+    incompatible results. A tentative, default value of 28~$\upgamma/\text{keV}$ for \b\
+    and \g\ particles is implemented in \mage, which is the maximum achievable
+    scintillation yield corresponding to 1~\mus\ triplet lifetime\footnote{%
+      in first order, only the long-lived triplet state is affected by contaminant-induced
+      non-radiative de-excitation. Electromagnetic interactions have a singlet-to-triplet
+      ratio of 0.3~\cite{Doke2002}. The integral over the triplet decay for nominal
+      1.6~\mus~\cite{Doke2002}, compared to the 1~\mus\ measured in \gerda\ (see
+      \cref{fig:lar:triplet-lifetime}), gives a reduction of the light yield of $(0.3 +
+      1/1.6)/1.3 = 71\%$. This estimate neglects impurities that affect the primary
+      excimer production.
+    }.
     As shown in~\cite{Doke2002}, some particles (in particular \a\ particles and nuclei)
     can be characterized by lower yields. Therefore, the photon yield is reduced for \a\
     particles and nuclei by a factor of 0.875 and 0.375 respectively in the physics list.
@@ -209,7 +341,7 @@ specifications of natural argon.
 
   \item[Singlet and triplet lifetime] \sloppy The implemented triplet lifetime is the one
     measured during \gerdatwo, before the \phasetwop\ upgrade
-    (\cref{fig:lar:triplet-lifetime}), the singlet lifetime \fillme{fillme}. The relative
+    (\cref{fig:lar:triplet-lifetime}), the singlet lifetime is about 6~ns. The relative
     occurrence of the two de-excitation processes is also specified in terms of
     scintillation yield. The \geant\ \m{YIELDRATIO} property, which is defined as the
     relative strength of the fast component as a fraction of total scintillation yield, is
@@ -258,10 +390,8 @@ the internal copper surface of the LAr veto instrumentation.
     the VUV region must be taken from other sources. For germanium it seems to strongly
     depend upon the radiation incident angle~\cite{Marton1967}, but it's not possible to
     implement angle-dependent reflectivities in \geant\ yet. A rough, average value of
-    0.65 is therefore set for wavelengths smaller than 280~nm. The source of the
-    reflectivity values of the other materials below 280~nm is not known to me
-    \fillme{fillme}. The reflectivity values for all materials mentioned above are plot in
-    \cref{fig:bkg:lar:ph2:mage:metals-refl}.
+    0.65 is therefore set for wavelengths smaller than 280~nm. The reflectivity values for
+    all materials mentioned above are plot in \cref{fig:bkg:lar:ph2:mage:metals-refl}.
 
     \begin{figure}
       \centering

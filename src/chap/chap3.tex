@@ -403,7 +403,7 @@ order to adopt a useful detector-wise analysis. The spatial analysis of \kvn\ an
 incorporated in the full-range fit by directly employing the posterior parameter
 distributions as prior information.\footnote{%
   By adopting this approach, a part of the data in the potassium \g\ lines region is
-  analyzed twice: first in the potassium-tracking analysis and then in the full-range fit.
+  analyzed twice: first in the potassium tracking analysis and then in the full-range fit.
   Nevertheless, considering that the two analyses exploit different data features
   (i.e.~count rate per detector and total count rate per energy) and the overlap between
   the two data set is minimal, the overall effect is negligible.
@@ -618,7 +618,7 @@ to the ROI.
   \input{tab/bkg/raw/ph2/amodel-results.tex}
 \end{table}
 
-\section{Potassium-tracking analysis}%
+\section{potassium tracking analysis}%
 \label{sec:bkg:raw:ph2:kmodel}
 
 The two full-energy lines of \kvn\ and \kvz\ at 1461~keV and 1525~keV are distinct
@@ -676,7 +676,7 @@ Other components are expected to contribute less in the respective energy window
 \begin{table}
   \centering
   \caption{%
-    Energy ranges and corresponding number of events for the potassium-tracking analysis
+    Energy ranges and corresponding number of events for the potassium tracking analysis
     (visualized in \cref{fig:bkg:raw:ph2:kmodel:regions}). Note that the windows for
     two-detector data are larger as the two single-detector energy resolutions are folded
     in the summed energy spectrum.
@@ -699,7 +699,7 @@ Other components are expected to contribute less in the respective energy window
   \centering
   \includegraphics[width=0.8\linewidth]{plots/bkg/raw/ph2/kmodel-regions.pdf}
   \caption{%
-    Visual representation of the five energy ranges defined for the potassium-tracking
+    Visual representation of the five energy ranges defined for the potassium tracking
     analysis. The exact intervals and counts are given in
     \cref{tab:bkg:raw:ph2:kmodel:regions-cts}.
   }\label{fig:bkg:raw:ph2:kmodel:regions}
@@ -871,7 +871,7 @@ the marginalized mode is the most probable parameter value when integrating over
 parameters. The original type of prior distribution is marked with \m{[f]} for flat,
 \m{[g]} for Gaussian and \m{[e]} for exponential; the latter two are used if screening
 measurements are available. Subsequently, for all \kvn\ and \kvz\ components, the prior
-distribution is imported from the potassium-tracking analysis and for \Pbh\ and \Bih\ on
+distribution is imported from the potassium tracking analysis and for \Pbh\ and \Bih\ on
 the \pplus\ contact from the reconstructed \Ra\ content from the \a\ events background
 analysis.
 \newpar
@@ -949,7 +949,7 @@ part of the reconstructed events in the spectra is attributed to impurities clos
 array.
 \newpar
 The \kvn\ and \kvz\ distributions can be further split into smaller volumes and studied as
-an extension of the potassium-tracking analysis (as described in
+an extension of the potassium tracking analysis (as described in
 \cref{sec:bkg:raw:ph2:kmodel}) projected in detector space. The additional \kvn\ component
 close to the array and the \kvz\ component above the array are split into 7 sub-components
 on a string-by-string basis. The potassium concentration is in general found to be
@@ -1078,7 +1078,7 @@ region. A more detailed investigation of the \kvz\ distribution in LAr is not pu
 further, as the full-range fit is inevitably not sensitive to such effects. A more
 sophisticated Monte Carlo model would in fact not significantly impact the \kvz\ pdfs
 shape. Nevertheless, some considerations are presented in the contest of the
-potassium-tracking analysis, which is the only analysis presented here that could shed
+potassium tracking analysis, which is the only analysis presented here that could shed
 some light on the problem (see \cref{sec:bkg:raw:ph2:kmodel}). Systematic uncertainties on
 the \kvz\ pdf shape can also arise from the model of the partially-active dead layer of
 the germanium detectors, which is treated as completely dead (the charge-collection
@@ -1286,7 +1286,7 @@ constrain the \a\ event contribution in the \nnbb\ region. The \enrBEGeII\ and \
 since the corresponding detectors have been introduced in \phasetwop\ for the first time.
 The faithfulness of the pdfs is verified \emph{a posteriori}.
 \newpar
-Since also the potassium-tracking analysis has not been repeated, no prior information is
+Since also the potassium tracking analysis has not been repeated, no prior information is
 used to constrain the potassium activity. Priors are extracted from screening
 measurements results: Gaussian distributions for positive contamination detections and
 exponential distributions of the form $e^{-2.3 \mu x}$ for 90\% C.L.~upper limits.
@@ -1499,7 +1499,7 @@ panel.
     Monte Carlo simulation chain of the experimental setup. The shape of high-energy events,
     attributed to \a\ decays on the \pplus\ detector contacts, is studied separately and
     incorporated in the final fit. The spatial information enclosed in potassium events
-    from the two intense \g\ peaks is exploited in a potassium-tracking analysis, which
+    from the two intense \g\ peaks is exploited in a potassium tracking analysis, which
     considers data from each detector separately and is therefore able to better
     unravel the origin of the background events. The results are incorporated in the final
     fit as prior information.

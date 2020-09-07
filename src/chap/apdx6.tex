@@ -123,7 +123,7 @@ algorithm, starting from the first point, updates the optimal data partition at 
 point using only the information from the previous steps. In this way, the algorithm
 complexity is reduced from $\mathcal{O}(2^N)$ to $\mathcal{O}(N^2)$. A possible pseudo
 code for the main iteration is the following:
-\begin{lstlisting}
+\begin{lstlisting}[language=julia, style=jlcodestyle]
   for k in 1:N
       # define the (log) fitness function + (log) prior for a block
       # N(k,r) is the number of data points between point r and point k
@@ -178,7 +178,8 @@ The \m{C++} library ships with \m{bblocks}, a command line utility to re-bin
 ROOT~\cite{Brun1997} histograms. The Julia code is reported also in the following.
 
 % FIXME: this has to be loaded when using jlcode
-\begin{lstlisting}[basicstyle={\loadcolors\small\ttfamily},
+\begin{lstlisting}[language=julia, style=jlcodestyle,
+                   basicstyle={\loadcolors\small\ttfamily},
                    numbers=left,
                    stepnumber=1,
                    numberstyle={\color{jlcomment}\footnotesize\ttfamily}]

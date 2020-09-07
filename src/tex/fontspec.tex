@@ -1,11 +1,41 @@
 \usepackage{fontspec}
 \setmonofont{Fira Code}[Contextuals=Alternate, Scale=MatchLowercase]
+
 \usepackage{listings}
 \usepackage[usebox=false, autoload=false, verbatim=true]{tex/jlcode} % this must be loaded before unicode-math
-\lstset{%
-  language=julia,
-  style=jlcodestyle,
+
+\lstdefinelanguage{json}{%
+    showspaces=false,
+    showtabs=false,
+    breaklines=true,
+    upquote=true,
+    morestring=[b]",
+    morecomment=[l]{\/\/},%
+}[strings]
+
+\lstdefinestyle{jsonstyle}{%
+    basicstyle={\ttfamily\scriptsize},
+    stringstyle={\loadcolors\color{jlbase}},
+    commentstyle={\loadcolors\color{jlcomment}},
+    literate=%
+     *{0}{{{\loadcolors\color{jlbase}0}}}{1}
+      {1}{{{\loadcolors\color{jlbase}1}}}{1}
+      {2}{{{\loadcolors\color{jlbase}2}}}{1}
+      {3}{{{\loadcolors\color{jlbase}3}}}{1}
+      {4}{{{\loadcolors\color{jlbase}4}}}{1}
+      {5}{{{\loadcolors\color{jlbase}5}}}{1}
+      {6}{{{\loadcolors\color{jlbase}6}}}{1}
+      {7}{{{\loadcolors\color{jlbase}7}}}{1}
+      {8}{{{\loadcolors\color{jlbase}8}}}{1}
+      {9}{{{\loadcolors\color{jlbase}9}}}{1}
+      {:}{{{\loadcolors\color{jlkeyword}{:}}}}{1}
+      {,}{{{\loadcolors\color{jlkeyword}{,}}}}{1}
+      {\{}{{{\loadcolors\color{jlmacros}{\{}}}}{1}
+      {\}}{{{\loadcolors\color{jlmacros}{\}}}}}{1}
+      {[}{{{\loadcolors\color{jlmacros}{[}}}}{1}
+      {]}{{{\loadcolors\color{jlmacros}{]}}}}{1},
 }
+
 \usepackage[lining]{ebgaramond}
 \usepackage[math-style=ISO, bold-style=ISO]{unicode-math}
 \setmathfont{Garamond-Math.otf}[StylisticSet={7,8}]
