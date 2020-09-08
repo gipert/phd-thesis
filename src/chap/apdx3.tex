@@ -357,8 +357,10 @@ specifications of natural argon.
     ($\lambda \leq 128$~nm) but transparent to wavelength-shifted photons ($\lambda
     \gtrsim 400$~nm), see fig.~\ref{fig:bkg:lar:ph2:mage:lar-props}. A measurement of the
     attenuation length in the \gerda\ LAr was performed~\cite{Barros2020}, yielding
-    $\sim15$~cm as a result, but \fillme{fillme}. A default, reasonable value of 55~cm is
-    implemented in \mage\ and used in the LAr veto system simulation as `best guess'.
+    $\sim15$~cm as a result, but the performance of the LAr veto as well as recent
+    measurements point towards larger absorption length. A default, reasonable value of
+    55~cm is thus implemented in \mage\ and used in the LAr veto system simulation as
+    `best guess'.
 
   \item[Fano factor] A Fano factor of 0.11 is set, taken from~\cite{Doke1976}.
 
@@ -519,11 +521,11 @@ is achieved by coating them with TPB.
     0.7~mm~\cite{Kneissl2012}. The result is shown in
     \cref{fig:bkg:lar:ph2:mage:fibers-props}, left. The emission spectrum is taken again
     from~\cite{FibersData} and shown in \cref{fig:bkg:lar:ph2:mage:fibers-props}, right.
-    The absorption length is set to 3.5~m \fillme{fillme}. The WLS time constant, the
-    refractive index have also been taken from~\cite{FibersData}. The quantum efficiency
-    is set to 1. The two cladding layers are made of PMMA. As only the refractive index is
-    important, it is set to 1.49 for the inner cladding layer and to 1.42 for the outer
-    layer~\cite{FibersData}.
+    The absorption length has been measured~\cite{Kneissl2012} and is set to 3.5~m. The
+    WLS time constant, the refractive index have also been taken from~\cite{FibersData}.
+    The quantum efficiency is set to 1. The two cladding layers are made of PMMA. As only
+    the refractive index is important, it is set to 1.49 for the inner cladding layer and
+    to 1.42 for the outer layer~\cite{FibersData}.
 
   \item[Nylon mini-shrouds] The refraction index is set to 1.54, constant over
     incident photon wavelength. The attenuation length values are taken

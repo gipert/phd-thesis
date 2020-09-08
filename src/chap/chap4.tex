@@ -39,13 +39,35 @@ first part of \phasetwo) is presented in \cref{sec:bkg:lar:ph2:gmodel} and discu
 \section{Analysis data sets}%
 \label{sec:bkg:lar:ph2:data}
 
+\begin{table}
+  \centering
+  \caption{%
+    Properties of the data sets considered in this analysis. Further details about the
+    \gerda\ detectors can be found in past publications~\cite{Agostini2013a,
+    Agostini2018a}. Note that the exposures are slightly higher than those reported in
+    \cref{tab:bkg:raw:ph2:datasets} because of additional data from the last run of the
+    first part of \phasetwo\ (run 93) which was not included in the first place. \fillme{numbers}
+  }\label{tab:bkg:lar:ph2:datasets}
+  \small
+  \input{tab/bkg/lar/ph2/datasets.tex}
+\end{table}%
+\footnotetext{%
+  The \bege\ detector \GD{02D} is the only detector that does not fully
+  deplete~\cite{Agostini2018a}. Hence, events triggered by this detector are
+  not considered in either data set and it is omitted from the mass
+  computation.
+}
+
 The background model after the LAr veto cut has been developed using data from the first
 part of \gerdatwo, as in \cref{chap:bkg:raw:ph2}. Single- and two- detector events that
 survive the LAr veto cut (more in \cref{sec:gerda:cuts}) have been considered: two data
 sets from the first category (\enrBEGeII\ and \enrCoaxII) and a single one for the second
-(\enrGeII). The exposures documented in \cref{tab:bkg:raw:ph2:datasets} remain the same.
-The reader is referred to \cref{sec:bkg:raw:ph2:data} for further details about how these
-data sets are constructed.
+(\enrGeII). The data set exposures are documented in \cref{tab:bkg:lar:ph2:datasets}.
+Note that the exposures are slightly higher than those reported in
+\cref{tab:bkg:raw:ph2:datasets} because of additional data from the last run of the first
+part of \phasetwo\ (run 93) which was not included in the first place.  The reader is
+referred to \cref{sec:bkg:raw:ph2:data} for general details about how these data sets are
+constructed.
 \newpar
 The event energy distributions of the three data sets before and after the LAr veto cut
 are displayed in \cref{fig:bkg:lar:ph2:data-desc}: the sum spectrum of \enrBEGeII\ and

@@ -8,6 +8,7 @@
 \input{tex/fontspec}
 \usepackage{microtype}
 \usepackage{marginnote}\renewcommand*{\marginfont}{\scshape}
+\renewcommand{\textsuperscript}{\textsu}
 
 % layout
 \newcommand{\blocktitle}[1]{\leavevmode\marginnote{#1}\ignorespaces}
@@ -28,6 +29,7 @@
   \newcommand{\chapsummary}{\clearpage\vspace*{\fill}{\swshape\huge The chapter in short}\vspace{11pt}}
 \usepackage[indent]{parskip}
 \usepackage{rotating}
+% \usepackage{floatpag}
 % TOC
 \usepackage[subfigure,titles]{tocloft}
   \setlength{\cftsubsecindent}{1cm}
@@ -67,6 +69,7 @@
 \usepackage{lipsum}
 %\usepackage{lineno}\linenumbers
 \PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\DeclareTextFontCommand{\textin}{\initials} % make \textin{} from ebgaramond work
 \definecolor{LinkColor}{HTML}{004488}
 % change link appearance
 \hypersetup{%
