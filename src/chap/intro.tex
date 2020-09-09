@@ -104,7 +104,56 @@ currently prepared by the LEGEND collaboration.
 Searching for a signal in presence of a background is a common circumstance in a physics
 experiment. Since the signal is hypothetical and possibly faint, the search for a signal
 inevitably becomes a quest to reduce the background event rate in the search region as
-much as possible. Several strategies are set up both at the hardware level, during design
-and construction, and at the software level, with data analysis routines.
+much as possible. Several strategies are set up in \gerda\ both at the hardware level,
+during design and construction, and at the software level, with data analysis routines.
+Care is taken during the design phase not to expose the detectors to background sources
+and to eventually mitigate their impact with passive or active shields. Materials for
+setup items deployed in the vicinity of the detectors are then screened for the presence
+of radioactive contaminants before installment. Despite all these precautions, residual
+backgrounds have to expected and are indeed observed in the data. The task of the
+background model is to identify the origin of these events by comparing the data collected
+by the experiment to Monte Carlo simulations of radioactive contaminations in the setup.
+The results are crucial to select the appropriate mitigation strategy when designing
+future hardware upgrades or next-generation projects, in order to enhance the signal
+sensitivity. Even data selection algorithms can benefit from an accurate knowledge of the
+expected backgrounds.  Below in light blue is the energy spectrum of all events collected
+by \gerda, together with the result of the background decomposition analysis, which is one
+of the main subjects of this thesis.
+\begin{center}
+  \vspace{11pt}
+  \includegraphics{plots/bkg/raw/combined-results-M1only.pdf}
+\end{center}
+The signature of neutrinoless double-beta decay is an event excess at the maximum energy
+available in the process, indicated with a dashed line. The background model aims to give
+an answer to the following questions: what kind of events dominate the background in the
+region of interest? How many events from \b, \g\ and \a\ events are expected? What is
+their interaction topology in the detectors? What is the source and where is it located?
+Is the background flat in the region, or peak-like structures have to be expected?  What
+is the correct background model to be used in the neutrinoless double-beta decay signal
+search? As it is evident from the picture above, an accurate description of the
+full-energy spectrum is mandatory to extract solid predictions in the region of interest.
+The present thesis work aims to present and discuss the methodology developed by the
+\gerda\ collaboration over the years and tries to give an answer to the questions above.
+\newpar
+The development of a background model in double-beta decay experiments is, nonetheless,
+not only devoted to the neutrinoless signal search. The potential of the two-neutrino
+decay as a precision test bench for the Standard Model and theories beyond it must not be
+overlooked. A first example of new physics signal that can be searched among the
+two-neutrino double-beta decay events is the so-called neutrinoless double-beta decay with
+Majoron emission. In this hypothesized double-beta decay mode, two electrons are emitted
+together with one or two bosonic particles that do not interact with the detector medium.
+A second example is the so-called Lorentz-violating two-neutrino double-beta decay, for
+which one of the fundamental assumptions of Einstein's special relativity, namely the
+invariance of physics laws through all inertial frames of reference, is assumed to be
+broken at some stage. Both of these hypothetical processes would produce a deformation of
+the two-neutrino double-beta decay distribution (the olive green histogram in the picture
+above) with respect to the Standard Model prediction. Since backgrounds contribute to
+this energy region as well, an accurate model is mandatory to extract the signal
+distribution and precisely study its shape.
+
+The present thesis work is structured as follows. In \cref{chap:theory} an overview of the
+double-beta decay field is given, from theory to experimental practice. The reader should
+then be equipped with a basic understanding of the theory behind the standard two-neutrino
+mode plus the new-physics modes and an overview of the experimental panorama.
 
 % vim: tw=90

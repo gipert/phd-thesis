@@ -1,0 +1,143 @@
+%! TEX program = xelatex
+\input{../../../../../tex/standalone-def.tex}
+\import{}{pgfplots-def}
+
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{fillbetween}
+
+\pgfplotsset{%
+  height=5cm,
+  xmin=565, xmax=5250,
+  legend style={%
+    at={(1,1)},
+    draw=none,
+    fill=none,
+    /tikz/every even column/.append style={column sep=8pt},
+  },
+  legend columns=4,
+  xlabel={Energy (keV)},
+  ylabel={Counts / 15 keV},
+  histogram/.append style={%
+    table/x=bin_low_edge,
+    line width=0.7pt,
+  },
+  loghistogramaxis/.append style={%
+    ymin=1e-1,
+  },
+  every axis/.append style={%
+    font=\footnotesize,
+    restrict x to domain=500:5300,
+    x label style={at={(axis description cs:1,-0.08)}, anchor=north east},
+    y label style={at={(axis description cs:-0.04,1)}, anchor=south east},
+  },
+  spectrum/.style={%
+    loghistogramaxis,
+  },
+  data/.style={%
+    loghistogram,
+    table/x=bin_center,
+    table/y=fitted_data,
+    draw=none,
+    fill=TolVibBlue,
+    fill opacity=0.2,
+    area legend,
+    % only marks,
+    % mark size=0.5pt,
+  },
+  model/.style={%
+    loghistogram,
+    black,
+    table/y=total_model,
+  },
+  Ac228/.style={%
+    loghistogram,
+    TolVibBlue,
+    table/y=Ac228,
+  },
+  Th228/.style={%
+    loghistogram,
+    TolVibCyan,
+    table/y=Bi212Tl208,
+  },
+  U238/.style={%
+    loghistogram,
+    TolVibTeal,
+    table/y=Pb214Bi214,
+  },
+  Co60/.style={%
+    loghistogram,
+    TolVibOrange,
+    table/y=Co60,
+  },
+  K40/.style={%
+    loghistogram,
+    TolVibRed,
+    table/y=K40,
+  },
+  K42/.style={%
+    loghistogram,
+    TolVibMagenta,
+    table/y=K42,
+  },
+  2nbb/.style={%
+    loghistogram,
+    TolMutOlive,
+    table/y=Nnbb,
+  },
+  Zn65/.style={%
+    loghistogram,
+    TolBriGreen,
+    table/y=Zn65,
+  },
+  alpha/.style={%
+    loghistogram,
+    TolMutSand,
+    table/y=alpha,
+  },
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}[spectrum, ymode=log]
+
+      \addlegendimage{data};
+      \addlegendimage{model};
+      \addlegendimage{2nbb};
+      \addlegendimage{alpha};
+      \addlegendimage{U238};
+      \addlegendimage{K42};
+      \addlegendimage{K40};
+      \addlegendimage{Co60};
+      \addlegendimage{Th228};
+      \addlegendimage{Ac228};
+      \addlegendimage{Zn65};
+
+      \addlegendentry{Data};
+      \addlegendentry{Model};
+      \addlegendentry{$2\upnu\upbeta\upbeta$};
+      \addlegendentry{$\upalpha$ model};
+      \addlegendentry{$^{214}$Pb + $^{214}$Bi};
+      \addlegendentry{$^{42}$K};
+      \addlegendentry{$^{40}$K};
+      \addlegendentry{$^{60}$Co};
+      \addlegendentry{$^{212}$Bi + $^{208}$Tl};
+      \addlegendentry{$^{228}$Ac};
+      \addlegendentry{$^{65}$Zn};
+
+      \draw[densely dashed] (2039,1e-1) -- (2039,1e2) node[anchor=south] {\qbb};
+
+      \addplot[data]  table {data/M1-spectra.csv} \closedcycle;
+      \addplot[alpha] table {data/M1-spectra.csv};
+      \addplot[Ac228] table {data/M1-spectra.csv};
+      \addplot[Th228] table {data/M1-spectra.csv};
+      \addplot[U238]  table {data/M1-spectra.csv};
+      \addplot[Co60]  table {data/M1-spectra.csv};
+      \addplot[K40]   table {data/M1-spectra.csv};
+      \addplot[K42]   table {data/M1-spectra.csv};
+      \addplot[Zn65]  table {data/M1-spectra.csv};
+      \addplot[2nbb]  table {data/M1-spectra.csv};
+      \addplot[model] table {data/M1-spectra.csv};
+
+    \end{axis}
+  \end{tikzpicture}
+\end{document}

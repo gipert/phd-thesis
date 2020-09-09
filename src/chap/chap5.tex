@@ -87,14 +87,16 @@ of detecting the decay process, which includes the detector containment probabil
 probability, i.e.~the probability that a \nnbb\ decay originating in the active volume
 also deposits energy in the active volume, is estimated with Monte Carlo
 methods\footnote{%
-  To estimate the active containment efficiency of \nnbb\ decays, two separate Monte Carlo
-  simulations are performed in which $N_\text{FAV}$ and $N_\text{TL}$ decay events are
-  generated in the fully-active volume (i.e.~only below the full charge-collection depth)
-  and in the remaining volume (i.e.~the transition layer), respectively. Denoting
-  $n_\text{FAV}$ and $n_\text{TL}$ the detected number of events, the containment
-  efficiency is calculated as $(n_\text{FAV} + n_\text{TL}) / N_\text{FAV}$. In this way,
-  the effective increase of the active volume due to the presence of the partially-active
-  transition region, which is absent in \expoGesixAV, is included.
+  To estimate the active containment efficiency of \nnbb\ decays, a dedicated Monte Carlo
+  simulation is performed in which $N$ decay events are generated in the full detector
+  volume. The average number of events starting in the fully-active volume (i.e.~only
+  below the full charge-collection depth) and in the remaining volume (i.e.~the transition
+  layer and the dead layer) is then $N_\text{FAV} = N \cdot (m_\text{FAV} / m_\text{tot})$
+  and $N - N_\text{FAV}$, respectively. Denoting $n$ the total number of detected events,
+  the containment efficiency is estimated as $n / N_\text{FAV}$. In this way, the
+  effective increase of the active volume due to the presence of the partially-active
+  transition region, which is not taken into account in \expoGesixAV, is included as part
+  if the containment efficiency.
 }.
 
 \blocktitle{test \\ statistic}
