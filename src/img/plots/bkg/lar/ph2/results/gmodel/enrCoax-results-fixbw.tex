@@ -23,7 +23,7 @@
 
       \nextgroupplot[spectrum, ymode=log]
 
-      \addplot[data]      table {\loadedtable};
+      \addplot[data]      table {\loadedtable} \closedcycle;
       \addplot[alphaCoax] table {\loadedtable};
       \addplot[Ac228]     table {\loadedtable};
       \addplot[Th228]     table {\loadedtable};

@@ -21,7 +21,7 @@
       \pgfplotstableread{data/originals/gerda_data_bkgmodel_phaseIIplus_v07_00_raw_M1_invCoax.csv}\loadedtable;
       \nextgroupplot[spectrum, ymode=log]
 
-      \addplot[data]         table {\loadedtable};
+      \addplot[data]         table {\loadedtable} \closedcycle;
       \addplot[alphaInvCoax] table {\loadedtable};
       \addplot[Ac228]        table {\loadedtable};
       \addplot[Th228]        table {\loadedtable};

@@ -21,7 +21,7 @@
       \pgfplotstableread{data/originals/gerda_data_bkgmodel_phaseII_v07_00_lar_M1_enrBEGe.csv}\loadedtable;
       \nextgroupplot[spectrum, ymode=log]
 
-      \addplot[data]      table {\loadedtable};
+      \addplot[data]      table {\loadedtable} \closedcycle;
       \addplot[alphaBEGe] table {\loadedtable};
       \addplot[Ac228]     table {\loadedtable};
       \addplot[Th228]     table {\loadedtable};

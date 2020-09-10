@@ -179,9 +179,9 @@ will simply refer to them with \nnbb). Let us only mention that $\mathcal{N}(A,Z
 but also through the processes
 \[
   \begin{array}{lrl}
-    \text{EC}\upbeta^+: &
+    \text{EC}\upbeta^+_{2\upnu}: &
       e^- + \mathcal{N}(A,Z) \rightarrow \mathcal{N}(A,Z-2) + e^+ + 2\upnu_e & \\
-    2\text{EC}2\upnu: &
+    2\text{EC}_{2\upnu}: &
       2e^- + \mathcal{N}(A,Z) \rightarrow \mathcal{N}(A,Z-2) + 2\upnu_e &.
   \end{array}
 \]
@@ -217,7 +217,7 @@ interchanged. The hadronic tensor $J_{\mu\nu}$ is the troublesome part, as it en
 the details of the interaction with the atomic nucleus. While the Lagrangian for
 double-beta decay is written at the quark level, in fact, the atomic nucleus contains
 hadrons, therefore operators need to be run from their fundamental high scale down to the
-lower nuclear scale, and then matched to the hadronic operators build from the hadronic
+lower nuclear scale, and then matched to the hadronic operators built from the hadronic
 (effective) degrees of freedom. A problem is that the hadronic operators are often
 phenomenologically written in terms of the form factors when this transition is made. As
 an example, the nucleon matrix element $J^\mu = \langle{p}| \overline{u} \gamma^\mu
@@ -225,12 +225,12 @@ an example, the nucleon matrix element $J^\mu = \langle{p}| \overline{u} \gamma^
 \[
   \overline{u}(p) \left[
     F_V(q^2)\gamma^\mu
-    - if_W(q^2)/(2m_p) \sigma^{\mu\nu} q_\nu
+    - iF_W(q^2)/(2m_p) \sigma^{\mu\nu} q_\nu
     - F_A\gamma^\mu\gamma_5
     + F_P(q^2)/(2m_p)\gamma_5q_\mu
   \right] u(p')e^{iqx} \;,
 \]
-where $u(p)$ and $u(p')$ are the spinors for the initial and final-state neutron, $p'-p=q$
+where $u(p)$ and $u(p')$ are the spinors for the initial and final-state nucleons, $p'-p=q$
 and the normalization factors $F_i(q^2=0)$ are the coupling constants. The
 $q^2$-dependence and the normalization of several form factors is, unfortunately, poorly
 known.  To proceed in the calculations, most authors then apply three approximations:
@@ -250,7 +250,7 @@ In this setting, the un-polarized transition probability reads:
 where \nmet\ involves vector and axial couplings $g^2_V \equiv F_V(q^2=0)$ and $g^2_A
 \equiv F_A(q^2=0)$ for Fermi and Gamow-Teller transitions in the form\footnote{%
   The most general formula includes also the tensor matrix element $\mathcal{M}_T$, which
-  can be safely neglected~\cite{?}.
+  can be safely neglected~\cite{Engel2017}.
 }
 \[
   \mathcal{M}^{2\nu} = \mathcal{M}^{2\upnu}_{GT} -
@@ -342,8 +342,9 @@ by
   \Lambda = \frac{G_F^4g_A^4|V_{ud}|^4F^2_\text{PR}(Z)m_e^{11}}{7200\pi^7}
             |\mathcal{M}^{2\upnu}|^2 \;,
 \]
-with $F_\text{PR}(Z) = 2\pi\alpha/Z(\-e^{-2\pi\alpha Z})$. The distribution in
-\cref{eq:nbb:stdmodel} for \gesix\ is plotted in \cref{fig:nbb:spectra} in red.
+with $F_\text{PR}(Z) = 2\pi\alpha/Z(\-e^{-2\pi\alpha Z})$, where $\alpha$ is the fine
+structure constant. The distribution in \cref{eq:nbb:stdmodel} for \gesix\ is plotted in
+\cref{fig:nbb:spectra} in red.
 
 \begin{figure}
   \centering
@@ -362,6 +363,14 @@ with $F_\text{PR}(Z) = 2\pi\alpha/Z(\-e^{-2\pi\alpha Z})$. The distribution in
 The neutrinoless double-beta decay processes (\onbb) of the types\footnote{%
   Also the other double-beta decay modes mentioned in \cref{sec:nbb:2nbb} have their
   neutrinoless analog.
+  \[
+    \begin{array}{lrl}
+      \text{EC}\upbeta^+_{0\upnu}: &
+        e^- + \mathcal{N}(A,Z) \rightarrow \mathcal{N}(A,Z-2) + e^+ & \\
+      2\text{EC}_{0\upnu}: &
+        2e^- + \mathcal{N}(A,Z) \rightarrow \mathcal{N}(A,Z-2) &.
+    \end{array}
+  \]
 }
 \[
   \begin{array}{lrl}
@@ -407,7 +416,7 @@ might help solving the long-standing problem of explaining why we live in a
 matter-dominated Universe, often referred as the `baryogenesis problem', despite the equal
 importance of matter and anti-matter in the Standard Model.  In 1967, Sakharov proposed a
 set of necessary conditions to generate the cosmic baryon asymmetry~\cite{Sakharov1991}.
-These conditions are satisfied in the Standard Model, but they don't generate the required
+These conditions are satisfied in the Standard Model \fillme{really?}, but they don't generate the required
 amount of baryonic asymmetry observed by current experiments~\cite{Zyla2020, Aghanim2018}.
 One viable and attractive way to mach theoretical predictions to experimental data is
 assuming that lepton number violating processes had a major role in the early history of
@@ -417,7 +426,7 @@ Leptogenesis) heavy particles present in many GUTs would have been produced duri
 Bang and then quickly decayed through $CP$-violating processes, producing a leptonic
 asymmetry. Note however that, since its first formulation, a large number of alternative
 theoretical possibilities for leptogenesis have also been formulated~\cite{?}.  How can
-leptogenesis the convert to baryogenesis? As already mentioned, quarks and leptons live
+leptogenesis convert to baryogenesis? As already mentioned, quarks and leptons live
 together in GUT multiplets, and hence both $B$ and $L$ are not expected to be conserved
 quantities. By the way, the combination $B−L$, which is conserved in the Standard Model
 both at the classical and quantum level (by sphaleron processes), often plays an important
@@ -523,9 +532,9 @@ where $c_{ij} \equiv \cos{\theta_{ij}}$ and $s_{ij} \equiv \sin{\theta_{ij}}$.  
 effective mass depends thus on 7 out of the 9 physical neutrino parameters.  This is the
 observable connected with the neutrino mass tested by \onbb\ experiments.  The neutrino
 mass can also be probed by cosmological observations~\cite{Gerbino2018} and direct
-kinematic (Kurie-plot) searches, such as the KATRIN~\cite{Aker2019} and
-ECHo~\cite{Gastaldo2018} experiments.  The observables tested by these two methods are the
-sum of the neutrino masses and the `incoherent sum':
+kinematic (Kurie-plot) searches, such as the KATRIN~\cite{Aker2019},
+ECHo~\cite{Gastaldo2018} and HOLMES~\cite{Alpert2014} experiments.  The observables tested
+by these two methods are the sum of the neutrino masses and the `incoherent sum':
 \[
   \Sigma = \sum m_i \quad \text{and} \quad m_{\upbeta}
          = \sqrt{\sum |U_{ei}^2 m_i^2|} \;,
@@ -588,8 +597,7 @@ Dirac-delta function at \qbb\ in the summed energy spectrum of the decay product
   \includegraphics[width=0.6\textwidth]{plots/theory/0nbb-nme.pdf}
   \caption{%
     A representative compilation of nuclear matrix element calculations with an unquenched
-    $g_A=1.27$ for different isotopes. Taken from~\cite{Yao2020}. \fillme{replace this
-    with plot in \cite{Engel2017}?}
+    $g_A=1.27$ for different isotopes. Taken from~\cite{Yao2020}.
   }\label{fig:nbb:nme}
 \end{figure}
 
@@ -901,9 +909,9 @@ the width of the ROI, source mass and measurement time. This expression clearly 
 advantage of a background-free experiment, since the \thalfzero\ scales linearly with $t$
 as opposed to $\sqrt{t}$ in the presence of backgrounds. The background-free condition is
 effectively realized when the expected number of background events in the ROI in the
-measurement time $t$ is of the order of unity:
+measurement time $t$ is less than one:
 \[
-  M \cdot T \cdot B \cdot \Delta{E} \lesssim 1 \;.
+  M \cdot T \cdot B \cdot \Delta{E} < 1 \;.
 \]
 
 \blocktitle{isotope \\ choice}
@@ -1038,7 +1046,7 @@ point-like events.
     searches at the Kamioka Observatory is actively exploring this experimental approach.
 
   \item[Tracking Calorimeters] The \textsc{SuperNEMO}~\cite{Arnold2010} unique
-    experimental programs, based on the technology demonstrated by
+    experimental program, based on the technology demonstrated by
     NEMO-3~\cite{Arnold2004}, uses a thin foil of source material in the center of a
     sandwich configuration, surrounded first by a low-pressure gas tracking layer to track
     the two \b\ particles and then a calorimetric layer to measure the energy. This type
@@ -1073,7 +1081,7 @@ point-like events.
     Model. The observable connected to the neutrino mass tested by neutrinoless
     double-beta decay is the so-called `effective Majorana mass'. The experimental
     signature of the decay is a mono-energetic peak in the summed energy spectrum at the
-    Q-value. No experiments have conclusively collected evidence of the existence of the
+    Q-value. No experiments have reported unambiguous evidence of the existence of the
     decay so far.
   \item Since neutrinoless double-beta decay requires a symmetry breaking in the model, a
     massless bosonic particle, the so-called Majoron, must exist in the theory. Many
@@ -1088,7 +1096,7 @@ point-like events.
     neutrinoless double-beta decay in laboratories. The so-called background-free
     condition, in which the sensitivity to the signal scales linearly with exposure time,
     is realized when the expected number of background events at the double-beta decay
-    Q-value is of the order of unity. The current and planned experimental program is rich
+    Q-value is less than one. The current and planned experimental program is rich
     and vast. Science collaborations that deploy semiconductors, bolometers, time projection
     chambers, scintillators and tracking calorimeters are challenging each other in
     setting the most stringent limit on the neutrinoless double-beta decay half life, if

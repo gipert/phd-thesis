@@ -40,14 +40,14 @@
   },
   data/.style={%
     loghistogram,
-    table/x=bin_center,
     table/y=fitted_data,
-    % draw=none,
-    % fill=TolVibBlue,
-    % fill opacity=0.3,
-    % area legend,
-    only marks,
-    mark size=0.5pt,
+    draw=none,
+    fill=TolVibBlue,
+    fill opacity=0.2,
+    area legend,
+    % table/x=bin_center,
+    % only marks,
+    % mark size=0.5pt,
   },
   model/.style={%
     loghistogram,
@@ -107,7 +107,7 @@
 
       \nextgroupplot[spectrum, ymode=log]
 
-      \addplot[data]  table {data/M1-spectra.csv};
+      \addplot[data]  table {data/M1-spectra.csv} \closedcycle;
       \addplot[alpha] table {data/M1-spectra.csv};
       \addplot[Ac228] table {data/M1-spectra.csv};
       \addplot[Th228] table {data/M1-spectra.csv};
@@ -148,7 +148,7 @@
       \addlegendentry{$^{228}$Ac};
       \addlegendentry{$^{65}$Zn};
 
-      \addplot[data]  table {data/M2-spectra.csv};
+      \addplot[data]  table {data/M2-spectra.csv} \closedcycle;
       \addplot[Ac228] table {data/M2-spectra.csv};
       \addplot[Th228] table {data/M2-spectra.csv};
       \addplot[U238]  table {data/M2-spectra.csv};
