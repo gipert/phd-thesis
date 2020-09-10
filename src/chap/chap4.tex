@@ -4,36 +4,36 @@
 \label{chap:bkg:lar:ph2}
 
 All what has been shown until now concerns data before the LAr and PSD cut. In this
-chapter a model of the background after the LAr veto cut will be presented, based on a
-Monte Carlo simulation of the LAr scintillation light propagation. Being able to describe
-the background after this major event selection is indeed of great interest to study the
-distribution of two-neutrino double-beta decay events, which are almost never vetoed by
-the LAr veto system. As extensively shown in \cref{chap:theory}, the presence of several
-new physics phenomena can be constrained by looking at the shape of the \nnbb\ events
-distribution. Understanding the action of the LAr veto cut on background events from the
-point of view of the background model requires, however, a full Monte Carlo simulation of
-the LAr scintillation mechanism as well as the implementation of all the relevant material
-and surface optical properties that contribute to light propagation in the \gerda\ experimental
-setup. Implementing such a simulation, as it will be shown, requires an accurate knowledge
-of many optical parameters, which is not always the case, unfortunately, with the \gerda\
-setup. Nevertheless, it is possible to use special calibration data with low-activity
-sources and the LAr veto instrumentation turned on to constrain the LAr veto Monte Carlo
-model. An independent analysis of this special data set is used to tune the unknown
-optical parameters in the Monte Carlo such to reproduce the observed vetoing performance.
-The obtained parameters are then used to produce a map of the LAr scintillation light
+chapter, instead, a model of the background after the LAr veto cut will be presented,
+based on a Monte Carlo simulation of the LAr scintillation light propagation. Being able
+to describe the background after this major event selection is indeed of great interest to
+study the distribution of two-neutrino double-beta decay events, which are almost never
+vetoed by the LAr veto system. As extensively shown in \cref{chap:theory}, the presence of
+several new physics phenomena can be constrained by looking at the shape of the \nnbb\
+events distribution. Understanding the action of the LAr veto cut on background events
+from the point of view of the background model requires, however, a full Monte Carlo
+simulation of the LAr scintillation mechanism as well as a complete implementation of the
+relevant material and surface optical properties that contribute to light propagation in
+the \gerda\ setup. Implementing such a simulation, as it will be clear soon, requires an
+accurate knowledge of many optical parameters, which is, unfortunately, not always
+possible. Nevertheless, it will be shown how special calibration data with low-activity
+sources and the LAr veto instrumentation turned on can be used to partially overcome the
+issue. An independent analysis of this special data set is used to tune the unknown
+optical parameters in the Monte Carlo and reproduce the observed vetoing performance.  The
+obtained parameters are then used to generate a map of the LAr scintillation light
 detection probability, which is applied to the background model simulations in order to
-obtain the LAr veto flag. Based on these new background model pdfs, a statistical analysis
-to test possible deviations of the \nnbb\ distribution from its Standard Model description
-will be finally presented in the following chapter.
+obtain the LAr veto flag. These new background model pdfs are then directly employed in a
+statistical analysis to test possible deviations of the \nnbb\ distribution from its
+Standard Model description, which will be presented in \cref{chap:2nbb-ana}.
 \newpar
 The chapter is structured as follows: in \cref{sec:bkg:lar:ph2:data} the data after the
-LAr veto cut is presented, sub-divided in the analysis data sets. Then, the development of
-the Monte Carlo simulation of the LAr veto system into the \mage\ framework is outlined in
-\cref{sec:bkg:lar:ph2:pdfs}. It will be shown how special calibration data is used to tune
-the simulation model and how the LAr veto flag for synthetic events is evaluated through a
-scintillation light detection probability map. Finally, the background decomposition of
-the full-range \gerda\ energy spectrum after the LAr veto cut (\gexpophasetwobkg\ from the
-first part of \phasetwo) is presented in \cref{sec:bkg:lar:ph2:gmodel} and discussed in
+LAr veto cut, sub-divided in the analysis data sets, is described. Follows a description
+of the LAr veto system simulation, embedded into the \mage\ framework, in
+\cref{sec:bkg:lar:ph2:pdfs}. Therese it will be also shown how special calibration data is
+used to tune the simulation model and how the LAr veto flag for synthetic events is
+evaluated. Finally, the background decomposition of the full-range \gerda\ energy spectrum
+after the LAr veto cut (\gexpophasetwobkg\ from the first part of \phasetwo) will be
+presented in \cref{sec:bkg:lar:ph2:gmodel} and discussed in
 \cref{sec:bkg:lar:ph2:discussion}.
 
 \section{Analysis data sets}%
