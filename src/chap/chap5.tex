@@ -56,8 +56,8 @@ impact of different pdf shapes (e.g.~\Ac\ far or close to the detector array) is
 in the analysis of the systematic uncertainties. Note that the information from the
 \enrCoaxII\ and \enrGeII\ data sets is also missing.
 \newpar
-The likelihood function defined to compare data and expectations is the usual Poisson
-likelihood which runs over the binned \enrBEGeII\ energy spectrum:
+The likelihood function that brings data and expectations together is the usual Poisson
+likelihood, which runs over the binned \enrBEGeII\ energy spectrum:
 \[
   \mathcal{L}(S, \vec{B} | \vec{n}) =
     \prod_i^{N} \frac{{\nu_i(S, \vec{B})}^{n_i} e^{\nu_i(S, \vec{B})}}{n_i!} \;,
@@ -71,33 +71,23 @@ can be decomposed as
     = S \int_i \text{pdf}_S(E)dE + \sum_k B_k \int_i \text{pdf}_{B_k}(E)dE \;,
 \]
 where $s_i$ and $b_{i,k}$ are the signal (\nnbb\ or other physics) and background
-contribution from component $k$ in bin $i$ and the integrals run over the bin energy
-range. With the pdfs normalized to unity, $S$ and $B_k$ represent the total number of
-counts from signal and background events in the energy spectrum, respectively. The
-parameter of interest for this analysis is, of course, $S$, and the $B_k$ are treated as
-nuisance parameters. The relation between number of signal counts $S$ and the
-corresponding process half-life is:
-\begin{equation}\label{eq:2nbb:halflife}
-  \thalftwoM = \frac{1}{S} \frac{\expoM_{76}^\text{AV}\, \mathcal{N}_A\, \log2}{m_{76}}\, \epsilon \;,
+contribution from component $k$ in bin $i$ and the integrals are defined in the energy
+interval spanned by the bin. $S$ and $B_k$ represent the total number of counts from
+signal and background events in the analysis range, respectively. The parameter of
+interest in this analysis is, of course, $S$, and the $B_k$ are treated as nuisance
+parameters. The relation between number of signal counts $S$ and the corresponding process
+half-life can be expressed as:
+\begin{equation}\label{eq:2nbb-ana:halflife}
+  \thalftwoM = \frac{\mathcal{C}_{76}}{S} = \frac{1}{S} \frac{\mathcal{N}_A\, \log2}{M_{76}}
+               \left( \sum_i m^\text{tot}_i \, f^\text{AV}_i \, t_i \, \epsilon_{\text{c},i} \right)
+               f_{76} \, \epsilon_\text{LAr} \;,
 \end{equation}
-where \expoGesixAV\ is the data set active \gesix\ exposure, $\mathcal{N}_A$ is
-the Avogadro number, $m_{76}$ is the \gesix\ molar mass and $\epsilon$ is the efficiency
-of detecting the decay process, which includes the detector containment probability $(?
-\pm ?)$\% and the LAr veto survival probability $(98.2 \pm 0.1)$\%. The containment
-probability, i.e.~the probability that a \nnbb\ decay originating in the active volume
-also deposits energy in the active volume, is estimated with Monte Carlo
-methods\footnote{%
-  To estimate the active containment efficiency of \nnbb\ decays, a dedicated Monte Carlo
-  simulation is performed in which $N$ decay events are generated in the full detector
-  volume. The average number of events starting in the fully-active volume (i.e.~only
-  below the full charge-collection depth) and in the remaining volume (i.e.~the transition
-  layer and the dead layer) is then $N_\text{FAV} = N \cdot (m_\text{FAV} / m_\text{tot})$
-  and $N - N_\text{FAV}$, respectively. Denoting $n$ the total number of detected events,
-  the containment efficiency is estimated as $n / N_\text{FAV}$. In this way, the
-  effective increase of the active volume due to the presence of the partially-active
-  transition region, which is not taken into account in \expoGesixAV, is included as part
-  if the containment efficiency.
-}.
+where $\mathcal{N}_A$ is the Avogadro number, $M_{76}$ is the \gesix\ molar mass,
+$m^\text{tot}$ is the total detector mass, $f^\text{AV}$ is the active volume fraction,
+$t$ is the detector live-time, $\epsilon_\text{c}$ is the detector containment
+probability, $\sum_i$ runs over the detectors included in the data set, $f_{76}$ is the
+enrichment fraction and $\epsilon_\text{LAr}$ is the LAr veto survival probability $(98.2
+\pm 0.1)$\%.
 
 \blocktitle{test \\ statistic}
 To test a hypothesized value of $S$ the following profile likelihood ratio is defined:
@@ -350,32 +340,29 @@ analysis are discussed.
       }\label{fig:2nbb-ana:dist-pcanorm}
     \end{figure}
 
-  \item[\gesix\ active exposure] The detector fully-active volume (defined
-    as the germanium volume in which the charge-collection efficiency reaches unity) and
-    enrichment fraction has been estimated for \bege\ detectors up to a certain accuracy
-    during a dedicated characterization campaign~\cite{Agostini2015e, Agostini2019}. The
-    enriched active volume determines the total amount of detected \nnbb\ counts, and it
-    is therefore not expected to produce distortions in the shape of the pdfs. Its effect
-    enters in the conversion of the number of signal counts to the corresponding process
-    half-life, so this systematic uncertainty component can be included by statistical
-    re-sampling the test statistic distribution, while expressing it in units of
-    half-life.
-    \newpar
-    Since three independent estimates of the \bege\ enrichment fraction are
-    available\cite{Agostini2015e}, they are combined into the final estimate of 0.880(13)
-    by evaluating their variance (see \cref{tab:gerda:efficiencies}). The estimate of the
-    full charge-collection depth for each detector required a careful analysis of the
+  \item[\gesix\ active exposure] The detector active volume and enrichment fraction has
+    been estimated for \bege\ detectors up to a certain accuracy during a dedicated
+    characterization campaign~\cite{Agostini2015e, Agostini2019}. The enriched active
+    volume determines the total amount of detected \nnbb\ counts, and it is therefore not
+    expected to produce distortions in the shape of the pdfs. Its effect must be
+    considered in the conversion of the number of signal counts to the corresponding
+    process half-life.  Since three independent estimates of the \bege\ enrichment
+    fraction ($f_{76}$ in \cref{eq:2nbb-ana:halflife}) are available\cite{Agostini2015e},
+    they are combined into the final estimate of 0.880(13) by evaluating their variance
+    (see \cref{tab:gerda:efficiencies}). The estimate of the full charge-collection depth
+    and size of transition region for each detector required a careful analysis of the
     detector characterization data and is reviewed in
-    \cref{apdx:gedetav}~\cite{Agostini2019, Lehnert2016}. The uncertainty on the full
-    charge-collection depth estimates is statistically propagated to the active exposure
-    by coherently treating the correlated and un-correlated uncertainties. In summary, the
-    final estimate of the \enrBEGeII\ data set exposure is
-    \[
-      \expoM_{76}^\text{AV} = (? \pm ?)~\text{\kgyr} \;.
-    \]
-    Being the uncertainty of about 1.8\% and considering that it propagates directly
-    to the final half-life estimate, the \gesix\ active exposure estimation is the major
-    source of systematic uncertainty in the \nnbb\ analysis.
+    \cref{apdx:gedetav}~\cite{Agostini2019, Lehnert2016}. The uncertainty on these values
+    is statistically propagated to the half-life conversion factor $\mathcal{C}_{76}$ by
+    coherently treating the correlated and un-correlated uncertainties in the linear
+    combination $\sum_i$ of the active volume fraction $f^\text{AV}$ in
+    \cref{eq:2nbb-ana:halflife}. The resulting uncertainty is about \fillme{?}\% of
+    $\mathcal{C}_{76}$, and, considering that it propagates directly to the final
+    half-life estimate, the \gesix\ active exposure estimation results to be the major
+    source of systematic uncertainty in the \nnbb\ analysis. To finally propagate this
+    conversion factor uncertainty to the final half-life estimate, the test statistic
+    distribution $f(t_S|S)$ has been re-sampled and expressed in units of half-life. The
+    final uncertainty amount to about \fillme{?}\% of the half-life.
 
   \item[Transition layer model] As already discussed in several occasions (see in
     particular \cref{apdx:gedetav}), the transition region from the \nplus\ electrode to
@@ -417,14 +404,14 @@ analysis are discussed.
     \begin{center}
       \begin{tabular}{ll}
         % \toprule
-        Component      & Location                                      \\
+        Component      & Location                                       \\
         \midrule
-        \kvn\ (close)  & \emph{mini-shrouds}, cabling, holder mounting \\
-        \kvn\ (far)    & \emph{front-end electronics}, copper shroud   \\
-        \kvz\ (close)  & \emph{\nplus\ contact}, \pplus\ contact       \\
-        \kvz\ (far)    & \emph{homogeneous in LAr}, above the array    \\
-        \Ac\           & \emph{holder mounting}, fiber shroud          \\
-        \Bil\ + \Tl\   & \emph{cabling}, outer fibers                  \\
+        \mr{2}{\kvn}   & \emph{mini-shrouds}, cabling, holder mounting, \\
+                       & front-end electronics, copper shroud           \\
+        \kvz\ (close)  & \emph{\nplus\ contact}, \pplus\ contact        \\
+        \kvz\ (far)    & \emph{homogeneous in LAr}, above the array     \\
+        \Ac\           & \emph{holder mounting}, fiber shroud           \\
+        \Bil\ + \Tl\   & \emph{cabling}, outer fibers                   \\
         % \bottomrule
       \end{tabular}
     \end{center}
@@ -494,9 +481,9 @@ analysis are discussed.
     bias in the analysis. Given, however, the excellent resolution of germanium detectors
     and the remarkably precise knowledge of the energy calibration parameters (see
     e.g.~\cref{fig:gerda:calib-desc}), this contribution is negligible. The uncertainty on
-    the electron containment, including the one due to uncertainties on the size of the
-    detector transition region, and LAr veto efficiency $\epsilon$ in \cref{eq:2nbb:halflife}
-    is also negligible.
+    the other quantities appearing in the conversion factor between the reconstructed
+    number of counts and the process half-life $\mathcal{C}_{76}$ in
+    \cref{eq:2nbb-ana:halflife} is also negligible.
 
 \end{description}
 
@@ -526,17 +513,18 @@ works~\cite{Agostini2015a}.
 Lower limits (90\% C.L.) on the half-lives of various Majoron-emitting modes of \onbb\ are
 reported in \cref{tab:2nbb-ana:onbbx:limits}. Using phase space factors
 from~\cite{Kotila2015} and the most recent set of nuclear matrix elements (the same as the
-standard \onbb-decay for spectral index $n=1$, \cite{Hirsch1995} for all the others) it is
+standard \onbb-decay for spectral index $n=1$,~\cite{Hirsch1995} for all the others) it is
 possible to convert the half-life limit into a lower limit on the coupling constant \ga.
 \newpar
-The obtained lower limit on the Lorentz- (and CPT-) violating double-beta decay mode is
+The obtained 90\% C.L. confidence interval on the number of counts from the Lorentz- (and
+CPT-) violating double-beta decay mode is
 \[
-  \thalflvM > 0.0 \cdot 10^{23}~\text{yr} \;,
+  S_\nnbblvM \in [0,0] \;,
 \]
 which can be converted into a lower limit on the \aof\ coefficient using phase space
 factors in~\cite{Nitescu2020}:
 \[
-  \aofM > 0 \cdot 10^{-5}~\text{GeV} \;.
+  \aofM \in [-0, 0] \cdot 10^{-5}~\text{GeV} \;.
 \]
 
 \fillme{more comments, compare with previous estimates}

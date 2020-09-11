@@ -74,7 +74,7 @@
       },
     ]
 
-    \nextgroupplot[xlabel={Ge reflectivity}, ylabel={probability}]
+    \nextgroupplot[xlabel={Ge reflectivity factor}, ylabel={probability deviation}]
     \foreach \point in \points {%
       \addplot+[best] table {data/refl-dist-norm.csv};
       \addplot+[upper] table {data/refl-dist-norm.csv};
