@@ -2,19 +2,19 @@
 
 \input{tex/preamble}
 \includeonly{%
-  % chap/intro,
-  % chap/chap1,
-  % chap/chap2,
-  % chap/chap3,
-  % chap/chap4,
+  chap/intro,
+  chap/chap1,
+  chap/chap2,
+  chap/chap3,
+  chap/chap4,
   chap/chap5,
   % chap/concl,
-  % chap/apdx1,
-  % chap/apdx2,
-  % chap/apdx3,
-  % chap/apdx4,
-  % chap/apdx5,
-  % chap/apdx6,
+  chap/apdx1,
+  chap/apdx2,
+  chap/apdx3,
+  chap/apdx4,
+  chap/apdx5,
+  chap/apdx6,
   % chap/acknowledgements
 }
 
@@ -45,6 +45,7 @@
   \include{chap/intro}
 
   \pagenumbering{arabic}
+  \renewcommand{\thepage}{\oldstylenums{\arabic{page}}}
   \include{chap/chap1}
   \include{chap/chap2}
   \include{chap/chap3}
