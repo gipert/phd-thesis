@@ -1,0 +1,83 @@
+%! TEX program = xelatex
+\input{../../../tex/standalone-def.tex}
+\import{}{pgfplots-def}
+
+\pgfplotsset{%
+  width=7.5cm,
+  loghistogramaxis/.append style={%
+    xmin=-0.2, xmax=6,
+    ymin=5E-3,
+    xlabel={$t_S$},
+    ylabel={Probability},
+  },
+  histogram/.append style={%
+    line width=0.7pt,
+  },
+  wilks/.style={%
+    black,
+    dashed,
+    no marks,
+    smooth,
+    samples=1000,
+    domain=0:7
+  },
+  group style={%
+    group size=2 by 1,
+    yticklabels at=all,
+    ylabels at=edge left,
+    horizontal sep=1cm,
+  },
+  legend style={%
+    font=\footnotesize,
+  }
+}
+
+\def\binw{0.1}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}[
+      loghistogramaxis,
+      ymode=log
+    ]
+
+      \nextgroupplot
+
+      \addplot+[histogram] table[y expr=\thisrow{TS_2nbb_noSys}*1E-4] {data/TS_2nbb_noSys.csv};
+
+      % \addplot+[histogram] table[y expr=\thisrow{TS_2nbb_noSys}/\binw] {data/teststat.csv};
+
+      \addplot+[wilks] {1./sqrt(2*pi)*1./sqrt(x)*exp(-x/2.)};
+
+      \legend{%
+        {$f(t_S|S)$, \nnbb},
+        {$\chi^2_{\text{dof}=1}$}
+      }
+
+      \nextgroupplot[xmax=4]
+
+      \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM1_noSys}*1E-4] {data/TS_0nbbM1_noSys.csv};
+      \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM2_noSys}*1E-4] {data/TS_0nbbM2_noSys.csv};
+      \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM3_noSys}*1E-4] {data/TS_0nbbM3_noSys.csv};
+      \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM7_noSys}*1E-4] {data/TS_0nbbM7_noSys.csv};
+
+      % \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM1_noSys}/\binw] {data/teststat.csv};
+      % \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM2_noSys}/\binw] {data/teststat.csv};
+      % \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM3_noSys}/\binw] {data/teststat.csv};
+      % \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM7_noSys}/\binw] {data/teststat.csv};
+
+      \addplot+[wilks] {0.5/sqrt(2*pi)*1./sqrt(x)*exp(-x/2.)};
+
+      \node[anchor=north] at (axis description cs:0.35,1) {\footnotesize $f(t_S|0)$, $0\upnu\upbeta\upbeta\upchi(\upchi)$};
+
+      \legend{%
+        {$n=1$},
+        {$n=2$},
+        {$n=3$},
+        {$n=7$},
+        {$\chi^2_{\text{dof}=1/2}$}
+      }
+
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}

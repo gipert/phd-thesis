@@ -18,7 +18,7 @@
   \begin{tikzpicture}
     \begin{groupplot}
 
-      \pgfplotstableread{data/originals/gerda_data_bkgmodel_phaseIIplus_v07_00_raw_M1_invCoax.csv}\loadedtable;
+      \pgfplotstableread{data/originals/gerda_data_bkgmodel_phaseIIplus_v07_01_orig_raw_M1_invCoax.csv}\loadedtable;
       \nextgroupplot[spectrum, ymode=log]
 
       \addplot[data]         table {\loadedtable} \closedcycle;

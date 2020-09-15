@@ -126,12 +126,12 @@
   Ac228/.style={%
     loghistogram,
     TolVibBlue,
-    table/y expr=\thisrow{Ac228_holders}+\thisrow{Ac228_cables}+\thisrow{Ac228_central_fiber_shroud}+\thisrow{Ac228_mini_shrouds},
+    table/y expr=\thisrow{Ac228_holders}++\thisrow{Ac228_central_fiber_shroud}+\thisrow{Ac228_mini_shrouds},
   },
   Th228/.style={%
     loghistogram,
     TolVibCyan,
-    table/y expr=\thisrow{Bi212Tl208_cables}+\thisrow{Bi212Tl208_central_fiber_shroud}+\thisrow{Bi212Tl208_holders}+\thisrow{Bi212Tl208_mini_shrouds}+\thisrow{Bi212Tl208_outer_fiber_shroud},
+    table/y expr=\thisrow{Bi212Tl208_central_fiber_shroud}+\thisrow{Bi212Tl208_holders}+\thisrow{Bi212Tl208_mini_shrouds}+\thisrow{Bi212Tl208_outer_fiber_shroud},
   },
   U238/.style={%
     loghistogram,
@@ -141,12 +141,12 @@
   Co60/.style={%
     loghistogram,
     TolVibOrange,
-    table/y expr=\thisrow{Co60_cables}+\thisrow{Co60_holders},
+    table/y expr=\thisrow{Co60_holders},
   },
   K40/.style={%
     loghistogram,
     TolVibRed,
-    table/y expr=\thisrow{K40_cables}+\thisrow{K40_central_fiber_shroud}+\thisrow{K40_close}+\thisrow{K40_far}+\thisrow{K40_holders}+\thisrow{K40_outer_fiber_shroud},
+    table/y expr=\thisrow{K40_mini_shrouds}+\thisrow{K40_cables}+\thisrow{K40_central_fiber_shroud}+\thisrow{K40_close}+\thisrow{K40_holders}+\thisrow{K40_outer_fiber_shroud},
   },
   K42/.style={%
     loghistogram,

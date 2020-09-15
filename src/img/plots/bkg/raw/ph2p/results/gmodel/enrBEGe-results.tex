@@ -13,7 +13,7 @@
   \begin{tikzpicture}
     \begin{groupplot}
 
-      \pgfplotstableread{data/gerda_data_bkgmodel_phaseIIplus_v07_00_raw_M1_enrBEGe.csv}\loadedtable;
+      \pgfplotstableread{data/gerda_data_bkgmodel_phaseIIplus_v07_01_orig_raw_M1_enrBEGe.csv}\loadedtable;
       \nextgroupplot[spectrum, ymode=log]
 
       \addplot[data]      table {\loadedtable} \closedcycle;

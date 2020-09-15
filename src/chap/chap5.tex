@@ -86,7 +86,7 @@ where $\mathcal{N}_A$ is the Avogadro number, $M_{76}$ is the \gesix\ molar mass
 $m^\text{tot}$ is the total detector mass, $f^\text{AV}$ is the active volume fraction,
 $t$ is the detector live-time, $\epsilon_\text{c}$ is the detector containment
 probability, $\sum_i$ runs over the detectors included in the data set, $f_{76}$ is the
-enrichment fraction and $\epsilon_\text{LAr}$ is the LAr veto survival probability $(98.2
+enrichment fraction and $\epsilon_\text{LAr}$ is the LAr veto survival probability $(97.7
 \pm 0.1)$\%.
 
 \blocktitle{test \\ statistic}
@@ -122,9 +122,7 @@ freedom~\cite{Cowan2011}.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.33\textwidth]{plots/2nbb-ana/2nbb_teststat.png}%
-  \includegraphics[width=0.33\textwidth]{plots/2nbb-ana/teststatNewphysics.png}%
-  \includegraphics[width=0.33\textwidth]{plots/2nbb-ana/pvalueNewphysics.png}
+  \includegraphics{plots/2nbb-ana/2nbb-teststat.pdf}
   \caption{%
     Distribution of the test statistic for various signal hypothesis sampled with Monte
     Carlo methods. The \pvalue\ as a function of the test statistic value, used to extract
@@ -348,7 +346,7 @@ analysis are discussed.
     considered in the conversion of the number of signal counts to the corresponding
     process half-life.  Since three independent estimates of the \bege\ enrichment
     fraction ($f_{76}$ in \cref{eq:2nbb-ana:halflife}) are available\cite{Agostini2015e},
-    they are combined into the final estimate of 0.880(13) by evaluating their variance
+    they are combined into the final estimate of 0.877(13) by evaluating their variance
     (see \cref{tab:gerda:efficiencies}). The estimate of the full charge-collection depth
     and size of transition region for each detector required a careful analysis of the
     detector characterization data and is reviewed in
@@ -356,13 +354,10 @@ analysis are discussed.
     is statistically propagated to the half-life conversion factor $\mathcal{C}_{76}$ by
     coherently treating the correlated and un-correlated uncertainties in the linear
     combination $\sum_i$ of the active volume fraction $f^\text{AV}$ in
-    \cref{eq:2nbb-ana:halflife}. The resulting uncertainty is about \fillme{?}\% of
-    $\mathcal{C}_{76}$, and, considering that it propagates directly to the final
+    \cref{eq:2nbb-ana:halflife}. The resulting uncertainty is about 2\% of
+    $\mathcal{C}_{76}$. Considering that it propagates almost linearly to the final
     half-life estimate, the \gesix\ active exposure estimation results to be the major
-    source of systematic uncertainty in the \nnbb\ analysis. To finally propagate this
-    conversion factor uncertainty to the final half-life estimate, the test statistic
-    distribution $f(t_S|S)$ has been re-sampled and expressed in units of half-life. The
-    final uncertainty amount to about \fillme{?}\% of the half-life.
+    source of systematic uncertainty in the \nnbb\ analysis.
 
   \item[Transition layer model] As already discussed in several occasions (see in
     particular \cref{apdx:gedetav}), the transition region from the \nplus\ electrode to
@@ -385,15 +380,16 @@ analysis are discussed.
     e.g.~\cref{fig:gedetav:calib-optim-example} and \cref{fig:gedetav:ar39-results}).
     \newpar
     To provide a more reliable \bege\ detector transition layer model for the \nnbb\
-    analysis, an independent analysis of the \Th\ FEP lower tail from calibration data has
-    been performed and documented in detail in \cref{sec:gedetav:calib-optim}. A best-fit
-    value of the dead-layer fraction with statistical uncertainty has been obtained for
-    each detector. Pdfs for signal and background sources corresponding to the best-fit
-    values $\pm1\sigma$, $\pm2\sigma$ and $\pm5\sigma$ ($\sigma$ denotes the statistical
-    uncertainty) have been produced and reported in \cref{fig:2nbb-ana:pdf-dist} (right
-    panel) for \kvn, \kvz\ and \nnbb\ in the \enrBEGeII\ data set. The pdf distortions are
-    noticeably lower than those induced by the LAr veto model uncertainties, and
-    contribute with less than 1\% to the total \thalftwo\ systematic uncertainty count.
+    analysis, an independent analysis of the \Th\ full-energy-peak lower tail from
+    calibration data has been performed and documented in detail in
+    \cref{sec:gedetav:calib-optim}. A best-fit value of the dead-layer fraction with
+    statistical uncertainty has been obtained for each detector. Pdfs for signal and
+    background sources corresponding to the best-fit values $\pm1\sigma$, $\pm2\sigma$ and
+    $\pm5\sigma$ ($\sigma$ denotes the statistical uncertainty) have been produced and
+    reported in \cref{fig:2nbb-ana:pdf-dist} (right panel) for \kvn, \kvz\ and \nnbb\ in
+    the \enrBEGeII\ data set. The pdf distortions are noticeably lower than those induced
+    by the LAr veto model uncertainties, and contribute with less than 1\% to the total
+    \thalftwo\ systematic uncertainty count.
 
   \item[Background model] The uncertainty on the location of the main background sources
     is treated as a systematic uncertainty source in the analysis. Pdfs for the same
@@ -404,14 +400,14 @@ analysis are discussed.
     \begin{center}
       \begin{tabular}{ll}
         % \toprule
-        Component      & Location                                       \\
+        Component      & Location                                                     \\
         \midrule
-        \mr{2}{\kvn}   & \emph{mini-shrouds}, cabling, holder mounting, \\
-                       & front-end electronics, copper shroud           \\
-        \kvz\ (close)  & \emph{\nplus\ contact}, \pplus\ contact        \\
-        \kvz\ (far)    & \emph{homogeneous in LAr}, above the array     \\
-        \Ac\           & \emph{holder mounting}, fiber shroud           \\
-        \Bil\ + \Tl\   & \emph{cabling}, outer fibers                   \\
+        \mr{2}{\kvn}   & \emph{mini-shrouds}, cabling, holder mounting,               \\
+                       & front-end electronics, copper shroud                         \\
+        \kvz\ (close)  & \emph{inside mini-shrouds}, \nplus\ contact, \pplus\ contact \\
+        \kvz\ (far)    & \emph{outside mini-shrouds}, above the array                 \\
+        \Ac\           & \emph{holder mounting}, fiber shroud                         \\
+        \Bil\ + \Tl\   & \emph{cabling}, outer fibers                                 \\
         % \bottomrule
       \end{tabular}
     \end{center}
@@ -486,6 +482,16 @@ analysis are discussed.
     \cref{eq:2nbb-ana:halflife} is also negligible.
 
 \end{description}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/2nbb-ana/2nbb-teststat-sys.pdf}
+  \caption{%
+    Distribution of the test statistic for various signal hypothesis sampled with Monte
+    Carlo methods. Compared to \cref{fig:2nbb-ana:ts-dist}, the effect of systematic
+    uncertainties is included. \fillme{Update, reference in text}
+  }\label{fig:2nbb-ana:ts-dist-sys}
+\end{figure}
 
 \begin{table}
   \centering

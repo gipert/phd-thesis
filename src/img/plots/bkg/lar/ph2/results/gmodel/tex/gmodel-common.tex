@@ -146,12 +146,12 @@
   K40/.style={%
     loghistogram,
     TolVibRed,
-    table/y expr=\thisrow{K40_close}+\thisrow{K40_far},
+    table/y expr=\thisrow{K40_close},
   },
   K42/.style={%
     loghistogram,
     TolVibMagenta,
-    table/y expr=\thisrow{K42_close_coax}+\thisrow{K42_far}+\thisrow{K42_inside_ms},
+    table/y expr=\thisrow{K42_nplus_coax}+\thisrow{K42_outside_ms}+\thisrow{K42_inside_ms},
   },
   2nbbCoax/.style={%
     loghistogram,
