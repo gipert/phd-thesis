@@ -26,19 +26,57 @@
   \titleformat{\chapter}[hang]{}{}{0pt}{\Huge\swshape}
   \titleformat{\section}[hang]{\ebgaramondOsF\LARGE}{\thesection}{0.5em}{\LARGE\swshape}
   \titleformat{\subsection}[hang]{\ebgaramondOsF\Large}{\thesubsection}{0.5em}{\Large\swshape}
-  \newcommand{\chapsummary}{\clearpage\vspace*{\fill}{\swshape\huge The chapter in short}\vspace{11pt}}
+  \newcommand{\chapsummary}{\clearpage\vspace*{\fill}{\swshape\huge Chapter summary}\vspace{11pt}}
 \usepackage[indent]{parskip}
 \usepackage{rotating}
-% \usepackage{floatpag}
+
 % TOC
 \usepackage[subfigure,titles]{tocloft}
-  \setlength{\cftsubsecindent}{1cm}
-  \renewcommand{\cftchapfont}{\large\swshape}
-  \renewcommand{\cftchappagefont}{\ebgaramondOsF}
-  \renewcommand{\cftsecpagefont}{\ebgaramondOsF}
-  \renewcommand{\cftsubsecpagefont}{\ebgaramondOsF}
-% \renewcommand{\labelitemi}{$\diamond$} % itemize bullets
-\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{empty}}}
+  \renewcommand*{\cftdot}{}
+  \addtocontents{toc}{\cftpagenumbersoff{section}}
+  \addtocontents{toc}{\cftpagenumbersoff{subsection}}
+
+  % page number to the left
+  \renewcommand*{\cftchapleader}{\hspace{1em}}
+  \renewcommand*{\cftchapafterpnum}{\cftparfillskip}
+  \renewcommand*{\cftpnumalign}{l}
+
+  % alignment
+  % \setlength{\cftsubsecindent}{0pt}
+  \renewcommand*{\cftchapaftersnum}{\hspace{1em}}
+  \settowidth{\cftchapindent}{\cftchapaftersnum}
+  \setlength{\cftchapnumwidth}{0pt}
+
+  % fonts/colors
+  \input{tex/paultolcolors}
+  \renewcommand*{\cftchapfont}{\large\scshape}
+  \renewcommand*{\cftchappresnum}{\hss\darkred}
+  \renewcommand*{\cftsecpresnum}{\ebgaramondOsF\selectfont}
+  \renewcommand*{\cftsubsecpresnum}{\ebgaramondOsF\selectfont}
+  \renewcommand*{\cftchappagefont}{\ebgaramondOsF\selectfont\color{TolHCBlue}}
+
+  % no page number in first toc page
+  \AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{empty}}}
+
+\usepackage{fancyhdr}
+\newcommand{\scpagenumbers}{%
+  \fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyfoot[C]{\scshape\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+  }
+  \pagestyle{plain}
+}
+\newcommand{\ospagenumbers}{%
+  \fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyfoot[C]{\oldstylenums{\thepage}}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+  }
+  \pagestyle{plain}
+}
 
 % math
 \usepackage{amsmath}

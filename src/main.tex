@@ -8,7 +8,7 @@
   chap/chap3,
   chap/chap4,
   chap/chap5,
-  % chap/concl,
+  chap/concl,
   chap/apdx1,
   chap/apdx2,
   chap/apdx3,
@@ -33,19 +33,20 @@
   \begin{abstract}
     \input{chap/abstract}
   \end{abstract}
-  \restoregeometry
+  \restoregeometry{}
 
   \tableofcontents
   \thispagestyle{empty}
   \clearpage
 
   \pagenumbering{roman}
-  \setcounter{page}{1}
-  \renewcommand{\thepage}{\scshape\roman{page}}
+  \scpagenumbers{}
+
   \include{chap/intro}
 
   \pagenumbering{arabic}
-  \renewcommand{\thepage}{\oldstylenums{\arabic{page}}}
+  \ospagenumbers{}
+
   \include{chap/chap1}
   \include{chap/chap2}
   \include{chap/chap3}
@@ -54,7 +55,7 @@
   \include{chap/concl}
   \include{chap/acknowledgements}
 
-  \cleardoublepage
+  \cleardoublepage{}
   \titleformat{\chapter}[hang]{\huge\swshape}{\thechapter.}{20pt}{\Huge\swshape}
 
   \appendix
@@ -65,7 +66,7 @@
   \include{chap/apdx5}
   \include{chap/apdx6}
 
-  \printbibliography
+  \printbibliography{}
 
   \listoftables
   \listoffigures

@@ -43,7 +43,8 @@
 \newcommand{\decorationA}{{\Huge\char"E001\char"E002}}
 \newcommand{\decorationB}{{\Huge\char"2619\char"2767}}
 \newcommand{\decorationC}{{\Huge\char"2766}}
-\newcommand{\darkred}[1]{{\addfontfeature{Color=980000}#1}}
+\newcommand{\darkred}{\addfontfeature{Color=980000}}
+\newcommand{\textdarkred}[1]{{\darkred#1}}
 \usepackage{lettrine}
 \newcommand{\initial}[2]{\lettrine[lines=3, depth=1, findent=2pt, nindent=0em]{\textin{#1}}{#2}}
 
