@@ -14,11 +14,12 @@
   },
   every tick label/.append style={font=\footnotesize},
   group/every plot/.style={
+    x label style={at={(axis description cs:0.5,1)},anchor=south},
     ymin=5, ymax=900,
     xtick={1,2,3,4,5,6,7},
     xticklabels={\Ac,\Th,\Co,\kvn,\kvz,\Uh,\Zn},
     ylabel={Counts / (\kgyr)},
-    grid=both,
+    ytick pos=both,
     legend pos=north west,
     legend style={draw=black},
     only marks,

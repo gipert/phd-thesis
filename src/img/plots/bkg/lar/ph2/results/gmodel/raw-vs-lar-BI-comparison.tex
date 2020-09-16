@@ -3,25 +3,26 @@
 \import{}{pgfplots-def}
 
 \pgfplotsset{%
-  width=8cm,
+  width=7.8cm,
   group style={%
     group size=2 by 1,
     ylabels at=edge left,
     yticklabels at=edge left,
-    % y descritions at=,
     vertical sep=2pt,
-    horizontal sep=2pt,
+    horizontal sep=5pt,
   },
   every tick label/.append style={font=\small},
   group/every plot/.style={
+    x label style={at={(axis description cs:0.5,1)},anchor=south},
     typeset ticklabels with strut,
     ymin=3E-6, ymax=4E-2,
     xtick={1,2,3,4,5,6},
     xticklabels={\Ac,\Th,\Co,\kvz,\Uh,\textbf{SUM}},
     ylabel={BI (\ctsper)},
-    grid=both,
+    ytick pos=both,
+    % grid=both,
     legend pos=south east,
-    legend style={draw=black},
+    % legend style={draw=black},
     only marks,
     mark size=1.2pt,
     error bars/x dir=both,
@@ -77,47 +78,47 @@
 
       \addplot[raw BEGe] table {%
         iso   id margmode 16qt      84qt
-        Ac228 1  2.02e-05 1.627e-05 2.428e-05
-        Th228 2  0.00331  0.0030965 0.0035805
-        Co60  3  0.000327 0.0002675 0.0003879
-        K42   4  0.0042   0.0035255 0.0050360
-        U238  5  0.00257  0.0024112 0.0027309
-        tot   6  0.01565  0.0149619 0.0163245
+        Ac228 1  2.78e-05 2.243e-05 3.321e-05
+        Th228 2   0.00323 0.0030019 0.0034729
+        Co60  3  0.000327 0.0002666 0.0003882
+        K42   4    0.0054 0.0047050 0.0063322
+        U238  5   0.00267 0.0025141 0.0028509
+        tot   6   0.01695 0.0162263 0.0176805
       };
 
       \addplot[lar BEGe] table {%
         iso   id margmode 16qt      84qt
-        Ac228 1  2.06e-05 1.720e-05 2.399e-05
-        Th228 2  3.08e-05 2.077e-05 4.148e-05
-        Co60  3  1.35e-05 6.634e-06 3.542e-05
-        K42   4  0.000705 0.0004144 0.0012430
-        U238  5  0.000525 0.0004688 0.0005771
-        tot   6  0.011725 0.0112119 0.0122129
+        Ac228 1  3.02e-05 2.590e-05 3.476e-05
+        Th228 2  3.16e-05 2.194e-05 4.380e-05
+        Co60  3  1.35e-05 7.138e-06 3.840e-05
+        K42   4  0.001335 0.0008038 0.0017161
+        U238  5  0.000575 0.0005168 0.0006314
+        tot   6  0.00678  0.0063568 0.0072396
       };
 
-      \addlegendentry{before cuts};
-      \addlegendentry{after LAr cut};
+      \addlegendentry{Before cuts};
+      \addlegendentry{After LAr cut};
 
       \nextgroupplot[ymode=log, xlabel=\enrCoaxII]
 
       \addplot[raw SemiCoax] table {%
         iso   id margmode 16qt      84qt
-        Ac228 1  1.98e-05 1.601e-05 2.389e-05
-        Th228 2  0.00225  0.0020979 0.0024283
-        Co60  3  0.000321 0.0002586 0.0003750
-        K42   4  0.0042   0.0036835 0.0047802
-        U238  5  0.00179  0.0016881 0.0019125
-        tot   6  0.00618  0.0058395 0.0066502
+        Ac228 1  2.74e-05 2.215e-05 3.285e-05
+        Th228 2   0.00215 0.0019892 0.0023021
+        Co60  3  0.000315 0.0002590 0.0003770
+        K42   4     0.005 0.0044191 0.0055648
+        U238  5   0.00187 0.0017456 0.0019795
+        tot   6  0.012475 0.0119362 0.0129765
       };
 
       \addplot[lar SemiCoax] table {%
         iso   id margmode  16qt      84qt
-        Ac228 1  2.02e-05  1.695e-05 2.365e-05
-        Th228 2  2.43e-05  1.712e-05 3.420e-05
-        Co60  3  1.55e-05  8.703e-06 4.640e-05
-        K42   4  0.001665  0.0013426 0.0021502
-        U238  5  0.0003825 0.0003417 0.0004206
-        tot   6  0.00507   0.0047459 0.0055134
+        Ac228 1  2.98e-05  2.556e-05 3.430e-05
+        Th228 2  2.49e-05  1.664e-05 3.321e-05
+        Co60  3  1.75e-05  9.072e-06 4.871e-05
+        K42   4  0.001965  0.0015314 0.0023760
+        U238  5  0.0004125 0.0003730 0.0004555
+        tot   6  0.00545   0.0049908 0.0057305
       };
 
     \end{groupplot}

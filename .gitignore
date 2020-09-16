@@ -86,6 +86,9 @@
 /src/img/plots/bkg/raw/combined-results-M1only.pdf
 /src/img/plots/2nbb-ana/2nbb-teststat-sys.pdf
 /src/img/plots/2nbb-ana/2nbb-teststat.pdf
+/src/img/plots/bkg/lar/ph2/results/gmodel/BI-bar-norm.pdf
+/src/img/plots/bkg/lar/ph2/results/gmodel/results-roi-fixbw.pdf
+src/img/plots/bkg/raw/ph2p/results/gmodel/results-roi-fixbw.pdf
 
 *.DS_Store
 *.swp

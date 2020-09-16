@@ -14,14 +14,14 @@
 }
 
 \def\height{0.7}
-\def\width{10}
+\def\width{10*0.4086}
 
-\def\aevBI{0.00517}
-\def\kvzBI{0.0054}
-\def\ThBI{0.00323}
-\def\UhBI{0.00267}
-\def\CoBI{0.000327}
-\def\AcBI{0.0000278}
+\def\aevBI{0.00489}
+\def\kvzBI{0.001335}
+ \def\UhBI{0.000575}
+ \def\ThBI{0.0000316}
+ \def\CoBI{0.0000135}
+ \def\AcBI{0.0000302}
 
 \def\start{0}
 
@@ -38,33 +38,24 @@
     \node[anchor=east] at (0,\height/2) {\enrBEGeII};
 
     \draw[BI box, fill=TolMutSand] (\offset,\start) rectangle (\offset+\aevBI*\norm,\start+\height);
-    \node at ({(\aevBI*\norm)/2},\height/2) {\a\ events};
 
     \def\offset{\aevBI*\norm}
     \draw[BI box, fill=TolVibMagenta] (\offset,\start) rectangle (\offset+\kvzBI*\norm,\start+\height);
-    \node at ({\offset+\kvzBI*\norm/2},\height/2) {\kvz};
 
     \def\offset{(\aevBI+\kvzBI)*\norm}
-    \draw[BI box, fill=TolVibTeal] ({\offset},\start) rectangle ({\offset+\ThBI*\norm},\start+\height);
-    \node at ({\offset+\ThBI*\norm/2},\height/2) {\Thh};
+    \draw[BI box, fill=TolVibTeal] ({\offset},\start) rectangle ({\offset+\UhBI*\norm},\start+\height);
 
-    \def\offset{(\aevBI+\kvzBI+\ThBI)*\norm}
-    \draw[BI box, fill=TolVibCyan] ({\offset},\start) rectangle ({\offset+\UhBI*\norm},\start+\height);
-    \node at ({\offset+\UhBI*\norm/2},\height/2) {\Uh};
-
-    \def\offset{(\aevBI+\kvzBI+\ThBI+\UhBI)*\norm}
-    \draw[BI box, fill=TolVibOrange] ({\offset},\start) rectangle ({\offset+(\CoBI+\AcBI)*\norm},\start+\height);
-
-    \draw ({\offset+(\CoBI+\AcBI)*\norm/2},\start) -- ({\offset+(\CoBI+\AcBI)*\norm/2},\start-0.2) node[anchor=north] {\Co};
+    \def\offset{(\aevBI+\kvzBI+\UhBI)*\norm}
+    \draw[BI box, fill=TolVibCyan] ({\offset},\start) rectangle ({\offset+(\ThBI+\CoBI+\AcBI)*\norm},\start+\height);
 
     % coax
 
-    \def\aevBI{0.0031}
-    \def\kvzBI{0.005}
-    \def\ThBI{0.00215}
-    \def\UhBI{0.00187}
-    \def\CoBI{0.000315}
-    \def\AcBI{0.0000274}
+    \def\aevBI{0.002964}
+    \def\kvzBI{0.001965}
+     \def\UhBI{0.0004125}
+     \def\ThBI{0.0000249}
+     \def\CoBI{0.0000175}
+     \def\AcBI{0.0000298}
 
     \def\start{-1}
     \def\offset{0}
@@ -77,13 +68,12 @@
     \draw[BI box, fill=TolVibMagenta] (\offset,\start) rectangle (\offset+\kvzBI*\norm,\start+\height);
 
     \def\offset{(\aevBI+\kvzBI)*\norm}
-    \draw[BI box, fill=TolVibCyan] ({\offset},\start) rectangle ({\offset+\ThBI*\norm},\start+\height);
-
-    \def\offset{(\aevBI+\kvzBI+\ThBI)*\norm}
     \draw[BI box, fill=TolVibTeal] ({\offset},\start) rectangle ({\offset+\UhBI*\norm},\start+\height);
 
-    \def\offset{(\aevBI+\kvzBI+\ThBI+\UhBI)*\norm}
-    \draw[BI box, fill=TolVibOrange] ({\offset},\start) rectangle ({\offset+(\CoBI+\AcBI)*\norm},\start+\height);
+    \def\offset{(\aevBI+\kvzBI+\UhBI)*\norm}
+    \draw[BI box, fill=TolVibCyan] ({\offset},\start) rectangle ({\offset+(\ThBI+\CoBI+\AcBI)*\norm},\start+\height);
+
+    \draw[units bar] (0,\start-0.5*\height) -- node[below] {\small\BIunits} (0.001*\norm,\start-0.5*\height);
 
   \end{tikzpicture}
 \end{document}

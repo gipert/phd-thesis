@@ -41,15 +41,25 @@
   \renewcommand*{\cftchapafterpnum}{\cftparfillskip}
   \renewcommand*{\cftpnumalign}{l}
 
-  % alignment
-  % \setlength{\cftsubsecindent}{0pt}
+  % align all chapter titles
   \renewcommand*{\cftchapaftersnum}{\hspace{1em}}
   \settowidth{\cftchapindent}{\cftchapaftersnum}
-  \setlength{\cftchapnumwidth}{0pt}
+  \setlength{\cftchapnumwidth}{0em}
+
+  % add space after chapter title
+  \renewcommand*{\cftchapafterpnum}{\hfill\vspace{3pt}}
+
+  % indent the section titles
+  \setlength{\cftsecnumwidth}{1.6em}
+  \setlength{\cftsecindent}{1em}
+
+  % nothing below sections please
+  \setcounter{tocdepth}{1}
 
   % fonts/colors
   \input{tex/paultolcolors}
   \renewcommand*{\cftchapfont}{\large\scshape}
+  \renewcommand*{\cftsubsecfont}{\small}
   \renewcommand*{\cftchappresnum}{\hss\darkred}
   \renewcommand*{\cftsecpresnum}{\ebgaramondOsF\selectfont}
   \renewcommand*{\cftsubsecpresnum}{\ebgaramondOsF\selectfont}

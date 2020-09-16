@@ -1017,12 +1017,13 @@ around \qbb\ prior active background suppression (see
 \cref{fig:bkg:raw:ph2:gmodel:results:roi}).  The background index is defined as the number
 of counts over exposure and energy in the energy window from 1930~keV to 2190~keV
 excluding the region around \qbb\ ($\qbbM \pm 5$~keV) and the intervals $2104 \pm 5$~keV
-and $2119 \pm 5$~keV, which correspond to known \g\ lines from \Tl\ and \Bih. The values
-for each background contribution are given in \cref{tab:bkg:raw:ph2:gmodel:results} and
-are displayed as a fraction of the total background index in the following.
-\begin{center}
-  \includegraphics{plots/bkg/raw/ph2/results/gmodel/BI-bar.pdf}
-\end{center}
+and $2119 \pm 5$~keV, which correspond to known \g\ lines from \Tl\ and \Bih.
+% The values for each background contribution are given in
+% \cref{tab:bkg:raw:ph2:gmodel:results} and are displayed as a fraction of the total
+% background index in the following.
+% \begin{center}
+%   \includegraphics{plots/bkg/raw/ph2/results/gmodel/BI-bar.pdf}
+% \end{center}
 The dominating background contribution around \qbb\ in the \enrBEGeII\ data set come from
 \kvz. Isotopes from the \Thh\ decay chain, \a\ particles mainly with degraded energy and
 isotopes from the \Uh\ decay chain contribute about equally. The estimated total
@@ -1055,13 +1056,13 @@ anti-correlations persist which are listed in \cref{tab:bkg:raw:ph2:corr}.
     \toprule
     contamination & location 1                  & location 2         & correlation \\
     \midrule
-    \Bih\ + \Pbh\ & mini-shrouds                & flat cables        & -0.43 \\
+    \Bih\ + \Pbh\ & mini-shrouds                & flat cables        & $-0.43$ \\
     % \midrule
-    \mr{2}{\kvn}  & cabling                     & detector holders   & -0.45 \\
-                  & cabling                     & close to the array & -0.63 \\
+    \mr{2}{\kvn}  & cabling                     & detector holders   & $-0.45$ \\
+                  & cabling                     & close to the array & $-0.63$ \\
     % \midrule
-    \mr{2}{\kvz}  & LAr -- outside mini-shrouds & \nplus\ contact    & -0.42 \\
-                  & LAr -- outside mini-shrouds & LAr -- above array & -0.56 \\
+    \mr{2}{\kvz}  & LAr -- outside mini-shrouds & \nplus\ contact    & $-0.42$ \\
+                  & LAr -- outside mini-shrouds & LAr -- above array & $-0.56$ \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -1295,7 +1296,7 @@ exponential distributions of the form $e^{-2.3 \mu x}$ for 90\% C.L.~upper limit
 A first fit model is constructed including all the background components for which a prior
 distribution is available from material screening measurements. Additionally, based on the
 results for the first data of \phasetwo, two unconstrained \kvn\ fit
-components are added --- one \emph{close}, on the mini-shrouds and \emph{far}, on the
+components are added~---~one \emph{close}, on the mini-shrouds and \emph{far}, on the
 outer fiber shroud. As done before, 6 pdfs for \kvz\ are considered: one corresponding to
 a homogeneous distribution in the LAr volume enclosed by the mini-shrouds, one outside and
 one in a cylinder above the array (see \cref{apdx:magepdfs} and
@@ -1336,7 +1337,6 @@ and decreases the compatibility with experimental data.
     background index at \qbb\ prior active background suppression are listed for each
     component and each analysis data set. The original type of prior distribution is
     marked with \m{[f]} for flat, \m{[g]} for Gaussian and \m{[e]} for exponential.
-    \fillme{BIs updated, check cts in range}
   }\label{tab:bkg:raw:ph2p:gmodel:results}
   \input{tab/bkg/raw/ph2p/gmodel-results}%
 \end{sidewaystable}
@@ -1380,6 +1380,15 @@ and decreases the compatibility with experimental data.
     ratio is shown in the bottom panels together with the smallest 60\%, 95\% and 99\%
     confidence intervals.
   }\label{fig:bkg:raw:ph2p:results-3}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/bkg/raw/ph2p/results/gmodel/results-roi-fixbw.pdf}
+  \caption{%
+    The background decomposition of the last \gexpophasetwopbkg\ of \gerdatwo\ before
+    analysis cuts, in the \onbb\ analysis window.
+  }\label{fig:bkg:raw:ph2p:results:roi}
 \end{figure}
 
 \blocktitle{\thalftwo}

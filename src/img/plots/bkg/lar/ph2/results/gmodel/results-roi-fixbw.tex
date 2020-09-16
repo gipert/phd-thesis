@@ -1,0 +1,65 @@
+%! TEX program = xelatex
+\input{../../../../../../../tex/standalone-def.tex}
+\import{}{pgfplots-def}
+\input{tex/gmodel-common}
+
+\pgfplotsset{%
+  width=8cm,
+  group style={%
+    group size=2 by 1,
+    xticklabels at=edge bottom,
+    yticklabels at=edge left,
+    xlabels at=edge bottom,
+    ylabels at=edge left,
+    horizontal sep=5pt,
+  },
+  ylabel={Counts / 1 keV},
+  group/every plot/.append style={%
+    xlabel={},
+    restrict x to domain=1920:2200,
+    xmin=1930, xmax=2190,
+  },
+  spectrum/.append style={%
+    ymin=1e-4, ymax=5e1,
+  },
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}
+
+      \nextgroupplot[spectrum, ymode=log]
+
+      \newcommand*{\tablefilebege}{data/originals-1keV/gerda_data_bkgmodel_phaseII_v07_01_orig_lar_M1_enrBEGe.csv}
+
+      \addplot[data]      table {\tablefilebege} \closedcycle;
+      \addplot[alphaBEGe] table {\tablefilebege};
+      \addplot[Ac228]     table {\tablefilebege};
+      \addplot[Th228]     table {\tablefilebege};
+      \addplot[U238]      table {\tablefilebege};
+      \addplot[Co60]      table {\tablefilebege};
+      \addplot[K42]       table {\tablefilebege};
+      \addplot[model]     table {\tablefilebege};
+
+      \node[anchor=north east] at (axis description cs:0.98,0.93) {\bege\ -- \gebkgBEGeII};
+      \draw[dashed] (2039,1e-4) -- (2039, 3e-1) node[anchor=south] {\footnotesize\qbb};
+
+      \nextgroupplot[spectrum, ymode=log]
+
+      \newcommand*{\tablefilecoax}{data/originals-1keV/gerda_data_bkgmodel_phaseII_v07_01_orig_lar_M1_enrCoax.csv}
+
+      \addplot[data]      table {\tablefilecoax} \closedcycle;
+      \addplot[alphaCoax] table {\tablefilecoax};
+      \addplot[Ac228]     table {\tablefilecoax};
+      \addplot[Th228]     table {\tablefilecoax};
+      \addplot[U238]      table {\tablefilecoax};
+      \addplot[Co60]      table {\tablefilecoax};
+      \addplot[K42]       table {\tablefilecoax};
+      \addplot[model]     table {\tablefilecoax};
+
+      \node[anchor=north east] at (axis description cs:0.98,0.93) {\scoax\ -- \gebkgSCoaxII};
+      \draw[dashed] (2039,1e-4) -- (2039, 3e-1) node[anchor=south] {\footnotesize\qbb};
+
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}

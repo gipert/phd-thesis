@@ -364,7 +364,7 @@ documented in \cref{sec:apdx:mage-optics}. The two most important Monte Carlo se
 for the calibration source physics are the LAr attenuation length and the fiber shroud
 coverage. As demonstrated in \cref{sec:bkg:lar:ph2:heatmap} and in
 \cref{fig:bkg:lar:ph2:larmap:dist} in particular, these two parameters induce the largest
-deviations of the LAr light detection probability in the red and orange points --- where the
+deviations of the LAr light detection probability in the red and orange points~---~where the
 calibration sources are typically deployed (see \cref{tab:bkg:lar:ph2:pcalib-desc}). The
 germanium reflectivity, instead, is crucial when probing the array region. Changes
 in the LAr light yield or the TPB quantum efficiencies produce nearly linear distortions
@@ -472,8 +472,8 @@ The background model pdfs after LAr veto cut obtained by applying the probabilit
 the Monte Carlo simulations are displayed in \cref{fig:bkg:lar:ph2:pdfs:gmodel}. Another
 notable difference with the pdfs constructed for the analysis presented in
 \cref{chap:bkg:raw:ph2} is that the linear transition layer model obtained from
-characterization data for \bege\ detectors~\cite{Lehnert2016} is now taken into account
---- more information about the germanium detector transition layer models is found in
+characterization data for \bege\ detectors~\cite{Lehnert2016} is now taken into
+account~---~more information about the germanium detector transition layer models is found in
 \cref{apdx:gedetav}. A comparison with pdfs before analysis cuts in
 \cref{fig:bkg:raw:ph2:pdfs:gmodel} shows large shape deformations, especially for decays
 from \Uh\ and \Thh\ chains. In particular, a large suppression of \Tl\ full-energy peak at
@@ -580,7 +580,8 @@ array. The former can be dropped from the model without affecting the fit result
 \newpar
 The results of the analysis are shown in
 \cref{fig:bkg:lar:ph2:results,fig:bkg:lar:ph2:results-fixbw,fig:bkg:lar:ph2:results-closeup}
-and \cref{tab:bkg:lar:ph2:results}. Since the radioactivity of hardware parts is better
+and \cref{tab:bkg:lar:ph2:results}. A close-up in the \onbb\ analysis window is shown in
+\cref{fig:bkg:lar:ph2:results:roi}. Since the radioactivity of hardware parts is better
 constrained within the background model before the analysis cuts
 (\cref{chap:bkg:raw:ph2}), where the background level is higher, and additional
 uncertainties affect the normalization of the pdfs after the LAr veto cut, only the
@@ -610,8 +611,8 @@ The dominating background contribution in both data sets come from
 largest contribution, together with isotopes from the \Uh\ decay chain.
 The estimated total
 background indices extracted from the marginalized posterior distributions are
-$\stat{6.22^{+0.47}_{-0.35}} \cdot 10^{-3}$~\ctsper\ for the \enrBEGeII\ data set and
-$\stat{5.11^{+0.44}_{-0.32}} \cdot 10^{-3}$~\ctsper\ for the \enrCoaxII\ data set.
+$\stat{6.78^{+0.46}_{-0.42}} \cdot 10^{-3}$~\ctsper\ for the \enrBEGeII\ data set and
+$\stat{5.45^{+0.28}_{-0.46}} \cdot 10^{-3}$~\ctsper\ for the \enrCoaxII\ data set.
 
 \begin{sidewaystable}
   \footnotesize
@@ -665,6 +666,15 @@ $\stat{5.11^{+0.44}_{-0.32}} \cdot 10^{-3}$~\ctsper\ for the \enrCoaxII\ data se
   }\label{fig:bkg:lar:ph2:results-closeup}
 \end{figure}
 
+\begin{figure}
+  \centering
+  \includegraphics{plots/bkg/lar/ph2/results/gmodel/results-roi-fixbw.pdf}
+  \caption{%
+    The background decomposition of the last \gexpophasetwopbkg\ of \gerdatwo\ after the
+    LAr veto cut, in the \onbb\ analysis window.
+  }\label{fig:bkg:lar:ph2:results:roi}
+\end{figure}
+
 \section{Discussion}%
 \label{sec:bkg:lar:ph2:discussion}
 
@@ -679,28 +689,41 @@ hypothesis might be formulated for the inconsistency between model and data obse
 the potassium Compton edge energy region in the \enrBEGeII\ data set and above the \kvz\
 line in the \enrCoaxII\ data set.
 \newpar
-The background indices extracted from data after the LAr veto cut are
+\fillme{numbers} The background indices extracted from data after the LAr veto cut are
 $\stat{5.09^{+?}_{-?}} \cdot 10^{-3}$~\ctsper\ for the \enrBEGeII\ data set and
 $\stat{5.24^{+?}_{-?}} \cdot 10^{-3}$~\ctsper\ for the \enrCoaxII\ data set, which agree
 with the ones predicted by the background model within the statistical uncertainty. The
 partial contributions to the background index are compared to those found with the
 background model before analysis cuts (\cref{sec:bkg:raw:ph2:gmodel}) in
 \cref{fig:bkg:lar:ph2:BI-comparison}. The contribution from \a\ decays is not considered
-in this comparison as it is left unchanged by the LAr veto cut. The \Th\ (\Bil\ + \Tl) and
+as it is left unchanged by the LAr veto cut. The \Th\ (\Bil\ + \Tl) and
 the \Co\ contributions are the most suppressed, followed by \kvz\ and \Uh\ (\Pbh\ + \Bih).
 The \Ac\ contribution stays at the same negligible level as before the LAr veto cut. The
 same picture is observed when comparing the count rates in the analysis energy range
 (i.e.~above the \Arl\ Q-value), which are more relevant to the \nnbb\ analysis, in
 \cref{fig:bkg:lar:ph2:cts-comparison}, with some minor differences.
 
-\fillme{Fix problem with \a\ model BI. Other ideas to discuss?}
-
 \begin{figure}
   \centering
-  \includegraphics{plots/bkg/lar/ph2/results/gmodel/raw-vs-lar-BI-comparison.pdf}
+  \includegraphics{plots/bkg/lar/ph2/results/gmodel/raw-vs-lar-BI-comparison.pdf}%
+  \vspace{0.5cm}
+  \begin{tikzpicture}[anchor=south west]
+    \node at (0, 2.5) {\scshape Before analysis cuts};
+    \draw (0,2.5) -- (\textwidth,2.5);
+    \node at (0, 0) {\includegraphics{plots/bkg/raw/ph2/results/gmodel/BI-bar.pdf}};
+
+    \node at (0,-1) {\scshape After the LAr veto cut};
+    \draw (0,-1) -- (\textwidth,-1);
+    \node at (0,-4.6) {\includegraphics{plots/bkg/lar/ph2/results/gmodel/BI-bar-norm.pdf}};
+  \end{tikzpicture}
   \caption{%
     Comparison between background indices obtained from the background model before
     analysis cuts and after LAr veto cut, for the \enrBEGeII\ and \enrCoaxII\ data sets.
+    The background decompositions are performed with a reduced set of pdfs, to make a
+    one-to-one comparison possible. On the top, the background index values are reported
+    with statistical uncertainties extracted from the fit. On the bottom, bars are used to
+    represent the fractional composition. The scale in units of \powctsper{-3} is reported
+    at the bottom end.
   }\label{fig:bkg:lar:ph2:BI-comparison}
 \end{figure}
 
@@ -709,7 +732,9 @@ same picture is observed when comparing the count rates in the analysis energy r
   \includegraphics{plots/bkg/lar/ph2/results/gmodel/raw-vs-lar-cts-comparison.pdf}
   \caption{%
     Comparison between total counts in the fit range (i.e.~above 565~keV) obtained from
-    the background model before analysis cuts and after LAr veto cut.
+    the background model before analysis cuts and after LAr veto cut. The background
+    decompositions are performed with a reduced set of pdfs, to make a one-to-one
+    comparison possible.
   }\label{fig:bkg:lar:ph2:cts-comparison}
 \end{figure}
 

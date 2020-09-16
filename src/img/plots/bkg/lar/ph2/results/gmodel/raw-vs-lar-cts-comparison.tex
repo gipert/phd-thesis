@@ -14,14 +14,15 @@
   },
   every tick label/.append style={font=\footnotesize},
   group/every plot/.style={
+    x label style={at={(axis description cs:0.5,1)},anchor=south},
     typeset ticklabels with strut,
     ymin=4E-2, ymax=2E3,
     xtick={1,2,3,4,5,6},
     xticklabels={\Ac,\Th,\Co,\kvn,\kvz,\Uh},
     ylabel={Counts / (\kgyr)},
-    grid=both,
-    legend pos=south east,
-    legend style={draw=black},
+    ytick pos=both,
+    legend pos=north west,
+    legend style={font=\small},
     only marks,
     mark size=1.2pt,
     error bars/x dir=both,
@@ -95,9 +96,6 @@
         U238  6  175  156  193
       };
 
-      \addlegendentry{before cuts};
-      \addlegendentry{after LAr cut};
-
       \nextgroupplot[ymode=log, xlabel=\enrCoaxII]
 
       \addplot[raw SemiCoax] table {%
@@ -141,6 +139,9 @@
         K42   5  696  647  747
         U238  6  39   26   51
       };
+
+      \addlegendentry{Before cuts};
+      \addlegendentry{After LAr cut};
 
     \end{groupplot}
   \end{tikzpicture}

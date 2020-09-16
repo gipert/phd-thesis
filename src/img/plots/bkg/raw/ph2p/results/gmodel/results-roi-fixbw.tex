@@ -1,0 +1,81 @@
+%! TEX program = xelatex
+\input{../../../../../../../tex/standalone-def.tex}
+\import{}{pgfplots-def}
+\input{tex/gmodel-common}
+
+\pgfplotsset{%
+  width=5.8cm,
+  group style={%
+    group size=3 by 1,
+    xticklabels at=edge bottom,
+    yticklabels at=edge left,
+    xlabels at=edge bottom,
+    ylabels at=edge left,
+    horizontal sep=5pt,
+  },
+  ylabel={Counts / 1 keV},
+  group/every plot/.append style={%
+    xlabel={},
+    restrict x to domain=1920:2200,
+    xmin=1930, xmax=2190,
+  },
+  spectrum/.append style={%
+    ymin=1e-3, ymax=2e1,
+  },
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}
+
+      \nextgroupplot[spectrum, ymode=log]
+
+      \newcommand*{\tablefilebege}{data/originals-1keV/gerda_data_bkgmodel_phaseIIplus_v07_01_orig_raw_M1_enrBEGe.csv}
+
+      \addplot[data]      table {\tablefilebege} \closedcycle;
+      \addplot[Ac228]     table {\tablefilebege};
+      \addplot[Th228]     table {\tablefilebege};
+      \addplot[U238]      table {\tablefilebege};
+      \addplot[Co60]      table {\tablefilebege};
+      \addplot[K42]       table {\tablefilebege};
+      \addplot[alphaBEGe] table {\tablefilebege};
+      \addplot[model]     table {\tablefilebege};
+
+      \node[anchor=north east] at (axis description cs:0.98,0.93) {\small \bege\ -- \gebkgBEGeIIp};
+      \draw[dashed] (2039,1e-4) -- (2039, 3e-1) node[anchor=south] {\footnotesize\qbb};
+
+      \nextgroupplot[spectrum, ymode=log]
+
+      \newcommand*{\tablefilecoax}{data/originals-1keV/gerda_data_bkgmodel_phaseIIplus_v07_01_orig_raw_M1_enrCoax.csv}
+
+      \addplot[data]      table {\tablefilecoax} \closedcycle;
+      \addplot[Ac228]     table {\tablefilecoax};
+      \addplot[Th228]     table {\tablefilecoax};
+      \addplot[U238]      table {\tablefilecoax};
+      \addplot[Co60]      table {\tablefilecoax};
+      \addplot[K42]       table {\tablefilecoax};
+      \addplot[alphaCoax] table {\tablefilecoax};
+      \addplot[model]     table {\tablefilecoax};
+
+      \node[anchor=north east] at (axis description cs:0.98,0.93) {\small \scoax\ -- \gebkgSCoaxIIp};
+      \draw[dashed] (2039,1e-4) -- (2039, 3e-1) node[anchor=south] {\footnotesize\qbb};
+
+      \nextgroupplot[spectrum, ymode=log]
+
+      \newcommand*{\tablefileicoax}{data-1keV/originals/gerda_data_bkgmodel_phaseIIplus_v07_01_orig_raw_M1_invCoax.csv}
+
+      \addplot[data]         table {\tablefileicoax} \closedcycle;
+      \addplot[Ac228]        table {\tablefileicoax};
+      \addplot[Th228]        table {\tablefileicoax};
+      \addplot[U238]         table {\tablefileicoax};
+      \addplot[Co60]         table {\tablefileicoax};
+      \addplot[K42]          table {\tablefileicoax};
+      \addplot[alphaInvCoax] table {\tablefileicoax};
+      \addplot[model]        table {\tablefileicoax};
+
+      \node[anchor=north east] at (axis description cs:0.98,0.93) {\small \icoax\ -- \gebkgICoaxIIp};
+      \draw[dashed] (2039,1e-4) -- (2039, 3e-1) node[anchor=south] {\footnotesize\qbb};
+
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}
