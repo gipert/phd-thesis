@@ -3,7 +3,7 @@
 \chapter{The background before analysis cuts}\label{chap:bkg:raw:ph2}
 
 As already mentioned, a precise knowledge of background intensity and distribution is
-essential to searches of faint signals. One main assumption of the \onbb-decay signal
+essential to searches for faint signals. One main assumption of the \onbb-decay signal
 analysis is the distribution of background events in the analysis window around \qbb\
 being uniform, except for the known \Tl\ and \Bil\ \g\ lines. The primary role of the
 background model is to verify this assumption by exploiting data outside this energy
@@ -121,8 +121,8 @@ post-processing step. A simplified step-like function that defines the charge-co
 efficiency (CCE) value depending on the depth from the detector surface is used to produce
 the pdfs for the analysis of \phasetwo\ data before the upgrade. The CCE is set to a null
 value through all the transition region between the surface and the full charge-collection
-efficiency region. From the full charge-collection depth (FCCD) and below the CCE is set
-equal to unity. The recommended FCCD values obtained from dedicated characterization data
+efficiency region. From the full charge-collection depth (FCCD) and below, the CCE is set
+to unity. The recommended FCCD values obtained from dedicated characterization data
 (the same used in the \onbb\ detection efficiency calculation) are documented and
 discussed in \cref{apdx:gedetav}. The pdfs for the background model of \gerdatwo\ data
 before cuts are displayed in
@@ -202,7 +202,7 @@ paragraph below.
 A significant fraction of components in the \gerda\ setup is made of
 copper~\cite{Agostini2018a}, which can be produced with high radio-purity but is
 potentially activated by cosmic rays and contaminated by the long-lived isotope \Co\
-(\cref{fig:bkg:raw:ph2:pdfs:gmodel:other}). The latter decays with a half-life of
+(\cref{fig:bkg:raw:ph2:pdfs:gmodel:other2}). The latter decays with a half-life of
 5.2711(8)~yr; from material screening it is also expected to be found in some of the
 detector high-voltage flexible flat cables.
 
@@ -481,7 +481,7 @@ with \Ra\ rather than \Rn\ dissolved in LAr. In the latter case the decay chain 
 be broken, as only the gaseous \Rn\ can emanate from the construction materials.
 Unfortunately, the number of counts is too low to distinguish the spectral shape above
 5.3~MeV and disentangle a surface contamination with \Ra\ from \Rn\ dissolved in LAr. A
-comparison between the counts observed above 5.3~Mev and the \Bih\ 609~keV \g\ line
+comparison between the counts observed above 5.3~MeV and the \Bih\ 609~keV \g\ line
 suggests that \a\ events due to a dissolved \Rn\ contamination would not produce
 observable counts in said energy region. Assuming that all \Bih\ observed comes from
 dissolved \Rn\ leads, in fact, to a specific activity smaller than 10~\mubq/kg. Hence, in
@@ -1181,7 +1181,7 @@ uncertainty sources.
 \label{sec:bkg:raw:ph2p}
 
 The background model presented in the past sections is based on data from the first part
-of \phasetwo, for a total exposure of \gexpophasetwobkg. In April \yr{2018} the data taking was
+of \phasetwo, for a total exposure of 60.2~\kgyr. In April \yr{2018} the data taking was
 stopped to permit a hardware upgrade, in which five new detectors of the inverted-coaxial
 type were deployed together with an improved LAr veto system. For further details about
 the upgrade the reader is referred to \cref{sec:gerda:setup}. The data taking resumed in
@@ -1252,7 +1252,7 @@ screening measurements show that the Tecnomec 3 mil cable type is cleaner. Moreo
 introduction of material around the central string might increase the background level.
 Many of the results of the first screening measurement campaign can be still used as prior
 information for the \phasetwop\ background model, and part of the new material was
-screened before installment in \gerda. The situation is summarized in \cref{apdx:assay}.
+screened before deployment in \gerda. The situation is summarized in \cref{apdx:assay}.
 
 \blocktitle{analysis}
 The full-range analysis of the binned energy spectra has been repeated for the \phasetwop\
@@ -1315,17 +1315,21 @@ set on $1/\thalftwoM$\footnote{%
 The resulting background decomposition of the four analysis data sets is shown in
 \cref{fig:bkg:raw:ph2p:results-1,fig:bkg:raw:ph2p:results-2,fig:bkg:raw:ph2p:results-3}.
 Data is presented with the variable binning used in the analysis and a fixed-width 15~keV
-binning. In this rich configuration, most of the marginalized posteriors are driven by
-their respective prior distribution. This is expected, given the known correlations
-between the pdfs and the low count rate of some background sources. All the marginalized
-posteriors are compatible with the prior information. The additional, special, \kvn\
-component close to the detector array still reports a non-zero result, while the posterior
-for \kvn\ far from the array is peaked at zero.  Differently from what has been previously
-obtained in \cref{sec:bkg:raw:ph2:gmodel}, the \kvz\ component on the \nplus\ contact of
-the \bege\ detectors is now compatible with zero. This is due to the non-null \bege\
-detectors transition layer model used to obtain the corresponding pdf, which increases the
-rate of \b\ events above the 1525~keV peak (see \cref{fig:bkg:raw:ph2:pdfs:gmodel:K42})
-and decreases the compatibility with experimental data.
+binning. A close-up in the \onbb\ region of interest is shown in
+\cref{fig:bkg:raw:ph2:results:roi}. In this fit configuration with many fit parameters,
+most of the marginalized posteriors are driven by their respective prior distribution.
+This is expected, given the known correlations between the pdfs and the low count rate of
+some background sources. All the marginalized posteriors are compatible with the prior
+information. The additional, special, \kvn\ component close to the detector array still
+reports a non-zero result, while the posterior for \kvn\ far from the array is peaked at
+zero.  Differently from what has been previously obtained in
+\cref{sec:bkg:raw:ph2:gmodel}, the \kvz\ component on the \nplus\ contact of the \bege\
+detectors is now compatible with zero. This is due to the non-null \bege\ detectors
+transition layer model used to obtain the corresponding pdf, which increases the rate of
+\b\ events above the 1525~keV peak (see \cref{fig:bkg:raw:ph2:pdfs:gmodel:K42}) and
+decreases the compatibility with experimental data. A summary of the analysis parameter
+estimates, including reconstructed counts in the fit range and background indices in the
+\onbb\ region of interest, is given in \cref{tab:bkg:raw:ph2p:gmodel:results}.
 
 \begin{sidewaystable}
   \centering
@@ -1348,37 +1352,37 @@ and decreases the compatibility with experimental data.
   \includegraphics[width=\textwidth]{plots/bkg/raw/ph2p/results/gmodel/enrInvCoax-results.pdf}
   \caption{%
     The background decomposition of the last \gexpophasetwopbkg\ of \gerdatwo\ before
-    analysis cuts. The binning is the one used in the analysis. Contributions from
-    the same radioactive decay are summed for visualization purposes. The data-to-model
-    ratio is shown in the bottom panels together with the smallest 60\%, 95\% and 99\%
-    confidence intervals.
+    analysis cuts, single-detector data sets. The binning is the one used in the analysis.
+    Contributions from the same radioactive decay are summed for visualization purposes.
+    The data-to-model ratio is shown in the bottom panels together with the smallest 60\%,
+    95\% and 99\% confidence intervals.
   }\label{fig:bkg:raw:ph2p:results-1}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{plots/bkg/raw/ph2p/results/gmodel/enrE1plusE2-results.pdf}
   \includegraphics[width=\textwidth]{plots/bkg/raw/ph2p/results/gmodel/enrBEGe-results-fixbw.pdf}
   \includegraphics[width=\textwidth]{plots/bkg/raw/ph2p/results/gmodel/enrCoax-results-fixbw.pdf}
+  \includegraphics[width=\textwidth]{plots/bkg/raw/ph2p/results/gmodel/enrInvCoax-results-fixbw.pdf}
   \caption{%
     The background decomposition of the last \gexpophasetwopbkg\ of \gerdatwo\ before
-    analysis cuts. The binning is the one used in the analysis. Contributions from
-    the same radioactive decay are summed for visualization purposes. The data-to-model
-    ratio is shown in the bottom panels together with the smallest 60\%, 95\% and 99\%
-    confidence intervals.
+    analysis cuts, single-detector data sets. A fixed-width 15~keV binning is used.
+    Contributions from the same radioactive decay are summed for visualization purposes.
+    The data-to-model ratio is shown in the bottom panels together with the smallest 60\%,
+    95\% and 99\% confidence intervals.
   }\label{fig:bkg:raw:ph2p:results-2}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{plots/bkg/raw/ph2p/results/gmodel/enrInvCoax-results-fixbw.pdf}
+  \includegraphics[width=\textwidth]{plots/bkg/raw/ph2p/results/gmodel/enrE1plusE2-results.pdf}
   \includegraphics[width=\textwidth]{plots/bkg/raw/ph2p/results/gmodel/enrE1plusE2-results-fixbw.pdf}
   \caption{%
     The background decomposition of the last \gexpophasetwopbkg\ of \gerdatwo\ before
-    analysis cuts. The binning is the one used in the analysis. Contributions from
-    the same radioactive decay are summed for visualization purposes. The data-to-model
-    ratio is shown in the bottom panels together with the smallest 60\%, 95\% and 99\%
-    confidence intervals.
+    analysis cuts, \enrGeIIp\ data set. The data is shown in its analysis binning (top)
+    and with fixed-width 15~keV bins (bottom). Contributions from the same radioactive
+    decay are summed for visualization purposes. The data-to-model ratio is shown in the
+    bottom panels together with the smallest 60\%, 95\% and 99\% confidence intervals.
   }\label{fig:bkg:raw:ph2p:results-3}
 \end{figure}
 

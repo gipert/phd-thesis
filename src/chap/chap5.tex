@@ -3,7 +3,7 @@
 \chapter{\texorpdfstring{Precision \nnbb\ distribution analysis}{Precision 2νββ distribution analysis}}%
 \label{chap:2nbb-ana}
 
-As extensively demonstrated in \cref{chap:theory}, the \nnbb\ event distribution is of
+As demonstrated in \cref{chap:theory}, the \nnbb\ event distribution is of
 great interest for new-physics searches. Many of these exotic processes can indeed
 generate distortions in the energy spectrum shape predicted by the Standard Model. The
 most frequently-considered phenomena, namely neutrinoless double-beta decay with Majoron
@@ -49,12 +49,12 @@ the LAr veto flag for synthetic events. A selection of pdfs is shown in
 after the LAr veto cut (\cref{sec:bkg:lar:ph2:gmodel}) has been selected to represent the
 background in this analysis. The choice of a reduced set, compared to the background model
 before analysis cuts, is motivated by the fact that the description of the shape of such a
-low background does not benefit from more complex models, from the statistical point of
-view. The obtained goodness-of-fit for the \enrBEGeII\ data set in the \nnbb\ region is,
-indeed, satisfactory enough (see \cref{fig:bkg:lar:ph2:results-closeup}), and the
+low background does not benefit from more complex models, from a statistical point of
+view. The goodness-of-fit for the \enrBEGeII\ data set in the \nnbb\ region is,
+indeed, satisfactory (see \cref{fig:bkg:lar:ph2:results-closeup}), and the
 impact of different pdf shapes (e.g.~\Ac\ far or close to the detector array) is assessed
 in the analysis of the systematic uncertainties. Note that the information from the
-\enrCoaxII\ and \enrGeII\ data sets is also missing.
+\enrCoaxII\ and \enrGeII\ data sets is also not used in the present analysis.
 \newpar
 The likelihood function that brings data and expectations together is the usual Poisson
 likelihood, which runs over the binned \enrBEGeII\ energy spectrum:
@@ -78,9 +78,10 @@ interest in this analysis is, of course, $S$, and the $B_k$ are treated as nuisa
 parameters. The relation between number of signal counts $S$ and the corresponding process
 half-life can be expressed as:
 \begin{equation}\label{eq:2nbb-ana:halflife}
-  \thalftwoM = \frac{\mathcal{C}_{76}}{S} = \frac{1}{S} \frac{\mathcal{N}_A\, \log2}{M_{76}}
-               \left( \sum_i m^\text{tot}_i \, f^\text{AV}_i \, t_i \, \epsilon_{\text{c},i} \right)
-               f_{76} \, \epsilon_\text{LAr} \;,
+  \thalftwoM = \frac{\mathcal{C}_{76}}{S}\;
+    \text{where}\; \mathcal{C}_{76} = \frac{\mathcal{N}_A\, \log2}{M_{76}}
+      \left( \sum_i m^\text{tot}_i \, f^\text{AV}_i \, t_i \,
+      \epsilon_{\text{c},i} \right) f_{76} \, \epsilon_\text{LAr} \;,
 \end{equation}
 where $\mathcal{N}_A$ is the Avogadro number, $M_{76}$ is the \gesix\ molar mass,
 $m^\text{tot}$ is the total detector mass, $f^\text{AV}$ is the active volume fraction,
@@ -115,7 +116,7 @@ from the $\chi^2$ distribution for 1 degree of freedom (left panel, in red) is o
 for the standard \nnbb\ hypothesis at high values of the test statistic. In the analysis
 all the fit parameters are constrained to be positive. In the case of new physics
 hypotheses, where the maximum likelihood estimator of $S$ is close to zero, this
-assumption modify the distribution of the test statistic (right panel). In the large
+assumption modifies the distribution of the test statistic (right panel). In the large
 sample limit it is expected to be well approximated by a half-$\chi^2$ distribution~---~a
 sum of a delta function at zero and a $\chi^2$ distribution for one degree of
 freedom~\cite{Cowan2011}.
@@ -197,12 +198,12 @@ of the test statistic becomes:
 \[
   f(t_s) = \int f(t_s | S, \vec{B}, \nu) \pi(\vec{\nu}) d\vec{\nu} \;,
 \]
-Where $\vec{\nu}$ are the parameters representing the sources of systematic uncertainties
-in the model and $\pi(\vec{\nu})$ a `prior' distribution from which $\vec{\nu}$ is sampled
+where $\vec{\nu}$ are the parameters representing the sources of systematic uncertainties
+in the model and $\pi(\vec{\nu})$ the `prior' distribution from which $\vec{\nu}$ is sampled
 from. The effect introduced by these additional parameters is to smear $f(t_S)$ and
 enlarge its tail, weakening the new-physics experimental limits extracted from it. The
 software that implements this approach for the \nnbb\ analysis is implemented in the
-\texttt{gerda-factor} suite, publicly available on GitHub\footnote{%
+\texttt{gerda-factory} suite, publicly available on GitHub\footnote{%
   The \texttt{gerda-factory} software suite, available at
   \url{https://github.com/gipert/gerda-factory}, Is implemented in C++ and externally
   depends only on the ROOT libraries for the histogram utilities. The program input is
@@ -267,7 +268,7 @@ analysis are discussed.
     Unfortunately, the map generation process is exceptionally expensive from
     the computational point of view (the required time is on the order of several
     thousands of CPU hours), therefore obtaining several alternative probability maps from
-    scratch is not feasible. To overcome with this issue, the possibility to perform
+    scratch is not feasible. To overcome this issue, the possibility to perform
     manual distortions of the reference probability map has been investigated.
     \newpar
     An alternative presentation of the probability map distortions in
@@ -301,8 +302,7 @@ analysis are discussed.
     the germanium reflectivity. Moreover, the latter is arguably the most important source
     of systematics in the \nnbb\ analysis, since it probes the LAr volume enclosed by the
     detectors. The power-law map distortion has been therefore judged representative
-    enough of the class of distortions generated by fundamental Monte Carlo
-    parameters\footnote{%
+    of the class of distortions generated by fundamental Monte Carlo parameters\footnote{%
       It is not difficult to realize that probability map distortions generated by
       fundamental Monte Carlo properties cannot be generally reproduced by global map
       transformations. The effect of these parameters is indeed predominantly local: the
@@ -352,10 +352,10 @@ analysis are discussed.
     detector characterization data and is reviewed in
     \cref{apdx:gedetav}~\cite{Agostini2019, Lehnert2016}. The uncertainty on these values
     is statistically propagated to the half-life conversion factor $\mathcal{C}_{76}$ by
-    coherently treating the correlated and un-correlated uncertainties in the linear
-    combination $\sum_i$ of the active volume fraction $f^\text{AV}$ in
-    \cref{eq:2nbb-ana:halflife}. The resulting uncertainty is about 2\% of
-    $\mathcal{C}_{76}$. Considering that it propagates almost linearly to the final
+    coherently treating with Monte Carlo methods the correlated and un-correlated
+    uncertainties in the linear combination $\sum_i$ of the active volume fraction
+    $f^\text{AV}$ in \cref{eq:2nbb-ana:halflife}. The resulting uncertainty is about 2\%
+    of $\mathcal{C}_{76}$. Considering that it propagates almost linearly to the final
     half-life estimate, the \gesix\ active exposure estimation results to be the major
     source of systematic uncertainty in the \nnbb\ analysis.
 
@@ -363,7 +363,7 @@ analysis are discussed.
     particular \cref{apdx:gedetav}), the transition region from the \nplus\ electrode to
     the fully-active detector volume is not completely dead (i.e.~the charge-collection
     efficiency is not zero). Since events interacting with this special region are
-    reconstructed with a smaller effective energy, an effect on the energy distribution of
+    reconstructed with a smaller effective energy, an effect on the energy distribution
     is expected. Distortions induced by variations of the size of the transition layer are
     particularly noticeable in the \Arl\ event distribution
     (\cref{fig:gedetav:ar39:distortions}) and in the lower tail of intense \g\ peaks
