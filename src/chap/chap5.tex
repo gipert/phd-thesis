@@ -78,7 +78,7 @@ interest in this analysis is, of course, $S$, and the $B_k$ are treated as nuisa
 parameters. The relation between number of signal counts $S$ and the corresponding process
 half-life can be expressed as:
 \begin{equation}\label{eq:2nbb-ana:halflife}
-  \thalftwoM = \frac{\mathcal{C}_{76}}{S}\;
+  \thalftwoM = \frac{\mathcal{C}_{76}}{S}\;;\quad
     \text{where}\; \mathcal{C}_{76} = \frac{\mathcal{N}_A\, \log2}{M_{76}}
       \left( \sum_i m^\text{tot}_i \, f^\text{AV}_i \, t_i \,
       \epsilon_{\text{c},i} \right) f_{76} \, \epsilon_\text{LAr} \;,
@@ -159,20 +159,24 @@ to check that the performance of the fit is not affected by this choice.
 \begin{table}
   \centering
   \caption{%
-    Statistical-only sensitivity for 90\% C.L.~limit setting on the half-lives of some new
-    physics processes contributing to the \nnbb\ event distribution. The results are
-    extracted from toy Monte Carlo data sets. \fillme{numbers}
+    Sensitivity for 90\% C.L.~limit setting on the half-lives of new physics processes
+    contributing to the \nnbb\ event distribution, before and after the inclusion of
+    systematic uncertainties. The results are extracted from toy Monte Carlo data sets.
+    \fillme{numbers}
   }\label{tab:2nbb-ana:sensitivity}
-  \begin{tabular}{lcc}
+  \begin{tabular}{lcrlrl}
     \toprule
-    Decay                  & Spectral    & Sensitivity     \\
-    Mode                   & index ($n$) & (\powtenyr{23}) \\
+                           &           & \mc{4}{Sensitivity}                                                    \\
+    \cmidrule(lr){3-6}
+    Decay                  & Spectral  & \mc{2}{Statistical}                & \mc{2}{With systematics}          \\
+    % \cmidrule(lr){3-4}\cmidrule(lr){5-6}
+    Mode                   & index $n$ & Counts & $T_{1/2}$ (\powtenyr{23}) & Counts & $T_{1/2}$ (\powtenyr{23})\\
     \midrule
-    \onbbx\                & 1           & \fillme{?}      \\
-    \onbbx\                & 2           & \fillme{?}      \\
-    $\onbbM\upchi(\upchi)$ & 3           & \fillme{?}      \\
-    \onbbxx\               & 7           & \fillme{?}      \\
-    \nnbblv\               & 4           & \fillme{?}      \\
+    \onbbx\                & 1         &    171 & 7.9                       &    241 & 5.6                      \\
+    \onbbx\                & 2         &        &                           &        &                          \\
+    $\onbbM\upchi(\upchi)$ & 3         &        &                           &        &                          \\
+    \onbbxx\               & 7         &        &                           &        &                          \\
+    \nnbblv\               & 4         &        & --                        &        & --                       \\
     \bottomrule
   \end{tabular}
 \end{table}

@@ -48,35 +48,35 @@
 \begin{document}
   \begin{tikzpicture}
     \begin{axis}[
-      xlabel={exposure (kg$\cdot$yr)},
-      ylabel={$T_{1/2}$ 90\% C.L.~lower limit},
+      xlabel={Exposure (\kgyr)},
+      ylabel={\thalfzero\ limit (\powtenyr{26})},
     ]
 
       % sensitivities
       \addplot+[thalf, mark=triangle*, TolBriGreen] coordinates {
-        (21.6,  0.25E26)
-        (32.4,  0.40E26)
-        (44.8,  0.58E26)
-        (80.5,  1.1E26)
-        (124.1, 1.8E26)
+        (21.6,  0.25)
+        (32.4,  0.40)
+        (44.8,  0.58)
+        (80.5,  1.1)
+        (124.1, 1.8)
       };
-      \addlegendentry{expected for no signal}
+      \addlegendentry{Expected for no signal}
 
       % upper limits
       \addplot+[thalf, only marks, mark=*, mark size=3.4pt, line width=1.5pt, TolVibRed] coordinates {
-        (21.6,  0.25E26)
-        (32.4,  0.53E26)
-        (44.8,  0.80E26)
-        (80.5,  0.90E26)
-        (124.1, 1.8E26)
+        (21.6,  0.25)
+        (32.4,  0.53)
+        (44.8,  0.80)
+        (80.5,  0.90)
+        (124.1, 1.8)
       };
-      \addlegendentry{observed}
+      \addlegendentry{Observed}
 
-        \node[publabel] at (axis cs:21.6,  0.25E26) {PRL 111 (2013) 122503};
-        \node[publabel] at (axis cs:32.4,  0.40E26) {\textsc{Nature} 544 (2017) 47};
-        \node[publabel] at (axis cs:44.8,  0.58E26) {PRL 120 (2018) 132503};
-        \node[publabel, anchor=east, xshift=-20pt] at (axis cs:80.5,  1.1E26) {\textsc{Science} 365, 1445 (2019)};
-        \node[publabel, anchor=east, xshift=-20pt] at (axis cs:124.1, 1.80E26) {\textsc{arXiv:}2009.06079 (2020)};
+        \node[publabel] at (axis cs:21.6,  0.25) {PRL 111 (2013) 122503};
+        \node[publabel] at (axis cs:32.4,  0.40) {\textsc{Nature} 544 (2017) 47};
+        \node[publabel] at (axis cs:44.8,  0.58) {PRL 120 (2018) 132503};
+        \node[publabel, anchor=east, xshift=-20pt] at (axis cs:80.5,  1.1) {\textsc{Science} 365, 1445 (2019)};
+        \node[publabel, anchor=east, xshift=-20pt] at (axis cs:124.1, 1.80) {\textsc{arXiv:}2009.06079 (2020)};
 
     \end{axis}
   \end{tikzpicture}
