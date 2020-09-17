@@ -101,7 +101,7 @@ distance between detectors which is of the order of several cm.
 \section{Monte Carlo simulations and probability density functions}%
 \label{sec:bkg:raw:ph2:pdfs}
 
-The probability density functions (pdfs) used to model contributions to the energy spectra
+The probability density functions (\pdf{}s) used to model contributions to the energy spectra
 are obtained from Monte Carlo simulations. The latter are performed using the \mage\
 simulation framework~\cite{Boswell2011}, based on
 \geant~\texttt{v10.4}~\cite{Agostinelli2002, Allison2006, Allison2016}.  \mage\ contains a
@@ -111,20 +111,20 @@ surrounding hardware components. A visualization of this implementation is prese
 events originating from radioactive contaminations in and around the detector assembly are
 simulated. The energy spectrum of the two electrons emitted in the \nnbb\ decay is
 sampled according to the distribution given in~\cite{Tretyak1995} and implemented in
-\decayzero~\cite{Ponkratenko2000}. The pdfs are obtained from the Monte Carlo simulations,
+\decayzero~\cite{Ponkratenko2000}. The \pdf{}s are obtained from the Monte Carlo simulations,
 taking into account the finite energy resolution and individual exposure acquired with
 each detector during the considered data taking periods. Special care is taken not to
-statistically bias the pdfs by assuring that each simulated decay is taken into account
-only once in the production of a pdf. For more details see \cref{apdx:magepdfs}. The
+statistically bias the \pdf{}s by assuring that each simulated decay is taken into account
+only once in the production of a \pdf. For more details see \cref{apdx:magepdfs}. The
 germanium detector active volume model is also applied to the simulations during this
 post-processing step. A simplified step-like function that defines the charge-collection
 efficiency (CCE) value depending on the depth from the detector surface is used to produce
-the pdfs for the analysis of \phasetwo\ data before the upgrade. The CCE is set to a null
+the \pdf{}s for the analysis of \phasetwo\ data before the upgrade. The CCE is set to a null
 value through all the transition region between the surface and the full charge-collection
 efficiency region. From the full charge-collection depth (FCCD) and below, the CCE is set
 to unity. The recommended FCCD values obtained from dedicated characterization data
 (the same used in the \onbb\ detection efficiency calculation) are documented and
-discussed in \cref{apdx:gedetav}. The pdfs for the background model of \gerdatwo\ data
+discussed in \cref{apdx:gedetav}. The \pdf{}s for the background model of \gerdatwo\ data
 before cuts are displayed in
 \cref{fig:bkg:raw:ph2:pdfs:gmodel,fig:bkg:raw:ph2:pdfs:amodel,fig:bkg:raw:ph2:pdfs:kmodel:K40,fig:bkg:raw:ph2:pdfs:kmodel:K42}
 and will be presented in more detail in the following.
@@ -163,10 +163,10 @@ and will be presented in more detail in the following.
   ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/gmodel-pdfs-misc2.pdf}}
 
   \caption{%
-    The pdfs for the \m{M1-AllEnr} ($\enrBEGeII + \enrCoaxII$) (in fully opaque colors) and
+    The \pdf{}s for the \m{M1-AllEnr} ($\enrBEGeII + \enrCoaxII$) (in fully opaque colors) and
     the \enrGeII\ (in shaded colors) data sets in the full energy domain and relative to
     different background sources. Bayesian blocks are used to visualize histograms (see
-    \cref{apdx:bayesblocks} for details). All pdfs are normalized to the number of
+    \cref{apdx:bayesblocks} for details). All \pdf{}s are normalized to the number of
     simulated events.
   }\label{fig:bkg:raw:ph2:pdfs:gmodel}
 \end{figure}
@@ -357,7 +357,7 @@ almost zero values. For the two-detector events (\enrGeII\ data set) the fit ran
 at 520~keV and extends up to 3500~keV. Possible additional components outside of this
 range (e.g. \Arl) do neither add information to the background decomposition in the ROI
 around \qbb\ nor to the analysis of \nnbb\ decay. Furthermore, at energies lower than
-$\sim$100~keV the shape of the pdfs is dominated by uncertainties on the detector
+$\sim$100~keV the shape of the \pdf{}s is dominated by uncertainties on the detector
 transition layer model, which describes the charge-carrier collection at the interface
 between the \nplus\ contact and the detector active volume. The exact nature of this
 transition region is different for each detector and prone to systematic
@@ -383,7 +383,7 @@ smaller steps.
 
 \blocktitle{potassium \\ tracking \\ analysis}
 As can be noted from \cref{fig:bkg:raw:ph2:pdfs:gmodel:K40} and
-\cref{fig:bkg:raw:ph2:pdfs:gmodel:K42} the pdfs of \kvn\ and \kvz\ in energy from
+\cref{fig:bkg:raw:ph2:pdfs:gmodel:K42} the \pdf{}s of \kvn\ and \kvz\ in energy from
 different locations are prone to degeneracies and hence parameter correlation. Their most
 prominent \g\ lines at 1461~and 1525~keV, respectively, contain information on the spatial
 distribution while the two-detector events contain information about the angular
@@ -421,7 +421,7 @@ function with free slope and offset and a cut-off below the maximum of the \Po\ 
 the data well. The agreement of the \a\ background model with the data is demonstrated in
 \cref{sec:bkg:raw:ph2:amodel} and \cref{apdx:timealpha}. Information from the detailed
 analysis of the high-energy \a\ region is incorporated in the full-range fit using a
-combined pdf that summarizes the \Po\ peak plus the \Ra\ decay chain and a linear floating
+combined \pdf\ that summarizes the \Po\ peak plus the \Ra\ decay chain and a linear floating
 component for energy-degraded \a\ events.
 
 \blocktitle{prior \\ distributions}
@@ -520,10 +520,10 @@ before reaching the detectors active volume. The maximum is shifted with respect
 full emission energy which is due to energy loss inside the electrode and depends on its
 minimal thickness. The detectors have slightly different contact thicknesses, and the
 \pplus\ contact of a single detector may also be intrinsically inhomogeneous.  Therefore,
-the \Po\ peak is modeled with a mixture of pdfs obtained from simulations with different
+the \Po\ peak is modeled with a mixture of \pdf{}s obtained from simulations with different
 contact thicknesses, shown in \cref{fig:bkg:raw:ph2:pdfs:amodel}. Due to the low number of
 counts observed in the \Ra\ chain it is sufficient to model this component with only one
-pdf. Furthermore, the isotope contamination is assumed to halve at each decay step. A
+\pdf. Furthermore, the isotope contamination is assumed to halve at each decay step. A
 reduction effect of the subsequent \a\ decays in the \Rn\ chain had been observed in
 \phaseone\ and attributed to possible recoil off the surface into the
 LAr~\footnote{%
@@ -613,7 +613,7 @@ to the ROI.
   \caption{%
     Fit results of the \a\ events background analysis for the
     \enrBEGeII\ and \enrCoaxII\ data sets. Values are given in counts in the
-    full pdf range from 40~keV to 8000~keV.
+    full \pdf\ range from 40~keV to 8000~keV.
   }\label{tab:bkg:raw:ph2:amodel:results}
   \input{tab/bkg/raw/ph2/amodel-results.tex}
 \end{table}
@@ -669,7 +669,7 @@ energy resolution in the respective energy window.  Additionally, three side-ban
 and above the \g\ lines. Considering the further subdivision in single- (\m{M1-}) and
 two-detector (\m{M2-}) data, this leads to the definition of $5 \times 2$ energy regions,
 summarized in~\cref{tab:bkg:raw:ph2:kmodel:regions-cts}. A visual representation of the
-selected windows can be found in~\cref{fig:bkg:raw:ph2:kmodel:regions}. Pdfs for \Bih\ on
+selected windows can be found in~\cref{fig:bkg:raw:ph2:kmodel:regions}. \pdf{}s for \Bih\ on
 the flat cables and detector intrinsic \nnbb\ decays are used to estimate the background.
 Other components are expected to contribute less in the respective energy windows.
 
@@ -752,7 +752,7 @@ time in the fitting procedure, and the Bayes factor is calculated between the ex
 the preliminary model. The model is iteratively updated by adding the component that
 results in the highest Bayes factor until no Bayes factor is larger than 10.
 \newpar
-In a first iteration a replica of the pdf of \kvn\ in the mini-shrouds is added obtaining
+In a first iteration a replica of the \pdf\ of \kvn\ in the mini-shrouds is added obtaining
 a Bayes factor~$\gg$10. \kvn\ in the Tetratex\reg-coated copper shrouds is added in a
 second iteration with a Bayes factor of 11.  For \kvz\ the only additional component that
 results in a Bayes factor greater than 1 is \kvz\ on the \nplus\ detector contacts.
@@ -798,7 +798,7 @@ background sources, as spectra from different detectors are merged into a single
 
 \blocktitle{extended \\ model}
 The two components \emph{\kvn\ close to the array} and \emph{\kvz\ in LAr above the array}
-are split into 7 sub-components on a string-by-string basis (for the respective pdfs see
+are split into 7 sub-components on a string-by-string basis (for the respective \pdf{}s see
 \cref{apdx:magepdfs}). Furthermore, we consider a \kvn\ contamination on top of the
 central mini-shroud.  The results of this extended analysis are listed in
 \cref{tab:bkg:raw:ph2:kmodel:extended:results}. The reader is referred to
@@ -825,7 +825,7 @@ by setup parts omitted in the model like the PMTs and voltage-dividers of the LA
 system. An upper limit of their \kvn\ content, <330~mBq, was estimated from material
 screening which is similar to the activity reconstructed for the far \kvn\ component. The
 location of the PMTs with respect to the detector array is very similar to the
-Tetratex\reg-coated copper-shrouds and their pdfs are, hence, degenerate.
+Tetratex\reg-coated copper-shrouds and their \pdf{}s are, hence, degenerate.
 
 \begin{table}
   \centering
@@ -922,7 +922,7 @@ correspond to any known \g\ line.
 \blocktitle{potassium}
 The \kvz\ distribution is optimized to best fit the data. In order to disentangle the
 \kvz\ \g\  and \b\ components, the volume inside and outside of the mini-shrouds is
-separated in the pdf construction. Inside the mini-shrouds a homogeneous distribution is
+separated in the \pdf\ construction. Inside the mini-shrouds a homogeneous distribution is
 compatible with the data as well as \kvz\ attached to the detectors contact surfaces. In
 the fit model given here, a possible scenario is chosen where all \kvz\ is located on the
 \nplus\ surfaces. However, we note that \kvz\ on the \pplus\ appears to partly substitute
@@ -943,7 +943,7 @@ cables (in LAr, above the array).
 A large fraction of the contamination with \kvn\ in the setup cannot be accounted for by
 the screened hardware listed in \cref{tab:bkg:raw:ph2:gmodel:results}. We thus add a close
 ($\sim$1~cm) and a far ($\sim$50~cm) \kvn\ component with respect to the detector array
-which are in fact replica of the pdfs for the mini-shrouds and the Tetratex\reg-coated copper
+which are in fact replica of the \pdf{}s for the mini-shrouds and the Tetratex\reg-coated copper
 shrouds. These additional components absorb the excess indicated by the fit, the largest
 part of the reconstructed events in the spectra is attributed to impurities close to the
 array.
@@ -962,7 +962,7 @@ fitting the potassium \g\ lines projected in detector space is presented in full
 
 \blocktitle{\a\ events}
 The \a\ distribution is adjusted to best fit the data. The \Po\ peak at 5.2~MeV is found
-to be best described by a mixture of pdfs obtained assuming different \pplus\ contact
+to be best described by a mixture of \pdf{}s obtained assuming different \pplus\ contact
 thicknesses confirming results of the \phaseone\ background analysis~\cite{Agostini2013a}.
 The empirical linear model which is used to describe \a\ events with degraded energy (see
 \cref{sec:bkg:raw:ph2:amodel}), extends down to \qbb\ and below. For the \enrBEGeII\ data
@@ -1041,7 +1041,7 @@ additionally introduced components far and close to the detector array. The \kvz
 \a-event distributions, as already mentioned, cannot be constrained by screening
 measurements and are adjusted to best fit the data.  The background model is not
 completely free of parameter correlations. As shown in \cref{fig:bkg:raw:ph2:pdfs:gmodel}
-several pdfs of the same source of background located in different structural components
+several \pdf{}s of the same source of background located in different structural components
 are very similar and thus generate correlations. Most of them have been resolved by
 introducing prior distributions based on the screening measurements.  However, a few
 anti-correlations persist which are listed in \cref{tab:bkg:raw:ph2:corr}.
@@ -1069,7 +1069,7 @@ anti-correlations persist which are listed in \cref{tab:bkg:raw:ph2:corr}.
 
 \blocktitle{\kvz}
 For what concerns \kvz\ in the LAr volume outside the mini-shrouds, the adoption of an
-additional pdf for \kvz\ above the detector array is purely motivated by the empirical
+additional \pdf\ for \kvz\ above the detector array is purely motivated by the empirical
 observation of an excess of background events in the top detectors. The prior knowledge is
 indeed limited by the fact that the \kvz\ ions undergo drift due to the electrical fields
 surrounding the detectors and high-voltage cables. Also, due to thermal gradients they can
@@ -1077,11 +1077,11 @@ be displaced by convection. With that considered, the presence of unshielded hig
 cables above the detector array can perhaps explain the excess of \kvz\ observed in this
 region. A more detailed investigation of the \kvz\ distribution in LAr is not pursued any
 further, as the full-range fit is inevitably not sensitive to such effects. A more
-sophisticated Monte Carlo model would in fact not significantly impact the \kvz\ pdfs
+sophisticated Monte Carlo model would in fact not significantly impact the \kvz\ \pdf{}s
 shape. Nevertheless, some considerations are presented in the contest of the
 potassium tracking analysis, which is the only analysis presented here that could shed
 some light on the problem (see \cref{sec:bkg:raw:ph2:kmodel}). Systematic uncertainties on
-the \kvz\ pdf shape can also arise from the model of the partially-active dead layer of
+the \kvz\ \pdf\ shape can also arise from the model of the partially-active dead layer of
 the germanium detectors, which is treated as completely dead (the charge-collection
 efficiency is set to zero throughout all the region between the surface and the full
 charge-collection depth) in this analysis. The \b\ component of the \kvz\ spectrum above
@@ -1189,7 +1189,7 @@ May \yr{2018} and ended in November \yr{2019} after collecting \gexpophasetwopbk
 the background model. In the following, the extension of the full-range energy spectrum
 analysis to this data set is presented.
 
-\blocktitle{data \\ and pdfs}
+\blocktitle{data \\ and \pdf{}s}
 The total \gexpophasetwopbkg\ of single-detector data is divided according to the detector
 type, giving three \Mone\ datasets: \enrBEGeIIp, \enrSCoaxIIp\ and \enrICoaxIIp.
 Two-detector events are grouped in a single data set: \enrGeIIp. As above, their energy is
@@ -1214,7 +1214,7 @@ include the implementation of the new \icoax\ detector geometry, the central fib
 (see also \cref{fig:setup:magevolumes}, \emph{(c)} and \emph{(d)}) the new detector
 arrangement (each holder unit supports only one detector) and the adaption of the
 mini-shroud geometry. The updated \mage\ version is then used to run simulations of
-background and signal contaminations and produce the corresponding pdfs, as described in
+background and signal contaminations and produce the corresponding \pdf{}s, as described in
 \cref{apdx:magepdfs}.
 
 \begin{figure}
@@ -1262,14 +1262,14 @@ software routine is publicly available on GitHub\footnote{\label{footnote:gerda-
   The \texttt{gerda-fitter} software, available at
   \url{https://github.com/gipert/gerda-fitter}, is a Bayesian histogram fitting program
   written in C++ and based on the BAT toolkit \m{v1.0.0}~\cite{Beaujean2018}. It is
-  specialized and tested on the \gerda\ data and pdfs format, but any ROOT histogram can
+  specialized and tested on the \gerda\ data and \pdf{}s format, but any ROOT histogram can
   be provided as input. The analysis is fully configurable in JSON format
   (\url{https://www.json.org}) and does not require writing or compiling C++ code (as one
   would need to do if using BAT directly). The list of features include: customization of
   nearly all the BAT parameters, computation of the Bayesian evidence, \pvalue\
   computation, prior distribution configuration by analytical expression or external
   histogram, variable re-binning and posterior sampling of user-defined observables.
-}. Variable bin sizes are used to represent data and pdfs in the analysis, to speed up the
+}. Variable bin sizes are used to represent data and \pdf{}s in the analysis, to speed up the
 computation. Dedicated, thin bins (depending on the energy resolution) are used for known
 \g\ lines; larger ones (depending on the event rate) for the continuum. The analysis is
 repeated with fixed-size bins (5~keV) to verify the consistency of the results.
@@ -1282,10 +1282,10 @@ events in the full-range fit, only two large bins are used in the high-energy re
 the single-detector event spectra: $[2620, 4500]$~keV and $[4500, 5260]$~keV. In this way,
 no potential bias is introduced, and this last part of the energy range is just used to
 constrain the \a\ event contribution in the \nnbb\ region. The \enrBEGeII\ and \enrCoaxII\
-\a-model pdfs (see \cref{sec:bkg:raw:ph2:amodel}) are re-used for \enrBEGeIIp\ and
-\enrSCoaxIIp, respectively. The \enrBEGeII\ pdf is also arbitrarily used for \enrICoaxIIp,
+\a-model \pdf{}s (see \cref{sec:bkg:raw:ph2:amodel}) are re-used for \enrBEGeIIp\ and
+\enrSCoaxIIp, respectively. The \enrBEGeII\ \pdf\ is also arbitrarily used for \enrICoaxIIp,
 since the corresponding detectors have been introduced in \phasetwop\ for the first time.
-The faithfulness of the pdfs is verified \emph{a posteriori}.
+The faithfulness of the \pdf{}s is verified \emph{a posteriori}.
 \newpar
 Since also the potassium tracking analysis has not been repeated, no prior information is
 used to constrain the potassium activity. Priors are extracted from screening
@@ -1297,10 +1297,10 @@ A first fit model is constructed including all the background components for whi
 distribution is available from material screening measurements. Additionally, based on the
 results for the first data of \phasetwo, two unconstrained \kvn\ fit
 components are added~---~one \emph{close}, on the mini-shrouds and \emph{far}, on the
-outer fiber shroud. As done before, 6 pdfs for \kvz\ are considered: one corresponding to
+outer fiber shroud. As done before, 6 \pdf{}s for \kvz\ are considered: one corresponding to
 a homogeneous distribution in the LAr volume enclosed by the mini-shrouds, one outside and
 one in a cylinder above the array (see \cref{apdx:magepdfs} and
-\cref{sec:bkg:raw:ph2:gmodel}). The other three pdfs correspond to \kvz\ homogeneously
+\cref{sec:bkg:raw:ph2:gmodel}). The other three \pdf{}s correspond to \kvz\ homogeneously
 distributed on the \nplus\ surface of the detectors included in the three \Mone\ data
 sets. A linear function $b_1+b_2x$ is also included for each \Mone\ data set
 separately (6 parameters in total) to account for energy-degraded \a\ events, as also
@@ -1318,14 +1318,14 @@ Data is presented with the variable binning used in the analysis and a fixed-wid
 binning. A close-up in the \onbb\ region of interest is shown in
 \cref{fig:bkg:raw:ph2:results:roi}. In this fit configuration with many fit parameters,
 most of the marginalized posteriors are driven by their respective prior distribution.
-This is expected, given the known correlations between the pdfs and the low count rate of
+This is expected, given the known correlations between the \pdf{}s and the low count rate of
 some background sources. All the marginalized posteriors are compatible with the prior
 information. The additional, special, \kvn\ component close to the detector array still
 reports a non-zero result, while the posterior for \kvn\ far from the array is peaked at
 zero.  Differently from what has been previously obtained in
 \cref{sec:bkg:raw:ph2:gmodel}, the \kvz\ component on the \nplus\ contact of the \bege\
 detectors is now compatible with zero. This is due to the non-null \bege\ detectors
-transition layer model used to obtain the corresponding pdf, which increases the rate of
+transition layer model used to obtain the corresponding \pdf, which increases the rate of
 \b\ events above the 1525~keV peak (see \cref{fig:bkg:raw:ph2:pdfs:gmodel:K42}) and
 decreases the compatibility with experimental data. A summary of the analysis parameter
 estimates, including reconstructed counts in the fit range and background indices in the
@@ -1416,7 +1416,7 @@ before, in the case of \bege\ detectors the shift could be largely due to uncert
 the \nplus\ dead-layer growth speed at room temperature.
 \newpar
 To further investigate the origin of the discrepancy, the full-range analysis is repeated
-with pdfs (for all background sources and \nnbb-decay) that assume the preliminary active
+with \pdf{}s (for all background sources and \nnbb-decay) that assume the preliminary active
 and transition layer model extracted from \Arl\ data, which is described in detail in
 \cref{sec:gedetav:ar39}. A comparison between the latter and the official model is given
 in \cref{fig:gedetav:ar39-results}, and the obtained \thalftwo\ posteriors are shown in
@@ -1445,7 +1445,7 @@ is, in fact, of great interest for the \nnbb\ analysis and the \onbb\ search.
   \includegraphics{plots/bkg/raw/ph2p/results/gmodel/2nbb-posteriors-ar39av.pdf}
   \caption{%
     Marginalized posterior distributions of the \nnbb-decay half-lives reconstructed from
-    the three \enrBEGeIIp, \enrSCoaxIIp\ and \enrICoaxIIp\ data sets separately. The pdfs
+    the three \enrBEGeIIp, \enrSCoaxIIp\ and \enrICoaxIIp\ data sets separately. The \pdf{}s
     in the analysis have been computed with the preliminary detector active volume model
     results obtained from \Arl\ data in \cref{sec:gedetav:ar39}. The systematic shifts
     observed in \cref{fig:bkg:raw:ph2p:gmodel:2nbb-post} are reduced.
@@ -1460,7 +1460,7 @@ set of background components has been identically selected for the two analyses:
 \nnbb-decay for each detector type, \Bil, \Tl, \Pbh, \Bih, and \Co\ on cables, \Ac\ on
 detector holders, \kvn\ close (mini-shrouds) and far (outer fiber shroud) from the array,
 \kvz\ in LAr outside/inside the mini-shrouds, above the array and on the \nplus\ surface
-for each detector type, the \a\ model pdfs and \Zn\ in the \icoax\ detectors.
+for each detector type, the \a\ model \pdf{}s and \Zn\ in the \icoax\ detectors.
 \newpar
 In \cref{fig:bkg:raw:ph2p:comparison} the number of reconstructed counts above the \Arl\
 Q-value (565~keV) for each radioactive source, for each single-detector event data set,
@@ -1537,7 +1537,7 @@ panel.
     presented in \cref{chap:2nbb-ana}, based on data after LAr veto cut.
   \item The full-range analysis of the energy spectrum has been repeated for data
     collected after the \phasetwop\ upgrade. The experimental setup implemented in the
-    Monte Carlo has been updated, and new pdfs have been generated. Compared to the first
+    Monte Carlo has been updated, and new \pdf{}s have been generated. Compared to the first
     part of \phasetwo, the background has not significantly changed as a consequence of
     the upgrade works. A systematic shift between the \nnbb-decay half-life estimates from
     \scoax\ and \icoax\ detectors, from one side, and \bege\ detectors is also observed

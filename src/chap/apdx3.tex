@@ -30,7 +30,7 @@ $r=100$~cm) subsequently divided into the volume enclosed by the mini-shrouds an
 remaining one (outside the mini-shrouds); the second is a cylinder ($h=100$~cm, $r=25$~cm)
 positioned just above the array and the remaining seven are smaller cylinders ($h=20$~cm,
 $r=5$~cm), each one positioned just above each of the seven detector strings. The obtained
-pdfs are used in the full energy range background model and in the potassium tracking
+\pdf{}s are used in the full energy range background model and in the potassium tracking
 analysis
 
 \blocktitle{pdfs}
@@ -39,33 +39,33 @@ functions (pdfs) used to model the \gerda\ data in the statistical analysis. Thi
 procedure includes folding in run-time dependent information, i.e.~the detector status in
 each physics run, the finite energy resolution and threshold of each detector. The
 detector dead-layer model is also applied in this post-processing step, by re-weighting
-energy positions according to their distance from the nearest surface. All pdfs presented
+energy positions according to their distance from the nearest surface. All \pdf{}s presented
 in this work are computed using the run-time parameters of the data sets they refer
-to. A selection of the pdfs projected in energy space and normalized to the number of
+to. A selection of the \pdf{}s projected in energy space and normalized to the number of
 simulated events, is displayed in \cref{fig:bkg:raw:ph2:pdfs:gmodel}.
 \newpar
-For the potassium tracking analysis pdfs binned in detector space are used to model the
-data. The rotationally symmetric single-detector pdfs for the \kvn\ and \kvz\ energy
+For the potassium tracking analysis \pdf{}s binned in detector space are used to model the
+data. The rotationally symmetric single-detector \pdf{}s for the \kvn\ and \kvz\ energy
 windows are shown in \cref{fig:bkg:raw:ph2:pdfs:kmodel:K42} and
 \cref{fig:bkg:raw:ph2:pdfs:kmodel:K40}. For two-detector events the following
 representation style is used: projections of the two-dimensional histograms on their axis
 are summed, such that each two-detector event enters the final histogram twice, in the two
 bins associated to the respective detectors. They can be found in
-\cref{fig:bkg:raw:ph2:pdfs:kmodel:K40} together with the single-detector pdfs of the
+\cref{fig:bkg:raw:ph2:pdfs:kmodel:K40} together with the single-detector \pdf{}s of the
 rotationally asymmetric components.
 \newpar
 Common features can be noticed across the multitude of histogram shapes. The event rate in
 single-detector data is generally higher in coaxial detectors, due to their larger mass
 compared to BEGe detectors --- maximal correlation between event rate and
-detector-by-detector exposure can be found in the \nnbb\ pdf
+detector-by-detector exposure can be found in the \nnbb\ \pdf\
 in~\cref{fig:bkg:raw:ph2:pdfs:kmodel:K42}. This feature is generally lost in the
 two-detector data: the coaxial detectors larger volume allows to stop more efficiently \g\
 particles that would otherwise escape and eventually deposit energy in a second detector.
-Other similarities between different pdfs can be attributed to detectors live-times, like
+Other similarities between different \pdf{}s can be attributed to detectors live-times, like
 in the case of \GD{91C}, which was inactive for a large fraction of the \phasetwo\
 exposure and thus generally registers a low number of counts. The effects of
 asymmetrically distributed background contaminations are easily recognizable in the shape
-of the pdfs. Impurities located above the detector array are mostly seen by the uppermost
+of the \pdf{}s. Impurities located above the detector array are mostly seen by the uppermost
 detectors in each string as can be seen for \kvn\ in the front-end electronics
 in~\cref{fig:bkg:raw:ph2:pdfs:kmodel:K40:M1} and
 in~\cref{fig:bkg:raw:ph2:pdfs:kmodel:K40:M2} and for \kvz\ above each mini-shroud
@@ -78,7 +78,7 @@ mostly evident in a single string, see for example \kvn\ in single mini-shrouds 
 All \a\ decays in the \Ra\ to \Pbl\ sub-chain and from \Po\ are simulated on the \pplus\
 detector surface separately and for different thicknesses of the \pplus\ electrode. The
 \Ra\ chain is simulated together under the assumption that in each \a\ decay half of the
-contamination is lost due to the recoil of the nucleus into the LAr. The resulting pdfs
+contamination is lost due to the recoil of the nucleus into the LAr. The resulting \pdf{}s
 are displayed in~\cref{fig:bkg:raw:ph2:pdfs:amodel:Po} and
 \cref{fig:bkg:raw:ph2:pdfs:amodel:Ra}. The spectra exhibit a peak like structure with a
 pronounced low-energy tail.  The maximum is shifted with respect to the full emission
@@ -110,8 +110,8 @@ before reaching the active detector volume.
   ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K40-sep-M2.pdf}}
 
   \caption{%
-    pdfs binned in detector space for the \kvn\ tracking analysis. 
-    All pdfs are normalized to the number of simulated primary decays.
+    \pdf{}s binned in detector space for the \kvn\ tracking analysis. 
+    All \pdf{}s are normalized to the number of simulated primary decays.
   }\label{fig:bkg:raw:ph2:pdfs:kmodel:K40}
 \end{figure}
 
@@ -137,8 +137,8 @@ before reaching the active detector volume.
   ]{\includegraphics[width=0.48\textwidth]{plots/bkg/raw/ph2/pdfs/kmodel-pdfs-K42-sep-M2.pdf}}
 
   \caption{%
-    pdfs binned in detector space for the \kvz\ tracking analysis. 
-    All pdfs are normalized to the number of simulated primary decays.
+    \pdf{}s binned in detector space for the \kvz\ tracking analysis. 
+    All \pdf{}s are normalized to the number of simulated primary decays.
   }\label{fig:bkg:raw:ph2:pdfs:kmodel:K42}
 \end{figure}
 
@@ -148,7 +148,7 @@ Planck Instutit f\"ur Kernphysik in Heidelberg (Germany), where access to a job 
 a maximum of 200 concurrent jobs per user) and several PB of disk space is granted.
 Managing simulations and their post-processing queue is not a simple
 task when scaling up significantly their number and size. As a reference, the \gerda\
-simulation output saved on disk which is used to produce the background model pdfs amounts
+simulation output saved on disk which is used to produce the background model \pdf{}s amounts
 to about 30~TB of data. Moreover, simulations are split up in small chunks to allow for
 parallelization of the workload and to not exceed the maximum run time per job allowed by
 the job scheduler\footnote{%
@@ -236,26 +236,26 @@ the database can be versioned with Git\footnote{\url{https://git-scm.com}}. Data
 background model simulations are uploaded to
 GitHub\footnote{\url{https://github.com/mppmu/gerda-gems-db}}.
 \newpar
-The simulation post-processing to obtain the background pdfs is also managed with the
+The simulation post-processing to obtain the background \pdf{}s is also managed with the
 cluster job scheduler and dedicated automation software tools\footnote{%
   Available on GitHub at \url{https://github.com/mppmu/gerda-pdfs}.
 }. Each single simulation has to undergo a process pipeline to fold detector parameters
 and run-dependent information into the raw \mage\ output, before being parsed by histogram
-generation routines that write the pdfs to disk. The software utilities interact with the
+generation routines that write the \pdf{}s to disk. The software utilities interact with the
 job scheduler and add the requested or outdated jobs to the queue, based on the set of
 simulations selected by the user. The letter is required to provide a list of simulations
 as input; the software then builds a local replica of the database with symbolic links to
-the corresponding directories in the simulation database and inspects it. The pdf
+the corresponding directories in the simulation database and inspects it. The \pdf\
 production is also configured with JSON files; the detector active volume parameters, the
 energy calibration and all other settings can then be modified by the user without any
-need to recompile the software. The ROOT files with the output pdfs are then distributed
+need to recompile the software. The ROOT files with the output \pdf{}s are then distributed
 to the collaboration.
 \newpar
 The reproducibility of the results is guaranteed in various ways. First, the simulation
-databases and the software are versioned with Git. Once a new pdf release is ready, it is
+databases and the software are versioned with Git. Once a new \pdf\ release is ready, it is
 distributed with a progressive version number, and the software revision is tagged. The
-pdf production configuration files are shipped as part of the pdf release. Lastly, all the
-simulation and pdf production pipeline is run within Singularity~\cite{Kurtzer2017,
+\pdf\ production configuration files are shipped as part of the \pdf\ release. Lastly, all the
+simulation and \pdf\ production pipeline is run within Singularity~\cite{Kurtzer2017,
 Singularity2020} containers.
 
 \section{Optical physics in \mage}%

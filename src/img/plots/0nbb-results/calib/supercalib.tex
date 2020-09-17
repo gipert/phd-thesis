@@ -127,8 +127,8 @@
       legend image post style={black},
     ]
 
-    \addlegendimage{only marks, mark=triangle, fill=white}
-    \addlegendentry{Doppler broad.}
+    % \addlegendimage{only marks, mark=triangle, fill=white}
+    % \addlegendentry{Doppler broad.}
     \addlegendimage{mark=*, mark size=1.3pt, fill=black, opacity=0.4}
     \addlegendentry{fit pre-upgrade}
     \addlegendimage{only marks, mark=diamond, fill=white}
@@ -136,7 +136,7 @@
     \addlegendimage{mark=*, mark size=1.3pt, fill=black}
     \addlegendentry{fit Phase II$^+$}
     \addlegendimage{only marks, mark=o, mark size=1.3pt, fill=white}
-    \addlegendentry{low stat}
+    \addlegendentry{low statistics}
 
     \addplot+[points,   bege] table [x=energy, y=fwhm, y error=fwhmerr, meta=linetype] {EnrBEGe_2-points.csv};
     \addplot+[points1,  bege] table [x=energy, y=fwhm, y error=fwhmerr, meta=linetype] {EnrBEGe-points.csv};

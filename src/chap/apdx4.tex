@@ -3,17 +3,18 @@
 \chapter{\texorpdfstring{Time distribution of \a\ events}{Time distribution of alpha-events}}%
 \label{apdx:timealpha}
 
-The time distribution of \Po\ decays is well known to be exponential, however, in the
-presence of a \Pbl\ contamination a constant contribution can also be observed. \Pbl,
-decaying to \Po, feeds a constant \Po\ component once their decay rates stabilize in a
-secular equilibrium. To disentangle the two we fit the time distribution of events with
-energies between 3.5~MeV and 5.25~MeV with a constant $C$ and an exponential function:
+The time distribution of \Po\ decays is well known to be exponential. In the presence of a
+\Pbl\ contamination, however, an additional constant contribution can also be observed.
+\Pbl, decaying to \Po, feeds a constant \Po\ component once their decay rates stabilize in
+a secular equilibrium. To disentangle the two, a fit of the time distribution of events
+with energies between 3.5~MeV and 5.3~MeV observed in the \gerda\ data is performed, with
+a constant $C$ and an exponential function:
 \[
-  f(t) = C + N \exp\left( - \frac{\log2}{T_{1/2}}t \right)
+  f(t) = C + N \exp\left( - \frac{\log2}{T_{1/2}}t \right) \;,
 \]
-where $T_{1/2}=(138.4\pm0.2)$~days is the half-life of \Po. We use a Poisson likelihood
-function corrected for data acquisition dead time~\cite{Cleveland1983} and model the time
-bin content as follows
+where $T_{1/2}=(138.4\pm0.2)$~days is the half-life of \Po. A Poisson likelihood function
+corrected for data acquisition dead time~\cite{Cleveland1983} is used, in which the bin
+contents are modeled as follows:
 \[
   \nu_i = f_i^{\mathrm{LT}}
   \left\{ C \delta t + N \tau
@@ -21,45 +22,53 @@ bin content as follows
       \exp\left( -\frac{t_0 + i \delta t}{\tau} \right)  -
       \exp\left( -\frac{t_0 + (i+1) \delta t}{\tau} \right)
     \right]
-  \right\}
+  \right\} \;,
 \]
-$C$ and $N$ are the amplitudes of the constant and the exponentially-decaying components
-and are the only two free fit parameters.  $f_i^{\mathrm{LT}}$ is the live-time fraction
-in time-bin $i$ which is estimated from injected test pulser events, $\delta t$ is the
-time-bin width and $\tau = T_{1/2} / \log2$.
-
-The log-likelihood can be written as a sum:
+where $C$ and $N$ are the amplitudes of the constant and the exponentially-decaying
+components respectively and are the only two free fit parameters.  $f_i^{\mathrm{LT}}$ is
+the live-time fraction in time-bin $i$ which is estimated from injected test pulser
+events, $\delta t$ is the time-bin width and $\tau = T_{1/2} / \log2$.
+\newpar
+The log-likelihood can be expressed as a sum:
 \[
   \log \mathcal{L}_\alpha^\text{time}(C,N \,|\, n) =
   \sum_{i=1}^{N_\text{bins}} n_i \cdot
-  \log\nu_i - \nu_i - \log n_i!
+  \log\nu_i - \nu_i - \log n_i! \;.
 \]
-We select only detectors that were ON or in anti-coincidence mode\footnote{%
-  Detectors in anti-coincidence are not well energy-calibrated and generally discarded in
-  data analysis.  Here, we are not interested in the precise energy of an event because
-  the selected energy window is large with respect to a possible mis-calibration.
-} in the full data taking period. In this way we avoid bias due to selection or
-deselection of particularly contaminated detectors. Furthermore, we exclude the initial
-data-taking period between December 2015 to January 2016 from the following analysis
+Only detectors that were ON or in anti-coincidence mode\footnote{%
+  Detectors in anti-coincidence mode are not well energy-calibrated and generally
+  discarded in data analysis. Here, we are not interested in the precise energy of an
+  event because the selected energy window is large with respect to a possible
+  mis-calibration.
+} in the full data taking period have been selected. 27 \bege{}s, 5 \scoax{}s and 4
+\icoax{}s result eligible. In this way, bias due to selection or de-selection of
+particularly contaminated detectors is avoided. Furthermore, the initial data-taking
+period between December \yr{2015} to January \yr{2016} is excluded from the present analysis
 because of detector instabilities after the \phasetwo\ upgrade works. The analyzed data
-span from the end of January 2016 to the end of November 2019 and are split into five data
-sets according to detector type (\bege, \scoax\ and \icoax) and experimental phase
-(\phaseone\ and \phasetwop). The fit results are shown in
-\autoref{fig:bkg:raw:timealpha:results}. For the \bege\ data set we find that about half
-of the initial contamination decays exponentially while for the \scoax\ data set the ratio
-of $N$ to $C$ is about 5 to 1. After several \Po\ half-lives we expect a stable rate of
-$\sim1~\alpha$/day in either data set.
-
-\fillme{comment the results}
+spans the period between the end of January \yr{2016} to the end of November \yr{2019} and
+is split into five data sets according to detector type (\bege, \scoax\ and \icoax) and
+experimental phase (\phaseone\ and \phasetwop).
+\newpar
+The fit results are shown in \autoref{fig:bkg:raw:timealpha:results}. For the \bege\ data
+set, about half of the initial contamination decays exponentially, while for the \scoax\
+data set the ratio of $N$ to $C$ is about 5 to 1. After several \Po\ half-lives a stable
+rate of $\sim1~\upalpha$/day is expected in either data set. A comparison between the fit
+results before and after the \phasetwop\ upgrade demonstrates the achievement in detector
+handling techniques during the upgrade works. As a matter of fact, the constant fit
+component, representing the long-lived \Po\ contamination, is not affected by the manual
+intervention in \yr{2018}. Moreover, the initial level of \Pbl\ is lower at the beginning
+of \phasetwop, compared to the beginning of \phasetwo. The \a-emitter contamination at the
+\icoax\ surface, as one may notice also in \cref{fig:bkg:raw:ph2p:data-desc}, is observed
+to be particularly low.
 
 \begin{figure}
   \centering
   \includegraphics{plots/bkg/raw/ph2/results/amodel/amodel-timealpha.pdf}
   \caption{%
-    \a\ events time distribution in the $[3500,5250]$~keV energy range during the whole
+    \a\ events time distribution in the $[3.5,5.4]$~MeV energy range during the whole
     \phasetwo\ data taking. Each data point correspond to events cumulated in 20~days of
     effective run time. Five data sets are considered: 27 \bege\ detectors in \phasetwo\ and
-    \phasetwop\ (top panel), 7 \scoax\ detectors in \phasetwo\ and \phasetwop, and 4
+    \phasetwop\ (top panel), 5 \scoax\ detectors in \phasetwo\ and \phasetwop, and 4
     \icoax\ detectors in \phasetwop\ (bottom panel). An exponential model is fit to each
     data set and the results are overlaid on the plot.
   }\label{fig:bkg:raw:timealpha:results}

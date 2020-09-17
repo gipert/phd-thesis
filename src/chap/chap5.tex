@@ -12,17 +12,18 @@ have been reviewed in \cref{chap:theory}. The aim of the research presented in t
 chapter is to constrain the presence of these distortions in the \nnbb\ events collected
 by \gerda\ in the first part of \phasetwo, by setting limits on the theoretical model
 parameters that regulate their magnitude. Moreover, a new estimate of the \nnbb\ half-life
-\thalftwo\ will be presented with a reduced systematic uncertainty compared to past
-publications~\cite{Agostini2015a}. To improve the sensitivity of the analysis the data
-after the liquid argon veto cut is considered for the first time. As already shown in
-\cref{sec:bkg:lar:ph2:gmodel}, in fact, the signal-to-background ratio improves by a factor of 10
-in the \nnbb\ energy region after the cut. Furthermore, to reduce the systematic
-uncertainties connected to the detector active volume model, data from enriched
-semi-coaxial detectors is discarded. The low background level (signal-to-background ratio
-of $\sim$20 in the \nnbb\ region excluding the potassium \g\ lines) and the high-statistic
-signal data sample ($\sim$$5 \cdot 10^{4}$~\nnbb\ events above the \Arl\ Q-value,
-see \cref{tab:bkg:lar:ph2:results}) motivates the construction of a high-precision fit
-of the \nnbb\ energy distribution to test the validity of the Standard Model predictions.
+\thalftwo\ will be presented with a significantly reduced systematic uncertainty budget
+compared to previous publications~\cite{Agostini2015a}. To improve the sensitivity of the
+analysis, the data after the liquid argon veto cut is considered for the first time. As
+already shown in \cref{sec:bkg:lar:ph2:gmodel}, in fact, the signal-to-background ratio
+improves by a factor of 10 in the \nnbb\ energy region after the cut. Furthermore, to
+reduce the systematic uncertainties connected to the detector active volume model, data
+from enriched semi-coaxial detectors is discarded. The low background level
+(signal-to-background ratio of $\sim$20 in the \nnbb\ region excluding the potassium \g\
+lines) and the high-statistic signal data sample ($\sim$$5 \cdot 10^{4}$~\nnbb\ events
+above the \Arl\ Q-value, see \cref{tab:bkg:lar:ph2:results}) motivates the construction of
+a high-precision fit of the \nnbb\ energy distribution to test the validity of the
+Standard Model predictions.
 \newpar
 This chapter is divided in three sections: the data selection and the statistical methods
 which are used to study the signal sensitivity and analyze the data set are presented in
@@ -33,7 +34,7 @@ results are finally presented and discussed in \cref{sec:2nbb-ana:results}.
 \section{Statistical analysis}%
 \label{sec:2nbb-ana:stat}
 
-\blocktitle{data and \\ pdfs}
+\blocktitle{data and \\ \pdf{}s}
 The \enrBEGeII\ data set after the LAr veto cut (already characterized in
 \cref{sec:bkg:lar:ph2:data}, see \cref{fig:bkg:lar:ph2:data-desc} (top panel) for the
 energy spectrum) has been considered for this analysis both because of the higher
@@ -44,17 +45,17 @@ signal-to-background ratio in the \nnbb\ region of about 20 (excluding the two p
 The theoretical predictions for signal and background event distributions are obtained, as
 usual, from Monte Carlo simulations through the \mage\ software framework. The LAr veto
 model, which is extensively described in \cref{sec:bkg:lar:ph2:pdfs}, is used to compute
-the LAr veto flag for synthetic events. A selection of pdfs is shown in
-\cref{fig:bkg:lar:ph2:pdfs:gmodel}. The same pdf sample considered in the background model
+the LAr veto flag for synthetic events. A selection of \pdf{}s is shown in
+\cref{fig:bkg:lar:ph2:pdfs:gmodel}. The same \pdf\ sample considered in the background model
 after the LAr veto cut (\cref{sec:bkg:lar:ph2:gmodel}) has been selected to represent the
 background in this analysis. The choice of a reduced set, compared to the background model
 before analysis cuts, is motivated by the fact that the description of the shape of such a
 low background does not benefit from more complex models, from a statistical point of
 view. The goodness-of-fit for the \enrBEGeII\ data set in the \nnbb\ region is,
 indeed, satisfactory (see \cref{fig:bkg:lar:ph2:results-closeup}), and the
-impact of different pdf shapes (e.g.~\Ac\ far or close to the detector array) is assessed
+impact of different \pdf\ shapes (e.g.~\Ac\ far or close to the detector array) is assessed
 in the analysis of the systematic uncertainties. Note that the information from the
-\enrCoaxII\ and \enrGeII\ data sets is also not used in the present analysis.
+\enrCoaxII\ and \enrGeII\ data sets is also not included in the present analysis.
 \newpar
 The likelihood function that brings data and expectations together is the usual Poisson
 likelihood, which runs over the binned \enrBEGeII\ energy spectrum:
@@ -68,9 +69,9 @@ can be decomposed as
 \[
   \nu_i(S, \vec{B})
     = s_i + \sum_k b_{i,k}
-    = S \int_i \text{pdf}_S(E)dE + \sum_k B_k \int_i \text{pdf}_{B_k}(E)dE \;,
+    = S \int_i \text{PDF}_S(E)dE + \sum_k B_k \int_i \text{PDF}_{B_k}(E)dE \;,
 \]
-where $s_i$ and $b_{i,k}$ are the signal (\nnbb\ or other physics) and background
+where $s_i$ and $b_{i,k}$ are the signal (\nnbb\ or new physics) and background
 contribution from component $k$ in bin $i$ and the integrals are defined in the energy
 interval spanned by the bin. $S$ and $B_k$ represent the total number of counts from
 signal and background events in the analysis range, respectively. The parameter of
@@ -78,17 +79,17 @@ interest in this analysis is, of course, $S$, and the $B_k$ are treated as nuisa
 parameters. The relation between number of signal counts $S$ and the corresponding process
 half-life can be expressed as:
 \begin{equation}\label{eq:2nbb-ana:halflife}
-  \thalftwoM = \frac{\mathcal{C}_{76}}{S}\;;\quad
+  \thalftwoM = \mathcal{C}_{76} \frac{1}{S}\;;\quad
     \text{where}\; \mathcal{C}_{76} = \frac{\mathcal{N}_A\, \log2}{M_{76}}
       \left( \sum_i m^\text{tot}_i \, f^\text{AV}_i \, t_i \,
       \epsilon_{\text{c},i} \right) f_{76} \, \epsilon_\text{LAr} \;,
 \end{equation}
-where $\mathcal{N}_A$ is the Avogadro number, $M_{76}$ is the \gesix\ molar mass,
-$m^\text{tot}$ is the total detector mass, $f^\text{AV}$ is the active volume fraction,
-$t$ is the detector live-time, $\epsilon_\text{c}$ is the detector containment
-probability, $\sum_i$ runs over the detectors included in the data set, $f_{76}$ is the
-enrichment fraction and $\epsilon_\text{LAr}$ is the LAr veto survival probability $(97.7
-\pm 0.1)$\%.
+$\mathcal{N}_A$ is the Avogadro number, $M_{76}$ is the \gesix\ molar mass,
+$m^\text{tot}$ is the total detector mass, $f^\text{AV}_i$ is the active volume fraction,
+$t_i$ is the detector live-time, $\epsilon_{\text{c},i}$ is the detector containment
+probability, $\sum_i$ runs over the detectors included in the data set, labeled by index
+$i$, $f_{76}$ is the enrichment fraction and $\epsilon_\text{LAr} = (97.7 \pm 0.1)\%$ is
+the probability for a signal event to survive the LAr veto cut.
 
 \blocktitle{test \\ statistic}
 To test a hypothesized value of $S$ the following profile likelihood ratio is defined:
@@ -104,30 +105,43 @@ estimators. The test statistic is defined as
 where higher values of $t_S$ correspond to increasing incompatibility between the data and
 $S$. It is a known result of the Wilks theorem that the probability distribution of the
 test statistic $t_S$ follows, in the large sample limit, a $\chi^2$ distribution with
-number of degree of freedom given by the number of parameter of interest~\cite{Cowan2011}.
-Since, however, not all the regularity conditions for the Wilks theorem to
-hold~\cite{Algeri2020} are satisfied in this analysis, deviations from the $\chi^2$
-distribution are expected \fillme{details?}. Therefore, the $t_S$ distribution is computed
-from Monte Carlo toy experiments, in which synthetic energy spectra are generated from the
+number of degrees of freedom given by the number of parameter of
+interest~\cite{Cowan2011}.  Since, however, not all the regularity conditions for the
+Wilks theorem to hold~\cite{Algeri2020} are satisfied in this analysis, deviations from
+the $\chi^2$ distribution are expected. Therefore, the $t_S$ distribution is computed from
+Monte Carlo toy experiments, in which synthetic energy spectra are generated from the
 background model results (\cref{sec:bkg:lar:ph2:gmodel}). For each signal hypothesis,
-$10^6$ toy data sets are generated and an histogram is filled with the corresponding
-values of $t_S$. The results are shown in \cref{fig:2nbb-ana:ts-dist}. A small deviation
-from the $\chi^2$ distribution for 1 degree of freedom (left panel, in red) is observed
-for the standard \nnbb\ hypothesis at high values of the test statistic. In the analysis
-all the fit parameters are constrained to be positive. In the case of new physics
-hypotheses, where the maximum likelihood estimator of $S$ is close to zero, this
-assumption modifies the distribution of the test statistic (right panel). In the large
-sample limit it is expected to be well approximated by a half-$\chi^2$ distribution~---~a
-sum of a delta function at zero and a $\chi^2$ distribution for one degree of
-freedom~\cite{Cowan2011}.
+$10^4$ toy data sets are generated and an histogram is filled with the corresponding
+values of $t_S$. Examples for the standard \nnbb\ signal hypothesis and new-physics
+null hypotheses are shown in \cref{fig:2nbb-ana:ts-dist}. Deviations from the $\chi^2$
+distribution for 1 degree of freedom (left panel) are observed for the standard \nnbb\
+hypothesis. In the analysis all the fit parameters are constrained to be positive. In the
+case of new physics hypotheses, where the maximum likelihood estimator of $S$ is close to
+zero, this assumption modifies the distribution of the test statistic (right panel). In
+the large sample limit it is expected to be well approximated by a half-$\chi^2$
+distribution~---~a sum of a delta function at zero and a $\chi^2$ distribution for one
+degree of freedom~\cite{Cowan2011}.
+\newpar
+The \pvalue\ of an observed value of the test statistic $t_S^\text{obs}$ under the signal
+hypothesis $S$ is used to quantify the level of disagreement between the data and the
+hypothesis:
+\[
+  p = \int_{t_S^\text{obs}}^\infty f(t_S | S) dt_S \;.
+\]
+In particular, a map between the observed $t_S^\text{obs}$ and the signal level $S$
+corresponding to a certain confidence region (e.g.~68\% C.L.~or $p=0.32$) can be computed
+using the above equation.
 
 \begin{figure}
   \centering
   \includegraphics{plots/2nbb-ana/2nbb-teststat.pdf}
   \caption{%
-    Distribution of the test statistic for various signal hypothesis sampled with Monte
-    Carlo methods. The \pvalue\ as a function of the test statistic value, used to extract
-    experimental limits on the signals, is shown in the rightmost panel. \fillme{Update}
+    Sampling distribution of the test statistic for various signal hypothesis sampled with
+    Monte Carlo methods. On the left: the standard \nnbb\ case. A signal of $S \sim 4.5
+    \cdot 10^5$ counts in the analysis range is assumed in the toy experiments. On the
+    right: sampling distributions for the null hypothesis on new-physics signals.
+    Deviations from the Wilks theorem predictions are observed. Bayesian blocks have been
+    used to represent the histograms (see \cref{apdx:bayesblocks}). \fillme{add LV}
   }\label{fig:2nbb-ana:ts-dist}
 \end{figure}
 
@@ -137,19 +151,19 @@ significance, assuming data generated according to the zero-signal (null) hypoth
 which one rejects the signal hypothesis~\cite{Cowan2011}. To compute the sensitivity the
 distributions $f(t_S|S)$ and $f(t_S|0)$ are needed. For a discrete set of hypothesis on
 the signal $S$, the two distributions are obtained with Toy Monte Carlo and the median
-\pvalue\ assuming the null hypothesis is computed. In \cref{fig:2nbb-ana:ts-dist} the median
-\pvalue\ as a function of $S$, for all the considered processes is plotted. The sensitivity for 90\%
+\pvalue\ assuming the null hypothesis is computed. In \cref{?} the median \pvalue\ as a
+function of $S$, for all the considered processes is plotted. The sensitivity for 90\%
 C.L.~limit setting corresponds to the value of $S$ for which the median \pvalue\ is $0.1$.
 In \cref{tab:2nbb-ana:sensitivity} the sensitivities to the half-lives of the investigated
 processes are reported.
 
 \blocktitle{fit range \\ and \\ binning}
-The fit range is chosen with the purpose of maximizing the signal-to-background ratio and
-the signal sensitivity. It starts from the \Arl\ Q-value at 565~keV and stops at the
-\nnbb\ Q-value (2039~keV). The \Arl\ background, as a matter of fact, is still dominant
-after the LAr veto cut and reduces the signal-to-background ratio to less than 1 in its
-energy domain. On the other hand, extending the fit range above the \nnbb\ Q-value does
-not improve the signal sensitivity.
+The fit range is chosen in order to maximize the signal-to-background ratio and the
+sensitivity. It starts from the \Arl\ Q-value at 565~keV and stops at the \nnbb\ Q-value
+(2039~keV). The \Arl\ background, as a matter of fact, is still dominant after the LAr
+veto cut and reduces the signal-to-background ratio to less than 1 in its energy domain.
+On the other hand, extending the fit range above the \nnbb\ Q-value does not improve the
+signal sensitivity.
 \newpar
 A 5~keV binning, given the energy resolution of the \enrBEGeII\ data set, does not
 remove physical features in the spectrum and is large enough to avoid effects due to
@@ -189,11 +203,11 @@ systematically to the final analysis uncertainty (both for the \nnbb\ half-life 
 new-physics limits) must be considered. Until now, the test statistics studies have been
 considering only the effect of Poisson fluctuations in the bin contents, as the generative
 model for the toy data sets was fixed. A way to include systematic model uncertainties
-when sampling the test statistic distribution is to sample the generative pdf from a set
+when sampling the test statistic distribution is to sample the generative \pdf\ from a set
 of `alternative' models according to a certain probability distribution. This is
 conceptually equivalent to fitting the data with `wrong' models that assume the presence
 of a systematic distortion of the best model. As instance, alternative transition layer
-or LAr veto models induce coherent distortions in all background and signal pdfs, which
+or LAr veto models induce coherent distortions in all background and signal \pdf{}s, which
 must be taken into account when generating the toy data sets.
 \newpar
 This way of treating systematic uncertainties is formalized as a \emph{hybrid
@@ -212,16 +226,16 @@ software that implements this approach for the \nnbb\ analysis is implemented in
   \url{https://github.com/gipert/gerda-factory}, Is implemented in C++ and externally
   depends only on the ROOT libraries for the histogram utilities. The program input is
   specified in JSON format. First, a reference model (in the form of a linear combination
-  of histograms, i.e.~the signal pdf, the background pdfs etc.) is set, then the program
-  is fed with alternative pdf shapes (histograms) for each of the model components. These
+  of histograms, i.e.~the signal \pdf, the background \pdf{}s etc.) is set, then the program
+  is fed with alternative \pdf\ shapes (histograms) for each of the model components. These
   are grouped according to the source of systematic uncertainty they represent: they can
   be provided for all components at the same time (global distortions) or for selected
-  pdfs (specific distortions). The program then computes and stores distortion curves
-  ($\text{pdf}_\text{orig}/\text{pdf}_\text{dist}$) for each alternative pdf shape. At run
+  \pdf{}s (specific distortions). The program then computes and stores distortion curves
+  ($\text{pdf}_\text{orig}/\text{pdf}_\text{dist}$) for each alternative \pdf\ shape. At run
   time, a distortion curve is randomly selected from each group and applied to the
   reference model; a random data set is then drawn from the obtained model. The procedure
   is repeated in order to generate the required number of randomly-distorted synthetic
-  data sets. Optionally, as the alternative pdf shapes are discrete, the program can be
+  data sets. Optionally, as the alternative \pdf\ shapes are discrete, the program can be
   instructed to consider intermediate distortion curves by interpolation.
 }. In the following, the main sources of systematic uncertainties impacting the \nnbb\
 analysis are discussed.
@@ -232,7 +246,7 @@ analysis are discussed.
   \caption{%
     Effect of alternative LAr veto models (right) and transition layer models (left) on
     \kvn\ (signal and high-voltage cables), \kvz\ (homogeneous in the LAr) and \nnbb\
-    pdfs for the \enrBEGeII\ data set after the LAr veto cut. See text for details on how
+    \pdf{}s for the \enrBEGeII\ data set after the LAr veto cut. See text for details on how
     the alternative models have been constructed.
   }\label{fig:2nbb-ana:pdf-dist}
 \end{figure}
@@ -319,12 +333,12 @@ analysis are discussed.
       option has not been explored.
     }.
     \newpar
-    A set of alternative background pdf shapes has been generated with power-law distorted
+    A set of alternative background \pdf\ shapes has been generated with power-law distorted
     maps, varying $a$ from 0.5 to 1.5 in steps of 0.1. The effects on the energy
     spectra of \kvn\ on cables and \kvz\ in LAr have been reported in
     \cref{fig:2nbb-ana:pdf-dist} (left panel), as an example. As it is clear, the
     distortion strongly depends on the energy and the type (Compton scattering, full
-    absorption) of the event. All these alternative pdfs have been considered in the
+    absorption) of the event. All these alternative \pdf{}s have been considered in the
     determination of the distribution of the test statistics, with a flat prior. The
     contribution of LAr veto model uncertainty to the total count is \fillme{?}\%.
 
@@ -346,7 +360,7 @@ analysis are discussed.
     been estimated for \bege\ detectors up to a certain accuracy during a dedicated
     characterization campaign~\cite{Agostini2015e, Agostini2019}. The enriched active
     volume determines the total amount of detected \nnbb\ counts, and it is therefore not
-    expected to produce distortions in the shape of the pdfs. Its effect must be
+    expected to produce distortions in the shape of the \pdf{}s. Its effect must be
     considered in the conversion of the number of signal counts to the corresponding
     process half-life.  Since three independent estimates of the \bege\ enrichment
     fraction ($f_{76}$ in \cref{eq:2nbb-ana:halflife}) are available\cite{Agostini2015e},
@@ -387,18 +401,18 @@ analysis are discussed.
     analysis, an independent analysis of the \Th\ full-energy-peak lower tail from
     calibration data has been performed and documented in detail in
     \cref{sec:gedetav:calib-optim}. A best-fit value of the dead-layer fraction with
-    statistical uncertainty has been obtained for each detector. Pdfs for signal and
+    statistical uncertainty has been obtained for each detector. \pdf{}s for signal and
     background sources corresponding to the best-fit values $\pm1\sigma$, $\pm2\sigma$ and
     $\pm5\sigma$ ($\sigma$ denotes the statistical uncertainty) have been produced and
     reported in \cref{fig:2nbb-ana:pdf-dist} (right panel) for \kvn, \kvz\ and \nnbb\ in
-    the \enrBEGeII\ data set. The pdf distortions are noticeably lower than those induced
+    the \enrBEGeII\ data set. The \pdf\ distortions are noticeably lower than those induced
     by the LAr veto model uncertainties, and contribute with less than 1\% to the total
     \thalftwo\ systematic uncertainty count.
 
   \item[Background model] The uncertainty on the location of the main background sources
-    is treated as a systematic uncertainty source in the analysis. Pdfs for the same
+    is treated as a systematic uncertainty source in the analysis. \pdf{}s for the same
     radioactive contamination in different locations are provided as an alternative to the
-    reference model pdf. In the following table the alternative locations selected for the
+    reference model \pdf. In the following table the alternative locations selected for the
     evaluation of the systematic contribution are listed for each fit model component (the
     reference location in \emph{italic}):
     \begin{center}
@@ -415,7 +429,7 @@ analysis are discussed.
         % \bottomrule
       \end{tabular}
     \end{center}
-    Some of these pdfs are shown in \cref{fig:bkg:lar:ph2:pdfs:gmodel}. The contribution
+    Some of these \pdf{}s are shown in \cref{fig:bkg:lar:ph2:pdfs:gmodel}. The contribution
     of background modeling-related uncertainties to the total count amounts to
     \fillme{?}\%.
 
@@ -427,8 +441,8 @@ analysis are discussed.
     past~\cite{Agostini2015a, Agostini2013c} the systematic uncertainty contribution
     arising from the decay theoretical description has been evaluated by considering the
     \nnbb\ distribution obtained with the Primakoff-Rosen
-    approximation~\cite{Primakoff1959} as an alternative. The comparison resulted in a
-    <1\% effect\footnote{%
+    approximation~\cite{Primakoff1959} as an alternative. The comparison resulted in
+    a~$<1$\% effect\footnote{%
       There is, however, no guarantee that the impact on the current analysis is at the
       same, second-order, level. The lower background and higher statistics compared to
       the \phaseone\ data set makes a re-evaluation of this systematic contribution
@@ -451,12 +465,12 @@ analysis are discussed.
     (\mage) and the implementation of the physics processes (particle generation and
     propagation) in \geant. Starting from the first point, uncertainties in the dimension
     and position of the implemented setup components are potentially present in \mage, and
-    could in principle affect the shape of the signal and background pdfs. Because of the
+    could in principle affect the shape of the signal and background \pdf{}s. Because of the
     point-like topology of the \nnbb\ decay and uniformity of the \gesix\ isotopic
-    fraction, its pdf is expected to depend on the total detector volume and active volume
+    fraction, its \pdf\ is expected to depend on the total detector volume and active volume
     model, rather than the exact dimensions or location. The effect of this type of
     uncertainty source has been already investigated above. On the other hand, the shape
-    of the background pdfs is expected to depend more on the details of the geometrical
+    of the background \pdf{}s is expected to depend more on the details of the geometrical
     implementation. This kind of effect, however, is partly similar to (and certainly less
     intense than) the one produced by background model-related uncertainties (see above).
     Moreover, given the modest size of the background sample, it is expected to contribute
@@ -469,7 +483,7 @@ analysis are discussed.
     (i.e.~cross sections and decay widths). To test this eventuality, the full simulation
     chain has been re-run with different electromagnetic low-energy process models
     available in \geant\ (\texttt{Livermore} is the default, alternatives are
-    \texttt{Penelope} and \texttt{Standard\_opt3}). The pdfs are observed to change at the
+    \texttt{Penelope} and \texttt{Standard\_opt3}). The \pdf{}s are observed to change at the
     sub-percent level, and the associated contribution to the systematic uncertainty is
     negligible\footnote{%
       In support of this conclusion, the reader is referred to the official \geant\
@@ -491,9 +505,13 @@ analysis are discussed.
   \centering
   \includegraphics{plots/2nbb-ana/2nbb-teststat-sys.pdf}
   \caption{%
-    Distribution of the test statistic for various signal hypothesis sampled with Monte
-    Carlo methods. Compared to \cref{fig:2nbb-ana:ts-dist}, the effect of systematic
-    uncertainties is included. \fillme{Update, reference in text}
+    Sampling distribution of the test statistic for various signal hypothesis sampled with
+    Monte Carlo methods, including the effect of systematic uncertainties. On the left:
+    the standard \nnbb\ case. A signal of $S \sim 4.5 \cdot 10^5$ counts in the analysis
+    range is assumed in the toy experiments. On the right: sampling distributions for the
+    null hypothesis on new-physics signals.  Deviations from the Wilks theorem predictions
+    are observed. Bayesian blocks have been used to represent the histograms (see
+    \cref{apdx:bayesblocks}). \fillme{add LV}
   }\label{fig:2nbb-ana:ts-dist-sys}
 \end{figure}
 
@@ -501,6 +519,8 @@ analysis are discussed.
   \centering
   \caption{%
     Summary of the systematic uncertainties affecting the \nnbb\ distribution analysis.
+    For brevity, only results for the ordinary \nnbb\ half-life estimate and the \onbbx\
+    ($n=1$) 90\% C.L.~lower limit are reported.
     \fillme{numbers}
   }\label{tab:2nbb-ana:systematics}
   \input{tab/2nbb-ana/systematics.tex}
@@ -538,16 +558,17 @@ in~\cite{Nitescu2020}:
   \aofM \in [-0, 0] \cdot 10^{-5}~\text{GeV} \;.
 \]
 
-\fillme{more comments, compare with previous estimates}
+\fillme{more comments, compare with previous estimates and competing experiments}
 
 \begin{table}
   \centering
   \caption{%
     90\% C.L.~lower limits for Majoron-emitting \onbb\ modes contributing to the \nnbb\
-    event distribution. Nuclear matrix elements for $n=1$ are the same as the standard
-    \onbb, and have been therefore selected from the most recent nuclear calculations.
-    Matrix elements for the other decay modes have been taken from~\cite{Hirsch1995}.
-    Phase space factors have been taken from~\cite{Kotila2015}. \fillme{numbers}
+    event distribution. Nuclear matrix elements for spectral index $n=1$ are the same as
+    the standard \onbb, and have been therefore selected from the most recent nuclear
+    calculations.  Matrix elements for the other decay modes have been taken
+    from~\cite{Hirsch1995}.  Phase space factors have been taken from~\cite{Kotila2015}.
+    \fillme{numbers}
   }\label{tab:2nbb-ana:onbbx:limits}
   \input{tab/2nbb-ana/limits-onbbx.tex}
 \end{table}
@@ -574,7 +595,7 @@ in~\cite{Nitescu2020}:
   \item Various sources of systematic uncertainties are considered in the computation of
     the test statistic distribution by introducing distortions of the reference model of
     the Monte Carlo toy data sets. Various alternative LAr veto models and detector
-    transition layer models are used to produce the background and signal pdfs, but their
+    transition layer models are used to produce the background and signal \pdf{}s, but their
     effect on the test statistic distribution is of the order of 1\% or less. The main
     source of systematic uncertainty remains the detector active volume estimation, which
     contributes with \fillme{?}\% to the total uncertainty count.

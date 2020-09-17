@@ -54,20 +54,21 @@ for a total amount of 21.3~kg of germanium. \phaseone\ ended in June \yr{2013} w
 exposure of 21.6~\kgyr\ and a background index in the region of interest of
 \pIbi~\cite{Agostini2016}.  Shortly after, the upgrade works for \gerda\ \phasetwo\ started:
 a new event veto system based on the LAr scintillation light was installed along with an
-additional 20~kg of \bege-type detectors.  The newly designed veto system set the stage for a
-significant reduction of the background index down to the \powctsper{-4} scale, allowing
-\gerda\ to seamlessly run in background-free conditions for its full second experimental phase
-and surpass the \powtenyr{26} sensitivity threshold in April \yr{2018}~\cite{Agostini2019a}.
-Data taking was then stopped again to permit a third hardware upgrade, during which
-another 9.6~kg of enriched germanium in the form of five inverted-coaxial geometry
-detectors was deployed\footnote{Note, however, that a semi-coaxial detector (\ANG{1}) and
-the natural \GTF{} detectors were removed.}. Moreover, the LAr veto system was exchanged
-with a more efficient one featuring a denser fiber curtain and an additional shroud
-enclosing the central string, now consisting of inverted-coaxial detectors only. This last
-part of \phasetwo, which will be referred as \phasetwop\ in the following, ended in
-November \yr{2019} after collecting the total exposure of \gexpo\ and
-setting the final \gerda\ lower limit at 90\% C.L.~on the neutrinoless double-beta decay half-life
-of \gerdafinallimit. In the following, when generally referring to the \phasetwo\ period,
+additional 20~kg of \bege-type detectors.  The new detector types together with the
+re-designed veto system set the stage for a significant reduction of the background index
+down to the \powctsper{-4} scale, allowing \gerda\ to seamlessly run in background-free
+conditions for its full second experimental phase and surpass the \powtenyr{26}
+sensitivity threshold in April \yr{2018}~\cite{Agostini2019a}.  Data taking was then
+stopped again to permit a third hardware upgrade, during which another 9.6~kg of enriched
+germanium in the form of five inverted-coaxial geometry detectors was
+deployed\footnote{Note, however, that a semi-coaxial detector (\ANG{1}) and the natural
+\GTF{} detectors were removed.}. Moreover, the LAr veto system was exchanged with a more
+efficient one featuring a denser fiber curtain and an additional shroud enclosing the
+central string, now consisting of inverted-coaxial detectors only. This last part of
+\phasetwo, which will be referred as \phasetwop\ in the following, ended in November
+\yr{2019} after collecting the total exposure of \gexpo\ and setting the final \gerda\
+lower limit at 90\% C.L.~on the neutrinoless double-beta decay half-life of
+\gerdafinallimit. In the following, when generally referring to the \phasetwo\ period,
 \phasetwop\ is considered as implicitly included.
 \begin{figure}
   \centering
@@ -125,7 +126,7 @@ together with a picture taken from the outside.
   \centering
   \includegraphics[width=\textwidth]{setup/gerda-overview.pdf}
   \caption{%
-    On the right: artist view of the \gerda\ experimental setup. On the left: a picture of
+    On the right: artist view of the \gerda\ experimental setup. On the left: a picture
     taken during the inauguration in November 2010. The experiment, installed in hall A of
     the Laboratori Nazionali del Gran Sasso in Italy, deploys an array of germanium detectors
     enriched in \gesix\ bare in liquid argon, together with a liquid argon scintillation
@@ -323,9 +324,10 @@ reader is referred to~\cite{Mingazheva2019, Miloradovic2020, Agostini2021c} for 
 description of the \gerda\ calibration system.
 
 \blocktitle{data \\ acquisition}
-A FADC system records traces from germanium detectors (40), PMTs (16) and SiPMs (15) of
-the LAr veto, PMTs and scintillating panels of the muon veto when an energy deposition
-greater than about 100~keV occurs in at least one of the germanium detectors\footnote{%
+A FADC system (SIS 3301 Struck) records traces from germanium detectors (40), PMTs (16)
+and SiPMs (15) of the LAr veto, PMTs and scintillating panels of the muon veto when an
+energy deposition greater than about 100~keV occurs in at least one of the germanium
+detectors\footnote{%
   The exact trigger threshold is detector- and run-dependent and varies between 20~keV and
   200~keV.
 }. Besides of real physical triggers, two special artificial events are recorded
@@ -490,7 +492,7 @@ and accounts for possible electronic crosstalk effects between channels. Trigger
 detectors, independently on the status of the energy calibration\footnote{%
   During data taking, the status of a detector can be either `on' (fully operational),
   `off' (high-voltage switched off because of significant hardware instabilities like
-  leakage current, etc.) or `anti-coincidence'. The latter is set when the detector if
+  leakage current, etc.) or `anti-coincidence'. The latter is set when the detector is
   functional but unstable from the point of view of the performance, e.g.~when significant
   drifts are noticed in the energy of the test pulser events. The detector can be
   therefore reliably used only for anti-coincidence studies.
@@ -542,16 +544,16 @@ of their energy before reaching the active volume and contribute to the backgrou
 ROI.
 \newpar
 To mitigate all these background sources, pulse-shape discrimination (PSD) techniques were
-developed separately for \bege, inverted-coaxial (\icoax) and semi-coaxial (\scoax)
-detectors separately, to be applied after the LAr veto cut. For the first class a simple
-univariate cut was sufficient, while for the latter two techniques were worked out, one
-based on neural networks and one on the analysis of the rise time of the pulses.  In order
-to avoid systematic effects calibration, training and evaluation of the PSD methods should
-be performed on pulses with energies close to these of the expected signal at \qbb.  In
-practice, appropriate event sets are extracted from the weekly \Th\ calibration spectra.
-The PSD methods applied to the \gerda\ data are briefly outlined in the following. The
-interested reader is referred to~\cite{Agostini2021a} for a detailed treatment of the
-topic.
+developed for \bege\ and inverted-coaxial (\icoax) from one side, and semi-coaxial
+(\scoax) from the other, to be applied after the LAr veto cut. For the first class a
+simple univariate cut was sufficient, while for the latter two techniques were worked out,
+one based on neural networks and one on the analysis of the rise time of the pulses.  In
+order to avoid systematic effects calibration, training and evaluation of the PSD methods
+should be performed on pulses with energies close to these of the expected signal at \qbb.
+In practice, appropriate event sets are extracted from the weekly \Th\ calibration
+spectra.  The PSD methods applied to the \gerda\ data are briefly outlined in the
+following. The interested reader is referred to~\cite{Agostini2021a} for a detailed
+treatment of the topic.
 
 \blocktitle{PSD for \\ \bege{}s and \\ \icoax{}s}
 PSD for point-contact detectors (\bege\ and \icoax) is based on the \aoe\ ratio, where $A$
@@ -609,21 +611,21 @@ classifier cut threshold is then fixed to a 90\% survival probability for the \T
 and the cut signal efficiency is calculated from Monte Carlo simulations of \onbb-decay
 events. The obtained \annmse\ signal survival fraction is $(82.2 \pm 3.7)$\%.
 \newpar
-\a-induced events on the \pplus\ electrode surface are rejected by a separate method based
-on the analysis of the pulses rise time (RT). These events are generally characterized by
-a fast collection time, and their charge collection might be delayed or partial, if
-originated in the proximity of the groove. The RT cut exploits the fast rise time of these
-\a\ events and is therefore equivalent to a volume cut, which excludes the surfaces
-vulnerable to the \a-induced events. The rise time is defined as the time the waveform
-needs to reach from 10\% to 90\% of its amplitude. The RT-cut threshold is defined to
-maximize the \onbb\ survival fraction and to minimize the signal-to-noise ratio at the
-same time through the definition of a figure of merit defined as the product of the \nnbb\
-signal survival square-probability and the \a-events rejection probability. The \nnbb\ and
-\a-event test samples are obtained from physics data by selecting data in the $[1.0,
-1.3]$~MeV and $>3.5$~MeV energy regions, respectively, after \annmse\ and LAr veto cuts.
-The \onbb-signal efficiency of the RT cut is assumed to be the same as for the \nnbb\
-decays and hence estimated to 82.3\%, with an uncertainty of the order of
-1\%~\cite{Lazzaro2019}.
+\a-induced events on the \pplus\ electrode surface are not completely rejected by the
+\annmse\ method. Therefore, a new method based on the analysis of the pulses rise time
+(RT) was developed. These events are generally characterized by a fast collection time,
+and their charge collection might be delayed or partial, if originated in the proximity of
+the groove. The RT cut exploits the fast rise time of these \a\ events and is therefore
+equivalent to a volume cut, which excludes the surfaces vulnerable to the \a-induced
+events. The rise time is defined as the time the waveform needs to reach from 10\% to 90\%
+of its amplitude. The RT-cut threshold is defined to maximize the \onbb\ survival fraction
+and to minimize the signal-to-noise ratio at the same time through the definition of a
+figure of merit defined as the product of the \nnbb\ signal survival square-probability
+and the \a-events rejection probability. The \nnbb\ and \a-event test samples are obtained
+from physics data by selecting data in the $[1.0, 1.3]$~MeV and $>3.5$~MeV energy regions,
+respectively, after \annmse\ and LAr veto cuts.  The \onbb-signal efficiency of the RT cut
+is assumed to be the same as for the \nnbb\ decays and hence estimated to 82.3\%, with an
+uncertainty of the order of 1\%~\cite{Lazzaro2019}.
 
 \blocktitle{\deltae\ cut}
 Events featuring slow charge collection might suffer from ballistic deficit in the ZAC
@@ -631,7 +633,7 @@ energy reconstruction~\cite{Agostini2015} and survive the PSD cuts, especially i
 semi-coaxial detectors. Therefore an additional rejection criteria is applied based on the
 energy reconstructed with different integration times. The figure of merit for such a cut
 is the ratio between the energy of an event reconstructed with a short (4~\mus)
-integration time $E_\text{s}$ and the energy reconstructed with a long (20~\mus)
+integration time $E_\text{s}$ and the energy reconstructed with a long (10~\mus)
 integration time $E_\text{l}$. The energy here is reconstructed using a gaussian-shaping
 filter, which has been the default \gerda\ energy reconstruction method for \phaseone.
 Ballistic deficit is observed to reduce this ratio, therefore the \deltae\ classifier is
@@ -689,8 +691,7 @@ data are given.
     full-energy peak at 1621~keV are highlighted. Bottom panel: extracted peak widths
     (FWHM) and fitted calibration curves for pre- and post-upgrade data separately. Points
     represented by empty markers are excluded from the fit because of additional effects
-    that contribute to the width. Triangles label peaks broadened by the Doppler effect
-    \fillme{ref?}, diamonds label summation peaks.
+    that contribute to the width. Diamonds label summation peaks.
   }\label{fig:gerda:calib-desc}
 \end{figure}
 
@@ -709,11 +710,11 @@ can be exploited to identify certain \g\ lines and calibrate the energy scale of
 detector with their known position in terms of energy. Additionally, the resolution of a
 detector can be determined from the width of the \g\ lines. Once the positions and the
 widths of the \g\ lines in an energy spectrum is determined by modeling the peaks with a
-suitable analytical function, an function interpolation is performed to obtain the energy
+suitable analytical function, a function interpolation is performed to obtain the energy
 calibration and resolution at other energies. Once these two curves are determined for a
 given calibration, they are assumed to be valid until the next one. This validity is
 constantly monitored by evaluating the shift of the pulser event energy over time with
-respect to its value right after a calibration. Time periods in which in which a detector
+respect to its value right after a calibration. Time periods in which a detector
 shows deviations from its calibration above a certain threshold are removed from the final
 analysis in order to meet the stringent requirements for the \onbb\ analysis in terms of
 uncertainties on the energy scale and resolution. Fluctuations below this threshold are
@@ -773,7 +774,7 @@ effectiveness of the improved fiber instrumentation installed for \phasetwop. \k
 events, which are characterized by a single \g\ emission at 1461~keV and typically do not
 deposit energy in LAr, show a high survival fraction of about 98\%, but cannot enter the
 ROI at 2039~keV and are therefore of minor concern. \a\ events that dominate the energy
-spectrum at higher energies cannot be vetoed but the LAr instrumentation and still
+spectrum at higher energies cannot be vetoed by the LAr instrumentation and still
 constitute a major background at \qbb.
 \newpar
 PSD data versus energy is showed in \cref{fig:gerda:psd-on-data} subdivided according to
@@ -787,7 +788,7 @@ data points correspond to events that survive the PSD cut.
   \includegraphics[width=0.9\textwidth]{plots/0nbb-results/G2006_all_psd0.png}%
   \caption{%
     The four pulse shape discrimination techniques applied on the final \gerda\ \phasetwo\
-    data set. From top t0 bottom: the \aoe\ cut, the \annmse\ cut, the
+    data set. From top to bottom: the \aoe\ cut, the \annmse\ cut, the
     rise-time cut and the \deltae\ cut. Note that, being the \deltae\ cut
     highly-correlated with \aoe\ in \bege\ and \icoax\ detectors, its direct application
     on data after the LAr veto cut results in a high cut efficiency. If applied after all
@@ -900,8 +901,8 @@ region ($\qbbM \pm 2\sigma$) is in fact 0.3.
 \newpar
 The statistical analysis is carried out also within a Bayesian framework. The
 one-dimensional posterior probability density function $P(S|\text{data})$ of the signal
-strength is derived by marginalizing over the other free parameters. the calculation is
-performed via a Markov chain Monte Carlo (MCMC) numerical integration osing the Bayesian
+strength is derived by marginalizing over the other free parameters. The calculation is
+performed via a Markov chain Monte Carlo (MCMC) numerical integration using the Bayesian
 analysis toolkit BAT~\cite{Caldwell2008}. The prior distribution for $S$ is assumed to be
 constant between 0 and $10^{-24}$~yr$^{-1}$, as in the previous \gerda\ releases. The
 limit on the half-life is $\thalfzeroM > 1.4 \cdot 10^{26}$~yr (90\% C.I.). Other choices
@@ -926,7 +927,7 @@ sensitivity and the most stringent half-life constraint of the entire field.
 The \thalfzero\ limit can be converted into an upper limit on the effective Majorana mass
 \mbb\ under the assumption that the decay dominated by the exchange of light Majorana
 neutrinos. Assuming a standard value of $g_A = 1.27$, the phase space factors and the set
-of most recent nuclear matrix elements calculations, a limit of $m_{\upbeta\upbeta} = 80 -
+of most recent nuclear matrix elements calculations, a limit of $m_{\upbeta\upbeta} = 79 -
 182$~meV is obtained, which is comparable to the most stringent constraints coming from
 other isotopes~\cite{Anton2019, Gando2016, Adams2019}. \gerda\ has been a pioneering
 experiment in the search for \onbb\ decay.  In about a decade, \gerda\ improved the
@@ -947,7 +948,7 @@ collaboration.
     scheme by removing events in the region of interest from the primary data stream.
     These events are analyzed after the analysis procedures are fixed.
   \item Several background reduction techniques have been worked out to achieve a
-    background index on the order of \powctsper{-4} in the \onbb\ region of interest. A
+    background index on the order of \powctsper{-3} in the \onbb\ region of interest. A
     liquid argon veto system is constructed to tag background events that deposit energy
     in the LAr by collecting its scintillation light. The instrumentation includes
     light-guiding fiber curtains, PMTs and several wavelength-shifting surfaces.
@@ -960,10 +961,10 @@ collaboration.
     extracted final limit on the neutrinoless double-beta decay half-life at 90\% C.L.~is
     \gerdafinallimit, with a background index of
     \measurement{5.2}{1.6}{1.3}~\powctsper{-4} achieved in the region of interest. \gerda\
-    is the experiment providing the best sensitivity and the most stringent half-life
-    constraint of the entire field. The pioneering effort of \gerda\ paves the way for the
-    next-generation, tonne-scale experiment that is currently being prepared by the LEGEND
-    collaboration.
+    is the experiment providing the best sensitivity, the most stringent half-life
+    constraint and the lowest background at the \qbb\ of the entire field. The pioneering
+    effort of \gerda\ paves the way for the next-generation, tonne-scale experiment that
+    is currently being prepared by the LEGEND collaboration.
 \end{itemize}
 
 % vim: tw=90

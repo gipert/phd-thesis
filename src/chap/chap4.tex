@@ -26,7 +26,7 @@ independent analysis of this special data set is used to tune the unknown optica
 parameters in the Monte Carlo and reproduce the observed vetoing performance.  The
 obtained parameters are then used to generate a map of the LAr scintillation light
 detection probability, which is applied to the background model simulations in order to
-obtain the LAr veto flag. These new background model pdfs are then directly employed in a
+obtain the LAr veto flag. These new background model \pdf{}s are then directly employed in a
 statistical test of possible deviations of the \nnbb\ distribution from its Standard Model
 description, an analysis that will be presented in \cref{chap:2nbb-ana}.
 \newpar
@@ -101,13 +101,13 @@ sensitivity improvement.
 
 The Monte Carlo simulation of the liquid argon veto requires to enable the \geant\ optical
 physics simulation routines, which have been disabled for the production of the background
-model pdfs before analysis cuts (see \cref{sec:bkg:raw:ph2:pdfs}). The relevant material
+model \pdf{}s before analysis cuts (see \cref{sec:bkg:raw:ph2:pdfs}). The relevant material
 optical properties which are needed to simulate the scintillation of LAr and the
 propagation of the photons throughout the whole setup have been implemented into \mage\
 and documented in detail in \cref{sec:apdx:mage-optics}. As reported there, unfortunately,
 many properties are uncertain or not known at all, especially in the VUV energy regime
 ($\sim$128~nm).  This uncertainty propagates to the LAr veto model and the background
-pdfs, and is treated as a systematic contribution in the \nnbb\ distribution analysis
+\pdf{}s, and is treated as a systematic contribution in the \nnbb\ distribution analysis
 presented in \cref{chap:2nbb-ana}.
 
 \subsection{Simulating the LAr veto system}%
@@ -442,7 +442,7 @@ tested in the framework of the \nnbb\ distribution analysis, which will be prese
 
 \blocktitle{results}
 Since the tuned LAr probability map will be only used to provide the LAr veto flag for the
-background model simulations, which are further processed to create the pdfs for the
+background model simulations, which are further processed to create the \pdf{}s for the
 \bege\ summed energy spectrum (see \cref{chap:2nbb-ana}), an additional simplification can be
 introduced in the analysis. In principle, the array of channel efficiencies
 $\vec{\epsilon}$ in \cref{eq:bkg:lar:ph2:pca-likelihood} has dimension 25, but the
@@ -470,19 +470,19 @@ The impact of this problem on the \nnbb\ distribution analysis is addressed in
 \cref{sec:2nbb-ana:systematics} through a dedicated study of the connected systematic
 uncertainty.
 
-\blocktitle{pdfs}
-The background model pdfs after LAr veto cut obtained by applying the probability map to
+\blocktitle{\pdf{}s}
+The background model \pdf{}s after LAr veto cut obtained by applying the probability map to
 the Monte Carlo simulations are displayed in \cref{fig:bkg:lar:ph2:pdfs:gmodel}. Another
-notable difference with the pdfs constructed for the analysis presented in
+notable difference with the \pdf{}s constructed for the analysis presented in
 \cref{chap:bkg:raw:ph2} is that the linear transition layer model obtained from
 characterization data for \bege\ detectors~\cite{Lehnert2016} is now taken into
 account~---~more information about the germanium detector transition layer models is found in
-\cref{apdx:gedetav}. A comparison with pdfs before analysis cuts in
+\cref{apdx:gedetav}. A comparison with \pdf{}s before analysis cuts in
 \cref{fig:bkg:raw:ph2:pdfs:gmodel} shows large shape deformations, especially for decays
 from \Uh\ and \Thh\ chains. In particular, a large suppression of \Tl\ full-energy peak at
 2614~keV is observed. The effect of the LAr veto cut is also noticeable on the Compton
-shoulders, e.g.~\kvn, \kvz\ and \Co. The only pdf which is practically not affected by the
-cut is the \nnbb\ pdf. The probability for the two electrons emitted in the decay to
+shoulders, e.g.~\kvn, \kvz\ and \Co. The only \pdf\ which is practically not affected by the
+cut is the \nnbb\ \pdf. The probability for the two electrons emitted in the decay to
 escape from the detector and produce scintillation light in LAr is generally very low.
 
 \begin{figure}
@@ -515,11 +515,11 @@ escape from the detector and produce scintillation light in LAr is generally ver
    ]{\includegraphics[width=0.48\textwidth]{plots/bkg/lar/ph2/pdfs/gmodel-pdfs-misc2.pdf}}
 
   \caption{%
-    The pdfs for the \enrGeII\ ($\enrBEGeII + \enrCoaxII$) (in fully opaque colors) and
+    The \pdf{}s for the \enrGeII\ ($\enrBEGeII + \enrCoaxII$) (in fully opaque colors) and
     the \enrGeII\ (in shaded colors) data sets after the LAr veto cut in the full energy
     domain and relative to different background sources. Bayesian blocks are used to
-    visualize histograms (see \cref{apdx:bayesblocks} for details. All pdfs are normalized
-    to the number of simulated events. These pdfs should be compared with those before the
+    visualize histograms (see \cref{apdx:bayesblocks} for details. All \pdf{}s are normalized
+    to the number of simulated events. These \pdf{}s should be compared with those before the
     LAr veto cut in \cref{fig:bkg:raw:ph2:pdfs:gmodel}.
   }\label{fig:bkg:lar:ph2:pdfs:gmodel}
 \end{figure}
@@ -530,7 +530,7 @@ escape from the detector and produce scintillation light in LAr is generally ver
 A full-range background analysis of the energy spectra after the LAr veto cut in the same
 spirit of the one reported in \cref{sec:bkg:raw:ph2:gmodel} has been carried out. The
 \a-event analysis has not been repeated, as they almost completely survive the LAr veto
-cut; the pdfs extracted from the \a\ model presented in \cref{sec:bkg:raw:ph2:amodel} can,
+cut; the \pdf{}s extracted from the \a\ model presented in \cref{sec:bkg:raw:ph2:amodel} can,
 therefore, be used in the full-range analysis as they are.
 
 \blocktitle{statistical \\ methods}
@@ -556,15 +556,15 @@ parameters~---~including the \nnbb\ fit parameter, which is proportional to $1/\
 
 \blocktitle{results}
 Since the background level (excluding the \a\ events) is about an order of magnitude less
-than before the LAr veto cut, a basic sample of background pdfs has been tested in the fit
+than before the LAr veto cut, a basic sample of background \pdf{}s has been tested in the fit
 model. Given the reduced size of the background sample, in fact, no sensitivity to
-second-order shape distortions between pdfs of the same radioactive decay in different
-locations (e.g.~\Ac\ in holders, cables, etc.) is expected. The following set of pdfs
+second-order shape distortions between \pdf{}s of the same radioactive decay in different
+locations (e.g.~\Ac\ in holders, cables, etc.) is expected. The following set of \pdf{}s
 has therefore been selected: \nnbb\ in germanium, \kvn\ close (mini-shrouds)
 and far (fiber shroud) from the detectors, \kvz\ close (on the \bege\ and \scoax\ \nplus\
 contact, in the LAr inside the mini-shrouds) and far (in the LAr outside the
 mini-shrouds, in the LAr above the array), \Bil\ and \Tl\ on cables, \Pbh\ and \Bih\ on
-cables, \Co\ on cables, \Ac\ on detector holders and the \a\ model pdfs for \bege\ and
+cables, \Co\ on cables, \Ac\ on detector holders and the \a\ model \pdf{}s for \bege\ and
 \scoax\ detectors from \cref{sec:bkg:raw:ph2:amodel}.
 \newpar
 Not all the marginalized posterior distributions of fit parameters report non-zero
@@ -572,7 +572,7 @@ estimates of background counts in the spectra. Notably, posteriors for \kvz\ abo
 array and on the \bege\ \nplus\ contact are peaked at zero and are thus removed from the
 fit. The exclusion of \kvz\ on the \bege\ \nplus\ contact, which has not been reported in
 the fit before analysis cuts (\cref{chap:bkg:raw:ph2}), is attributed to the novel
-transition layer model, which significantly affects the pdf shape above the full-energy
+transition layer model, which significantly affects the \pdf\ shape above the full-energy
 peak. The \b\ spectrum component above 1525~keV, indeed, is now higher and shows less
 compatibility with experimental data. The \Co\ component is also compatible with zero,
 possibly because of the high LAr veto efficiency on a background contamination which was
@@ -587,7 +587,7 @@ and \cref{tab:bkg:lar:ph2:results}. A close-up in the \onbb\ analysis window is 
 \cref{fig:bkg:lar:ph2:results:roi}. Since the radioactivity of hardware parts is better
 constrained within the background model before the analysis cuts
 (\cref{chap:bkg:raw:ph2}), where the background level is higher, and additional
-uncertainties affect the normalization of the pdfs after the LAr veto cut, only the
+uncertainties affect the normalization of the \pdf{}s after the LAr veto cut, only the
 reconstructed number of counts in the fit range and the background index are given. The
 background decomposition in \cref{fig:bkg:lar:ph2:results} is presented together with the
 residuals plot and the 68\%, 95\% and 99\% central Poisson probability intervals of the
@@ -712,17 +712,17 @@ same picture is observed when comparing the count rates in the analysis energy r
   \vspace{0.5cm}
   \begin{tikzpicture}[anchor=south west]
     \node at (0, 2.5) {\scshape Before analysis cuts};
-    \draw (0,2.5) -- (\textwidth,2.5);
-    \node at (0, 0) {\includegraphics{plots/bkg/raw/ph2/results/gmodel/BI-bar.pdf}};
+    \draw    (0, 2.5) -- (\textwidth,2.5);
+    \node at (0, 0.0) {\includegraphics{plots/bkg/raw/ph2/results/gmodel/BI-bar.pdf}};
 
-    \node at (0,-1) {\scshape After the LAr veto cut};
-    \draw (0,-1) -- (\textwidth,-1);
+    \node at (0,-1.0) {\scshape After the LAr veto cut};
+    \draw    (0,-1.0) -- (\textwidth,-1);
     \node at (0,-4.6) {\includegraphics{plots/bkg/lar/ph2/results/gmodel/BI-bar-norm.pdf}};
   \end{tikzpicture}
   \caption{%
     Comparison between background indices obtained from the background model before
     analysis cuts and after LAr veto cut, for the \enrBEGeII\ and \enrCoaxII\ data sets.
-    The background decompositions are performed with a reduced set of pdfs, to make a
+    The background decompositions are performed with a reduced set of \pdf{}s, to make a
     one-to-one comparison possible. On the top, the background index values are reported
     with statistical uncertainties extracted from the fit. On the bottom, bars are used to
     represent the fractional composition. The scale in units of \powctsper{-3} is reported
@@ -736,14 +736,14 @@ same picture is observed when comparing the count rates in the analysis energy r
   \caption{%
     Comparison between total counts in the fit range (i.e.~above 565~keV) obtained from
     the background model before analysis cuts and after LAr veto cut. The background
-    decompositions are performed with a reduced set of pdfs, to make a one-to-one
+    decompositions are performed with a reduced set of \pdf{}s, to make a one-to-one
     comparison possible.
   }\label{fig:bkg:lar:ph2:cts-comparison}
 \end{figure}
 
 \chapsummary
 \begin{itemize}
-  \item The background model pdfs after the LAr veto cut necessitates the implementation
+  \item The background model \pdf{}s after the LAr veto cut necessitates the implementation
     of the LAr veto instrumentation as well as the optical properties of all materials
     involved in the propagation of the scintillation photons into the Monte Carlo
     framework (\mage). Many of these properties are unfortunately not precisely known: the
@@ -760,7 +760,7 @@ same picture is observed when comparing the count rates in the analysis energy r
     and the background level is low, a qualitative LAr probability map is enough in light
     of the \nnbb\ energy distribution analysis after the LAr veto cut. Special calibration
     data with LAr veto discrimination is used to determine three average detection
-    efficiencies for top PMTs, SiPMs and bottom PMTs. The background model pdfs are
+    efficiencies for top PMTs, SiPMs and bottom PMTs. The background model \pdf{}s are
     expected to be negligibly affected by differences between single-channel efficiencies.
     The impact of other possible systematic uncertainties in the LAr veto modeling is
     assessed in the context of the \nnbb\ shape analysis.
