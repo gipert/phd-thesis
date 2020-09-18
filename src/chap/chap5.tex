@@ -134,6 +134,17 @@ using the above equation.
 
 \begin{figure}
   \centering
+  \includegraphics{plots/2nbb-ana/pvalues.pdf}
+  \caption{%
+    Median \pvalue\ of the null hypothesis with different signal strength assumption for
+    the new-physics signals, computed with Monte Carlo toy experiments. In the right
+    plot, the effect of additional systematic uncertainties is included. The \pvalue\
+    corresponding to 90\% confidence level is highlighted with dashed lines. \fillme{update}
+  }\label{fig:2nbb-ana:pvalues}
+\end{figure}
+
+\begin{figure}
+  \centering
   \includegraphics{plots/2nbb-ana/2nbb-teststat.pdf}
   \caption{%
     Sampling distribution of the test statistic for various signal hypothesis sampled with
@@ -148,14 +159,14 @@ using the above equation.
 \blocktitle{sensitivity \\ studies}
 The sensitivity to alternative signal hypotheses can be characterized by the median
 significance, assuming data generated according to the zero-signal (null) hypothesis, with
-which one rejects the signal hypothesis~\cite{Cowan2011}. To compute the sensitivity the
+which one rejects the signal hypothesis~\cite{Cowan2011}. To compute the sensitivity, the
 distributions $f(t_S|S)$ and $f(t_S|0)$ are needed. For a discrete set of hypothesis on
-the signal $S$, the two distributions are obtained with Toy Monte Carlo and the median
-\pvalue\ assuming the null hypothesis is computed. In \cref{?} the median \pvalue\ as a
-function of $S$, for all the considered processes is plotted. The sensitivity for 90\%
-C.L.~limit setting corresponds to the value of $S$ for which the median \pvalue\ is $0.1$.
-In \cref{tab:2nbb-ana:sensitivity} the sensitivities to the half-lives of the investigated
-processes are reported.
+the signal $S$, the two distributions are obtained with Monte Carlo toy experiments and
+the median \pvalue\ of null hypothesis is computed. In \cref{fig:2nbb-ana:pvalues} the
+median \pvalue\ as a function of $S$, for all the considered new-physics processes is
+shown. The sensitivity for 90\% C.L.~limit setting corresponds to the value of $S$ for
+which the median \pvalue\ is $0.1$. The limit-setting sensitivities to the half-lives of
+the investigated processes are reported in \cref{tab:2nbb-ana:sensitivity}.
 
 \blocktitle{fit range \\ and \\ binning}
 The fit range is chosen in order to maximize the signal-to-background ratio and the
@@ -217,10 +228,10 @@ of the test statistic becomes:
   f(t_s) = \int f(t_s | S, \vec{B}, \nu) \pi(\vec{\nu}) d\vec{\nu} \;,
 \]
 where $\vec{\nu}$ are the parameters representing the sources of systematic uncertainties
-in the model and $\pi(\vec{\nu})$ the `prior' distribution from which $\vec{\nu}$ is sampled
-from. The effect introduced by these additional parameters is to smear $f(t_S)$ and
-enlarge its tail, weakening the new-physics experimental limits extracted from it. The
-software that implements this approach for the \nnbb\ analysis is implemented in the
+in the model and $\pi(\vec{\nu})$ the `prior' distribution from which $\vec{\nu}$ is
+sampled from. The effect introduced by these additional parameters is to smear $f(t_S)$,
+weakening the new-physics experimental limits extracted from it. The software that
+implements this approach for the \nnbb\ analysis is implemented in the
 \texttt{gerda-factory} suite, publicly available on GitHub\footnote{%
   The \texttt{gerda-factory} software suite, available at
   \url{https://github.com/gipert/gerda-factory}, Is implemented in C++ and externally
@@ -280,18 +291,17 @@ analysis are discussed.
     The second step is to provide alternative LAr veto maps for the determination of the
     test statistic distribution, generated with different assumptions for the optical
     parameters. These alternative maps will still have to reproduce the special
-    calibration data (i.e.~they will have to be re-tuned on them), which is, technically
-    speaking, the \emph{control sample}, but they will differ from the original map in all
-    other LAr regions, in particular those probed by the background source simulations.
-    Unfortunately, the map generation process is exceptionally expensive from
-    the computational point of view (the required time is on the order of several
-    thousands of CPU hours), therefore obtaining several alternative probability maps from
-    scratch is not feasible. To overcome this issue, the possibility to perform
+    calibration data, i.e.~the \emph{control sample}, but they will differ from the
+    original map in all other LAr regions, in particular those probed by the background
+    model simulations.  Unfortunately, the map generation process is exceptionally
+    expensive from the computational point of view (the required time is on the order of
+    several thousands of CPU hours), therefore obtaining several alternative probability
+    maps from scratch is not feasible. To overcome this issue, the possibility to perform
     manual distortions of the reference probability map has been investigated.
     \newpar
     An alternative presentation of the probability map distortions in
     \cref{fig:bkg:lar:ph2:larmap:dist}, in which the detection probability in the first
-    calibration source position area is set to unity, is given in
+    calibration source position area is set to unity, is given here in
     \cref{fig:2nbb-ana:dist-pcanorm} for the germanium reflectivity, the fiber shroud
     coverage and the LAr absorption length (first three panels from left). In this way the
     constraint of reproducing the special calibration data set is made visually explicit,
@@ -317,7 +327,7 @@ analysis are discussed.
     \newpar
     As it can be stated from \cref{fig:2nbb-ana:dist-pcanorm}, the power-law distortions
     shown in the rightmost panel are not radically different from e.g.~those generated by
-    the germanium reflectivity. Moreover, the latter is arguably the most important source
+    the reflectivity changes. Moreover, the latter is arguably the most important source
     of systematics in the \nnbb\ analysis, since it probes the LAr volume enclosed by the
     detectors. The power-law map distortion has been therefore judged representative
     of the class of distortions generated by fundamental Monte Carlo parameters\footnote{%
@@ -330,7 +340,7 @@ analysis are discussed.
       region.  Based on this observation, more complex direct distortions of the map
       limited to certain locations could be also considered. Nevertheless, given the
       expected low impact of LAr veto model uncertainties on the \nnbb\ analysis, this
-      option has not been explored.
+      option has not been further explored.
     }.
     \newpar
     A set of alternative background \pdf\ shapes has been generated with power-law distorted
@@ -339,8 +349,7 @@ analysis are discussed.
     \cref{fig:2nbb-ana:pdf-dist} (left panel), as an example. As it is clear, the
     distortion strongly depends on the energy and the type (Compton scattering, full
     absorption) of the event. All these alternative \pdf{}s have been considered in the
-    determination of the distribution of the test statistics, with a flat prior. The
-    contribution of LAr veto model uncertainty to the total count is \fillme{?}\%.
+    determination of the distribution of the test statistics, with a flat prior.
 
     \begin{figure}
       \centering
@@ -362,8 +371,9 @@ analysis are discussed.
     volume determines the total amount of detected \nnbb\ counts, and it is therefore not
     expected to produce distortions in the shape of the \pdf{}s. Its effect must be
     considered in the conversion of the number of signal counts to the corresponding
-    process half-life.  Since three independent estimates of the \bege\ enrichment
-    fraction ($f_{76}$ in \cref{eq:2nbb-ana:halflife}) are available\cite{Agostini2015e},
+    process half-life, expressed in \cref{eq:2nbb-ana:halflife}.  Since three independent
+    estimates of the \bege\ enrichment fraction $f_{76}$ are
+    available\cite{Agostini2015e},
     they are combined into the final estimate of 0.877(13) by evaluating their variance
     (see \cref{tab:gerda:efficiencies}). The estimate of the full charge-collection depth
     and size of transition region for each detector required a careful analysis of the
@@ -375,15 +385,15 @@ analysis are discussed.
     $f^\text{AV}$ in \cref{eq:2nbb-ana:halflife}. The resulting uncertainty is about 2\%
     of $\mathcal{C}_{76}$. Considering that it propagates almost linearly to the final
     half-life estimate, the \gesix\ active exposure estimation results to be the major
-    source of systematic uncertainty in the \nnbb\ analysis.
+    source of systematic uncertainty in the standard \nnbb\ half-life determination.
 
   \item[Transition layer model] As already discussed in several occasions (see in
     particular \cref{apdx:gedetav}), the transition region from the \nplus\ electrode to
     the fully-active detector volume is not completely dead (i.e.~the charge-collection
     efficiency is not zero). Since events interacting with this special region are
     reconstructed with a smaller effective energy, an effect on the energy distribution
-    is expected. Distortions induced by variations of the size of the transition layer are
-    particularly noticeable in the \Arl\ event distribution
+    shape is expected. Distortions induced by variations of the size of the transition
+    layer are particularly noticeable in the \Arl\ event distribution
     (\cref{fig:gedetav:ar39:distortions}) and in the lower tail of intense \g\ peaks
     (\cref{fig:gedetav:calib-optim-example}). A first estimate of the size of the
     transition region for \bege{}s has been extracted from detector characterization
@@ -403,7 +413,7 @@ analysis are discussed.
     \cref{sec:gedetav:calib-optim}. A best-fit value of the dead-layer fraction with
     statistical uncertainty has been obtained for each detector. \pdf{}s for signal and
     background sources corresponding to the best-fit values $\pm1\sigma$, $\pm2\sigma$ and
-    $\pm5\sigma$ ($\sigma$ denotes the statistical uncertainty) have been produced and
+    $\pm5\sigma$ ($\sigma$ denotes the standard deviation) have been produced and
     reported in \cref{fig:2nbb-ana:pdf-dist} (right panel) for \kvn, \kvz\ and \nnbb\ in
     the \enrBEGeII\ data set. The \pdf\ distortions are noticeably lower than those induced
     by the LAr veto model uncertainties, and contribute with less than 1\% to the total
@@ -469,7 +479,7 @@ analysis are discussed.
     point-like topology of the \nnbb\ decay and uniformity of the \gesix\ isotopic
     fraction, its \pdf\ is expected to depend on the total detector volume and active volume
     model, rather than the exact dimensions or location. The effect of this type of
-    uncertainty source has been already investigated above. On the other hand, the shape
+    uncertainty source has been already described above. On the other hand, the shape
     of the background \pdf{}s is expected to depend more on the details of the geometrical
     implementation. This kind of effect, however, is partly similar to (and certainly less
     intense than) the one produced by background model-related uncertainties (see above).
@@ -500,6 +510,15 @@ analysis are discussed.
     \cref{eq:2nbb-ana:halflife} is also negligible.
 
 \end{description}
+
+The effect of the inclusion of systematic uncertainties in the test-statistic sampling
+distribution is shown in \cref{fig:2nbb-ana:ts-dist-sys}. Compared to
+\cref{fig:2nbb-ana:ts-dist}, broader tails are observed at higher values of the test
+statistic, resulting in larger confidence intervals on the signal strength. \pvalue\
+curves, shown in the right-hand side of \cref{fig:2nbb-ana:pvalues}, are consequently
+shifted to higher values of the assumed signal strength $S$. The effect of each source of
+systematic uncertainty on the \nnbb\ half-life estimate and \onbbx\ ($n=1$) 90\%
+C.L.~lower limit is reported in \cref{tab:2nbb-ana:systematics}.
 
 \begin{figure}
   \centering
@@ -546,14 +565,14 @@ from~\cite{Kotila2015} and the most recent set of nuclear matrix elements (the s
 standard \onbb-decay for spectral index $n=1$,~\cite{Hirsch1995} for all the others) it is
 possible to convert the half-life limit into a lower limit on the coupling constant \ga.
 \newpar
-The obtained 90\% C.L. confidence interval on the number of counts in the analysis range
-from the Lorentz- (and CPT-) violating double-beta decay mode is
+The obtained 90\% C.L. confidence interval on the ratio between the number of counts in
+the analysis range from the Lorentz- (and CPT-) violating double-beta decay mode \nnbblv\
+and the standard \nnbb\ mode is:
 \[
-  S_\nnbblvM \in [0,0] \;,
+  \frac{S_\nnbblvM}{S_\nnbbM} \in [0,0] \;,
 \]
-over a best-fit number of standard \nnbb\ events of \fillme{?}. The corresponding
-confidence interval on the \aof\ coefficient is calculated using phase space factors
-in~\cite{Nitescu2020}:
+The corresponding confidence interval on the \aof\ coefficient is calculated using phase
+space factors in~\cite{Nitescu2020}:
 \[
   \aofM \in [-0, 0] \cdot 10^{-5}~\text{GeV} \;.
 \]
