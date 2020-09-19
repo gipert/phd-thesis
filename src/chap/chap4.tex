@@ -50,7 +50,7 @@ presented in \cref{sec:bkg:lar:ph2:gmodel} and discussed in
     \gerda\ detectors can be found in past publications~\cite{Agostini2013a,
     Agostini2018a}. Note that the exposures are slightly higher than those reported in
     \cref{tab:bkg:raw:ph2:datasets} because of additional data from the last run of the
-    first part of \phasetwo\ (run~93) which was not included in the first place.
+    first part of \phasetwo\ (\run{93}) which was not included in the first place.
   }\label{tab:bkg:lar:ph2:datasets}
   \small
   \input{tab/bkg/lar/ph2/datasets.tex}
@@ -69,7 +69,7 @@ sets from the first category (\enrBEGeII\ and \enrCoaxII) and a single one for t
 (\enrGeII). The data set exposures are documented in \cref{tab:bkg:lar:ph2:datasets}.
 Note that the exposures are slightly higher than those reported in
 \cref{tab:bkg:raw:ph2:datasets} because of additional data from the last run of the first
-part of \phasetwo\ (run 93) which was not included in the first place.  The reader is
+part of \phasetwo\ (\run{93}) which was not included in the first place.  The reader is
 referred to \cref{sec:bkg:raw:ph2:data} for general details about how these data sets are
 constructed.
 \newpar
@@ -145,13 +145,13 @@ always the case for the voxel size considered in this study.  These probability 
 are written on disk as a three-dimensional histogram, or probability map. The \gerda\
 Monte Carlo LAr model is effectively condensed in this object.
 \newpar
-The last step is to fold the probability map into the usual background model simulation
-output, for which no information derived from native optical processes is available.
-Nevertheless, information about energy depositions by \g, \b\ and \a\ particles in LAr is
-available in the simulation output and provide the starting point to compute the LAr veto
-flag. For a given single energy deposition the number of generated scintillation photons
-$M$ is drawn from a Poisson distribution with mean equal to the deposited amount of energy
-times the LAr scintillation yield times the LAr Fano factor:
+The second and last step is to fold the probability map into the usual background model
+simulation output, for which no information derived from native optical processes is
+available.  Nevertheless, information about energy depositions by \g, \b\ and \a\
+particles in LAr is available in the simulation output and provide the starting point to
+compute the LAr veto flag. For a given single energy deposition the number of generated
+scintillation photons $M$ is drawn from a Poisson distribution with mean equal to the
+deposited amount of energy times the LAr scintillation yield times the LAr Fano factor:
 \[
   M \sim \operatorname{P}(E \cdot Y \cdot F) \;.
 \]
@@ -267,8 +267,8 @@ this broad subject.
 \blocktitle{pcalib \\ runs}
 The main characteristics of these data sets are documented in
 \cref{tab:bkg:lar:ph2:pcalib-desc}: the first special run carries identification number
-68 and has been performed with a \Th\ source in July \yr{2016}, while the second one
-is run~76 and has been carried through in February \yr{2017} with a \Ra\ source. Data has been
+\oldstylenums{68} and has been performed with a \Th\ source in July \yr{2016}, while the second one
+is \run{76} and has been carried through in February \yr{2017} with a \Ra\ source. Data has been
 acquired with sources \m{S2} and \m{S3} at three vertical positions at the top, middle and
 bottom of the array (see\cref{tab:bkg:lar:ph2:pcalib-desc}, right). The lower source
 activity ($\mathcal{O}$(kBq)) makes it possible to collect data with the LAr veto
@@ -290,9 +290,9 @@ background is missing.
   \centering
   \caption{%
     Summary of the special calibration data with active LAr veto instrumentation from
-    runs~68 (July \yr{2016}, \Th\ source) and 76 (February \yr{2017}, \Ra\ source). The
+    \run{68} (July \yr{2016}, \Th\ source) and \run{76} (February \yr{2017}, \Ra\ source). The
     random coincidences are estimated combining data from test pulses and SiPM
-    traces~\cite{Wiesinger2021}. Unfortunately, pulser data is partly missing in run~68.
+    traces~\cite{Wiesinger2021}. Unfortunately, pulser data is partly missing in \run{68}.
     On the right: a visualization of the source position at three different heights.
   }\label{tab:bkg:lar:ph2:pcalib-desc}
   \footnotesize
@@ -330,34 +330,34 @@ background is missing.
 The analysis data set is constructed by applying event cuts based on the total energy
 released in the germanium detectors. The selected energy regions are shown in
 \cref{fig:bkg:lar:ph2:pcalib-data}: the \Tl\ full-energy peak events ($2615 \pm 10$~keV)
-in run~68 and the Compton-dominated energy region from the 2204~keV \Bih\ line in run~76
-are considered. The obtained statistics is about $2 \cdot 10^4$ events or more per
-source position.  The data from the LAr instrumentation which is relevant for the
-comparison with Monte Carlo simulations consists in a set of veto flags (one for each
-of the 25 LAr veto channels, i.e.~9 top PMTs, 7 bottom PMTs and 9 SiPM modules) for each
+in \run{68} and the Compton-dominated energy region from the 2204~keV \Bih\ line in
+\run{76} are considered. The obtained statistics is about $2 \cdot 10^4$ events or more
+per source position.  The data from the LAr instrumentation which is relevant for the
+comparison with Monte Carlo simulations consists in a set of veto flags (one for each of
+the 25 LAr veto channels, i.e.~9 top PMTs, 7 bottom PMTs and 9 SiPM modules) for each
 germanium trigger.  The probability that a LAr veto channel is triggered in data can be
-written as the convolution between a \emph{signal} probability (i.e.~the same event is responsible
-for both the germanium and LAr veto triggers) and a \emph{background} probability (i.e.~the
-false-positive rate from random coincidences). This convolution is simply the logic OR
-between the two probabilities. The amount of random coincidences is estimated by combining
-data from test pulses and SiPM traces, as documented in great detail
-in~\cite{Wiesinger2021}.
+written as the convolution between a \emph{signal} probability (i.e.~the same event is
+responsible for both the germanium and LAr veto triggers) and a \emph{background}
+probability (i.e.~the false-positive rate from random coincidences). This convolution is
+simply the logic OR between the two probabilities. The amount of random coincidences is
+estimated by combining data from test pulses and SiPM traces, as documented in great
+detail in~\cite{Wiesinger2021}.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.9\textwidth]{plots/bkg/lar/ph2/larmodel/pca-analysis-window.pdf}
   \caption{%
-    The energy spectra of the \phasetwo\ special calibration runs. Left: run 68 (\Th),
+    The energy spectra of the \phasetwo\ special calibration runs. Left: \run{68} (\Th),
     Monte Carlo simulation in blue and data in black. The top panel shows the energy
     distribution of the events while the bottom panel shows the average amount of
-    energy released by an event with respect to its energy. Right: run 76 (\Ra). Colored
+    energy released by an event with respect to its energy. Right: \run{76} (\Ra). Colored
     bands highlight the regions selected for the data analysis.
   }\label{fig:bkg:lar:ph2:pcalib-data}
 \end{figure}
 
 \blocktitle{simulations}
 The calibration sources are fully implemented in \mage, with user commands to set their
-vertical position, the radioactive source and therefore replicate run~68 and~76
+vertical position, the radioactive source and therefore replicate \run{68} and \run{76}
 experimental settings (\cref{tab:bkg:lar:ph2:pcalib-desc}). Optical
 processes are enabled in these special simulation runs, but, since they require high
 computational time, photons are fully tracked only if an energy deposition is recorded in
@@ -408,9 +408,10 @@ in channel $A$, $C$ but not in $B$. The pattern in the example has probability $
 $p_i$. The full likelihood reads
 \begin{equation}\label{eq:bkg:lar:ph2:pca-likelihood}
   \mathcal{L}(\vec{\epsilon}, \ldots) =
-    \prod_P \operatorname{B}_{N_\text{tot}}^N \big(
-      \sum_G ( \lambda_s(\vec{\epsilon}) + \sigma \cdot \Delta\lambda_s(\vec{\epsilon})) \cdot
-      \lambda_b \big)
+    \prod_P \operatorname{B}_{N_\text{tot}}^N \Big(
+      \sum_G \big[ \lambda_s(\vec{\epsilon}) + \sigma \cdot
+      \Delta\lambda_s(\vec{\epsilon})\big] \cdot \lambda_b 
+    \Big)
     \cdot \prod_G \operatorname{B}_{M_\text{tot}}^M (\lambda_b) \cdot
     \operatorname{G}(\sigma) \;,
 \end{equation}
@@ -464,25 +465,31 @@ maximization of $\mathcal{L}(\vec{\epsilon})$ yields:
   \epsilon_\text{PMTb} = 0.346 \pm 0.007 \;.
 \end{equation}
 The magnitude of systematic uncertainty needed to obtain a reasonable goodness-of-fit
-(\pvalue~$\sim 0.3$) at the best fit point is around 30\%, which already shows
-how this analysis suffers from the many unknown optical specifications in the Monte Carlo.
-The impact of this problem on the \nnbb\ distribution analysis is addressed in
+(\pvalue~$\sim 0.3$) at the best fit point is around 30\%, which already shows how this
+analysis suffers from the many unknown optical specifications in the Monte Carlo.  The
+impact of this problem on the \nnbb\ distribution analysis is addressed in
 \cref{sec:2nbb-ana:systematics} through a dedicated study of the connected systematic
-uncertainty.
+uncertainty. Even if these efficiencies are not directly comparable with those extracted
+from physics data, a qualitative agreement is found. As a matter of fact, the event
+suppression of top PMTs is generally lower than those observed for bottom PMTs and SiPMs.
+A possible source of this asymmetry might be the presence of the array instrumentation
+(i.e.~cabling and electronic boards) between the germanium detectors and the top PMTs.
+These hardware parts, which are absent in the lower side of the LAr veto instrumentation,
+represent an obstacle to the propagation of optical photons.
 
 \blocktitle{\pdf{}s}
-The background model \pdf{}s after LAr veto cut obtained by applying the probability map to
-the Monte Carlo simulations are displayed in \cref{fig:bkg:lar:ph2:pdfs:gmodel}. Another
+The background model \pdf{}s after LAr veto cut obtained by applying the probability map
+to the Monte Carlo simulations are displayed in \cref{fig:bkg:lar:ph2:pdfs:gmodel}. A
 notable difference with the \pdf{}s constructed for the analysis presented in
 \cref{chap:bkg:raw:ph2} is that the linear transition layer model obtained from
 characterization data for \bege\ detectors~\cite{Lehnert2016} is now taken into
-account~---~more information about the germanium detector transition layer models is found in
-\cref{apdx:gedetav}. A comparison with \pdf{}s before analysis cuts in
+account~---~more information about the germanium detector transition layer models is found
+in \cref{apdx:gedetav}. A comparison with \pdf{}s before analysis cuts in
 \cref{fig:bkg:raw:ph2:pdfs:gmodel} shows large shape deformations, especially for decays
 from \Uh\ and \Thh\ chains. In particular, a large suppression of \Tl\ full-energy peak at
 2614~keV is observed. The effect of the LAr veto cut is also noticeable on the Compton
-shoulders, e.g.~\kvn, \kvz\ and \Co. The only \pdf\ which is practically not affected by the
-cut is the \nnbb\ \pdf. The probability for the two electrons emitted in the decay to
+shoulders, e.g.~\kvn, \kvz\ and \Co. The only \pdf\ which is practically not affected by
+the cut is the \nnbb\ \pdf. The probability for the two electrons emitted in the decay to
 escape from the detector and produce scintillation light in LAr is generally very low.
 
 \begin{figure}
@@ -515,7 +522,7 @@ escape from the detector and produce scintillation light in LAr is generally ver
    ]{\includegraphics[width=0.48\textwidth]{plots/bkg/lar/ph2/pdfs/gmodel-pdfs-misc2.pdf}}
 
   \caption{%
-    The \pdf{}s for the \enrGeII\ ($\enrBEGeII + \enrCoaxII$) (in fully opaque colors) and
+    The \pdf{}s for the \m{M1-AllEnr} ($\enrBEGeII + \enrCoaxII$) (in fully opaque colors) and
     the \enrGeII\ (in shaded colors) data sets after the LAr veto cut in the full energy
     domain and relative to different background sources. Bayesian blocks are used to
     visualize histograms (see \cref{apdx:bayesblocks} for details. All \pdf{}s are normalized
@@ -591,11 +598,11 @@ uncertainties affect the normalization of the \pdf{}s after the LAr veto cut, on
 reconstructed number of counts in the fit range and the background index are given. The
 background decomposition in \cref{fig:bkg:lar:ph2:results} is presented together with the
 residuals plot and the 68\%, 95\% and 99\% central Poisson probability intervals of the
-best fit model. Already from a visual inspection of the residuals, the goodness of fit is
-not completely satisfactory through all the spectrum. In particular, discrepancies between
-the best-fit model and the data are visible in \enrGeII\ right below the potassium peaks,
-in \enrBEGeII\ around the potassium Compton shoulder region and in \enrCoaxII\ in the
-$[1.8, 2]$~MeV region (\cref{fig:bkg:lar:ph2:results-closeup}).
+best fit model. From a visual inspection of the residuals, the goodness of fit is
+satisfactory through all the spectrum, with a few exceptions. In particular, discrepancies
+between the best-fit model and the data are visible in \enrGeII\ right below the potassium
+peaks, in \enrBEGeII\ around the potassium Compton shoulder region (see
+\cref{fig:bkg:lar:ph2:results-closeup}).
 
 \blocktitle{background \\ at \qbb}
 The background model describes the individual contributions to the total background index
