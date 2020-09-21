@@ -1,0 +1,40 @@
+%! TEX program = xelatex
+\input{../../../tex/standalone-def.tex}
+\import{}{pgfplots-def}
+
+\pgfplotsset{%
+  width=10cm,
+  every axis/.append style={%
+    xlabel={Energy (keV)},
+    ylabel={Probability},
+    xmin=0, xmax=2039,
+  },
+  % smooth,
+  no marks,
+  legend pos=south east,
+  legend style={%
+    font=\footnotesize,
+  },
+  table/col sep=space,
+  table/x=energy,
+  table/y=probability,
+  samples=500,
+}
+
+\def\me{510.998}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}
+
+      % \addplot+[domain=0:2039] {%
+      %   x/\me * (2039/\me - x/\me)^5 * ((x/\me)^4 + 10*(x/\me)^3 + 40*(x/\me)^2 + 60*(x/\me) + 30) / 64507
+      % };
+
+      \addplot+ table {data/sums-decay0-norm.csv};
+      \addplot+ table {data/sums-hsd-norm.csv};
+      \addplot+ table {data/sums-ssd-norm.csv};
+
+    \end{axis}
+  \end{tikzpicture}
+\end{document}

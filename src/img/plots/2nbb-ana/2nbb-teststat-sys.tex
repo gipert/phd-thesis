@@ -43,9 +43,9 @@
 
       \nextgroupplot
 
-      \addplot+[histogram] table[y expr=\thisrow{TS_2nbb_allSys}*1E-4] {data/TS_2nbb_allSys.csv};
+      \addplot+[histogram] table[y expr=\thisrow{TS_2nbb_allSys}*1E-4] {data/test-statistics/TS_2nbb_allSys.csv};
 
-      % \addplot+[histogram] table[y expr=\thisrow{TS_2nbb_allSys}/\binw] {data/teststat.csv};
+      % \addplot+[histogram] table[y expr=\thisrow{TS_2nbb_allSys}/\binw] {data/test-statistics/teststat.csv};
 
       \addplot+[wilks] {1./sqrt(2*pi)*1./sqrt(x)*exp(-x/2.)};
 
@@ -56,15 +56,15 @@
 
       \nextgroupplot[xmax=4]
 
-      \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM1_allSys}*1E-4] {data/TS_0nbbM1_allSys.csv};
-      \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM2_allSys}*1E-4] {data/TS_0nbbM2_allSys.csv};
-      \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM3_allSys}*1E-4] {data/TS_0nbbM3_allSys.csv};
-      \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM7_allSys}*1E-4] {data/TS_0nbbM7_allSys.csv};
+      \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM1_allSys}*1E-4] {data/test-statistics/TS_0nbbM1_allSys.csv};
+      \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM2_allSys}*1E-4] {data/test-statistics/TS_0nbbM2_allSys.csv};
+      \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM3_allSys}*1E-4] {data/test-statistics/TS_0nbbM3_allSys.csv};
+      \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM7_allSys}*1E-4] {data/test-statistics/TS_0nbbM7_allSys.csv};
 
-      % \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM1_allSys}/\binw] {data/teststat.csv};
-      % \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM2_allSys}/\binw] {data/teststat.csv};
-      % \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM3_allSys}/\binw] {data/teststat.csv};
-      % \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM7_allSys}/\binw] {data/teststat.csv};
+      % \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM1_allSys}/\binw] {data/test-statistics/teststat.csv};
+      % \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM2_allSys}/\binw] {data/test-statistics/teststat.csv};
+      % \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM3_allSys}/\binw] {data/test-statistics/teststat.csv};
+      % \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM7_allSys}/\binw] {data/test-statistics/teststat.csv};
 
       \addplot+[wilks] {0.5/sqrt(2*pi)*1./sqrt(x)*exp(-x/2.)};
 

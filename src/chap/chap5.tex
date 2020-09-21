@@ -178,7 +178,7 @@ veto cut and reduces the signal-to-background ratio to less than 1 in its energy
 On the other hand, extending the fit range above the \nnbb\ Q-value does not improve the
 signal sensitivity.
 \newpar
-A 5~keV binning, given the energy resolution of the \enrBEGeII\ data set, does not
+A 10~keV binning, given the energy resolution of the \enrBEGeII\ data set, does not
 remove physical features in the spectrum and is large enough to avoid effects due to
 energy scale-related systematic uncertainties. Different bin sizes are tested
 to check that the performance of the fit is not affected by this choice.
@@ -407,7 +407,7 @@ analysis are discussed.
     $\pm5\sigma$ ($\sigma$ denotes the standard deviation) have been produced and
     reported in \cref{fig:2nbb-ana:pdf-dist} (right panel) for \kvn, \kvz\ and \nnbb\ in
     the \enrBEGeII\ data set. The \pdf\ distortions are noticeably lower than those induced
-    by the LAr veto model uncertainties, and contribute with less than 1\% to the total
+    by the LAr veto model uncertainties, and are found to be negligible in the total
     \thalftwo\ systematic uncertainty count.
 
     \begin{figure}
@@ -442,35 +442,43 @@ analysis are discussed.
       \end{tabular}
     \end{center}
     Some of these \pdf{}s are shown in \cref{fig:bkg:lar:ph2:pdfs:gmodel}. The contribution
-    of background modeling-related uncertainties to the total count amounts to
-    \fillme{?}\%.
+    of background modeling-related uncertainties to the total \nnbb\ half-life uncertainty
+    amounts to 0.5\%.
 
   \item[Theoretical \nnbb\ decay model] The theoretical calculations of the \nnbb\
     distribution shape are not exact and are based on approximations and assumptions
     (\cref{chap:theory}).  \nnbb\ primary vertices are generated in \mage\ through the
     \decayzero\ program, whose theoretical formulae are documented
-    in~\cite{Ponkratenko2000} and references therein. In similar works in the
+    in~\cite{Ponkratenko2000} and references therein.  In similar works in the
     past~\cite{Agostini2015a, Agostini2013c} the systematic uncertainty contribution
     arising from the decay theoretical description has been evaluated by considering the
     \nnbb\ distribution obtained with the Primakoff-Rosen
     approximation~\cite{Primakoff1959} as an alternative. The comparison resulted in
-    a~$<1$\% effect\footnote{%
-      There is, however, no guarantee that the impact on the current analysis is at the
-      same, second-order, level. The lower background and higher statistics compared to
-      the \phaseone\ data set makes a re-evaluation of this systematic contribution
-      necessary. Calculations in the Primakoff-Rosen approximation are known to yield
-      results which are more inexact than other (i.e.~those implemented in \decayzero).
-      Results from recent calculations (e.g.~phase space factors calculated with exact
-      Dirac wave functions with finite nuclear size and electron screening
-      effects~\cite{Kotila2012}) are more suitable to this comparison.
-      Another source of theoretical uncertainty which has recently turned out to be
-      relevant~\cite{Arnold2019, Azzolini2019a} is the assumption on the nuclear state
-      configuration of the intermediate nucleus in the decay (\nuc{As}{76} for \nnbb\
-      decay of \gesix). In \gesix\ a higher-state dominance (HSD) is usually assumed, but
-      a single-state dominance (SSD) cannot be excluded. We are in contact with
-      theoreticians to test these different calculation models against the \nnbb\
-      distribution collected by \gerda.
-    }.
+    a~$<1$\% effect, which was negligible in the total uncertainty budget.  There is,
+    however, no guarantee that the impact on the current analysis is at the same,
+    second-order, level. The lower background and higher statistics compared to the
+    \phaseone\ data set makes a re-evaluation of this systematic contribution necessary.
+    Calculations in the Primakoff-Rosen approximation, however, are known to yield results
+    which are inexact. Results from recent calculations, e.g.~phase space factors
+    calculated with exact Dirac wave functions with finite nuclear size and electron
+    screening effects~\cite{Kotila2012}, are more suitable to this comparison.  As clear
+    from the summed energy spectra, shown in \cref{fig:2nbb-ana:theoretical-spectrum}, the
+    calculations implemented in \decayzero\ and those presented in~\cite{Kotila2012} yield
+    identical results.  Another source of theoretical uncertainty which has recently
+    turned out to be relevant~\cite{Arnold2019, Azzolini2019a} is the assumption on the
+    nuclear state configuration of the intermediate nucleus in the decay (\nuc{As}{76} for
+    \nnbb\ decay of \gesix). In \gesix\ a higher-state dominance (HSD) is usually assumed,
+    but a single-state dominance (SSD) cannot be excluded. We are in contact with
+    theoreticians to test these different calculation models against the \nnbb\
+    distribution collected by \gerda.
+
+    \begin{figure}
+      \centering
+      \includegraphics{plots/2nbb-ana/2nbb-sums-assumptions.pdf}
+      \caption{%
+        caption
+      }\label{fig:2nbb-ana:theoretical-spectrum}
+    \end{figure}
 
   \item[\mage\ and \geant{}] Another possible source of systematic biases in the analysis
     is the implementation of the experimental setup into the Monte Carlo software stack
@@ -589,6 +597,7 @@ space factors in~\cite{Nitescu2020}:
     the standard \onbb, and have been therefore selected from the most recent nuclear
     calculations.  Matrix elements for the other decay modes have been taken
     from~\cite{Hirsch1995}.  Phase space factors have been taken from~\cite{Kotila2015}.
+    \fillme{should I use PSFs from klapdor to be consistent?}
     \fillme{numbers}
   }\label{tab:2nbb-ana:onbbx:limits}
   \input{tab/2nbb-ana/limits-onbbx.tex}

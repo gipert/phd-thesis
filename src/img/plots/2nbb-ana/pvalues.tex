@@ -32,17 +32,17 @@
 
       \nextgroupplot[title={without systematics}, ymode=log]
 
-      \addplot+ table {data/pvalues_0nbbM1_noSys.csv};
-      \addplot+ table {data/pvalues_0nbbM2_noSys.csv};
-      \addplot+ table {data/pvalues_0nbbM3_noSys.csv};
-      \addplot+ table {data/pvalues_0nbbM7_noSys.csv};
+      \addplot+ table {data/p-values/pvalues_0nbbM1_noSys.csv};
+      \addplot+ table {data/p-values/pvalues_0nbbM2_noSys.csv};
+      \addplot+ table {data/p-values/pvalues_0nbbM3_noSys.csv};
+      \addplot+ table {data/p-values/pvalues_0nbbM7_noSys.csv};
 
       \addplot[black, no marks, dashed, domain=-200:2000] {0.1};
 
       \nextgroupplot[title={with systematics}, ymode=log]
 
-      \addplot+ table {data/pvalues_0nbbM1_allSys.csv};
-      \addplot+ table {data/pvalues_0nbbM2_allSys.csv};
+      \addplot+ table {data/p-values/pvalues_0nbbM1_allSys.csv};
+      \addplot+ table {data/p-values/pvalues_0nbbM2_allSys.csv};
 
       \addplot[black, no marks, dashed, domain=-200:2000] {0.1};
 
