@@ -82,14 +82,15 @@ half-life can be expressed as:
   \thalftwoM = \mathcal{C}_{76} \frac{1}{S}\;;\quad
     \text{where}\; \mathcal{C}_{76} = \frac{\mathcal{N}_A\, \log2}{M_{76}}
       \left( \sum_i m^\text{tot}_i \, f^\text{AV}_i \, t_i \,
-      \epsilon_{\text{c},i} \right) f_{76} \, \epsilon_\text{LAr} \;,
+      \epsilon_{\text{c},i} \right) f_{76} \, \epsilon_\text{QC} \, \epsilon_\text{LAr} \;,
 \end{equation}
 $\mathcal{N}_A$ is the Avogadro number, $M_{76}$ is the \gesix\ molar mass,
 $m^\text{tot}$ is the total detector mass, $f^\text{AV}_i$ is the active volume fraction,
 $t_i$ is the detector live-time, $\epsilon_{\text{c},i}$ is the detector containment
 probability, $\sum_i$ runs over the detectors included in the data set, labeled by index
-$i$, $f_{76}$ is the enrichment fraction and $\epsilon_\text{LAr} = (97.7 \pm 0.1)\%$ is
-the probability for a signal event to survive the LAr veto cut.
+$i$, $f_{76}$ is the enrichment fraction, $\epsilon_\text{LAr} = (97.7 \pm 0.1)\%$ is
+the probability for a signal event to survive the LAr veto cut and $\epsilon_\text{QC} =
+(99.922 \pm 0.002)\%$ is the quality cuts signal efficiency.
 
 \blocktitle{test \\ statistic}
 To test a hypothesized value of $S$ the following profile likelihood ratio is defined:
@@ -134,6 +135,20 @@ using the above equation.
 
 \begin{figure}
   \centering
+  \includegraphics{plots/2nbb-ana/2nbb-teststat.pdf}
+  \caption{%
+    Sampling distribution of the test statistic probability $P$ for various signal
+    hypothesis sampled with Monte Carlo methods. On the left: the standard \nnbb\ case. A
+    signal of $S \sim 4.5 \cdot 10^5$ counts in the analysis range is assumed in the toy
+    experiments. On the right: sampling distributions for the null hypothesis on
+    new-physics signals.  Deviations from the Wilks theorem predictions are observed.
+    Bayesian blocks have been used to represent the histograms (see
+    \cref{apdx:bayesblocks}). \fillme{add LV}
+  }\label{fig:2nbb-ana:ts-dist}
+\end{figure}
+
+\begin{figure}
+  \centering
   \includegraphics{plots/2nbb-ana/pvalues.pdf}
   \caption{%
     Median \pvalue\ of the null hypothesis with different signal strength assumption for
@@ -141,19 +156,6 @@ using the above equation.
     plot, the effect of additional systematic uncertainties is included. The \pvalue\
     corresponding to 90\% confidence level is highlighted with dashed lines. \fillme{update}
   }\label{fig:2nbb-ana:pvalues}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics{plots/2nbb-ana/2nbb-teststat.pdf}
-  \caption{%
-    Sampling distribution of the test statistic for various signal hypothesis sampled with
-    Monte Carlo methods. On the left: the standard \nnbb\ case. A signal of $S \sim 4.5
-    \cdot 10^5$ counts in the analysis range is assumed in the toy experiments. On the
-    right: sampling distributions for the null hypothesis on new-physics signals.
-    Deviations from the Wilks theorem predictions are observed. Bayesian blocks have been
-    used to represent the histograms (see \cref{apdx:bayesblocks}). \fillme{add LV}
-  }\label{fig:2nbb-ana:ts-dist}
 \end{figure}
 
 \blocktitle{sensitivity \\ studies}
@@ -250,17 +252,6 @@ implements this approach for the \nnbb\ analysis is implemented in the
   instructed to consider intermediate distortion curves by interpolation.
 }. In the following, the main sources of systematic uncertainties impacting the \nnbb\
 analysis are discussed.
-
-\begin{figure}
-  \centering
-  \includegraphics{plots/2nbb-ana/bege-pdf-dist.pdf}
-  \caption{%
-    Effect of alternative LAr veto models (right) and transition layer models (left) on
-    \kvn\ (signal and high-voltage cables), \kvz\ (homogeneous in the LAr) and \nnbb\
-    \pdf{}s for the \enrBEGeII\ data set after the LAr veto cut. See text for details on how
-    the alternative models have been constructed.
-  }\label{fig:2nbb-ana:pdf-dist}
-\end{figure}
 
 \begin{description}[wide]
 
@@ -419,6 +410,17 @@ analysis are discussed.
     by the LAr veto model uncertainties, and contribute with less than 1\% to the total
     \thalftwo\ systematic uncertainty count.
 
+    \begin{figure}
+      \centering
+      \includegraphics{plots/2nbb-ana/bege-pdf-dist.pdf}
+      \caption{%
+        Effect of alternative LAr veto models (right) and transition layer models (left) on
+        \kvn\ (signal and high-voltage cables), \kvz\ (homogeneous in the LAr) and \nnbb\
+        \pdf{}s for the \enrBEGeII\ data set after the LAr veto cut. See text for details on how
+        the alternative models have been constructed.
+      }\label{fig:2nbb-ana:pdf-dist}
+    \end{figure}
+
   \item[Background model] The uncertainty on the location of the main background sources
     is treated as a systematic uncertainty source in the analysis. \pdf{}s for the same
     radioactive contamination in different locations are provided as an alternative to the
@@ -524,13 +526,13 @@ C.L.~lower limit is reported in \cref{tab:2nbb-ana:systematics}.
   \centering
   \includegraphics{plots/2nbb-ana/2nbb-teststat-sys.pdf}
   \caption{%
-    Sampling distribution of the test statistic for various signal hypothesis sampled with
-    Monte Carlo methods, including the effect of systematic uncertainties. On the left:
-    the standard \nnbb\ case. A signal of $S \sim 4.5 \cdot 10^5$ counts in the analysis
-    range is assumed in the toy experiments. On the right: sampling distributions for the
-    null hypothesis on new-physics signals.  Deviations from the Wilks theorem predictions
-    are observed. Bayesian blocks have been used to represent the histograms (see
-    \cref{apdx:bayesblocks}). \fillme{add LV}
+    Sampling distribution of the test statistic probability $P$ for various signal
+    hypothesis sampled with Monte Carlo methods, including the effect of systematic
+    uncertainties. On the left: the standard \nnbb\ case. A signal of $S \sim 4.5 \cdot
+    10^5$ counts in the analysis range is assumed in the toy experiments. On the right:
+    sampling distributions for the null hypothesis on new-physics signals.  Deviations
+    from the Wilks theorem predictions are observed. Bayesian blocks have been used to
+    represent the histograms (see \cref{apdx:bayesblocks}). \fillme{add LV}
   }\label{fig:2nbb-ana:ts-dist-sys}
 \end{figure}
 
@@ -591,6 +593,17 @@ space factors in~\cite{Nitescu2020}:
   }\label{tab:2nbb-ana:onbbx:limits}
   \input{tab/2nbb-ana/limits-onbbx.tex}
 \end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/2nbb-ana/enrBEGe-results.pdf}
+  \caption{%
+    Best-fit model and data for the \enrBEGeII\ data set. The fit model does not include
+    new-physics contributions, but the 90\% C.L.~upper limits on the
+    hypothesized signals are reported. In the bottom panel the residuals are shown,
+    together with normalized 68\%, 95\% and 99\% C.L.~intervals.
+  }\label{fig:2nbb-ana:limits}
+\end{figure}
 
 \chapsummary
 \begin{itemize}

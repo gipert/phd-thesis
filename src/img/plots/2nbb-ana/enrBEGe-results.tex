@@ -1,0 +1,188 @@
+%! TEX program = xelatex
+\input{../../../../tex/standalone-def.tex}
+\import{}{pgfplots-def}
+
+\pgfplotsset{%
+  height=8cm,
+  xmin=565, xmax=2000,
+  group style={%
+    group size=1 by 2,
+    xticklabels at=edge bottom,
+    xlabels at=edge bottom,
+    vertical sep=1pt,
+  },
+  legend style={%
+    font=\footnotesize,
+    draw=none,
+    fill=none,
+    /tikz/every even column/.append style={column sep=8pt},
+  },
+  legend columns=3,
+  legend pos=north east,
+  xlabel={Energy (keV)},
+  ylabel={Counts / 10 keV},
+  xtick pos=both,
+  histogram/.append style={%
+    table/x=xunit_low,
+    line width=0.6pt,
+  },
+  loghistogramaxis/.append style={%
+    ymin=1e-4,
+  },
+  spectrum/.style={%
+    loghistogramaxis,
+  },
+  data/.style={%
+    loghistogram,
+    table/y=fitted_data,
+    draw=none,
+    fill=TolVibBlue,
+    fill opacity=0.2,
+    area legend,
+  },
+  model/.style={%
+    loghistogram,
+    black,
+    table/y=total_model,
+  },
+  background/.style={%
+    loghistogram,
+    TolVibBlue,
+    table/y expr=\thisrow{Ac228_holders}+\thisrow{Co60_cables}+\thisrow{K40_close}+\thisrow{K42_far}+\thisrow{K42_far}+\thisrow{Th228_cables}+\thisrow{U238_cables}
+  },
+  2nbb/.style={%
+    loghistogram,
+    TolMutOlive,
+    table/y=Nnbb_bege,
+  },
+  residuals/.style={%
+    height=3cm,
+    ylabel={residuals},
+  },
+  ratio/.style={%
+    histogram,
+    mark=*,
+    mark size=0.5pt,
+    only marks,
+    table/x=xunit,
+    % table/y expr=\thisrow{fitted_data}/\thisrow{total_model},
+    table/y=norm_pois_res,
+  },
+  1sigu/.style={%
+    histogram,
+    % table/y expr=\thisrow{1sig_p}/\thisrow{total_model},
+    table/y expr=1,
+    TolLigPear,
+    name path=1sigu,
+    forget plot,
+  },
+  1sigl/.style={%
+    histogram,
+    % table/y expr=\thisrow{1sig_m}/\thisrow{total_model},
+    table/y expr=-1,
+    TolLigPear,
+    name path=1sigl,
+    forget plot,
+  },
+  2sigu/.style={%
+    histogram,
+    % table/y expr=\thisrow{2sig_p}/\thisrow{total_model},
+    table/y expr=2,
+    TolLigYellow,
+    name path=2sigu,
+    forget plot,
+  },
+  2sigl/.style={%
+    histogram,
+    % table/y expr=\thisrow{2sig_m}/\thisrow{total_model},
+    table/y expr=-2,
+    TolLigYellow,
+    name path=2sigl,
+    forget plot,
+  },
+  3sigu/.style={%
+    histogram,
+    % table/y expr=\thisrow{3sig_p}/\thisrow{total_model},
+    table/y expr=3,
+    TolLigOrange,
+    name path=3sigu,
+    forget plot,
+  },
+  3sigl/.style={%
+    histogram,
+    % table/y expr=\thisrow{3sig_m}/\thisrow{total_model},
+    table/y expr=-3,
+    TolLigOrange,
+    name path=3sigl,
+    forget plot,
+  },
+  1sigb/.style={%
+    TolLigPear,
+    area legend,
+    forget plot,
+  },
+  2sigb/.style={%
+    TolLigYellow,
+    area legend,
+    forget plot,
+  },
+  3sigb/.style={%
+    TolLigOrange,
+    area legend,
+    forget plot,
+  },
+}
+
+\newcommand{\addbrasilianplot}{%
+  \addplot[3sigu] table {\loadedtable};
+  \addplot[3sigl] table {\loadedtable};
+  \addplot[3sigb] fill between [of=3sigu and 3sigl];
+  \addplot[2sigu] table {\loadedtable};
+  \addplot[2sigl] table {\loadedtable};
+  \addplot[2sigb] fill between [of=2sigu and 2sigl];
+  \addplot[1sigu] table {\loadedtable};
+  \addplot[1sigl] table {\loadedtable};
+  \addplot[1sigb] fill between [of=1sigu and 1sigl];
+  \addplot[ratio] table {\loadedtable};
+}
+
+\def\norm{6.02214086E23*0.6931*20.024*1.907/75.92/1e8}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}
+
+      \pgfplotstableread{data/gerda_data_bkgmodel_phaseII_v07_01_orig_lar_M1_enrBEGe.csv}\loadedtable;
+      \nextgroupplot[spectrum, ymode=log, ymin=2e-4, ymax=1e5]
+
+      \addplot[data]       table {\loadedtable} \closedcycle;
+      \addplot[background] table {\loadedtable};
+      \addplot[2nbb]       table {\loadedtable};
+      \addplot[model]      table {\loadedtable};
+      \addlegendimage{only marks, mark=sigma bands}
+
+      \addplot[TolVibRed,     loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM1}*\norm/5.7e23] {data/newphysics.csv};
+      \addplot[TolVibTeal,    loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM2}*\norm/5.7e23] {data/newphysics.csv};
+      \addplot[TolVibOrange,  loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM3}*\norm/5.7e23] {data/newphysics.csv};
+      \addplot[TolVibMagenta, loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM7}*\norm/5.7e23] {data/newphysics.csv};
+      \addplot[TolVibCyan,    loghistogram] table [x=bin_low_edge, y expr=0.04*\thisrow{nnbbLV}*\norm/2e21] {data/newphysics.csv};
+
+      \legend{%
+        {Data},
+        {Background},
+        {\nnbb},
+        {Model},
+        {1,2,3 $\sigma$},
+        {\onbbx\ ($n=1$) (90\% C.L.)},
+        {\onbbx\ ($n=2$) (90\% C.L.)},
+        {\onbbx\ ($n=3$) (90\% C.L.)},
+        {\onbbx\ ($n=7$) (90\% C.L.)},
+        {\nnbblv\ (90\% C.L.)},
+      }
+
+      \nextgroupplot[residuals]
+      \addbrasilianplot
+
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}
