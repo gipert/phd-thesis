@@ -25,6 +25,12 @@
     ymin=1e-1,
   },
   every axis/.append style={%
+    title={All detectors (\gexpobkg)},
+    title style={%
+      anchor=south east,
+      at={(axis description cs:1,0)}
+    },
+    spectrum,
     font=\footnotesize,
     restrict x to domain=500:5300,
     x label style={at={(axis description cs:1,-0.08)}, anchor=north east},
@@ -98,7 +104,7 @@
 
 \begin{document}
   \begin{tikzpicture}
-    \begin{axis}[spectrum, ymode=log]
+    \begin{axis}[ymode=log]
 
       \addlegendimage{data};
       \addlegendimage{model};

@@ -3,19 +3,15 @@
 \import{}{pgfplots-def}
 
 \pgfplotsset{%
-  width=9cm,
+  width=5cm,
   every axis/.append style={%
     xlabel={Energy (MeV)},
-    ylabel={Probability},
-    xmin=0, xmax=2.039,
     smooth,
-    xtick pos=both,
   },
   group style={%
     group size=1 by 2,
-    vertical sep=2pt,
-    xticklabels at=edge bottom,
-    xlabels at=edge bottom,
+    ylabels at=edge left,
+    horizontal sep=0.7cm,
   },
   no marks,
   legend pos=north east,
@@ -25,7 +21,7 @@
   },
   sampled/.style={%
     table/col sep=space,
-    table/x expr=\thisrow{energy}*1e-3,
+    table/x expr=\thisrow{energy}/1e3,
     table/y=probability,
   },
   samples=500,
@@ -37,35 +33,29 @@
   \begin{tikzpicture}
     \begin{groupplot}
 
-      \nextgroupplot
+      \nextgroupplot[
+        xmin=0.600, xmax=0.800,
+        ]
 
       \addplot+[domain=0:2.039] {%
         x/\me * (2.039/\me - x/\me)^5 * ((x/\me)^4 + 10*(x/\me)^3 + 40*(x/\me)^2 + 60*(x/\me) + 30) / 3.2908691397497512e7
       };
 
-      % \addplot+ table {data/sums-decay0-norm.csv};
       \addplot+[sampled] table {data/sums-hsd-norm.csv};
       \addplot+[sampled] table {data/sums-ssd-norm.csv};
 
-      \legend{%
-        {Primakoff-Rosen},
-        {HSD},
-        {SSD},
-      }
+      \nextgroupplot[group/empty plot, height=3.4cm]
 
-      \nextgroupplot[
-        height=3cm,
-        ymin=0.9, ymax=1.15,
-        ylabel={Ratio},
-        ymajorgrids,
-        legend pos=south east,
-      ]
+      % \nextgroupplot[
+      %   xmin=1.400, xmax=1.800,
+      % ]
 
-      \addplot+[sampled, black] table[y=ratio] {data/ssd-to-hsd-ratio.csv};
+      % \addplot+[domain=0:2.039] {%
+      %   x/\me * (2.039/\me - x/\me)^5 * ((x/\me)^4 + 10*(x/\me)^3 + 40*(x/\me)^2 + 60*(x/\me) + 30) / 3.2908691397497512e7
+      % };
 
-      \legend{%
-        {SSD/HSD},
-      }
+      % \addplot+[sampled] table {data/sums-hsd-norm.csv};
+      % \addplot+[sampled] table {data/sums-ssd-norm.csv};
 
     \end{groupplot}
   \end{tikzpicture}
