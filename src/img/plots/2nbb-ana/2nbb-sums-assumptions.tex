@@ -37,7 +37,7 @@
   \begin{tikzpicture}
     \begin{groupplot}
 
-      \nextgroupplot
+      \nextgroupplot[ymin=0]
 
       \addplot+[domain=0:2.039] {%
         x/\me * (2.039/\me - x/\me)^5 * ((x/\me)^4 + 10*(x/\me)^3 + 40*(x/\me)^2 + 60*(x/\me) + 30) / 3.2908691397497512e7

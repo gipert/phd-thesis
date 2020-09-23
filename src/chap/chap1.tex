@@ -294,17 +294,18 @@ free nucleon value of 1.27 that is necessary to reproduce the observable quantit
 nuclear decays, particularly \b\ and \nnbb\ decays, see~\cite{Suhonen2017} for a review.
 Possible origins of quenching are nuclear-medium effects, many-body currents or the
 inherent shortcomings of the nuclear many-body models. The latter usually fix $g_A$ first
-and then adjust the nuclear interaction to reproduce the measured \nnbb\ rates~\cite{?}. Another
-common approach is to take $g_A$ from Gamow-Teller \b\ decay and electron capture rates,
-assuming a common quenching for all weak processes~\cite{?}. In this way, one can reproduce \nnbb\
-rates and predict non-measured ones. A possibly important observation is that \b\ and
-\nnbb\ decays have energy scales of order MeV, i.e.~much smaller than the \onbb\ scale of
-order 100~MeV. Recent studies suggest that low-energy processes may require more quenching
-and thus, less or no quenching might be needed in \onbb\ decay (not more than 20--30\%)~\cite{?}.
-However, there is not yet consensus in the literature on this issue, and further studies
-are needed. The dependence of quenching on the nuclear calculations can be demonstrated by
-analyzing the \nnbb\ electron-energy spectra, which allows the extraction of the
-sub-leading higher-order contributions to the matrix elements~\cite{Gando2019}.
+and then adjust the nuclear interaction to reproduce the measured \nnbb\ rates~\cite{?}.
+Another common approach is to take $g_A$ from Gamow-Teller \b\ decay and electron capture
+rates, assuming a common quenching for all weak processes~\cite{?}. In this way, one can
+reproduce \nnbb\ rates and predict non-measured ones. A possibly important observation is
+that \b\ and \nnbb\ decays have energy scales of order MeV, i.e.~much smaller than the
+\onbb\ scale of order 100~MeV. Recent studies suggest that low-energy processes may
+require more quenching and thus, less or no quenching might be needed in \onbb\ decay (not
+more than 20--30\%)~\cite{?}.  However, there is not yet consensus in the literature on
+this issue, and further studies are needed. The dependence of quenching on the nuclear
+calculations can be demonstrated by analyzing the \nnbb\ electron-energy spectra, which
+allows the extraction of the sub-leading higher-order contributions to the matrix
+elements~\cite{Gando2019}.
 
 \blocktitle{energy \\ spectrum}
 Having found in \cref{eq:nbb:trans-prob} an expression for the transition probability in
@@ -346,6 +347,12 @@ with $F_\text{PR}(Z) = 2\pi\alpha/Z(\-e^{-2\pi\alpha Z})$, where $\alpha$ is the
 structure constant. The distribution in \cref{eq:nbb:stdmodel} for \gesix\ is plotted in
 \cref{fig:nbb:spectra} in red.
 
+\blocktitle{experimental \\ measures}
+Since double-beta decay experiments are starting to collect high-statistics \nnbb\ data
+sets, experimental determinations of the process half-life are becoming very precise. A
+compilation of the most accurate measurements, with relative uncertainties of few
+percents, performed in recent years is presented in \cref{tab:nbb:2nbb-estimates}.
+
 \begin{figure}
   \centering
   \includegraphics{plots/theory/bb-spectra.pdf}
@@ -356,6 +363,15 @@ structure constant. The distribution in \cref{eq:nbb:stdmodel} for \gesix\ is pl
     from~\cite{Tretyak1995, Tretyak2002}.
   }\label{fig:nbb:spectra}
 \end{figure}
+
+\begin{table}
+  \centering
+  \caption{%
+    A compilation of the most precise measures of the standard \nnbb\ half-life for a
+    selection of double-beta emitters.
+  }\label{tab:nbb:2nbb-estimates}
+  \input{tab/theory/2nbb-values.tex}
+\end{table}
 
 \section{Neutrinoless double-beta decay, neutrino mass and baryogenesis}%
 \label{sec:nbb:0nbb}
@@ -414,32 +430,33 @@ naturalness issue, the connection with baryon number in most Grand Unified Theor
 (GUTs), i.e.~gauge theories with a single gauge coupling at a certain high energy scale,
 might help solving the long-standing problem of explaining why we live in a
 matter-dominated Universe, often referred as the `baryogenesis problem', despite the equal
-importance of matter and anti-matter in the Standard Model.  In 1967, Sakharov proposed a
+importance of matter and anti-matter in the Standard Model.  In \yr{1967}, Sakharov proposed a
 set of necessary conditions to generate the cosmic baryon asymmetry~\cite{Sakharov1991}.
-These conditions are satisfied in the Standard Model \fillme{really?}, but they don't generate the required
-amount of baryonic asymmetry observed by current experiments~\cite{Zyla2020, Aghanim2018}.
-One viable and attractive way to mach theoretical predictions to experimental data is
-assuming that lepton number violating processes had a major role in the early history of
-the Universe.  This is referred as the leptogenesis mechanism, which was first proposed by
-Fukugita and Yanigada in 1986~\cite{Fukugita1986}. In this model (`unflavored'
-Leptogenesis) heavy particles present in many GUTs would have been produced during the Big
-Bang and then quickly decayed through $CP$-violating processes, producing a leptonic
-asymmetry. Note however that, since its first formulation, a large number of alternative
-theoretical possibilities for leptogenesis have also been formulated~\cite{?}.  How can
-leptogenesis convert to baryogenesis? As already mentioned, quarks and leptons live
-together in GUT multiplets, and hence both $B$ and $L$ are not expected to be conserved
-quantities. By the way, the combination $B−L$, which is conserved in the Standard Model
-both at the classical and quantum level (by sphaleron processes), often plays an important
-role in GUTs, and is broken at some stage.  In the spirit of baryogenesis, one needs to
-require that baryon number is violated, and hence lepton number should be violated too. In
-this sense lepton violation should be treated on the same level as baryon number
-violation, and its observation would be far more fundamental than a simple measurement of
-neutrino properties, which is often quoted as the main goal of \onbb\ searches.  For the
-sake of completeness, it should be mentioned that the link between \onbb\ and the baryon
-asymmetry is not guaranteed, as remarked in~\cite{Rodejohann2011}. The often-made and
-popular statement that \onbb\ experiments probe the origin of matter in the Universe is
-not true in all cases. There might be scenarios in which new physics processes that allow
-for \onbb\ do not generate baryon asymmetry, yet the decay is very well possible.
+These conditions are satisfied in the Standard Model~\cite{Buchmuller2005}, but they don't
+generate the required amount of baryonic asymmetry observed by current
+experiments~\cite{Zyla2020, Aghanim2018}.  One viable and attractive way to mach
+theoretical predictions to experimental data is assuming that lepton number violating
+processes had a major role in the early history of the Universe.  This is referred as the
+leptogenesis mechanism, which was first proposed by Fukugita and Yanigada in
+1986~\cite{Fukugita1986}. In this model (\emph{unflavored} Leptogenesis) heavy particles
+present in many GUTs would have been produced during the Big Bang and then quickly decayed
+through $CP$-violating processes, producing a leptonic asymmetry. Note however that, since
+its first formulation, a large number of alternative theoretical possibilities for
+leptogenesis have also been formulated~\cite{Buchmuller2005}.  How can leptogenesis convert to
+baryogenesis? As already mentioned, quarks and leptons live together in GUT multiplets,
+and hence both $B$ and $L$ are not expected to be conserved quantities. By the way, the
+combination $B−L$, which is conserved in the Standard Model both at the classical and
+quantum level (by \emph{sphaleron} processes), often plays an important role in GUTs, and is
+broken at some stage.  In the spirit of baryogenesis, one needs to require that baryon
+number is violated, and hence lepton number should be violated too. In this sense lepton
+violation should be treated on the same level as baryon number violation, and its
+observation would be far more fundamental than a simple measurement of neutrino
+properties, which is often quoted as the main goal of \onbb\ searches.  For the sake of
+completeness, it should be mentioned that the link between \onbb\ and the baryon asymmetry
+is not guaranteed, as remarked in~\cite{Rodejohann2011}. The often-made and popular
+statement that \onbb\ experiments probe the origin of matter in the Universe is not true
+in all cases. There might be scenarios in which new physics processes that allow for
+\onbb\ do not generate baryon asymmetry, yet the decay is very well possible.
 
 \blocktitle{neutrino \\ mass}
 Besides lepton number violation, \onbb, if observed, would be of great importance for

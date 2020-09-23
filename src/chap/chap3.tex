@@ -1270,9 +1270,10 @@ software routine is publicly available on GitHub\footnote{\label{footnote:gerda-
   computation, prior distribution configuration by analytical expression or external
   histogram, variable re-binning and posterior sampling of user-defined observables.
 }. Variable bin sizes are used to represent data and \pdf{}s in the analysis, to speed up the
-computation. Dedicated, thin bins (depending on the energy resolution) are used for known
-\g\ lines; larger ones (depending on the event rate) for the continuum. The analysis is
-repeated with fixed-size bins (5~keV) to verify the consistency of the results.
+computation and avoid bias from low-statistics \pdf{}s. Dedicated, thin bins (depending on
+the energy resolution) are used for known \g\ lines; larger ones (depending on the event
+rate) for the continuum. The analysis is repeated with fixed-size bins (5~keV) to verify
+the consistency of the results.
 \newpar
 Given the lower \a-event rate compared to the first part of \phasetwo, the \a-events
 analysis has not been repeated. In principle, the \Po\ contamination could have changed
@@ -1316,7 +1317,7 @@ The resulting background decomposition of the four analysis data sets is shown i
 \cref{fig:bkg:raw:ph2p:results-1,fig:bkg:raw:ph2p:results-2,fig:bkg:raw:ph2p:results-3}.
 Data is presented with the variable binning used in the analysis and a fixed-width 15~keV
 binning. A close-up in the \onbb\ region of interest is shown in
-\cref{fig:bkg:raw:ph2:results:roi}. In this fit configuration with many fit parameters,
+\cref{fig:bkg:raw:ph2:gmodel:results:roi}. In this fit configuration with many fit parameters,
 most of the marginalized posteriors are driven by their respective prior distribution.
 This is expected, given the known correlations between the \pdf{}s and the low count rate of
 some background sources. All the marginalized posteriors are compatible with the prior
