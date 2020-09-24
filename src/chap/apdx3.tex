@@ -243,7 +243,7 @@ cluster job scheduler and dedicated automation software tools\footnote{%
 and run-dependent information into the raw \mage\ output, before being parsed by histogram
 generation routines that write the \pdf{}s to disk. The software utilities interact with the
 job scheduler and add the requested or outdated jobs to the queue, based on the set of
-simulations selected by the user. The letter is required to provide a list of simulations
+simulations selected by the user. The latter is required to provide a list of simulations
 as input; the software then builds a local replica of the database with symbolic links to
 the corresponding directories in the simulation database and inspects it. The \pdf\
 production is also configured with JSON files; the detector active volume parameters, the
@@ -313,16 +313,17 @@ specifications of natural argon.
   \item[Scintillation yield] Different scintillation processes are defined in the \mage\
     physics list for different ionizing particles, that in general have different
     scintillation yields in LAr. A nominal value of $51\;\upgamma/\text{keV}$ is
-    recommended in~\cite{Doke2002, Doke1988} for flat-top particles, which reduces to
-    $40\;\upgamma/\text{keV}$ for \b\ and \g\ particles. This value does certainly not
-    represent the reality of \gerda, as the yield strongly depends on the electric field
-    configuration and the quencher impurity level. Unfortunately a reliable direct measure
-    of the scintillation yield of the \gerda\ LAr is not available. Indirect measurements
-    were performed within the \LArGe\ setup~\cite{Lehnert2016} and with a dedicated setup
-    deployed inside the \gerda\ cryostat~\cite{Barros2020}, but they both yield
-    incompatible results. A tentative, default value of 28~$\upgamma/\text{keV}$ for \b\
-    and \g\ particles is implemented in \mage, which is the maximum achievable
-    scintillation yield corresponding to 1~\mus\ triplet lifetime\footnote{%
+    recommended for \emph{flat-top} particles~\cite{Doke2002, Doke1988} (see references for
+    the definition of flat-top particles), which reduces to $40\;\upgamma/\text{keV}$ for
+    \b\ and \g\ particles. This value does certainly not represent the reality of \gerda,
+    as the yield strongly depends on the electric field configuration and the quencher
+    impurity level. Unfortunately a reliable direct measure of the scintillation yield of
+    the \gerda\ LAr is not available. Indirect measurements were performed within the
+    \LArGe\ setup~\cite{Lehnert2016} and with a dedicated setup deployed inside the
+    \gerda\ cryostat~\cite{Barros2020}, but they both yield incompatible results. A
+    tentative, default value of 28~$\upgamma/\text{keV}$ for \b\ and \g\ particles is
+    implemented in \mage, which is the maximum achievable scintillation yield
+    corresponding to 1~\mus\ triplet lifetime\footnote{%
       in first order, only the long-lived triplet state is affected by contaminant-induced
       non-radiative de-excitation. Electromagnetic interactions have a singlet-to-triplet
       ratio of 0.3~\cite{Doke2002}. The integral over the triplet decay for nominal

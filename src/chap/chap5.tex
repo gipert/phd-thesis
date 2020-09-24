@@ -82,15 +82,16 @@ half-life can be expressed as:
   \thalftwoM = \mathcal{C}_{76} \frac{1}{S}\;;\quad
     \text{where}\; \mathcal{C}_{76} = \frac{\mathcal{N}_A\, \log2}{M_{76}}
       \left( \sum_i m^\text{tot}_i \, f^\text{AV}_i \, t_i \,
-      \epsilon_{\text{c},i} \right) f_{76} \, \epsilon_\text{QC} \, \epsilon_\text{LAr} \;,
+      \epsilon_{\text{c},i} \right) f_{76} \, f_R \, \epsilon_\text{QC} \, \epsilon_\text{LAr} \;,
 \end{equation}
-$\mathcal{N}_A$ is the Avogadro number, $M_{76}$ is the \gesix\ molar mass,
-$m^\text{tot}$ is the total detector mass, $f^\text{AV}_i$ is the active volume fraction,
-$t_i$ is the detector live-time, $\epsilon_{\text{c},i}$ is the detector containment
-probability, $\sum_i$ runs over the detectors included in the data set, labeled by index
-$i$, $f_{76}$ is the enrichment fraction, $\epsilon_\text{LAr} = (97.7 \pm 0.1)\%$ is
-the probability for a signal event to survive the LAr veto cut and $\epsilon_\text{QC} =
-(99.922 \pm 0.002)\%$ is the quality cuts signal efficiency.
+$\mathcal{N}_A$ is the Avogadro number, $M_{76}$ is the \gesix\ molar mass, $m^\text{tot}$
+is the total detector mass, $f^\text{AV}_i$ is the active volume fraction, $t_i$ is the
+detector live-time, $\epsilon_{\text{c},i}$ is the detector containment probability,
+$\sum_i$ runs over the detectors included in the data set, labeled by index $i$, $f_{76}$
+is the enrichment fraction, $f_R$ is the fraction of \nnbb\ events with energy in the
+analysis range, $\epsilon_\text{LAr} = (97.7 \pm 0.1)\%$ is the probability for a signal
+event to survive the LAr veto cut and $\epsilon_\text{QC} = (99.922 \pm 0.002)\%$ is the
+quality cuts signal efficiency.
 
 \blocktitle{test \\ statistic}
 To test a hypothesized value of $S$ the following profile likelihood ratio is defined:
@@ -191,21 +192,7 @@ to check that the performance of the fit is not affected by this choice.
     systematic uncertainties. The results are extracted from toy Monte Carlo data sets.
     \fillme{numbers}
   }\label{tab:2nbb-ana:sensitivity}
-  \begin{tabular}{lcrlrl}
-    \toprule
-                           &           & \mc{4}{Sensitivity}                                                    \\
-    \cmidrule(lr){3-6}
-    Decay                  & Spectral  & \mc{2}{Statistical}                & \mc{2}{With systematics}          \\
-    % \cmidrule(lr){3-4}\cmidrule(lr){5-6}
-    Mode                   & index $n$ & Counts & $T_{1/2}$ (\powtenyr{23}) & Counts & $T_{1/2}$ (\powtenyr{23})\\
-    \midrule
-    \onbbx\                & 1         &    171 & 7.9                       &    241 & 5.6                      \\
-    \onbbx\                & 2         &        &                           &        &                          \\
-    $\onbbM\upchi(\upchi)$ & 3         &        &                           &        &                          \\
-    \onbbxx\               & 7         &        &                           &        &                          \\
-    \nnbblv\               & 4         &        & --                        &        & --                       \\
-    \bottomrule
-  \end{tabular}
+  \input{tab/2nbb-ana/sensitivity-onbbx}
 \end{table}
 
 \section{Systematic uncertainties}%
@@ -599,7 +586,7 @@ Once the analysis procedure has been fixed and the distribution of the test stat
 determined, its value is computed on physics data to extract the \nnbb\ half-life and 90\%
 C.L.~lower limits for new-physics processes.
 
-\blocktitle{\nnbb}
+\blocktitle{\nnbb\ \\ decay}
 The estimate of the standard \nnbb-decay half-life is
 \[
   \thalftwoM = (\fillme{?} \pm \stat{\fillme{?}} \pm \syst{\fillme{?}}) \cdot 10^{21}~\text{yr} \;.
@@ -611,22 +598,41 @@ which is roughly doubled with respect to \phaseone, but also from the higher
 signal-to-background ratio --- more than a factor 10 better. The level of systematic
 uncertainty also benefits from the substantial cut of background events obtained with the
 application of the LAr veto. As shown in \cref{sec:2nbb-ana:systematics}, the effect of
-most systematic uncertainty sources is found in the shape of background \pdf{}s.
+most sources of systematic uncertainty is found in the shape of background \pdf{}s.
 Uncertainties on the signal shape, from e.g.~nuclear theory or from the model of the detector dead
 layer, are found to be sub-leading. The dominant contribution is the uncertainty on the
-size of the detectors active volume. With a total uncertainty of 2.1\% on the \nnbb\
-half-life, the measurement presented in this work is one of the most precise ever, on the
-same footing of results from \textsc{CUPID-Mo} (2.9\%)~\cite{Armengaud2019}, CUPID-0
-(2.2\%)~\cite{Azzolini2019a}, CUORE (2.8\%)~\cite{Caminata2019}, EXO-200
-(2.8\%)~\cite{Albert2013} and \kamlandzen\ (3.4\%)~\cite{Gando2019} (see also
-\cref{tab:nbb:2nbb-estimates}).
+size of the detectors active volume and on the enrichment fraction. With a total
+uncertainty of 2.1\% on the \nnbb\ half-life, the measurement presented in this work is
+one of the most precise ever obtained, on the same footing of recent results from
+\textsc{CUPID-Mo} (2.9\%)~\cite{Armengaud2019}, CUPID-0 (2.2\%)~\cite{Azzolini2019a},
+CUORE (2.8\%)~\cite{Caminata2019}, EXO-200 (2.8\%)~\cite{Albert2013} and \kamlandzen\
+(3.4\%)~\cite{Gando2019} (compare also with \cref{tab:nbb:2nbb-estimates}).
+\newpar
+The uncertainty on the \bege\ detectors active volume deserves a dedicated discussion.
+As a matter of fact, evidence of a systematic underestimation of the detectors dead layer
+has emerged from different sources. From one side, a significant discrepancy between the
+\nnbb\ half-life obtained from \scoax\ and \bege\ detectors independently has been
+observed in background model studies presented in \cref{sec:bkg:raw:ph2:gmodel}. The bias
+is confirmed by an analysis of the background data after the \phasetwop\ upgrade, where
+the same bias is observed between half-lives from \bege\ and \icoax\ detectors. On the
+other side, the situation seems confirmed by a preliminary analysis of the low-energy
+\Arl\ data (see \cref{apdx:gedetav}, \cref{fig:gedetav:ar39-results} in particular). A
+re-analysis of the data after the \phasetwop\ upgrade with an \Arl-corrected active
+volume model restores the compatibility between the three half-life predictions (see
+\cref{fig:bkg:raw:ph2p:gmodel:2nbb-post-ar39av}). A careful extraction of detector active
+volumes from \Arl\ data is envisioned to obtain a non-biased measurement of the \nnbb\
+half-life. Since the systematic uncertainty on the half-life is currently dominated by the
+uncertainty on the dead-layer growth speed at room temperature, a further, substantial
+precision improvement is expected with the corrected active volumes.
 
 \blocktitle{new \\ physics}
 Lower limits (90\% C.L.) on the half-lives of various Majoron-emitting modes of \onbb\ are
-reported in \cref{tab:2nbb-ana:onbbx:limits}. Using phase space factors
-from~\cite{Kotila2015} and the most recent set of nuclear matrix elements (the same as the
-standard \onbb-decay for spectral index $n=1$,~\cite{Hirsch1995} for all the others) it is
-possible to convert the half-life limit into a lower limit on the coupling constant \ga.
+reported in \cref{tab:2nbb-ana:onbbx:limits}.
+\newpar
+Using phase space factors from~\cite{Kotila2015} and the most recent set of nuclear matrix
+elements (the same as the standard \onbb-decay for spectral index $n=1$, \cite{Hirsch1995}
+for all the others) it is possible to convert the half-life limit into a lower limit on
+the coupling constant \ga.
 \newpar
 The obtained 90\% C.L. confidence interval on the ratio between the number of counts in
 the analysis range from the Lorentz- (and CPT-) violating double-beta decay mode \nnbblv\
@@ -639,8 +645,6 @@ space factors in~\cite{Nitescu2020}:
 \[
   \aofM \in [-0, 0] \cdot 10^{-5}~\text{GeV} \;.
 \]
-
-\fillme{more comments, compare with previous estimates and competing experiments}
 
 \begin{table}
   \centering
@@ -666,6 +670,8 @@ space factors in~\cite{Nitescu2020}:
     together with normalized 68\%, 95\% and 99\% C.L.~intervals.
   }\label{fig:2nbb-ana:limits}
 \end{figure}
+
+\chapendgliph{}
 
 \chapsummary
 \begin{itemize}
