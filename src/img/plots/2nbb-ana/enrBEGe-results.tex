@@ -161,11 +161,11 @@
       \addplot[model]      table {\loadedtable};
       \addlegendimage{only marks, mark=sigma bands}
 
-      \addplot[TolVibRed,     loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM1}*\norm/5.7e23] {data/newphysics.csv};
-      \addplot[TolVibTeal,    loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM2}*\norm/5.7e23] {data/newphysics.csv};
-      \addplot[TolVibOrange,  loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM3}*\norm/5.7e23] {data/newphysics.csv};
-      \addplot[TolVibMagenta, loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM7}*\norm/5.7e23] {data/newphysics.csv};
-      \addplot[TolVibCyan,    loghistogram] table [x=bin_low_edge, y expr=0.04*\thisrow{nnbbLV}*\norm/2e21] {data/newphysics.csv};
+      \addplot[TolVibRed,     loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM1}*\norm/5.6e23] {data/newphysics.csv};
+      \addplot[TolVibTeal,    loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM2}*\norm/3.4e23] {data/newphysics.csv};
+      \addplot[TolVibOrange,  loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM3}*\norm/1.7e23] {data/newphysics.csv};
+      \addplot[TolVibMagenta, loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM7}*\norm/7.3e22] {data/newphysics.csv};
+      % \addplot[TolVibCyan,    loghistogram] table [x=bin_low_edge, y expr=0.04*\thisrow{nnbbLV}*\norm/2e21] {data/newphysics.csv};
 
       \legend{%
         {Data},
@@ -177,7 +177,7 @@
         {\onbbx\ ($n=2$) (90\% C.L.)},
         {\onbbx\ ($n=3$) (90\% C.L.)},
         {\onbbx\ ($n=7$) (90\% C.L.)},
-        {\nnbblv\ (90\% C.L.)},
+        % {\nnbblv\ (90\% C.L.)},
       }
 
       \nextgroupplot[residuals]

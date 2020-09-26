@@ -8,9 +8,10 @@
     xlabel={Signal counts $S$},
     ylabel={\pvalue},
     xmin=-150, xmax=1650,
-    extra y ticks={0.1},
+    % extra y ticks={0.1},
     title style={at={(axis description cs:0.5,0.95)}},
     smooth,
+    mark size=1.2pt,
   },
   group style={%
     group size=2 by 1,
@@ -43,15 +44,17 @@
 
       \addplot+ table {data/p-values/pvalues_0nbbM1_allSys.csv};
       \addplot+ table {data/p-values/pvalues_0nbbM2_allSys.csv};
+      \addplot+ table {data/p-values/pvalues_0nbbM3_allSys.csv};
+      \addplot+ table {data/p-values/pvalues_0nbbM7_allSys.csv};
 
       \addplot[black, no marks, dashed, domain=-200:2000] {0.1};
 
-      % \legend{%
-      %   {$n=1$},
-      %   {$n=2$},
-      %   {$n=3$},
-      %   {$n=7$}
-      % }
+      \legend{%
+        {$n=1$},
+        {$n=2$},
+        {$n=3$},
+        {$n=7$}
+      }
 
     \end{groupplot}
   \end{tikzpicture}

@@ -5,7 +5,7 @@
 \pgfplotsset{%
   width=7.5cm,
   loghistogramaxis/.append style={%
-    xmin=-0.2, xmax=6,
+    xmin=-0.2, xmax=8,
     ymin=5E-3,
     xlabel={$t_S$},
     ylabel={$\text{d}P/\text{d}t_S$},
@@ -29,7 +29,8 @@
   },
   legend style={%
     font=\footnotesize,
-  }
+  },
+  title style={at={(0.5,0.95)}},
 }
 
 \begin{document}
@@ -43,8 +44,6 @@
 
       \addplot+[histogram] table[y expr=\thisrow{TS_2nbb_noSys}*1E-4] {data/test-statistics/TS_2nbb_noSys.csv};
 
-      % \addplot+[histogram] table[y expr=\thisrow{TS_2nbb_noSys}/\binw] {data/test-statistics/teststat.csv};
-
       \addplot+[wilks] {1./sqrt(2*pi)*1./sqrt(x)*exp(-x/2.)};
 
       \legend{%
@@ -52,21 +51,18 @@
         {$\chi^2_{\text{dof}=1}$}
       }
 
-      \nextgroupplot[xmax=4]
+      \nextgroupplot[
+        xmax=6,
+        ymin=2e-3,
+        title={\footnotesize $f(t_S|0)$, $0\upnu\upbeta\upbeta\upchi(\upchi)$},
+      ]
 
       \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM1_noSys}*1E-4] {data/test-statistics/TS_0nbbM1_noSys.csv};
       \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM2_noSys}*1E-4] {data/test-statistics/TS_0nbbM2_noSys.csv};
       \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM3_noSys}*1E-4] {data/test-statistics/TS_0nbbM3_noSys.csv};
       \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM7_noSys}*1E-4] {data/test-statistics/TS_0nbbM7_noSys.csv};
 
-      % \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM1_noSys}/\binw] {data/test-statistics/teststat.csv};
-      % \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM2_noSys}/\binw] {data/test-statistics/teststat.csv};
-      % \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM3_noSys}/\binw] {data/test-statistics/teststat.csv};
-      % \addplot+[histogram] table[y expr=\thisrow{TS_0nbbM7_noSys}/\binw] {data/test-statistics/teststat.csv};
-
       \addplot+[wilks] {0.5/sqrt(2*pi)*1./sqrt(x)*exp(-x/2.)};
-
-      \node[anchor=north] at (axis description cs:0.35,1) {\footnotesize $f(t_S|0)$, $0\upnu\upbeta\upbeta\upchi(\upchi)$};
 
       \legend{%
         {$n=1$},
