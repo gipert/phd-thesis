@@ -36,22 +36,47 @@ and possible ideas on how to improve the quality of the science program in futur
 experimental efforts --- the LEGEND program, in particular. Building a Monte Carlo model
 of the liquid argon veto has proven to be a challenging task. From one side, optical
 specifications of materials commonly used in low-background cryogenic experiments are
-poorly known in the vacuum ultra-violet regime. A serious problem is posed by the lack of
-a precise measurement of the germanium reflectivity at the LAr scintillation light typical
-wavelengths. Dedicated measurements campaigns by the LEGEND collaboration are ongoing.
-Properties of liquid argon, e.g.~the attenuation length, should be also determined with
-dedicated devices and monitored during data taking. Ideas on how to achieve this are also
-being developed for the LEGEND experiment. From the other side, optical simulations are
-exceptionally demanding from the computational point of view, on average CPUs. The issue
-has been partly overcome by generating a light-detection probability map, that effectively
-encapsulates the LAr veto model and can be applied to existing background simulations
-obtained without photon tracking. Nevertheless, generating a single map requires tens of
-thousands of CPU hours, and its characterization is therefore problematic. Experiments
-in which massive simulations of optical processes are imperative (e.g.~\textsc{IceCube}
-and JUNO), usually largely use Graphical Processing Units (GPUs) --- a possibility that
-should be taken into serious consideration by the LEGEND collaboration.
+poorly known in the vacuum ultra-violet regime. A particularly serious problem is posed by
+the lack of a precise measurement of the germanium reflectivity at the LAr scintillation
+light typical wavelengths. Dedicated measurements campaigns commissioned by the LEGEND
+collaboration are ongoing.  Properties of liquid argon, e.g.~the attenuation length,
+should be also determined with dedicated devices and monitored during data taking. Ideas
+on how to put this in practice are being developed for the LEGEND experiment. From the
+other side, optical simulations are exceptionally demanding from the computational point
+of view, on average CPUs. The issue has been partly overcome by generating a
+light-detection probability map, that effectively encapsulates the LAr veto model and can
+be applied to existing background simulations obtained without photon tracking.
+Nevertheless, generating a single map requires tens of thousands of CPU hours, and its
+characterization is therefore problematic. Experiments in which massive simulations of
+optical processes are imperative usually make use of Graphical Processing Units
+(GPUs)~\cite{Merck2012, Blyth2019} --- a possibility that could be considered by the
+LEGEND collaboration. A more efficient way to simulate light propagation in liquid argon
+would speed up the development of a reliable background model after the LAr veto cut and
+the subsequent analysis of the \nnbb\ distribution.
 \newpar
-
+The second issue regards the active volume of germanium detectors. A precise knowledge of
+this detector parameter is mandatory to extract an unbiased measure of the \nnbb-decay
+half-life. Evidence for unreliable active volume fractions of \bege\ detectors has emerged
+from the study of the \nnbb\ distribution in different detector types and a preliminary
+analysis of \Arl\ data.  The detectors have been indeed precisely characterized after
+being fabricated, but were then stored at room temperature for a long period before
+deployment in liquid argon. At room temperature, the detector dead layer grows at a rate
+which has never been rigorously determined. The \Arl\ data set offers the unique
+opportunity to calibrate the detector active volume at the same experimental conditions in
+which the physics data is recorded. A careful analysis of the \Arl\ energy spectrum is
+strongly advised to correct and reduce the uncertainty of the \nnbb\ half-life estimate
+presented in this work and to measure of the dead-layer growth rate.
+\newpar
+The ultimate achievement for a \gesix\ neutrinoless double-beta decay experiment would be
+to build a model of the background after the pulse-shape discrimination cut. The results
+would be extremely relevant for the neutrinoless signal search, which is performed after
+this cut, and the two-neutrino double-beta decay distribution analysis. As a matter of
+fact, the \gerda\ energy spectrum after PSD consists of a nearly-pure double-beta decay
+event sample. Unfortunately, computing the PSD flag for Monte Carlo events is currently a
+challenging task, as pulse-shape simulations are still under heavy development. Heuristic
+PSD cuts based on the width of the distribution of interaction centers in germanium
+detectors show only a qualitative agreement. An intense pulse-shape simulation program,
+started in the \gerda\ and \majorana\ collaborations, is ongoing for the LEGEND project.
 
 \chapendgliph{}
 

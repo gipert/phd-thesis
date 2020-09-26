@@ -198,16 +198,16 @@ to check that the performance of the fit is not affected by this choice.
 \label{sec:2nbb-ana:systematics}
 
 Besides the purely-statistical effects, a set of uncertainties which might contribute
-systematically to the final analysis uncertainty (both for the \nnbb\ half-life and
-new-physics limits) must be considered. Until now, the test statistics studies have been
-considering only the effect of Poisson fluctuations in the bin contents, as the generative
+systematically to the final analysis uncertainty (both for \nnbb\ half-life and
+new-physics limits) must be considered. Until now, the test statistics studies have only
+considered the effect of Poisson fluctuations in the bin contents, as the generative
 model for the toy data sets was fixed. A way to include systematic model uncertainties
 when sampling the test statistic distribution is to sample the generative \pdf\ from a set
-of `alternative' models according to a certain probability distribution. This is
-conceptually equivalent to fitting the data with `wrong' models that assume the presence
-of a systematic distortion of the best model. As instance, alternative transition layer
-or LAr veto models induce coherent distortions in all background and signal \pdf{}s, which
-must be taken into account when generating the toy data sets.
+of \emph{alternative} models, according to a certain probability distribution. This
+procedure is conceptually equivalent to fitting the data with ``wrong'' models, obtained
+by applying a systematic distortion to the reference model. As instance, alternative
+transition layer or LAr veto heat maps induce coherent distortions in all background and
+signal \pdf{}s, which must be taken into account when generating the toy data sets.
 \newpar
 This way of treating systematic uncertainties is formalized as a \emph{hybrid
 Bayesian-frequentist} approach~\cite{Zyla2020}. In this setting, the distribution
@@ -218,9 +218,9 @@ of the test statistic becomes:
 where $\vec{\nu}$ are the parameters representing the sources of systematic uncertainties
 in the model and $\pi(\vec{\nu})$ the `prior' distribution from which $\vec{\nu}$ is
 sampled from. The effect introduced by these additional parameters is to smear $f(t_S)$,
-weakening the new-physics experimental limits extracted from it. The software that
+relaxing the new-physics experimental limits extracted from it. The software that
 implements this approach for the \nnbb\ analysis is implemented in the
-\texttt{gerda-factory} suite, publicly available on GitHub\footnote{%
+\texttt{gerda-factory} toolkit, publicly available on GitHub\footnote{%
   The \texttt{gerda-factory} software suite, available at
   \url{https://github.com/gipert/gerda-factory}, Is implemented in C++ and externally
   depends only on the ROOT libraries for the histogram utilities. The program input is
@@ -254,7 +254,7 @@ analysis are discussed.
   \item[LAr veto model] The Monte Carlo LAr veto model, as shown in detail in
     \cref{sec:bkg:lar:ph2:pdfs}, suffers from many uncertainties, some of them arising
     directly from the poor knowledge of LAr channel efficiencies and material optical
-    properties implemented in \mage\ (c.f.r~\cref{sec:apdx:mage-optics}). The systematic
+    properties implemented in \mage\ (see~\cref{sec:apdx:mage-optics}). The systematic
     effect of variations of some of these Monte Carlo parameters (i.e.~the LAr absorption
     length, the germanium reflectivity, the coverage of the fiber shroud and the TPB
     quantum efficiency) has been already studied in selected regions of the LAr
@@ -338,7 +338,9 @@ analysis are discussed.
     \cref{fig:2nbb-ana:pdf-dist} (left panel), as an example. As it is clear, the
     distortion strongly depends on the energy and the type (Compton scattering, full
     absorption) of the event. All these alternative \pdf{}s have been considered in the
-    determination of the distribution of the test statistics, with a flat prior.
+    determination of the distribution of the test statistics, with a flat prior. The
+    uncertainty on the \nnbb\ half-life estimate given by the LAr veto model is about
+    0.3\% of the central value.
 
     \begin{figure}
       \centering
@@ -372,9 +374,14 @@ analysis are discussed.
     coherently treating with Monte Carlo methods the correlated and un-correlated
     uncertainties in the linear combination $\sum_i$ of the active volume fraction
     $f^\text{AV}$ in \cref{eq:2nbb-ana:halflife}. The resulting uncertainty is about 2\%
-    of $\mathcal{C}_{76}$. Considering that it propagates almost linearly to the final
-    half-life estimate, the \gesix\ active exposure estimation results to be the major
-    source of systematic uncertainty in the standard \nnbb\ half-life determination.
+    of $\mathcal{C}_{76}$. Since the distribution of the signal fit parameters (including
+    new physics) is verified to be approximately normal on toy experiments, the
+    uncertainty on $\mathcal{C}_{76}$ can be propagated linearly to the corresponding half-life
+    estimate. Since the other systematic uncertainty sources contribute at the
+    sub-percent level, the \gesix\ active exposure estimation results to be the major
+    source of uncertainty in the standard \nnbb\ half-life determination. In contrast, it
+    is a second-order contribution to the systematic uncertainty on new-physics limits,
+    as the latter is typically of about 10\% or higher.
 
   \item[Transition layer model] As already discussed in several occasions (see in
     particular \cref{apdx:gedetav}), the transition region from the \nplus\ electrode to
@@ -441,7 +448,7 @@ analysis are discussed.
     \end{center}
     Some of these \pdf{}s are shown in \cref{fig:bkg:lar:ph2:pdfs:gmodel}. The contribution
     of background modeling-related uncertainties to the total \nnbb\ half-life uncertainty
-    amounts to 0.5\%.
+    amounts to 0.5\% of the central value.
 
   \item[Theoretical \nnbb\ decay model] The theoretical calculations of the \nnbb\
     distribution shape are not exact and are based on approximations and assumptions
@@ -549,9 +556,13 @@ distribution is shown in \cref{fig:2nbb-ana:ts-dist-sys}. Compared to
 \cref{fig:2nbb-ana:ts-dist}, broader tails are observed at higher values of the test
 statistic, resulting in larger confidence intervals on the signal strength. \pvalue\
 curves, shown in the right-hand side of \cref{fig:2nbb-ana:pvalues}, are consequently
-shifted to higher values of the assumed signal strength $S$. The effect of each source of
-systematic uncertainty on the \nnbb\ half-life estimate and \onbbx\ ($n=1$) 90\%
-C.L.~lower limit is reported in \cref{tab:2nbb-ana:systematics}.
+shifted to higher values of the assumed signal strength $S$. The effect on the \nnbb\
+half-life estimate of all sources of systematic uncertainty combined is about 2.2\% of the
+central value. In contrast, the statistical uncertainty (or fit error) is only 0.6\%. For
+limits on exotic-physics signals the situation is the opposite: the effect of systematic
+uncertainties is to relax the 90\% C.L.~interval by 10\% or more (specifically, about 30\%
+for spectral index $n=1$, 10\% for $n=2,3$ and 20\% for $n=7$), but the estimate is
+dominated by the statistical error.
 
 \begin{figure}
   \centering
@@ -567,23 +578,23 @@ C.L.~lower limit is reported in \cref{tab:2nbb-ana:systematics}.
   }\label{fig:2nbb-ana:ts-dist-sys}
 \end{figure}
 
-\begin{table}
-  \centering
-  \caption{%
-    Summary of the systematic uncertainties affecting the \nnbb\ distribution analysis.
-    For brevity, only results for the ordinary \nnbb\ half-life estimate and the \onbbx\
-    ($n=1$) 90\% C.L.~lower limit are reported.
-    \fillme{numbers}
-  }\label{tab:2nbb-ana:systematics}
-  \input{tab/2nbb-ana/systematics.tex}
-\end{table}
+% \begin{table}
+%   \centering
+%   \caption{%
+%     Summary of the systematic uncertainties affecting the \nnbb\ distribution analysis.
+%     For brevity, only results for the ordinary \nnbb\ half-life estimate and the \onbbx\
+%     ($n=1$) 90\% C.L.~lower limit are reported.
+%     \fillme{numbers}
+%   }\label{tab:2nbb-ana:systematics}
+%   \input{tab/2nbb-ana/systematics.tex}
+% \end{table}
 
 \section{Results and discussion}%
 \label{sec:2nbb-ana:results}
 
 Once the analysis procedure has been fixed and the distribution of the test statistic is
-determined, its value is computed on physics data to extract the \nnbb\ half-life and 90\%
-C.L.~lower limits for new-physics processes.
+determined, its value is computed on physics data to extract the \nnbb\ half-life estimate
+and 90\% C.L.~lower limits for new-physics processes.
 
 \blocktitle{\nnbb\ \\ decay}
 The estimate of the standard \nnbb-decay half-life is
@@ -601,7 +612,7 @@ most sources of systematic uncertainty is found in the shape of background \pdf{
 Uncertainties on the signal shape, from e.g.~nuclear theory or from the model of the detector dead
 layer, are found to be sub-leading. The dominant contribution is the uncertainty on the
 size of the detectors active volume and on the enrichment fraction. With a total
-uncertainty of 2.1\% on the \nnbb\ half-life, the measurement presented in this work is
+uncertainty of 2.2\% on the \nnbb\ half-life, the measurement presented in this work is
 one of the most precise ever obtained, on the same footing of recent results from
 \textsc{CUPID-Mo} (2.9\%)~\cite{Armengaud2019}, CUPID-0 (2.2\%)~\cite{Azzolini2019a},
 CUORE (2.8\%)~\cite{Caminata2019}, EXO-200 (2.8\%)~\cite{Albert2013} and \kamlandzen\
@@ -626,12 +637,29 @@ precision improvement is expected with the corrected active volumes.
 
 \blocktitle{new \\ physics}
 Lower limits (90\% C.L.) on the half-lives of various Majoron-emitting modes of \onbb\ are
-reported in \cref{tab:2nbb-ana:onbbx:limits}.
+reported in \cref{tab:2nbb-ana:onbbx:limits}. An improvement of about a factor two is
+obtained with respect to previous determinations~\cite{Agostini2015a}. Despite the
+significant reduction of the background compared to \phaseone, a modest improvement is
+expected, since the limits are dominated by the statistical uncertainty and the exposure
+is less than doubled. The achieved sensitivities are comparable to those obtained by
+\nuc{Xe}{139} experiments~\cite{Gando2012, Albert2014a}\footnote{%
+  Note, however, that no sensitivity estimates are reported for \nuc{Xe}{136} analyses.
+  This prevents an exact comparison with the results presented here.
+}, depending on the spectral index $n$ (see also
+\cref{tab:nbb:0nbbx-lim}). \gerda\ is, in fact, setting more stringent limits only on $n=3,7$
+modes. \fillme{more}
 \newpar
 Using phase space factors from~\cite{Kotila2015} and the most recent set of nuclear matrix
 elements (the same as the standard \onbb-decay for spectral index $n=1$, \cite{Hirsch1995}
 for all the others) it is possible to convert the half-life limit into a lower limit on
-the coupling constant \ga.
+the \ga\ coupling constant\footnote{%
+  The only calculation of nuclear matrix elements for \onbbx-decay modes with spectral
+  index $n=3,7$ available in the literature is found in~\cite{Hirsch1995}. Unfortunately,
+  these are very old and rough calculations (published in \yr{1995}) that do not take into
+  account the last \yr{25} years of nuclear theory developments. We are in contact with
+  theoreticians to obtain more accurate nuclear matrix elements and provide a more robust
+  conversion factor between half-life and coupling constant \ga.
+}.
 \newpar
 The obtained 90\% C.L. confidence interval on the ratio between the number of counts in
 the analysis range from the Lorentz- (and CPT-) violating double-beta decay mode \nnbblv\
@@ -689,15 +717,27 @@ space factors in~\cite{Nitescu2020}:
     the considered (new-)physics signal is studied with Monte Carlo methods. The analysis
     is optimized in order to maximize the sensitivity for limit setting to new-physics
     signals. Sensitivities to Majoron-emitting \onbb\ modes or Lorentz-violating \nnbb\
-    are obtained in the $10^{23}$--$10^{24}$~yr.
+    are obtained in the $10^{22}$--$10^{23}$~yr range. The statistical error on the \nnbb\
+    half-life estimate is about 0.6\%.
   \item Various sources of systematic uncertainties are considered in the computation of
     the test statistic distribution by introducing distortions of the reference model of
     the Monte Carlo toy data sets. Various alternative LAr veto models and detector
-    transition layer models are used to produce the background and signal \pdf{}s, but their
-    effect on the test statistic distribution is of the order of 1\% or less. The main
-    source of systematic uncertainty remains the detector active volume estimation, which
-    contributes with \fillme{?}\% to the total uncertainty count.
-  \item Final results for \thalftwo\ \fillme{\ldots}
+    transition layer models are used to produce the background and signal \pdf{}s, but
+    their effect on the test statistic distribution for the standard \nnbb\ signal is of
+    the order of 1\% or less. The main source of systematic uncertainty on \thalftwo\
+    remains the detector \gesix\ active volume estimation, which contributes with 1.3\% to
+    the total uncertainty count. Systematic uncertainties relax new-physics lower limits
+    by 10--30\%, depending on the considered process.
+  \item The extracted $\thalftwoM = (\fillme{?}) \cdot 10^{21}$~yr is one of the most precise
+    measurements of a double-beta decay half-life ever reported, together with recent
+    estimates with \nuc{Xe}{136}, \nuc{Te}{130} and \nuc{Mo}{100}. The central value,
+    however, is potentially biased by an incorrect estimate of the \bege\ detectors active
+    volume fraction. A proposed solution to the issue involves the analysis of the \Arl\
+    energy spectrum collected by \gerda, which is sensitive to the active volume model of
+    germanium detectors. Limits on Majoron-emitting neutrinoless double-beta decay modes
+    are placed in the $10^{22}$--$10^{23}$~yr range, improving the \phaseone\ results by a
+    factor two, roughly. The constraints are competitive with analogous results with
+    \nuc{Xe}{136} data from the \kamlandzen\ and EXO-200 collaborations.
 \end{itemize}
 
 % vim: tw=90
