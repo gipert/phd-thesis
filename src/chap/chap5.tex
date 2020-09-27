@@ -9,7 +9,7 @@ generate distortions in the energy spectrum shape predicted by the Standard Mode
 most frequently-considered phenomena, namely neutrinoless double-beta decay with Majoron
 emission (\onbbx, \onbbxx) and Lorentz-violating two-neutrino double-beta decay (\nnbblv)
 have been reviewed in \cref{chap:theory}. The aim of the research presented in this
-chapter is to constrain the presence of these distortions in the \nnbb\ events collected
+chapter is to constrain the presence of these distortions in the \nnbb\ event spectrum collected
 by \gerda\ in the first part of \phasetwo, by setting limits on the theoretical model
 parameters that regulate their magnitude. Moreover, a new estimate of the \nnbb\ half-life
 \thalftwo\ will be presented with a significantly reduced systematic uncertainty budget
@@ -25,8 +25,8 @@ above the \Arl\ Q-value, see \cref{tab:bkg:lar:ph2:results}) motivates the const
 a high-precision fit of the \nnbb\ energy distribution to test the validity of the
 Standard Model predictions.
 \newpar
-This chapter is divided in three sections: the data selection and the statistical methods
-which are used to study the signal sensitivity and analyze the data set are presented in
+This chapter is divided in three sections: the data selection and the statistical methods,
+which are used to study the signal sensitivity and analyze the data set, are presented in
 \cref{sec:2nbb-ana:stat}, while sources of systematic uncertainties and their effect on
 the analysis are extensively described in \cref{sec:2nbb-ana:systematics}. The
 results are finally presented and discussed in \cref{sec:2nbb-ana:results}.
@@ -36,18 +36,19 @@ results are finally presented and discussed in \cref{sec:2nbb-ana:results}.
 
 \blocktitle{data and \\ \pdf{}s}
 The \enrBEGeII\ data set after the LAr veto cut (already characterized in
-\cref{sec:bkg:lar:ph2:data}, see \cref{fig:bkg:lar:ph2:data-desc} (top panel) for the
+\cref{sec:bkg:lar:ph2:data}, see \cref{fig:bkg:lar:ph2:data-desc}, top panel, for the
 energy spectrum) has been considered for this analysis both because of the higher
 signal-to-background ratio in the \nnbb\ region of about 20 (excluding the two potassium
-\g\ lines) compared to data before analysis cuts and for the lower uncertainty in the
-\bege\ detectors active volume determination (see \cref{apdx:gedetav}).
+\g\ lines) compared to data before analysis cuts and for the lower uncertainty affecting
+the \bege\ detectors active volume determination, compared to \scoax\ detectors (see
+\cref{apdx:gedetav}).
 \newpar
 The theoretical predictions for signal and background event distributions are obtained, as
 usual, from Monte Carlo simulations through the \mage\ software framework. The LAr veto
 model, which is extensively described in \cref{sec:bkg:lar:ph2:pdfs}, is used to compute
-the LAr veto flag for synthetic events. A selection of \pdf{}s is shown in
+the LAr veto flag for synthetic events. A selection of \pdf{}s after the LAr veto cut is shown in
 \cref{fig:bkg:lar:ph2:pdfs:gmodel}. The same \pdf\ sample considered in the background model
-after the LAr veto cut (\cref{sec:bkg:lar:ph2:gmodel}) has been selected to represent the
+presented in \cref{sec:bkg:lar:ph2:gmodel} has been selected to represent the
 background in this analysis. The choice of a reduced set, compared to the background model
 before analysis cuts, is motivated by the fact that the description of the shape of such a
 low background does not benefit from more complex models, from a statistical point of
@@ -88,7 +89,7 @@ $\mathcal{N}_A$ is the Avogadro number, $M_{76}$ is the \gesix\ molar mass, $m^\
 is the total detector mass, $f^\text{AV}_i$ is the active volume fraction, $t_i$ is the
 detector live-time, $\epsilon_{\text{c},i}$ is the detector containment probability,
 $\sum_i$ runs over the detectors included in the data set, labeled by index $i$, $f_{76}$
-is the enrichment fraction, $f_R$ is the fraction of \nnbb\ events with energy in the
+is the enrichment fraction, $f_R$ is the fraction of \nnbb\ events expected in the
 analysis range, $\epsilon_\text{LAr} = (97.7 \pm 0.1)\%$ is the probability for a signal
 event to survive the LAr veto cut and $\epsilon_\text{QC} = (99.922 \pm 0.002)\%$ is the
 quality cuts signal efficiency.
@@ -105,28 +106,27 @@ estimators. The test statistic is defined as
   t_S = -2\log\lambda(S)
 \]
 where higher values of $t_S$ correspond to increasing incompatibility between the data and
-$S$. It is a known result of the Wilks theorem that the probability distribution of the
-test statistic $t_S$ follows, in the large sample limit, a $\chi^2$ distribution with
-number of degrees of freedom given by the number of parameter of
-interest~\cite{Cowan2011}.  Since, however, not all the regularity conditions for the
-Wilks theorem to hold~\cite{Algeri2020} are satisfied in this analysis, deviations from
+the signal hypothesis $S$. It is a known result of the Wilks theorem that the probability
+distribution of the test statistic $t_S$ follows, in the large sample limit, a $\chi^2$
+distribution with number of degrees of freedom given by the number of parameters of
+interest~\cite{Cowan2011}.  Since, however, not all the regularity conditions of the
+Wilks theorem~\cite{Algeri2020} are satisfied in this analysis, deviations from
 the $\chi^2$ distribution are expected. Therefore, the $t_S$ distribution is computed from
 Monte Carlo toy experiments, in which synthetic energy spectra are generated from the
 background model results (\cref{sec:bkg:lar:ph2:gmodel}). For each signal hypothesis,
 $10^4$ toy data sets are generated and an histogram is filled with the corresponding
-values of $t_S$. Examples for the standard \nnbb\ signal hypothesis and new-physics
-null hypotheses are shown in \cref{fig:2nbb-ana:ts-dist}. Deviations from the $\chi^2$
+values of $t_S$. Examples for the standard \nnbb\ signal hypothesis and new-physics null
+hypotheses are shown in \cref{fig:2nbb-ana:ts-dist}. Deviations from the $\chi^2$
 distribution for 1 degree of freedom (left panel) are observed for the standard \nnbb\
 hypothesis. In the analysis all the fit parameters are constrained to be positive. In the
 case of new physics hypotheses, where the maximum likelihood estimator of $S$ is close to
 zero, this assumption modifies the distribution of the test statistic (right panel). In
-the large sample limit it is expected to be well approximated by a half-$\chi^2$
+the large sample limit it is expected to be well approximated by a $\frac{1}{2}\chi^2$
 distribution~---~a sum of a delta function at zero and a $\chi^2$ distribution for one
 degree of freedom~\cite{Chernoff1954}.
 \newpar
 The \pvalue\ of an observed value of the test statistic $t_S^\text{obs}$ under the signal
-hypothesis $S$ is used to quantify the level of disagreement between the data and the
-hypothesis:
+hypothesis $S$ is used to quantify the level of disagreement between data and hypothesis:
 \[
   p = \int_{t_S^\text{obs}}^\infty f(t_S | S) dt_S \;.
 \]
@@ -138,8 +138,8 @@ using the above equation.
   \centering
   \includegraphics{plots/2nbb-ana/2nbb-teststat.pdf}
   \caption{%
-    Sampling distribution of the test statistic probability $P$ for various signal
-    hypothesis sampled with Monte Carlo methods. On the left: the standard \nnbb\ case. A
+    Distribution of the test statistic probability $P$ for various signal hypothesis
+    sampled with Monte Carlo methods. On the left: the standard \nnbb\ case, where a
     signal of $S \sim 4.5 \cdot 10^5$ counts in the analysis range is assumed in the toy
     experiments. On the right: sampling distributions for the null hypothesis on
     new-physics signals.  Deviations from the Wilks theorem predictions are observed.
@@ -153,9 +153,9 @@ using the above equation.
   \includegraphics{plots/2nbb-ana/pvalues.pdf}
   \caption{%
     Median \pvalue\ of the null hypothesis with different signal strength assumption for
-    the new-physics signals, computed with Monte Carlo toy experiments. In the right
-    plot, the effect of additional systematic uncertainties is included. The \pvalue\
-    corresponding to 90\% confidence level is highlighted with dashed lines.
+    the new-physics signals, computed with Monte Carlo toy experiments. In the right plot,
+    the effect of systematic uncertainties is included. The \pvalue\ corresponding to 90\%
+    confidence level is highlighted with a dashed line.
   }\label{fig:2nbb-ana:pvalues}
 \end{figure}
 
@@ -163,12 +163,12 @@ using the above equation.
 The sensitivity to alternative signal hypotheses can be characterized by the median
 significance, assuming data generated according to the zero-signal (null) hypothesis, with
 which one rejects the signal hypothesis~\cite{Cowan2011}. To compute the sensitivity, the
-distributions $f(t_S|S)$ and $f(t_S|0)$ are needed. For a discrete set of hypothesis on
+distributions $f(t_S|S)$ and $f(t_S|0)$ are needed. For a discrete set of hypotheses on
 the signal $S$, the two distributions are obtained with Monte Carlo toy experiments and
 the median \pvalue\ of null hypothesis is computed. In \cref{fig:2nbb-ana:pvalues} the
 median \pvalue\ as a function of $S$, for all the considered new-physics processes is
 shown. The sensitivity for 90\% C.L.~limit setting corresponds to the value of $S$ for
-which the median \pvalue\ is $0.1$. The limit-setting sensitivities to the half-lives of
+which the median \pvalue\ is $0.1$. The limit-setting sensitivities on the half-lives of
 the investigated processes are reported in \cref{tab:2nbb-ana:sensitivity}.
 
 \blocktitle{fit range \\ and \\ binning}
@@ -197,26 +197,26 @@ to check that the performance of the fit is not affected by this choice.
 \section{Systematic uncertainties}%
 \label{sec:2nbb-ana:systematics}
 
-Besides the purely-statistical effects, a set of uncertainties which might contribute
-systematically to the final analysis uncertainty (both for \nnbb\ half-life and
-new-physics limits) must be considered. Until now, the test statistics studies have only
-considered the effect of Poisson fluctuations in the bin contents, as the generative
-model for the toy data sets was fixed. A way to include systematic model uncertainties
-when sampling the test statistic distribution is to sample the generative \pdf\ from a set
+Besides the purely-statistical effects, a set of uncertainties which might systematically
+contribute to the final analysis uncertainty (both for \nnbb\ half-life and new-physics
+limits) must be considered. Until now, the test statistics studies have only been
+considering the effect of Poisson fluctuations in the bin contents, since the generative
+model for the toy data sets was fixed. A way to include systematic model uncertainties in
+the test statistic distribution is to additionally sample the generative \pdf\ from a set
 of \emph{alternative} models, according to a certain probability distribution. This
 procedure is conceptually equivalent to fitting the data with ``wrong'' models, obtained
 by applying a systematic distortion to the reference model. As instance, alternative
 transition layer or LAr veto heat maps induce coherent distortions in all background and
 signal \pdf{}s, which must be taken into account when generating the toy data sets.
 \newpar
-This way of treating systematic uncertainties is formalized as a \emph{hybrid
+This way of treating systematic uncertainties is formalized as an \emph{hybrid
 Bayesian-frequentist} approach~\cite{Zyla2020}. In this setting, the distribution
 of the test statistic becomes:
 \[
   f(t_s) = \int f(t_s | S, \vec{B}, \nu) \pi(\vec{\nu}) d\vec{\nu} \;,
 \]
 where $\vec{\nu}$ are the parameters representing the sources of systematic uncertainties
-in the model and $\pi(\vec{\nu})$ the `prior' distribution from which $\vec{\nu}$ is
+in the model and $\pi(\vec{\nu})$ the ``prior'' distribution from which $\vec{\nu}$ is
 sampled from. The effect introduced by these additional parameters is to smear $f(t_S)$,
 relaxing the new-physics experimental limits extracted from it. The software that
 implements this approach for the \nnbb\ analysis is implemented in the
@@ -246,7 +246,8 @@ analysis are discussed.
       \includegraphics[width=\textwidth]{plots/2nbb-ana/larmap-dist-manual.pdf}
       \caption{%
         Effect of power-law distortions of the LAr probability map in a cross-section
-        parallel to the $xy$ plane. The value of the exponent $a$ in the $p \rightarrow
+        parallel to the $xy$ plane. Circular holes correspond to germanium detectors which
+        are crossed by the plane. The value of the exponent $a$ in the $p \rightarrow
         p^a$ transformation is varied to make the map more or less homogeneous.
       }\label{fig:2nbb-ana:larmap-dist-showoff}
     \end{figure}
@@ -261,7 +262,7 @@ analysis are discussed.
     probability map (the object in which the LAr veto model is encoded) in
     \cref{sec:bkg:lar:ph2:heatmap,fig:bkg:lar:ph2:larmap:dist}. Special calibration data
     can be used to determine the channel efficiencies (\cref{sec:bkg:lar:ph2:pcalib}), but
-    could not be exploited to reliably constrain other Monte Carlo parameters. This second
+    cannot be exploited to reliably constrain other Monte Carlo parameters. This second
     possibility, which requires a much more complex analysis and a deeper understanding of
     simulated and physics data, is discussed in~\cite{Wiesinger2021}.
     \newpar
@@ -271,14 +272,14 @@ analysis are discussed.
     one for all top PMTs, one for all SiPM modules and one for all bottom PMTs
     (\cref{eq:bkg:lar:ph2:chan-eff}). Considering the cylindrical symmetry of the problem
     (a set of detectors arranged in a cylindrical array), A more detailed knowledge of
-    efficiencies for each single channel is not necessary. In this reference probability
-    map the other Monte Carlo optical parameters are fixed to the values that better
+    efficiencies for each single channel is inessential. In this reference probability
+    map, the other Monte Carlo optical parameters are fixed to the values that better
     reflect our degree of belief, which are documented in \cref{sec:apdx:mage-optics}.
     \newpar
     The second step is to provide alternative LAr veto maps for the determination of the
     test statistic distribution, generated with different assumptions for the optical
-    parameters. These alternative maps will still have to reproduce the special
-    calibration data, i.e.~the \emph{control sample}, but they will differ from the
+    parameters. These alternative maps still have to reproduce the special
+    calibration data, i.e.~the \emph{control sample}, but they differ from the
     original map in all other LAr regions, in particular those probed by the background
     model simulations.  Unfortunately, the map generation process is exceptionally
     expensive from the computational point of view (the required time is on the order of
@@ -290,7 +291,7 @@ analysis are discussed.
     \cref{fig:bkg:lar:ph2:larmap:dist}, in which the detection probability in the first
     calibration source position area is set to unity, is given here in
     \cref{fig:2nbb-ana:dist-pcanorm} for the germanium reflectivity, the fiber shroud
-    coverage and the LAr absorption length (first three panels from left). In this way the
+    coverage and the LAr absorption length (first three panels from left). In this way, the
     constraint of reproducing the special calibration data set is made visually explicit,
     as the corresponding probability (in red) is invariant under transformations of the
     Monte Carlo parameters. TPB quantum efficiency and LAr light yield distortions are not
@@ -305,7 +306,7 @@ analysis are discussed.
       p_k \rightarrow c \cdot p_k^a \;,
     \end{equation}
     in which $p_k$ is the probability value in the LAr voxel $k$ (i.e.~the probability
-    map) and $a$ is an arbitrary coefficient controlling the magnitude of the distortion
+    map), $a$ is an arbitrary coefficient controlling the magnitude of the distortion
     and $c$ is a global normalization factor. The latter depends on $a$ and has to be
     adjusted in order to reproduce the total LAr veto event suppression observed in the
     special calibration data. In this sense, the volume of LAr probed by the calibration
@@ -377,26 +378,26 @@ analysis are discussed.
     of $\mathcal{C}_{76}$. Since the distribution of the signal fit parameters (including
     new physics) is verified to be approximately normal on toy experiments, the
     uncertainty on $\mathcal{C}_{76}$ can be propagated linearly to the corresponding half-life
-    estimate. Since the other systematic uncertainty sources contribute at the
-    sub-percent level, the \gesix\ active exposure estimation results to be the major
-    source of uncertainty in the standard \nnbb\ half-life determination. In contrast, it
-    is a second-order contribution to the systematic uncertainty on new-physics limits,
-    as the latter is typically of about 10\% or higher.
+    estimate and summed in quadrature with the other contributions. Since the latter
+    contribute at the sub-percent level, the \gesix\ active exposure estimation results to
+    be the major source of uncertainty in the standard \nnbb\ half-life determination. In
+    contrast, it is a second-order contribution to new-physics limits, as the systematic
+    uncertainty is typically about 10\% or higher.
 
   \item[Transition layer model] As already discussed in several occasions (see in
     particular \cref{apdx:gedetav}), the transition region from the \nplus\ electrode to
     the fully-active detector volume is not completely dead (i.e.~the charge-collection
-    efficiency is not zero). Since events interacting with this special region are
-    reconstructed with a smaller effective energy, an effect on the energy distribution
-    shape is expected. Distortions induced by variations of the size of the transition
-    layer are particularly noticeable in the \Arl\ event distribution
+    efficiency is not zero). Since events interacting within this special region are
+    reconstructed with a smaller effective energy, a shape effect on the energy
+    distribution is expected. Distortions induced by variations of the transition layer
+    size are particularly noticeable in the \Arl\ event distribution
     (\cref{fig:gedetav:ar39:distortions}) and in the lower tail of intense \g\ peaks
-    (\cref{fig:gedetav:calib-optim-example}). A first estimate of the size of the
-    transition region for \bege{}s has been extracted from detector characterization
+    (\cref{fig:gedetav:calib-optim-example}). A first estimate of the transition region
+    size for \bege{}s has been extracted from detector characterization
     data~\cite{Lehnert2016}, using a simplified linear model for the charge-collection
     efficiency profile (\cref{fig:gedetav:tl-model}). This estimate, however, has been
     obtained before a significant amount of storage time at room temperature (2--3 years
-    before deployment in LAr), in which \nplus\ Lithium profile growing effects took
+    before deployment in LAr), in which \nplus\ lithium profile growing effects took
     place. The effect of this dead-layer growing process on the size of the transition
     region is unfortunately unknown. The assumption of a fixed proportion between the size
     of the transition region and the size of the dead region during the growing process
@@ -475,9 +476,9 @@ analysis are discussed.
     relevant~\cite{Arnold2019, Azzolini2019a} is the assumption on the nuclear state
     configuration of the intermediate nucleus in the decay (\nuc{As}{76} for \nnbb\ decay
     of \gesix). In \gesix\ a higher-state dominance (HSD) is usually assumed, but a
-    single-state dominance (SSD) cannot be excluded. Summed-energy spectra obtained with
-    the two hypotheses, using exact Dirac wave functions with finite nuclear size and
-    electron screening effects~\cite{Kotila2012}, are compared in
+    single-state dominance (SSD) scenario cannot be excluded. Summed-energy spectra
+    obtained with the two hypotheses, using exact Dirac wave functions with finite nuclear
+    size and electron screening effects~\cite{Kotila2012}, are compared in
     \cref{fig:2nbb-ana:theoretical-spectrum}. Once the distributions are normalized to
     unit area, the difference is mostly visible above $\sim$1.3~MeV, where it reaches 5\%
     and more. In this region, however, the event statistics is also low. Detailed studies
@@ -562,19 +563,21 @@ central value. In contrast, the statistical uncertainty (or fit error) is only 0
 limits on exotic-physics signals the situation is the opposite: the effect of systematic
 uncertainties is to relax the 90\% C.L.~interval by 10\% or more (specifically, about 30\%
 for spectral index $n=1$, 10\% for $n=2,3$ and 20\% for $n=7$), but the estimate is
-dominated by the statistical error.
+dominated by the statistical error. The limit-setting sensitivities on new-signal searches
+after the inclusion of the systematic uncertainties are reported in
+\cref{tab:2nbb-ana:sensitivity}.
 
 \begin{figure}
   \centering
   \includegraphics{plots/2nbb-ana/2nbb-teststat-sys.pdf}
   \caption{%
-    Sampling distribution of the test statistic probability $P$ for various signal
-    hypothesis sampled with Monte Carlo methods, including the effect of systematic
-    uncertainties. On the left: the standard \nnbb\ case. A signal of $S \sim 4.5 \cdot
-    10^5$ counts in the analysis range is assumed in the toy experiments. On the right:
-    sampling distributions for the null hypothesis on new-physics signals.  Deviations
-    from the Wilks theorem predictions are observed. Bayesian blocks have been used to
-    represent the histograms (see \cref{apdx:bayesblocks}).
+    Distribution of the test statistic probability $P$ for various signal hypothesis
+    sampled with Monte Carlo methods, including the effect of systematic uncertainties. On
+    the left: the standard \nnbb\ case, in which a signal of $S \sim 4.5 \cdot 10^5$
+    counts in the analysis range is assumed in the toy experiments. On the right: sampling
+    distributions for the null hypothesis on new-physics signals.  Deviations from the
+    Wilks theorem predictions are observed. Bayesian blocks have been used to represent
+    the histograms (see \cref{apdx:bayesblocks}).
   }\label{fig:2nbb-ana:ts-dist-sys}
 \end{figure}
 
@@ -597,13 +600,14 @@ determined, its value is computed on physics data to extract the \nnbb\ half-lif
 and 90\% C.L.~lower limits for new-physics processes.
 
 \blocktitle{\nnbb\ \\ decay}
-The estimate of the standard \nnbb-decay half-life is
+The obtained best-fit value of the standard \nnbb-decay half-life with its 68\%
+C.L.~interval is
 \[
   \thalftwoM = (\fillme{?} \pm \stat{\fillme{?}} \pm \syst{\fillme{?}}) \cdot 10^{21}~\text{yr} \;.
 \]
 The statistical and systematic uncertainty is remarkably reduced compared to the estimate
 extracted from \phaseone\ data before analysis cuts~\cite{Agostini2015a}. The improvement
-in statistical uncertainty does not only arise from the higher data set exposure,
+in statistical uncertainty does not only follow from the higher data set exposure,
 which is roughly doubled with respect to \phaseone, but also from the higher
 signal-to-background ratio --- more than a factor 10 better. The level of systematic
 uncertainty also benefits from the substantial cut of background events obtained with the
@@ -612,7 +616,7 @@ most sources of systematic uncertainty is found in the shape of background \pdf{
 Uncertainties on the signal shape, from e.g.~nuclear theory or from the model of the detector dead
 layer, are found to be sub-leading. The dominant contribution is the uncertainty on the
 size of the detectors active volume and on the enrichment fraction. With a total
-uncertainty of 2.2\% on the \nnbb\ half-life, the measurement presented in this work is
+uncertainty of 2.2\% on the \nnbb\ half-life, the measurement presented here is
 one of the most precise ever obtained, on the same footing of recent results from
 \textsc{CUPID-Mo} (2.9\%)~\cite{Armengaud2019}, CUPID-0 (2.2\%)~\cite{Azzolini2019a},
 CUORE (2.8\%)~\cite{Caminata2019}, EXO-200 (2.8\%)~\cite{Albert2013} and \kamlandzen\
@@ -633,7 +637,7 @@ volume model restores the compatibility between the three half-life predictions 
 volumes from \Arl\ data is envisioned to obtain a non-biased measurement of the \nnbb\
 half-life. Since the systematic uncertainty on the half-life is currently dominated by the
 uncertainty on the dead-layer growth speed at room temperature, a further, substantial
-precision improvement is expected with the corrected active volumes.
+precision improvement is expected using corrected active volumes.
 
 \blocktitle{new \\ physics}
 Lower limits (90\% C.L.) on the half-lives of various Majoron-emitting modes of \onbb\ are
@@ -647,7 +651,8 @@ is less than doubled. The achieved sensitivities are comparable to those obtaine
   This prevents an exact comparison with the results presented here.
 }, depending on the spectral index $n$ (see also
 \cref{tab:nbb:0nbbx-lim}). \gerda\ is, in fact, setting more stringent limits only on $n=3,7$
-modes. \fillme{more}
+modes. Majoron signals corresponding to the obtained 90\% C.L.~lower limits are visualized
+in \cref{fig:2nbb-ana:limits}. \fillme{more}
 \newpar
 Using phase space factors from~\cite{Kotila2015} and the most recent set of nuclear matrix
 elements (the same as the standard \onbb-decay for spectral index $n=1$, \cite{Hirsch1995}

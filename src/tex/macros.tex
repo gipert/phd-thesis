@@ -18,10 +18,7 @@
 \newcommand{\chapendgliph}{%
   \vspace{22pt}
   \begin{center}
-    \fontsize{26}{26}\darkred{%
-      \char"2766
-      % \char"E001 \char"E002
-    }
+    \fontsize{26}{26}\darkred\char"2766
   \end{center}
 }
 
@@ -61,7 +58,7 @@
 \newcommand{\MoSBth}{\m{M1-SB3}}
 \newcommand{\MtSBth}{\m{M2-SB3}}
 
-\newcommand{\annmse}         {ANN$_\text{MSE}$}
+\newcommand{\annmse}         {ANN\textinf{MSE}}
 \newcommand{\deltae}         {$\delta{E}$}
 \newcommand{\aoe}            {$A/E$}
 \newcommand{\measurementM}[3]{{#1}\substack{+#2 \\ -#3}}
@@ -87,55 +84,44 @@
 \newcommand{\powtenyr} [1]{$10^{#1}$~yr}
 
 % dbd
-\newcommand{\qbbM}        {Q_{\upbeta\upbeta}}
+\newcommand*{\ub}{\upbeta}
+\newcommand*{\un}{\upnu}
+\newcommand*{\ux}{\upchi}
+\newcommand{\qbbM}        {Q_{\ub\ub}}
 \newcommand{\qbb}         {$\qbbM$}
-\newcommand{\thalfzeroM}  {{T^{0\upnu}_{1/2}}}
-\newcommand{\thalftwoM}   {{T^{2\upnu}_{1/2}}}
+\newcommand{\thalfzeroM}  {{T^{0\un}_{1/2}}}
+\newcommand{\thalftwoM}   {{T^{2\un}_{1/2}}}
 \newcommand{\thalfzero}   {$\thalfzeroM$}
 \newcommand{\thalftwo}    {$\thalftwoM$}
-\newcommand{\thalflvM}    {{T^{2\upnu_\text{LV}}_{1/2}}}
+\newcommand{\thalflvM}    {{T^{2\un_\text{LV}}_{1/2}}}
 \newcommand{\thalflv}     {$\thalflvM$}
-\newcommand{\thalfmajo}   {{${T^{0\upnu\upchi(\upchi)}_{1/2}}$}}
-\newcommand{\thalfzx}     {{${T^{0\upnu\upchi}_{1/2}}$}}
-\newcommand{\thalfzxx}    {{${T^{0\upnu\upchi\upchi}_{1/2}}$}}
-\newcommand{\nmez}        {$\mathcal{M}^{0\upnu}$}
-\newcommand{\nmet}        {$\mathcal{M}^{2\upnu}$}
-\newcommand{\nmemajo}     {$\mathcal{M}^{0\upnu\upchi(\upchi)}$}
-\newcommand{\psfz}        {$G^{0\upnu}$}
-\newcommand{\psft}        {$G^{2\upnu}$}
-\newcommand{\psfmajo}     {$G^{0\upnu\upchi(\upchi)}$}
-\newcommand{\mbb}         {$\langle{m_{\upbeta\upbeta}}\rangle$}
-\newcommand{\mb}          {$m_{\upbeta}$}
-\newcommand{\onbbM}       {{0\upnu\upbeta\upbeta}}
+\newcommand{\thalfmajo}   {{${T^{0\un\ux(\ux)}_{1/2}}$}}
+\newcommand{\thalfzx}     {{${T^{0\un\ux}_{1/2}}$}}
+\newcommand{\thalfzxx}    {{${T^{0\un\ux\ux}_{1/2}}$}}
+\newcommand{\nmez}        {$\mathcal{M}^{0\un}$}
+\newcommand{\nmet}        {$\mathcal{M}^{2\un}$}
+\newcommand{\nmemajo}     {$\mathcal{M}^{0\un\ux(\ux)}$}
+\newcommand{\psfz}        {$G^{0\un}$}
+\newcommand{\psft}        {$G^{2\un}$}
+\newcommand{\psfmajo}     {$G^{0\un\ux(\ux)}$}
+\newcommand{\mbb}         {$\langle{m_{\ub\ub}}\rangle$}
+\newcommand{\mb}          {$m_{\ub}$}
+\newcommand{\nbbM}        {{\un\ub\ub}}
+\newcommand{\onbbM}       {{0\nbbM}}
 \newcommand{\onbb}        {$\onbbM$}
-\newcommand{\onbbp}       {$0\upnu\upbeta^+\upbeta^+$}
-\newcommand{\onbbm}       {$0\upnu\upbeta^-\upbeta^-$}
-\newcommand{\nnbbM}       {{2\upnu\upbeta\upbeta}}
-\newcommand{\nnbb}        {$\nnbbM$}
-\newcommand{\nnbbp}       {$2\upnu\upbeta^+\upbeta^+$}
-\newcommand{\nnbbm}       {$2\upnu\upbeta^-\upbeta^-$}
-\newcommand{\onbbxM}      {{0\upnu\upbeta\upbeta\upchi}}
+\newcommand{\onbbp}       {$0\un\ub^+\ub^+$}
+\newcommand{\onbbm}       {$0\un\ub^-\ub^-$}
+\newcommand{\nnbbM}       {{2\nbbM}}
+\newcommand{\nnbb}        {$2\nbbM$}
+\newcommand{\nnbbp}       {$2\un\ub^+\ub^+$}
+\newcommand{\nnbbm}       {$2\un\ub^-\ub^-$}
+\newcommand{\onbbxM}      {{0\nbbM\ux}}
 \newcommand{\onbbx}       {$\onbbxM$}
-\newcommand{\onbbxx}      {$0\upnu\upbeta\upbeta\upchi\upchi$}
-\newcommand{\nnbblvM}     {{2\upnu\upbeta\upbeta_\text{LV}}}
+\newcommand{\onbbxx}      {$0\nbbM\ux\ux$}
+\newcommand{\nnbblvM}     {{2\nbbM\textinf{LV}}}
 \newcommand{\nnbblv}      {$\nnbblvM$}
-\newcommand{\onecec}      {$0\upnu\text{ECEC}$}
-\newcommand{\nnecec}      {$2\upnu\text{ECEC}$}
-\newcommand{\tlive}       {\mbox{$t_{live}$}}
-\newcommand{\flive}       {\mbox{$f_{live}$}}
-\newcommand{\fge}         {\mbox{$f_{Ge}$}}
-\newcommand{\fgesix}      {\mbox{$f_{76}$}}
-\newcommand{\fgesixi}     {\mbox{$f_{76,i}$}}
-\newcommand{\actmass}     {\mbox{$M_{act}$}}
-\newcommand{\ssmass}      {\mbox{$M_{76}$}}
-\newcommand{\factmass}    {\mbox{$f_{av}$}}
-\newcommand{\factmassi}   {\mbox{$f_{av,i}$}}
-\newcommand{\factvol}     {\mbox{$f_{av}$}}
-\newcommand{\factvoli}    {\mbox{$f_{av,i}$}}
-\newcommand{\subssix}     {\mbox{$_{76}$}}
-\newcommand{\subssixi}    {\mbox{$_{76,i}$}}
-\newcommand{\subav}       {\mbox{$_{av}$}}
-\newcommand{\subavi}      {\mbox{$_{av,i}$}}
+\newcommand{\onecec}      {$0\un\text{ECEC}$}
+\newcommand{\nnecec}      {$2\un\text{ECEC}$}
 
 \newcommand{\gerdafinallimit}{$\thalfzeroM > 1.8 \cdot 10^{26}$~yr}
 
@@ -176,45 +162,31 @@
 \newcommand{\tier}        {\textsc{Tier}}
 \newcommand{\decayzero}   {\textsc{Decay0}}
 % isotopes
-\newcommand{\gesix}       {$^{76}$Ge}
-\newcommand{\geseven}     {$^{77}$Ge}
-\newcommand{\gefour}      {$^{74}$Ge}
-\newcommand{\gethree}     {$^{73}$Ge}
-\newcommand{\gess}        {$^{76}$Ge}
-\newcommand{\gesf}        {$^{74}$Ge}
-\newcommand{\geenr}       {$^{\rm enr}$Ge}
-\newcommand{\genat}       {$^{\rm nat}$Ge}
-\newcommand{\gedep}       {$^{\rm dep}$Ge}
-\newcommand{\geox}        {GeO$_2$}
-\newcommand{\enrgecoax}   {$^{\rm enr}$Ge-coax}
-\newcommand{\nuc}      [2]{$^{#2}${#1}}
-\newcommand{\kvn}         {$^{40}$K}
-\newcommand{\kvz}         {$^{42}$K}
-\newcommand{\Am}          {$^{241}$Am}
-\let\Rn\undefined\newcommand{\Rn}{$^{222}$Rn}
-\newcommand{\Ra}          {$^{226}$Ra}
-\newcommand{\Po}          {$^{210}$Po}
-\newcommand{\Arh}         {$^{42}$Ar}
-\newcommand{\Arl}         {$^{39}$Ar}
-\newcommand{\Kr}          {$^{85}$Kr}
-\newcommand{\Xe}          {$^{133}$Xe}
-\newcommand{\Ba}          {$^{133}$Ba}
-\newcommand{\Bil}         {$^{212}$Bi}
-\newcommand{\Bih}         {$^{214}$Bi}
-\newcommand{\Yb}          {$^{176}$Yb}
-\newcommand{\Fe}          {$^{55}$Fe}
-\newcommand{\Thh}         {$^{232}$Th}
-\newcommand{\Th}          {$^{228}$Th}
-\newcommand{\Tl}          {$^{208}$Tl}
-\newcommand{\Ul}          {$^{235}$U}
-\newcommand{\Uh}          {$^{238}$U}
-\newcommand{\Be}          {$^7$Be}
-\newcommand{\Co}          {$^{60}$Co}
-\newcommand{\Ac}          {$^{228}$Ac}
-\newcommand{\Pbl}         {$^{210}$Pb}
-\newcommand{\Pbh}         {$^{214}$Pb}
-\newcommand{\Pa}          {$^{234\text{m}}$Pa}
-\newcommand{\Zn}          {$^{65}$Zn}
+\newcommand{\nuc}      [2]{\textsu{#2}{#1}}
+\newcommand{\gesix}       {\nuc{Ge}{76}}
+\newcommand{\kvn}         {\nuc{K}{40}}
+\newcommand{\kvz}         {\nuc{K}{42}}
+\newcommand{\Am}          {\nuc{Am}{241}}
+\let\Rn\undefined\newcommand{\Rn}{\nuc{Rn}{222}}
+\newcommand{\Ra}          {\nuc{Ra}{226}}
+\newcommand{\Po}          {\nuc{Po}{210}}
+\newcommand{\Arh}         {\nuc{Ar}{42}}
+\newcommand{\Arl}         {\nuc{Ar}{39}}
+\newcommand{\Kr}          {\nuc{Kr}{85}}
+\newcommand{\Ba}          {\nuc{Ba}{133}}
+\newcommand{\Bil}         {\nuc{Bi}{212}}
+\newcommand{\Bih}         {\nuc{Bi}{214}}
+\newcommand{\Thh}         {\nuc{Th}{232}}
+\newcommand{\Th}          {\nuc{Th}{228}}
+\newcommand{\Tl}          {\nuc{Tl}{208}}
+\newcommand{\Ul}          {\nuc{U}{235}}
+\newcommand{\Uh}          {\nuc{U}{238}}
+\newcommand{\Co}          {\nuc{Co}{60}}
+\newcommand{\Ac}          {\nuc{Ac}{228}}
+\newcommand{\Pbl}         {\nuc{Pb}{210}}
+\newcommand{\Pbh}         {\nuc{Pb}{214}}
+\newcommand{\Pa}          {\nuc{Pa}{234\text{m}}}
+\newcommand{\Zn}          {\nuc{Zn}{65}}
 
 \newcommand{\expoM}      {\mathcal{E}}
 \newcommand{\expo}       {$\expoM$}

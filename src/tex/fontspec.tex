@@ -37,6 +37,7 @@
 }
 
 \usepackage[lining]{ebgaramond}
+\AtBeginDocument{\addfontfeatures{RawFeature={+calt}}}
 \newcommand{\yr}{\oldstylenums}
 \usepackage[math-style=ISO, bold-style=ISO]{unicode-math}
 \setmathfont{Garamond-Math.otf}[StylisticSet={7,8}]
@@ -44,10 +45,8 @@
 \newcommand{\decorationB}{{\Huge\char"2619\char"2767}}
 \newcommand{\decorationC}{{\Huge\char"2766}}
 \newcommand{\darkred}{\addfontfeature{Color=980000}}
-\newcommand{\textdarkred}[1]{{\darkred#1}}
+\newcommand{\textdarkred}[1]{{\darkred #1}}
 \usepackage{lettrine}
 \newcommand{\initial}[2]{\lettrine[lines=3, depth=1, findent=2pt, nindent=0em]{\textin{#1}}{#2}}
 
 \renewcommand{\operatorname}[1]{\mathcal{#1}}
-
-\ebgaramondlgr{}
