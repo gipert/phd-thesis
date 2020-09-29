@@ -18,7 +18,7 @@
     /tikz/every even column/.append style={column sep=8pt},
   },
   legend columns=3,
-  legend pos=north east,
+  legend pos=north west,
   xlabel={Energy (keV)},
   ylabel={Counts / 10 keV},
   xtick pos=both,
@@ -161,10 +161,10 @@
       \addplot[model]      table {\loadedtable};
       \addlegendimage{only marks, mark=sigma bands}
 
-      \addplot[TolVibRed,     loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM1}*\norm/5.6e23] {data/newphysics.csv};
+      \addplot[TolVibRed,     loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM1}*\norm/7.5e23] {data/newphysics.csv};
       \addplot[TolVibTeal,    loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM2}*\norm/3.4e23] {data/newphysics.csv};
-      \addplot[TolVibOrange,  loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM3}*\norm/1.7e23] {data/newphysics.csv};
-      \addplot[TolVibMagenta, loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM7}*\norm/7.3e22] {data/newphysics.csv};
+      \addplot[TolVibOrange,  loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM3}*\norm/1.3e23] {data/newphysics.csv};
+      \addplot[TolVibMagenta, loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM7}*\norm/1.0e22] {data/newphysics.csv};
       % \addplot[TolVibCyan,    loghistogram] table [x=bin_low_edge, y expr=0.04*\thisrow{nnbbLV}*\norm/2e21] {data/newphysics.csv};
 
       \legend{%
@@ -173,10 +173,10 @@
         {\nnbb},
         {Model},
         {1,2,3 $\sigma$},
-        {\onbbx\ ($n=1$) (90\% C.L.)},
-        {\onbbx\ ($n=2$) (90\% C.L.)},
-        {\onbbx\ ($n=3$) (90\% C.L.)},
-        {\onbbx\ ($n=7$) (90\% C.L.)},
+        {\onbbx\ ($n=1$) limit},
+        {\onbbx\ ($n=2$) limit},
+        {\onbbx\ ($n=3$) limit},
+        {\onbbx\ ($n=7$) limit},
         % {\nnbblv\ (90\% C.L.)},
       }
 

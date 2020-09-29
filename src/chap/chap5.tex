@@ -603,7 +603,7 @@ and 90\% C.L.~lower limits for new-physics processes.
 The obtained best-fit value of the standard \nnbb-decay half-life with its 68\%
 C.L.~interval is
 \[
-  \thalftwoM = (\fillme{?} \pm \stat{\fillme{?}} \pm \syst{\fillme{?}}) \cdot 10^{21}~\text{yr} \;.
+  \thalftwoM = \thalftwovalue~\text{yr} \;.
 \]
 The statistical and systematic uncertainty is remarkably reduced compared to the estimate
 extracted from \phaseone\ data before analysis cuts~\cite{Agostini2015a}. The improvement
@@ -640,23 +640,27 @@ uncertainty on the dead-layer growth speed at room temperature, a further, subst
 precision improvement is expected using corrected active volumes.
 
 \blocktitle{new \\ physics}
-Lower limits (90\% C.L.) on the half-lives of various Majoron-emitting modes of \onbb\ are
-reported in \cref{tab:2nbb-ana:onbbx:limits}. An improvement of about a factor two is
-obtained with respect to previous determinations~\cite{Agostini2015a}. Despite the
-significant reduction of the background compared to \phaseone, a modest improvement is
-expected, since the limits are dominated by the statistical uncertainty and the exposure
-is less than doubled. The achieved sensitivities are comparable to those obtained by
-\nuc{Xe}{139} experiments~\cite{Gando2012, Albert2014a}\footnote{%
+Lower limits at 90\% C.L.~on the half-lives of various Majoron-emitting \onbb\ modes
+are reported in \cref{tab:2nbb-ana:onbbx:limits}. Majoron signals corresponding to the
+obtained constraints are visualized over the \enrBEGeII\ energy spectrum in
+\cref{fig:2nbb-ana:limits}. An improvement of about a factor two is obtained with respect
+to previous determinations~\cite{Agostini2015a}. For spectral index $n=7$, the improvement
+is of more than a factor three. Despite the significant reduction of the background
+compared to \phaseone, this degree of enhancement expected, since the limits are dominated
+by the statistical uncertainty and the exposure is less than doubled. The achieved
+sensitivities are comparable to those obtained by \nuc{Xe}{136}
+experiments\footnote{%
   Note, however, that no sensitivity estimates are reported for \nuc{Xe}{136} analyses.
-  This prevents an exact comparison with the results presented here.
-}, depending on the spectral index $n$ (see also
-\cref{tab:nbb:0nbbx-lim}). \gerda\ is, in fact, setting more stringent limits only on $n=3,7$
-modes. Majoron signals corresponding to the obtained 90\% C.L.~lower limits are visualized
-in \cref{fig:2nbb-ana:limits}. \fillme{more}
+  An exhaustive comparison with other experimental results should indeed be based on both
+  sensitivity and observed limits, to bypass the effect of possibly extreme statistical
+  realizations in data.
+}~\cite{Gando2012, Albert2014a}, depending on the spectral index $n$ (see also
+\cref{tab:nbb:0nbbx-lim}). \gerda\ is, in fact, setting significantly more stringent
+limits only on the $n=7$ mode, by a factor ten.
 \newpar
 Using phase space factors from~\cite{Kotila2015} and the most recent set of nuclear matrix
 elements (the same as the standard \onbb-decay for spectral index $n=1$, \cite{Hirsch1995}
-for all the others) it is possible to convert the half-life limit into a lower limit on
+for all the others) it is possible to convert the half-life limit into an upper limit on
 the \ga\ coupling constant\footnote{%
   The only calculation of nuclear matrix elements for \onbbx-decay modes with spectral
   index $n=3,7$ available in the literature is found in~\cite{Hirsch1995}. Unfortunately,
@@ -664,7 +668,8 @@ the \ga\ coupling constant\footnote{%
   account the last \yr{25} years of nuclear theory developments. We are in contact with
   theoreticians to obtain more accurate nuclear matrix elements and provide a more robust
   conversion factor between half-life and coupling constant \ga.
-}.
+}. Also here, the improvement with respect to the \phaseone\ result is a factor $\sim$2.
+Similar constraints have been obtained with \nuc{Xe}{136} (see \cref{tab:nbb:0nbbx-lim}).
 \newpar
 The obtained 90\% C.L. confidence interval on the ratio between the number of counts in
 the analysis range from the Lorentz- (and CPT-) violating double-beta decay mode \nnbblv\
@@ -682,11 +687,14 @@ space factors in~\cite{Nitescu2020}:
   \centering
   \caption{%
     90\% C.L.~lower limits for Majoron-emitting \onbb\ modes contributing to the \nnbb\
-    event distribution. Nuclear matrix elements for spectral index $n=1$ are the same as
-    the standard \onbb, and have been therefore selected from the most recent nuclear
-    calculations.  Matrix elements for the other decay modes have been taken
-    from~\cite{Hirsch1995}.  Phase space factors have been taken from~\cite{Kotila2015}.
-    \fillme{numbers}
+    event distribution. Half-life lower limits are converted to coupling constant upper
+    limits, depending on the considered model, using nuclear matrix elements and phase
+    space factors available in the literature. Nuclear matrix elements for spectral index
+    $n=1$ are the same as the standard \onbb, and have been therefore selected from the
+    most recent nuclear calculations. Matrix elements for the other decay modes have been
+    taken from~\cite{Hirsch1995}. Phase space factors have been taken
+    from~\cite{Kotila2015}. Results for \ga\ for two-Majoron modes include the uncertainty
+    on the nuclear matrix elements.
   }\label{tab:2nbb-ana:onbbx:limits}
   \input{tab/2nbb-ana/limits-onbbx.tex}
 \end{table}
@@ -695,10 +703,10 @@ space factors in~\cite{Nitescu2020}:
   \centering
   \includegraphics{plots/2nbb-ana/enrBEGe-results.pdf}
   \caption{%
-    Best-fit model and data for the \enrBEGeII\ data set. The fit model does not include
-    new-physics contributions, but the 90\% C.L.~upper limits on the
-    hypothesized signals are reported. In the bottom panel the residuals are shown,
-    together with normalized 68\%, 95\% and 99\% C.L.~intervals.
+    Best-fit model and data for the \enrBEGeII\ data set. The 90\% C.L.~upper limits on
+    the Majoron-emitting \onbb\ modes are visualized. In the bottom panel the residuals
+    are shown, together with normalized 68\%, 95\% and 99\% C.L.~intervals. The fit model
+    does not include new-physics contributions.
   }\label{fig:2nbb-ana:limits}
 \end{figure}
 
@@ -733,14 +741,14 @@ space factors in~\cite{Nitescu2020}:
     remains the detector \gesix\ active volume estimation, which contributes with 1.3\% to
     the total uncertainty count. Systematic uncertainties relax new-physics lower limits
     by 10--30\%, depending on the considered process.
-  \item The extracted $\thalftwoM = (\fillme{?}) \cdot 10^{21}$~yr is one of the most precise
-    measurements of a double-beta decay half-life ever reported, together with recent
+  \item The extracted $\thalftwoM = \thalftwovalueshort$~yr is one of the most precise
+    measurements of double-beta decay half-life ever reported, together with recent
     estimates with \nuc{Xe}{136}, \nuc{Te}{130} and \nuc{Mo}{100}. The central value,
     however, is potentially biased by an incorrect estimate of the \bege\ detectors active
     volume fraction. A proposed solution to the issue involves the analysis of the \Arl\
     energy spectrum collected by \gerda, which is sensitive to the active volume model of
     germanium detectors. Limits on Majoron-emitting neutrinoless double-beta decay modes
-    are placed in the $10^{22}$--$10^{23}$~yr range, improving the \phaseone\ results by a
+    are placed at the \powtenyr{23} level, improving the \phaseone\ results by a
     factor two, roughly. The constraints are competitive with analogous results with
     \nuc{Xe}{136} data from the \kamlandzen\ and EXO-200 collaborations.
 \end{itemize}

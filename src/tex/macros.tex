@@ -9,7 +9,7 @@
 \newcommand{\cpt}         {$CPT$}
 \newcommand{\aofM}        {{\mathring{a}_\text{of}^{(3)}}}
 \newcommand{\aof}         {$\aofM$}
-\newcommand{\aofooM}      {{{(a_\text{of}^{(3)})}_{00}}}
+\newcommand{\aofooM}      {{(a_\text{of}^{(3)})_{00}}}
 \newcommand{\aofoo}       {$\aofooM$}
 \newcommand{\ga}          {$g_\alpha$}
 
@@ -69,13 +69,11 @@
 \newcommand{\pvalue}         {$p$-value}
 
 % units
-\newcommand{\ctsper}      {cts/(keV$\cdot$kg$\cdot$yr)}
-\newcommand{\powctsper}[1]{{$10^{#1}$~cts/(keV$\cdot$kg$\cdot$yr)}}
-\newcommand{\pIbi}        {{$1.2\cdot10^{-2}$~cts/(keV$\cdot$kg$\cdot$yr)}}
-\newcommand{\pIIbi}       {{$10^{-3}$~cts/(keV$\cdot$kg$\cdot$yr)}}
-\newcommand{\kgy}         {{kg$\cdot$yr}}
+\newcommand{\ctsper}      {$\text{cts}/(\text{keV}{\cdot}\text{kg}{\cdot}\text{yr})$}
+\newcommand{\powctsper}[1]{{$10^{#1}$~\ctsper}}
+\newcommand{\pIbi}        {{$1.2\cdot10^{-2}$~\ctsper}}
+\newcommand{\pIIbi}       {{$10^{-3}$~\ctsper}}
 \newcommand{\kgyr}        {{kg$\cdot$yr}}
-\newcommand{\kevkgyr}     {{keV$\cdot$kg$\cdot$yr}}
 \newcommand{\mubq}        {{$\upmu$Bq}}
 \newcommand{\mum}         {{$\upmu$m}}
 \newcommand{\mus}         {{$\upmu$s}}
@@ -123,7 +121,10 @@
 \newcommand{\onecec}      {$0\un\text{ECEC}$}
 \newcommand{\nnecec}      {$2\un\text{ECEC}$}
 
-\newcommand{\gerdafinallimit}{$\thalfzeroM > 1.8 \cdot 10^{26}$~yr}
+\newcommand{\thalfzerolimit}{1.8 \cdot 10^{26}}
+\newcommand{\thalftwovalue}{(2.050 \pm \stat{0.013} \pm \syst{0.044}) \cdot 10^{21}}
+\newcommand{\thalftwovalueshort}{(2.050 \pm 0.046) \cdot 10^{21}}
+\newcommand{\thalfmajobestlimit}{7.5 \cdot 10^{23}}
 
 \newcommand{\gexpophasetwo}    {60.1~\kgyr}
 \newcommand{\gexpophasetwobkg} {61.4~\kgyr}

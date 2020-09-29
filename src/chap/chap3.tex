@@ -5,7 +5,7 @@
 As already mentioned, a precise knowledge of background intensity and distribution is
 essential to searches for faint signals. One main assumption of the \onbb-decay signal
 analysis is the distribution of background events in the analysis window around \qbb\
-being uniform, except for the known \Tl\ and \Bil\ \g\ lines. The primary role of the
+being uniform, except for known \Tl\ and \Bil\ \g\ lines. The primary role of the
 background model is to verify this assumption by exploiting data outside this energy
 region or filtered with a different event selection. The background model is also
 complementary to assay measurements in determining the location of the most dangerous
@@ -29,7 +29,7 @@ presented in \cref{sec:bkg:raw:ph2:stat}. As it will be shown, the high-statisti
 separately. These potassium and \a\ event analyses are presented in
 \cref{sec:bkg:raw:ph2:kmodel} and \cref{sec:bkg:raw:ph2:amodel} respectively. Finally, the
 results of the background decomposition in the full energy range of data from the first
-part of \phasetwo\ are given in \cref{sec:bkg:raw:ph2:gmodel} and discussed in
+part of \phasetwo\ will be given in \cref{sec:bkg:raw:ph2:gmodel} and discussed in
 \cref{sec:bkg:raw:ph2:discussion}. To complete the survey of background contributions to
 the complete \gerdatwo\ energy spectrum before analysis cuts, the background model of data
 from the second part of \phasetwo\ (\phasetwop) is presented in \cref{sec:bkg:raw:ph2p}.
@@ -48,25 +48,6 @@ from the second part of \phasetwo\ (\phasetwop) is presented in \cref{sec:bkg:ra
     window blinded for the \onbb\ analysis is marked in grey.
   }\label{fig:bkg:raw:ph2:datasets}
 \end{figure}
-
-\begin{table}
-  \centering
-  \caption{%
-    Properties of the data sets considered in this analysis. Further details about the
-    \gerda\ detectors can be found in past publications~\cite{Agostini2013a,
-    Agostini2018a}.  Note that the \bege\ exposure of 31.1~\kgyr\ is higher than the one
-    reported in~\cite{Agostini2019a} because additional data for which PSD methods are not
-    applicable is here included.
-  }\label{tab:bkg:raw:ph2:datasets}
-  \small
-  \input{tab/bkg/raw/ph2/datasets.tex}
-\end{table}%
-\footnotetext{%
-  The \bege\ detector \GD{02D} is the only detector that does not fully
-  deplete~\cite{Agostini2018a}. Hence, events triggered by this detector are
-  not considered in either data set and it is omitted from the mass
-  computation.
-}
 
 As already mentioned, the background model before cuts has been developed using data from
 the first part of \phasetwo, namely, for data acquired starting from December \yr{2015} to
@@ -97,6 +78,25 @@ All these components contribute also to \enrGeII\ except for \Arl, \nnbb\ and hi
 \a-components. This is due to the short range of \a\ (tens of \mum) and \b\
 particles (typically smaller than 1.5~cm) in LAr and germanium with respect to the
 distance between detectors which is of the order of several cm.
+
+\begin{table}
+  \centering
+  \caption{%
+    Properties of the data sets considered in this analysis. Further details about the
+    \gerda\ detectors can be found in past publications~\cite{Agostini2013a,
+    Agostini2018a}.  Note that the \bege\ exposure of 31.1~\kgyr\ is higher than the one
+    reported in~\cite{Agostini2019a} because additional data for which PSD methods are not
+    applicable is here included.
+  }\label{tab:bkg:raw:ph2:datasets}
+  \small
+  \input{tab/bkg/raw/ph2/datasets.tex}
+\end{table}%
+\footnotetext{%
+  The \bege\ detector \GD{02D} is the only detector that does not fully
+  deplete~\cite{Agostini2018a}. Hence, events triggered by this detector are
+  not considered in either data set and it is omitted from the mass
+  computation.
+}
 
 \section{Monte Carlo simulations and probability density functions}%
 \label{sec:bkg:raw:ph2:pdfs}
@@ -491,8 +491,8 @@ contaminations are not necessarily spatially correlated.
 \begin{table}
   \centering
   \caption{%
-    Observed number of counts with energy >5.3~MeV belonging to
-    the \Ra\ decay chain. Detectors with zero counts are not listed.
+    Observed number of counts with energy $>5.3$~MeV belonging to the \Ra\ decay chain.
+    Detectors with zero counts are not listed.
   }\label{tab:bkg:raw:ph2:amodel:rncts}
   \begin{tabular}{cccc}
     \toprule
@@ -695,16 +695,6 @@ Other components are expected to contribute less in the respective energy window
   \end{tabular}
 \end{table}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\linewidth]{plots/bkg/raw/ph2/kmodel-regions.pdf}
-  \caption{%
-    Visual representation of the five energy ranges defined for the potassium tracking
-    analysis. The exact intervals and counts are given in
-    \cref{tab:bkg:raw:ph2:kmodel:regions-cts}.
-  }\label{fig:bkg:raw:ph2:kmodel:regions}
-\end{figure}
-
 \blocktitle{likelihood}
 The statistical approach of factorizing the likelihood is described in
 \cref{sec:bkg:raw:ph2:stat}. The part of the likelihood analyzed here runs simultaneously
@@ -739,6 +729,16 @@ are attracted from. The volume ratio estimate is extracted from the geometric
 implementation in \mage.  We assume an uncertainty of 0.1~mBq on either activity allowing
 for a change of their ratio. The correlation is included in the fit via a two-dimensional
 prior.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{plots/bkg/raw/ph2/kmodel-regions.pdf}
+  \caption{%
+    Visual representation of the five energy ranges defined for the potassium tracking
+    analysis. The exact intervals and counts are given in
+    \cref{tab:bkg:raw:ph2:kmodel:regions-cts}.
+  }\label{fig:bkg:raw:ph2:kmodel:regions}
+\end{figure}
 
 \blocktitle{base \\ model}
 The analysis flow starts with a construction of a first, preliminary model, which consists
@@ -970,7 +970,7 @@ set \a\ events are efficiently isolated using pulse shape discrimination (PSD) t
 (see \cref{sec:gerda:cuts}).  All details about the \a\ events analysis can be found in
 \cref{sec:bkg:raw:ph2:amodel}.
 
-\blocktitle{\nnbb}
+\blocktitle{\nnbb\ \\ decay}
 Most counts in the fit range are attributed to the \nnbb\ decay of \gesix; in fact its
 continuous distribution dominates the spectrum up to almost 1.9~MeV. Here, the \nnbb\
 half-life estimate is based on the \enrBEGeII\ data set only. An additional parameter,
@@ -1185,9 +1185,9 @@ of \phasetwo, for a total exposure of 60.2~\kgyr. In April \yr{2018} the data ta
 stopped to permit a hardware upgrade, in which five new detectors of the inverted-coaxial
 type were deployed together with an improved LAr veto system. For further details about
 the upgrade the reader is referred to \cref{sec:gerda:setup}. The data taking resumed in
-May \yr{2018} and ended in November \yr{2019} after collecting \gexpophasetwopbkg\ of data valid for
-the background model. In the following, the extension of the full-range energy spectrum
-analysis to this data set is presented.
+May \yr{2018} and ended in November \yr{2019} after collecting \gexpophasetwopbkg\ of data
+valid for the background model. In the following, the extension of the full-range energy
+spectrum analysis to this data set is presented.
 
 \blocktitle{data \\ and \pdf{}s}
 The total \gexpophasetwopbkg\ of single-detector data is divided according to the detector
@@ -1195,18 +1195,18 @@ type, giving three \Mone\ datasets: \enrBEGeIIp, \enrSCoaxIIp\ and \enrICoaxIIp.
 Two-detector events are grouped in a single data set: \enrGeIIp. As above, their energy is
 defined as the sum of the energies reconstructed in the two detectors. The four data sets,
 their exposures and corresponding detector masses are listed in
-\cref{tab:bkg:raw:ph2p:datasets}. The
-energy spectra of the four data sets are shown in \cref{fig:bkg:raw:ph2p:data-desc}. In
-addition to the list of background contributions in \cref{sec:bkg:raw:ph2:data} that can
-be identified by eye in the spectra, an event excess is observed at 1124~keV in
-\enrICoaxIIp\ which is attributed to the decay of \Zn\ in the germanium\footnote{%
-  The \Zn\ present in the \icoax\ crystals is due to the reaction \nuc{Ge}{70}(n,
-  \a{}2n)\Zn, induced by cosmic rays~\cite{Cebrian2010, Horiguchi1983}. It disintegrates
-  mainly by electron capture to the 1115~keV excited level of \nuc{Cu}{65} with a
-  half-life of 244~days. \icoax\ detectors have been deployed in \gerda\ short after being
-  produced, so the 1124~keV line (\g\ de-excitation of \nuc{Cu}{65} coincident with
-  K-shell X-rays) can be seen. A first reference to this decay in germanium can been found
-  in a publication from the \textsc{Milano} \onbb\ experiment~\cite{Bellotti1986}.
+\cref{tab:bkg:raw:ph2p:datasets}. The energy spectra are shown in
+\cref{fig:bkg:raw:ph2p:data-desc}. In addition to the list of background contributions in
+\cref{sec:bkg:raw:ph2:data} that can be identified by eye in the spectra, an event excess
+is observed at 1124~keV in \enrICoaxIIp\ which is attributed to the decay of \Zn\ in
+germanium\footnote{%
+  The \Zn\ present in \icoax\ crystals is due to the \nuc{Ge}{70}(n, \a{}2n)\Zn\ reaction,
+  induced by cosmic rays~\cite{Cebrian2010, Horiguchi1983}. It disintegrates mainly by
+  electron capture to the 1115~keV excited level of \nuc{Cu}{65} with a half-life of
+  244~days. \icoax\ detectors have been deployed in \gerda\ short after being produced, so
+  the 1124~keV line (\g\ de-excitation of \nuc{Cu}{65} coincident with K-shell X-rays) can
+  be seen. A first reference to this decay in germanium can been found in a publication
+  from the \textsc{Milano} \onbb\ experiment~\cite{Bellotti1986}.
 }.
 \newpar
 The new experimental setup has been implemented into \mage. The changes to the software
@@ -1221,28 +1221,11 @@ background and signal contaminations and produce the corresponding \pdf{}s, as d
   \centering
   \includegraphics{plots/bkg/raw/ph2p/data-desc.pdf}
   \caption{%
-    The \phasetwop\ data before analysis cuts.
+    The \phasetwop\ data before analysis cuts, divided according to the detector type
+    (only single-detector events). The energy spectrum of two-detector events is shown in
+    the bottom panel.
   }\label{fig:bkg:raw:ph2p:data-desc}
 \end{figure}
-
-\begin{table}
-  \centering
-  \caption{%
-    Properties of the data sets considered in this analysis. Further details about the
-    \gerda\ detectors can be found in past publications~\cite{Agostini2013a,
-    Agostini2018a, Miloradovic2020}. Note that the exposures for the \bege\ and \icoax\
-    data sets are higher than those reported for the \onbb\ analysis~\cite{Kermaidic2020,
-    Agostini2021}, because of additional data that that was discarded due to poor PSD
-    detector performance.
-  }\label{tab:bkg:raw:ph2p:datasets}
-  \small
-  \input{tab/bkg/raw/ph2p/datasets.tex}
-\end{table}%
-\footnotetext{%
-  The \bege\ detector \GD{02D} is the only detector that does not fully
-  deplete~\cite{Agostini2018a}. Hence, events triggered by this detector are not
-  considered in either data set and it is omitted from the mass computation.
-}
 
 \blocktitle{background \\ expectations}
 Because of the hardware changes, the expectations about the radio-purity of
@@ -1266,7 +1249,7 @@ software routine is publicly available on GitHub\footnote{\label{footnote:gerda-
   be provided as input. The analysis is fully configurable in JSON format
   (\url{https://www.json.org}) and does not require writing or compiling C++ code (as one
   would need to do if using BAT directly). The list of features include: customization of
-  nearly all the BAT parameters, computation of the Bayesian evidence, \pvalue\
+  nearly all BAT parameters, computation of the Bayesian evidence, \pvalue\
   computation, prior distribution configuration by analytical expression or external
   histogram, variable re-binning and posterior sampling of user-defined observables.
 }. Variable bin sizes are used to represent data and \pdf{}s in the analysis, to speed up the
@@ -1292,6 +1275,25 @@ Since also the potassium tracking analysis has not been repeated, no prior infor
 used to constrain the potassium activity. Priors are extracted from screening
 measurements results: Gaussian distributions for positive contamination detections and
 exponential distributions of the form $e^{-2.3 \mu x}$ for 90\% C.L.~upper limits.
+
+\begin{table}
+  \centering
+  \caption{%
+    Properties of the data sets considered in this analysis. Further details about the
+    \gerda\ detectors can be found in past publications~\cite{Agostini2013a,
+    Agostini2018a, Miloradovic2020}. Note that the exposures for the \bege\ and \icoax\
+    data sets are higher than those reported for the \onbb\ analysis~\cite{Kermaidic2020,
+    Agostini2021}, because of additional data that that was discarded due to poor PSD
+    detector performance.
+  }\label{tab:bkg:raw:ph2p:datasets}
+  \small
+  \input{tab/bkg/raw/ph2p/datasets.tex}
+\end{table}%
+\footnotetext{%
+  The \bege\ detector \GD{02D} is the only detector that does not fully
+  deplete~\cite{Agostini2018a}. Hence, events triggered by this detector are not
+  considered in either data set and it is omitted from the mass computation.
+}
 
 \blocktitle{results}
 A first fit model is constructed including all the background components for which a prior
@@ -1399,7 +1401,7 @@ estimates, including reconstructed counts in the fit range and background indice
 \blocktitle{\thalftwo}
 The three marginalized posteriors for the \nnbb-decay half-life, coming from the three
 detector types separately, are shown in \cref{fig:bkg:raw:ph2p:gmodel:2nbb-post}. The
-distributions have been obtained by re-sampling of the Markov chain\footnote{%
+distributions have been obtained by re-sampling the Markov chain\footnote{%
   Note that the priors on \thalftwo\ are not exactly flat, as the real uniform priors are
   set on the number of \nnbb\ counts, which is proportional to $1/\thalftwoM$. In this
   range of half-life values, however, they can be well approximated by a flat
@@ -1417,18 +1419,18 @@ before, in the case of \bege\ detectors the shift could be largely due to uncert
 the \nplus\ dead-layer growth speed at room temperature.
 \newpar
 To further investigate the origin of the discrepancy, the full-range analysis is repeated
-with \pdf{}s (for all background sources and \nnbb-decay) that assume the preliminary active
-and transition layer model extracted from \Arl\ data, which is described in detail in
-\cref{sec:gedetav:ar39}. A comparison between the latter and the official model is given
-in \cref{fig:gedetav:ar39-results}, and the obtained \thalftwo\ posteriors are shown in
-\cref{fig:bkg:raw:ph2p:gmodel:2nbb-post-ar39av}. \icoax\ and \scoax\ posteriors are
+with \pdf{}s (for all background sources and \nnbb-decay) that assume the preliminary
+active and transition layer model extracted from \Arl\ data, which is described in detail
+in \cref{sec:gedetav:ar39}. A comparison between the latter and the official model is
+given in \cref{fig:gedetav:ar39-results}, and the obtained \thalftwo\ posteriors are shown
+in \cref{fig:bkg:raw:ph2p:gmodel:2nbb-post-ar39av}. \icoax\ and \scoax\ posteriors are
 shifted up, while the \bege\ posterior is shifted down, achieving a better compatibility
 between the three estimates. These results, however, must be taken with a grain of salt:
 the \Arl\ data analysis is still at an early stage and the impact of possible sources of
 systematic uncertainties has not been evaluated yet. They demonstrate, indeed, the
-potential of an analysis of \Arl\ data to obtain unbiased estimated of the detector active
-volumes in their experimental working conditions. A robust estimated of the active volumes
-is, in fact, of great interest for the \nnbb\ analysis and the \onbb\ search.
+potential of an analysis of \Arl\ data to obtain unbiased measurements of the detector
+active volumes in their experimental working conditions. Robust active volume estimates
+are, in fact, of great interest for the \nnbb\ analysis.
 
 \begin{figure}
   \centering
@@ -1461,7 +1463,7 @@ set of background components has been identically selected for the two analyses:
 \nnbb-decay for each detector type, \Bil, \Tl, \Pbh, \Bih, and \Co\ on cables, \Ac\ on
 detector holders, \kvn\ close (mini-shrouds) and far (outer fiber shroud) from the array,
 \kvz\ in LAr outside/inside the mini-shrouds, above the array and on the \nplus\ surface
-for each detector type, the \a\ model \pdf{}s and \Zn\ in the \icoax\ detectors.
+for each detector type, the \a\ model \pdf{}s and \Zn\ in \icoax\ detectors.
 \newpar
 In \cref{fig:bkg:raw:ph2p:comparison} the number of reconstructed counts above the \Arl\
 Q-value (565~keV) for each radioactive source, for each single-detector event data set,
