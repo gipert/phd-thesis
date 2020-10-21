@@ -1,4 +1,4 @@
-# phd-thesis
+# Search for new physics with two-neutrino double-beta decay in GERDA data
 
 <p align="center">
   <img src="https://github.com/gipert/phd-thesis/blob/master/.github/progress.png?raw=true" width="100%" alt="Progress Tracker">
