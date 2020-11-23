@@ -18,7 +18,7 @@ panel, \mbb\ ranges and \gesix\ exposure at the bottom.  Different markers for t
 data series are used to indicate the type of experiment (natural or enriched germanium,
 above or under ground).  The technological advance and the physics achievements over more
 than \yr{50}~years are impressive. In \cref{fig:exp:gerda-history} the evolution of
-sensitivity and limits set by \gerda\ as a function of accumulated exposure is shown. The
+sensitivity and limits set by \gerda\ as a function of accumulated exposure are shown. The
 linear sensitivity gain demonstrates the background-free conditions in which \gerda\ has
 been operating for most of its run time. The \gerda\ data taking officially ended in
 November \yr{2019}, after hitting the total background-free target exposure of 100~\kgyr\
@@ -147,7 +147,9 @@ detectors with natural isotopic germanium abundance. During the upgrade works fo
 replace the three \GTF{} detectors in the central string, for a total of 41 detectors
 deployed.
 \newpar
-All \gerda\ HPGe detectors are made of high-purity p-type germanium, which is initially
+All \gerda\ HPGe detectors are made of high-purity\footnote{The net impurity
+concentration, defined as the difference between the acceptor and donor concentrations,
+must be as low as $10^{10}$~atoms/cm$^3$.} p-type germanium, which is initially
 used to pull crystals, typically fuse-shaped (see for example fig.~4.1a
 in~\cite{Yonenaga2019}).  Crystals are then cut in slices, and each of them is further
 processed to obtain the final detector geometry. The electrodes for signal read-out and
@@ -182,7 +184,7 @@ by the \gerda\ collaboration for the production of 30 new diodes of \bege\ type 
 in \cref{fig:setup:pictures}d). The Broad Energy Germanium detector design does not
 include a bore-hole, therefore the \pplus\ contact is a small, dot-shaped surface at the
 center of one of the two detector sides. The absence of a bore-hole makes this kind of
-detectors harder to electrically deplete, requiring lower impurity concentrations and
+detectors harder to electrically deplete, requiring lower impurity level and
 smaller masses, generally less than 1~kg. A detailed description of the \bege\ detectors
 characteristics, from germanium procurement to diode production can be found
 in~\cite{Agostini2015e, Agostini2018a, Agostini2019}. For \phasetwop, 4 new enriched \IC{}
@@ -376,7 +378,7 @@ veto flags from the muon veto and LAr veto systems.
   \caption{%
     Signal, background events in \gerda\ and working principles of the main background
     reduction techniques. From left to right: \emph{signal-like events}: the point-like
-    topology in dense detectors of double-beta decays generate distinct single-detector
+    topology in dense detectors of double-beta decays generates distinct single-detector
     pulse shapes. \emph{granularity cut}: external, background \g{}s can deposit energy
     in multiple detectors. \emph{pulse-shape discrimination}: insights on the event
     topology can be obtained by analyzing its waveform. Single-site events, multi-site
@@ -548,7 +550,7 @@ semi-coaxial (\scoax) detectors from the other, to be applied after the LAr veto
 the first class a simple univariate cut was sufficient, while for the latter two
 techniques were worked out: one based on neural networks and one on the analysis of the
 rise time of the pulses.  In order to avoid systematic effects, calibration, training and
-evaluation of the PSD methods should be performed on pulses with energies close to these
+evaluation of the PSD methods should be performed on pulses with energies close to those
 of the expected signal at \qbb.  In practice, appropriate event samples are extracted from
 the weekly \Th\ calibration spectra.  The PSD methods applied to the \gerda\ data are
 briefly outlined in the following. The reader is referred to~\cite{Agostini2021a} for a
@@ -618,7 +620,7 @@ the groove. The RT cut exploits the fast rise time of these \a\ events and is th
 equivalent to a volume cut, which excludes the surfaces vulnerable to the \a-induced
 events. The rise time is defined as the time the waveform needs to reach from 10\% to 90\%
 of its amplitude. The RT-cut threshold is defined to maximize the \onbb\ survival fraction
-and to minimize the signal-to-noise ratio at the same time through the definition of a
+and the signal-to-noise ratio at the same time through the definition of a
 figure of merit. The latter is defined as the product of the \nnbb-signal survival
 square-probability and the \a-events rejection probability. The \nnbb\ and \a-event test
 samples are obtained from physics data by selecting data in the $[1.0, 1.3]$~MeV and
@@ -670,7 +672,7 @@ Combining all data together one gets
 \[
   \epsilon_\onbbM^\text{PSD} = (80.8 \pm 2.1)\%
 \]
-as total \onbb\ PSD signal efficiency for the \phasetwo\ data set.
+as total \onbb\ PSD signal efficiency for the full \phasetwo\ data set.
 
 \section{\texorpdfstring{Final \gerda\ results on the search for \onbb\ decay}{Final \gerda\ results on the search for 0nbb decay}}%
 \label{sec:gerda:ana}

@@ -2,17 +2,17 @@
 
 \chapter{The background before analysis cuts}\label{chap:bkg:raw:ph2}
 
-As already mentioned, a precise knowledge of background intensity and distribution is
-essential to searches for faint signals. One main assumption of the \onbb-decay signal
-analysis is the distribution of background events in the analysis window around \qbb\
-being uniform, except for known \Tl\ and \Bil\ \g\ lines. The primary role of the
-background model is to verify this assumption by exploiting data outside this energy
-region or filtered with a different event selection. The background model is also
-complementary to assay measurements in determining the location of the most dangerous
-background sources and learn how to improve experimental design and material selection in
-similar future projects. Lastly, a good background model allows to isolate \nnbb-decay
-events, estimate the half-life of the process and study their distribution as a source of
-potential new-physics effects (see \cref{chap:theory}).
+A precise knowledge of background intensity and distribution is essential to searches for
+faint signals. One main assumption of the \onbb-decay signal analysis is the distribution
+of background events in the analysis window around \qbb\ being uniform, except for known
+\Tl\ and \Bil\ \g\ lines. The primary role of the background model is to verify this
+assumption by exploiting data outside this energy region or filtered with a different
+event selection. The background model is also complementary to assay measurements in
+determining the location of the most dangerous background sources and learn how to improve
+experimental design and material selection in similar future projects. Lastly, a good
+background model allows to statistically isolate \nnbb-decay events, estimate the
+half-life of the process and study their distribution as a source of potential new-physics
+effects (see \cref{chap:theory}).
 \newpar
 A first background model has been built for the \gerda\ \phaseone\ data and published
 in~\cite{Agostini2013a}. Later, a new and advanced model has been constructed to describe
@@ -186,10 +186,10 @@ The only isotopes simulated are \Pa, \Pbh\ and \Bih\ from the \Uh\ decay chain a
 \Bil\ and \Tl\ from the \Thh\ decay chain. The following groups of isotopes are assumed to
 be in secular equilibrium:
 \[
-  ^{238}\text{U}  \succ ^{234\text{m}}\text{Pa}               \;\; \| \;\;
-  ^{226}\text{Ra} \succ ^{214}\text{Pb} \succ ^{214}\text{Bi} \;\; \| \;\;
-  ^{228}\text{Ra} \succ ^{228}\text{Ac}                       \;\; \| \;\;
-  ^{228}\text{Th} \succ ^{212}\text{Bi} \succ ^{208}\text{Tl} \;.
+  \Uh           \succ \Pa             \;\; \| \;\;
+  \Ra\          \succ \Pbh \succ \Bih \;\; \| \;\;
+  \nuc{Ra}{228} \succ \Ac             \;\; \| \;\;
+  \Th           \succ \Bil \succ \Tl  \;.
 \]
 Their decay products consist of \g\  or \b\ particles with an energy higher than 520~keV
 (\cref{fig:bkg:raw:ph2:pdfs:gmodel:U,fig:bkg:raw:ph2:pdfs:gmodel:Th,fig:bkg:raw:ph2:pdfs:gmodel:other}).
@@ -252,7 +252,7 @@ radio-purity screening measurements, is available. For more detailed information
 The lithium-diffused \nplus\ detector surfaces act as a barrier for \a\ particles. The
 latter can only penetrate the very thin boron-implanted \pplus-contact or the contact
 separating groove. \a\ particles have to be emitted directly at the surface or from a thin
-adjacent layer of LAr. Since \a\ particles have to cross the $\sim 0.5$~\mum\ thick
+adjacent layer of LAr. Since \a\ particles have to cross the $\sim$0.5~\mum\ thick
 \pplus\ dead layer and therefore only part of their initial energy is deposited in the
 active volume, this background component leads to peaks with characteristic low-energy
 tails in the HPGe energy spectra (see \cref{fig:bkg:raw:ph2:pdfs:amodel}). Some \a\
@@ -322,8 +322,8 @@ reads $\prod_{i=1}^{N_\text{bins}} \operatorname{P}(n_i;\nu_i)$. Here $\nu_i =
 calculated as the sum of the contributions from each background component $k$;
 $\nu_i(\lambda_1, \ldots, \lambda_{N_\text{com}})$ is a function of the parameters of
 interests $\lambda_j$ (isotope activities, \nnbb\ half-life, etc.). The complete
-likelihood function adopted for the present analysis combines the three data sets
-\enrBEGeII, \enrCoaxII\ and \enrGeII:
+likelihood function adopted for the present analysis combines the $N_\text{dat}=3$ data
+sets \enrBEGeII, \enrCoaxII\ and \enrGeII:
 \begin{equation}\label{eq:bkg:raw:ph2:likelihood}
   \mathcal{L}(\lambda_1, \ldots, \lambda_m \,|\, \text{data}) =
     \prod_{d=1}^{N_\text{dat}}
@@ -596,10 +596,10 @@ rejected by a Bayes factor analysis.  Impurities belonging to the \Ra\ chain are
 located on \ANG{2} and thus a fit of the \enrCoaxII\ data set using a single \pplus\
 thickness describes this component well. For the \enrBEGeII\ data set we observe a very
 small number of counts for the \Ra\ chain, therefore, also in this case a single component
-is sufficient. We determine a best-fit value of 100~nm and 500~nm, respectively. The
-estimated \pvalue\ for \enrBEGeII\ is 0.2 whereas the \pvalue\ for \enrCoaxII\ is 0.3. The
-dominant spectral component below 4.5~MeV is due to degraded \a\ events which extends down
-to the ROI.
+is sufficient. We determine a best-fit value of 100~nm and 500~nm, respectively,
+consistent with the manifacturer technical specifications. The estimated \pvalue\ for
+\enrBEGeII\ is 0.2 whereas the \pvalue\ for \enrCoaxII\ is 0.3. The dominant spectral
+component below 4.5~MeV is due to degraded \a\ events which extends down to the ROI.
 
 \begin{figure}
   \centering
@@ -1104,7 +1104,7 @@ particular, it has been argued how the \kvz\ content in the ROI, arising from \b
 particles reaching the detector active volume, might be strongly affected by the model of
 the transition region. Because of the amount of systematic effects which might play a
 significant role in the background decomposition of the ROI, the background indices
-reported in \cref{tab:bkg:raw:ph2:gmodel:results} should be taken with a grain of salt.
+reported in \cref{tab:bkg:raw:ph2:gmodel:results} should be taken \emph{cum grano salis}.
 \newpar
 The background event distribution in the \onbb\ analysis window can be well approximated
 with a constant function (see \cref{fig:bkg:raw:ph2:gmodel:results:roi}).  With this

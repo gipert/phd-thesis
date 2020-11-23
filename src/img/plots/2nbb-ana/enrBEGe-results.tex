@@ -161,8 +161,8 @@
       \addplot[model]      table {\loadedtable};
       \addlegendimage{only marks, mark=sigma bands}
 
-      \addplot[TolVibRed,     loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM1}*\norm/7.5e23] {data/newphysics.csv};
-      \addplot[TolVibTeal,    loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM2}*\norm/3.4e23] {data/newphysics.csv};
+      \addplot[TolVibRed,     loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM1}*\norm/6.8e23] {data/newphysics.csv};
+      \addplot[TolVibTeal,    loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM2}*\norm/3.2e23] {data/newphysics.csv};
       \addplot[TolVibOrange,  loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM3}*\norm/1.3e23] {data/newphysics.csv};
       \addplot[TolVibMagenta, loghistogram] table [x=bin_low_edge, y expr=\thisrow{onbbM7}*\norm/1.0e22] {data/newphysics.csv};
       % \addplot[TolVibCyan,    loghistogram] table [x=bin_low_edge, y expr=0.04*\thisrow{nnbbLV}*\norm/2e21] {data/newphysics.csv};

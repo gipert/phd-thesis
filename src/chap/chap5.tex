@@ -364,11 +364,10 @@ analysis are discussed.
     considered in the conversion of the number of signal counts to the corresponding
     process half-life, expressed in \cref{eq:2nbb-ana:halflife}.  Since three independent
     estimates of the \bege\ enrichment fraction $f_{76}$ are
-    available\cite{Agostini2015e},
-    they are combined into the final estimate of 0.877(13) by evaluating their variance
-    (see \cref{tab:gerda:efficiencies}). The estimate of the full charge-collection depth
-    and size of transition region for each detector required a careful analysis of the
-    detector characterization data and is reviewed in
+    available~\cite{Agostini2015e}, they are combined into the final estimate of 0.877(13)
+    by evaluating their variance (see \cref{tab:gerda:efficiencies}). The estimate of the
+    full charge-collection depth and size of transition region for each detector required
+    a careful analysis of the detector characterization data and is reviewed in
     \cref{apdx:gedetav}~\cite{Agostini2019, Lehnert2016}. The uncertainty on these values
     is statistically propagated to the half-life conversion factor $\mathcal{C}_{76}$ by
     coherently treating with Monte Carlo methods the correlated and un-correlated
@@ -376,12 +375,12 @@ analysis are discussed.
     $f^\text{AV}$ in \cref{eq:2nbb-ana:halflife}. The resulting uncertainty is about 2\%
     of $\mathcal{C}_{76}$. Since the distribution of the signal fit parameters (including
     new physics) is verified to be approximately normal on toy experiments, the
-    uncertainty on $\mathcal{C}_{76}$ can be propagated linearly to the corresponding half-life
-    estimate and summed in quadrature with the other contributions. Since the latter
-    contribute at the sub-percent level, the \gesix\ active exposure estimation results to
-    be the major source of uncertainty in the standard \nnbb\ half-life determination. In
-    contrast, it is a second-order contribution to new-physics limits, as the systematic
-    uncertainty is typically about 10\% or higher.
+    uncertainty on $\mathcal{C}_{76}$ can be propagated linearly to the corresponding
+    half-life estimate and summed in quadrature with the other contributions. Since the
+    latter contribute at the sub-percent level, the \gesix\ active exposure estimation
+    results to be the major source of uncertainty in the standard \nnbb\ half-life
+    determination. In contrast, it is a second-order contribution to new-physics limits,
+    as the systematic uncertainty is typically about 10\% or higher.
 
   \item[Transition layer model] As already discussed in several occasions (see in
     particular \cref{apdx:gedetav}), the transition region from the \nplus\ electrode to
@@ -448,7 +447,7 @@ analysis are discussed.
     \end{center}
     Some of these \pdf{}s are shown in \cref{fig:bkg:lar:ph2:pdfs:gmodel}. The contribution
     of background modeling-related uncertainties to the total \nnbb\ half-life uncertainty
-    amounts to 0.5\% of the central value.
+    amounts to 0.4\% of the central value.
 
   \item[Theoretical \nnbb\ decay model] The theoretical calculations of the \nnbb\
     distribution shape are not exact and are based on approximations and assumptions
@@ -539,7 +538,7 @@ analysis are discussed.
     uncertainty is mainly due to the propagation of the external \g\ rays: the \nnbb-decay
     electrons generated in the germanium detectors have a sub-cm range and they usually
     deposit their entire kinetic energy, apart from small losses due to the escape of
-    Bremsstrahlung or fluorescence photons.
+    \emph{bremsstrahlung} or fluorescence photons.
 
   \item[Other sources] The energy scale and resolution is another potential source of
     bias in the analysis. Given, however, the excellent resolution of germanium detectors
@@ -557,8 +556,8 @@ distribution is shown in \cref{fig:2nbb-ana:ts-dist-sys}. Compared to
 statistic, resulting in larger confidence intervals on the signal strength. \pvalue\
 curves, shown in the right-hand side of \cref{fig:2nbb-ana:pvalues}, are consequently
 shifted to higher values of the assumed signal strength $S$. The effect on the \nnbb\
-half-life estimate of all sources of systematic uncertainty combined is about 2.2\% of the
-central value. In contrast, the statistical uncertainty (or fit error) is only 0.6\%. For
+half-life estimate of all sources of systematic uncertainty combined is about 2.1\% of the
+central value. In contrast, the statistical uncertainty (or fit error) is only 0.5\%. For
 limits on exotic-physics signals the situation is the opposite: the effect of systematic
 uncertainties is to relax the 90\% C.L.~interval by 10\% or more (specifically, about 30\%
 for spectral index $n=1$, 10\% for $n=2,3$ and 20\% for $n=7$), but the estimate is
@@ -615,7 +614,7 @@ most sources of systematic uncertainty is found in the shape of background \pdf{
 Uncertainties on the signal shape, from e.g.~nuclear theory or from the model of the detector dead
 layer, are found to be sub-leading. The dominant contribution is the uncertainty on the
 size of the detectors active volume and on the enrichment fraction. With a total
-uncertainty of 2.2\% on the \nnbb\ half-life, the measurement presented here is
+uncertainty of 2.1\% on the \nnbb\ half-life, the measurement presented here is
 one of the most precise ever obtained, on the same footing of recent results from
 \textsc{CUPID-Mo} (2.9\%)~\cite{Armengaud2019}, CUPID-0 (2.2\%)~\cite{Azzolini2019a},
 CUORE (2.8\%)~\cite{Caminata2019}, EXO-200 (2.8\%)~\cite{Albert2013} and \kamlandzen\
@@ -646,10 +645,11 @@ precision improvement is expected using corrected active volumes.
     limits, depending on the considered model, using nuclear matrix elements and phase
     space factors available in the literature. Nuclear matrix elements for spectral index
     $n=1$ are the same as the standard \onbb, and have been therefore selected from the
-    most recent nuclear calculations. Matrix elements for the other decay modes have been
-    taken from~\cite{Hirsch1995}. Phase space factors have been taken
-    from~\cite{Kotila2015}. Results for \ga\ for two-Majoron modes include the uncertainty
-    on the nuclear matrix elements.
+    most recent nuclear calculations. Matrix elements for the other decay modes computed
+    in the IBM-2 theoretical framework~\cite{Barea2015} have been kindly provided by
+    F.~Iachello and J.~Kotila, and will be the subject of a future publication. Phase
+    space factors have been taken from~\cite{Kotila2015}. Results for \ga\ for two-Majoron
+    modes include the uncertainty on the nuclear matrix elements.
   }\label{tab:2nbb-ana:onbbx:limits}
   \small
   \input{tab/2nbb-ana/limits-onbbx.tex}
@@ -662,7 +662,7 @@ obtained constraints are visualized over the \enrBEGeII\ energy spectrum in
 \cref{fig:2nbb-ana:limits}. An improvement of about a factor two is obtained with respect
 to previous determinations~\cite{Agostini2015a}. For spectral index $n=7$, the improvement
 is of more than a factor three. Despite the significant reduction of the background
-compared to \phaseone, this degree of enhancement expected, since the limits are dominated
+compared to \phaseone, this degree of enhancement is expected, since the limits are dominated
 by the statistical uncertainty and the exposure is less than doubled. The achieved
 sensitivities are comparable to those obtained by \nuc{Xe}{136}
 experiments\footnote{%
@@ -675,15 +675,17 @@ experiments\footnote{%
 limits only on the $n=7$ mode, by a factor ten.
 \newpar
 Using phase space factors from~\cite{Kotila2015} and the most recent set of nuclear matrix
-elements (the same as the standard \onbb-decay for spectral index $n=1$, \cite{Hirsch1995}
-for all the others) it is possible to convert the half-life limit into an upper limit on
+elements it is possible to convert the half-life limit into an upper limit on
 the \ga\ coupling constant\footnote{%
+  The nuclear matrix elements for spectral index $n=1$ are the same as the standard
+  \onbb-decay, and are therefore affected by the usual uncertainty range~\cite{Engel2017}.
   The only calculation of nuclear matrix elements for \onbbx-decay modes with spectral
-  index $n=3,7$ available in the literature is found in~\cite{Hirsch1995}. Unfortunately,
-  these are very old and rough calculations (published in \yr{1995}) that do not take into
-  account the last \yr{25} years of nuclear theory developments. We are in contact with
-  theoreticians to obtain more accurate nuclear matrix elements and provide a more robust
-  conversion factor between half-life and coupling constant \ga.
+  indices $n=3,7$ available in the literature is found in~\cite{Hirsch1995}.
+  Unfortunately, these are very old and rough calculations (published in \yr{1995}) that
+  do not take into account the last \yr{25} years of nuclear theory developments. The
+  nuclear matrix elements, obtained within the IBM-2 theoretical
+  framework~\cite{Barea2015}, used in this work have been kindly provided by F.~Iachello
+  and J.~Kotila. A dedicated publication by the authors is currently under development.
 }. Also here, the improvement with respect to the \phaseone\ result is a factor $\sim$2.
 Similar constraints have been obtained with \nuc{Xe}{136} (see \cref{tab:nbb:0nbbx-lim}).
 
