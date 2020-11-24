@@ -266,7 +266,7 @@ in~\cref{sec:bkg:lar:ph2:heatmap}. Here, a reference list of the optical propert
 implemented in \mage\ that regulate the propagation of light in the \gerda\ cryostat is
 given.
 \newpar
-Optical materials and surfaces are implemented in \mage\ through the relevant \geant\
+\sloppy Optical materials and surfaces are implemented in \mage\ through the relevant \geant\
 libraries. Once properties like reflectivity, wavelength-shifting capabilities,
 attenuation lengths, scintillation yields etc.~are defined, the \geant\ core routines take
 care of simulating light propagation accordingly. When defining optical parameters in the
@@ -290,6 +290,17 @@ purity, which has not been measured for \gerda. We recall here that the deployed
 not been subject to any purification process, and is therefore expected to meet the purity
 specifications of natural argon.
 
+\begin{figure}
+  \centering
+  \includegraphics{plots/mage/lar-props.pdf}
+  \caption{%
+    LAr optical properties as implemented in \mage. Top left: the refractive index, top
+    right: the Rayleigh absorption length, bottom left: the scintillation spectrum, bottom
+    right: the absorption length. Taken from~\cite{Bideau-Mehu1981, Seidel2002,
+    Heindl2010}.
+  }\label{fig:bkg:lar:ph2:mage:lar-props}
+\end{figure}
+
 \begin{description}
 
   \item[Refractive index] Its implementation depends on the photon energy (shown in
@@ -298,7 +309,7 @@ specifications of natural argon.
     extrapolation of measured data to lower wavelengths, suggests a lower value of about
     1.37~\cite{Babicz2018}.
 
-  \item[Rayleigh scattering length] Depends on the refractive index and therefore the
+  \item[Rayleigh scattering length] \sloppy Depends on the refractive index and therefore the
     photon energy (shown in \cref{fig:bkg:lar:ph2:mage:lar-props}). Formulas are taken
     from~\cite{Seidel2002}. The already implemented refractive index values are used. The
     obtained scattering length value at 128~nm is about 60~cm. The value suggested
@@ -340,6 +351,14 @@ specifications of natural argon.
     will produce less light by a factor 0.875 and 0.375 (0.7/0.8 and 0.3/0.8 according
     to~\cite{Doke2002}), respectively.
 
+    \begin{figure}
+      \centering
+      \includegraphics{plots/mage/metals-refl.pdf}
+      \caption{%
+        Reflectivity of germanium, copper, silicon and Teflon as implemented in \mage.
+      }\label{fig:bkg:lar:ph2:mage:metals-refl}
+    \end{figure}
+
   \item[Singlet and triplet lifetime] \sloppy The implemented triplet lifetime is the one
     measured during \gerdatwo, before the \phasetwop\ upgrade
     (\cref{fig:lar:triplet-lifetime}), the singlet lifetime is about 6~ns. The relative
@@ -361,22 +380,11 @@ specifications of natural argon.
     $\sim15$~cm as a result, but the performance of the LAr veto as well as recent
     measurements point towards larger absorption length. A default, reasonable value of
     55~cm is thus implemented in \mage\ and used in the LAr veto system simulation as
-    `best guess'.
+    best guess.
 
   \item[Fano factor] A Fano factor of 0.11 is set, taken from~\cite{Doke1976}.
 
 \end{description}
-
-\begin{figure}
-  \centering
-  \includegraphics{plots/mage/lar-props.pdf}
-  \caption{%
-    LAr optical properties as implemented in \mage. Top left: the refractive index, top
-    right: the Rayleigh absorption length, bottom left: the scintillation spectrum, bottom
-    right: the absorption length. Taken from~\cite{Bideau-Mehu1981, Seidel2002,
-    Heindl2010}.
-  }\label{fig:bkg:lar:ph2:mage:lar-props}
-\end{figure}
 
 \blocktitle{reflectivity}
 Reflectivity is another key property in optical simulations, as it can be different for
@@ -385,6 +393,15 @@ literature about material reflectivity in the VUV regime is often very scarce. S
 in the \gerda\ setup for which knowing the reflectivity is crucial are certainly
 germanium, silicon holder plates and the VM2000 and Tetratex\reg{} reflectors that cover
 the internal copper surface of the LAr veto instrumentation.
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/mage/misc.pdf}
+  \caption{%
+    Reflectivity of VM2000 and Tetratex\reg{} reflectors (right) and absorption length
+    of the nylon mini-shrouds (left), as implemented in \mage.
+  }\label{fig:bkg:lar:ph2:mage:misc}
+\end{figure}
 
 \begin{description}
   \item[Ge, Si, Cu and Teflon] Measurements performed for \gerda\ are available
@@ -395,14 +412,6 @@ the internal copper surface of the LAr veto instrumentation.
     implement angle-dependent reflectivities in \geant\ yet. A rough, average value of
     0.65 is therefore set for wavelengths smaller than 280~nm. The reflectivity values for
     all materials mentioned above are plot in \cref{fig:bkg:lar:ph2:mage:metals-refl}.
-
-    \begin{figure}
-      \centering
-      \includegraphics{plots/mage/metals-refl.pdf}
-      \caption{%
-        Reflectivity of germanium, copper, silicon and Teflon as implemented in \mage.
-      }\label{fig:bkg:lar:ph2:mage:metals-refl}
-    \end{figure}
 
   \item[Polymeric reflectors] Tetratex\reg{} values are taken from~\cite{Janecek2012}. The
     author reports measurements of the reflectivity of 2 and 4 superimposed layers of
@@ -415,15 +424,6 @@ the internal copper surface of the LAr veto instrumentation.
     take into account the effect of the TPB emission spectrum. The measurement seems to be
     independent on the TPB layer thickness. The values are plot in
     \cref{fig:bkg:lar:ph2:mage:misc}, left.
-
-    \begin{figure}
-      \centering
-      \includegraphics{plots/mage/misc.pdf}
-      \caption{%
-        Reflectivity of VM2000 and Tetratex\reg{} reflectors (right) and absorption length
-        of the nylon mini-shrouds (left), as implemented in \mage.
-      }\label{fig:bkg:lar:ph2:mage:misc}
-    \end{figure}
 
 \end{description}
 
@@ -447,6 +447,16 @@ the literature. The implemented values are taken from~\cite{Benson2017}
 all instances are the WLS emission time constant, which is set to an arbitrarily small
 value of 0.01~ns and the reflectivity which should be small but not zero (set to 0.2).
 The WLS emission spectrum changes upon the specific layer
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/mage/tpb-props.pdf}
+  \caption{%
+    Optical properties of Tetraphenyl-Butadiene (TPB) implemented in \mage. On the
+    left: the attenuation length of the wavelength-shifted light. On the right:
+    emission spectrum.
+  }\label{fig:bkg:lar:ph2:mage:tpb-props}
+\end{figure}
 
 \begin{description}
 
@@ -475,16 +485,6 @@ The WLS emission spectrum changes upon the specific layer
     reabsorption effect increases with the thickness of the layer. However, no relative
     measurements could be found at the time.
 
-    \begin{figure}
-      \centering
-      \includegraphics{plots/mage/tpb-props.pdf}
-      \caption{%
-        Optical properties of Tetraphenyl-Butadiene (TPB) implemented in \mage. On the
-        left: the attenuation length of the wavelength-shifted light. On the right:
-        emission spectrum.
-      }\label{fig:bkg:lar:ph2:mage:tpb-props}
-    \end{figure}
-
 \end{description}
 
 \blocktitle{fiber shroud \\ mini-shrouds}
@@ -499,6 +499,15 @@ TPB, that shifts the VUV light to match the fiber absorption range.
 The nylon mini-shrouds have the triple role of keeping \kvz\ ions out, being transparent
 to optical photons and eventually shift VUV photons to higher wavelengths. This capability
 is achieved by coating them with TPB.
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/mage/fibers-props.pdf}
+  \caption{%
+    Absorption length and emission spectrum of the wavelength-shifted light in the
+    light-guiding fibers, as implemented in \mage.
+  }\label{fig:bkg:lar:ph2:mage:fibers-props}
+\end{figure}
 
 \begin{description}
 
@@ -533,15 +542,8 @@ is achieved by coating them with TPB.
     from~\cite{Agostini2017b}, since \gerda\ is using the same material used for the
     \textsc{Borexino} balloon (\cref{fig:bkg:lar:ph2:mage:misc}, right).
 
-    \begin{figure}
-      \centering
-      \includegraphics{plots/mage/fibers-props.pdf}
-      \caption{%
-        Absorption length and emission spectrum of the wavelength-shifted light in the
-        light-guiding fibers, as implemented in \mage.
-      }\label{fig:bkg:lar:ph2:mage:fibers-props}
-    \end{figure}
-
 \end{description}
+
+\chapendgliph{}
 
 % vim: tw=90 tabstop=2 expandtab shiftwidth=2

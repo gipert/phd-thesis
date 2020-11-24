@@ -8,7 +8,7 @@ settings.tex = "xelatex";
 usepackage("ebgaramond", options="lining");
 usepackage("unicode-math", options="math-style=ISO, bold-style=ISO");
 texpreamble("\setmathfont{Garamond-Math.otf}");
-defaultpen(fontsize(7pt));
+defaultpen(fontsize(8pt));
 
 from "lib/paultolcolors" access *;
 from "lib/detector_db" access *;

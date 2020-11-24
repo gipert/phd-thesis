@@ -20,24 +20,33 @@
 
 \begin{document}
 
+  \pagestyle{empty}
   \input{chap/titlepage}
-  \clearpage
+  \cleardoublepage{}
 
-  \thispagestyle{empty}
   \newgeometry{margin=4cm}
   \selectlanguage{italian}
   \begin{abstract}
     \input{chap/sommario}
   \end{abstract}
+  \cleardoublepage{}
   \selectlanguage{english}
   \begin{abstract}
     \input{chap/abstract}
   \end{abstract}
-  \restoregeometry
+  \restoregeometry{}
 
   \tableofcontents
-  \thispagestyle{empty}
-  \clearpage
+  \cleardoublepage{}
+
+  \vspace*{4cm}
+  \begin{flushright}
+    \parbox{5cm}{\swshape
+      Mihi crede, verum gaudium res severa est.
+    } \\
+    ---\textsc{seneca}
+  \end{flushright}
+  \cleardoublepage{}
 
   \pagenumbering{roman}
   \scpagenumbers{}
@@ -55,7 +64,7 @@
   \include{chap/concl}
   \include{chap/acknowledgements}
 
-  \cleardoublepage
+  \cleardoublepage{}
   \titleformat{\chapter}[hang]{\huge\swshape}{\thechapter.}{20pt}{\Huge\swshape}
 
   \appendix
@@ -66,6 +75,6 @@
   \include{chap/apdx5}
   \include{chap/apdx6}
 
-  \printbibliography
+  \printbibliography{}
 
 \end{document}

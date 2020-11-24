@@ -119,8 +119,8 @@ model simulations, which already take tens of thousands of CPU hours to complete
 feasible. To address the problem, an alternative approach to compute the LAr veto flag for
 already existing simulations has been developed, based on the construction of a detection
 probability map of scintillation photons in LAr. This object, which is going to be
-described in this section, will be also be referred to just as `heat map' or
-`probability map' in the following.
+described in this section, will be also be referred to just as ``heat map'' or
+``probability map'' in the following.
 \newpar
 The first step to produce the probability map is to run a full photon-tracking simulation
 of 128~nm scintillation photons in the whole LAr volume defined in \mage. An isotropic
@@ -164,7 +164,7 @@ and number of trials equal to $M$:
 If $m>0$ the event is flagged as vetoed by the LAr instrumentation.
 
 \blocktitle{the LAr \\ heat map}
-A visualization of an example probability map is given in
+\sloppy A visualization of an example probability map is given in
 \cref{fig:bkg:lar:ph2:larmap:tac}, along with one-voxel wide transversal and longitudinal
 slices. Voxels are colored according to their probability value: darker areas correspond
 to regions in which less scintillation photons reach the LAr veto detectors and therefore
@@ -381,7 +381,7 @@ and a background component from random coincidences:
   \lambda[n] = \lambda_s[n] * \lambda_b[n] = \lambda_s \vee \lambda_b \;.
 \]
 A way to introduce an effective detection efficiency $\epsilon$ for a LAr veto channel is
-by the following `binomial repopulation':
+by the following ``binomial repopulation'':
 \[
   \lambda_s[m](\epsilon) = \sum_{n \geq m} \lambda_s[n] \binom{n}{m} \epsilon^m
     {(1-\epsilon)}^{n-m} \;,
@@ -607,7 +607,7 @@ peaks, in \enrBEGeII\ around the potassium Compton shoulder region (see
 \cref{fig:bkg:lar:ph2:results-closeup}).
 
 \blocktitle{background \\ at \qbb}
-The background model describes the individual contributions to the total background index
+\sloppy The background model describes the individual contributions to the total background index
 around \qbb\ after the LAr veto cut. The background index is defined as the number
 of counts over exposure and energy in the energy window from 1930~keV to 2190~keV
 excluding the region around \qbb\ ($\qbbM \pm 5$~keV) and the intervals $2104 \pm 5$~keV
