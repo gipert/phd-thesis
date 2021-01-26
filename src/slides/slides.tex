@@ -1,0 +1,157 @@
+%! TEX program = xelatex
+% {{{ PREAMBLE
+\documentclass[10pt,aspectratio=169]{beamer}
+
+\graphicspath{{../img/}}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{tikz}
+
+% {{{ colors
+\setbeamercolor{background canvas}{bg=white}
+\newcommand{\mlbrown}[1]{\textcolor{mLightBrown}{#1}}
+\newcommand{\mdbrown}[1]{\textcolor{mDarkBrown}{#1}}
+\newcommand{\mlgreen}[1]{\textcolor{mLightGreen}{#1}}
+\newcommand{\mdteal}[1]{\textcolor{mDarkTeal}{#1}}
+% Available aliases: \<color>{<text>}
+%
+%   tlblue tlred tlpurple tlgreen tlbrown
+%   tdblue tdred tdpurple tdgreen tdbrown
+%
+\usepackage{pgfplots}
+\usepackage{pgfplotsthemetol}
+\newcommand{\tlblue}[1]{\textcolor{TolLightBlue}{#1}}
+\newcommand{\tdblue}[1]{\textcolor{TolDarkBlue}{#1}}
+\newcommand{\tlred}[1]{\textcolor{TolLightRed}{#1}}
+\newcommand{\tdred}[1]{\textcolor{TolDarkRed}{#1}}
+\newcommand{\tlpurple}[1]{\textcolor{TolLightPurple}{#1}}
+\newcommand{\tdpurple}[1]{\textcolor{TolDarkPurple}{#1}}
+\newcommand{\tlpink}[1]{\textcolor{TolLightPink}{#1}}
+\newcommand{\tdpink}[1]{\textcolor{TolDarkPink}{#1}}
+\newcommand{\tlgreen}[1]{\textcolor{TolLightGreen}{#1}}
+\newcommand{\tdgreen}[1]{\textcolor{TolDarkGreen}{#1}}
+\newcommand{\tlbrown}[1]{\textcolor{TolLightBrown}{#1}}
+\newcommand{\tdbrown}[1]{\textcolor{TolDarkBrown}{#1}}
+% }}}
+
+% math
+\usepackage{amsmath}
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\theta}{\vartheta}
+\renewcommand{\rho}{\varrho}
+\renewcommand{\phi}{\varphi}
+\usepackage{amsfonts}
+\usepackage{bbold}
+\usepackage[mathrm=sym]{unicode-math}
+\setmathfont{Fira Math}
+
+\input{../tex/macros}
+
+\newcommand{\mytitle}{Search for new physics with two-neutrino double-beta decay in \gerda}
+\newcommand{\people}{L.~Pertoldi}
+\institute{Universit\`a degli Studi di Padova / INFN Padova}
+\newcommand{\mydate}{February 2021}
+\newcommand{\place}{Ph.D.~defense, \textit{On a remote server}}
+
+% links
+\definecolor{TolDARKBlue}{HTML}{3973AC}
+\hypersetup{%
+  colorlinks = true,
+  urlcolor = TolDARKBlue,
+  linkcolor = mDarkTeal
+}
+\renewcommand\UrlFont{\color{TolDARKBlue}\ttfamily\small}
+\newcommand{\doi}[1]{\href{https://doi.org/#1}{\footnotesize\ttfamily #1}}
+\newcommand{\arxiv}[1]{\href{https://arxiv.org/abs/#1}{\footnotesize\ttfamily arXiv:#1}}
+
+% metropolis theme options
+\usetheme[numbering=fraction,block=fill]{metropolis}
+\setbeamertemplate{frame footer}{\emph{\mytitle} $\bullet$ \people\ $\bullet$ \mydate}
+\title{\mytitle}
+% \subtitle{Ph.D.~Defense}
+\titlegraphic{%
+  \vspace{4.6cm}%
+    \begin{minipage}[c]{\textwidth}
+      \hfill%
+      \raisebox{-0.5\height}{\includegraphics[height=1.7cm]{img/logos/unipd-logo.pdf}}%
+      \hspace{0.3cm}%
+      \raisebox{-0.5\height}{\includegraphics[height=1.7cm]{img/logos/infn-logo.pdf}}%
+      \hspace{0.3cm}%
+      \raisebox{-0.5\height}{\includegraphics[height=1.7cm]{img/logos/gerda-logo.png}}%
+    \end{minipage}
+}
+\date{\place\ \sep\ \mydate}
+\author{\people}
+
+% {{{ customization
+\usepackage{appendixnumberbeamer}
+\setbeamercovered{dynamic}
+% for heavier glyphs
+\setsansfont[BoldFont={Fira Sans SemiBold}]{Fira Sans Book}
+\setmonofont{Fira Code}[Contextuals=Alternate, Scale=MatchLowercase]
+% usage: \begin{simpleblock} ... \end{simpleblock}
+\usepackage[most]{tcolorbox}
+\newtcolorbox{simpleblock}{
+%  enhanced,  % does not work with tikz/external
+  boxsep=0.25ex,
+%  arc=1.25ex,
+  arc=0ex,
+  opacityframe=.6,
+  opacityback=.6,
+  colback=bg!80!fg,
+  coltext=mDarkTeal,
+  colframe=white,
+  boxrule=0pt,
+}
+% }}}
+
+\newcommand{\arrow}{$\longmapsto$}
+\newcommand{\sep}{$\bullet$}
+% }}}
+\begin{document}
+\maketitle
+\begin{frame}{Outline}
+  \includegraphics[width=\textwidth]{plots/bkg/raw/combined-results-M1only.pdf}
+\end{frame}
+\begin{frame}{\b\ and \b\b\ decays}
+  \begin{center}
+    \begin{tikzpicture}[font=\small]
+      \node at (0,0) {\includegraphics[width=0.6\textwidth]{bb-artist.png}};
+
+      \node[align=center] at (-3.5,-1.9) {\scshape $\upbeta$ decay};
+      \node[align=center] at ( 0.0,-1.9) {\scshape double-$\upbeta$ decay};
+      \node[align=center] at ( 3.5,-1.9) {\scshape neutrinoless \\ \scshape double-$\upbeta$ decay};
+
+      \node at (-4.3, 1.5) {$e^-$};
+      \node at (-2.2,-1.1) {\footnotesize $\overline{\upnu}_e$};
+
+      \node at (-1.2, 1.1) {$e^-$};
+      \node at ( 1.4, 1.2) {$e^-$};
+      \node at ( 1.3,-1.0) {\footnotesize $\overline{\upnu}_e$};
+      \node at (-1.5,-0.9) {\footnotesize $\overline{\upnu}_e$};
+
+      \node at ( 3.2, 1.5) {$e^-$};
+      \node at ( 4.6,-1.2) {$e^-$};
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+\section{The \gerda\ experiment}
+\section{The background model before analysis cuts}
+\section{The background model after the LAr veto cut}
+\section{Precision fit of \texorpdfstring{\nnbb}{2nubb} events: old and new physics}
+\section{Closing out}
+\begin{frame}{Future}
+\end{frame}
+\appendix
+\begin{frame}[standout]{}
+  Backup
+\end{frame}
+\end{document}
