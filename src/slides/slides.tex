@@ -2,7 +2,7 @@
 % {{{ PREAMBLE
 \documentclass[10pt,aspectratio=169]{beamer}
 
-\graphicspath{{../img/}}
+\graphicspath{{img/}{../img/}}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
 
@@ -119,7 +119,16 @@
 \begin{document}
 \maketitle
 \begin{frame}{Outline}
-  \includegraphics[width=\textwidth]{plots/bkg/raw/combined-results-M1only.pdf}
+  \begin{enumerate}
+    \item \gerda: science goal and experimental design
+    \item The background model before analysis cuts
+    \item The background model after the LAr veto cut
+    \item Precision analysis of the \nnbb\ event distribution
+    \item Search for new physics
+  \end{enumerate}
+  \begin{center}
+    \includegraphics[width=0.7\textwidth]{plots/bkg/raw/combined-results-M1only.pdf}
+  \end{center}
 \end{frame}
 \begin{frame}{\b\ and \b\b\ decays}
   \begin{center}
@@ -144,6 +153,104 @@
   \end{center}
 \end{frame}
 \section{The \gerda\ experiment}
+\begin{frame}{Why studying the double-$\beta$ decay?}
+  The search for \onbb\ \alert{is not a mere measurement of neutrino's intrinsic
+  properties}, just look at the huge literature production\footnote{W.~Rodejohann,
+  \m{IJMP, E 20 (2011) 1833}}
+  \begin{itemize}
+    \item Lepton number $\longleftrightarrow$ Barion number \arrow\
+      \alert{GUTs}, \alert{baryogenesis} (not guaranteed!)
+    \item (almost always) Majorana mass term predicted (\emph{black-box}
+      theorem)
+    \item provides access to lots of fundamental parameters, shared or not with
+      other experimental techniques
+    \item \alert{standard interpretation}: \emph{the neutrino that mediates
+      \onbb\ is the one that oscillates and the Standard Model is an effective
+      theory of some GUT} (seesaw mechanism)
+    \begin{itemize}
+      \item Connection with the Majorana effective mass:
+        $(T^{0\nu}_{1/2})^{-1}=G_{0\nu} |\mathcal{M}_{0\nu}|^2 m_{\beta\beta}^2$
+        \arrow\ Oscillation parameters and absolute neutrino mass scale
+    \end{itemize}
+  \item countless non-standard interpretations$^1$
+  \end{itemize}
+\end{frame}
+\begin{frame}[plain]{\alert{GER}manium \alert{D}etector \alert{A}rray}
+  \begin{columns}[c]
+    \column{0.3\textwidth}%
+      \begin{simpleblock}
+        \gerda\ looks for \onbb\ with enriched, high-purity \gesix\
+        detectors \\ \alert{source $=$ detector}
+      \end{simpleblock}
+      \begin{itemize}
+        \item Installed at LNGS (3500 m.w.e.), in activity since 2009
+          \arrow\ \alert{\phaseone}
+        \item Hardware upgrade 2015 \arrow\ \alert{\phasetwo}
+        \item Decommissioned in 2020 \arrow\ \alert{LEGEND-200}
+      \end{itemize}
+    \column{0.7\textwidth}%
+      \begin{center}
+        \begin{tikzpicture}[fill=bg]
+          \node at (0,0) {\includegraphics[height=7cm]{setup/gerda-artist.jpg}};
+          \node(e) at (3.5,3.5) [rectangle,draw,fill] {\textsc{scintillators}};
+          \draw[thick,red,->] (e.south) .. controls +(0,-1) and +(0,1) .. (2.5,2.4);
+          \node(a) at (1.6,-1.2) [rectangle,draw,fill] {\color{red}LAr};
+          \node(b) at (3.2,1.6) [rectangle,draw,fill] {\gesix\ \textsc{detectors}};
+          \draw[thick,red,->] (b.south) .. controls +(0,0) and +(1,0) .. (1.9,-0.4);
+          \node(c) at (-1.5,1.6) [rectangle,draw,fill] {H$_2$O};
+          \draw[thick,red,->] (c.south) .. controls +(0,0) and +(-1,0) .. (0,-1);
+          \node(d) at (0,3) [rectangle,draw,fill] {Cu \textsc{shielding}};
+          \draw[thick,red,->] (d.south) .. controls +(0,0) and +(-1,0) .. (1,0);
+          \node at (3,-3) [rectangle,draw=mLightBrown, fill=white] {Hosted at LNGS};
+        \end{tikzpicture}
+      \end{center}
+  \end{columns}
+\end{frame}
+\begin{frame}{The scintillation of liquid argon (LAr)}
+  Liquid argon as a \emph{cooling medium}, \emph{passive shield} against
+  backgrounds (\phaseone) and \alert{active shield} (\phasetwo).
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{lar-scint-mechanism.pdf}
+  \end{center}
+  \arrow\ light is produced at the passage of ionizing radiation,
+  \emph{detector medium}
+\end{frame}
+\begin{frame}{Signal and background discrimination techniques}
+  \begin{center}
+    \includegraphics[width=\textwidth]{gedet/gerda-events.png}
+  \end{center}
+  \arrow\ no scintillation light is expected in signal events \\
+  \arrow\ \alert{LAr veto cut:} Ge events with coincident LAr light are cut
+\end{frame}
+\begin{frame}{Collecting the LAr scintillation light}
+  \tikzstyle{every picture}+=[remember picture]
+  \tikzstyle{na} = [baseline=-.5ex]
+  \begin{columns}%
+    \column{0.55\textwidth}%
+      \begin{itemize}
+        \item<1-> 16 \alert{PMTs} \tikz[na] \node[coordinate] (n1) {};
+        \item<2-> light-guiding \alert{fibers} + SiPM readout \tikz[na]
+          \node[coordinate] (n2) {};
+        \item<3-> nylon \alert{mini-shrouds} for each string \tikz[na]
+          \node[coordinate] (n3) {}; \\
+          \arrow\ mechanical barrier against \kvz\ ions
+      \end{itemize}
+    \column{0.45\textwidth}%
+        \begin{tikzpicture}
+          \node (t1) at (0,2.8)  {\includegraphics[width=2cm]{setup/larveto-top-pic.jpg}};
+          \node (t2) at (0.0,0)  {\includegraphics[width=2cm]{setup/fibers-pic.pdf}};
+          \node (t3) at (0,-2.6) {\includegraphics[width=2cm]{setup/larveto-bottom-pic.jpg}};
+          \node (t4) at (2.5,0)  {\includegraphics[height=0.95\textheight]{setup/lar-veto-tikz.pdf}};
+          \node (t5) at (-2.1,0) {\includegraphics[width=1.3cm]{setup/ms-pic.jpg}};
+        \end{tikzpicture}
+  \end{columns}
+  \begin{tikzpicture}[overlay,very thick,color=mLightBrown]
+    \path[->]<1> (n1) edge [out=0, in=160] (t1);
+    \path[->]<1> (n1) edge [out=0, in=200] (t3);
+    \path[->]<2> (n2) edge [out=0] (t2);
+    \path[->]<3> (n3) edge [out=0] (t5);
+  \end{tikzpicture}
+\end{frame}
 \section{The background model before analysis cuts}
 \section{The background model after the LAr veto cut}
 \section{Precision fit of \texorpdfstring{\nnbb}{2nubb} events: old and new physics}

@@ -95,6 +95,8 @@
 /src/img/plots/2nbb-ana/2nbb-sums-assumptions-zoom.pdf
 /src/img/plots/2nbb-ana/larmap-dist-manual.pdf
 
+/src/slides/slides.pdf
+
 *.DS_Store
 *.swp
 *.swo

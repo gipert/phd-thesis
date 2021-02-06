@@ -4,7 +4,7 @@
 # Author: Luigi Pertoldi - luigi.pertoldi@pd.infn.it
 # Created: Sun 1 Dec 2019, flying to Seattle
 
-PROJ  = main
+PROJ  = slides
 LC    = latexmk
 LOGS  = .auxtex
 FLAGS = -pdfxe -pdfxelatex="xelatex -halt-on-error" -bibtex \
@@ -17,11 +17,8 @@ $(PROJ).pdf : $(PROJ).tex mkdirs img FORCE_MAKE
 	cp $(LOGS)/$@ .
 	# xdg-open "$@"
 
-slides :
-	+cd slides && make; cd ..
-
 img :
-	+cd img && make; cd ..
+	+cd img && [[ -f Makefile ]] && make; cd ..
 
 mkdirs :
 	mkdir -p $(LOGS)/chap
@@ -32,6 +29,6 @@ clean :
 cleanall : clean
 	+cd img && make clean; cd ..
 
-.PHONY : FORCE_MAKE clean cleanall img mkdirs slides
+.PHONY : FORCE_MAKE clean cleanall img mkdirs
 
 -include $(LOGS)/$(PROJ).deps
