@@ -1,0 +1,37 @@
+%! TEX program = xelatex
+\input{..//standalone-def}
+\import{}{pgfplots-def}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=10cm, height=6cm,
+      xmin=0, xmax=2.039,
+      ymin=0, ymax=1.4,
+      samples=200,
+      no marks,
+      xlabel=Energy {(}MeV{)},
+      ylabel=a.u.,
+      yticklabels={,,},
+      legend style={cells={anchor=west},legend pos=outer north east},
+      every axis plot/.append style={mark=none, thick, domain=0:2.039}
+    ]
+
+      \addplot {x/0.511*(4-x/0.511)^1*((x/0.511)^4+10*(x/0.511)^3+40*(x/0.511)^2+60*(x/0.511)+30)/2748};
+      \addplot {x/0.511*(4-x/0.511)^2*((x/0.511)^4+10*(x/0.511)^3+40*(x/0.511)^2+60*(x/0.511)+30)/3764};
+      \addplot {x/0.511*(4-x/0.511)^3*((x/0.511)^4+10*(x/0.511)^3+40*(x/0.511)^2+60*(x/0.511)+30)/6731};
+      % \addplot {x/0.511*(4-x/0.511)^4*((x/0.511)^4+10*(x/0.511)^3+40*(x/0.511)^2+60*(x/0.511)+30)/14212};
+      \addplot {x/0.511*(4-x/0.511)^5*((x/0.511)^4+10*(x/0.511)^3+40*(x/0.511)^2+60*(x/0.511)+30)/33597};
+      \addplot {x/0.511*(4-x/0.511)^7*((x/0.511)^4+10*(x/0.511)^3+40*(x/0.511)^2+60*(x/0.511)+30)/235046};
+
+      \legend{%
+        {$n = 1$ [\onbbx]},
+        {$n = 2$ [\onbbx]},
+        {$n = 3$ [$0\upnu\upbeta\upbeta\upchi(\upchi)$]},
+        % {$n = 4$ [\nnbblv]},
+        {$n = 5$ [\nnbb]},
+        {$n = 7$ [$0\upnu\upbeta\upbeta\upchi(\upchi)$]}
+      }
+    \end{axis}
+  \end{tikzpicture}
+\end{document}

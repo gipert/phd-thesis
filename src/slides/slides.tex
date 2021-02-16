@@ -118,52 +118,124 @@
 % }}}
 \begin{document}
 \maketitle
-\begin{frame}{Outline}
-  \begin{enumerate}
-    \item \gerda: science goal and experimental design
-    \item The background model before analysis cuts
-    \item The background model after the LAr veto cut
-    \item Precision analysis of the \nnbb\ event distribution
-    \item Search for new physics
-  \end{enumerate}
-  \begin{center}
-    \includegraphics[width=0.7\textwidth]{plots/bkg/raw/combined-results-M1only.pdf}
-  \end{center}
+\begin{frame}{About me}
+  \begin{columns}
+    \begin{column}{0.45\textwidth}
+      \begin{itemize}
+        \item Currently postdoc at Technische Universit\"at M\"unchen
+        \item \href{https://gipert.github.io}{gipert.github.io}
+        \item \href{https://orcid.org/0000-0002-0467-2571}{orcid.org/0000-0002-0467-2571}
+        \item \href{https://inspirehep.net/authors/1667599}{inspirehep.net/authors/1667599}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.55\textwidth}
+      \vspace*{5mm}
+      \includegraphics[trim=0 0 0 0,clip,width=\columnwidth]{me-siberia.jpg}
+    \end{column}
+  \end{columns}
 \end{frame}
-\begin{frame}{\b\ and \b\b\ decays}
+\begin{frame}{Thesis outline}
+  \begin{enumerate}
+    \item Why studying double-beta decay?
+      \begin{itemize}
+        \item Rare physics, origins of our Universe, neutrino properties
+      \end{itemize}
+    \item \gerda: science goal and experimental design
+      \begin{itemize}
+        \item Background reduction, latest results
+      \end{itemize}
+    \item The \gerda\ background model before analysis cuts
+      \begin{itemize}
+        \item Monte Carlo simulations, background expectations
+      \end{itemize}
+    \item The \gerda\ background model after the LAr veto cut
+      \begin{itemize}
+        \item Optical physics simulations
+      \end{itemize}
+    \item Precision analysis of the \nnbb\ event distribution
+    \begin{itemize}
+      \item Half-life measurement, systematic effects
+    \end{itemize}
+    \item Search for new physics
+      \begin{itemize}
+        \item Majoron models
+      \end{itemize}
+  \end{enumerate}
+  % \begin{center}
+  %   \includegraphics[width=0.7\textwidth]{plots/bkg/raw/combined-results-M1only.pdf}
+  % \end{center}
+\end{frame}
+\section{Double-beta decay physics}
+\begin{frame}{Two-neutrino double-beta decay}
   \begin{center}
     \begin{tikzpicture}[font=\small]
-      \node at (0,0) {\includegraphics[width=0.6\textwidth]{bb-artist.png}};
+      \node at (2.0,0) {\includegraphics[height=2.8cm]{theory/bb-artist-newphy.png}};
 
-      \node[align=center] at (-3.5,-1.9) {\scshape $\upbeta$ decay};
-      \node[align=center] at ( 0.0,-1.9) {\scshape double-$\upbeta$ decay};
-      \node[align=center] at ( 3.5,-1.9) {\scshape neutrinoless \\ \scshape double-$\upbeta$ decay};
+      \node[align=center] at (-3.4,-1.9) {\scshape $\upbeta$ decay};
+      \node[align=center] at ( 0.2,-1.9) {\scshape double-$\upbeta$ decay};
+      \node[align=center] at ( 3.4,-1.9) {\scshape neutrinoless \\ \scshape double-$\upbeta$ decay};
+      \node[align=center] at ( 6.8,-1.9) {\scshape Majoron \\ \scshape emission};
 
-      \node at (-4.3, 1.5) {$e^-$};
-      \node at (-2.2,-1.1) {\footnotesize $\overline{\upnu}_e$};
+      \node at (-4.2, 1.5) {$e^-$};
+      \node at (-2.1,-1.1) {\footnotesize $\overline{\upnu}_e$};
 
       \node at (-1.2, 1.1) {$e^-$};
       \node at ( 1.4, 1.2) {$e^-$};
-      \node at ( 1.3,-1.0) {\footnotesize $\overline{\upnu}_e$};
-      \node at (-1.5,-0.9) {\footnotesize $\overline{\upnu}_e$};
+      \node at ( 1.4,-1.0) {\footnotesize $\overline{\upnu}_e$};
+      \node at (-1.4,-0.9) {\footnotesize $\overline{\upnu}_e$};
 
       \node at ( 3.2, 1.5) {$e^-$};
       \node at ( 4.6,-1.2) {$e^-$};
+
+      \node at ( 5.6, 1.2) {$e^-$};
+      \node at ( 8.1, 1.2) {$e^-$};
+      \node at ( 5.2,-1.2) {$\chi$};
+      \node at ( 8.3,-1.2) {$\chi$};
+
+      \draw[draw=none,fill=white,opacity=0.6] (2.0,-2.3) rectangle (8.4,1.8);
     \end{tikzpicture}
   \end{center}
 \end{frame}
-\section{The \gerda\ experiment}
-\begin{frame}{Why studying the double-$\beta$ decay?}
-  The search for \onbb\ \alert{is not a mere measurement of neutrino's intrinsic
-  properties}, just look at the huge literature production\footnote{W.~Rodejohann,
-  \m{IJMP, E 20 (2011) 1833}}
+\begin{frame}{Neutrinoless double-beta decay}
+  \begin{center}
+    \begin{tikzpicture}[font=\small]
+      \node at (2.0,0) {\includegraphics[height=2.8cm]{theory/bb-artist-newphy.png}};
+
+      \node[align=center] at (-3.4,-1.9) {\scshape $\upbeta$ decay};
+      \node[align=center] at ( 0.2,-1.9) {\scshape double-$\upbeta$ decay};
+      \node[align=center] at ( 3.4,-1.9) {\scshape neutrinoless \\ \scshape double-$\upbeta$ decay};
+      \node[align=center] at ( 6.8,-1.9) {\scshape Majoron \\ \scshape emission};
+
+      \node at (-4.2, 1.5) {$e^-$};
+      \node at (-2.1,-1.1) {\footnotesize $\overline{\upnu}_e$};
+
+      \node at (-1.2, 1.1) {$e^-$};
+      \node at ( 1.4, 1.2) {$e^-$};
+      \node at ( 1.4,-1.0) {\footnotesize $\overline{\upnu}_e$};
+      \node at (-1.4,-0.9) {\footnotesize $\overline{\upnu}_e$};
+
+      \node at ( 3.2, 1.5) {$e^-$};
+      \node at ( 4.6,-1.2) {$e^-$};
+
+      \node at ( 5.6, 1.2) {$e^-$};
+      \node at ( 8.1, 1.2) {$e^-$};
+      \node at ( 5.2,-1.2) {$\chi$};
+      \node at ( 8.3,-1.2) {$\chi$};
+
+      \draw[draw=none,fill=white,opacity=0.6] (-4.4,-2.3) rectangle (2.0,1.8);
+      \draw[draw=none,fill=white,opacity=0.6] ( 5.0,-2.3) rectangle (8.4,1.8);
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+\begin{frame}{Why searching for neutrinoless double-$\beta$ decay?}
+  Huge literature production\footnote{W.~Rodejohann, \m{IJMP, E 20 (2011)
+  1833}}
   \begin{itemize}
+    \item \onbb\ observation implies that neutrino is a \alert{Majorana particle}
     \item Lepton number $\longleftrightarrow$ Barion number \arrow\
       \alert{GUTs}, \alert{baryogenesis} (not guaranteed!)
-    \item (almost always) Majorana mass term predicted (\emph{black-box}
-      theorem)
-    \item provides access to lots of fundamental parameters, shared or not with
-      other experimental techniques
+    \item Access to fundamental parameters, shared or not with other
+      experimental concepts
     \item \alert{standard interpretation}: \emph{the neutrino that mediates
       \onbb\ is the one that oscillates and the Standard Model is an effective
       theory of some GUT} (seesaw mechanism)
@@ -175,6 +247,43 @@
   \item countless non-standard interpretations$^1$
   \end{itemize}
 \end{frame}
+\begin{frame}{Neutrinoless double-beta decay}
+  \includegraphics{theory/bb-spectra.pdf}
+\end{frame}
+\begin{frame}{Double-beta decay and physics beyond the Standard Model}
+  \begin{center}
+    \begin{tikzpicture}[font=\small]
+      \node at (2.0,0) {\includegraphics[height=2.8cm]{theory/bb-artist-newphy.png}};
+
+      \node[align=center] at (-3.4,-1.9) {\scshape $\upbeta$ decay};
+      \node[align=center] at ( 0.2,-1.9) {\scshape double-$\upbeta$ decay};
+      \node[align=center] at ( 3.4,-1.9) {\scshape neutrinoless \\ \scshape double-$\upbeta$ decay};
+      \node[align=center] at ( 6.8,-1.9) {\scshape Majoron \\ \scshape emission};
+
+      \node at (-4.2, 1.5) {$e^-$};
+      \node at (-2.1,-1.1) {\footnotesize $\overline{\upnu}_e$};
+
+      \node at (-1.2, 1.1) {$e^-$};
+      \node at ( 1.4, 1.2) {$e^-$};
+      \node at ( 1.4,-1.0) {\footnotesize $\overline{\upnu}_e$};
+      \node at (-1.4,-0.9) {\footnotesize $\overline{\upnu}_e$};
+
+      \node at ( 3.2, 1.5) {$e^-$};
+      \node at ( 4.6,-1.2) {$e^-$};
+
+      \node at ( 5.6, 1.2) {$e^-$};
+      \node at ( 8.1, 1.2) {$e^-$};
+      \node at ( 5.2,-1.2) {$\chi$};
+      \node at ( 8.3,-1.2) {$\chi$};
+
+      \draw[draw=none,fill=white,opacity=0.6] (-4.4,-2.3) rectangle (5.0,1.8);
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+\begin{frame}{Neutrinoless double-beta decay with Majoron emission}
+  \includegraphics{theory/majorons-spectra.pdf}
+\end{frame}
+\section{The \gerda\ experiment}
 \begin{frame}[plain]{\alert{GER}manium \alert{D}etector \alert{A}rray}
   \begin{columns}[c]
     \column{0.3\textwidth}%
@@ -206,6 +315,15 @@
       \end{center}
   \end{columns}
 \end{frame}
+\begin{frame}{Signal and background discrimination techniques}
+  \begin{center}
+    \includegraphics[width=\textwidth]{gedet/gerda-events.png}
+  \end{center}
+  \arrow\ no scintillation light is expected in signal events \\
+  \arrow\ \alert{LAr veto cut:} Ge events with coincident LAr light are cut
+\end{frame}
+\section{The background model before analysis cuts}
+\section{The background model after the LAr veto cut}
 \begin{frame}{The scintillation of liquid argon (LAr)}
   Liquid argon as a \emph{cooling medium}, \emph{passive shield} against
   backgrounds (\phaseone) and \alert{active shield} (\phasetwo).
@@ -214,13 +332,6 @@
   \end{center}
   \arrow\ light is produced at the passage of ionizing radiation,
   \emph{detector medium}
-\end{frame}
-\begin{frame}{Signal and background discrimination techniques}
-  \begin{center}
-    \includegraphics[width=\textwidth]{gedet/gerda-events.png}
-  \end{center}
-  \arrow\ no scintillation light is expected in signal events \\
-  \arrow\ \alert{LAr veto cut:} Ge events with coincident LAr light are cut
 \end{frame}
 \begin{frame}{Collecting the LAr scintillation light}
   \tikzstyle{every picture}+=[remember picture]
@@ -251,8 +362,6 @@
     \path[->]<3> (n3) edge [out=0] (t5);
   \end{tikzpicture}
 \end{frame}
-\section{The background model before analysis cuts}
-\section{The background model after the LAr veto cut}
 \section{Precision fit of \texorpdfstring{\nnbb}{2nubb} events: old and new physics}
 \section{Closing out}
 \begin{frame}{Future}

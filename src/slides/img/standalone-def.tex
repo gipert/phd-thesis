@@ -1,0 +1,21 @@
+\documentclass[tikz, class=beamer]{standalone}
+\usetheme{metropolis}
+\usepackage[mathrm=sym]{unicode-math}
+\setmathfont{Fira Math}
+\setsansfont[BoldFont={Fira Sans SemiBold}]{Fira Sans Book}
+\setmonofont{Fira Code}[Contextuals=Alternate, Scale=MatchLowercase]
+\usepackage{pgfplots}
+\usepackage{import}
+\makeatletter
+  \def\input@path{%
+    {../tex/}
+    {../../tex/}
+    {../../../tex/}
+    {../../../../tex/}
+    {../../../../../tex/}
+    {../../../../../../tex/}
+    {../../../../../../../tex/}
+    {../../../../../../../../tex/}
+  }
+\makeatother
+\let\x\undefined
