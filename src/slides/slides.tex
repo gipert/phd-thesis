@@ -9,6 +9,7 @@
 \usepackage{microtype}
 \usepackage{booktabs}
 \usepackage{multirow}
+\usepackage{relsize}
 
 \usepackage{enumerate}
 \usepackage{listings}
@@ -42,6 +43,11 @@
 \newcommand{\tdbrown}[1]{\textcolor{TolDarkBrown}{#1}}
 % }}}
 
+% check marks
+\usepackage{pifont}
+\newcommand{\cmark}{\textcolor{mLightGreen}{\ding{51}}}
+\newcommand{\xmark}{\textcolor{mLightBrown}{\ding{55}}}
+
 % math
 \usepackage{amsmath}
 \renewcommand{\epsilon}{\varepsilon}
@@ -68,9 +74,10 @@
   urlcolor = TolDARKBlue,
   linkcolor = mDarkTeal
 }
-\renewcommand\UrlFont{\color{TolDARKBlue}\ttfamily\small}
-\newcommand{\doi}[1]{\href{https://doi.org/#1}{\footnotesize\ttfamily #1}}
-\newcommand{\arxiv}[1]{\href{https://arxiv.org/abs/#1}{\footnotesize\ttfamily arXiv:#1}}
+\renewcommand\UrlFont{\color{TolDARKBlue}\ttfamily}
+\newcommand{\doi}[1]{\href{https://doi.org/#1}{\smaller\ttfamily #1}}
+\newcommand{\arxiv}[1]{\href{https://arxiv.org/abs/#1}{\smaller\ttfamily arXiv:#1}}
+\newcommand{\github}[1]{\href{https://github.com/#1}{\smaller\ttfamily #1}}
 
 % metropolis theme options
 \usetheme[numbering=fraction,block=fill]{metropolis}
@@ -87,6 +94,8 @@
       \hspace{0.3cm}%
       \raisebox{-0.5\height}{\includegraphics[height=1.7cm]{img/logos/gerda-logo.png}}%
     \end{minipage}
+
+    \hfill{\tiny Download these slides at \url{https://some.url}}
 }
 \date{\place\ \sep\ \mydate}
 \author{\people}
@@ -96,7 +105,7 @@
 \setbeamercovered{dynamic}
 % for heavier glyphs
 \setsansfont[BoldFont={Fira Sans SemiBold}]{Fira Sans Book}
-\setmonofont{Fira Code}[Contextuals=Alternate, Scale=MatchLowercase]
+\setmonofont{Fira Code}[Contextuals=Alternate, Scale=0.8]
 % usage: \begin{simpleblock} ... \end{simpleblock}
 \usepackage[most]{tcolorbox}
 \newtcolorbox{simpleblock}{
@@ -115,7 +124,9 @@
 
 \newcommand{\arrow}{$\longmapsto$}
 \newcommand{\sep}{$\bullet$}
+
 % }}}
+% \includeonlyframes{compile}
 \begin{document}
 \maketitle
 \begin{frame}{About me}
@@ -169,7 +180,7 @@
 \begin{frame}{Two-neutrino double-beta decay}
   \begin{center}
     \begin{tikzpicture}[font=\small]
-      \node at (2.0,0) {\includegraphics[height=2.8cm]{theory/bb-artist-newphy.png}};
+      \node at (2.0,0) {\includegraphics[height=2.8cm]{plots/theory/bb-artist-newphy.png}};
 
       \node[align=center] at (-3.4,-1.9) {\scshape $\upbeta$ decay};
       \node[align=center] at ( 0.2,-1.9) {\scshape double-$\upbeta$ decay};
@@ -199,7 +210,7 @@
 \begin{frame}{Neutrinoless double-beta decay}
   \begin{center}
     \begin{tikzpicture}[font=\small]
-      \node at (2.0,0) {\includegraphics[height=2.8cm]{theory/bb-artist-newphy.png}};
+      \node at (2.0,0) {\includegraphics[height=2.8cm]{plots/theory/bb-artist-newphy.png}};
 
       \node[align=center] at (-3.4,-1.9) {\scshape $\upbeta$ decay};
       \node[align=center] at ( 0.2,-1.9) {\scshape double-$\upbeta$ decay};
@@ -248,12 +259,21 @@
   \end{itemize}
 \end{frame}
 \begin{frame}{Neutrinoless double-beta decay}
-  \includegraphics{theory/bb-spectra.pdf}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      Signature: monocromatic peak in the energy spectrum of the detectable decay products
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+        \includegraphics{plots/theory/bb-spectra.pdf}
+      \end{center}
+    \end{column}
+  \end{columns}
 \end{frame}
 \begin{frame}{Double-beta decay and physics beyond the Standard Model}
   \begin{center}
     \begin{tikzpicture}[font=\small]
-      \node at (2.0,0) {\includegraphics[height=2.8cm]{theory/bb-artist-newphy.png}};
+      \node at (2.0,0) {\includegraphics[height=2.8cm]{plots/theory/bb-artist-newphy.png}};
 
       \node[align=center] at (-3.4,-1.9) {\scshape $\upbeta$ decay};
       \node[align=center] at ( 0.2,-1.9) {\scshape double-$\upbeta$ decay};
@@ -281,9 +301,54 @@
   \end{center}
 \end{frame}
 \begin{frame}{Neutrinoless double-beta decay with Majoron emission}
-  \includegraphics{theory/majorons-spectra.pdf}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item The Majoron ($\chi$) is an hypothetical massless particle
+          associated with lepton number violation
+        \item Many models predict \onbb\ with one or more Majorons emitted
+      \end{itemize}
+      \[
+        G_\alpha^{0\upnu\upchi(\upchi)} \sim {(Q_{\upbeta\upbeta} - K)}^n
+      \]
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+        \includegraphics{plots/theory/majorons-spectra.pdf}
+      \end{center}
+    \end{column}
+  \end{columns}
 \end{frame}
 \section{The \gerda\ experiment}
+\begin{frame}{\texorpdfstring{\onbb}{0nbb} experimental searches}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item \textbf{Bolometers} CUORE, CUPID, \textsc{AMoRE}
+        \item \textbf{Time projection chambers} EXO, NEXT, \textsc{PandaX}
+        \item \textbf{Scintillators} \kamlandzen, SNO+, CANDLES
+        \item \textbf{Tracking calorimeters} NEMO, \textsc{SuperNEMO}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{alertblock}{Semiconductors: \gerda, \majoranademo, LEGEND}
+        \begin{itemize}\small
+          \item[\cmark] \gesix-enriched detector technology maturity
+          \item[\cmark] Excellent energy resolution
+          \item[\xmark] Production cost, Low Q-value
+        \end{itemize}
+      \end{alertblock}
+      \begin{center}
+        \includegraphics[width=0.9\columnwidth]{setup/gedet-showcase.png}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}{History of \gesix\ experimental \texorpdfstring{\onbb}{0nbb} searches}
+  \begin{center}
+    \includegraphics[height=0.85\textheight]{plots/history/0nbb-ge76-history.pdf}
+  \end{center}
+\end{frame}
 \begin{frame}[plain]{\alert{GER}manium \alert{D}etector \alert{A}rray}
   \begin{columns}[c]
     \column{0.3\textwidth}%
@@ -315,14 +380,96 @@
       \end{center}
   \end{columns}
 \end{frame}
+\begin{frame}[plain]{\alert{GER}manium \alert{D}etector \alert{A}rray}
+  \begin{center}
+    \includegraphics[height=0.95\textheight]{setup/lngs-map.jpg}
+    \hspace{0.2cm}
+    \includegraphics[height=0.95\textheight]{setup/gerda-lngs.jpg}
+  \end{center}
+\end{frame}
 \begin{frame}{Signal and background discrimination techniques}
   \begin{center}
-    \includegraphics[width=\textwidth]{gedet/gerda-events.png}
+    \includegraphics[width=\textwidth]{setup/gerda-events.png}
   \end{center}
-  \arrow\ no scintillation light is expected in signal events \\
-  \arrow\ \alert{LAr veto cut:} Ge events with coincident LAr light are cut
+  \begin{simpleblock}
+    \begin{center}
+      \alert{\onbb} detection \alert{efficiency} between \alert{45--65\%}
+      depending on the detector type
+    \end{center}
+  \end{simpleblock}
+\end{frame}
+\begin{frame}{Final results}
+  \begin{columns}
+    \begin{column}{0.45\textwidth}
+      \begin{simpleblock}
+        \href{https://doi.org/10.1103/PhysRevLett.125.252502}{\emph{Phys.~Rev.~Lett.}~125, 252502 (2020)}
+      \end{simpleblock}
+      \begin{itemize}
+        \item Advanced data statistical partitioning
+        \item \alert{\measurement{5.2}{1.6}{1.3}~\powctsper{-4}} at \qbb
+        \item No evidence for a signal with \alert{127.2~\kgyr} exposure
+        \item \alert{$\thalfzeroM > \thalfzerolimit$~yr} (90\% C.L., frequentist)
+        \item \mbb\ < 79--180~meV
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.55\textwidth}
+      \begin{center}
+        \includegraphics[width=\columnwidth]{plots/G2006_spectr_prl_2.pdf}
+      \end{center}
+    \end{column}
+  \end{columns}
 \end{frame}
 \section{The background model before analysis cuts}
+\begin{frame}{Motivations}
+  \begin{itemize}
+    \item Background composition at \qbb
+    \item Verify background intensity expectations
+    \item Identify location of background sources for future improvements
+    \item Study \nnbb\ events
+  \end{itemize}
+\end{frame}
+\begin{frame}[plain]{The data before cuts}
+  \includegraphics[height=0.95\textheight]{plots/bkg/raw/ph2/dataGe-desc.pdf}
+\end{frame}
+\begin{frame}{Background expectations: Monte Carlo simulation}
+  \begin{center}
+    \begin{tikzpicture}[anchor=north west]
+      \node at (0,0) {\includegraphics[trim=0 15 0 0, clip, width=0.95\textwidth]{setup/mage-volumes.pdf}};
+      \node[align=center] at (1,0) {\mage: a \geant-based simulation framework \\ \doi{10.1109/TNS.2011.2144619}};
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+\begin{frame}{Analysis strategy}
+  \begin{center}
+    \includegraphics[height=0.9\textheight]{plots/bkg/raw/combined-data.pdf}
+  \end{center}
+\end{frame}
+\begin{frame}{Analysis strategy}
+  \alert{Bayesiana} analysis\footnote{With the Bayesian Analysis Toolkit (BAT):
+  \url{https://bat.mpp.mpg.de}} with \emph{binned-likelihood} and \emph{priors}
+  from material screening measurements.
+  \begin{description}
+    \item[\a-model] high-energy \a\ events on the \pplus\ contact
+    \item[K-model] \alert{\kvn\ and \kvz\ full-energy peak} events divided by detector
+    \item[global-model] final analysis on a large energy range, incorporates \a-model and K-model
+  \end{description}
+\end{frame}
+\begin{frame}{\a-model --- coaxial detectors}
+  \begin{center}
+    \includegraphics[width=0.9\textwidth]{plots/bkg/raw/ph2/results/amodel/amodel-enrCoax.pdf}
+  \end{center}
+\end{frame}
+\begin{frame}{K-model --- single-detector events}
+  \begin{center}
+    \includegraphics[height=0.85\textheight]{plots/bkg/raw/ph2/results/kmodel/kmodel-1d-ds0.pdf}
+    \includegraphics[height=0.85\textheight]{plots/bkg/raw/ph2/results/kmodel/kmodel-1d-ds1.pdf}
+  \end{center}
+\end{frame}
+\begin{frame}[plain]{global-model --- full \phasetwo\ data set (\gexpobkg)}
+  \begin{center}
+    \includegraphics[height=0.9\textheight]{plots/bkg/raw/combined-results.pdf}
+  \end{center}
+\end{frame}
 \section{The background model after the LAr veto cut}
 \begin{frame}{The scintillation of liquid argon (LAr)}
   Liquid argon as a \emph{cooling medium}, \emph{passive shield} against
@@ -362,6 +509,92 @@
     \path[->]<3> (n3) edge [out=0] (t5);
   \end{tikzpicture}
 \end{frame}
+\begin{frame}{Simulating background sources}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}\setlength{\parskip}{10pt}%
+    Once optical specifications are implemented, photon tracking can be enabled
+    in \geant. Problem:
+    \begin{center}
+      \alert{it's SLOW} {\small(on CPUs)}
+    \end{center}
+    too many photons to track! Typical simulation rate of scintillation photons
+    in the \gerda\ setup is \alert{100 ph/s}.
+
+    \emph{Can we be smart and pre-compute the information we really need?}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{center}
+        \includegraphics[width=\columnwidth]{opticks-shower.png}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}{Determining the LAr veto flag in MC: probability map approach}
+  Tracking optical photons with \geant\ each time we simulate would require too
+  much time. Can we do it once and for all?
+  \begin{itemize}
+    \item Directly simulate \alert{128~nm} scintillation photons in LAr
+    \item Partition the LAr volume in \alert{voxels} ($\sim3^3$ mm$^3$)
+    \item Calculate LAr veto \alert{detection probability} for a photon in a voxel
+      \arrow\ \m{TH3F}
+  \end{itemize}
+  Still\ldots
+  \begin{itemize}
+    \item Computationally intensive, probabilities are generally very low
+    \item Several thousands of CPU hours are needed to produce a map
+  \end{itemize}
+\end{frame}
+\begin{frame}{Determining the LAr veto flag in MC: probability map approach}
+  \begin{center}
+    \includegraphics[width=\textwidth]{plots/bkg/lar/ph2/larmodel/larmap-tac.png}
+  \end{center}
+\end{frame}
+\begin{frame}{Determining the LAr veto flag in MC: probability map approach}
+  \begin{columns}
+    \begin{column}{0.45\textwidth}
+      From the probability map to the LAr veto flag:
+      \begin{itemize}
+        \item A Monte Carlo event deposits energy in LAr
+        \item \# of photons determined with nominal light yield ($\sim$28
+          ph/keV)
+        \item Use the map to determine how many get detected
+          (statistical)
+        \item If detected $\geq 1 \Rightarrow$ vetoed
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.55\textwidth}
+      \begin{center}
+        % \includegraphics[width=\columnwidth]{k42.pdf}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}{Pinning the unknowns with calibration data}
+  \begin{simpleblock}
+    The Monte Carlo parameters which are completely missing are the SiPMs and
+    PMTs \alert{channel efficiencies} \arrow\ need to be extracted from real
+    data\footnote{Note: we are not able to say something precise about the
+    other MC parameters (LAr attenuation length, fiber coverage etc.), and it's
+    definitely easier to constrain them with independent measurements.}
+  \end{simpleblock}
+
+  \vspace*{0.5cm}
+  \begin{columns}
+    \begin{column}{0.7\textwidth}\setlength{\parskip}{10pt}%
+      \m{run68} and \m{run76} are special calibration runs with LAr veto ON and
+      weak $\mathcal{O}(1)$~kBq radioactive sources
+      \begin{description}
+        \item[\m{run68}] \Th\ source, in Jul 2016
+        \item[\m{run76}] \Ra\ source, in Feb 2017
+      \end{description}
+
+      \alert{\arrow\ Natural candidate LAr veto model tuning datasets}
+    \end{column}
+    \begin{column}{0.25\textwidth}
+      \hspace{-0.5cm}\includegraphics[width=\columnwidth]{gedet/phII-array-calib.png}
+    \end{column}
+  \end{columns}
+\end{frame}
 \section{Precision fit of \texorpdfstring{\nnbb}{2nubb} events: old and new physics}
 \section{Closing out}
 \begin{frame}{Future}
@@ -370,4 +603,228 @@
 \begin{frame}[standout]{}
   Backup
 \end{frame}
+\begin{frame}{A day in the life of a photon in \gerda}
+  \begin{columns}
+    \begin{column}{0.3\textwidth}
+      \includegraphics[height=0.85\textheight]{light-coll-chain.pdf}
+    \end{column}
+    \begin{column}{0.7\textwidth}
+      \begin{itemize}
+        \item Primary 128~nm photon emission ($\mathcal{O}(10)$ per keV)
+          \begin{itemize}
+            \item Reflected
+            \item Shifted to blue by TPB coating
+            \item Absorbed
+          \end{itemize}
+        \item Detected by PMTs or\ldots
+        \item \ldots{}trapped (and shifted to green) in fibers
+        \item Detected by SiPMs
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}{Implementing optical processes and specifications}
+  \begin{columns}
+    \begin{column}{0.45\textwidth}\setlength{\parskip}{8pt}%
+      To-Do list:
+      \begin{itemize}
+        \item LAr scintillation physics and optical properties
+        \item TPB wavelength-shifting properties
+        \item Fibers optical properties
+        \item Reflectivity of structural materials (Ge, Si, Cu\ldots)
+      \end{itemize}
+      \geant\ libraries allow to specify all this. \emph{But do we know all
+      this\ldots?}
+    \end{column}
+    \begin{column}{0.55\textwidth}
+      \vspace*{0.5cm}
+      \includegraphics[width=\columnwidth]{mage-specs.pdf}
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}{Implementing optical processes and specifications}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{exampleblock}{Liquid argon}
+        \begin{itemize}
+          \item Scintillation spectrum \arxiv{1511.07718}
+          \item Scintillation yield: sample dependent
+          \item Attenuation length: sample dependent
+          \item Refraction index and Rayleigh length
+        \end{itemize}
+      \end{exampleblock}
+      \begin{exampleblock}{Ge, Si, Cu, [\ldots] Reflectivity}
+        \begin{itemize}
+          \item Poorly known at cryogenic temperatures
+          \item Can depend on sample
+        \end{itemize}
+      \end{exampleblock}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{exampleblock}{TPB absorption \& emission}
+        \begin{itemize}
+          \item Poorly known at cryogenic temperatures
+          \item Depend on deposition method and partly on thickness
+        \end{itemize}
+        Recent effort to characterize TPB surfaces \arxiv{1304.6117}
+      \end{exampleblock}
+
+      \begin{alertblock}{Take home message}
+        Materials must be characterized before deployment at the (cryogenic)
+        experimental conditions
+      \end{alertblock}
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}{Optical specifications: TPB emission}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+        \arxiv{1304.6117}
+      \end{center}
+      \includegraphics[width=\columnwidth]{tpb-emission-paper.pdf}
+    \end{column}
+    \begin{column}{0.5\textwidth}\setlength{\parskip}{12pt}%
+      Vibronic structures (TPB molecules) show up at low temperatures in the
+      TPB emission spectrum
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}{Optical specifications: germanium reflectivity}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+        \doi{10.1103/PhysRev.160.602}
+      \end{center}
+      \includegraphics[width=\columnwidth]{ge-reflectivity.png}
+    \end{column}
+    \begin{column}{0.5\textwidth}\setlength{\parskip}{12pt}%
+      Very old measurement of (evaporated) germanium reflectivity at 128~nm
+
+      Strong dependence on incident angle (no possibility to code this in
+      \geant!)
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}{Pinning the unknowns with calibration data}
+  \begin{center}
+    \footnotesize
+    \begin{tabular}{lcccc}
+      \toprule
+                                  &             &               &              & random            \\
+      isotope                     & source port & position (mm) & run time (h) & coincidences (\%) \\
+      \midrule
+      \multirow{6}{*}{\Th}        &             & 8168          & 10.2         & --                \\
+                                  & \m{C2}      & 8396          & 3.2          & --                \\
+                                  &             & 8570          & 12.5         & --                \\
+                                  \cmidrule{2-5}
+                                  &             & 8220          & 6.4          & $7.5 \pm 0.6$     \\
+                                  & \m{C3}      & 8405          & 4.3          & $7.2 \pm 1.0$     \\
+                                  &             & 8570          & 3.6          & $10.2 \pm 1.4$    \\
+      \midrule
+      \multirow{6}{*}{\Ra}        &             & 8139          & 8.9          & $12.2 \pm 0.3$    \\
+                                  & \m{C2}      & 8405          & 4.3          & $11.2 \pm 0.4$    \\
+                                  &             & 8570          & 6.9          & $12.9 \pm 0.3$    \\
+                                  \cmidrule{2-5}
+                                  &             & 8128          & 8.0          & $10.8 \pm 0.3$    \\
+                                  & \m{C3}      & 8292          & 3.6          & $8.9 \pm 0.4$     \\
+                                  &             & 8570          & 8.5          & $10.7 \pm 0.3$    \\
+      \bottomrule
+    \end{tabular}%
+    \hspace{0.5cm}%
+    \raisebox{-3.6cm}{%
+      \begin{tikzpicture}
+        \node[anchor=west] at (0,-0.4) {\includegraphics[height=6.5cm,clip,trim=270 0 0 0]{gedet/phII-array-calib-side.png}};
+        \draw[thick, dash pattern={on 7pt off 2pt on 1pt off 3pt}] (0.1,-3.2) -- (0.1,3.2);
+      \end{tikzpicture}
+    }
+  \end{center}
+\end{frame}
+\begin{frame}{The statistical analysis}
+  \begin{exampleblock}{Data}
+    A set of veto flags (one for each of the $(7 + 9)~\text{PMTs} +
+    9~\text{SiPM mod.} = 25$ LAr veto channels) for each germanium trigger.
+    Each event defined a detection \alert{pattern}
+  \end{exampleblock}
+
+  \begin{exampleblock}{Expectations}
+    The calibration setup is simulated with \alert{full optical photon
+    tracking}. Monte Carlo parameters fixed to best values (attenuation length
+    = 55~cm, fiber coverage = 0.5\ldots). Channel efficiencies set to 1
+  \end{exampleblock}
+
+  Expectations are matched to data in a \alert{likelihood} function that
+  includes `effective' single-channel efficiencies $\vec{\epsilon}$
+\end{frame}
+\begin{frame}{The statistical analysis: background}
+  \begin{exampleblock}{Random coincidences}
+    \emph{False-positive}, LAr-vetoed events in which the physical process
+    generating the coincident light is distinct from the one that triggers the
+    germanium detectors.
+  \end{exampleblock}
+
+  e.g.
+  \begin{itemize}
+    % \item The decay products of a nucleus in the calibration source deposits
+    %   energy in the germanium while a cosmic ray is ionizing the argon.
+    \item Two nuclei decaying at the same time: one of them triggers the
+      germanium and the other one produces coincident light.
+  \end{itemize}
+
+  {\small
+    \textbf{Note:} The probability that a LAr veto channel is triggered in data
+    is the logic OR between the signal and background (\emph{random coincidences}
+    not available in MC) probability.
+    \[
+      \lambda[n] = \lambda_s[n] * \lambda_b[n] = \lambda_s \vee \lambda_b \;.
+    \]%
+  }
+\end{frame}
+\begin{frame}{The statistical analysis}
+  \begin{exampleblock}{The likelihood}
+  \[
+    \mathcal{L}(\vec{\epsilon}, \ldots) =
+      \prod_P \mathcal{B}_{N_\text{tot}}^N \Big(
+        \sum_G \big[ \lambda_s(\vec{\epsilon}) + \sigma \cdot
+        \Delta\lambda_s(\vec{\epsilon})\big] \cdot \lambda_b
+      \Big)
+      \cdot \prod_G \mathcal{B}_{M_\text{tot}}^M (\lambda_b) \cdot
+      \mathcal{G}(\sigma)
+  \]
+  \end{exampleblock}
+  \begin{itemize}
+    \item each single pattern considered $\dim{[P]} = 2^{N_\text{ch}} = 2^{25}$
+    \item pattern generator pairs $G = \{\{A,B\},\{B,C\},\ldots\}$
+    \item $N = $ \# of events in which light was seen over the total $N_\text{tot}$
+    \item additional $\sigma \Delta\lambda_s(\vec{\epsilon})$ accounts for the low statistics in the MC sample. Regulated by the $\sigma$ with Gauss pull term $\mathcal{G}(\sigma)$
+    \item maximize w.r.t.~channel efficiencies $\vec{\epsilon}$
+  \end{itemize}
+\end{frame}
+\begin{frame}{Handling systematic uncertainties}
+  \begin{columns}
+    \begin{column}{0.85\textwidth}
+      \begin{center}
+        \includegraphics[width=\columnwidth]{plots/bkg/lar/ph2/larmodel/larmap-dist.pdf}
+      \end{center}
+      Simulations parameters have \emph{local} and \emph{global} effects
+      \arrow\ systematic uncertainty \alert{distorts} the map
+    \end{column}
+    \begin{column}{0.15\textwidth}
+      \begin{center}
+        \includegraphics[height=0.9\textheight]{plots/bkg/lar/ph2/larmodel/lar-points-position.pdf}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}{Systematic uncertainties}
+  The map generation is computationally expensive ($\mathcal{O}{(10^4)}$ CPU
+  hours), we can produce only one from scratch \arrow\ what about
+  \emph{artificial}, power-law\footnote{$p_k \rightarrow c \cdot p_k^a$ where
+  $p$ is the detection probability and $a$ is the distorting parameter}
+  distortions?
+  \begin{center}
+    \includegraphics[width=\textwidth]{plots/2nbb-ana/larmap-dist-manual.pdf}
+  \end{center}
+\end{frame}
+
 \end{document}

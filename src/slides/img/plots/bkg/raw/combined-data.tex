@@ -1,0 +1,74 @@
+%! TEX program = xelatex
+\input{../../../standalone-def.tex}
+\import{}{pgfplots-def}
+
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{fillbetween}
+
+\pgfplotsset{%
+  height=5.5cm,
+  width=17.5cm,
+  xmin=565, xmax=5250,
+  legend style={%
+    font=\small,
+    draw=none,
+    fill=none,
+    /tikz/every even column/.append style={column sep=8pt},
+  },
+  legend columns=4,
+  legend pos=north east,
+  xlabel={Energy (keV)},
+  ylabel={Counts / 15 keV},
+  xtick pos=both,
+  histogram/.append style={%
+    table/x=bin_low_edge,
+    line width=0.7pt,
+  },
+  loghistogramaxis/.append style={%
+    ymin=1e-1,
+  },
+  group style={%
+    group size=1 by 2,
+    xticklabels at=edge bottom,
+    xlabels at=edge bottom,
+    vertical sep=1pt,
+  },
+  group/every plot/.append style={%
+    restrict x to domain=500:5300,
+  },
+  spectrum/.style={%
+    loghistogramaxis,
+  },
+  data/.style={%
+    loghistogram,
+    table/y=fitted_data,
+    draw=none,
+    fill=TolVibBlue,
+    fill opacity=0.5,
+    area legend,
+  },
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}
+
+      \nextgroupplot[spectrum, ymode=log]
+
+      \addplot[data] table {data/M1-spectra.csv} \closedcycle;
+
+      \node[anchor=north east] at (axis description cs:0.98,0.93) {\textsc{All} -- \gexpobkg};
+      \node[anchor=north east] at (axis description cs:0.98,0.83) {\footnotesize single-detector events};
+
+      \nextgroupplot[spectrum, ymode=log]
+
+      \addlegendimage{data};
+      \addlegendentry{Data};
+
+      \addplot[data] table {data/M2-spectra.csv} \closedcycle;
+
+      \node[anchor=south east] at (axis description cs:0.98,0.03) {\footnotesize two-detector events};
+
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}
