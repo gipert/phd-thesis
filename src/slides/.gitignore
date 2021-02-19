@@ -5,4 +5,11 @@
 /img/plots/bkg/raw/combined-results.pdf
 /img/setup/gedet-showcase.png
 /img/setup/gerda-events.png
+/img/plots/bkg/lar/data/*.root
+/img/plots/bkg/lar/combined-data.pdf
+/img/plots/bkg/lar/combined-results.pdf
+/img/plots/2nbb-ana/2nbb-sums-assumptions.pdf
+/img/plots/2nbb-ana/bege-pdf-dist.pdf
+/img/plots/2nbb-ana/enrBEGe-results.pdf
+/img/plots/2nbb-ana/pvalues.pdf
 /slides.pdf

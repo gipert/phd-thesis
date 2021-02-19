@@ -4,7 +4,6 @@ settings.render = 8;
 settings.maxtile = (300,300);
 settings.tex = "xelatex";
 
-// garamond font
 usepackage("fontspec");
 texpreamble("\setmainfont[BoldFont={Fira Sans SemiBold}]{Fira Sans Book}");
 texpreamble("\setmonofont{Fira Code}[Contextuals=Alternate, Scale=MatchLowercase]");

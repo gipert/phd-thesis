@@ -1,0 +1,61 @@
+%! TEX program = xelatex
+\input{../../../standalone-def.tex}
+\import{}{pgfplots-def}
+
+\pgfplotsset{%
+  width=7.5cm,
+  every axis/.append style={%
+    xlabel={Signal counts $S$},
+    ylabel={\pvalue},
+    xmin=-150, xmax=1650,
+    % extra y ticks={0.1},
+    title style={at={(axis description cs:0.5,0.95)}},
+    smooth,
+    mark size=1.2pt,
+  },
+  group style={%
+    group size=2 by 1,
+    yticklabels at=all,
+    ylabels at=edge left,
+    horizontal sep=1cm,
+  },
+  legend pos=south east,
+  legend style={%
+    font=\footnotesize,
+  },
+  table/x=counts,
+  table/y=pvalue,
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}
+
+      \nextgroupplot[title={without systematics}, ymode=log]
+
+      \addplot+ table {data/p-values/pvalues_0nbbM1_noSys.csv};
+      \addplot+ table {data/p-values/pvalues_0nbbM2_noSys.csv};
+      \addplot+ table {data/p-values/pvalues_0nbbM3_noSys.csv};
+      \addplot+ table {data/p-values/pvalues_0nbbM7_noSys.csv};
+
+      \addplot[black, no marks, dashed, domain=-200:2000] {0.1};
+
+      \nextgroupplot[title={with systematics}, ymode=log]
+
+      \addplot+ table {data/p-values/pvalues_0nbbM1_allSys.csv};
+      \addplot+ table {data/p-values/pvalues_0nbbM2_allSys.csv};
+      \addplot+ table {data/p-values/pvalues_0nbbM3_allSys.csv};
+      \addplot+ table {data/p-values/pvalues_0nbbM7_allSys.csv};
+
+      \addplot[black, no marks, dashed, domain=-200:2000] {0.1};
+
+      \legend{%
+        {$n=1$},
+        {$n=2$},
+        {$n=3$},
+        {$n=7$}
+      }
+
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}

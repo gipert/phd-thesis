@@ -1,0 +1,162 @@
+%! TEX program = xelatex
+\input{../../../standalone-def.tex}
+\import{}{pgfplots-def}
+
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{fillbetween}
+
+\pgfplotsset{%
+  height=5.5cm,
+  width=17.5cm,
+  xmin=565, xmax=5250,
+  legend style={%
+    font=\small,
+    draw=none,
+    fill=none,
+    /tikz/every even column/.append style={column sep=8pt},
+  },
+  legend columns=4,
+  legend pos=north east,
+  xlabel={Energy (keV)},
+  ylabel={Counts / 15 keV},
+  xtick pos=both,
+  histogram/.append style={%
+    table/x=bin_low_edge,
+    line width=0.7pt,
+  },
+  loghistogramaxis/.append style={%
+    ymin=5e-3,
+  },
+  group style={%
+    group size=1 by 2,
+    xticklabels at=edge bottom,
+    xlabels at=edge bottom,
+    vertical sep=1pt,
+  },
+  group/every plot/.append style={%
+    restrict x to domain=500:5300,
+  },
+  spectrum/.style={%
+    loghistogramaxis,
+  },
+  data/.style={%
+    loghistogram,
+    table/y=fitted_data,
+    draw=none,
+    fill=TolVibBlue,
+    fill opacity=0.2,
+    area legend,
+    % table/x=bin_center,
+    % only marks,
+    % mark size=0.5pt,
+  },
+  model/.style={%
+    loghistogram,
+    black,
+    table/y=total_model,
+  },
+  Ac228/.style={%
+    loghistogram,
+    TolVibBlue,
+    table/y=Ac228,
+  },
+  Th228/.style={%
+    loghistogram,
+    TolVibCyan,
+    table/y=Bi212Tl208,
+  },
+  U238/.style={%
+    loghistogram,
+    TolVibTeal,
+    table/y=Pb214Bi214,
+  },
+  Co60/.style={%
+    loghistogram,
+    TolVibOrange,
+    table/y=Co60,
+  },
+  K40/.style={%
+    loghistogram,
+    TolVibRed,
+    table/y=K40,
+  },
+  K42/.style={%
+    loghistogram,
+    TolVibMagenta,
+    table/y=K42,
+  },
+  2nbb/.style={%
+    loghistogram,
+    TolMutOlive,
+    table/y=Nnbb,
+  },
+  Zn65/.style={%
+    loghistogram,
+    TolBriGreen,
+    table/y=Zn65,
+  },
+  alpha/.style={%
+    loghistogram,
+    TolMutSand,
+    table/y=alpha,
+  },
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}
+
+      \nextgroupplot[spectrum, ymode=log]
+
+      \addplot[data]  table {data/M1-spectra.csv} \closedcycle;
+      \addplot[alpha] table {data/M1-spectra.csv};
+      \addplot[Ac228] table {data/M1-spectra.csv};
+      \addplot[Th228] table {data/M1-spectra.csv};
+      \addplot[U238]  table {data/M1-spectra.csv};
+      \addplot[Co60]  table {data/M1-spectra.csv};
+      \addplot[K40]   table {data/M1-spectra.csv};
+      \addplot[K42]   table {data/M1-spectra.csv};
+      \addplot[2nbb]  table {data/M1-spectra.csv};
+      \addplot[model] table {data/M1-spectra.csv};
+
+      \node[anchor=north east] at (axis description cs:0.98,0.93) {\textsc{All} -- \gexpophasetwobkg};
+      \node[anchor=north east] at (axis description cs:0.98,0.83) {\footnotesize single-detector events};
+
+      \nextgroupplot[spectrum, ymode=log]
+
+      \addlegendimage{data};
+      \addlegendimage{model};
+      \addlegendimage{2nbb};
+      \addlegendimage{alpha};
+      \addlegendimage{U238};
+      \addlegendimage{K42};
+      \addlegendimage{K40};
+      \addlegendimage{Co60};
+      \addlegendimage{Th228};
+      \addlegendimage{Ac228};
+
+      \addlegendentry{Data};
+      \addlegendentry{Model};
+      \addlegendentry{\nnbb};
+      \addlegendentry{$\upalpha$ model};
+      \addlegendentry{\Pbh\ + \Bih};
+      \addlegendentry{\kvz};
+      \addlegendentry{\kvn};
+      \addlegendentry{\Co};
+      \addlegendentry{\Bil\ + \Tl};
+      \addlegendentry{\Ac};
+
+      \addplot[data]  table {data/M2-spectra.csv} \closedcycle;
+      \addplot[Ac228] table {data/M2-spectra.csv};
+      \addplot[Th228] table {data/M2-spectra.csv};
+      \addplot[U238]  table {data/M2-spectra.csv};
+      \addplot[Co60]  table {data/M2-spectra.csv};
+      \addplot[K40]   table {data/M2-spectra.csv};
+      \addplot[K42]   table {data/M2-spectra.csv};
+      \addplot[model] table {data/M2-spectra.csv};
+
+      \node[anchor=south east] at (axis description cs:0.98,0.03) {\footnotesize two-detector events};
+
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}

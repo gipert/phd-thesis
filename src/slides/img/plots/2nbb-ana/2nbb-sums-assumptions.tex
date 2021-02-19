@@ -1,0 +1,72 @@
+%! TEX program = xelatex
+\input{../../standalone-def.tex}
+\import{}{pgfplots-def}
+
+\pgfplotsset{%
+  width=7cm,
+  every axis/.append style={%
+    xlabel={Energy (MeV)},
+    ylabel={Probability},
+    xmin=0, xmax=2.039,
+    smooth,
+    xtick pos=both,
+  },
+  group style={%
+    group size=1 by 2,
+    vertical sep=2pt,
+    xticklabels at=edge bottom,
+    xlabels at=edge bottom,
+  },
+  no marks,
+  legend pos=north east,
+  legend style={%
+    font=\footnotesize,
+    fill=none,
+  },
+  sampled/.style={%
+    table/col sep=space,
+    table/x expr=\thisrow{energy}*1e-3,
+    table/y=probability,
+  },
+  samples=500,
+}
+
+\def\me{0.510998}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{groupplot}
+
+      \nextgroupplot[ymin=0]
+
+      \addplot+[domain=0:2.039] {%
+        x/\me * (2.039/\me - x/\me)^5 * ((x/\me)^4 + 10*(x/\me)^3 + 40*(x/\me)^2 + 60*(x/\me) + 30) / 3.2908691397497512e7
+      };
+
+      % \addplot+ table {data/sums-decay0-norm.csv};
+      \addplot+[sampled] table {data/sums-hsd-norm.csv};
+      \addplot+[sampled] table {data/sums-ssd-norm.csv};
+
+      \legend{%
+        {P-Rosen},
+        {HSD},
+        {SSD},
+      }
+
+      \nextgroupplot[
+        height=3cm,
+        ymin=0.9, ymax=1.15,
+        ylabel={Ratio},
+        ymajorgrids,
+        legend pos=south east,
+      ]
+
+      \addplot+[sampled, black] table[y=ratio] {data/ssd-to-hsd-ratio.csv};
+
+      \legend{%
+        {SSD/HSD},
+      }
+
+    \end{groupplot}
+  \end{tikzpicture}
+\end{document}

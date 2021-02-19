@@ -9,6 +9,10 @@
 \usepackage{microtype}
 \usepackage{booktabs}
 \usepackage{multirow}
+  \newcommand{\mr}[2]{\multirow{#1}{*}{#2}}
+\usepackage{multicol}
+  \newcommand{\mc}[2]{\multicolumn{#1}{c}{#2}}
+\usepackage{makecell}
 \usepackage{relsize}
 
 \usepackage{enumerate}
@@ -74,7 +78,7 @@
   urlcolor = TolDARKBlue,
   linkcolor = mDarkTeal
 }
-\renewcommand\UrlFont{\color{TolDARKBlue}\ttfamily}
+\renewcommand\UrlFont{\color{TolDARKBlue}}
 \newcommand{\doi}[1]{\href{https://doi.org/#1}{\smaller\ttfamily #1}}
 \newcommand{\arxiv}[1]{\href{https://arxiv.org/abs/#1}{\smaller\ttfamily arXiv:#1}}
 \newcommand{\github}[1]{\href{https://github.com/#1}{\smaller\ttfamily #1}}
@@ -94,8 +98,6 @@
       \hspace{0.3cm}%
       \raisebox{-0.5\height}{\includegraphics[height=1.7cm]{img/logos/gerda-logo.png}}%
     \end{minipage}
-
-    \hfill{\tiny Download these slides at \url{https://some.url}}
 }
 \date{\place\ \sep\ \mydate}
 \author{\people}
@@ -137,7 +139,15 @@
         \item \href{https://gipert.github.io}{gipert.github.io}
         \item \href{https://orcid.org/0000-0002-0467-2571}{orcid.org/0000-0002-0467-2571}
         \item \href{https://inspirehep.net/authors/1667599}{inspirehep.net/authors/1667599}
-      \end{itemize}
+      \end{itemize}\vspace{16pt}
+
+      {\footnotesize
+        Download:
+        \begin{itemize}
+          \item slides at \url{https://l.infn.it/pertoldi-phd-sl}
+          \item thesis at \url{https://l.infn.it/pertoldi-phd-th}
+        \end{itemize}
+      }
     \end{column}
     \begin{column}{0.55\textwidth}
       \vspace*{5mm}
@@ -145,38 +155,31 @@
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}{Thesis outline}
+\begin{frame}{Outline}
   \begin{enumerate}
-    \item Why studying double-beta decay?
+    \item Why studying \alert{double-beta} decay?
       \begin{itemize}
-        \item Rare physics, origins of our Universe, neutrino properties
+        \item Rare physics, origins of the Universe, Majorana neutrino, Standard Model probe
       \end{itemize}
-    \item \gerda: science goal and experimental design
+    \item \alert{\gerda} --- science goal and experimental design
       \begin{itemize}
-        \item Background reduction, latest results
+        \item \gesix\ detectors, background mitigation techniques, latest results
       \end{itemize}
-    \item The \gerda\ background model before analysis cuts
+    \item The \gerda\ \alert{background model} before analysis cuts
       \begin{itemize}
-        \item Monte Carlo simulations, background expectations
+        \item Monte Carlo simulations, background expectations and statistical decomposition techniques
       \end{itemize}
-    \item The \gerda\ background model after the LAr veto cut
+    \item The \gerda\ background model \alert{after the LAr veto cut}
       \begin{itemize}
-        \item Optical physics simulations
+        \item LAr veto system, optical Monte Carlo simulations, tuning with calibration data
       \end{itemize}
-    \item Precision analysis of the \nnbb\ event distribution
+    \item Precision analysis of the \alert{\nnbb\ event distribution}
     \begin{itemize}
-      \item Half-life measurement, systematic effects
+      \item Statistical analysis, half-life measurement, new-physics constraints, systematic effects
     \end{itemize}
-    \item Search for new physics
-      \begin{itemize}
-        \item Majoron models
-      \end{itemize}
   \end{enumerate}
-  % \begin{center}
-  %   \includegraphics[width=0.7\textwidth]{plots/bkg/raw/combined-results-M1only.pdf}
-  % \end{center}
 \end{frame}
-\section{Double-beta decay physics}
+\section{Double-beta decay}
 \begin{frame}{Two-neutrino double-beta decay}
   \begin{center}
     \begin{tikzpicture}[font=\small]
@@ -203,7 +206,7 @@
       \node at ( 5.2,-1.2) {$\chi$};
       \node at ( 8.3,-1.2) {$\chi$};
 
-      \draw[draw=none,fill=white,opacity=0.6] (2.0,-2.3) rectangle (8.4,1.8);
+      \draw[draw=none,fill=white,opacity=0.7] (2.0,-2.3) rectangle (8.4,1.8);
     \end{tikzpicture}
   \end{center}
 \end{frame}
@@ -233,35 +236,41 @@
       \node at ( 5.2,-1.2) {$\chi$};
       \node at ( 8.3,-1.2) {$\chi$};
 
-      \draw[draw=none,fill=white,opacity=0.6] (-4.4,-2.3) rectangle (2.0,1.8);
-      \draw[draw=none,fill=white,opacity=0.6] ( 5.0,-2.3) rectangle (8.4,1.8);
+      \draw[draw=none,fill=white,opacity=0.7] (-4.4,-2.3) rectangle (2.0,1.8);
+      \draw[draw=none,fill=white,opacity=0.7] ( 5.0,-2.3) rectangle (8.4,1.8);
     \end{tikzpicture}
   \end{center}
 \end{frame}
 \begin{frame}{Why searching for neutrinoless double-$\beta$ decay?}
-  Huge literature production\footnote{W.~Rodejohann, \m{IJMP, E 20 (2011)
-  1833}}
+  Huge literature production\footnote{%
+    100+ papers per year with ``\onbb'' in the title
+    \href{https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=find\%20t\%20\%CE\%B2\%CE\%B2\%20or\%20double-beta\%20or\%20double\%20beta\%20or\%20double\%20\%CE\%B2\%20or\%20double-\%CE\%B2\%20or\%200\%CE\%BD\%CE\%B2\%CE\%B2&ui-citation-summary=true}{[INSPIRE-HEP statistics]}
+  }
   \begin{itemize}
-    \item \onbb\ observation implies that neutrino is a \alert{Majorana particle}
+    \item \onbb\ observation $\Rightarrow$ \alert{Majorana neutrino} and \alert{Lepton symmetry violation}
     \item Lepton number $\longleftrightarrow$ Barion number \arrow\
-      \alert{GUTs}, \alert{baryogenesis} (not guaranteed!)
+      \alert{new physics}, \alert{baryogenesis?}
     \item Access to fundamental parameters, shared or not with other
-      experimental concepts
+      physics searches
     \item \alert{standard interpretation}: \emph{the neutrino that mediates
       \onbb\ is the one that oscillates and the Standard Model is an effective
       theory of some GUT} (seesaw mechanism)
     \begin{itemize}
-      \item Connection with the Majorana effective mass:
+      \item Majorana effective mass:
         $(T^{0\nu}_{1/2})^{-1}=G_{0\nu} |\mathcal{M}_{0\nu}|^2 m_{\beta\beta}^2$
-        \arrow\ Oscillation parameters and absolute neutrino mass scale
+        \arrow\ PMNS matrix and neutrino mass
     \end{itemize}
-  \item countless non-standard interpretations$^1$
+  \item countless non-standard interpretations\footnote{See e.g.~\href{https://doi.org/10.1088/1367-2630/17/11/115010}{\emph{New J.~Phys.}~17 (2015) 11, 115010}}
   \end{itemize}
 \end{frame}
 \begin{frame}{Neutrinoless double-beta decay}
   \begin{columns}
     \begin{column}{0.5\textwidth}
-      Signature: monocromatic peak in the energy spectrum of the detectable decay products
+      Most experiments measure the \alert{total energy of the two electrons
+      emitted}
+
+      \vspace*{16pt}
+      \arrow\ \emph{necessary and sufficient} for discovery
     \end{column}
     \begin{column}{0.5\textwidth}
       \begin{center}
@@ -296,7 +305,7 @@
       \node at ( 5.2,-1.2) {$\chi$};
       \node at ( 8.3,-1.2) {$\chi$};
 
-      \draw[draw=none,fill=white,opacity=0.6] (-4.4,-2.3) rectangle (5.0,1.8);
+      \draw[draw=none,fill=white,opacity=0.7] (-4.4,-2.3) rectangle (5.0,1.8);
     \end{tikzpicture}
   \end{center}
 \end{frame}
@@ -304,13 +313,14 @@
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-        \item The Majoron ($\chi$) is an hypothetical massless particle
-          associated with lepton number violation
-        \item Many models predict \onbb\ with one or more Majorons emitted
+        \item The \alert{Majoron ($\chi$)} is an hypothetical massless particle
+        \item Many models for \onbb\ with one or more emitted Majorons
       \end{itemize}
-      \[
-        G_\alpha^{0\upnu\upchi(\upchi)} \sim {(Q_{\upbeta\upbeta} - K)}^n
-      \]
+      \begin{simpleblock}
+        \[
+          G_\alpha^{0\upnu\upchi(\upchi)} \sim {(Q_{\upbeta\upbeta} - K)}^n
+        \]
+      \end{simpleblock}
     \end{column}
     \begin{column}{0.5\textwidth}
       \begin{center}
@@ -353,7 +363,7 @@
   \begin{columns}[c]
     \column{0.3\textwidth}%
       \begin{simpleblock}
-        \gerda\ looks for \onbb\ with enriched, high-purity \gesix\
+        \gerda\ looked for \onbb\ with enriched, high-purity \gesix\
         detectors \\ \alert{source $=$ detector}
       \end{simpleblock}
       \begin{itemize}
@@ -429,7 +439,9 @@
   \end{itemize}
 \end{frame}
 \begin{frame}[plain]{The data before cuts}
-  \includegraphics[height=0.95\textheight]{plots/bkg/raw/ph2/dataGe-desc.pdf}
+  \begin{center}
+    \includegraphics[height=0.95\textheight]{plots/bkg/raw/ph2/dataGe-desc.pdf}
+  \end{center}
 \end{frame}
 \begin{frame}{Background expectations: Monte Carlo simulation}
   \begin{center}
@@ -465,7 +477,7 @@
     \includegraphics[height=0.85\textheight]{plots/bkg/raw/ph2/results/kmodel/kmodel-1d-ds1.pdf}
   \end{center}
 \end{frame}
-\begin{frame}[plain]{global-model --- full \phasetwo\ data set (\gexpobkg)}
+\begin{frame}[plain]{global-model --- full \phasetwo\ dataset (\gexpobkg)}
   \begin{center}
     \includegraphics[height=0.9\textheight]{plots/bkg/raw/combined-results.pdf}
   \end{center}
@@ -508,6 +520,14 @@
     \path[->]<2> (n2) edge [out=0] (t2);
     \path[->]<3> (n3) edge [out=0] (t5);
   \end{tikzpicture}
+\end{frame}
+\begin{frame}{Motivations}
+
+\end{frame}
+\begin{frame}[plain]{The data after the LAr veto cut}
+  \begin{center}
+    \includegraphics[height=0.9\textheight]{plots/bkg/lar/combined-data.pdf}
+  \end{center}
 \end{frame}
 \begin{frame}{Simulating background sources}
   \begin{columns}
@@ -595,13 +615,283 @@
     \end{column}
   \end{columns}
 \end{frame}
-\section{Precision fit of \texorpdfstring{\nnbb}{2nubb} events: old and new physics}
+\begin{frame}[plain]{global-model --- partial \phasetwo\ dataset (\gexpophasetwobkg)}
+  \begin{center}
+    \includegraphics[height=0.9\textheight]{plots/bkg/lar/combined-results.pdf}
+  \end{center}
+\end{frame}
+\section{Precision fit of \texorpdfstring{\nnbb}{2nubb} events: standard and new physics}
+\begin{frame}{Motivations}
+  Analogous analysis of \gerda\ \phaseone\ data\footnote{\href{https://doi.org/10.1140/epjc/s10052-015-3627-y}{Eur.~Phys.~J.~C 75, 416 (2015)}}
+  \begin{exampleblock}{Motivations}
+    \begin{itemize}
+      \item \textbf{High-statistics \nnbb\ sample:} $\sim$50 000 events in \bege\ detectors\footnote{Above the \Arl\ Q-value}
+      \item \textbf{Low background level:} signal-to-background ratio of $\sim$20 ($\sim$2 before the cut)
+    \end{itemize}
+  \end{exampleblock}
+
+  \begin{alertblock}{Science goal}
+    \begin{itemize}
+      \item Precision measurement of the Standard Model \nnbb\ half-life
+      \item Constraints on new-physics models
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+\begin{frame}{Analysis strategy}
+  \begin{description}
+    \item[Dataset] First 32.7~\kgyr\ from \phasetwo\ \bege\ single-detector
+      event data. No \scoax\ because of active volume uncertainties
+    \item[Likelihood] Usual binned-Poisson
+      \[
+        \mathcal{L}(S, \vec{B} | \vec{n}) =
+        \prod_i^{N} \frac{{\nu_i(S, \vec{B})}^{n_i} e^{\nu_i(S, \vec{B})}}{n_i!}
+      \]
+    \item[Test statistic] Standard $t_S = -2\log\lambda(S)$ where $\lambda(S)$
+      is the profile likelihood ratio.
+  \end{description}
+\end{frame}
+\begin{frame}{bla}
+  Test statistics distributions computed with Monte Carlo methods.
+  \begin{itemize}
+    \item Validate the analysis framework, perform fits on toy datasets and achieve blind analysis
+    \item Compute sensitivity to new-physics processes
+    \item Compute confidence intervals (\nnbb\ half-life uncertainty, 90\% C.L.~limits on Majoron models)
+  \end{itemize}
+\end{frame}
+\begin{frame}{Inclusion of systematic uncertainties}
+  \begin{columns}
+    \begin{column}{0.55\textwidth}
+      \begin{alertblock}{Hybrid Bayesian-frequentist approach}
+        Sample synthetic data from alternative, systematically distorted models,
+        according to ``prior'' distributions
+        \[
+          f(t_s) = \int f(t_s | S, \vec{B}, \nu) \cdot \pi(\vec{\nu}) \, d\vec{\nu}
+        \]
+      \end{alertblock}
+      \begin{itemize}
+        \item \alert{Effect:} smearing of test statistic distributions, weakening of confidence intervals
+        \item Implementation: \url{https://github.com/gipert/gerda-factory}
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \begin{center}
+        \includegraphics[width=\columnwidth]{plots/2nbb-ana/bege-pdf-dist.pdf}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}{LAr veto model uncertainties}
+  \begin{columns}
+    \begin{column}{0.85\textwidth}
+      \begin{center}
+        \includegraphics[width=\columnwidth]{plots/bkg/lar/ph2/larmodel/larmap-dist.pdf}
+      \end{center}
+      Simulations parameters have \emph{local} and \emph{global} effects
+      \arrow\ systematic uncertainty \alert{distorts} the map
+    \end{column}
+    \begin{column}{0.15\textwidth}
+      \begin{center}
+        \includegraphics[height=0.9\textheight]{plots/bkg/lar/ph2/larmodel/lar-points-position.pdf}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}{LAr veto model uncertainties}
+  The map generation is computationally expensive ($\mathcal{O}{(10^4)}$ CPU
+  hours), we can produce only one from scratch \arrow\ what about
+  \emph{artificial}, power-law\footnote{$p_k \rightarrow c \cdot p_k^a$ where
+  $p$ is the detection probability and $a$ is the distorting parameter}
+  distortions?
+  \begin{center}
+    \includegraphics[width=\textwidth]{plots/2nbb-ana/larmap-dist-manual.pdf}
+  \end{center}
+\end{frame}
+\begin{frame}{\texorpdfstring{\nnbb}{2nbb} theoretical shape uncertainties}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      Assumption on configuration of intermediate \b\b-decay nucleus
+      \begin{itemize}
+        \item Higher-state dominance (HSD) usually assumed in \gesix
+        \item Single-state dominance (SSD) never tested with \gesix
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+        \includegraphics[width=\columnwidth]{plots/2nbb-ana/2nbb-sums-assumptions.pdf}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}{Other systematic uncertainties}
+  \begin{itemize}
+    \item Active \gesix\ mass
+    \item Background model
+    \item Transition layer model
+    \item Simulation uncertainties
+  \end{itemize}
+\end{frame}
+\begin{frame}{Results: \texorpdfstring{\nnbb}{2nbb} half-life}
+  \[
+    \thalftwoM = \thalftwovalue~\text{yr}
+  \]
+  \begin{itemize}
+    \item Remarkably reduced uncertainty\footnote{See \href{https://doi.org/10.1140/epjc/s10052-015-3627-y}{Eur.~Phys.~J.~C 75, 416 (2015)}}
+    \item Systematic uncertainty dominated by active mass estimation and background modeling
+    \item The most precise half-life measurement ever found in
+      literature\footnote{Competing with CUPID-Mo, CUPID-0, CUORE, EXO-200 and
+      \kamlandzen}
+  \end{itemize}
+\end{frame}
+\begin{frame}{Results: Majoron-emitting \texorpdfstring{\onbb}{0nbb}}
+  \begin{center}
+    \footnotesize
+    \begin{tabular}{rllrcl}
+      \toprule
+                         &          &     & \multicolumn{3}{c}{90\% C.L.~limits}                       \\
+      \cmidrule(lr){4-6}
+      Model              & Mode     & $n$ & Counts & $T_{1/2}$ (\powtenyr{23}) & \ga\                        \\
+      \midrule
+      IB, IC, IIB        & \onbbx\  & 1   & 197    & 6.8                       & $(1.9{-}4.3) \cdot 10^{-5}$ \\
+      IF (bulk)          & \onbbx\  & 2   & 405    & 3.2                       & {--}                        \\
+      ID, IE, IID        & \onbbxx\ & 3   & 917    & 1.3                       & 0.95                        \\
+      IIC, IIF           & \onbbx\  & 3   & 917    & 1.3                       & $1.3 \cdot 10^{-2}$         \\
+      IIE                & \onbbxx\ & 7   & 705    & 1.0                       & 0.87                        \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \begin{itemize}
+    \item Limits dominated by statistical uncertainty
+    \item About a factor of 2 better than previous results\footnote{See \href{https://doi.org/10.1140/epjc/s10052-015-3627-y}{Eur.~Phys.~J.~C 75, 416 (2015)}}
+    \item Comparable to \nuc{Xe}{136} constraints, a factor 10 better for $n=7$
+    \item New \gesix\ NMEs and phase-space factors from J.~Kotila and F.~Iachello
+  \end{itemize}
+\end{frame}
+\begin{frame}[plain]{Results: Majoron-emitting \texorpdfstring{\onbb}{0nbb}}
+  \begin{center}
+    \includegraphics[height=0.95\textheight]{plots/2nbb-ana/enrBEGe-results.pdf}
+  \end{center}
+\end{frame}
+\begin{frame}{Known issues and work in progress}
+  \begin{itemize}
+    \item There is evidence for a systematic bias in the detector active volume
+      size: Independent analysis of \Arl\ data and detector re-characterization
+      are ongoing
+    \item Dedicated \nnbb\ half-life measurement publication
+    \item Supporting LAr veto modeling publication
+  \end{itemize}
+\end{frame}
 \section{Closing out}
 \begin{frame}{Future}
 \end{frame}
 \appendix
 \begin{frame}[standout]{}
   Backup
+\end{frame}
+\begin{frame}{Nuclear matrix elements for \texorpdfstring{\onbb}{0nbb}}
+  \begin{center}
+    \includegraphics[height=0.9\textheight]{plots/theory/0nbb-nme.pdf}
+  \end{center}
+\end{frame}
+\begin{frame}{Best \texorpdfstring{\onbb}{0nbb} limits}
+  \begin{center}
+    \begin{tabular}{lcccc}
+      \toprule
+      Experiment  & Isotope               & Exposure (\kgyr) & \thalfzero\ (\powtenyr{25}) & \mbb\ (meV)  \\
+      \midrule
+      \gerda      & \mr{2}{\gesix}        & 127.2            & 18                          & 79--182      \\
+      \majorana   &                       & 26               & 2.7                         & 200--430     \\
+      \midrule
+      \cuoricino  & \mr{3}{\nuc{Te}{130}} & 19.8             & 0.28                        & 300--710     \\
+      CUORE-0     &                       & 9.8              & 0.24                        & 270--760     \\
+      CUORE       &                       & 372.5            & 3.2                         & 75--350      \\
+      \midrule
+      EXO-200     & \mr{2}{\nuc{Xe}{136}} & 234.1            & 3.5                         & 93--286      \\
+      \kamlandzen &                       & 504              & 10.7                        & 61--165      \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{frame}
+\begin{frame}{Best \texorpdfstring{\nnbb}{2nbb} half-life measurements}
+  \begin{center}
+    \begin{tabular}{lccr}
+      \toprule
+      Experiment  & Isotope               & Exposure (\kgyr) & \thalftwo\ (yr)                                                       \\
+      \midrule
+      \gerda      & \gesix\               & 17.9             & $(1.926 \, \stat{\measurementM{}{0.025}{0.022}} \pm \syst{0.092}) \cdot 10^{21}$ \\
+      CUPID-Mo    & \nuc{Mo}{100}         & 0.12             & $(7.12 \, \stat{\measurementM{}{0.18}{0.14}} \pm \syst{0.10}) \cdot 10^{18}$     \\
+      CUPID-0     & \nuc{Se}{82}          & 9.95             & $(8.60 \pm \stat{0.03} \syst{\measurementM{}{0.19}{0.13}}) \cdot 10^{19}$        \\
+      CUORE       & \nuc{Te}{130}         & 86.34            & $(7.9 \pm \stat{0.1} \pm \syst{0.2}) \cdot 10^{20}$                              \\
+      \midrule
+      \kamlandzen & \mr{2}{\nuc{Xe}{136}} & 504              & $(2.23 \pm \stat{0.03} \pm \syst{0.07}) \cdot 10^{21}$                   \\
+      EXO-200     &                       & 23.14            & $(2.165 \pm \stat{0.016} \pm \syst{0.059}) \cdot 10^{21}$                \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{frame}
+\begin{frame}{Best Majoron-emitting \texorpdfstring{\onbb}{0nbb} limits}
+  \begin{center}
+    \small
+    \begin{tabular}{lcccccccc}
+      \toprule
+                  &               &                  & \mc{4}{\thalfmajo\ (\powtenyr{21})} & $g_\alpha/10^{-5}$ \\
+      \cmidrule{4-7}
+      Experiment  & Isotope       & Exposure (\kgyr) & $n=1$ & $n=2$ & $n=3$ & $n=7$       & $n=1$              \\
+      \midrule
+      \gerda      & \gesix\       & 20.3             & 420   & 180   & 80    & 30          & 2.3--5.1           \\
+      EXO-200     & \nuc{Xe}{136} & 100              & 1200  & 250   & 27    & 6.1         & 0.6--1.8           \\
+      \kamlandzen & \nuc{Xe}{136} & 36.8             & 2600  & 1000  & 250   & 11          & 0.4--1.2           \\
+      NEMO-3      & \nuc{Mo}{100} & 34.3             & 44    & 9.9   & 4.4   & 1.2         & 1.8--3.1           \\
+      NEMO-3      & \nuc{Se}{82}  & 4.9              & 37    & --    & --    & --          & 3.1--6.4           \\
+      NEMO-3      & \nuc{Cd}{116} & 2.16             & 8.5   & --    & --    & --          & 5.3--9.1           \\
+      NEMO-3      & \nuc{Ca}{48}  & 0.037            & 4.6   & --    & --    & --          & 7.9--40            \\
+      NEMO-3      & \nuc{Nd}{150} & 0.19             & 30    & --    & --    & --          & 1.2--2.9           \\
+      NEMO-3      & \nuc{Te}{130} & 2.31             & 16    & --    & --    & --          & 4.2--17            \\
+      NEMO-3      & \nuc{Zr}{96}  & 0.031            & 1.9   & 0.99  & 0.58  & 0.11        & 7.2--16            \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{frame}
+\begin{frame}{\gerdatwo\ was \emph{background-free}}
+  \begin{columns}
+    \begin{column}{0.4\textwidth}
+      \begin{simpleblock}
+        \alert{%
+          \[
+            M \cdot T \cdot B \cdot \Delta{E} < 1
+          \]
+        }
+      \end{simpleblock}
+
+      \begin{exampleblock}{Sensitivity}
+        \[
+          T^{0\upnu}_{1/2} =
+          \begin{cases}
+            a M \epsilon t & \text{\emph{background-free}} \\
+            a \epsilon \sqrt{\frac{M t}{B \Delta{E}}} & \text{with background} \\
+          \end{cases}
+        \]
+      \end{exampleblock}
+    \end{column}
+    \begin{column}{0.6\textwidth}
+      \begin{center}
+        \includegraphics[width=\columnwidth]{plots/history/gerda-history-vs-exposure.pdf}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}{Detector array configuration (\phasetwo)}
+  \begin{center}
+    \includegraphics[height=6.7cm]{gedet/phII-array.png}%
+    \hspace{0.5cm}%
+    \includegraphics[width=0.63\textwidth]{gedet/phII-array-2D.pdf}
+  \end{center}
+\end{frame}
+\begin{frame}{Detector array configuration (\phasetwop)}
+  \begin{center}
+    \includegraphics[height=6.7cm]{gedet/phIIp-array.png}%
+    \hspace{0.5cm}%
+    \includegraphics[width=0.63\textwidth]{gedet/phIIp-array-2D.pdf}
+  \end{center}
 \end{frame}
 \begin{frame}{A day in the life of a photon in \gerda}
   \begin{columns}
@@ -800,30 +1090,9 @@
     \item maximize w.r.t.~channel efficiencies $\vec{\epsilon}$
   \end{itemize}
 \end{frame}
-\begin{frame}{Handling systematic uncertainties}
-  \begin{columns}
-    \begin{column}{0.85\textwidth}
-      \begin{center}
-        \includegraphics[width=\columnwidth]{plots/bkg/lar/ph2/larmodel/larmap-dist.pdf}
-      \end{center}
-      Simulations parameters have \emph{local} and \emph{global} effects
-      \arrow\ systematic uncertainty \alert{distorts} the map
-    \end{column}
-    \begin{column}{0.15\textwidth}
-      \begin{center}
-        \includegraphics[height=0.9\textheight]{plots/bkg/lar/ph2/larmodel/lar-points-position.pdf}
-      \end{center}
-    \end{column}
-  \end{columns}
-\end{frame}
-\begin{frame}{Systematic uncertainties}
-  The map generation is computationally expensive ($\mathcal{O}{(10^4)}$ CPU
-  hours), we can produce only one from scratch \arrow\ what about
-  \emph{artificial}, power-law\footnote{$p_k \rightarrow c \cdot p_k^a$ where
-  $p$ is the detection probability and $a$ is the distorting parameter}
-  distortions?
+\begin{frame}{Median \pvalue{}s for the null-hypothesis (Majoron models)}
   \begin{center}
-    \includegraphics[width=\textwidth]{plots/2nbb-ana/larmap-dist-manual.pdf}
+    \includegraphics[width=\textwidth]{plots/2nbb-ana/pvalues.pdf}
   \end{center}
 \end{frame}
 
