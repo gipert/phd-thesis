@@ -38,7 +38,7 @@ label("semi-coaxial", O+hor_sp-70Z);
 
 InvCoax invdummy = InvCoax("ICDUMMY",
     height=68, radius=30,
-    groove_depth=2, groove_inner_r=9.5, groove_outer_r=13.5,
+    groove_depth=2, groove_inner_r=6, groove_outer_r=10,
     borehole_depth=50, borehole_radius=6.00,
     is_passivated=true);
 

@@ -59,21 +59,26 @@
 \renewcommand{\rho}{\varrho}
 \renewcommand{\phi}{\varphi}
 \usepackage{amsfonts}
-\usepackage{bbold}
+% \usepackage{bbold}
 \usepackage[mathrm=sym]{unicode-math}
 \setmathfont{Fira Math}
 
 \input{../tex/macros}
 
-\newcommand{\mytitle}{Search for new physics with two-neutrino double-beta decay in \gerda}
-\newcommand{\people}{L.~Pertoldi}
+\newcommand{\mytitle}{Search for new physics with \texorpdfstring{\nnbb}{2νββ} decay in \gerda}
+\newcommand{\people}{L.~Pertoldi $\bullet$ Ph.D.~defense}
 \institute{Universit\`a degli Studi di Padova / INFN Padova}
-\newcommand{\mydate}{February 2021}
-\newcommand{\place}{Ph.D.~defense, \textit{On a remote server}}
+\newcommand{\mydate}{23 Feb 2021}
+\newcommand{\place}{\textit{\gerda\ clean room}}
 
 % links
 \definecolor{TolDARKBlue}{HTML}{3973AC}
 \hypersetup{%
+  pdfauthor = {Luigi Pertoldi},
+  pdftitle = {Search for new physics with 2νββ in GERDA data (slides)},
+  pdfkeywords = {physics, neutrino, double-beta},
+  pdfproducer = {XeLaTeX with hyperref},
+  pdfcreator = {XeLaTeX},
   colorlinks = true,
   urlcolor = TolDARKBlue,
   linkcolor = mDarkTeal
@@ -81,7 +86,7 @@
 \renewcommand\UrlFont{\color{TolDARKBlue}}
 \newcommand{\doi}[1]{\href{https://doi.org/#1}{\smaller\ttfamily #1}}
 \newcommand{\arxiv}[1]{\href{https://arxiv.org/abs/#1}{\smaller\ttfamily arXiv:#1}}
-\newcommand{\github}[1]{\href{https://github.com/#1}{\smaller\ttfamily #1}}
+\newcommand{\github}[1]{\href{https://github.com/#1}{github.com/#1}}
 
 % metropolis theme options
 \usetheme[numbering=fraction,block=fill]{metropolis}
@@ -89,7 +94,7 @@
 \title{\mytitle}
 % \subtitle{Ph.D.~Defense}
 \titlegraphic{%
-  \vspace{4.6cm}%
+  \vspace{4.2cm}%
     \begin{minipage}[c]{\textwidth}
       \hfill%
       \raisebox{-0.5\height}{\includegraphics[height=1.7cm]{img/logos/unipd-logo.pdf}}%
@@ -131,7 +136,7 @@
 % \includeonlyframes{compile}
 \begin{document}
 \maketitle
-\begin{frame}{About me}
+\begin{frame}[label=compile]{About me}
   \begin{columns}
     \begin{column}{0.45\textwidth}
       \begin{itemize}
@@ -144,8 +149,8 @@
       {\footnotesize
         Download:
         \begin{itemize}
-          \item slides at \url{https://l.infn.it/pertoldi-phd-sl}
-          \item thesis at \url{https://l.infn.it/pertoldi-phd-th}
+          \item Slides at \href{https://l.infn.it/pertoldi-phd-sl}{l.infn.it/pertoldi-phd-sl}
+          \item Thesis at \href{https://l.infn.it/pertoldi-phd-th}{l.infn.it/pertoldi-phd-th}
         \end{itemize}
       }
     \end{column}
@@ -330,18 +335,18 @@
   \end{columns}
 \end{frame}
 \section{The \gerda\ experiment}
-\begin{frame}{\texorpdfstring{\onbb}{0nbb} experimental searches}
+\begin{frame}{\texorpdfstring{\onbb}{0νββ} experimental searches}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-        \item \textbf{Bolometers} CUORE, CUPID, \textsc{AMoRE}
-        \item \textbf{Time projection chambers} EXO, NEXT, \textsc{PandaX}
-        \item \textbf{Scintillators} \kamlandzen, SNO+, CANDLES
+        \item \textbf{Bolometers} CUORE (\nuc{Te}{130}), CUPID, \textsc{AMoRE}
+        \item \textbf{Time projection chambers (\nuc{Xe}{136})} EXO, NEXT, \textsc{PandaX}
+        \item \textbf{Scintillators} \kamlandzen\ (\nuc{Xe}{136}), SNO+, CANDLES
         \item \textbf{Tracking calorimeters} NEMO, \textsc{SuperNEMO}
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \begin{alertblock}{Semiconductors: \gerda, \majoranademo, LEGEND}
+      \begin{alertblock}{Semiconductors: \gerda, \majoranademo, LEGEND (\gesix)}
         \begin{itemize}\small
           \item[\cmark] \gesix-enriched detector technology maturity
           \item[\cmark] Excellent energy resolution
@@ -354,7 +359,7 @@
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}{History of \gesix\ experimental \texorpdfstring{\onbb}{0nbb} searches}
+\begin{frame}{History of \gesix\ experimental \texorpdfstring{\onbb}{0νββ} searches}
   \begin{center}
     \includegraphics[height=0.85\textheight]{plots/history/0nbb-ge76-history.pdf}
   \end{center}
@@ -363,8 +368,9 @@
   \begin{columns}[c]
     \column{0.3\textwidth}%
       \begin{simpleblock}
-        \gerda\ looked for \onbb\ with enriched, high-purity \gesix\
-        detectors \\ \alert{source $=$ detector}
+        \begin{center}
+          Enriched, high-purity \gesix\ detectors \\ \alert{source $=$ detector}
+        \end{center}
       \end{simpleblock}
       \begin{itemize}
         \item Installed at LNGS (3500 m.w.e.), in activity since 2009
@@ -375,16 +381,15 @@
     \column{0.7\textwidth}%
       \begin{center}
         \begin{tikzpicture}[fill=bg]
-          \node at (0,0) {\includegraphics[height=7cm]{setup/gerda-artist.jpg}};
-          \node(e) at (3.5,3.5) [rectangle,draw,fill] {\textsc{scintillators}};
-          \draw[thick,red,->] (e.south) .. controls +(0,-1) and +(0,1) .. (2.5,2.4);
-          \node(a) at (1.6,-1.2) [rectangle,draw,fill] {\color{red}LAr};
+          \node at (0.1,0) {\includegraphics[height=7cm]{setup/gerda-artist.jpg}};
+          \node(e) at (3.5,3.3) [rectangle,draw,fill] {\textsc{scintillators}};
+          \draw[thick,red,->] (e.south) .. controls +(0,-1) and +(0,1) .. (2.5,2.3);
           \node(b) at (3.2,1.6) [rectangle,draw,fill] {\gesix\ \textsc{detectors}};
-          \draw[thick,red,->] (b.south) .. controls +(0,0) and +(1,0) .. (1.9,-0.4);
+          \draw[thick,red,->] (b.south) .. controls +(0,0) and +(1,0) .. (1.7,-0.4);
           \node(c) at (-1.5,1.6) [rectangle,draw,fill] {H$_2$O};
-          \draw[thick,red,->] (c.south) .. controls +(0,0) and +(-1,0) .. (0,-1);
-          \node(d) at (0,3) [rectangle,draw,fill] {Cu \textsc{shielding}};
-          \draw[thick,red,->] (d.south) .. controls +(0,0) and +(-1,0) .. (1,0);
+          \draw[thick,red,->] (c.south) .. controls +(0,0) and +(-1,0) .. (0.2,-1);
+          \node(d) at (0,3) [rectangle,draw,fill] {LAr};
+          \draw[thick,red,->] (d.south) .. controls +(0,0) and +(-1,0) .. (1,-0.7);
           \node at (3,-3) [rectangle,draw=mLightBrown, fill=white] {Hosted at LNGS};
         \end{tikzpicture}
       \end{center}
@@ -415,7 +420,7 @@
         \href{https://doi.org/10.1103/PhysRevLett.125.252502}{\emph{Phys.~Rev.~Lett.}~125, 252502 (2020)}
       \end{simpleblock}
       \begin{itemize}
-        \item Advanced data statistical partitioning
+        \item New, advanced statistical analysis
         \item \alert{\measurement{5.2}{1.6}{1.3}~\powctsper{-4}} at \qbb
         \item No evidence for a signal with \alert{127.2~\kgyr} exposure
         \item \alert{$\thalfzeroM > \thalfzerolimit$~yr} (90\% C.L., frequentist)
@@ -447,7 +452,7 @@
   \begin{center}
     \begin{tikzpicture}[anchor=north west]
       \node at (0,0) {\includegraphics[trim=0 15 0 0, clip, width=0.95\textwidth]{setup/mage-volumes.pdf}};
-      \node[align=center] at (1,0) {\mage: a \geant-based simulation framework \\ \doi{10.1109/TNS.2011.2144619}};
+      \node[align=center] at (1,0) {\mage: a \geant-based simulation framework \\ \href{https://doi.org/10.1109/TNS.2011.2144619}{\small\emph{IEEE Trans.~Nucl.~Sci.}~58 (2011) 1212-1220}};
     \end{tikzpicture}
   \end{center}
 \end{frame}
@@ -457,30 +462,56 @@
   \end{center}
 \end{frame}
 \begin{frame}{Analysis strategy}
-  \alert{Bayesiana} analysis\footnote{With the Bayesian Analysis Toolkit (BAT):
+  \alert{Bayesian} analysis\footnote{With the Bayesian Analysis Toolkit (BAT):
   \url{https://bat.mpp.mpg.de}} with \emph{binned-likelihood} and \emph{priors}
-  from material screening measurements.
+  from material screening measurements
   \begin{description}
-    \item[\a-model] high-energy \a\ events on the \pplus\ contact
-    \item[K-model] \alert{\kvn\ and \kvz\ full-energy peak} events divided by detector
-    \item[global-model] final analysis on a large energy range, incorporates \a-model and K-model
+    \item[\a-model] \alert{high-energy events} (\a) on the \pplus\ contact
+    \item[K-model] \alert{potassium full-energy peak} events divided by
+      detector
+    \item[global-model] final analysis on the \alert{full energy range},
+      incorporates \a-model and K-model
   \end{description}
+
+  \arrow\ Open-source fitting framework: \github{gipert/gerda-fitter}
 \end{frame}
-\begin{frame}{\a-model --- coaxial detectors}
+\begin{frame}{\a-model: coaxial detectors}
+  \begin{simpleblock}
+    \centering
+    Combination of \pplus\ thicknesses well describes the data
+  \end{simpleblock}
   \begin{center}
     \includegraphics[width=0.9\textwidth]{plots/bkg/raw/ph2/results/amodel/amodel-enrCoax.pdf}
   \end{center}
 \end{frame}
-\begin{frame}{K-model --- single-detector events}
+\begin{frame}{K-model: single-detector events}
   \begin{center}
     \includegraphics[height=0.85\textheight]{plots/bkg/raw/ph2/results/kmodel/kmodel-1d-ds0.pdf}
     \includegraphics[height=0.85\textheight]{plots/bkg/raw/ph2/results/kmodel/kmodel-1d-ds1.pdf}
   \end{center}
 \end{frame}
-\begin{frame}[plain]{global-model --- full \phasetwo\ dataset (\gexpobkg)}
+\begin{frame}[plain]{global-model: full \phasetwo\ dataset (\gexpobkg)}
   \begin{center}
     \includegraphics[height=0.9\textheight]{plots/bkg/raw/combined-results.pdf}
   \end{center}
+\end{frame}
+\begin{frame}{Wrap up}
+  \begin{columns}
+    \begin{column}{0.65\textwidth}
+      \begin{simpleblock}\centering
+        \href{https://doi.org/10.1007/JHEP03(2020)139}{\emph{J.~High~Energ.~Phys.}~03 (2020) 139}
+      \end{simpleblock}
+      \begin{itemize}
+        \item Excellent goodness-of-fit
+        \item Screening measurements reproduced, except for \kvn
+        \item Indication of a wrong \bege\ active-volume size
+        \item Inhomogeneous \kvz\ distribution
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.35\textwidth}
+      \fbox{\includegraphics[width=7cm]{jhep-paper.png}}
+    \end{column}
+  \end{columns}
 \end{frame}
 \section{The background model after the LAr veto cut}
 \begin{frame}{The scintillation of liquid argon (LAr)}
@@ -522,7 +553,12 @@
   \end{tikzpicture}
 \end{frame}
 \begin{frame}{Motivations}
+  No light is expected from \b\b-decay events $\Rightarrow$ Ge events with
+  coincident light detection in LAr are cut
 
+  The LAr veto cut removes a lot of background in the \nnbb\ energy region
+  $\Rightarrow$ higher sensitivity to (new) physics searches (exotic \nnbb\
+  decays, \b\b-decays to excited states\ldots)
 \end{frame}
 \begin{frame}[plain]{The data after the LAr veto cut}
   \begin{center}
@@ -706,7 +742,7 @@
     \includegraphics[width=\textwidth]{plots/2nbb-ana/larmap-dist-manual.pdf}
   \end{center}
 \end{frame}
-\begin{frame}{\texorpdfstring{\nnbb}{2nbb} theoretical shape uncertainties}
+\begin{frame}{\texorpdfstring{\nnbb}{2νββ} theoretical shape uncertainties}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       Assumption on configuration of intermediate \b\b-decay nucleus
@@ -723,26 +759,50 @@
   \end{columns}
 \end{frame}
 \begin{frame}{Other systematic uncertainties}
-  \begin{itemize}
-    \item Active \gesix\ mass
-    \item Background model
-    \item Transition layer model
-    \item Simulation uncertainties
-  \end{itemize}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item Active \gesix\ mass
+        \item Background model
+        \item Transition layer model
+        \item Simulation uncertainties
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \centering
+      \begin{tabular}{cc}
+        \toprule
+        Source                 & contribution \\
+        \midrule
+        Background model       & 0.42\%       \\
+        Transition layer model & <0.01\%      \\
+        LAr veto model         & 0.26\%       \\
+        \nnbb\ model           & <0.01\%      \\
+        \midrule
+        \emph{Sub-total fit model}      & 0.53\%       \\
+        \midrule
+        Active volume          & 1.37\%       \\
+        Enrichment fraction    & 0.3\%        \\
+        \midrule
+        \emph{Total}           & 1.6\%        \\
+        \bottomrule
+      \end{tabular}
+    \end{column}
+  \end{columns}
 \end{frame}
-\begin{frame}{Results: \texorpdfstring{\nnbb}{2nbb} half-life}
+\begin{frame}{Results: \texorpdfstring{\nnbb}{2νββ} half-life}
   \[
-    \thalftwoM = \thalftwovalue~\text{yr}
+    \thalftwoM = (2.043 \pm \stat{0.011} \pm \syst{0.033}) \cdot 10^{21}~\text{yr}
   \]
   \begin{itemize}
     \item Remarkably reduced uncertainty\footnote{See \href{https://doi.org/10.1140/epjc/s10052-015-3627-y}{Eur.~Phys.~J.~C 75, 416 (2015)}}
     \item Systematic uncertainty dominated by active mass estimation and background modeling
-    \item The most precise half-life measurement ever found in
-      literature\footnote{Competing with CUPID-Mo, CUPID-0, CUORE, EXO-200 and
-      \kamlandzen}
+    \item The most precise (1.6\%) half-life measurement ever found in
+      literature\footnote{Competing with CUPID-Mo (2.9\%), CUPID-0 (2.2\%),
+      CUORE (2.8\%), EXO-200 (2.8\%) and \kamlandzen\ (3.4\%)}
   \end{itemize}
 \end{frame}
-\begin{frame}{Results: Majoron-emitting \texorpdfstring{\onbb}{0nbb}}
+\begin{frame}{Results: Majoron-emitting \texorpdfstring{\onbb}{0νββ}}
   \begin{center}
     \footnotesize
     \begin{tabular}{rllrcl}
@@ -751,10 +811,10 @@
       \cmidrule(lr){4-6}
       Model              & Mode     & $n$ & Counts & $T_{1/2}$ (\powtenyr{23}) & \ga\                        \\
       \midrule
-      IB, IC, IIB        & \onbbx\  & 1   & 197    & 6.8                       & $(1.9{-}4.3) \cdot 10^{-5}$ \\
-      IF (bulk)          & \onbbx\  & 2   & 405    & 3.2                       & {--}                        \\
+      IB, IC, IIB        & \onbbx\  & 1   & 197    & 6.3                       & $(1.9{-}4.3) \cdot 10^{-5}$ \\
+      IF (bulk)          & \onbbx\  & 2   & 405    & 2.9                       & {--}                        \\
       ID, IE, IID        & \onbbxx\ & 3   & 917    & 1.3                       & 0.95                        \\
-      IIC, IIF           & \onbbx\  & 3   & 917    & 1.3                       & $1.3 \cdot 10^{-2}$         \\
+      IIC, IIF           & \onbbx\  & 3   & 917    & 1.2                       & $1.3 \cdot 10^{-2}$         \\
       IIE                & \onbbxx\ & 7   & 705    & 1.0                       & 0.87                        \\
       \bottomrule
     \end{tabular}
@@ -766,7 +826,7 @@
     \item New \gesix\ NMEs and phase-space factors from J.~Kotila and F.~Iachello
   \end{itemize}
 \end{frame}
-\begin{frame}[plain]{Results: Majoron-emitting \texorpdfstring{\onbb}{0nbb}}
+\begin{frame}[plain]{Results: Majoron-emitting \texorpdfstring{\onbb}{0νββ}}
   \begin{center}
     \includegraphics[height=0.95\textheight]{plots/2nbb-ana/enrBEGe-results.pdf}
   \end{center}
@@ -787,12 +847,12 @@
 \begin{frame}[standout]{}
   Backup
 \end{frame}
-\begin{frame}{Nuclear matrix elements for \texorpdfstring{\onbb}{0nbb}}
+\begin{frame}{Nuclear matrix elements for \texorpdfstring{\onbb}{0νββ}}
   \begin{center}
     \includegraphics[height=0.9\textheight]{plots/theory/0nbb-nme.pdf}
   \end{center}
 \end{frame}
-\begin{frame}{Best \texorpdfstring{\onbb}{0nbb} limits}
+\begin{frame}{Best \texorpdfstring{\onbb}{0νββ} limits}
   \begin{center}
     \begin{tabular}{lcccc}
       \toprule
@@ -811,7 +871,7 @@
     \end{tabular}
   \end{center}
 \end{frame}
-\begin{frame}{Best \texorpdfstring{\nnbb}{2nbb} half-life measurements}
+\begin{frame}{Best \texorpdfstring{\nnbb}{2νββ} half-life measurements}
   \begin{center}
     \begin{tabular}{lccr}
       \toprule
@@ -828,7 +888,7 @@
     \end{tabular}
   \end{center}
 \end{frame}
-\begin{frame}{Best Majoron-emitting \texorpdfstring{\onbb}{0nbb} limits}
+\begin{frame}{Best Majoron-emitting \texorpdfstring{\onbb}{0νββ} limits}
   \begin{center}
     \small
     \begin{tabular}{lcccccccc}
@@ -1090,10 +1150,25 @@
     \item maximize w.r.t.~channel efficiencies $\vec{\epsilon}$
   \end{itemize}
 \end{frame}
+\begin{frame}{Sensitivity to Majoron-emitting \texorpdfstring{\onbb}{0νββ} decays}
+  \centering
+  \begin{tabular}{lcrlrl}
+    \toprule
+                           &           & \mc{4}{Sensitivity}                                                    \\
+    \cmidrule(lr){3-6}
+    Decay                  & Spectral  & \mc{2}{Statistical}                & \mc{2}{With systematics}          \\
+    Mode                   & index $n$ & Counts & $T_{1/2}$ (\powtenyr{23}) & Counts & $T_{1/2}$ (\powtenyr{23})\\
+    \midrule
+    \onbbx\                & 1         &    302 & 4.5                       &    358 & 3.5                      \\
+    \onbbx\                & 2         &    386 & 3.3                       &    456 & 2.5                      \\
+    $\onbbM\upchi(\upchi)$ & 3         &    698 & 1.7                       &    792 & 1.3                      \\
+    \onbbxx\               & 7         &    984 & 0.71                      &   1200 & 0.58                     \\
+    \bottomrule
+  \end{tabular}
+\end{frame}
 \begin{frame}{Median \pvalue{}s for the null-hypothesis (Majoron models)}
-  \begin{center}
-    \includegraphics[width=\textwidth]{plots/2nbb-ana/pvalues.pdf}
-  \end{center}
+  \centering
+  \includegraphics[width=\textwidth]{plots/2nbb-ana/pvalues.pdf}
 \end{frame}
 
 \end{document}
