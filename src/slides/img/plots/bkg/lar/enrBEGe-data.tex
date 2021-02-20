@@ -6,9 +6,9 @@
 \usepgfplotslibrary{fillbetween}
 
 \pgfplotsset{%
-  height=6.5cm,
-  width=10cm,
-  xmin=565, xmax=1600,
+  height=7cm,
+  width=6.5cm,
+  xmin=565, xmax=2000,
   legend style={%
     font=\small,
     draw=none,
@@ -24,14 +24,9 @@
     line width=0.7pt,
   },
   every axis/.append style={%
+    font=\small,
     restrict x to domain=500:2039,
     ymin=0,
-  },
-  dataraw/.style={%
-    loghistogram,
-    table/y=fitted_data,
-    area legend,
-    legend image post style={draw opacity=1},
   },
   data/.style={%
     loghistogram,
@@ -41,27 +36,16 @@
     fill opacity=0.5,
     area legend,
   },
-  2nbb/.style={%
-    loghistogram,
-    TolVibRed,
-    table/y=Nnbb,
-  },
 }
 
 \begin{document}
   \begin{tikzpicture}
     \begin{axis}[histogram]
 
-      \addplot[dataraw] table {data/M1-spectra-raw-5kev.csv} \closedcycle;
-      \addplot[data]    table {data/M1-spectra-5kev.csv} \closedcycle;
-      \addplot[2nbb]    table {data/M1-spectra-5kev.csv};
+      \addplot[data] table {data/pdfs-example.csv} \closedcycle;
 
-      \addlegendimage{dataraw};
       \addlegendimage{data};
-      \addlegendimage{2nbb};
-      \addlegendentry{Before analysis cuts};
-      \addlegendentry{After LAr veto cut};
-      \addlegendentry{Expected \nnbb\ signal};
+      \addlegendentry{32.7~\kgyr};
 
     \end{axis}
   \end{tikzpicture}

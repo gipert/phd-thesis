@@ -59,7 +59,6 @@
 \renewcommand{\rho}{\varrho}
 \renewcommand{\phi}{\varphi}
 \usepackage{amsfonts}
-% \usepackage{bbold}
 \usepackage[mathrm=sym]{unicode-math}
 \setmathfont{Fira Math}
 
@@ -86,7 +85,7 @@
 \renewcommand\UrlFont{\color{TolDARKBlue}}
 \newcommand{\doi}[1]{\href{https://doi.org/#1}{\smaller\ttfamily #1}}
 \newcommand{\arxiv}[1]{\href{https://arxiv.org/abs/#1}{\smaller\ttfamily arXiv:#1}}
-\newcommand{\github}[1]{\href{https://github.com/#1}{github.com/#1}}
+\newcommand{\github}[1]{\includegraphics[height=6pt]{logos/gihub-logo.png}:~\href{https://github.com/#1}{#1}}
 
 % metropolis theme options
 \usetheme[numbering=fraction,block=fill]{metropolis}
@@ -132,27 +131,34 @@
 \newcommand{\arrow}{$\longmapsto$}
 \newcommand{\sep}{$\bullet$}
 
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
 % }}}
-\includeonlyframes{compile}
+% \includeonlyframes{compile}
 \begin{document}
 \maketitle
 \begin{frame}{About me}
   \begin{columns}
-    \begin{column}{0.45\textwidth}
+    \begin{column}{0.45\textwidth}\setlength{\parskip}{5pt}%
+      \vspace*{1cm} \\
+      Currently postdoc at Technische Universit\"at M\"unchen (TUM)
       \begin{itemize}
-        \item Currently postdoc at Technische Universit\"at M\"unchen
         \item \href{https://gipert.github.io}{gipert.github.io}
         \item \href{https://orcid.org/0000-0002-0467-2571}{orcid.org/0000-0002-0467-2571}
         \item \href{https://inspirehep.net/authors/1667599}{inspirehep.net/authors/1667599}
-      \end{itemize}\vspace{16pt}
+      \end{itemize}
 
-      {\footnotesize
-        Download:
-        \begin{itemize}
-          \item Slides at \href{https://l.infn.it/pertoldi-phd-sl}{l.infn.it/pertoldi-phd-sl}
-          \item Thesis at \href{https://l.infn.it/pertoldi-phd-th}{l.infn.it/pertoldi-phd-th}
-        \end{itemize}
-      }
+      \gerda\ simulation \& background studies task group leader
+
+      \vspace*{0.5cm}
+      \footnotesize
+      \textbf{[slides]} \href{https://l.infn.it/pertoldi-phd-sl}{l.infn.it/pertoldi-phd-sl} \\
+      \textbf{[thesis]} \href{https://l.infn.it/pertoldi-phd-th}{l.infn.it/pertoldi-phd-th}
     \end{column}
     \begin{column}{0.55\textwidth}
       \vspace*{5mm}
@@ -359,7 +365,7 @@
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}{History of \gesix\ experimental \texorpdfstring{\onbb}{0νββ} searches}
+\begin{frame}{50 years of \gesix\ experimental \texorpdfstring{\onbb}{0νββ} searches}
   \begin{center}
     \includegraphics[height=0.85\textheight]{plots/history/0nbb-ge76-history.pdf}
   \end{center}
@@ -436,11 +442,14 @@
 \end{frame}
 \section{The background model before analysis cuts}
 \begin{frame}{Motivations}
+  \begin{simpleblock}
+    Can one claim the presence of a \textbf{signal} without having understood the \textbf{background}?
+  \end{simpleblock}
   \begin{itemize}
-    \item Background composition at \qbb
-    \item Verify background intensity expectations
-    \item Identify location of background sources for future improvements
-    \item Study \nnbb\ events
+    \item Background composition at \alert{\qbb}
+    \item Cross-check background \alert{intensity expectations}
+    \item Characterize \alert{location} of background sources for future improvements
+    \item Key to \nnbb\ characterization and beyond\ldots
   \end{itemize}
 \end{frame}
 \begin{frame}[plain]{The data before cuts}
@@ -506,7 +515,7 @@
         \item Excellent goodness-of-fit, \alert{we understand our background}
         \item Screening measurements reproduced, except for \kvn
         \item Inhomogeneous \kvz\ distribution
-        \item Indication of a biased \bege\ active-volume size
+        \item Indication of a biased \bege\ active volume size
       \end{itemize}
     \end{column}
     \begin{column}{0.36\textwidth}
@@ -676,9 +685,9 @@
   \end{center}
 \end{frame}
 \section{Precision fit of \texorpdfstring{\nnbb}{2nubb} events: standard and new physics}
-\begin{frame}[label=compile]{Motivations}
-  Analogous analysis of \gerda\ \phaseone\ data\footnote{\href{https://doi.org/10.1140/epjc/s10052-015-3627-y}{Eur.~Phys.~J.~C 75, 416 (2015)}}
-  \begin{exampleblock}{Motivations}
+\begin{frame}{Motivations}
+  \begin{exampleblock}{Motivations\footnote{Legacy of analogous analysis of \gerda\ \phaseone\
+    data, see \href{https://doi.org/10.1140/epjc/s10052-015-3627-y}{\emph{Eur.~Phys.~J.~C} 75, 416 (2015)}}}
     \begin{itemize}
       \item \textbf{High-statistics \nnbb\ sample:} $\sim$50 000 events in \bege\ detectors\footnote{Above the \Arl\ Q-value}
       \item \textbf{Low background level:} signal-to-background ratio of $\sim$20 ($\sim$2 before the cut)
@@ -687,55 +696,58 @@
 
   \begin{alertblock}{Science goal}
     \begin{itemize}
-      \item Precision measurement of the Standard Model \nnbb\ half-life
-      \item Constraints on new-physics models
+      \item Precision measurement of the Standard Model \textbf{\nnbb\ half-life}, check shape
+      \item Constraints on \textbf{new-physics} models (Majorons, Lorentz violation\ldots)
     \end{itemize}
   \end{alertblock}
 \end{frame}
-\begin{frame}[label=compile]{Analysis strategy}
-  \begin{description}
-    \item[Dataset] First 32.7~\kgyr\ from \phasetwo\ \bege\ single-detector
-      event data. No \scoax\ because of active volume uncertainties
-    \item[Likelihood] Usual binned-Poisson
-      \[
-        \mathcal{L}(S, \vec{B} | \vec{n}) =
-        \prod_i^{N} \frac{{\nu_i(S, \vec{B})}^{n_i} e^{\nu_i(S, \vec{B})}}{n_i!}
-      \]
-    \item[Test statistic] Standard $t_S = -2\log\lambda(S)$ where $\lambda(S)$
-      is the profile likelihood ratio.
-  \end{description}
+\begin{frame}{Analysis strategy}
+  \begin{columns}
+    \hspace{-1cm}
+    \begin{column}{0.6\textwidth}
+      \begin{description}
+        \item[Dataset] First \alert{32.7~\kgyr} from \phasetwo\ \alert{\bege\
+          single-detector} event data
+        \item[Likelihood] Usual binned-Poisson
+          \[
+            \mathcal{L}(S, \vec{B} | \vec{n}) =
+            \prod_i^{N} \frac{{\nu_i(S, \vec{B})}^{n_i} e^{\nu_i(S, \vec{B})}}{n_i!}
+          \]
+        \item[Test statistic] Standard \alert{$t_S = -2\log\lambda(S)$} where
+          $\lambda(S)$ is the \alert{profile likelihood ratio}. Sampled with MC
+          methods
+      \end{description}
+    \end{column}
+    \hspace{-2cm}
+    \begin{column}{0.4\textwidth}
+      \vspace*{1cm} \\
+      \includegraphics{plots/bkg/lar/enrBEGe-data.pdf}
+    \end{column}
+  \end{columns}
 \end{frame}
-\begin{frame}[label=compile]{bla}
-  Test statistics distributions computed with Monte Carlo methods.
-  \begin{itemize}
-    \item Validate the analysis framework, perform fits on toy datasets and achieve blind analysis
-    \item Compute sensitivity to new-physics processes
-    \item Compute confidence intervals (\nnbb\ half-life uncertainty, 90\% C.L.~limits on Majoron models)
-  \end{itemize}
-\end{frame}
-\begin{frame}[label=compile]{Inclusion of systematic uncertainties}
+\begin{frame}{Inclusion of systematic uncertainties}
   \begin{columns}
     \begin{column}{0.55\textwidth}
       \begin{alertblock}{Hybrid Bayesian-frequentist approach}
-        Sample synthetic data from alternative, systematically distorted models,
+        Sample toy data from systematically distorted models,
         according to ``prior'' distributions
         \[
           f(t_s) = \int f(t_s | S, \vec{B}, \nu) \cdot \pi(\vec{\nu}) \, d\vec{\nu}
         \]
       \end{alertblock}
       \begin{itemize}
-        \item \alert{Effect:} smearing of test statistic distributions, weakening of confidence intervals
-        \item Implementation: \url{https://github.com/gipert/gerda-factory}
+        \item \textbf{Effect:} $f(t_S)$ smearing, weaker confidence intervals
+        \item\github{gipert/gerda-factory}
       \end{itemize}
     \end{column}
     \begin{column}{0.45\textwidth}
-      \begin{center}
-        \includegraphics[width=\columnwidth]{plots/2nbb-ana/bege-pdf-dist.pdf}
-      \end{center}
+      \centering
+      \vspace*{0.5cm} \\
+      \includegraphics[width=\columnwidth]{plots/2nbb-ana/bege-pdf-dist.pdf}
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}[label=compile]{LAr veto model uncertainties}
+\begin{frame}{LAr veto model uncertainties}
   \begin{columns}
     \begin{column}{0.85\textwidth}
       \begin{center}
@@ -751,7 +763,7 @@
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}[label=compile]{LAr veto model uncertainties}
+\begin{frame}{LAr veto model uncertainties}
   The map generation is computationally expensive ($\mathcal{O}{(10^4)}$ CPU
   hours), we can produce only one from scratch \arrow\ what about
   \emph{artificial}, power-law\footnote{$p_k \rightarrow c \cdot p_k^a$ where
@@ -761,7 +773,7 @@
     \includegraphics[width=\textwidth]{plots/2nbb-ana/larmap-dist-manual.pdf}
   \end{center}
 \end{frame}
-\begin{frame}[label=compile]{\texorpdfstring{\nnbb}{2νββ} theoretical shape uncertainties}
+\begin{frame}{\texorpdfstring{\nnbb}{2νββ} theoretical shape uncertainties}
   \begin{columns}
     \begin{column}{0.45\textwidth}\setlength{\parskip}{10pt}%
       Assumption on configuration of intermediate \b\b-decay nucleus
@@ -784,7 +796,7 @@
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}[label=compile]{Other systematic uncertainties}
+\begin{frame}{Other systematic uncertainties}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
@@ -816,21 +828,23 @@
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}[label=compile]{Results: \texorpdfstring{\nnbb}{2νββ} half-life}
-  \begin{simpleblock}
-    \[
-      \thalftwoM = (2.043 \pm \stat{0.011} \pm \syst{0.033}) \cdot 10^{21}~\text{yr}
-    \]
+\begin{frame}{Results: \texorpdfstring{\nnbb}{2νββ} half-life}
+  \begin{simpleblock}%
+    \setlength{\abovedisplayskip}{0pt}
+    \setlength{\abovedisplayshortskip}{0pt}
+    \begin{align*}%
+      S^{2\upnu} &= 46427 \pm \stat{250} \pm \syst{350}~\text{cts}\\
+      \thalftwoM &= (2.043 \pm \stat{0.011} \pm \syst{0.033}) \cdot 10^{21}~\text{yr}
+    \end{align*}
   \end{simpleblock}
   \begin{itemize}
     \item Remarkably reduced uncertainty\footnote{See \href{https://doi.org/10.1140/epjc/s10052-015-3627-y}{Eur.~Phys.~J.~C 75, 416 (2015)}}
-    \item Systematic uncertainty dominated by active mass estimation and background modeling
     \item The most precise (1.6\%) half-life measurement ever found in
       literature\footnote{Competing with CUPID-Mo (2.9\%), CUPID-0 (2.2\%),
       CUORE (2.8\%), EXO-200 (2.8\%) and \kamlandzen\ (3.4\%)}
   \end{itemize}
 \end{frame}
-\begin{frame}[label=compile]{Results: Majoron-emitting \texorpdfstring{\onbb}{0νββ}}
+\begin{frame}{Results: Majoron-emitting \texorpdfstring{\onbb}{0νββ}}
   \begin{center}
     \footnotesize
     \begin{tabular}{rllrcl}
@@ -848,30 +862,34 @@
     \end{tabular}
   \end{center}
   \begin{itemize}
-    \item Limits dominated by statistical uncertainty
-    \item About a factor of 2 better than previous results\footnote{Compared to
-      \phaseone\ analysis \href{https://doi.org/10.1140/epjc/s10052-015-3627-y}{Eur.~Phys.~J.~C 75, 416 (2015)}}
-    \item Comparable to \nuc{Xe}{136} constraints, a factor 10 better for $n=7$
+    \item Dominated by statistical uncertainty, a factor \alert{$\sim$2 better}
+      than previous results\footnote{Compared to \phaseone\ analysis
+      \href{https://doi.org/10.1140/epjc/s10052-015-3627-y}{Eur.~Phys.~J.~C 75,
+    416 (2015)}}
+    \item Comparable to \nuc{Xe}{136} constraints, a factor \alert{$\sim$10
+      better for $n=7$}
     \item New \gesix\ NMEs and phase-space factors from J.~Kotila and F.~Iachello
   \end{itemize}
 \end{frame}
-\begin{frame}[plain,label=compile]{Results: Majoron-emitting \texorpdfstring{\onbb}{0νββ}}
-  \begin{center}
-    \includegraphics[height=0.95\textheight]{plots/2nbb-ana/enrBEGe-results.pdf}
-  \end{center}
+\begin{frame}[plain]{Results: Majoron-emitting \texorpdfstring{\onbb}{0νββ}}
+  \centering
+  \includegraphics[height=0.95\textheight]{plots/2nbb-ana/enrBEGe-results.pdf}
 \end{frame}
-\begin{frame}[label=compile]{Known issues and work in progress}
+\begin{frame}{Known issues and work in progress}
   \begin{itemize}
-    \item Constrain more physics models (Lorentz violation, sterile neutrinos\ldots)
-    \item There is evidence for a systematic bias in the detector active volume
-      size: Independent analysis of \Arl\ data and detector re-characterization
-      are ongoing
-    \item Dedicated \nnbb\ half-life measurement publication
-    \item Supporting LAr veto modeling publication
+    \item Constrain \alert{more physics models} (Lorentz violation, sterile neutrinos\ldots)
+    \item Evidence of systematic \alert{bias in the \bege\ active volume size} \\ \arrow\ re-estimation
+      with \alert{\Arl} data and detector re-characterization in progress
+    \item \alert{Out soon:} \nnbb\ analysis publication(s) + supporting LAr veto modeling publication
   \end{itemize}
 \end{frame}
 \section{Closing out}
-\begin{frame}{Future}
+\begin{frame}{The future of \onbb\ with \gesix}
+  \centering
+  \vspace*{0.5cm}
+  \includegraphics[width=0.8\textwidth]{logos/legend-logo-wtag.pdf} \\
+  \vspace*{0.7cm}
+  \includegraphics[height=0.5\textheight]{plots/history/gerda-history-vs-exposure.pdf} \hspace*{1cm}
 \end{frame}
 \appendix
 \begin{frame}[standout]{}
@@ -888,10 +906,10 @@
       \toprule
       Experiment  & Isotope               & Exposure (\kgyr) & \thalfzero\ (\powtenyr{25}) & \mbb\ (meV)  \\
       \midrule
-      \gerda      & \mr{2}{\gesix}        & 127.2            & 18                          & 79--182      \\
-      \majorana   &                       & 26               & 2.7                         & 200--430     \\
+      \gerda\     & \mr{2}{\gesix}        & 127.2            & 18                          & 79--182      \\
+      \majorana\  &                       & 26               & 2.7                         & 200--430     \\
       \midrule
-      \cuoricino  & \mr{3}{\nuc{Te}{130}} & 19.8             & 0.28                        & 300--710     \\
+      \cuoricino\ & \mr{3}{\nuc{Te}{130}} & 19.8             & 0.28                        & 300--710     \\
       CUORE-0     &                       & 9.8              & 0.24                        & 270--760     \\
       CUORE       &                       & 372.5            & 3.2                         & 75--350      \\
       \midrule
@@ -944,27 +962,21 @@
 \begin{frame}{\gerdatwo\ was \emph{background-free}}
   \begin{columns}
     \begin{column}{0.4\textwidth}
-      \begin{simpleblock}
-        \alert{%
-          \[
-            M \cdot T \cdot B \cdot \Delta{E} < 1
-          \]
-        }
-      \end{simpleblock}
+      \begin{exampleblock}{Background-free}
+        \[ M \cdot T \cdot B \cdot \Delta{E} < 1 \]
+      \end{exampleblock}
 
       \begin{exampleblock}{Sensitivity}
-        \[
-          T^{0\upnu}_{1/2} =
+        \[ T^{0\upnu}_{1/2} =
           \begin{cases}
             a M \epsilon t & \text{\emph{background-free}} \\
             a \epsilon \sqrt{\frac{M t}{B \Delta{E}}} & \text{with background} \\
-          \end{cases}
-        \]
+          \end{cases} \]
       \end{exampleblock}
     \end{column}
     \begin{column}{0.6\textwidth}
       \begin{center}
-        \includegraphics[width=\columnwidth]{plots/history/gerda-history-vs-exposure.pdf}
+        \includegraphics[width=\columnwidth]{../img/plots/history/gerda-history-vs-exposure.pdf}
       \end{center}
     \end{column}
   \end{columns}
@@ -1199,6 +1211,14 @@
 \begin{frame}{Median \pvalue{}s for the null-hypothesis (Majoron models)}
   \centering
   \includegraphics[width=\textwidth]{plots/2nbb-ana/pvalues.pdf}
+\end{frame}
+\begin{frame}{\Arl\ energy spectrum and HPGe active volume model}
+  \centering
+  \includegraphics{plots/gedet-av/ar39-distortions.pdf}
+\end{frame}
+\begin{frame}{\Arl\ example optimization}
+  \centering
+  \includegraphics{plots/gedet-av/ar39-spectra-optim-4.pdf}
 \end{frame}
 
 \end{document}
