@@ -25,13 +25,13 @@ void csvifier(std::string prog = "csvifier", std::string args = "") {
     args = prog + " " + args;
 
     int argc = 0;
-    char** argv = new char*[200];
+    char** argv = new char*[500];
 
     // get all arguments
     std::istringstream iss(args);
     std::string word;
     while (iss >> word) {
-        char* tmp = new char[200];
+        char* tmp = new char[500];
         strcpy(tmp, word.c_str());
         argv[argc] = tmp;
         argc++;

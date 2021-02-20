@@ -133,10 +133,10 @@
 \newcommand{\sep}{$\bullet$}
 
 % }}}
-% \includeonlyframes{compile}
+\includeonlyframes{compile}
 \begin{document}
 \maketitle
-\begin{frame}[label=compile]{About me}
+\begin{frame}{About me}
   \begin{columns}
     \begin{column}{0.45\textwidth}
       \begin{itemize}
@@ -495,21 +495,23 @@
     \includegraphics[height=0.9\textheight]{plots/bkg/raw/combined-results.pdf}
   \end{center}
 \end{frame}
-\begin{frame}{Wrap up}
+\begin{frame}{Wrapping up}
   \begin{columns}
-    \begin{column}{0.65\textwidth}
+    \begin{column}{0.64\textwidth}
+      \vspace*{-0.7cm} \\
       \begin{simpleblock}\centering
         \href{https://doi.org/10.1007/JHEP03(2020)139}{\emph{J.~High~Energ.~Phys.}~03 (2020) 139}
       \end{simpleblock}
       \begin{itemize}
-        \item Excellent goodness-of-fit
+        \item Excellent goodness-of-fit, \alert{we understand our background}
         \item Screening measurements reproduced, except for \kvn
-        \item Indication of a wrong \bege\ active-volume size
         \item Inhomogeneous \kvz\ distribution
+        \item Indication of a biased \bege\ active-volume size
       \end{itemize}
     \end{column}
-    \begin{column}{0.35\textwidth}
-      \fbox{\includegraphics[width=7cm]{jhep-paper.png}}
+    \begin{column}{0.36\textwidth}
+      \vspace*{1.6cm} \\
+      \fbox{\includegraphics[width=4.5cm,clip,trim=0 0 0 0]{jhep-paper.png}}
     \end{column}
   \end{columns}
 \end{frame}
@@ -552,18 +554,37 @@
     \path[->]<3> (n3) edge [out=0] (t5);
   \end{tikzpicture}
 \end{frame}
-\begin{frame}{Motivations}
-  No light is expected from \b\b-decay events $\Rightarrow$ Ge events with
-  coincident light detection in LAr are cut
+\begin{frame}{The data after the LAr veto cut}
+  \begin{columns}
+    \begin{column}{0.7\textwidth}\setlength{\parskip}{10pt}%
+      \begin{exampleblock}{LAr veto cut definition}
+        Ge events with coincident light detection in LAr are cut (No light is
+        expected from \b\b-decay events)
+      \end{exampleblock}
 
-  The LAr veto cut removes a lot of background in the \nnbb\ energy region
-  $\Rightarrow$ higher sensitivity to (new) physics searches (exotic \nnbb\
-  decays, \b\b-decays to excited states\ldots)
+      Removes a lot of background in the \nnbb\ energy region \\
+      $\Rightarrow$ \alert{higher sensitivity to (new) physics searches}
+      (exotic \nnbb\ decays, \b\b-decays to excited states\ldots)
+    \end{column}
+    \begin{column}{0.3\textwidth}\centering
+      \includegraphics[width=3cm,clip,trim=0 220 0 0]{setup/lar-veto-tikz.pdf}
+    \end{column}
+  \end{columns}
 \end{frame}
-\begin{frame}[plain]{The data after the LAr veto cut}
-  \begin{center}
-    \includegraphics[height=0.9\textheight]{plots/bkg/lar/combined-data.pdf}
-  \end{center}
+\begin{frame}{The data after the LAr veto cut}
+  \centering
+  \includegraphics[height=0.9\textheight]{plots/bkg/lar/combined-data.pdf}
+\end{frame}
+\begin{frame}{The data after the LAr veto cut}
+  \begin{columns}
+    \begin{column}{0.7\textwidth}\setlength{\parskip}{10pt}%
+      \centering
+      \includegraphics[width=\columnwidth]{plots/bkg/lar/combined-data-zoom.pdf}
+    \end{column}
+    \begin{column}{0.3\textwidth}\centering
+      \includegraphics[width=3cm,clip,trim=0 220 0 0]{setup/lar-veto-tikz.pdf}
+    \end{column}
+  \end{columns}
 \end{frame}
 \begin{frame}{Simulating background sources}
   \begin{columns}
@@ -586,13 +607,11 @@
   \end{columns}
 \end{frame}
 \begin{frame}{Determining the LAr veto flag in MC: probability map approach}
-  Tracking optical photons with \geant\ each time we simulate would require too
-  much time. Can we do it once and for all?
+  The LAr probability map: Track optical photons once and for all:
   \begin{itemize}
     \item Directly simulate \alert{128~nm} scintillation photons in LAr
     \item Partition the LAr volume in \alert{voxels} ($\sim3^3$ mm$^3$)
     \item Calculate LAr veto \alert{detection probability} for a photon in a voxel
-      \arrow\ \m{TH3F}
   \end{itemize}
   Still\ldots
   \begin{itemize}
@@ -619,9 +638,9 @@
       \end{itemize}
     \end{column}
     \begin{column}{0.55\textwidth}
-      \begin{center}
-        % \includegraphics[width=\columnwidth]{k42.pdf}
-      \end{center}
+      \centering
+      \vspace*{0.5cm} \\
+      \includegraphics{plots/bkg/lar/pdfs-example.pdf}
     \end{column}
   \end{columns}
 \end{frame}
@@ -657,7 +676,7 @@
   \end{center}
 \end{frame}
 \section{Precision fit of \texorpdfstring{\nnbb}{2nubb} events: standard and new physics}
-\begin{frame}{Motivations}
+\begin{frame}[label=compile]{Motivations}
   Analogous analysis of \gerda\ \phaseone\ data\footnote{\href{https://doi.org/10.1140/epjc/s10052-015-3627-y}{Eur.~Phys.~J.~C 75, 416 (2015)}}
   \begin{exampleblock}{Motivations}
     \begin{itemize}
@@ -673,7 +692,7 @@
     \end{itemize}
   \end{alertblock}
 \end{frame}
-\begin{frame}{Analysis strategy}
+\begin{frame}[label=compile]{Analysis strategy}
   \begin{description}
     \item[Dataset] First 32.7~\kgyr\ from \phasetwo\ \bege\ single-detector
       event data. No \scoax\ because of active volume uncertainties
@@ -686,7 +705,7 @@
       is the profile likelihood ratio.
   \end{description}
 \end{frame}
-\begin{frame}{bla}
+\begin{frame}[label=compile]{bla}
   Test statistics distributions computed with Monte Carlo methods.
   \begin{itemize}
     \item Validate the analysis framework, perform fits on toy datasets and achieve blind analysis
@@ -694,7 +713,7 @@
     \item Compute confidence intervals (\nnbb\ half-life uncertainty, 90\% C.L.~limits on Majoron models)
   \end{itemize}
 \end{frame}
-\begin{frame}{Inclusion of systematic uncertainties}
+\begin{frame}[label=compile]{Inclusion of systematic uncertainties}
   \begin{columns}
     \begin{column}{0.55\textwidth}
       \begin{alertblock}{Hybrid Bayesian-frequentist approach}
@@ -716,7 +735,7 @@
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}{LAr veto model uncertainties}
+\begin{frame}[label=compile]{LAr veto model uncertainties}
   \begin{columns}
     \begin{column}{0.85\textwidth}
       \begin{center}
@@ -732,7 +751,7 @@
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}{LAr veto model uncertainties}
+\begin{frame}[label=compile]{LAr veto model uncertainties}
   The map generation is computationally expensive ($\mathcal{O}{(10^4)}$ CPU
   hours), we can produce only one from scratch \arrow\ what about
   \emph{artificial}, power-law\footnote{$p_k \rightarrow c \cdot p_k^a$ where
@@ -742,58 +761,67 @@
     \includegraphics[width=\textwidth]{plots/2nbb-ana/larmap-dist-manual.pdf}
   \end{center}
 \end{frame}
-\begin{frame}{\texorpdfstring{\nnbb}{2νββ} theoretical shape uncertainties}
+\begin{frame}[label=compile]{\texorpdfstring{\nnbb}{2νββ} theoretical shape uncertainties}
   \begin{columns}
-    \begin{column}{0.5\textwidth}
+    \begin{column}{0.45\textwidth}\setlength{\parskip}{10pt}%
       Assumption on configuration of intermediate \b\b-decay nucleus
       \begin{itemize}
-        \item Higher-state dominance (HSD) usually assumed in \gesix
-        \item Single-state dominance (SSD) never tested with \gesix
+        \item \emph{Higher-state} dominance (\alert{HSD})
+        \item \emph{Single-state} dominance (\alert{SSD})
       \end{itemize}
+      \begin{simpleblock}
+        Discrimination sensitivity is low\textsuperscript{\emph{a}} \\
+        $\Rightarrow$ include in sytematics budget
+      \end{simpleblock}
+      \hrulefill \\
+      {\footnotesize \textsuperscript{\emph{a}}In contrast to e.g.~\nuc{Se}{82} (CUPID-0), see
+      \href{https://doi.org/10.1103/PhysRevLett.123.262501}{\emph{Phys.~Rev.~Lett.}~123, 262501}}
     \end{column}
-    \begin{column}{0.5\textwidth}
-      \begin{center}
-        \includegraphics[width=\columnwidth]{plots/2nbb-ana/2nbb-sums-assumptions.pdf}
-      \end{center}
+    \begin{column}{0.55\textwidth}
+      \centering
+      \vspace*{0.5cm} \\
+      \includegraphics{plots/2nbb-ana/2nbb-sums-assumptions.pdf}
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}{Other systematic uncertainties}
+\begin{frame}[label=compile]{Other systematic uncertainties}
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-        \item Active \gesix\ mass
-        \item Background model
-        \item Transition layer model
-        \item Simulation uncertainties
+        \item \textbf{Active \gesix\ mass:} HPGe active volume and Ge enrichment fraction
+        \item \textbf{Background model:} Location (far/close to the array) of sources
+        \item \textbf{Transition layer model:} Charge collection efficiency in the dead region
+        \item \textbf{Simulation uncertainties:} \mage\ geometry and \geant\ tracking
       \end{itemize}
     \end{column}
     \begin{column}{0.5\textwidth}
-      \centering
+      \centering\small
       \begin{tabular}{cc}
         \toprule
-        Source                 & contribution \\
+        Source                     & \thalftwo\ contribution \\
         \midrule
-        Background model       & 0.42\%       \\
-        Transition layer model & <0.01\%      \\
-        LAr veto model         & 0.26\%       \\
-        \nnbb\ model           & <0.01\%      \\
+        Background model           & 0.42\%                  \\
+        Transition layer model     & <0.01\%                 \\
+        LAr veto model             & 0.26\%                  \\
+        \nnbb\ model               & <0.01\%                 \\
         \midrule
-        \emph{Sub-total fit model}      & 0.53\%       \\
+        \emph{Sub-total fit model} & 0.53\%                  \\
         \midrule
-        Active volume          & 1.37\%       \\
-        Enrichment fraction    & 0.3\%        \\
+        Active volume              & 1.37\%                  \\
+        Enrichment fraction        & 0.3\%                   \\
         \midrule
-        \emph{Total}           & 1.6\%        \\
+        \emph{Total}               & 1.6\%                   \\
         \bottomrule
       \end{tabular}
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}{Results: \texorpdfstring{\nnbb}{2νββ} half-life}
-  \[
-    \thalftwoM = (2.043 \pm \stat{0.011} \pm \syst{0.033}) \cdot 10^{21}~\text{yr}
-  \]
+\begin{frame}[label=compile]{Results: \texorpdfstring{\nnbb}{2νββ} half-life}
+  \begin{simpleblock}
+    \[
+      \thalftwoM = (2.043 \pm \stat{0.011} \pm \syst{0.033}) \cdot 10^{21}~\text{yr}
+    \]
+  \end{simpleblock}
   \begin{itemize}
     \item Remarkably reduced uncertainty\footnote{See \href{https://doi.org/10.1140/epjc/s10052-015-3627-y}{Eur.~Phys.~J.~C 75, 416 (2015)}}
     \item Systematic uncertainty dominated by active mass estimation and background modeling
@@ -802,7 +830,7 @@
       CUORE (2.8\%), EXO-200 (2.8\%) and \kamlandzen\ (3.4\%)}
   \end{itemize}
 \end{frame}
-\begin{frame}{Results: Majoron-emitting \texorpdfstring{\onbb}{0νββ}}
+\begin{frame}[label=compile]{Results: Majoron-emitting \texorpdfstring{\onbb}{0νββ}}
   \begin{center}
     \footnotesize
     \begin{tabular}{rllrcl}
@@ -821,18 +849,20 @@
   \end{center}
   \begin{itemize}
     \item Limits dominated by statistical uncertainty
-    \item About a factor of 2 better than previous results\footnote{See \href{https://doi.org/10.1140/epjc/s10052-015-3627-y}{Eur.~Phys.~J.~C 75, 416 (2015)}}
+    \item About a factor of 2 better than previous results\footnote{Compared to
+      \phaseone\ analysis \href{https://doi.org/10.1140/epjc/s10052-015-3627-y}{Eur.~Phys.~J.~C 75, 416 (2015)}}
     \item Comparable to \nuc{Xe}{136} constraints, a factor 10 better for $n=7$
     \item New \gesix\ NMEs and phase-space factors from J.~Kotila and F.~Iachello
   \end{itemize}
 \end{frame}
-\begin{frame}[plain]{Results: Majoron-emitting \texorpdfstring{\onbb}{0νββ}}
+\begin{frame}[plain,label=compile]{Results: Majoron-emitting \texorpdfstring{\onbb}{0νββ}}
   \begin{center}
     \includegraphics[height=0.95\textheight]{plots/2nbb-ana/enrBEGe-results.pdf}
   \end{center}
 \end{frame}
-\begin{frame}{Known issues and work in progress}
+\begin{frame}[label=compile]{Known issues and work in progress}
   \begin{itemize}
+    \item Constrain more physics models (Lorentz violation, sterile neutrinos\ldots)
     \item There is evidence for a systematic bias in the detector active volume
       size: Independent analysis of \Arl\ data and detector re-characterization
       are ongoing
@@ -975,7 +1005,7 @@
 \end{frame}
 \begin{frame}{Implementing optical processes and specifications}
   \begin{columns}
-    \begin{column}{0.45\textwidth}\setlength{\parskip}{8pt}%
+    \begin{column}{0.45\textwidth}\setlength{\parskip}{10pt}%
       To-Do list:
       \begin{itemize}
         \item LAr scintillation physics and optical properties
@@ -1034,7 +1064,7 @@
       \end{center}
       \includegraphics[width=\columnwidth]{tpb-emission-paper.pdf}
     \end{column}
-    \begin{column}{0.5\textwidth}\setlength{\parskip}{12pt}%
+    \begin{column}{0.5\textwidth}\setlength{\parskip}{10pt}%
       Vibronic structures (TPB molecules) show up at low temperatures in the
       TPB emission spectrum
     \end{column}
@@ -1048,7 +1078,7 @@
       \end{center}
       \includegraphics[width=\columnwidth]{ge-reflectivity.png}
     \end{column}
-    \begin{column}{0.5\textwidth}\setlength{\parskip}{12pt}%
+    \begin{column}{0.5\textwidth}\setlength{\parskip}{10pt}%
       Very old measurement of (evaporated) germanium reflectivity at 128~nm
 
       Strong dependence on incident angle (no possibility to code this in

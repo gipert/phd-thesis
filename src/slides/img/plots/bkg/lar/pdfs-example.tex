@@ -1,0 +1,64 @@
+%! TEX program = xelatex
+\input{../../../standalone-def.tex}
+\import{}{pgfplots-def}
+
+\usepgfplotslibrary{groupplots}
+\usepgfplotslibrary{fillbetween}
+
+\pgfplotsset{%
+  height=7cm,
+  width=7.5cm,
+  xmin=565, xmax=2630,
+  legend style={%
+    font=\small,
+    draw=none,
+    fill=none,
+    /tikz/every even column/.append style={column sep=8pt},
+  },
+  legend pos=north east,
+  xlabel={Energy (keV)},
+  ylabel={Counts / 15 keV},
+  xtick pos=both,
+  histogram/.append style={%
+    table/x=bin_low_edge,
+    line width=0.7pt,
+  },
+  every axis/.append style={%
+    restrict x to domain=500:3000,
+  },
+  loghistogramaxis/.append style={%
+    ymin=5e-4,
+  },
+  spectrum/.style={%
+    loghistogramaxis,
+  },
+  K42/.style={%
+    loghistogram,
+    TolVibRed,
+    table/y=K42_inside_ms,
+  },
+  Th228/.style={%
+    loghistogram,
+    TolVibBlue,
+    table/y=Bi212Tl208_cables,
+  },
+}
+
+\begin{document}
+  \begin{tikzpicture}
+    \begin{axis}[spectrum, ymode=log]
+
+      \addlegendimage{K42};
+      \addlegendimage{Th228};
+      \addlegendentry{\kvz};
+      \addlegendentry{\Th};
+
+      \addplot[K42, opacity=0.5] table {data/pdfs-example-raw.csv} \closedcycle;
+      \addplot[K42] table {data/pdfs-example.csv} \closedcycle;
+
+      \addplot[Th228, opacity=0.5] table {data/pdfs-example-raw.csv} \closedcycle;
+      \addplot[Th228] table {data/pdfs-example.csv} \closedcycle;
+
+    \end{axis}
+  \end{tikzpicture}
+\end{document}
