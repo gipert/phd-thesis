@@ -65,7 +65,7 @@
 \input{../tex/macros}
 
 \newcommand{\mytitle}{Search for new physics with \texorpdfstring{\nnbb}{2νββ} decay in \gerda}
-\newcommand{\people}{L.~Pertoldi $\bullet$ Ph.D.~defense}
+\newcommand{\people}{L.~Pertoldi}
 \institute{Universit\`a degli Studi di Padova / INFN Padova}
 \newcommand{\mydate}{23 Feb 2021}
 \newcommand{\place}{\textit{\gerda\ clean room}}
@@ -89,7 +89,7 @@
 
 % metropolis theme options
 \usetheme[numbering=fraction,block=fill]{metropolis}
-\setbeamertemplate{frame footer}{\emph{\mytitle} $\bullet$ \people\ $\bullet$ \mydate}
+\setbeamertemplate{frame footer}{\emph{\mytitle} $\bullet$ \people\ $\bullet$ Ph.D.~defense $\bullet$ \mydate}
 \title{\mytitle}
 % \subtitle{Ph.D.~Defense}
 \titlegraphic{%
@@ -146,14 +146,14 @@
   \begin{columns}
     \begin{column}{0.45\textwidth}\setlength{\parskip}{5pt}%
       \vspace*{1cm} \\
-      Currently postdoc at Technische Universit\"at M\"unchen (TUM)
+      \textbf{Currently:} postdoc at \emph{TU M\"unchen}, \gerda/LEGEND group
       \begin{itemize}
         \item \href{https://gipert.github.io}{gipert.github.io}
         \item \href{https://orcid.org/0000-0002-0467-2571}{orcid.org/0000-0002-0467-2571}
         \item \href{https://inspirehep.net/authors/1667599}{inspirehep.net/authors/1667599}
       \end{itemize}
 
-      \gerda\ simulation \& background studies task group leader
+      \textbf{Topic:} \gerda\ simulation \& background studies (task group leader)
 
       \vspace*{0.5cm}
       \footnotesize
@@ -174,19 +174,19 @@
       \end{itemize}
     \item \alert{\gerda} --- science goal and experimental design
       \begin{itemize}
-        \item \gesix\ detectors, background mitigation techniques, latest results
+        \item Underground \gesix\ detectors, background mitigation techniques, latest results
       \end{itemize}
     \item The \gerda\ \alert{background model} before analysis cuts
       \begin{itemize}
-        \item Monte Carlo simulations, background expectations and statistical decomposition techniques
+        \item Monte Carlo simulations, background expectations, statistical techniques
       \end{itemize}
     \item The \gerda\ background model \alert{after the LAr veto cut}
       \begin{itemize}
-        \item LAr veto system, optical Monte Carlo simulations, tuning with calibration data
+        \item LAr veto system, optical Monte Carlo simulations, LAr veto calibration data
       \end{itemize}
     \item Precision analysis of the \alert{\nnbb\ event distribution}
     \begin{itemize}
-      \item Statistical analysis, half-life measurement, new-physics constraints, systematic effects
+      \item Bayesian-frequentist analysis, \nnbb\ half-life measurement, new-physics, systematics
     \end{itemize}
   \end{enumerate}
 \end{frame}
@@ -258,7 +258,7 @@
     \href{https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=find\%20t\%20\%CE\%B2\%CE\%B2\%20or\%20double-beta\%20or\%20double\%20beta\%20or\%20double\%20\%CE\%B2\%20or\%20double-\%CE\%B2\%20or\%200\%CE\%BD\%CE\%B2\%CE\%B2&ui-citation-summary=true}{[INSPIRE-HEP statistics]}
   }
   \begin{itemize}
-    \item \onbb\ observation $\Rightarrow$ \alert{Majorana neutrino} and \alert{Lepton symmetry violation}
+    \item \onbb\ observation $\Rightarrow$ \alert{Majorana neutrino} and \alert{Lepton number violation}
     \item Lepton number $\longleftrightarrow$ Barion number \arrow\
       \alert{new physics}, \alert{baryogenesis?}
     \item Access to fundamental parameters, shared or not with other
@@ -274,11 +274,15 @@
   \item countless non-standard interpretations\footnote{See e.g.~\href{https://doi.org/10.1088/1367-2630/17/11/115010}{\emph{New J.~Phys.}~17 (2015) 11, 115010}}
   \end{itemize}
 \end{frame}
-\begin{frame}{Neutrinoless double-beta decay}
+\begin{frame}{Neutrinoless double-beta decay: signature}
   \begin{columns}
     \begin{column}{0.5\textwidth}
-      Most experiments measure the \alert{total energy of the two electrons
-      emitted}
+      \begin{center}
+        \includegraphics[width=2.5cm,angle=-90,clip,trim=200 0 500 0]{plots/theory/bb-artist-newphy.png}
+      \end{center}
+
+      Most experiments measure the \alert{total energy of the two emitted
+      electrons}
 
       \vspace*{16pt}
       \arrow\ \emph{necessary and sufficient} for discovery
@@ -290,7 +294,7 @@
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}{Double-beta decay and physics beyond the Standard Model}
+\begin{frame}{Double-beta decay and Majoron emission}
   \begin{center}
     \begin{tikzpicture}[font=\small]
       \node at (2.0,0) {\includegraphics[height=2.8cm]{plots/theory/bb-artist-newphy.png}};
@@ -324,7 +328,8 @@
   \begin{columns}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-        \item The \alert{Majoron ($\chi$)} is an hypothetical massless particle
+        \item The \alert{Majoron ($\chi$)} is an hypothetical (here massless)
+          particle
         \item Many models for \onbb\ with one or more emitted Majorons
       \end{itemize}
       \begin{simpleblock}
@@ -365,9 +370,9 @@
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}{50 years of \gesix\ experimental \texorpdfstring{\onbb}{0νββ} searches}
+\begin{frame}{More than 50 years of \gesix\ \texorpdfstring{\onbb}{0νββ} searches}
   \begin{center}
-    \includegraphics[height=0.85\textheight]{plots/history/0nbb-ge76-history.pdf}
+    \includegraphics[width=\textwidth]{plots/history/0nbb-ge76-history.pdf}
   \end{center}
 \end{frame}
 \begin{frame}[plain]{\alert{GER}manium \alert{D}etector \alert{A}rray}
@@ -401,7 +406,7 @@
       \end{center}
   \end{columns}
 \end{frame}
-\begin{frame}[plain]{\alert{GER}manium \alert{D}etector \alert{A}rray}
+\begin{frame}[plain]{\alert{GER}manium \alert{D}etector \alert{A}rray at LNGS}
   \begin{center}
     \includegraphics[height=0.95\textheight]{setup/lngs-map.jpg}
     \hspace{0.2cm}
@@ -442,17 +447,21 @@
 \end{frame}
 \section{The background model before analysis cuts}
 \begin{frame}{Motivations}
-  \begin{simpleblock}
-    Can one claim the presence of a \textbf{signal} without having understood the \textbf{background}?
+  \begin{simpleblock}\centering\itshape
+    Can one claim the presence of a \textbf{signal} \\
+    without understanding the \textbf{background}?
   \end{simpleblock}
+
+  \vspace*{10pt}
+  With the \textbf{background model} of \onbb\ experiments we want to\ldots
   \begin{itemize}
-    \item Background composition at \alert{\qbb}
+    \item Study the background composition at \alert{\qbb}
     \item Cross-check background \alert{intensity expectations}
     \item Characterize \alert{location} of background sources for future improvements
-    \item Key to \nnbb\ characterization and beyond\ldots
+    \item Unveil the \alert{\nnbb} distribution and search for new physics signals
   \end{itemize}
 \end{frame}
-\begin{frame}[plain]{The data before cuts}
+\begin{frame}[plain]{The \gerda\ data before cuts}
   \begin{center}
     \includegraphics[height=0.95\textheight]{plots/bkg/raw/ph2/dataGe-desc.pdf}
   \end{center}
@@ -504,7 +513,7 @@
     \includegraphics[height=0.9\textheight]{plots/bkg/raw/combined-results.pdf}
   \end{center}
 \end{frame}
-\begin{frame}{Wrapping up}
+\begin{frame}{Things that we have learned}
   \begin{columns}
     \begin{column}{0.64\textwidth}
       \vspace*{-0.7cm} \\
@@ -595,7 +604,7 @@
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}{Simulating background sources}
+\begin{frame}{Simulating the LAr scintillation}
   \begin{columns}
     \begin{column}{0.6\textwidth}\setlength{\parskip}{10pt}%
     Once optical specifications are implemented, photon tracking can be enabled
@@ -615,7 +624,7 @@
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}{Determining the LAr veto flag in MC: probability map approach}
+\begin{frame}{Simulating the LAr veto flag: probability map approach}
   The LAr probability map: Track optical photons once and for all:
   \begin{itemize}
     \item Directly simulate \alert{128~nm} scintillation photons in LAr
@@ -628,12 +637,12 @@
     \item Several thousands of CPU hours are needed to produce a map
   \end{itemize}
 \end{frame}
-\begin{frame}{Determining the LAr veto flag in MC: probability map approach}
+\begin{frame}{Simulating the LAr veto flag: probability map approach}
   \begin{center}
     \includegraphics[width=\textwidth]{plots/bkg/lar/ph2/larmodel/larmap-tac.png}
   \end{center}
 \end{frame}
-\begin{frame}{Determining the LAr veto flag in MC: probability map approach}
+\begin{frame}{Simulating the LAr veto flag: probability map approach}
   \begin{columns}
     \begin{column}{0.45\textwidth}
       From the probability map to the LAr veto flag:
@@ -653,7 +662,7 @@
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}{Pinning the unknowns with calibration data}
+\begin{frame}{Tuning the probability map with calibration data}
   \begin{simpleblock}
     The Monte Carlo parameters which are completely missing are the SiPMs and
     PMTs \alert{channel efficiencies} \arrow\ need to be extracted from real
@@ -696,7 +705,7 @@
 
   \begin{alertblock}{Science goal}
     \begin{itemize}
-      \item Precision measurement of the Standard Model \textbf{\nnbb\ half-life}, check shape
+      \item Precision measurement of the Standard Model \textbf{\nnbb\ half-life}, shape check
       \item Constraints on \textbf{new-physics} models (Majorons, Lorentz violation\ldots)
     \end{itemize}
   \end{alertblock}
@@ -747,7 +756,7 @@
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}{LAr veto model uncertainties}
+\begin{frame}{Example: LAr veto model uncertainties}
   \begin{columns}
     \begin{column}{0.85\textwidth}
       \begin{center}
@@ -763,7 +772,7 @@
     \end{column}
   \end{columns}
 \end{frame}
-\begin{frame}{LAr veto model uncertainties}
+\begin{frame}{Example: LAr veto model uncertainties}
   The map generation is computationally expensive ($\mathcal{O}{(10^4)}$ CPU
   hours), we can produce only one from scratch \arrow\ what about
   \emph{artificial}, power-law\footnote{$p_k \rightarrow c \cdot p_k^a$ where
@@ -773,7 +782,7 @@
     \includegraphics[width=\textwidth]{plots/2nbb-ana/larmap-dist-manual.pdf}
   \end{center}
 \end{frame}
-\begin{frame}{\texorpdfstring{\nnbb}{2νββ} theoretical shape uncertainties}
+\begin{frame}{Example: \texorpdfstring{\nnbb}{2νββ} theoretical shape uncertainties}
   \begin{columns}
     \begin{column}{0.45\textwidth}\setlength{\parskip}{10pt}%
       Assumption on configuration of intermediate \b\b-decay nucleus
@@ -809,7 +818,7 @@
     \begin{column}{0.5\textwidth}
       \centering\small
       \begin{tabular}{cc}
-        \toprule
+        % \toprule
         Source                     & \thalftwo\ contribution \\
         \midrule
         Background model           & 0.42\%                  \\
@@ -823,32 +832,28 @@
         Enrichment fraction        & 0.3\%                   \\
         \midrule
         \emph{Total}               & 1.6\%                   \\
-        \bottomrule
+        % \bottomrule
       \end{tabular}
     \end{column}
   \end{columns}
 \end{frame}
 \begin{frame}{Results: \texorpdfstring{\nnbb}{2νββ} half-life}
-  \begin{simpleblock}%
-    \setlength{\abovedisplayskip}{0pt}
-    \setlength{\abovedisplayshortskip}{0pt}
-    \begin{align*}%
-      S^{2\upnu} &= 46427 \pm \stat{250} \pm \syst{350}~\text{cts}\\
-      \thalftwoM &= (2.043 \pm \stat{0.011} \pm \syst{0.033}) \cdot 10^{21}~\text{yr}
-    \end{align*}
-  \end{simpleblock}
+  \begin{align*}%
+    S^{2\upnu} &= 46427 \pm \stat{250} \pm \syst{350}~\text{cts}\\
+    \thalftwoM &= (2.043 \pm \stat{0.011} \pm \syst{0.033}) \cdot 10^{21}~\text{yr}
+  \end{align*}
   \begin{itemize}
     \item Remarkably reduced uncertainty\footnote{See \href{https://doi.org/10.1140/epjc/s10052-015-3627-y}{Eur.~Phys.~J.~C 75, 416 (2015)}}
-    \item The most precise (1.6\%) half-life measurement ever found in
-      literature\footnote{Competing with CUPID-Mo (2.9\%), CUPID-0 (2.2\%),
-      CUORE (2.8\%), EXO-200 (2.8\%) and \kamlandzen\ (3.4\%)}
+    \item \alert{The most precise (1.6\%) \nnbb\ half-life measurement
+      ever}\footnote{Competing with CUPID-Mo (2.9\%), CUPID-0 (2.2\%), CUORE
+    (2.8\%), EXO-200 (2.8\%) and \kamlandzen\ (3.4\%)}
   \end{itemize}
 \end{frame}
 \begin{frame}{Results: Majoron-emitting \texorpdfstring{\onbb}{0νββ}}
   \begin{center}
-    \footnotesize
+    \small
     \begin{tabular}{rllrcl}
-      \toprule
+      % \toprule
                          &          &     & \multicolumn{3}{c}{90\% C.L.~limits}                       \\
       \cmidrule(lr){4-6}
       Model              & Mode     & $n$ & Counts & $T_{1/2}$ (\powtenyr{23}) & \ga\                        \\
@@ -858,7 +863,7 @@
       ID, IE, IID        & \onbbxx\ & 3   & 917    & 1.3                       & 0.95                        \\
       IIC, IIF           & \onbbx\  & 3   & 917    & 1.2                       & $1.3 \cdot 10^{-2}$         \\
       IIE                & \onbbxx\ & 7   & 705    & 1.0                       & 0.87                        \\
-      \bottomrule
+      % \bottomrule
     \end{tabular}
   \end{center}
   \begin{itemize}
@@ -888,7 +893,7 @@
   \centering
   \vspace*{0.5cm}
   \includegraphics[width=0.8\textwidth]{logos/legend-logo-wtag.pdf} \\
-  \vspace*{0.7cm}
+  \vspace*{1cm}
   \includegraphics[height=0.5\textheight]{plots/history/gerda-history-vs-exposure.pdf} \hspace*{1cm}
 \end{frame}
 \appendix
@@ -903,7 +908,7 @@
 \begin{frame}{Best \texorpdfstring{\onbb}{0νββ} limits}
   \begin{center}
     \begin{tabular}{lcccc}
-      \toprule
+      % \toprule
       Experiment  & Isotope               & Exposure (\kgyr) & \thalfzero\ (\powtenyr{25}) & \mbb\ (meV)  \\
       \midrule
       \gerda\     & \mr{2}{\gesix}        & 127.2            & 18                          & 79--182      \\
@@ -915,14 +920,14 @@
       \midrule
       EXO-200     & \mr{2}{\nuc{Xe}{136}} & 234.1            & 3.5                         & 93--286      \\
       \kamlandzen &                       & 504              & 10.7                        & 61--165      \\
-      \bottomrule
+      % \bottomrule
     \end{tabular}
   \end{center}
 \end{frame}
 \begin{frame}{Best \texorpdfstring{\nnbb}{2νββ} half-life measurements}
   \begin{center}
     \begin{tabular}{lccr}
-      \toprule
+      % \toprule
       Experiment  & Isotope               & Exposure (\kgyr) & \thalftwo\ (yr)                                                       \\
       \midrule
       \gerda      & \gesix\               & 17.9             & $(1.926 \, \stat{\measurementM{}{0.025}{0.022}} \pm \syst{0.092}) \cdot 10^{21}$ \\
@@ -932,7 +937,7 @@
       \midrule
       \kamlandzen & \mr{2}{\nuc{Xe}{136}} & 504              & $(2.23 \pm \stat{0.03} \pm \syst{0.07}) \cdot 10^{21}$                   \\
       EXO-200     &                       & 23.14            & $(2.165 \pm \stat{0.016} \pm \syst{0.059}) \cdot 10^{21}$                \\
-      \bottomrule
+      % \bottomrule
     \end{tabular}
   \end{center}
 \end{frame}
@@ -940,7 +945,7 @@
   \begin{center}
     \small
     \begin{tabular}{lcccccccc}
-      \toprule
+      % \toprule
                   &               &                  & \mc{4}{\thalfmajo\ (\powtenyr{21})} & $g_\alpha/10^{-5}$ \\
       \cmidrule{4-7}
       Experiment  & Isotope       & Exposure (\kgyr) & $n=1$ & $n=2$ & $n=3$ & $n=7$       & $n=1$              \\
@@ -955,7 +960,7 @@
       NEMO-3      & \nuc{Nd}{150} & 0.19             & 30    & --    & --    & --          & 1.2--2.9           \\
       NEMO-3      & \nuc{Te}{130} & 2.31             & 16    & --    & --    & --          & 4.2--17            \\
       NEMO-3      & \nuc{Zr}{96}  & 0.031            & 1.9   & 0.99  & 0.58  & 0.11        & 7.2--16            \\
-      \bottomrule
+      % \bottomrule
     \end{tabular}
   \end{center}
 \end{frame}
@@ -1195,7 +1200,7 @@
 \begin{frame}{Sensitivity to Majoron-emitting \texorpdfstring{\onbb}{0νββ} decays}
   \centering
   \begin{tabular}{lcrlrl}
-    \toprule
+    % \toprule
                            &           & \mc{4}{Sensitivity}                                                    \\
     \cmidrule(lr){3-6}
     Decay                  & Spectral  & \mc{2}{Statistical}                & \mc{2}{With systematics}          \\
@@ -1205,12 +1210,16 @@
     \onbbx\                & 2         &    386 & 3.3                       &    456 & 2.5                      \\
     $\onbbM\upchi(\upchi)$ & 3         &    698 & 1.7                       &    792 & 1.3                      \\
     \onbbxx\               & 7         &    984 & 0.71                      &   1200 & 0.58                     \\
-    \bottomrule
+    % \bottomrule
   \end{tabular}
 \end{frame}
 \begin{frame}{Median \pvalue{}s for the null-hypothesis (Majoron models)}
   \centering
   \includegraphics[width=\textwidth]{plots/2nbb-ana/pvalues.pdf}
+\end{frame}
+\begin{frame}{HPGe transition layer model}
+  \centering
+  \includegraphics{plots/gedet-av/tl-model.pdf}
 \end{frame}
 \begin{frame}{\Arl\ energy spectrum and HPGe active volume model}
   \centering
