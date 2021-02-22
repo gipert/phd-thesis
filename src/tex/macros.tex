@@ -164,9 +164,9 @@
 \newcommand{\decayzero}   {\textsc{Decay0}}
 % isotopes
 \ifcsname{textsu}\endcsname
-  \newcommand{\nuc}[2]{\textsu{#2}{\textnormal{#1}}}
+  \newcommand{\nuc}[2]{\textsu{#2}{#1}}
 \else
-  \newcommand{\nuc}[2]{\textsuperscript{#2}{\textnormal{#1}}}
+  \newcommand{\nuc}[2]{\textsuperscript{#2}{#1}}
 \fi
 
 \newcommand{\gesix}       {\nuc{Ge}{76}}
